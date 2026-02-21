@@ -36,7 +36,7 @@ function FeatureCard({
 			</h3>
 			<p
 				className="text-xs leading-relaxed"
-				style={{ color: 'var(--color-teal-500)' }}
+				style={{ color: 'var(--color-teal-700)' }}
 			>
 				{description}
 			</p>

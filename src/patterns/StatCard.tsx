@@ -63,7 +63,7 @@ function StatCard({
 				<p className="text-3xl font-bold mb-1" style={{ color: 'var(--color-rich-black)' }}>
 					{value}
 				</p>
-				<p className="text-sm" style={{ color: 'var(--color-teal-500)' }}>
+				<p className="text-sm" style={{ color: 'var(--color-teal-700)' }}>
 					{label}
 				</p>
 			</CardContent>

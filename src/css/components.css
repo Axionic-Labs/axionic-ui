@@ -154,10 +154,12 @@
 
 /* Feature card hover */
 .feature-hover {
-	transition: background-color 0.2s;
+	border-bottom: 2px solid transparent;
+	transition: background-color 0.2s, border-color 0.2s;
 }
 .feature-hover:hover {
-	background-color: var(--color-snow);
+	background-color: rgba(227, 253, 255, 0.5);
+	border-bottom-color: var(--color-wheat);
 }
 
 /* Feature tab button (Product page) */

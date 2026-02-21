@@ -56,10 +56,14 @@
 	--text-caption: 500 0.75rem / 1.4 var(--font-body);
 	--text-label: 600 0.75rem / 1 var(--font-body);
 
+	/* Page gradient anchor points */
+	--color-gradient-light: #f5fafa;
+	--color-gradient-mid: #d5e3e1;
+
 	/* Gradients */
-	--gradient-page: linear-gradient(180deg, #ffffff 0%, #f5fafa 28%, #eaf3f2 42%, #dfeae9 56%, #d5e3e1 70%, #eaf3f2 82%, #ffffff 90%);
-	--gradient-hero-fade: linear-gradient(to bottom, transparent 0%, var(--color-page-bg-alt) 100%);
-	--gradient-cta-fade: linear-gradient(to bottom, #d5e3e1 0%, transparent 100%);
+	--gradient-page: linear-gradient(180deg, #ffffff 0%, var(--color-gradient-light) 28%, #eaf3f2 42%, #dfeae9 56%, var(--color-gradient-mid) 70%, #eaf3f2 82%, #ffffff 90%);
+	--gradient-hero-fade: linear-gradient(to bottom, transparent 0%, var(--color-gradient-light) 100%);
+	--gradient-cta-fade: linear-gradient(to bottom, var(--color-gradient-mid) 0%, transparent 100%);
 
 	/* shadcn/ui semantic tokens (light) */
 	--background: #FFFFFF;
@@ -172,6 +176,26 @@
 		--color-shadow-hover: rgba(0, 0, 0, 0.4);
 		--color-shadow-lg: rgba(0, 0, 0, 0.5);
 	}
+}
+
+/* Force light-mode brand tokens on sections with light backgrounds */
+.light-section {
+	--color-rich-black: #003E44;
+	--color-wheat: #E6B685;
+	--color-snow: #E3FDFF;
+	--color-teal-900: #003E44;
+	--color-teal-700: #336569;
+	--color-teal-500: #668B8F;
+	--color-teal-300: #99B2B4;
+	--color-teal-100: #CCD8DA;
+	--color-cream: #F5F0E8;
+	--color-white: #FFFFFF;
+	--color-error: #DC2626;
+	--color-success: #22C55E;
+	--color-shadow: rgba(0, 62, 68, 0.08);
+	--color-shadow-sm: rgba(0, 62, 68, 0.06);
+	--color-shadow-hover: rgba(0, 62, 68, 0.12);
+	--color-shadow-lg: rgba(0, 62, 68, 0.25);
 }
 
 /* Force light-mode brand tokens in dark-section areas (hero, CTA, footer) */

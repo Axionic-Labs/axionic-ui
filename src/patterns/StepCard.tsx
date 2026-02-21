@@ -55,7 +55,7 @@ function StepCard({
 			{description && (
 				<p
 					className="text-sm leading-relaxed"
-					style={{ color: 'var(--color-teal-500)' }}
+					style={{ color: 'var(--color-teal-700)' }}
 				>
 					{description}
 				</p>

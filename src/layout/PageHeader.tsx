@@ -57,7 +57,7 @@ function PageHeader({
 					)}
 					style={{
 						font: 'var(--text-body)',
-						color: 'var(--color-teal-500)',
+						color: 'var(--color-teal-700)',
 					}}
 				>
 					{subtitle}

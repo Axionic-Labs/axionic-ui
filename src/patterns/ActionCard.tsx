@@ -56,7 +56,7 @@ function ActionCard({
 				<p className="text-sm font-bold mb-1" style={{ color: 'var(--color-rich-black)' }}>
 					{title}
 				</p>
-				<p className="text-xs leading-relaxed" style={{ color: 'var(--color-teal-500)' }}>
+				<p className="text-xs leading-relaxed" style={{ color: 'var(--color-teal-700)' }}>
 					{description}
 				</p>
 			</CardContent>

@@ -43,7 +43,7 @@ function EmptyState({
 			{description && (
 				<p
 					className="text-sm max-w-sm"
-					style={{ color: 'var(--color-teal-500)' }}
+					style={{ color: 'var(--color-teal-700)' }}
 				>
 					{description}
 				</p>
