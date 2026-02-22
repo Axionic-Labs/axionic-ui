@@ -38,6 +38,10 @@ var variantStyles = {
   info: {
     backgroundColor: "var(--color-badge-teal)",
     color: "var(--color-teal-700)"
+  },
+  warning: {
+    backgroundColor: "var(--color-badge-warning)",
+    color: "var(--color-warning)"
   }
 };
 function FormMessage({ variant = "error", className, children }) {
@@ -54,5 +58,5 @@ function FormMessage({ variant = "error", className, children }) {
 }
 
 export { FormAlert, FormField, FormMessage };
-//# sourceMappingURL=chunk-YUKLOTKF.js.map
-//# sourceMappingURL=chunk-YUKLOTKF.js.map
+//# sourceMappingURL=chunk-FGPL3AAV.js.map
+//# sourceMappingURL=chunk-FGPL3AAV.js.map

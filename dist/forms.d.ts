@@ -57,12 +57,12 @@ declare function FormField({ label, htmlFor, error, className, children }: FormF
 
 /**
  * Props for the FormMessage component.
- * @param variant - Visual style: error (red), success (green), or info (teal)
+ * @param variant - Visual style: error (red), success (green), info (teal), or warning (amber)
  * @param className - Additional CSS classes
  * @param children - Message content
  */
 interface FormMessageProps {
-    variant?: 'error' | 'success' | 'info';
+    variant?: 'error' | 'success' | 'info' | 'warning';
     className?: string;
     children: ReactNode;
 }
