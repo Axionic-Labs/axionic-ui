@@ -6,6 +6,7 @@ export default defineConfig({
 		primitives: 'src/primitives/index.ts',
 		layout: 'src/layout/index.ts',
 		patterns: 'src/patterns/index.ts',
+		forms: 'src/forms/index.ts',
 		utils: 'src/utils.ts',
 	},
 	format: ['esm'],
