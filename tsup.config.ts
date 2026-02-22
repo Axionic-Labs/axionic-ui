@@ -14,5 +14,5 @@ export default defineConfig({
 	treeshake: true,
 	sourcemap: true,
 	clean: true,
-	external: ['react', 'react-dom', /^@radix-ui\//, 'lucide-react'],
+	external: ['react', 'react-dom', /^@radix-ui\//, 'lucide-react', 'cmdk', 'sonner'],
 });
