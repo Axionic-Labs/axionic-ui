@@ -6,18 +6,26 @@
 .card-hover {
 	background-color: var(--color-white);
 	box-shadow: 0 2px 8px var(--color-shadow-sm);
-	transition: box-shadow 0.2s, transform 0.2s;
+	transition:
+		box-shadow 0.2s,
+		transform 0.2s;
 }
 .card-hover:hover {
 	box-shadow: 0 8px 24px var(--color-shadow-hover);
 	transform: translateY(-2px);
 }
 
-/* Primary wheat CTA button */
+/* Primary wheat CTA button.
+   Note: duplicates the Button "wheat" CVA variant. Prefer <Button variant="wheat"> for new code.
+   Kept for non-Button elements (raw <button>, dashboard pages using className). */
 .btn-wheat {
 	background-color: var(--color-wheat);
 	color: var(--color-rich-black);
-	transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+	transition:
+		background-color 0.2s,
+		color 0.2s,
+		transform 0.2s,
+		box-shadow 0.2s;
 }
 .btn-wheat:hover {
 	background-color: var(--color-snow);
@@ -33,11 +41,15 @@
 	box-shadow: none;
 }
 
-/* Primary dark button */
+/* Primary dark button.
+   Note: duplicates the Button "dark" CVA variant. Prefer <Button variant="dark"> for new code.
+   Kept for non-Button elements (raw <button>, dashboard pages using className). */
 .btn-dark {
 	background-color: var(--color-rich-black);
 	color: var(--color-white);
-	transition: background-color 0.2s, color 0.2s;
+	transition:
+		background-color 0.2s,
+		color 0.2s;
 }
 .btn-dark:hover {
 	background-color: var(--color-snow);
@@ -53,6 +65,8 @@
 	color: var(--color-teal-100);
 }
 
+/* Button utility classes for non-Button elements (no CVA equivalent) */
+
 /* Logout button */
 .btn-logout {
 	background-color: transparent;
@@ -67,7 +81,9 @@
 .btn-scroll-top {
 	background-color: var(--color-wheat);
 	box-shadow: 0 4px 16px var(--color-shadow);
-	transition: transform 0.2s, box-shadow 0.2s;
+	transition:
+		transform 0.2s,
+		box-shadow 0.2s;
 }
 .btn-scroll-top:hover {
 	transform: translateY(-2px);
@@ -91,7 +107,9 @@
 /* Navbar link */
 .nav-link {
 	color: var(--color-teal-700);
-	transition: color 0.2s, background-color 0.2s;
+	transition:
+		color 0.2s,
+		background-color 0.2s;
 }
 .nav-link:hover {
 	color: var(--color-rich-black);
@@ -106,7 +124,9 @@
 	color: var(--color-teal-500);
 	background-color: transparent;
 	font-weight: 500;
-	transition: color 0.2s, background-color 0.2s;
+	transition:
+		color 0.2s,
+		background-color 0.2s;
 }
 .sidebar-link:hover {
 	color: var(--color-rich-black);
@@ -159,7 +179,9 @@
 /* Feature card hover */
 .feature-hover {
 	border-bottom: 2px solid transparent;
-	transition: background-color 0.2s, border-color 0.2s;
+	transition:
+		background-color 0.2s,
+		border-color 0.2s;
 }
 .feature-hover:hover {
 	background-color: rgba(227, 253, 255, 0.5);
@@ -170,7 +192,9 @@
 .btn-tab {
 	background-color: transparent;
 	color: var(--color-teal-500);
-	transition: background-color 0.2s, color 0.2s;
+	transition:
+		background-color 0.2s,
+		color 0.2s;
 }
 .btn-tab:hover {
 	background-color: var(--color-snow);
@@ -199,7 +223,9 @@
 .card-dashed {
 	border: 1.5px dashed var(--color-teal-100);
 	background-color: var(--color-white);
-	transition: border-color 0.2s, box-shadow 0.2s;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
 }
 .card-dashed:hover {
 	border-color: var(--color-teal-300);
