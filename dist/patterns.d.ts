@@ -2,6 +2,52 @@ import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as React from 'react';
 import { C as Card } from './card-D2jp9PYW.js';
 
+/**
+ * Interactive card for quick actions with icon, title, description.
+ * Composes shadcn Card + CardContent. Accessible via keyboard.
+ * @param icon - Icon element (rendered in colored badge)
+ * @param iconBg - Background color for icon badge
+ * @param iconColor - Icon color
+ * @param title - Action title
+ * @param description - Action description
+ * @param onClick - Click handler
+ */
+declare function ActionCard({ icon, iconBg, iconColor, title, description, onClick, className, ...props }: Omit<React.ComponentProps<typeof Card>, 'children'> & {
+    icon: React.ReactNode;
+    iconBg: string;
+    iconColor: string;
+    title: string;
+    description: string;
+    onClick?: () => void;
+}): react_jsx_runtime.JSX.Element;
+
+/**
+ * Centered empty state with icon, heading, body text, and optional CTA.
+ * @param icon - Decorative icon
+ * @param title - Heading text
+ * @param description - Body text
+ * @param action - Optional CTA element (button, link, etc.)
+ */
+declare function EmptyState({ icon, title, description, action, className, ...props }: Omit<React.ComponentProps<'div'>, 'children'> & {
+    icon?: React.ReactNode;
+    title: string;
+    description?: string;
+    action?: React.ReactNode;
+}): react_jsx_runtime.JSX.Element;
+
+/**
+ * Feature card with icon, title, and description.
+ * Uses feature-hover CSS class for background tint on hover.
+ * @param icon - Icon element
+ * @param title - Feature title
+ * @param description - Feature description
+ */
+declare function FeatureCard({ icon, title, description, className, ...props }: React.ComponentProps<'div'> & {
+    icon?: React.ReactNode;
+    title: string;
+    description: string;
+}): react_jsx_runtime.JSX.Element;
+
 declare const variantStyles: {
     readonly wheat: {
         readonly backgroundColor: "rgba(230, 182, 133, 0.15)";
@@ -60,25 +106,6 @@ declare function StatCard({ icon, iconBg, iconColor, label, value, badge, badgeC
 }): react_jsx_runtime.JSX.Element;
 
 /**
- * Interactive card for quick actions with icon, title, description.
- * Composes shadcn Card + CardContent. Accessible via keyboard.
- * @param icon - Icon element (rendered in colored badge)
- * @param iconBg - Background color for icon badge
- * @param iconColor - Icon color
- * @param title - Action title
- * @param description - Action description
- * @param onClick - Click handler
- */
-declare function ActionCard({ icon, iconBg, iconColor, title, description, onClick, className, ...props }: Omit<React.ComponentProps<typeof Card>, 'children'> & {
-    icon: React.ReactNode;
-    iconBg: string;
-    iconColor: string;
-    title: string;
-    description: string;
-    onClick?: () => void;
-}): react_jsx_runtime.JSX.Element;
-
-/**
  * Numbered step with title and description.
  * Used in workflow/pipeline visualizations.
  * @param step - Step number
@@ -91,33 +118,6 @@ declare function StepCard({ step, title, description, icon, className, ...props 
     title: string;
     description?: string;
     icon?: React.ReactNode;
-}): react_jsx_runtime.JSX.Element;
-
-/**
- * Feature card with icon, title, and description.
- * Uses feature-hover CSS class for background tint on hover.
- * @param icon - Icon element
- * @param title - Feature title
- * @param description - Feature description
- */
-declare function FeatureCard({ icon, title, description, className, ...props }: React.ComponentProps<'div'> & {
-    icon?: React.ReactNode;
-    title: string;
-    description: string;
-}): react_jsx_runtime.JSX.Element;
-
-/**
- * Centered empty state with icon, heading, body text, and optional CTA.
- * @param icon - Decorative icon
- * @param title - Heading text
- * @param description - Body text
- * @param action - Optional CTA element (button, link, etc.)
- */
-declare function EmptyState({ icon, title, description, action, className, ...props }: Omit<React.ComponentProps<'div'>, 'children'> & {
-    icon?: React.ReactNode;
-    title: string;
-    description?: string;
-    action?: React.ReactNode;
 }): react_jsx_runtime.JSX.Element;
 
 export { ActionCard, EmptyState, FeatureCard, IconBadge, StatCard, StepCard };

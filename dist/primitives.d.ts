@@ -1,6 +1,6 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
-import * as React$1 from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import * as React$1 from 'react';
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import { VariantProps } from 'class-variance-authority';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
@@ -77,8 +77,8 @@ declare function BreadcrumbSeparator({ children, className, ...props }: React$1.
 declare function BreadcrumbEllipsis({ className, ...props }: React$1.ComponentProps<'span'>): react_jsx_runtime.JSX.Element;
 
 declare const buttonVariants: (props?: ({
-    variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | "wheat" | "dark" | "oauth" | "outline-brand" | "ghost-dark" | null | undefined;
-    size?: "default" | "sm" | "lg" | "icon" | null | undefined;
+    variant?: "link" | "wheat" | "dark" | "default" | "destructive" | "outline" | "secondary" | "ghost" | "oauth" | "outline-brand" | "ghost-dark" | null | undefined;
+    size?: "icon" | "sm" | "lg" | "default" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 declare function Button({ className, variant, size, asChild, ...props }: React$1.ComponentProps<'button'> & VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
@@ -245,7 +245,7 @@ declare function SheetClose({ ...props }: React$1.ComponentProps<typeof DialogPr
 declare function SheetPortal({ ...props }: React$1.ComponentProps<typeof DialogPrimitive.Portal>): react_jsx_runtime.JSX.Element;
 declare function SheetOverlay({ className, ...props }: React$1.ComponentProps<typeof DialogPrimitive.Overlay>): react_jsx_runtime.JSX.Element;
 declare const sheetContentVariants: (props?: ({
-    side?: "top" | "bottom" | "left" | "right" | null | undefined;
+    side?: "left" | "right" | "bottom" | "top" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 declare function SheetContent({ className, children, side, ...props }: React$1.ComponentProps<typeof DialogPrimitive.Content> & VariantProps<typeof sheetContentVariants>): react_jsx_runtime.JSX.Element;
 declare function SheetHeader({ className, ...props }: React$1.ComponentProps<'div'>): react_jsx_runtime.JSX.Element;
@@ -279,7 +279,7 @@ declare function Textarea({ className, ...props }: React$1.ComponentProps<'texta
 
 declare const toggleVariants: (props?: ({
     variant?: "default" | "outline" | null | undefined;
-    size?: "default" | "sm" | "lg" | null | undefined;
+    size?: "sm" | "lg" | "default" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 declare function Toggle({ className, variant, size, ...props }: React$1.ComponentProps<typeof TogglePrimitive.Root> & VariantProps<typeof toggleVariants>): react_jsx_runtime.JSX.Element;
 

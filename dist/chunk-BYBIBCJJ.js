@@ -52,23 +52,13 @@ function CardAction({ className, ...props }) {
     "div",
     {
       "data-slot": "card-action",
-      className: cn(
-        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-        className
-      ),
+      className: cn("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className),
       ...props
     }
   );
 }
 function CardContent({ className, ...props }) {
-  return /* @__PURE__ */ jsx(
-    "div",
-    {
-      "data-slot": "card-content",
-      className: cn("px-6", className),
-      ...props
-    }
-  );
+  return /* @__PURE__ */ jsx("div", { "data-slot": "card-content", className: cn("px-6", className), ...props });
 }
 function CardFooter({ className, ...props }) {
   return /* @__PURE__ */ jsx(
@@ -82,5 +72,5 @@ function CardFooter({ className, ...props }) {
 }
 
 export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle };
-//# sourceMappingURL=chunk-ODOSKQRK.js.map
-//# sourceMappingURL=chunk-ODOSKQRK.js.map
+//# sourceMappingURL=chunk-BYBIBCJJ.js.map
+//# sourceMappingURL=chunk-BYBIBCJJ.js.map
