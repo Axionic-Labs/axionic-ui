@@ -60,6 +60,7 @@ import { TooltipProvider } from '@axionic/ui/primitives';
 | `@axionic/ui/primitives` | 40 shadcn/Radix UI components |
 | `@axionic/ui/layout` | Section, DarkSection, SplitSection, PageHeader |
 | `@axionic/ui/patterns` | FeatureCard, IconBadge, StatCard, ActionCard, StepCard, EmptyState |
+| `@axionic/ui/forms` | FormField, FormMessage, FormAlert |
 | `@axionic/ui/utils` | `cn()` class merge utility (clsx + tailwind-merge) |
 | `@axionic/ui/css/index.css` | All CSS (barrel import for all sheets below) |
 | `@axionic/ui/css/tokens.css` | Brand color palette, typography scale, gradients, shadows |
@@ -100,6 +101,14 @@ NavigationMenu also exports `navigationMenuTriggerStyle` for custom trigger styl
 | `ActionCard` | Interactive card with click handler and keyboard accessibility |
 | `StepCard` | Numbered step indicator with title and description |
 | `EmptyState` | Centered placeholder with icon, title, description, optional CTA |
+
+### Forms
+
+| Component | Description |
+|-----------|-------------|
+| `FormField` | Label + children + optional error message wrapper. Props: `label`, `htmlFor?`, `error?`, `children` |
+| `FormMessage` | Inline feedback banner with colored background. Props: `variant?` (`error` / `success` / `info`), `children` |
+| `FormAlert` | Prominent alert with icon and error-tinted border. Props: `icon?`, `children` |
 
 ## Design Tokens
 
@@ -155,6 +164,9 @@ yarn install       # Install dependencies
 yarn build         # Build with tsup -> dist/ (ESM + declarations)
 yarn dev           # Watch mode (tsup --watch)
 yarn typecheck     # Type-check without emitting (tsc --noEmit)
+yarn lint          # Lint with Biome
+yarn lint:fix      # Auto-fix lint and formatting issues
+yarn format        # Format with Biome
 ```
 
 **Important:** The `dist/` directory is committed to the repository. Yarn v1 does not reliably execute `prepare` scripts for git dependencies, so consumers depend on pre-built output. After any source changes, run `yarn build` and commit the updated `dist/` directory.

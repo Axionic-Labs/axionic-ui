@@ -1,29 +1,39 @@
 /* ------------------------------------------------------------------ */
-/*  @axionic/ui -- Brand tokens                                        */
+/*  @axionic/ui -- Design Tokens                                       */
 /*  Source of truth: Axionic Labs Brand Guidelines                     */
+/* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
+/*  LAYER 1: Brand tokens (public API)                                 */
+/*                                                                     */
+/*  These --color-* variables are the public styling API for consumer  */
+/*  code. Reference them via style={{ color: 'var(--color-wheat)' }}   */
+/*  or in CSS files. They represent the Axionic brand palette and are  */
+/*  the canonical way to apply brand colors in layouts, pages, and     */
+/*  custom components.                                                 */
 /* ------------------------------------------------------------------ */
 
 :root {
 	color-scheme: light;
 
 	/* Primary palette */
-	--color-rich-black: #003E44;
-	--color-wheat: #E6B685;
-	--color-snow: #E3FDFF;
+	--color-rich-black: #003e44;
+	--color-wheat: #e6b685;
+	--color-snow: #e3fdff;
 
 	/* Secondary palette (teal scale) */
-	--color-teal-900: #003E44;
+	--color-teal-900: #003e44;
 	--color-teal-700: #336569;
-	--color-teal-500: #668B8F;
-	--color-teal-300: #99B2B4;
-	--color-teal-100: #CCD8DA;
+	--color-teal-500: #668b8f;
+	--color-teal-300: #99b2b4;
+	--color-teal-100: #ccd8da;
 
 	/* Neutral / functional */
-	--color-cream: #F5F0E8;
-	--color-white: #FFFFFF;
-	--color-error: #DC2626;
-	--color-success: #22C55E;
-	--color-page-bg-alt: #F0F2F5;
+	--color-cream: #f5f0e8;
+	--color-white: #ffffff;
+	--color-error: #dc2626;
+	--color-success: #22c55e;
+	--color-page-bg-alt: #f0f2f5;
 
 	/* Surfaces */
 	--color-navbar-bg: rgba(255, 255, 255, 0.95);
@@ -36,15 +46,15 @@
 	--color-shadow-lg: rgba(0, 62, 68, 0.25);
 
 	/* Decorative */
-	--color-accent-gold: #B8860B;
-	--color-accent-rose: #D45D6E;
+	--color-accent-gold: #b8860b;
+	--color-accent-rose: #d45d6e;
 	--color-badge-success: rgba(34, 197, 94, 0.08);
 	--color-badge-wheat: rgba(230, 182, 133, 0.08);
 	--color-badge-teal: rgba(102, 139, 143, 0.08);
 
 	/* Typography */
-	--font-body: 'Mulish', sans-serif;
-	--font-display: 'Mulish', sans-serif;
+	--font-body: "Mulish", sans-serif;
+	--font-display: "Mulish", sans-serif;
 
 	/* Typography scale */
 	--text-display: 900 clamp(2.25rem, 5vw, 4.5rem) / 1.1 var(--font-display);
@@ -61,39 +71,59 @@
 	--color-gradient-mid: #d5e3e1;
 
 	/* Gradients */
-	--gradient-page: linear-gradient(180deg, #ffffff 0%, var(--color-gradient-light) 28%, #eaf3f2 42%, #dfeae9 56%, var(--color-gradient-mid) 70%, #eaf3f2 82%, #ffffff 90%);
-	--gradient-hero-fade: linear-gradient(to bottom, transparent 0%, var(--color-gradient-light) 100%);
+	--gradient-page: linear-gradient(
+		180deg,
+		#ffffff 0%,
+		var(--color-gradient-light) 28%,
+		#eaf3f2 42%,
+		#dfeae9 56%,
+		var(--color-gradient-mid) 70%,
+		#eaf3f2 82%,
+		#ffffff 90%
+	);
+	--gradient-hero-fade: linear-gradient(
+		to bottom,
+		transparent 0%,
+		var(--color-gradient-light) 100%
+	);
 	--gradient-cta-fade: linear-gradient(to bottom, var(--color-gradient-mid) 0%, transparent 100%);
 
-	/* shadcn/ui semantic tokens (light) */
-	--background: #FFFFFF;
-	--foreground: #003E44;
-	--card: #FFFFFF;
-	--card-foreground: #003E44;
-	--popover: #FFFFFF;
-	--popover-foreground: #003E44;
-	--primary: #003E44;
-	--primary-foreground: #FFFFFF;
-	--secondary: #E3FDFF;
-	--secondary-foreground: #003E44;
-	--accent: #E6B685;
-	--accent-foreground: #003E44;
-	--muted: #F0F2F5;
-	--muted-foreground: #668B8F;
-	--destructive: #DC2626;
-	--destructive-foreground: #FFFFFF;
-	--border: #CCD8DA;
-	--input: #CCD8DA;
-	--ring: #003E44;
+	/* ---------------------------------------------------------------- */
+	/*  LAYER 2: shadcn/ui semantic tokens (internal)                   */
+	/*                                                                  */
+	/*  These map to the brand palette so that stock shadcn primitives  */
+	/*  (Button, Input, Card, Badge, etc.) render with Axionic colors   */
+	/*  automatically. Consumers should NOT reference these directly -- */
+	/*  use the --color-* brand tokens above instead.                   */
+	/* ---------------------------------------------------------------- */
+	--background: #ffffff;
+	--foreground: #003e44;
+	--card: #ffffff;
+	--card-foreground: #003e44;
+	--popover: #ffffff;
+	--popover-foreground: #003e44;
+	--primary: #003e44;
+	--primary-foreground: #ffffff;
+	--secondary: #e3fdff;
+	--secondary-foreground: #003e44;
+	--accent: #e6b685;
+	--accent-foreground: #003e44;
+	--muted: #f0f2f5;
+	--muted-foreground: #668b8f;
+	--destructive: #dc2626;
+	--destructive-foreground: #ffffff;
+	--border: #ccd8da;
+	--input: #ccd8da;
+	--ring: #003e44;
 	--radius: 0.5rem;
-	--sidebar-background: #FFFFFF;
-	--sidebar-foreground: #003E44;
-	--sidebar-primary: #003E44;
-	--sidebar-primary-foreground: #FFFFFF;
-	--sidebar-accent: #E3FDFF;
-	--sidebar-accent-foreground: #003E44;
-	--sidebar-border: #CCD8DA;
-	--sidebar-ring: #003E44;
+	--sidebar-background: #ffffff;
+	--sidebar-foreground: #003e44;
+	--sidebar-primary: #003e44;
+	--sidebar-primary-foreground: #ffffff;
+	--sidebar-accent: #e3fdff;
+	--sidebar-accent-foreground: #003e44;
+	--sidebar-border: #ccd8da;
+	--sidebar-ring: #003e44;
 }
 
 /* ------------------------------------------------------------------ */
@@ -104,19 +134,19 @@
 	color-scheme: dark;
 
 	/* Brand palette (dark overrides) */
-	--color-rich-black: #E8ECEE;
-	--color-wheat: #E6B685; /* Accent -- intentionally unchanged in dark mode */
-	--color-snow: #0D2B2E;
-	--color-teal-900: #E8ECEE;
-	--color-teal-700: #99B2B4;
-	--color-teal-500: #99B2B4;
-	--color-teal-300: #668B8F;
-	--color-teal-100: #1A3A3E;
-	--color-cream: #0A1E20;
+	--color-rich-black: #e8ecee;
+	--color-wheat: #e6b685; /* Accent -- intentionally unchanged in dark mode */
+	--color-snow: #0d2b2e;
+	--color-teal-900: #e8ecee;
+	--color-teal-700: #99b2b4;
+	--color-teal-500: #99b2b4;
+	--color-teal-300: #668b8f;
+	--color-teal-100: #1a3a3e;
+	--color-cream: #0a1e20;
 	--color-white: #061214;
-	--color-error: #F87171;
-	--color-success: #4ADE80;
-	--color-page-bg-alt: #0A1418;
+	--color-error: #f87171;
+	--color-success: #4ade80;
+	--color-page-bg-alt: #0a1418;
 	--color-navbar-bg: rgba(6, 18, 20, 0.95);
 	--color-navbar-bg-idle: rgba(6, 18, 20, 0.8);
 	--color-shadow: rgba(0, 0, 0, 0.3);
@@ -126,51 +156,51 @@
 
 	/* shadcn/ui semantic tokens (dark) */
 	--background: #061214;
-	--foreground: #E8ECEE;
-	--card: #0A1E20;
-	--card-foreground: #E8ECEE;
-	--popover: #0A1E20;
-	--popover-foreground: #E8ECEE;
-	--primary: #E8ECEE;
-	--primary-foreground: #003E44;
-	--secondary: #0D2B2E;
-	--secondary-foreground: #E8ECEE;
-	--accent: #E6B685;
-	--accent-foreground: #003E44;
-	--muted: #0A1418;
-	--muted-foreground: #99B2B4;
-	--destructive: #F87171;
-	--destructive-foreground: #FFFFFF;
-	--border: #1A3A3E;
-	--input: #1A3A3E;
-	--ring: #E8ECEE;
+	--foreground: #e8ecee;
+	--card: #0a1e20;
+	--card-foreground: #e8ecee;
+	--popover: #0a1e20;
+	--popover-foreground: #e8ecee;
+	--primary: #e8ecee;
+	--primary-foreground: #003e44;
+	--secondary: #0d2b2e;
+	--secondary-foreground: #e8ecee;
+	--accent: #e6b685;
+	--accent-foreground: #003e44;
+	--muted: #0a1418;
+	--muted-foreground: #99b2b4;
+	--destructive: #f87171;
+	--destructive-foreground: #ffffff;
+	--border: #1a3a3e;
+	--input: #1a3a3e;
+	--ring: #e8ecee;
 	--sidebar-background: #061214;
-	--sidebar-foreground: #E8ECEE;
-	--sidebar-primary: #E8ECEE;
-	--sidebar-primary-foreground: #003E44;
-	--sidebar-accent: #0D2B2E;
-	--sidebar-accent-foreground: #E8ECEE;
-	--sidebar-border: #1A3A3E;
-	--sidebar-ring: #E8ECEE;
+	--sidebar-foreground: #e8ecee;
+	--sidebar-primary: #e8ecee;
+	--sidebar-primary-foreground: #003e44;
+	--sidebar-accent: #0d2b2e;
+	--sidebar-accent-foreground: #e8ecee;
+	--sidebar-border: #1a3a3e;
+	--sidebar-ring: #e8ecee;
 }
 
 /* Automatic dark mode via system preference */
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
-		--color-rich-black: #E8ECEE;
-		--color-wheat: #E6B685; /* Accent -- intentionally unchanged in dark mode */
-		--color-snow: #0D2B2E;
-		--color-teal-900: #E8ECEE;
-		--color-teal-700: #99B2B4;
-		--color-teal-500: #99B2B4;
-		--color-teal-300: #668B8F;
-		--color-teal-100: #1A3A3E;
-		--color-cream: #0A1E20;
+		--color-rich-black: #e8ecee;
+		--color-wheat: #e6b685; /* Accent -- intentionally unchanged in dark mode */
+		--color-snow: #0d2b2e;
+		--color-teal-900: #e8ecee;
+		--color-teal-700: #99b2b4;
+		--color-teal-500: #99b2b4;
+		--color-teal-300: #668b8f;
+		--color-teal-100: #1a3a3e;
+		--color-cream: #0a1e20;
 		--color-white: #061214;
-		--color-error: #F87171;
-		--color-success: #4ADE80;
-		--color-page-bg-alt: #0A1418;
+		--color-error: #f87171;
+		--color-success: #4ade80;
+		--color-page-bg-alt: #0a1418;
 		--color-navbar-bg: rgba(6, 18, 20, 0.95);
 		--color-navbar-bg-idle: rgba(6, 18, 20, 0.8);
 		--color-shadow: rgba(0, 0, 0, 0.3);
@@ -182,18 +212,18 @@
 
 /* Pin light-mode brand tokens on sections that must stay light regardless of system theme */
 .light-section {
-	--color-rich-black: #003E44;
-	--color-wheat: #E6B685;
-	--color-snow: #E3FDFF;
-	--color-teal-900: #003E44;
+	--color-rich-black: #003e44;
+	--color-wheat: #e6b685;
+	--color-snow: #e3fdff;
+	--color-teal-900: #003e44;
 	--color-teal-700: #336569;
-	--color-teal-500: #668B8F;
-	--color-teal-300: #99B2B4;
-	--color-teal-100: #CCD8DA;
-	--color-cream: #F5F0E8;
-	--color-white: #FFFFFF;
-	--color-error: #DC2626;
-	--color-success: #22C55E;
+	--color-teal-500: #668b8f;
+	--color-teal-300: #99b2b4;
+	--color-teal-100: #ccd8da;
+	--color-cream: #f5f0e8;
+	--color-white: #ffffff;
+	--color-error: #dc2626;
+	--color-success: #22c55e;
 	--color-shadow: rgba(0, 62, 68, 0.08);
 	--color-shadow-sm: rgba(0, 62, 68, 0.06);
 	--color-shadow-hover: rgba(0, 62, 68, 0.12);
@@ -204,18 +234,18 @@
    These sections have a Rich Black background and light text/accents,
    so they must keep the light-mode token values regardless of system theme. */
 .dark-section {
-	--color-rich-black: #003E44;
-	--color-wheat: #E6B685;
-	--color-snow: #E3FDFF;
-	--color-teal-900: #003E44;
+	--color-rich-black: #003e44;
+	--color-wheat: #e6b685;
+	--color-snow: #e3fdff;
+	--color-teal-900: #003e44;
 	--color-teal-700: #336569;
-	--color-teal-500: #668B8F;
-	--color-teal-300: #99B2B4;
-	--color-teal-100: #CCD8DA;
-	--color-cream: #F5F0E8;
-	--color-white: #FFFFFF;
-	--color-error: #DC2626;
-	--color-success: #22C55E;
+	--color-teal-500: #668b8f;
+	--color-teal-300: #99b2b4;
+	--color-teal-100: #ccd8da;
+	--color-cream: #f5f0e8;
+	--color-white: #ffffff;
+	--color-error: #dc2626;
+	--color-success: #22c55e;
 	--color-shadow: rgba(0, 62, 68, 0.08);
 	--color-shadow-sm: rgba(0, 62, 68, 0.06);
 	--color-shadow-hover: rgba(0, 62, 68, 0.12);
