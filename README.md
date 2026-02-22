@@ -67,7 +67,7 @@ import { TooltipProvider } from '@axionic/ui/primitives';
 | `@axionic/ui/css/theme.css` | Tailwind 4 `@theme` registration for semantic tokens |
 | `@axionic/ui/css/base.css` | Base layer defaults (border, outline, body bg/text) |
 | `@axionic/ui/css/animations.css` | Keyframes: accordion, fade-up, fade-in, scale-in |
-| `@axionic/ui/css/components.css` | Utility classes: btn-wheat, btn-dark, card-hover, nav-link, sidebar-link, etc. |
+| `@axionic/ui/css/components.css` | Utility classes: card-hover, nav-link, sidebar-link, btn-logout, etc. |
 
 ## Components
 
@@ -145,7 +145,7 @@ Supported via both `@media (prefers-color-scheme: dark)` and the `.dark` class. 
 
 Defined in `components.css` and available globally after importing the CSS:
 
-**Buttons:** `btn-wheat`, `btn-dark`, `btn-oauth`, `btn-logout`, `btn-scroll-top`, `btn-tab` (with `.active`).
+**Buttons:** `btn-logout`, `btn-scroll-top`, `btn-tab` (with `.active`). For wheat/dark styling use `<Button variant="wheat">` or `<Button variant="dark">`.
 
 **Navigation:** `nav-link` (with `.active`), `sidebar-link` (with `.active` and `.placeholder`), `footer-link`.
 

@@ -15,58 +15,6 @@
 	transform: translateY(-2px);
 }
 
-/* Primary wheat CTA button.
-   Note: duplicates the Button "wheat" CVA variant. Prefer <Button variant="wheat"> for new code.
-   Kept for non-Button elements (raw <button>, dashboard pages using className). */
-.btn-wheat {
-	background-color: var(--color-wheat);
-	color: var(--color-rich-black);
-	transition:
-		background-color 0.2s,
-		color 0.2s,
-		transform 0.2s,
-		box-shadow 0.2s;
-}
-.btn-wheat:hover {
-	background-color: var(--color-snow);
-	color: var(--color-rich-black);
-	transform: translateY(-1px);
-	box-shadow: 0 4px 16px rgba(230, 182, 133, 0.2);
-}
-.btn-wheat:disabled {
-	background-color: var(--color-teal-300);
-	color: var(--color-teal-100);
-	cursor: not-allowed;
-	transform: none;
-	box-shadow: none;
-}
-
-/* Primary dark button.
-   Note: duplicates the Button "dark" CVA variant. Prefer <Button variant="dark"> for new code.
-   Kept for non-Button elements (raw <button>, dashboard pages using className). */
-.btn-dark {
-	background-color: var(--color-rich-black);
-	color: var(--color-white);
-	transition:
-		background-color 0.2s,
-		color 0.2s;
-}
-.btn-dark:hover {
-	background-color: var(--color-snow);
-	color: var(--color-rich-black);
-}
-.btn-dark:disabled {
-	background-color: var(--color-teal-300);
-	color: var(--color-teal-100);
-	cursor: not-allowed;
-}
-.btn-dark:disabled:hover {
-	background-color: var(--color-teal-300);
-	color: var(--color-teal-100);
-}
-
-/* Button utility classes for non-Button elements (no CVA equivalent) */
-
 /* Logout button */
 .btn-logout {
 	background-color: transparent;
