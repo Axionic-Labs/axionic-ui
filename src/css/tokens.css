@@ -105,6 +105,7 @@
 
 	/* Brand palette (dark overrides) */
 	--color-rich-black: #E8ECEE;
+	--color-wheat: #E6B685; /* Accent -- intentionally unchanged in dark mode */
 	--color-snow: #0D2B2E;
 	--color-teal-900: #E8ECEE;
 	--color-teal-700: #99B2B4;
@@ -158,6 +159,7 @@
 	:root {
 		color-scheme: dark;
 		--color-rich-black: #E8ECEE;
+		--color-wheat: #E6B685; /* Accent -- intentionally unchanged in dark mode */
 		--color-snow: #0D2B2E;
 		--color-teal-900: #E8ECEE;
 		--color-teal-700: #99B2B4;
@@ -178,7 +180,7 @@
 	}
 }
 
-/* Force light-mode brand tokens on sections with light backgrounds */
+/* Pin light-mode brand tokens on sections that must stay light regardless of system theme */
 .light-section {
 	--color-rich-black: #003E44;
 	--color-wheat: #E6B685;
@@ -198,7 +200,9 @@
 	--color-shadow-lg: rgba(0, 62, 68, 0.25);
 }
 
-/* Force light-mode brand tokens in dark-section areas (hero, CTA, footer) */
+/* Pin light-mode brand tokens in always-dark areas (hero, CTA, footer).
+   These sections have a Rich Black background and light text/accents,
+   so they must keep the light-mode token values regardless of system theme. */
 .dark-section {
 	--color-rich-black: #003E44;
 	--color-wheat: #E6B685;

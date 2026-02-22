@@ -38,7 +38,6 @@ function SplitSection({
 				'grid grid-cols-1',
 				ratioMap[ratio],
 				gap ?? 'gap-8 lg:gap-12',
-				reverse && 'flex-col-reverse',
 				className,
 			)}
 			{...props}
