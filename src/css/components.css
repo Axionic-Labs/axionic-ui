@@ -91,10 +91,14 @@
 /* Navbar link */
 .nav-link {
 	color: var(--color-teal-700);
-	transition: color 0.2s;
+	transition: color 0.2s, background-color 0.2s;
 }
 .nav-link:hover {
 	color: var(--color-rich-black);
+}
+.nav-link.active {
+	color: var(--color-rich-black);
+	font-weight: 600;
 }
 
 /* Sidebar nav link */
