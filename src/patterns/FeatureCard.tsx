@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 /**
@@ -20,24 +20,12 @@ function FeatureCard({
 	description: string;
 }) {
 	return (
-		<div
-			className={cn(
-				'feature-hover rounded-xl p-4 md:p-5 text-center',
-				className,
-			)}
-			{...props}
-		>
+		<div className={cn('feature-hover rounded-xl p-4 md:p-5 text-center', className)} {...props}>
 			{icon && <div className="mb-3">{icon}</div>}
-			<h3
-				className="text-sm font-bold mb-1"
-				style={{ color: 'var(--color-rich-black)' }}
-			>
+			<h3 className="text-sm font-bold mb-1" style={{ color: 'var(--color-rich-black)' }}>
 				{title}
 			</h3>
-			<p
-				className="text-xs leading-relaxed"
-				style={{ color: 'var(--color-teal-700)' }}
-			>
+			<p className="text-xs leading-relaxed" style={{ color: 'var(--color-teal-700)' }}>
 				{description}
 			</p>
 		</div>

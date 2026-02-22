@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 /**
@@ -27,24 +27,15 @@ function EmptyState({
 			{...props}
 		>
 			{icon && (
-				<div
-					className="mb-4"
-					style={{ color: 'var(--color-teal-300)' }}
-				>
+				<div className="mb-4" style={{ color: 'var(--color-teal-300)' }}>
 					{icon}
 				</div>
 			)}
-			<h3
-				className="text-lg font-bold mb-2"
-				style={{ color: 'var(--color-rich-black)' }}
-			>
+			<h3 className="text-lg font-bold mb-2" style={{ color: 'var(--color-rich-black)' }}>
 				{title}
 			</h3>
 			{description && (
-				<p
-					className="text-sm max-w-sm"
-					style={{ color: 'var(--color-teal-700)' }}
-				>
+				<p className="text-sm max-w-sm" style={{ color: 'var(--color-teal-700)' }}>
 					{description}
 				</p>
 			)}

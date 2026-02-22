@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 const ratioMap = {
@@ -34,12 +34,7 @@ function SplitSection({
 }) {
 	return (
 		<div
-			className={cn(
-				'grid grid-cols-1',
-				ratioMap[ratio],
-				gap ?? 'gap-8 lg:gap-12',
-				className,
-			)}
+			className={cn('grid grid-cols-1', ratioMap[ratio], gap ?? 'gap-8 lg:gap-12', className)}
 			{...props}
 		>
 			<div className={cn(reverse && 'order-2 lg:order-1')}>{left}</div>

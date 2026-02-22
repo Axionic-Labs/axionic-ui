@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 const variantStyles = {
@@ -49,11 +49,7 @@ function IconBadge({
 }) {
 	return (
 		<span
-			className={cn(
-				'inline-flex items-center justify-center rounded-lg',
-				sizeMap[size],
-				className,
-			)}
+			className={cn('inline-flex items-center justify-center rounded-lg', sizeMap[size], className)}
 			style={variantStyles[variant]}
 			{...props}
 		>

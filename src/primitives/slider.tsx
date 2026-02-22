@@ -1,5 +1,5 @@
-import * as React from 'react';
 import * as SliderPrimitive from '@radix-ui/react-slider';
+import type * as React from 'react';
 
 import { cn } from '../utils';
 
@@ -30,10 +30,7 @@ function Slider({
 				data-slot="slider-track"
 				className="bg-muted relative h-1.5 w-full grow overflow-hidden rounded-full"
 			>
-				<SliderPrimitive.Range
-					data-slot="slider-range"
-					className="bg-primary absolute h-full"
-				/>
+				<SliderPrimitive.Range data-slot="slider-range" className="bg-primary absolute h-full" />
 			</SliderPrimitive.Track>
 			{_values.map((_, i) => (
 				<SliderPrimitive.Thumb

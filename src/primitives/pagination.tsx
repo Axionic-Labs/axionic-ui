@@ -1,8 +1,7 @@
-import * as React from 'react';
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
+import type * as React from 'react';
 
 import { cn } from '../utils';
-import { type buttonVariants } from './button';
 
 function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
 	return (
@@ -16,10 +15,7 @@ function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
 	);
 }
 
-function PaginationContent({
-	className,
-	...props
-}: React.ComponentProps<'ul'>) {
+function PaginationContent({ className, ...props }: React.ComponentProps<'ul'>) {
 	return (
 		<ul
 			data-slot="pagination-content"
@@ -36,18 +32,10 @@ function PaginationItem({ ...props }: React.ComponentProps<'li'>) {
 type PaginationLinkProps = {
 	isActive?: boolean;
 	size?: 'default' | 'sm' | 'lg' | 'icon';
-} & Pick<
-	React.ComponentProps<typeof import('./button').Button>,
-	'variant'
-> &
+} & Pick<React.ComponentProps<typeof import('./button').Button>, 'variant'> &
 	React.ComponentProps<'a'>;
 
-function PaginationLink({
-	className,
-	isActive,
-	size = 'icon',
-	...props
-}: PaginationLinkProps) {
+function PaginationLink({ className, isActive, size = 'icon', ...props }: PaginationLinkProps) {
 	return (
 		<a
 			data-slot="pagination-link"
@@ -65,10 +53,7 @@ function PaginationLink({
 	);
 }
 
-function PaginationPrevious({
-	className,
-	...props
-}: React.ComponentProps<typeof PaginationLink>) {
+function PaginationPrevious({ className, ...props }: React.ComponentProps<typeof PaginationLink>) {
 	return (
 		<PaginationLink
 			data-slot="pagination-previous"
@@ -83,10 +68,7 @@ function PaginationPrevious({
 	);
 }
 
-function PaginationNext({
-	className,
-	...props
-}: React.ComponentProps<typeof PaginationLink>) {
+function PaginationNext({ className, ...props }: React.ComponentProps<typeof PaginationLink>) {
 	return (
 		<PaginationLink
 			data-slot="pagination-next"
@@ -101,10 +83,7 @@ function PaginationNext({
 	);
 }
 
-function PaginationEllipsis({
-	className,
-	...props
-}: React.ComponentProps<'span'>) {
+function PaginationEllipsis({ className, ...props }: React.ComponentProps<'span'>) {
 	return (
 		<span
 			data-slot="pagination-ellipsis"

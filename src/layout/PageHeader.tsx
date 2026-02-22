@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 /**
@@ -25,11 +25,7 @@ function PageHeader({
 }) {
 	return (
 		<div
-			className={cn(
-				'mb-12 md:mb-16',
-				align === 'center' && 'text-center',
-				className,
-			)}
+			className={cn('mb-12 md:mb-16', align === 'center' && 'text-center', className)}
 			{...props}
 		>
 			{label && (
@@ -51,10 +47,7 @@ function PageHeader({
 			</h2>
 			{subtitle && (
 				<p
-					className={cn(
-						'mt-4',
-						align === 'center' && 'mx-auto max-w-2xl',
-					)}
+					className={cn('mt-4', align === 'center' && 'mx-auto max-w-2xl')}
 					style={{
 						font: 'var(--text-body)',
 						color: 'var(--color-teal-700)',

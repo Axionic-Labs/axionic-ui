@@ -1,7 +1,7 @@
-import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
+import type * as React from 'react';
 
 import { cn } from '../utils';
 
@@ -9,21 +9,15 @@ function Sheet({ ...props }: React.ComponentProps<typeof DialogPrimitive.Root>) 
 	return <DialogPrimitive.Root data-slot="sheet" {...props} />;
 }
 
-function SheetTrigger({
-	...props
-}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
+function SheetTrigger({ ...props }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
 	return <DialogPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
-function SheetClose({
-	...props
-}: React.ComponentProps<typeof DialogPrimitive.Close>) {
+function SheetClose({ ...props }: React.ComponentProps<typeof DialogPrimitive.Close>) {
 	return <DialogPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
-function SheetPortal({
-	...props
-}: React.ComponentProps<typeof DialogPrimitive.Portal>) {
+function SheetPortal({ ...props }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
 	return <DialogPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
@@ -107,10 +101,7 @@ function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
 	);
 }
 
-function SheetTitle({
-	className,
-	...props
-}: React.ComponentProps<typeof DialogPrimitive.Title>) {
+function SheetTitle({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) {
 	return (
 		<DialogPrimitive.Title
 			data-slot="sheet-title"

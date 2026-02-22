@@ -1,7 +1,7 @@
-import * as React from 'react';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
-import { ChevronDown } from 'lucide-react';
 import { cva } from 'class-variance-authority';
+import { ChevronDown } from 'lucide-react';
+import type * as React from 'react';
 
 import { cn } from '../utils';
 
@@ -13,10 +13,7 @@ function NavigationMenu({
 	return (
 		<NavigationMenuPrimitive.Root
 			data-slot="navigation-menu"
-			className={cn(
-				'relative z-10 flex max-w-max flex-1 items-center justify-center',
-				className,
-			)}
+			className={cn('relative z-10 flex max-w-max flex-1 items-center justify-center', className)}
 			{...props}
 		>
 			{children}
@@ -32,10 +29,7 @@ function NavigationMenuList({
 	return (
 		<NavigationMenuPrimitive.List
 			data-slot="navigation-menu-list"
-			className={cn(
-				'group flex flex-1 list-none items-center justify-center gap-1',
-				className,
-			)}
+			className={cn('group flex flex-1 list-none items-center justify-center gap-1', className)}
 			{...props}
 		/>
 	);
@@ -44,12 +38,7 @@ function NavigationMenuList({
 function NavigationMenuItem({
 	...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
-	return (
-		<NavigationMenuPrimitive.Item
-			data-slot="navigation-menu-item"
-			{...props}
-		/>
-	);
+	return <NavigationMenuPrimitive.Item data-slot="navigation-menu-item" {...props} />;
 }
 
 const navigationMenuTriggerStyle = cva(
@@ -95,12 +84,7 @@ function NavigationMenuContent({
 function NavigationMenuLink({
 	...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
-	return (
-		<NavigationMenuPrimitive.Link
-			data-slot="navigation-menu-link"
-			{...props}
-		/>
-	);
+	return <NavigationMenuPrimitive.Link data-slot="navigation-menu-link" {...props} />;
 }
 
 function NavigationMenuViewport({

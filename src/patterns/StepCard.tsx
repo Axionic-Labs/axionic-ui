@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 /**
@@ -46,17 +46,11 @@ function StepCard({
 			>
 				Step {step}
 			</p>
-			<h3
-				className="text-base font-bold mb-2"
-				style={{ color: 'var(--color-rich-black)' }}
-			>
+			<h3 className="text-base font-bold mb-2" style={{ color: 'var(--color-rich-black)' }}>
 				{title}
 			</h3>
 			{description && (
-				<p
-					className="text-sm leading-relaxed"
-					style={{ color: 'var(--color-teal-700)' }}
-				>
+				<p className="text-sm leading-relaxed" style={{ color: 'var(--color-teal-700)' }}>
 					{description}
 				</p>
 			)}

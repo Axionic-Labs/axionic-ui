@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { cn } from '../utils';
+import type * as React from 'react';
 import { Card, CardContent } from '../primitives/card';
+import { cn } from '../utils';
 
 /**
  * Metric card with icon badge, large value, label, and optional trend badge.

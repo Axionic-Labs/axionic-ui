@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { cn } from '../utils';
 
 const sizeMap = {
@@ -24,9 +24,7 @@ function Section({
 }) {
 	return (
 		<section className={cn(!noPadding && 'py-20 md:py-28', className)} {...props}>
-			<div className={cn('mx-auto px-6 lg:px-8', sizeMap[size])}>
-				{children}
-			</div>
+			<div className={cn('mx-auto px-6 lg:px-8', sizeMap[size])}>{children}</div>
 		</section>
 	);
 }
