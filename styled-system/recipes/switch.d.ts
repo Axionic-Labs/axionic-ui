@@ -17,7 +17,7 @@ type SwitchVariantMap = {
   [key in keyof SwitchVariant]: Array<SwitchVariant[key]>
 }
 
-type SwitchSlot = "root" | "label" | "control" | "thumb" | "indicator"
+type SwitchSlot = "root" | "label" | "control" | "thumb" | "indicator" | "root" | "label" | "control" | "thumb" | "indicator"
 
 export type SwitchVariantProps = {
   [key in keyof SwitchVariant]?: ConditionalValue<SwitchVariant[key]> | undefined

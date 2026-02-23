@@ -10,51 +10,75 @@ const radioGroupCompoundVariants = []
 const radioGroupSlotNames = [
   [
     "root",
-    "radioGroup__root"
+    "radio-group__root"
   ],
   [
     "label",
-    "radioGroup__label"
+    "radio-group__label"
   ],
   [
     "item",
-    "radioGroup__item"
+    "radio-group__item"
   ],
   [
     "itemText",
-    "radioGroup__itemText"
+    "radio-group__itemText"
   ],
   [
     "itemControl",
-    "radioGroup__itemControl"
+    "radio-group__itemControl"
   ],
   [
     "indicator",
-    "radioGroup__indicator"
+    "radio-group__indicator"
   ],
   [
     "root",
-    "radioGroup__root"
+    "radio-group__root"
   ],
   [
     "label",
-    "radioGroup__label"
+    "radio-group__label"
   ],
   [
     "item",
-    "radioGroup__item"
+    "radio-group__item"
   ],
   [
     "itemText",
-    "radioGroup__itemText"
+    "radio-group__itemText"
   ],
   [
     "itemControl",
-    "radioGroup__itemControl"
+    "radio-group__itemControl"
   ],
   [
     "indicator",
-    "radioGroup__indicator"
+    "radio-group__indicator"
+  ],
+  [
+    "root",
+    "radio-group__root"
+  ],
+  [
+    "label",
+    "radio-group__label"
+  ],
+  [
+    "item",
+    "radio-group__item"
+  ],
+  [
+    "itemText",
+    "radio-group__itemText"
+  ],
+  [
+    "itemControl",
+    "radio-group__itemControl"
+  ],
+  [
+    "indicator",
+    "radio-group__indicator"
   ]
 ]
 const radioGroupSlotFns = /* @__PURE__ */ radioGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, radioGroupDefaultVariants, getSlotCompoundVariant(radioGroupCompoundVariants, slotName))])

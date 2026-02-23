@@ -8,17 +8,17 @@ const badgeFn = /* @__PURE__ */ createRecipe('badge', {
 
 const badgeVariantMap = {
   "variant": [
-    "surface",
     "solid",
+    "surface",
     "subtle",
     "outline"
   ],
   "size": [
-    "xl",
-    "2xl",
     "sm",
     "md",
-    "lg"
+    "lg",
+    "xl",
+    "2xl"
   ]
 }
 

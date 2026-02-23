@@ -7,43 +7,63 @@ const hoverCardCompoundVariants = []
 const hoverCardSlotNames = [
   [
     "arrow",
-    "hoverCard__arrow"
+    "hover-card__arrow"
   ],
   [
     "arrowTip",
-    "hoverCard__arrowTip"
+    "hover-card__arrowTip"
   ],
   [
     "trigger",
-    "hoverCard__trigger"
+    "hover-card__trigger"
   ],
   [
     "positioner",
-    "hoverCard__positioner"
+    "hover-card__positioner"
   ],
   [
     "content",
-    "hoverCard__content"
+    "hover-card__content"
   ],
   [
     "arrow",
-    "hoverCard__arrow"
+    "hover-card__arrow"
   ],
   [
     "arrowTip",
-    "hoverCard__arrowTip"
+    "hover-card__arrowTip"
   ],
   [
     "trigger",
-    "hoverCard__trigger"
+    "hover-card__trigger"
   ],
   [
     "positioner",
-    "hoverCard__positioner"
+    "hover-card__positioner"
   ],
   [
     "content",
-    "hoverCard__content"
+    "hover-card__content"
+  ],
+  [
+    "arrow",
+    "hover-card__arrow"
+  ],
+  [
+    "arrowTip",
+    "hover-card__arrowTip"
+  ],
+  [
+    "trigger",
+    "hover-card__trigger"
+  ],
+  [
+    "positioner",
+    "hover-card__positioner"
+  ],
+  [
+    "content",
+    "hover-card__content"
   ]
 ]
 const hoverCardSlotFns = /* @__PURE__ */ hoverCardSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, hoverCardDefaultVariants, getSlotCompoundVariant(hoverCardCompoundVariants, slotName))])

@@ -10,7 +10,7 @@ variant: "solid" | "surface" | "outline" | "subtle" | "plain"
 /**
  * @default "md"
  */
-size: "xl" | "sm" | "md" | "lg"
+size: "sm" | "md" | "lg" | "xl"
 }
 
 type KbdVariantMap = {

@@ -4,20 +4,20 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface NumberInputVariant {
   /**
- * @default "outline"
- */
-variant: "outline" | "surface"
-/**
  * @default "md"
  */
 size: "sm" | "md" | "lg" | "xl"
+/**
+ * @default "outline"
+ */
+variant: "outline" | "surface"
 }
 
 type NumberInputVariantMap = {
   [key in keyof NumberInputVariant]: Array<NumberInputVariant[key]>
 }
 
-type NumberInputSlot = "root" | "label" | "input" | "control" | "valueText" | "incrementTrigger" | "decrementTrigger" | "scrubber" | "root" | "label" | "input" | "control" | "valueText" | "incrementTrigger" | "decrementTrigger" | "scrubber"
+type NumberInputSlot = "root" | "label" | "input" | "control" | "valueText" | "incrementTrigger" | "decrementTrigger" | "scrubber" | "root" | "label" | "input" | "control" | "valueText" | "incrementTrigger" | "decrementTrigger" | "scrubber" | "root" | "label" | "input" | "control" | "valueText" | "incrementTrigger" | "decrementTrigger" | "scrubber"
 
 export type NumberInputVariantProps = {
   [key in keyof NumberInputVariant]?: ConditionalValue<NumberInputVariant[key]> | undefined

@@ -3,18 +3,18 @@ import type { ConditionalValue } from '../types/index';
 import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface SegmentGroupVariant {
-  fitted: boolean
-/**
+  /**
  * @default "md"
  */
-size: "xs" | "lg" | "xl" | "sm" | "md"
+size: "xs" | "sm" | "md" | "lg" | "xl"
+fitted: boolean
 }
 
 type SegmentGroupVariantMap = {
   [key in keyof SegmentGroupVariant]: Array<SegmentGroupVariant[key]>
 }
 
-type SegmentGroupSlot = "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator"
+type SegmentGroupSlot = "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator"
 
 export type SegmentGroupVariantProps = {
   [key in keyof SegmentGroupVariant]?: ConditionalValue<SegmentGroupVariant[key]> | undefined

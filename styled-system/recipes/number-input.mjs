@@ -2,75 +2,107 @@ import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mj
 import { createRecipe } from './create-recipe.mjs';
 
 const numberInputDefaultVariants = {
-  "variant": "outline",
-  "size": "md"
+  "size": "md",
+  "variant": "outline"
 }
 const numberInputCompoundVariants = []
 
 const numberInputSlotNames = [
   [
     "root",
-    "numberInput__root"
+    "number-input__root"
   ],
   [
     "label",
-    "numberInput__label"
+    "number-input__label"
   ],
   [
     "input",
-    "numberInput__input"
+    "number-input__input"
   ],
   [
     "control",
-    "numberInput__control"
+    "number-input__control"
   ],
   [
     "valueText",
-    "numberInput__valueText"
+    "number-input__valueText"
   ],
   [
     "incrementTrigger",
-    "numberInput__incrementTrigger"
+    "number-input__incrementTrigger"
   ],
   [
     "decrementTrigger",
-    "numberInput__decrementTrigger"
+    "number-input__decrementTrigger"
   ],
   [
     "scrubber",
-    "numberInput__scrubber"
+    "number-input__scrubber"
   ],
   [
     "root",
-    "numberInput__root"
+    "number-input__root"
   ],
   [
     "label",
-    "numberInput__label"
+    "number-input__label"
   ],
   [
     "input",
-    "numberInput__input"
+    "number-input__input"
   ],
   [
     "control",
-    "numberInput__control"
+    "number-input__control"
   ],
   [
     "valueText",
-    "numberInput__valueText"
+    "number-input__valueText"
   ],
   [
     "incrementTrigger",
-    "numberInput__incrementTrigger"
+    "number-input__incrementTrigger"
   ],
   [
     "decrementTrigger",
-    "numberInput__decrementTrigger"
+    "number-input__decrementTrigger"
   ],
   [
     "scrubber",
-    "numberInput__scrubber"
+    "number-input__scrubber"
+  ],
+  [
+    "root",
+    "number-input__root"
+  ],
+  [
+    "label",
+    "number-input__label"
+  ],
+  [
+    "input",
+    "number-input__input"
+  ],
+  [
+    "control",
+    "number-input__control"
+  ],
+  [
+    "valueText",
+    "number-input__valueText"
+  ],
+  [
+    "incrementTrigger",
+    "number-input__incrementTrigger"
+  ],
+  [
+    "decrementTrigger",
+    "number-input__decrementTrigger"
+  ],
+  [
+    "scrubber",
+    "number-input__scrubber"
   ]
 ]
 const numberInputSlotFns = /* @__PURE__ */ numberInputSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, numberInputDefaultVariants, getSlotCompoundVariant(numberInputCompoundVariants, slotName))])
@@ -80,8 +112,8 @@ const numberInputFn = memo((props = {}) => {
 })
 
 const numberInputVariantKeys = [
-  "variant",
-  "size"
+  "size",
+  "variant"
 ]
 const getVariantProps = (variants) => ({ ...numberInputDefaultVariants, ...compact(variants) })
 
@@ -92,15 +124,15 @@ export const numberInput = /* @__PURE__ */ Object.assign(numberInputFn, {
   classNameMap: {},
   variantKeys: numberInputVariantKeys,
   variantMap: {
-  "variant": [
-    "outline",
-    "surface"
-  ],
   "size": [
     "sm",
     "md",
     "lg",
     "xl"
+  ],
+  "variant": [
+    "outline",
+    "surface"
   ]
 },
   splitVariantProps(props) {

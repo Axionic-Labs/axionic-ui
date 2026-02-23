@@ -2,8 +2,8 @@ import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const inputFn = /* @__PURE__ */ createRecipe('input', {
-  "variant": "outline",
-  "size": "md"
+  "size": "md",
+  "variant": "outline"
 }, [])
 
 const inputVariantMap = {

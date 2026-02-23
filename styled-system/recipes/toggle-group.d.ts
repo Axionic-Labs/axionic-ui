@@ -4,20 +4,20 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface ToggleGroupVariant {
   /**
- * @default "outline"
- */
-variant: "outline" | "ghost"
-/**
  * @default "md"
  */
 size: "sm" | "md" | "lg"
+/**
+ * @default "outline"
+ */
+variant: "ghost" | "outline"
 }
 
 type ToggleGroupVariantMap = {
   [key in keyof ToggleGroupVariant]: Array<ToggleGroupVariant[key]>
 }
 
-type ToggleGroupSlot = "root" | "item" | "root" | "item"
+type ToggleGroupSlot = "root" | "item" | "root" | "item" | "root" | "item"
 
 export type ToggleGroupVariantProps = {
   [key in keyof ToggleGroupVariant]?: ConditionalValue<ToggleGroupVariant[key]> | undefined

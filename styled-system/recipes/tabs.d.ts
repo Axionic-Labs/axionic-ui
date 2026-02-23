@@ -3,22 +3,22 @@ import type { ConditionalValue } from '../types/index';
 import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface TabsVariant {
-  fitted: boolean
-/**
- * @default "line"
- */
-variant: "subtle" | "enclosed" | "line" | "outline"
-/**
+  /**
  * @default "md"
  */
 size: "xs" | "sm" | "md" | "lg"
+/**
+ * @default "line"
+ */
+variant: "outline" | "line" | "subtle" | "enclosed"
+fitted: boolean
 }
 
 type TabsVariantMap = {
   [key in keyof TabsVariant]: Array<TabsVariant[key]>
 }
 
-type TabsSlot = "root" | "list" | "trigger" | "content" | "indicator" | "root" | "list" | "trigger" | "content" | "indicator"
+type TabsSlot = "root" | "list" | "trigger" | "content" | "indicator" | "root" | "list" | "trigger" | "content" | "indicator" | "root" | "list" | "trigger" | "content" | "indicator"
 
 export type TabsVariantProps = {
   [key in keyof TabsVariant]?: TabsVariant[key] | undefined

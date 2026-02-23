@@ -10,7 +10,7 @@ type TooltipVariantMap = {
   [key in keyof TooltipVariant]: Array<TooltipVariant[key]>
 }
 
-type TooltipSlot = "trigger" | "arrow" | "arrowTip" | "positioner" | "content" | "trigger" | "arrow" | "arrowTip" | "positioner" | "content"
+type TooltipSlot = "trigger" | "arrow" | "arrowTip" | "positioner" | "content" | "trigger" | "arrow" | "arrowTip" | "positioner" | "content" | "trigger" | "arrow" | "arrowTip" | "positioner" | "content"
 
 export type TooltipVariantProps = {
   [key in keyof TooltipVariant]?: ConditionalValue<TooltipVariant[key]> | undefined

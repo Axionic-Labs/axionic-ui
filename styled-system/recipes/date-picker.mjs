@@ -7,203 +7,307 @@ const datePickerCompoundVariants = []
 const datePickerSlotNames = [
   [
     "clearTrigger",
-    "datePicker__clearTrigger"
+    "date-picker__clearTrigger"
   ],
   [
     "content",
-    "datePicker__content"
+    "date-picker__content"
   ],
   [
     "control",
-    "datePicker__control"
+    "date-picker__control"
   ],
   [
     "input",
-    "datePicker__input"
+    "date-picker__input"
   ],
   [
     "label",
-    "datePicker__label"
+    "date-picker__label"
   ],
   [
     "monthSelect",
-    "datePicker__monthSelect"
+    "date-picker__monthSelect"
   ],
   [
     "nextTrigger",
-    "datePicker__nextTrigger"
+    "date-picker__nextTrigger"
   ],
   [
     "positioner",
-    "datePicker__positioner"
+    "date-picker__positioner"
   ],
   [
     "presetTrigger",
-    "datePicker__presetTrigger"
+    "date-picker__presetTrigger"
   ],
   [
     "prevTrigger",
-    "datePicker__prevTrigger"
+    "date-picker__prevTrigger"
   ],
   [
     "rangeText",
-    "datePicker__rangeText"
+    "date-picker__rangeText"
   ],
   [
     "root",
-    "datePicker__root"
+    "date-picker__root"
   ],
   [
     "table",
-    "datePicker__table"
+    "date-picker__table"
   ],
   [
     "tableBody",
-    "datePicker__tableBody"
+    "date-picker__tableBody"
   ],
   [
     "tableCell",
-    "datePicker__tableCell"
+    "date-picker__tableCell"
   ],
   [
     "tableCellTrigger",
-    "datePicker__tableCellTrigger"
+    "date-picker__tableCellTrigger"
   ],
   [
     "tableHead",
-    "datePicker__tableHead"
+    "date-picker__tableHead"
   ],
   [
     "tableHeader",
-    "datePicker__tableHeader"
+    "date-picker__tableHeader"
   ],
   [
     "tableRow",
-    "datePicker__tableRow"
+    "date-picker__tableRow"
   ],
   [
     "trigger",
-    "datePicker__trigger"
+    "date-picker__trigger"
   ],
   [
     "view",
-    "datePicker__view"
+    "date-picker__view"
   ],
   [
     "viewControl",
-    "datePicker__viewControl"
+    "date-picker__viewControl"
   ],
   [
     "viewTrigger",
-    "datePicker__viewTrigger"
+    "date-picker__viewTrigger"
   ],
   [
     "yearSelect",
-    "datePicker__yearSelect"
+    "date-picker__yearSelect"
   ],
   [
     "view",
-    "datePicker__view"
+    "date-picker__view"
   ],
   [
     "valueText",
-    "datePicker__valueText"
+    "date-picker__valueText"
   ],
   [
     "root",
-    "datePicker__root"
+    "date-picker__root"
   ],
   [
     "label",
-    "datePicker__label"
+    "date-picker__label"
   ],
   [
     "clearTrigger",
-    "datePicker__clearTrigger"
+    "date-picker__clearTrigger"
   ],
   [
     "content",
-    "datePicker__content"
+    "date-picker__content"
   ],
   [
     "control",
-    "datePicker__control"
+    "date-picker__control"
   ],
   [
     "input",
-    "datePicker__input"
+    "date-picker__input"
   ],
   [
     "monthSelect",
-    "datePicker__monthSelect"
+    "date-picker__monthSelect"
   ],
   [
     "nextTrigger",
-    "datePicker__nextTrigger"
+    "date-picker__nextTrigger"
   ],
   [
     "positioner",
-    "datePicker__positioner"
+    "date-picker__positioner"
   ],
   [
     "prevTrigger",
-    "datePicker__prevTrigger"
+    "date-picker__prevTrigger"
   ],
   [
     "rangeText",
-    "datePicker__rangeText"
+    "date-picker__rangeText"
   ],
   [
     "table",
-    "datePicker__table"
+    "date-picker__table"
   ],
   [
     "tableBody",
-    "datePicker__tableBody"
+    "date-picker__tableBody"
   ],
   [
     "tableCell",
-    "datePicker__tableCell"
+    "date-picker__tableCell"
   ],
   [
     "tableCellTrigger",
-    "datePicker__tableCellTrigger"
+    "date-picker__tableCellTrigger"
   ],
   [
     "tableHead",
-    "datePicker__tableHead"
+    "date-picker__tableHead"
   ],
   [
     "tableHeader",
-    "datePicker__tableHeader"
+    "date-picker__tableHeader"
   ],
   [
     "tableRow",
-    "datePicker__tableRow"
+    "date-picker__tableRow"
   ],
   [
     "trigger",
-    "datePicker__trigger"
+    "date-picker__trigger"
   ],
   [
     "viewTrigger",
-    "datePicker__viewTrigger"
+    "date-picker__viewTrigger"
   ],
   [
     "viewControl",
-    "datePicker__viewControl"
+    "date-picker__viewControl"
   ],
   [
     "yearSelect",
-    "datePicker__yearSelect"
+    "date-picker__yearSelect"
   ],
   [
     "presetTrigger",
-    "datePicker__presetTrigger"
+    "date-picker__presetTrigger"
   ],
   [
     "view",
-    "datePicker__view"
+    "date-picker__view"
+  ],
+  [
+    "clearTrigger",
+    "date-picker__clearTrigger"
+  ],
+  [
+    "content",
+    "date-picker__content"
+  ],
+  [
+    "control",
+    "date-picker__control"
+  ],
+  [
+    "input",
+    "date-picker__input"
+  ],
+  [
+    "label",
+    "date-picker__label"
+  ],
+  [
+    "monthSelect",
+    "date-picker__monthSelect"
+  ],
+  [
+    "nextTrigger",
+    "date-picker__nextTrigger"
+  ],
+  [
+    "positioner",
+    "date-picker__positioner"
+  ],
+  [
+    "presetTrigger",
+    "date-picker__presetTrigger"
+  ],
+  [
+    "prevTrigger",
+    "date-picker__prevTrigger"
+  ],
+  [
+    "rangeText",
+    "date-picker__rangeText"
+  ],
+  [
+    "root",
+    "date-picker__root"
+  ],
+  [
+    "table",
+    "date-picker__table"
+  ],
+  [
+    "tableBody",
+    "date-picker__tableBody"
+  ],
+  [
+    "tableCell",
+    "date-picker__tableCell"
+  ],
+  [
+    "tableCellTrigger",
+    "date-picker__tableCellTrigger"
+  ],
+  [
+    "tableHead",
+    "date-picker__tableHead"
+  ],
+  [
+    "tableHeader",
+    "date-picker__tableHeader"
+  ],
+  [
+    "tableRow",
+    "date-picker__tableRow"
+  ],
+  [
+    "trigger",
+    "date-picker__trigger"
+  ],
+  [
+    "view",
+    "date-picker__view"
+  ],
+  [
+    "viewControl",
+    "date-picker__viewControl"
+  ],
+  [
+    "viewTrigger",
+    "date-picker__viewTrigger"
+  ],
+  [
+    "yearSelect",
+    "date-picker__yearSelect"
+  ],
+  [
+    "view",
+    "date-picker__view"
+  ],
+  [
+    "valueText",
+    "date-picker__valueText"
   ]
 ]
 const datePickerSlotFns = /* @__PURE__ */ datePickerSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, datePickerDefaultVariants, getSlotCompoundVariant(datePickerCompoundVariants, slotName))])

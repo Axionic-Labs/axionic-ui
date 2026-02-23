@@ -48,6 +48,26 @@ const alertSlotNames = [
   [
     "title",
     "alert__title"
+  ],
+  [
+    "root",
+    "alert__root"
+  ],
+  [
+    "content",
+    "alert__content"
+  ],
+  [
+    "description",
+    "alert__description"
+  ],
+  [
+    "indicator",
+    "alert__indicator"
+  ],
+  [
+    "title",
+    "alert__title"
   ]
 ]
 const alertSlotFns = /* @__PURE__ */ alertSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, alertDefaultVariants, getSlotCompoundVariant(alertCompoundVariants, slotName))])

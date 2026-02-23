@@ -6,11 +6,11 @@ interface BadgeVariant {
   /**
  * @default "subtle"
  */
-variant: "surface" | "solid" | "subtle" | "outline"
+variant: "solid" | "surface" | "subtle" | "outline"
 /**
  * @default "md"
  */
-size: "xl" | "2xl" | "sm" | "md" | "lg"
+size: "sm" | "md" | "lg" | "xl" | "2xl"
 }
 
 type BadgeVariantMap = {

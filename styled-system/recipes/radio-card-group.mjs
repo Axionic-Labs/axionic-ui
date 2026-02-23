@@ -31,6 +31,30 @@ const radioCardGroupSlotNames = [
   [
     "indicator",
     "radio-card-group__indicator"
+  ],
+  [
+    "root",
+    "radio-card-group__root"
+  ],
+  [
+    "label",
+    "radio-card-group__label"
+  ],
+  [
+    "item",
+    "radio-card-group__item"
+  ],
+  [
+    "itemText",
+    "radio-card-group__itemText"
+  ],
+  [
+    "itemControl",
+    "radio-card-group__itemControl"
+  ],
+  [
+    "indicator",
+    "radio-card-group__indicator"
   ]
 ]
 const radioCardGroupSlotFns = /* @__PURE__ */ radioCardGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, radioCardGroupDefaultVariants, getSlotCompoundVariant(radioCardGroupCompoundVariants, slotName))])

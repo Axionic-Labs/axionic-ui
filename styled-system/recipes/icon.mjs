@@ -7,13 +7,13 @@ const iconFn = /* @__PURE__ */ createRecipe('icon', {
 
 const iconVariantMap = {
   "size": [
+    "2xl",
     "2xs",
     "xs",
     "sm",
     "md",
     "lg",
-    "xl",
-    "2xl"
+    "xl"
   ]
 }
 

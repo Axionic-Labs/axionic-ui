@@ -37,6 +37,40 @@ const groupFn = /* @__PURE__ */ createRecipe('group', {
         "marginBottom": "-1px"
       }
     }
+  },
+  {
+    "orientation": "horizontal",
+    "attached": true,
+    "css": {
+      "& > *:first-child": {
+        "borderEndRadius": "0",
+        "marginEnd": "-1px"
+      },
+      "& > *:last-child": {
+        "borderStartRadius": "0"
+      },
+      "& > *:not(:first-child):not(:last-child)": {
+        "borderRadius": "0",
+        "marginEnd": "-1px"
+      }
+    }
+  },
+  {
+    "orientation": "vertical",
+    "attached": true,
+    "css": {
+      "& > *:first-child": {
+        "borderBottomRadius": "0",
+        "marginBottom": "-1px"
+      },
+      "& > *:last-child": {
+        "borderTopRadius": "0"
+      },
+      "& > *:not(:first-child):not(:last-child)": {
+        "borderRadius": "0",
+        "marginBottom": "-1px"
+      }
+    }
   }
 ])
 

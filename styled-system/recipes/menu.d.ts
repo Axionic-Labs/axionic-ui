@@ -6,14 +6,14 @@ interface MenuVariant {
   /**
  * @default "md"
  */
-size: "xl" | "xs" | "sm" | "md" | "lg"
+size: "xs" | "sm" | "md" | "lg" | "xl"
 }
 
 type MenuVariantMap = {
   [key in keyof MenuVariant]: Array<MenuVariant[key]>
 }
 
-type MenuSlot = "arrow" | "arrowTip" | "content" | "contextTrigger" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "separator" | "trigger" | "triggerItem" | "arrow" | "arrowTip" | "content" | "contextTrigger" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "separator" | "trigger" | "triggerItem"
+type MenuSlot = "arrow" | "arrowTip" | "content" | "contextTrigger" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "separator" | "trigger" | "triggerItem" | "arrow" | "arrowTip" | "content" | "contextTrigger" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "separator" | "trigger" | "triggerItem" | "arrow" | "arrowTip" | "content" | "contextTrigger" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "separator" | "trigger" | "triggerItem"
 
 export type MenuVariantProps = {
   [key in keyof MenuVariant]?: ConditionalValue<MenuVariant[key]> | undefined

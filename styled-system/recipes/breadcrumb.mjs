@@ -31,6 +31,30 @@ const breadcrumbSlotNames = [
   [
     "ellipsis",
     "breadcrumb__ellipsis"
+  ],
+  [
+    "root",
+    "breadcrumb__root"
+  ],
+  [
+    "list",
+    "breadcrumb__list"
+  ],
+  [
+    "link",
+    "breadcrumb__link"
+  ],
+  [
+    "item",
+    "breadcrumb__item"
+  ],
+  [
+    "separator",
+    "breadcrumb__separator"
+  ],
+  [
+    "ellipsis",
+    "breadcrumb__ellipsis"
   ]
 ]
 const breadcrumbSlotFns = /* @__PURE__ */ breadcrumbSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, breadcrumbDefaultVariants, getSlotCompoundVariant(breadcrumbCompoundVariants, slotName))])

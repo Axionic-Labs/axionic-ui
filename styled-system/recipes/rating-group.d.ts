@@ -6,14 +6,14 @@ interface RatingGroupVariant {
   /**
  * @default "md"
  */
-size: "xs" | "xl" | "sm" | "md" | "lg"
+size: "xs" | "sm" | "md" | "lg" | "xl"
 }
 
 type RatingGroupVariantMap = {
   [key in keyof RatingGroupVariant]: Array<RatingGroupVariant[key]>
 }
 
-type RatingGroupSlot = "root" | "label" | "item" | "control" | "itemIndicator" | "root" | "label" | "item" | "control"
+type RatingGroupSlot = "root" | "label" | "item" | "control" | "itemIndicator" | "root" | "label" | "item" | "control" | "root" | "label" | "item" | "control" | "itemIndicator"
 
 export type RatingGroupVariantProps = {
   [key in keyof RatingGroupVariant]?: ConditionalValue<RatingGroupVariant[key]> | undefined

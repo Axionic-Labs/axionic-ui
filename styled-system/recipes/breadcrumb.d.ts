@@ -17,7 +17,7 @@ type BreadcrumbVariantMap = {
   [key in keyof BreadcrumbVariant]: Array<BreadcrumbVariant[key]>
 }
 
-type BreadcrumbSlot = "root" | "list" | "link" | "item" | "separator" | "ellipsis"
+type BreadcrumbSlot = "root" | "list" | "link" | "item" | "separator" | "ellipsis" | "root" | "list" | "link" | "item" | "separator" | "ellipsis"
 
 export type BreadcrumbVariantProps = {
   [key in keyof BreadcrumbVariant]?: ConditionalValue<BreadcrumbVariant[key]> | undefined

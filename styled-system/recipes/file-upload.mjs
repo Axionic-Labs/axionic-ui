@@ -9,95 +9,143 @@ const fileUploadCompoundVariants = []
 const fileUploadSlotNames = [
   [
     "root",
-    "fileUpload__root"
+    "file-upload__root"
   ],
   [
     "dropzone",
-    "fileUpload__dropzone"
+    "file-upload__dropzone"
   ],
   [
     "item",
-    "fileUpload__item"
+    "file-upload__item"
   ],
   [
     "itemDeleteTrigger",
-    "fileUpload__itemDeleteTrigger"
+    "file-upload__itemDeleteTrigger"
   ],
   [
     "itemGroup",
-    "fileUpload__itemGroup"
+    "file-upload__itemGroup"
   ],
   [
     "itemName",
-    "fileUpload__itemName"
+    "file-upload__itemName"
   ],
   [
     "itemPreview",
-    "fileUpload__itemPreview"
+    "file-upload__itemPreview"
   ],
   [
     "itemPreviewImage",
-    "fileUpload__itemPreviewImage"
+    "file-upload__itemPreviewImage"
   ],
   [
     "itemSizeText",
-    "fileUpload__itemSizeText"
+    "file-upload__itemSizeText"
   ],
   [
     "label",
-    "fileUpload__label"
+    "file-upload__label"
   ],
   [
     "trigger",
-    "fileUpload__trigger"
+    "file-upload__trigger"
   ],
   [
     "clearTrigger",
-    "fileUpload__clearTrigger"
+    "file-upload__clearTrigger"
   ],
   [
     "root",
-    "fileUpload__root"
+    "file-upload__root"
   ],
   [
     "dropzone",
-    "fileUpload__dropzone"
+    "file-upload__dropzone"
   ],
   [
     "item",
-    "fileUpload__item"
+    "file-upload__item"
   ],
   [
     "itemDeleteTrigger",
-    "fileUpload__itemDeleteTrigger"
+    "file-upload__itemDeleteTrigger"
   ],
   [
     "itemGroup",
-    "fileUpload__itemGroup"
+    "file-upload__itemGroup"
   ],
   [
     "itemName",
-    "fileUpload__itemName"
+    "file-upload__itemName"
   ],
   [
     "itemPreview",
-    "fileUpload__itemPreview"
+    "file-upload__itemPreview"
   ],
   [
     "itemPreviewImage",
-    "fileUpload__itemPreviewImage"
+    "file-upload__itemPreviewImage"
   ],
   [
     "itemSizeText",
-    "fileUpload__itemSizeText"
+    "file-upload__itemSizeText"
   ],
   [
     "label",
-    "fileUpload__label"
+    "file-upload__label"
   ],
   [
     "trigger",
-    "fileUpload__trigger"
+    "file-upload__trigger"
+  ],
+  [
+    "root",
+    "file-upload__root"
+  ],
+  [
+    "dropzone",
+    "file-upload__dropzone"
+  ],
+  [
+    "item",
+    "file-upload__item"
+  ],
+  [
+    "itemDeleteTrigger",
+    "file-upload__itemDeleteTrigger"
+  ],
+  [
+    "itemGroup",
+    "file-upload__itemGroup"
+  ],
+  [
+    "itemName",
+    "file-upload__itemName"
+  ],
+  [
+    "itemPreview",
+    "file-upload__itemPreview"
+  ],
+  [
+    "itemPreviewImage",
+    "file-upload__itemPreviewImage"
+  ],
+  [
+    "itemSizeText",
+    "file-upload__itemSizeText"
+  ],
+  [
+    "label",
+    "file-upload__label"
+  ],
+  [
+    "trigger",
+    "file-upload__trigger"
+  ],
+  [
+    "clearTrigger",
+    "file-upload__clearTrigger"
   ]
 ]
 const fileUploadSlotFns = /* @__PURE__ */ fileUploadSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, fileUploadDefaultVariants, getSlotCompoundVariant(fileUploadCompoundVariants, slotName))])

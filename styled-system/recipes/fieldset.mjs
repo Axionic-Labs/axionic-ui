@@ -48,6 +48,30 @@ const fieldsetSlotNames = [
   [
     "control",
     "fieldset__control"
+  ],
+  [
+    "root",
+    "fieldset__root"
+  ],
+  [
+    "errorText",
+    "fieldset__errorText"
+  ],
+  [
+    "helperText",
+    "fieldset__helperText"
+  ],
+  [
+    "legend",
+    "fieldset__legend"
+  ],
+  [
+    "content",
+    "fieldset__content"
+  ],
+  [
+    "control",
+    "fieldset__control"
   ]
 ]
 const fieldsetSlotFns = /* @__PURE__ */ fieldsetSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, fieldsetDefaultVariants, getSlotCompoundVariant(fieldsetCompoundVariants, slotName))])

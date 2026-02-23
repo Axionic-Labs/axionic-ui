@@ -9,51 +9,75 @@ const segmentGroupCompoundVariants = []
 const segmentGroupSlotNames = [
   [
     "root",
-    "segmentGroup__root"
+    "segment-group__root"
   ],
   [
     "label",
-    "segmentGroup__label"
+    "segment-group__label"
   ],
   [
     "item",
-    "segmentGroup__item"
+    "segment-group__item"
   ],
   [
     "itemText",
-    "segmentGroup__itemText"
+    "segment-group__itemText"
   ],
   [
     "itemControl",
-    "segmentGroup__itemControl"
+    "segment-group__itemControl"
   ],
   [
     "indicator",
-    "segmentGroup__indicator"
+    "segment-group__indicator"
   ],
   [
     "root",
-    "segmentGroup__root"
+    "segment-group__root"
   ],
   [
     "label",
-    "segmentGroup__label"
+    "segment-group__label"
   ],
   [
     "item",
-    "segmentGroup__item"
+    "segment-group__item"
   ],
   [
     "itemText",
-    "segmentGroup__itemText"
+    "segment-group__itemText"
   ],
   [
     "itemControl",
-    "segmentGroup__itemControl"
+    "segment-group__itemControl"
   ],
   [
     "indicator",
-    "segmentGroup__indicator"
+    "segment-group__indicator"
+  ],
+  [
+    "root",
+    "segment-group__root"
+  ],
+  [
+    "label",
+    "segment-group__label"
+  ],
+  [
+    "item",
+    "segment-group__item"
+  ],
+  [
+    "itemText",
+    "segment-group__itemText"
+  ],
+  [
+    "itemControl",
+    "segment-group__itemControl"
+  ],
+  [
+    "indicator",
+    "segment-group__indicator"
   ]
 ]
 const segmentGroupSlotFns = /* @__PURE__ */ segmentGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, segmentGroupDefaultVariants, getSlotCompoundVariant(segmentGroupCompoundVariants, slotName))])
@@ -63,8 +87,8 @@ const segmentGroupFn = memo((props = {}) => {
 })
 
 const segmentGroupVariantKeys = [
-  "fitted",
-  "size"
+  "size",
+  "fitted"
 ]
 const getVariantProps = (variants) => ({ ...segmentGroupDefaultVariants, ...compact(variants) })
 
@@ -75,15 +99,15 @@ export const segmentGroup = /* @__PURE__ */ Object.assign(segmentGroupFn, {
   classNameMap: {},
   variantKeys: segmentGroupVariantKeys,
   variantMap: {
-  "fitted": [
-    "true"
-  ],
   "size": [
     "xs",
-    "lg",
-    "xl",
     "sm",
-    "md"
+    "md",
+    "lg",
+    "xl"
+  ],
+  "fitted": [
+    "true"
   ]
 },
   splitVariantProps(props) {

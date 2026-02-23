@@ -2,91 +2,131 @@ import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mj
 import { createRecipe } from './create-recipe.mjs';
 
 const tagsInputDefaultVariants = {
-  "variant": "outline",
-  "size": "md"
+  "size": "md",
+  "variant": "outline"
 }
 const tagsInputCompoundVariants = []
 
 const tagsInputSlotNames = [
   [
     "root",
-    "tagsInput__root"
+    "tags-input__root"
   ],
   [
     "label",
-    "tagsInput__label"
+    "tags-input__label"
   ],
   [
     "control",
-    "tagsInput__control"
+    "tags-input__control"
   ],
   [
     "input",
-    "tagsInput__input"
+    "tags-input__input"
   ],
   [
     "clearTrigger",
-    "tagsInput__clearTrigger"
+    "tags-input__clearTrigger"
   ],
   [
     "item",
-    "tagsInput__item"
+    "tags-input__item"
   ],
   [
     "itemPreview",
-    "tagsInput__itemPreview"
+    "tags-input__itemPreview"
   ],
   [
     "itemInput",
-    "tagsInput__itemInput"
+    "tags-input__itemInput"
   ],
   [
     "itemText",
-    "tagsInput__itemText"
+    "tags-input__itemText"
   ],
   [
     "itemDeleteTrigger",
-    "tagsInput__itemDeleteTrigger"
+    "tags-input__itemDeleteTrigger"
   ],
   [
     "root",
-    "tagsInput__root"
+    "tags-input__root"
   ],
   [
     "label",
-    "tagsInput__label"
+    "tags-input__label"
   ],
   [
     "control",
-    "tagsInput__control"
+    "tags-input__control"
   ],
   [
     "input",
-    "tagsInput__input"
+    "tags-input__input"
   ],
   [
     "clearTrigger",
-    "tagsInput__clearTrigger"
+    "tags-input__clearTrigger"
   ],
   [
     "item",
-    "tagsInput__item"
+    "tags-input__item"
   ],
   [
     "itemPreview",
-    "tagsInput__itemPreview"
+    "tags-input__itemPreview"
   ],
   [
     "itemInput",
-    "tagsInput__itemInput"
+    "tags-input__itemInput"
   ],
   [
     "itemText",
-    "tagsInput__itemText"
+    "tags-input__itemText"
   ],
   [
     "itemDeleteTrigger",
-    "tagsInput__itemDeleteTrigger"
+    "tags-input__itemDeleteTrigger"
+  ],
+  [
+    "root",
+    "tags-input__root"
+  ],
+  [
+    "label",
+    "tags-input__label"
+  ],
+  [
+    "control",
+    "tags-input__control"
+  ],
+  [
+    "input",
+    "tags-input__input"
+  ],
+  [
+    "clearTrigger",
+    "tags-input__clearTrigger"
+  ],
+  [
+    "item",
+    "tags-input__item"
+  ],
+  [
+    "itemPreview",
+    "tags-input__itemPreview"
+  ],
+  [
+    "itemInput",
+    "tags-input__itemInput"
+  ],
+  [
+    "itemText",
+    "tags-input__itemText"
+  ],
+  [
+    "itemDeleteTrigger",
+    "tags-input__itemDeleteTrigger"
   ]
 ]
 const tagsInputSlotFns = /* @__PURE__ */ tagsInputSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, tagsInputDefaultVariants, getSlotCompoundVariant(tagsInputCompoundVariants, slotName))])
@@ -116,8 +156,8 @@ export const tagsInput = /* @__PURE__ */ Object.assign(tagsInputFn, {
   "size": [
     "xs",
     "sm",
-    "lg",
-    "md"
+    "md",
+    "lg"
   ]
 },
   splitVariantProps(props) {

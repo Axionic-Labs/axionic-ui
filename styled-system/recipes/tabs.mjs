@@ -192,6 +192,26 @@ const tabsSlotNames = [
   [
     "indicator",
     "tabs__indicator"
+  ],
+  [
+    "root",
+    "tabs__root"
+  ],
+  [
+    "list",
+    "tabs__list"
+  ],
+  [
+    "trigger",
+    "tabs__trigger"
+  ],
+  [
+    "content",
+    "tabs__content"
+  ],
+  [
+    "indicator",
+    "tabs__indicator"
   ]
 ]
 const tabsSlotFns = /* @__PURE__ */ tabsSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, tabsDefaultVariants, getSlotCompoundVariant(tabsCompoundVariants, slotName))])
@@ -201,9 +221,9 @@ const tabsFn = memo((props = {}) => {
 })
 
 const tabsVariantKeys = [
-  "fitted",
+  "size",
   "variant",
-  "size"
+  "fitted"
 ]
 const getVariantProps = (variants) => ({ ...tabsDefaultVariants, ...compact(variants) })
 
@@ -214,20 +234,20 @@ export const tabs = /* @__PURE__ */ Object.assign(tabsFn, {
   classNameMap: {},
   variantKeys: tabsVariantKeys,
   variantMap: {
-  "fitted": [
-    "true"
-  ],
-  "variant": [
-    "subtle",
-    "enclosed",
-    "line",
-    "outline"
-  ],
   "size": [
     "xs",
     "sm",
     "md",
     "lg"
+  ],
+  "variant": [
+    "outline",
+    "line",
+    "subtle",
+    "enclosed"
+  ],
+  "fitted": [
+    "true"
   ]
 },
   splitVariantProps(props) {

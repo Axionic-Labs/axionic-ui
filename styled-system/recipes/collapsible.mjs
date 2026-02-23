@@ -32,6 +32,22 @@ const collapsibleSlotNames = [
   [
     "content",
     "collapsible__content"
+  ],
+  [
+    "root",
+    "collapsible__root"
+  ],
+  [
+    "trigger",
+    "collapsible__trigger"
+  ],
+  [
+    "content",
+    "collapsible__content"
+  ],
+  [
+    "indicator",
+    "collapsible__indicator"
   ]
 ]
 const collapsibleSlotFns = /* @__PURE__ */ collapsibleSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, collapsibleDefaultVariants, getSlotCompoundVariant(collapsibleCompoundVariants, slotName))])

@@ -10,7 +10,7 @@ type HoverCardVariantMap = {
   [key in keyof HoverCardVariant]: Array<HoverCardVariant[key]>
 }
 
-type HoverCardSlot = "arrow" | "arrowTip" | "trigger" | "positioner" | "content" | "arrow" | "arrowTip" | "trigger" | "positioner" | "content"
+type HoverCardSlot = "arrow" | "arrowTip" | "trigger" | "positioner" | "content" | "arrow" | "arrowTip" | "trigger" | "positioner" | "content" | "arrow" | "arrowTip" | "trigger" | "positioner" | "content"
 
 export type HoverCardVariantProps = {
   [key in keyof HoverCardVariant]?: ConditionalValue<HoverCardVariant[key]> | undefined

@@ -7,203 +7,303 @@ const colorPickerCompoundVariants = []
 const colorPickerSlotNames = [
   [
     "root",
-    "colorPicker__root"
+    "color-picker__root"
   ],
   [
     "label",
-    "colorPicker__label"
+    "color-picker__label"
   ],
   [
     "control",
-    "colorPicker__control"
+    "color-picker__control"
   ],
   [
     "trigger",
-    "colorPicker__trigger"
+    "color-picker__trigger"
   ],
   [
     "positioner",
-    "colorPicker__positioner"
+    "color-picker__positioner"
   ],
   [
     "content",
-    "colorPicker__content"
+    "color-picker__content"
   ],
   [
     "area",
-    "colorPicker__area"
+    "color-picker__area"
   ],
   [
     "areaThumb",
-    "colorPicker__areaThumb"
+    "color-picker__areaThumb"
   ],
   [
     "valueText",
-    "colorPicker__valueText"
+    "color-picker__valueText"
   ],
   [
     "areaBackground",
-    "colorPicker__areaBackground"
+    "color-picker__areaBackground"
   ],
   [
     "channelSlider",
-    "colorPicker__channelSlider"
+    "color-picker__channelSlider"
   ],
   [
     "channelSliderLabel",
-    "colorPicker__channelSliderLabel"
+    "color-picker__channelSliderLabel"
   ],
   [
     "channelSliderTrack",
-    "colorPicker__channelSliderTrack"
+    "color-picker__channelSliderTrack"
   ],
   [
     "channelSliderThumb",
-    "colorPicker__channelSliderThumb"
+    "color-picker__channelSliderThumb"
   ],
   [
     "channelSliderValueText",
-    "colorPicker__channelSliderValueText"
+    "color-picker__channelSliderValueText"
   ],
   [
     "channelInput",
-    "colorPicker__channelInput"
+    "color-picker__channelInput"
   ],
   [
     "transparencyGrid",
-    "colorPicker__transparencyGrid"
+    "color-picker__transparencyGrid"
   ],
   [
     "swatchGroup",
-    "colorPicker__swatchGroup"
+    "color-picker__swatchGroup"
   ],
   [
     "swatchTrigger",
-    "colorPicker__swatchTrigger"
+    "color-picker__swatchTrigger"
   ],
   [
     "swatchIndicator",
-    "colorPicker__swatchIndicator"
+    "color-picker__swatchIndicator"
   ],
   [
     "swatch",
-    "colorPicker__swatch"
+    "color-picker__swatch"
   ],
   [
     "eyeDropperTrigger",
-    "colorPicker__eyeDropperTrigger"
+    "color-picker__eyeDropperTrigger"
   ],
   [
     "formatTrigger",
-    "colorPicker__formatTrigger"
+    "color-picker__formatTrigger"
   ],
   [
     "formatSelect",
-    "colorPicker__formatSelect"
+    "color-picker__formatSelect"
   ],
   [
     "view",
-    "colorPicker__view"
+    "color-picker__view"
   ],
   [
     "root",
-    "colorPicker__root"
+    "color-picker__root"
   ],
   [
     "label",
-    "colorPicker__label"
+    "color-picker__label"
   ],
   [
     "control",
-    "colorPicker__control"
+    "color-picker__control"
   ],
   [
     "trigger",
-    "colorPicker__trigger"
+    "color-picker__trigger"
   ],
   [
     "positioner",
-    "colorPicker__positioner"
+    "color-picker__positioner"
   ],
   [
     "content",
-    "colorPicker__content"
+    "color-picker__content"
   ],
   [
     "area",
-    "colorPicker__area"
+    "color-picker__area"
   ],
   [
     "areaThumb",
-    "colorPicker__areaThumb"
+    "color-picker__areaThumb"
   ],
   [
     "valueText",
-    "colorPicker__valueText"
+    "color-picker__valueText"
   ],
   [
     "areaBackground",
-    "colorPicker__areaBackground"
+    "color-picker__areaBackground"
   ],
   [
     "channelSlider",
-    "colorPicker__channelSlider"
+    "color-picker__channelSlider"
   ],
   [
     "channelSliderLabel",
-    "colorPicker__channelSliderLabel"
+    "color-picker__channelSliderLabel"
   ],
   [
     "channelSliderTrack",
-    "colorPicker__channelSliderTrack"
+    "color-picker__channelSliderTrack"
   ],
   [
     "channelSliderThumb",
-    "colorPicker__channelSliderThumb"
+    "color-picker__channelSliderThumb"
   ],
   [
     "channelSliderValueText",
-    "colorPicker__channelSliderValueText"
+    "color-picker__channelSliderValueText"
   ],
   [
     "channelInput",
-    "colorPicker__channelInput"
+    "color-picker__channelInput"
   ],
   [
     "transparencyGrid",
-    "colorPicker__transparencyGrid"
+    "color-picker__transparencyGrid"
   ],
   [
     "swatchGroup",
-    "colorPicker__swatchGroup"
+    "color-picker__swatchGroup"
   ],
   [
     "swatchTrigger",
-    "colorPicker__swatchTrigger"
+    "color-picker__swatchTrigger"
   ],
   [
     "swatchIndicator",
-    "colorPicker__swatchIndicator"
+    "color-picker__swatchIndicator"
   ],
   [
     "swatch",
-    "colorPicker__swatch"
+    "color-picker__swatch"
   ],
   [
     "eyeDropperTrigger",
-    "colorPicker__eyeDropperTrigger"
+    "color-picker__eyeDropperTrigger"
   ],
   [
     "formatTrigger",
-    "colorPicker__formatTrigger"
+    "color-picker__formatTrigger"
   ],
   [
     "formatSelect",
-    "colorPicker__formatSelect"
+    "color-picker__formatSelect"
   ],
   [
     "view",
-    "colorPicker__view"
+    "color-picker__view"
+  ],
+  [
+    "root",
+    "color-picker__root"
+  ],
+  [
+    "label",
+    "color-picker__label"
+  ],
+  [
+    "control",
+    "color-picker__control"
+  ],
+  [
+    "trigger",
+    "color-picker__trigger"
+  ],
+  [
+    "positioner",
+    "color-picker__positioner"
+  ],
+  [
+    "content",
+    "color-picker__content"
+  ],
+  [
+    "area",
+    "color-picker__area"
+  ],
+  [
+    "areaThumb",
+    "color-picker__areaThumb"
+  ],
+  [
+    "valueText",
+    "color-picker__valueText"
+  ],
+  [
+    "areaBackground",
+    "color-picker__areaBackground"
+  ],
+  [
+    "channelSlider",
+    "color-picker__channelSlider"
+  ],
+  [
+    "channelSliderLabel",
+    "color-picker__channelSliderLabel"
+  ],
+  [
+    "channelSliderTrack",
+    "color-picker__channelSliderTrack"
+  ],
+  [
+    "channelSliderThumb",
+    "color-picker__channelSliderThumb"
+  ],
+  [
+    "channelSliderValueText",
+    "color-picker__channelSliderValueText"
+  ],
+  [
+    "channelInput",
+    "color-picker__channelInput"
+  ],
+  [
+    "transparencyGrid",
+    "color-picker__transparencyGrid"
+  ],
+  [
+    "swatchGroup",
+    "color-picker__swatchGroup"
+  ],
+  [
+    "swatchTrigger",
+    "color-picker__swatchTrigger"
+  ],
+  [
+    "swatchIndicator",
+    "color-picker__swatchIndicator"
+  ],
+  [
+    "swatch",
+    "color-picker__swatch"
+  ],
+  [
+    "eyeDropperTrigger",
+    "color-picker__eyeDropperTrigger"
+  ],
+  [
+    "formatTrigger",
+    "color-picker__formatTrigger"
+  ],
+  [
+    "formatSelect",
+    "color-picker__formatSelect"
+  ],
+  [
+    "view",
+    "color-picker__view"
   ]
 ]
 const colorPickerSlotFns = /* @__PURE__ */ colorPickerSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, colorPickerDefaultVariants, getSlotCompoundVariant(colorPickerCompoundVariants, slotName))])

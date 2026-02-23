@@ -71,6 +71,38 @@ const tableSlotNames = [
   [
     "caption",
     "table__caption"
+  ],
+  [
+    "root",
+    "table__root"
+  ],
+  [
+    "body",
+    "table__body"
+  ],
+  [
+    "cell",
+    "table__cell"
+  ],
+  [
+    "foot",
+    "table__foot"
+  ],
+  [
+    "head",
+    "table__head"
+  ],
+  [
+    "header",
+    "table__header"
+  ],
+  [
+    "row",
+    "table__row"
+  ],
+  [
+    "caption",
+    "table__caption"
   ]
 ]
 const tableSlotFns = /* @__PURE__ */ tableSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, tableDefaultVariants, getSlotCompoundVariant(tableCompoundVariants, slotName))])
@@ -80,11 +112,11 @@ const tableFn = memo((props = {}) => {
 })
 
 const tableVariantKeys = [
+  "variant",
   "striped",
   "interactive",
   "columnBorder",
   "stickyHeader",
-  "variant",
   "size"
 ]
 const getVariantProps = (variants) => ({ ...tableDefaultVariants, ...compact(variants) })
@@ -96,6 +128,11 @@ export const table = /* @__PURE__ */ Object.assign(tableFn, {
   classNameMap: {},
   variantKeys: tableVariantKeys,
   variantMap: {
+  "variant": [
+    "outline",
+    "surface",
+    "plain"
+  ],
   "striped": [
     "true"
   ],
@@ -107,11 +144,6 @@ export const table = /* @__PURE__ */ Object.assign(tableFn, {
   ],
   "stickyHeader": [
     "true"
-  ],
-  "variant": [
-    "surface",
-    "outline",
-    "plain"
   ],
   "size": [
     "sm",

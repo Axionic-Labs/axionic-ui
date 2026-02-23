@@ -10,7 +10,7 @@ type PopoverVariantMap = {
   [key in keyof PopoverVariant]: Array<PopoverVariant[key]>
 }
 
-type PopoverSlot = "arrow" | "arrowTip" | "anchor" | "trigger" | "indicator" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "arrow" | "arrowTip" | "anchor" | "trigger" | "indicator" | "positioner" | "content" | "title" | "description" | "closeTrigger"
+type PopoverSlot = "arrow" | "arrowTip" | "anchor" | "trigger" | "indicator" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "arrow" | "arrowTip" | "anchor" | "trigger" | "indicator" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "arrow" | "arrowTip" | "anchor" | "trigger" | "indicator" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer"
 
 export type PopoverVariantProps = {
   [key in keyof PopoverVariant]?: ConditionalValue<PopoverVariant[key]> | undefined

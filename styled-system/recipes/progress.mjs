@@ -3,12 +3,48 @@ import { createRecipe } from './create-recipe.mjs';
 
 const progressDefaultVariants = {
   "variant": "solid",
-  "shape": "rounded",
-  "size": "md"
+  "size": "md",
+  "shape": "rounded"
 }
 const progressCompoundVariants = []
 
 const progressSlotNames = [
+  [
+    "root",
+    "progress__root"
+  ],
+  [
+    "label",
+    "progress__label"
+  ],
+  [
+    "track",
+    "progress__track"
+  ],
+  [
+    "range",
+    "progress__range"
+  ],
+  [
+    "valueText",
+    "progress__valueText"
+  ],
+  [
+    "view",
+    "progress__view"
+  ],
+  [
+    "circle",
+    "progress__circle"
+  ],
+  [
+    "circleTrack",
+    "progress__circleTrack"
+  ],
+  [
+    "circleRange",
+    "progress__circleRange"
+  ],
   [
     "root",
     "progress__root"
@@ -121,10 +157,10 @@ export const progress = /* @__PURE__ */ Object.assign(progressFn, {
   ],
   "size": [
     "xs",
-    "xl",
     "sm",
     "md",
-    "lg"
+    "lg",
+    "xl"
   ]
 },
   splitVariantProps(props) {

@@ -25,7 +25,7 @@ type DialogVariantMap = {
   [key in keyof DialogVariant]: Array<DialogVariant[key]>
 }
 
-type DialogSlot = "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger"
+type DialogSlot = "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer"
 
 export type DialogVariantProps = {
   [key in keyof DialogVariant]?: ConditionalValue<DialogVariant[key]> | undefined

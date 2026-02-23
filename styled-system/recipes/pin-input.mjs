@@ -2,43 +2,59 @@ import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mj
 import { createRecipe } from './create-recipe.mjs';
 
 const pinInputDefaultVariants = {
-  "variant": "outline",
-  "size": "md"
+  "size": "md",
+  "variant": "outline"
 }
 const pinInputCompoundVariants = []
 
 const pinInputSlotNames = [
   [
     "root",
-    "pinInput__root"
+    "pin-input__root"
   ],
   [
     "label",
-    "pinInput__label"
+    "pin-input__label"
   ],
   [
     "input",
-    "pinInput__input"
+    "pin-input__input"
   ],
   [
     "control",
-    "pinInput__control"
+    "pin-input__control"
   ],
   [
     "root",
-    "pinInput__root"
+    "pin-input__root"
   ],
   [
     "label",
-    "pinInput__label"
+    "pin-input__label"
   ],
   [
     "input",
-    "pinInput__input"
+    "pin-input__input"
   ],
   [
     "control",
-    "pinInput__control"
+    "pin-input__control"
+  ],
+  [
+    "root",
+    "pin-input__root"
+  ],
+  [
+    "label",
+    "pin-input__label"
+  ],
+  [
+    "input",
+    "pin-input__input"
+  ],
+  [
+    "control",
+    "pin-input__control"
   ]
 ]
 const pinInputSlotFns = /* @__PURE__ */ pinInputSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, pinInputDefaultVariants, getSlotCompoundVariant(pinInputCompoundVariants, slotName))])
@@ -48,8 +64,8 @@ const pinInputFn = memo((props = {}) => {
 })
 
 const pinInputVariantKeys = [
-  "variant",
-  "size"
+  "size",
+  "variant"
 ]
 const getVariantProps = (variants) => ({ ...pinInputDefaultVariants, ...compact(variants) })
 
@@ -60,11 +76,6 @@ export const pinInput = /* @__PURE__ */ Object.assign(pinInputFn, {
   classNameMap: {},
   variantKeys: pinInputVariantKeys,
   variantMap: {
-  "variant": [
-    "outline",
-    "subtle",
-    "flushed"
-  ],
   "size": [
     "xs",
     "sm",
@@ -72,6 +83,11 @@ export const pinInput = /* @__PURE__ */ Object.assign(pinInputFn, {
     "lg",
     "xl",
     "2xl"
+  ],
+  "variant": [
+    "outline",
+    "subtle",
+    "flushed"
   ]
 },
   splitVariantProps(props) {

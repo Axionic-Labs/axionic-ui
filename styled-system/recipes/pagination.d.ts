@@ -10,7 +10,7 @@ type PaginationVariantMap = {
   [key in keyof PaginationVariant]: Array<PaginationVariant[key]>
 }
 
-type PaginationSlot = "root" | "item" | "ellipsis" | "firstTrigger" | "prevTrigger" | "nextTrigger" | "lastTrigger" | "root" | "item" | "ellipsis" | "prevTrigger" | "nextTrigger"
+type PaginationSlot = "root" | "item" | "ellipsis" | "firstTrigger" | "prevTrigger" | "nextTrigger" | "lastTrigger" | "root" | "item" | "ellipsis" | "prevTrigger" | "nextTrigger" | "root" | "item" | "ellipsis" | "firstTrigger" | "prevTrigger" | "nextTrigger" | "lastTrigger"
 
 export type PaginationVariantProps = {
   [key in keyof PaginationVariant]?: ConditionalValue<PaginationVariant[key]> | undefined

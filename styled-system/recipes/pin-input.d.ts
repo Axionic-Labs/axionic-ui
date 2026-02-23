@@ -4,20 +4,20 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface PinInputVariant {
   /**
- * @default "outline"
- */
-variant: "outline" | "subtle" | "flushed"
-/**
  * @default "md"
  */
 size: "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
+/**
+ * @default "outline"
+ */
+variant: "outline" | "subtle" | "flushed"
 }
 
 type PinInputVariantMap = {
   [key in keyof PinInputVariant]: Array<PinInputVariant[key]>
 }
 
-type PinInputSlot = "root" | "label" | "input" | "control" | "root" | "label" | "input" | "control"
+type PinInputSlot = "root" | "label" | "input" | "control" | "root" | "label" | "input" | "control" | "root" | "label" | "input" | "control"
 
 export type PinInputVariantProps = {
   [key in keyof PinInputVariant]?: ConditionalValue<PinInputVariant[key]> | undefined

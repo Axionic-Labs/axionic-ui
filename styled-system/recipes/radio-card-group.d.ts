@@ -17,7 +17,7 @@ type RadioCardGroupVariantMap = {
   [key in keyof RadioCardGroupVariant]: Array<RadioCardGroupVariant[key]>
 }
 
-type RadioCardGroupSlot = "root" | "label" | "item" | "itemText" | "itemControl" | "indicator"
+type RadioCardGroupSlot = "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator"
 
 export type RadioCardGroupVariantProps = {
   [key in keyof RadioCardGroupVariant]?: ConditionalValue<RadioCardGroupVariant[key]> | undefined

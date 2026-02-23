@@ -13,7 +13,7 @@ type InputGroupVariantMap = {
   [key in keyof InputGroupVariant]: Array<InputGroupVariant[key]>
 }
 
-type InputGroupSlot = "root" | "element"
+type InputGroupSlot = "root" | "element" | "root" | "element"
 
 export type InputGroupVariantProps = {
   [key in keyof InputGroupVariant]?: ConditionalValue<InputGroupVariant[key]> | undefined

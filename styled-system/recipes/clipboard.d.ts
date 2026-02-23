@@ -10,7 +10,7 @@ type ClipboardVariantMap = {
   [key in keyof ClipboardVariant]: Array<ClipboardVariant[key]>
 }
 
-type ClipboardSlot = "root" | "control" | "trigger" | "indicator" | "input" | "label" | "root" | "control" | "trigger" | "indicator" | "input" | "label"
+type ClipboardSlot = "root" | "control" | "trigger" | "indicator" | "input" | "label" | "root" | "control" | "trigger" | "indicator" | "input" | "label" | "root" | "control" | "trigger" | "indicator" | "input" | "label"
 
 export type ClipboardVariantProps = {
   [key in keyof ClipboardVariant]?: ConditionalValue<ClipboardVariant[key]> | undefined

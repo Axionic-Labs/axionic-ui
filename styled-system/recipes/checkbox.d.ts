@@ -4,20 +4,20 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface CheckboxVariant {
   /**
- * @default "solid"
- */
-variant: "solid" | "surface" | "subtle" | "outline" | "plain"
-/**
  * @default "md"
  */
 size: "sm" | "md" | "lg"
+/**
+ * @default "solid"
+ */
+variant: "solid" | "surface" | "subtle" | "outline" | "plain"
 }
 
 type CheckboxVariantMap = {
   [key in keyof CheckboxVariant]: Array<CheckboxVariant[key]>
 }
 
-type CheckboxSlot = "root" | "label" | "control" | "indicator" | "group" | "root" | "label" | "control" | "indicator" | "group"
+type CheckboxSlot = "root" | "label" | "control" | "indicator" | "group" | "root" | "label" | "control" | "indicator" | "group" | "root" | "label" | "control" | "indicator" | "group"
 
 export type CheckboxVariantProps = {
   [key in keyof CheckboxVariant]?: ConditionalValue<CheckboxVariant[key]> | undefined

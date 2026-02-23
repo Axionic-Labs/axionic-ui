@@ -2,8 +2,8 @@ import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const kbdFn = /* @__PURE__ */ createRecipe('kbd', {
-  "variant": "subtle",
-  "size": "md"
+  "size": "md",
+  "variant": "subtle"
 }, [])
 
 const kbdVariantMap = {
@@ -15,10 +15,10 @@ const kbdVariantMap = {
     "plain"
   ],
   "size": [
-    "xl",
     "sm",
     "md",
-    "lg"
+    "lg",
+    "xl"
   ]
 }
 

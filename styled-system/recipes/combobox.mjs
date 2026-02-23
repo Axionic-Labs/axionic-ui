@@ -2,8 +2,8 @@ import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mj
 import { createRecipe } from './create-recipe.mjs';
 
 const comboboxDefaultVariants = {
-  "variant": "outline",
-  "size": "md"
+  "size": "md",
+  "variant": "outline"
 }
 const comboboxCompoundVariants = []
 
@@ -127,6 +127,70 @@ const comboboxSlotNames = [
   [
     "trigger",
     "combobox__trigger"
+  ],
+  [
+    "root",
+    "combobox__root"
+  ],
+  [
+    "clearTrigger",
+    "combobox__clearTrigger"
+  ],
+  [
+    "content",
+    "combobox__content"
+  ],
+  [
+    "control",
+    "combobox__control"
+  ],
+  [
+    "input",
+    "combobox__input"
+  ],
+  [
+    "item",
+    "combobox__item"
+  ],
+  [
+    "itemGroup",
+    "combobox__itemGroup"
+  ],
+  [
+    "itemGroupLabel",
+    "combobox__itemGroupLabel"
+  ],
+  [
+    "itemIndicator",
+    "combobox__itemIndicator"
+  ],
+  [
+    "itemText",
+    "combobox__itemText"
+  ],
+  [
+    "label",
+    "combobox__label"
+  ],
+  [
+    "list",
+    "combobox__list"
+  ],
+  [
+    "positioner",
+    "combobox__positioner"
+  ],
+  [
+    "trigger",
+    "combobox__trigger"
+  ],
+  [
+    "empty",
+    "combobox__empty"
+  ],
+  [
+    "indicatorGroup",
+    "combobox__indicatorGroup"
   ]
 ]
 const comboboxSlotFns = /* @__PURE__ */ comboboxSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, comboboxDefaultVariants, getSlotCompoundVariant(comboboxCompoundVariants, slotName))])
@@ -155,10 +219,10 @@ export const combobox = /* @__PURE__ */ Object.assign(comboboxFn, {
   ],
   "size": [
     "xs",
-    "xl",
     "sm",
     "md",
-    "lg"
+    "lg",
+    "xl"
   ]
 },
   splitVariantProps(props) {

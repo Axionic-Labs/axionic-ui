@@ -4,6 +4,10 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface AvatarVariant {
   /**
+ * @default "md"
+ */
+size: "full" | "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
+/**
  * @default "subtle"
  */
 variant: "solid" | "surface" | "subtle" | "outline"
@@ -11,17 +15,13 @@ variant: "solid" | "surface" | "subtle" | "outline"
  * @default "full"
  */
 shape: "square" | "rounded" | "full"
-/**
- * @default "md"
- */
-size: "full" | "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
 }
 
 type AvatarVariantMap = {
   [key in keyof AvatarVariant]: Array<AvatarVariant[key]>
 }
 
-type AvatarSlot = "root" | "image" | "fallback" | "root" | "image" | "fallback"
+type AvatarSlot = "root" | "image" | "fallback" | "root" | "image" | "fallback" | "root" | "image" | "fallback"
 
 export type AvatarVariantProps = {
   [key in keyof AvatarVariant]?: ConditionalValue<AvatarVariant[key]> | undefined

@@ -14,7 +14,7 @@ type CarouselVariantMap = {
   [key in keyof CarouselVariant]: Array<CarouselVariant[key]>
 }
 
-type CarouselSlot = "root" | "itemGroup" | "item" | "control" | "nextTrigger" | "prevTrigger" | "indicatorGroup" | "indicator" | "autoplayTrigger" | "progressText" | "progressText" | "autoplayIndicator" | "root" | "viewport" | "itemGroup" | "item" | "nextTrigger" | "prevTrigger" | "indicatorGroup" | "indicator" | "control"
+type CarouselSlot = "root" | "itemGroup" | "item" | "control" | "nextTrigger" | "prevTrigger" | "indicatorGroup" | "indicator" | "autoplayTrigger" | "progressText" | "progressText" | "autoplayIndicator" | "root" | "viewport" | "itemGroup" | "item" | "nextTrigger" | "prevTrigger" | "indicatorGroup" | "indicator" | "control" | "root" | "itemGroup" | "item" | "control" | "nextTrigger" | "prevTrigger" | "indicatorGroup" | "indicator" | "autoplayTrigger" | "progressText" | "progressText" | "autoplayIndicator"
 
 export type CarouselVariantProps = {
   [key in keyof CarouselVariant]?: ConditionalValue<CarouselVariant[key]> | undefined

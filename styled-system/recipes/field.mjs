@@ -64,6 +64,38 @@ const fieldSlotNames = [
   [
     "textarea",
     "field__textarea"
+  ],
+  [
+    "root",
+    "field__root"
+  ],
+  [
+    "errorText",
+    "field__errorText"
+  ],
+  [
+    "helperText",
+    "field__helperText"
+  ],
+  [
+    "input",
+    "field__input"
+  ],
+  [
+    "label",
+    "field__label"
+  ],
+  [
+    "select",
+    "field__select"
+  ],
+  [
+    "textarea",
+    "field__textarea"
+  ],
+  [
+    "requiredIndicator",
+    "field__requiredIndicator"
   ]
 ]
 const fieldSlotFns = /* @__PURE__ */ fieldSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, fieldDefaultVariants, getSlotCompoundVariant(fieldCompoundVariants, slotName))])

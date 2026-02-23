@@ -4,6 +4,10 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface DrawerVariant {
   /**
+ * @default "right"
+ */
+variant: "left" | "right"
+/**
  * @default "sm"
  */
 size: "xs" | "sm" | "md" | "lg" | "xl" | "full"
@@ -11,17 +15,13 @@ size: "xs" | "sm" | "md" | "lg" | "xl" | "full"
  * @default "end"
  */
 placement: "start" | "end" | "top" | "bottom"
-/**
- * @default "right"
- */
-variant: "left" | "right"
 }
 
 type DrawerVariantMap = {
   [key in keyof DrawerVariant]: Array<DrawerVariant[key]>
 }
 
-type DrawerSlot = "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer"
+type DrawerSlot = "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer" | "trigger" | "backdrop" | "positioner" | "content" | "title" | "description" | "closeTrigger" | "header" | "body" | "footer"
 
 export type DrawerVariantProps = {
   [key in keyof DrawerVariant]?: ConditionalValue<DrawerVariant[key]> | undefined

@@ -6,7 +6,7 @@ interface IconVariant {
   /**
  * @default "md"
  */
-size: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
+size: "2xl" | "2xs" | "xs" | "sm" | "md" | "lg" | "xl"
 }
 
 type IconVariantMap = {

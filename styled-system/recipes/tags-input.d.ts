@@ -10,14 +10,14 @@ variant: "outline" | "subtle" | "surface"
 /**
  * @default "md"
  */
-size: "xs" | "sm" | "lg" | "md"
+size: "xs" | "sm" | "md" | "lg"
 }
 
 type TagsInputVariantMap = {
   [key in keyof TagsInputVariant]: Array<TagsInputVariant[key]>
 }
 
-type TagsInputSlot = "root" | "label" | "control" | "input" | "clearTrigger" | "item" | "itemPreview" | "itemInput" | "itemText" | "itemDeleteTrigger" | "root" | "label" | "control" | "input" | "clearTrigger" | "item" | "itemPreview" | "itemInput" | "itemText" | "itemDeleteTrigger"
+type TagsInputSlot = "root" | "label" | "control" | "input" | "clearTrigger" | "item" | "itemPreview" | "itemInput" | "itemText" | "itemDeleteTrigger" | "root" | "label" | "control" | "input" | "clearTrigger" | "item" | "itemPreview" | "itemInput" | "itemText" | "itemDeleteTrigger" | "root" | "label" | "control" | "input" | "clearTrigger" | "item" | "itemPreview" | "itemInput" | "itemText" | "itemDeleteTrigger"
 
 export type TagsInputVariantProps = {
   [key in keyof TagsInputVariant]?: ConditionalValue<TagsInputVariant[key]> | undefined

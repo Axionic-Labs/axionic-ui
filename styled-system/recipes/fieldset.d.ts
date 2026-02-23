@@ -10,7 +10,7 @@ type FieldsetVariantMap = {
   [key in keyof FieldsetVariant]: Array<FieldsetVariant[key]>
 }
 
-type FieldsetSlot = "root" | "errorText" | "helperText" | "legend" | "content" | "control" | "root" | "errorText" | "helperText" | "legend" | "control"
+type FieldsetSlot = "root" | "errorText" | "helperText" | "legend" | "content" | "control" | "root" | "errorText" | "helperText" | "legend" | "control" | "root" | "errorText" | "helperText" | "legend" | "content" | "control"
 
 export type FieldsetVariantProps = {
   [key in keyof FieldsetVariant]?: ConditionalValue<FieldsetVariant[key]> | undefined

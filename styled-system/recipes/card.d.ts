@@ -6,7 +6,7 @@ interface CardVariant {
   /**
  * @default "outline"
  */
-variant: "elevated" | "outline" | "subtle" | "hover" | "dashed"
+variant: "elevated" | "outline" | "subtle"
 }
 
 type CardVariantMap = {

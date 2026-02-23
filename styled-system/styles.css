@@ -1206,12 +1206,29 @@
 }
 
     .button {
+      border-radius: var(--radii-l2);
       gap: var(--spacing-2);
-      transition-property: background, border-color, color, box-shadow;
+      outline: 0;
+      transition-property: background-color, border-color, color, box-shadow;
       transition-timing-function: var(--easings-default);
       transition-duration: var(--durations-normal);
-      border-radius: var(--radii-l2);
-      outline: var(--borders-none);
+      --transition-duration: var(--durations-normal);
+      --transition-easing: var(--easings-default);
+      align-items: center;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      display: inline-flex;
+      flex-shrink: 0;
+      font-weight: var(--font-weights-semibold);
+      isolation: isolate;
+      justify-content: center;
+      position: relative;
+      --transition-prop: background-color, border-color, color, box-shadow;
+      -webkit-user-select: none;
+      user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
       --focus-ring-color: var(--focus-ring-color-prop, var(--global-color-focus-ring, #005FCC));
 }
 
@@ -1223,39 +1240,22 @@
 }
 
     .button {
-      align-items: center;
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      display: inline-flex;
-      flex-shrink: 0;
-      font-weight: var(--font-weights-semibold);
-      isolation: isolate;
-      justify-content: center;
-      position: relative;
-      --transition-duration: var(--durations-normal);
-      --transition-prop: background, border-color, color, box-shadow;
-      --transition-easing: var(--easings-default);
-      -webkit-user-select: none;
-      user-select: none;
-      vertical-align: middle;
-      white-space: nowrap;
       min-width: var(--sizes-0);
 }
 
+    .button:is([hidden]) {
+      display: none;
+}
+
     .button :where(svg) {
-      flex-shrink: 0;
       font-size: 1.1em;
+      flex-shrink: 0;
       width: 1.1em;
       height: 1.1em;
 }
 
     .button:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
       layer-style: disabled;
-}
-
-    .button:is([hidden]) {
-      display: none;
 }
 
     .icon {
@@ -1272,15 +1272,15 @@
     .spinner {
       --spinner-track-color: transparent;
       animation: var(--animations-spin);
-      border-width: 2px;
-      border-color: var(--colors-color-palette-default);
-      border-style: solid;
+      border-color: currentColor;
       border-radius: var(--radii-full);
-      border-inline-start-color: var(--spinner-track-color);
+      border-style: solid;
+      border-width: 2px;
       animation-duration: var(--durations-slowest);
+      border-inline-start-color: var(--spinner-track-color);
       border-bottom-color: var(--spinner-track-color);
-      width: var(--size);
-      height: var(--size);
+      height: var(--spinner-size);
+      width: var(--spinner-size);
 }
 
     .absolute-center {
@@ -1339,8 +1339,8 @@
 }
 
   .button--size_md {
-    padding-inline: var(--spacing-4);
     gap: var(--spacing-2);
+    padding-inline: var(--spacing-3\.5);
     font-size: var(--font-sizes-sm);
     line-height: 1.25rem;
     height: var(--sizes-10);
@@ -1353,8 +1353,8 @@
 }
 
   .button--variant_solid {
-    background: var(--colors-color-palette-default);
-    color: var(--colors-color-palette-fg);
+    background: colorPalette.solid.bg;
+    color: colorPalette.solid.fg;
 }
 
   .button--variant_solid:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
@@ -1370,8 +1370,8 @@
 }
 
   .button--size_sm {
-    padding-inline: var(--spacing-3\.5);
     gap: var(--spacing-2);
+    padding-inline: var(--spacing-3);
     font-size: var(--font-sizes-sm);
     line-height: 1.25rem;
     height: var(--sizes-9);
@@ -1393,8 +1393,8 @@
 }
 
   .spinner--size_md {
-    --spinner-size: var(--sizes-5);
     --size: var(--sizes-6);
+    --spinner-size: var(--sizes-5);
 }
 
   .absolute-center--axis_both {
@@ -1446,7 +1446,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     .button--variant_solid:is(:hover, [data-hover]) {
-      background: var(--colors-color-palette-emphasized);
+      background: colorPalette.solid.bg.hover;
 }
 
     .button--variant_solid:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
@@ -1468,8 +1468,8 @@
     .field__errorText {
       gap: var(--spacing-2);
       align-items: center;
-      color: var(--colors-fg-error);
       display: inline-flex;
+      color: error;
       font-size: var(--font-sizes-sm);
       line-height: 1.25rem;
 }
@@ -1485,26 +1485,27 @@
 }
 
     .field__helperText:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
-      layer-style: disabled;
       color: var(--colors-fg-disabled);
+      layer-style: disabled;
 }
 
     .field__label {
       gap: var(--spacing-0\.5);
+      font-weight: 600;
       align-items: center;
+      color: var(--colors-fg-default);
       display: flex;
       text-align: start;
       -webkit-user-select: none;
       user-select: none;
-      color: var(--colors-fg-default);
-      font-weight: var(--font-weights-medium);
-      font-size: var(--font-sizes-sm);
-      line-height: 1.25rem;
+      font-family: var(--fonts-body);
+      font-size: 0.875rem;
+      line-height: 1.4;
 }
 
     .field__label:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
-      layer-style: disabled;
       color: var(--colors-fg-disabled);
+      layer-style: disabled;
 }
 
     .field__requiredIndicator {
@@ -2106,7 +2107,11 @@
     border-top-right-radius: 0;
 }
 
-  .\[\&_\>_\*\:first-child\]\:mb_-1px > *:first-child,.\[\&_\>_\*\:not\(\:first-child\)\:not\(\:last-child\)\]\:mb_-1px > *:not(:first-child):not(:last-child) {
+  .\[\&_\>_\*\:first-child\]\:mb_-1px > *:first-child {
+    margin-bottom: -1px;
+}
+
+  .\[\&_\>_\*\:not\(\:first-child\)\:not\(\:last-child\)\]\:mb_-1px > *:not(:first-child):not(:last-child) {
     margin-bottom: -1px;
 }
 

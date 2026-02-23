@@ -17,7 +17,7 @@ type AccordionVariantMap = {
   [key in keyof AccordionVariant]: Array<AccordionVariant[key]>
 }
 
-type AccordionSlot = "root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody" | "root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator"
+type AccordionSlot = "root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody" | "root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody"
 
 export type AccordionVariantProps = {
   [key in keyof AccordionVariant]?: ConditionalValue<AccordionVariant[key]> | undefined

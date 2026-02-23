@@ -10,7 +10,7 @@ type ToastVariantMap = {
   [key in keyof ToastVariant]: Array<ToastVariant[key]>
 }
 
-type ToastSlot = "group" | "root" | "title" | "description" | "actionTrigger" | "closeTrigger" | "group" | "root" | "title" | "description" | "actionTrigger" | "closeTrigger"
+type ToastSlot = "group" | "root" | "title" | "description" | "actionTrigger" | "closeTrigger" | "group" | "root" | "title" | "description" | "actionTrigger" | "closeTrigger" | "group" | "root" | "title" | "description" | "actionTrigger" | "closeTrigger"
 
 export type ToastVariantProps = {
   [key in keyof ToastVariant]?: ConditionalValue<ToastVariant[key]> | undefined

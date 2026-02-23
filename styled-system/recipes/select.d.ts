@@ -6,18 +6,18 @@ interface SelectVariant {
   /**
  * @default "outline"
  */
-variant: "surface" | "outline" | "ghost"
+variant: "ghost" | "outline" | "surface"
 /**
  * @default "md"
  */
-size: "xs" | "xl" | "sm" | "md" | "lg"
+size: "xs" | "sm" | "md" | "lg" | "xl"
 }
 
 type SelectVariantMap = {
   [key in keyof SelectVariant]: Array<SelectVariant[key]>
 }
 
-type SelectSlot = "label" | "positioner" | "trigger" | "indicator" | "clearTrigger" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "content" | "root" | "control" | "valueText" | "indicatorGroup" | "label" | "positioner" | "trigger" | "indicator" | "clearTrigger" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "content" | "root" | "control" | "valueText"
+type SelectSlot = "label" | "positioner" | "trigger" | "indicator" | "clearTrigger" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "content" | "root" | "control" | "valueText" | "indicatorGroup" | "label" | "positioner" | "trigger" | "indicator" | "clearTrigger" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "content" | "root" | "control" | "valueText" | "label" | "positioner" | "trigger" | "indicator" | "clearTrigger" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "content" | "root" | "control" | "valueText" | "indicatorGroup"
 
 export type SelectVariantProps = {
   [key in keyof SelectVariant]?: ConditionalValue<SelectVariant[key]> | undefined

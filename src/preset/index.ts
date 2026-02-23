@@ -2,8 +2,7 @@ import { definePreset } from '@pandacss/dev';
 import { createPreset } from '@park-ui/panda-preset';
 import { axionicTeal } from './colors/teal';
 import { axionicSand } from './colors/sand';
-import { buttonRecipe } from './recipes/button';
-import { cardSlotRecipe } from './recipes/card';
+import { recipes as themeRecipes, slotRecipes as themeSlotRecipes } from '../theme/recipes/index';
 import { textStyles } from './text-styles';
 import { keyframes } from './keyframes';
 import { globalCss } from './global-css';
@@ -116,12 +115,8 @@ export function createAxionicPreset() {
 				},
 				textStyles,
 				keyframes,
-				recipes: {
-					button: buttonRecipe,
-				},
-				slotRecipes: {
-					card: cardSlotRecipe,
-				},
+				recipes: themeRecipes,
+				slotRecipes: themeSlotRecipes,
 			},
 		},
 		globalCss,

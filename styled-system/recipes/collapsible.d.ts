@@ -10,7 +10,7 @@ type CollapsibleVariantMap = {
   [key in keyof CollapsibleVariant]: Array<CollapsibleVariant[key]>
 }
 
-type CollapsibleSlot = "root" | "trigger" | "content" | "indicator" | "root" | "trigger" | "content"
+type CollapsibleSlot = "root" | "trigger" | "content" | "indicator" | "root" | "trigger" | "content" | "root" | "trigger" | "content" | "indicator"
 
 export type CollapsibleVariantProps = {
   [key in keyof CollapsibleVariant]?: ConditionalValue<CollapsibleVariant[key]> | undefined

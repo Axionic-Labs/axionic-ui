@@ -17,7 +17,7 @@ type ScrollAreaVariantMap = {
   [key in keyof ScrollAreaVariant]: Array<ScrollAreaVariant[key]>
 }
 
-type ScrollAreaSlot = "root" | "viewport" | "content" | "scrollbar" | "thumb" | "corner"
+type ScrollAreaSlot = "root" | "viewport" | "content" | "scrollbar" | "thumb" | "corner" | "root" | "viewport" | "content" | "scrollbar" | "thumb" | "corner"
 
 export type ScrollAreaVariantProps = {
   [key in keyof ScrollAreaVariant]?: ConditionalValue<ScrollAreaVariant[key]> | undefined

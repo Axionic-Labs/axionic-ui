@@ -101,9 +101,7 @@ export const card = /* @__PURE__ */ Object.assign(cardFn, {
   "variant": [
     "elevated",
     "outline",
-    "subtle",
-    "hover",
-    "dashed"
+    "subtle"
   ]
 },
   splitVariantProps(props) {

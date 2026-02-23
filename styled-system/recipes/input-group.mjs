@@ -14,6 +14,14 @@ const inputGroupSlotNames = [
   [
     "element",
     "input-group__element"
+  ],
+  [
+    "root",
+    "input-group__root"
+  ],
+  [
+    "element",
+    "input-group__element"
   ]
 ]
 const inputGroupSlotFns = /* @__PURE__ */ inputGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, inputGroupDefaultVariants, getSlotCompoundVariant(inputGroupCompoundVariants, slotName))])

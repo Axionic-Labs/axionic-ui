@@ -9,39 +9,59 @@ const ratingGroupCompoundVariants = []
 const ratingGroupSlotNames = [
   [
     "root",
-    "ratingGroup__root"
+    "rating-group__root"
   ],
   [
     "label",
-    "ratingGroup__label"
+    "rating-group__label"
   ],
   [
     "item",
-    "ratingGroup__item"
+    "rating-group__item"
   ],
   [
     "control",
-    "ratingGroup__control"
+    "rating-group__control"
   ],
   [
     "itemIndicator",
-    "ratingGroup__itemIndicator"
+    "rating-group__itemIndicator"
   ],
   [
     "root",
-    "ratingGroup__root"
+    "rating-group__root"
   ],
   [
     "label",
-    "ratingGroup__label"
+    "rating-group__label"
   ],
   [
     "item",
-    "ratingGroup__item"
+    "rating-group__item"
   ],
   [
     "control",
-    "ratingGroup__control"
+    "rating-group__control"
+  ],
+  [
+    "root",
+    "rating-group__root"
+  ],
+  [
+    "label",
+    "rating-group__label"
+  ],
+  [
+    "item",
+    "rating-group__item"
+  ],
+  [
+    "control",
+    "rating-group__control"
+  ],
+  [
+    "itemIndicator",
+    "rating-group__itemIndicator"
   ]
 ]
 const ratingGroupSlotFns = /* @__PURE__ */ ratingGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, ratingGroupDefaultVariants, getSlotCompoundVariant(ratingGroupCompoundVariants, slotName))])
@@ -64,10 +84,10 @@ export const ratingGroup = /* @__PURE__ */ Object.assign(ratingGroupFn, {
   variantMap: {
   "size": [
     "xs",
-    "xl",
     "sm",
     "md",
-    "lg"
+    "lg",
+    "xl"
   ]
 },
   splitVariantProps(props) {

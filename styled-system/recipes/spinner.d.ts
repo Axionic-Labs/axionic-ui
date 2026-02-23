@@ -6,7 +6,7 @@ interface SpinnerVariant {
   /**
  * @default "md"
  */
-size: "inherit" | "2xl" | "xs" | "sm" | "md" | "lg" | "xl"
+size: "inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
 }
 
 type SpinnerVariantMap = {

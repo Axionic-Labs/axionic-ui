@@ -16,14 +16,14 @@ animated: boolean
 /**
  * @default "md"
  */
-size: "xs" | "xl" | "sm" | "md" | "lg"
+size: "xs" | "sm" | "md" | "lg" | "xl"
 }
 
 type ProgressVariantMap = {
   [key in keyof ProgressVariant]: Array<ProgressVariant[key]>
 }
 
-type ProgressSlot = "root" | "label" | "track" | "range" | "valueText" | "view" | "circle" | "circleTrack" | "circleRange" | "root" | "label" | "track" | "range" | "valueText" | "view" | "circle" | "circleTrack" | "circleRange"
+type ProgressSlot = "root" | "label" | "track" | "range" | "valueText" | "view" | "circle" | "circleTrack" | "circleRange" | "root" | "label" | "track" | "range" | "valueText" | "view" | "circle" | "circleTrack" | "circleRange" | "root" | "label" | "track" | "range" | "valueText" | "view" | "circle" | "circleTrack" | "circleRange"
 
 export type ProgressVariantProps = {
   [key in keyof ProgressVariant]?: ConditionalValue<ProgressVariant[key]> | undefined

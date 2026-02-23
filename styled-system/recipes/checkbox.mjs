@@ -47,6 +47,26 @@ const checkboxSlotNames = [
   [
     "group",
     "checkbox__group"
+  ],
+  [
+    "root",
+    "checkbox__root"
+  ],
+  [
+    "label",
+    "checkbox__label"
+  ],
+  [
+    "control",
+    "checkbox__control"
+  ],
+  [
+    "indicator",
+    "checkbox__indicator"
+  ],
+  [
+    "group",
+    "checkbox__group"
   ]
 ]
 const checkboxSlotFns = /* @__PURE__ */ checkboxSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, checkboxDefaultVariants, getSlotCompoundVariant(checkboxCompoundVariants, slotName))])
@@ -56,8 +76,8 @@ const checkboxFn = memo((props = {}) => {
 })
 
 const checkboxVariantKeys = [
-  "variant",
-  "size"
+  "size",
+  "variant"
 ]
 const getVariantProps = (variants) => ({ ...checkboxDefaultVariants, ...compact(variants) })
 
@@ -68,17 +88,17 @@ export const checkbox = /* @__PURE__ */ Object.assign(checkboxFn, {
   classNameMap: {},
   variantKeys: checkboxVariantKeys,
   variantMap: {
+  "size": [
+    "sm",
+    "md",
+    "lg"
+  ],
   "variant": [
     "solid",
     "surface",
     "subtle",
     "outline",
     "plain"
-  ],
-  "size": [
-    "sm",
-    "md",
-    "lg"
   ]
 },
   splitVariantProps(props) {

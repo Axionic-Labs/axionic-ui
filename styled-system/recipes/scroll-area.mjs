@@ -31,6 +31,30 @@ const scrollAreaSlotNames = [
   [
     "corner",
     "scroll-area__corner"
+  ],
+  [
+    "root",
+    "scroll-area__root"
+  ],
+  [
+    "viewport",
+    "scroll-area__viewport"
+  ],
+  [
+    "content",
+    "scroll-area__content"
+  ],
+  [
+    "scrollbar",
+    "scroll-area__scrollbar"
+  ],
+  [
+    "thumb",
+    "scroll-area__thumb"
+  ],
+  [
+    "corner",
+    "scroll-area__corner"
   ]
 ]
 const scrollAreaSlotFns = /* @__PURE__ */ scrollAreaSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, scrollAreaDefaultVariants, getSlotCompoundVariant(scrollAreaCompoundVariants, slotName))])

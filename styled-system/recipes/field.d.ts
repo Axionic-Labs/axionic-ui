@@ -10,7 +10,7 @@ type FieldVariantMap = {
   [key in keyof FieldVariant]: Array<FieldVariant[key]>
 }
 
-type FieldSlot = "root" | "errorText" | "helperText" | "input" | "label" | "select" | "textarea" | "requiredIndicator" | "root" | "errorText" | "helperText" | "input" | "label" | "select" | "textarea"
+type FieldSlot = "root" | "errorText" | "helperText" | "input" | "label" | "select" | "textarea" | "requiredIndicator" | "root" | "errorText" | "helperText" | "input" | "label" | "select" | "textarea" | "root" | "errorText" | "helperText" | "input" | "label" | "select" | "textarea" | "requiredIndicator"
 
 export type FieldVariantProps = {
   [key in keyof FieldVariant]?: ConditionalValue<FieldVariant[key]> | undefined

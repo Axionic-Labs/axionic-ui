@@ -21,7 +21,7 @@ type AlertVariantMap = {
   [key in keyof AlertVariant]: Array<AlertVariant[key]>
 }
 
-type AlertSlot = "root" | "content" | "description" | "indicator" | "title" | "root" | "content" | "description" | "icon" | "title"
+type AlertSlot = "root" | "content" | "description" | "indicator" | "title" | "root" | "content" | "description" | "icon" | "title" | "root" | "content" | "description" | "indicator" | "title"
 
 export type AlertVariantProps = {
   [key in keyof AlertVariant]?: ConditionalValue<AlertVariant[key]> | undefined

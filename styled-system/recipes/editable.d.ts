@@ -13,7 +13,7 @@ type EditableVariantMap = {
   [key in keyof EditableVariant]: Array<EditableVariant[key]>
 }
 
-type EditableSlot = "root" | "area" | "label" | "preview" | "input" | "editTrigger" | "submitTrigger" | "cancelTrigger" | "control" | "root" | "area" | "label" | "preview" | "input" | "editTrigger" | "submitTrigger" | "cancelTrigger" | "control"
+type EditableSlot = "root" | "area" | "label" | "preview" | "input" | "editTrigger" | "submitTrigger" | "cancelTrigger" | "control" | "root" | "area" | "label" | "preview" | "input" | "editTrigger" | "submitTrigger" | "cancelTrigger" | "control" | "root" | "area" | "label" | "preview" | "input" | "editTrigger" | "submitTrigger" | "cancelTrigger" | "control"
 
 export type EditableVariantProps = {
   [key in keyof EditableVariant]?: ConditionalValue<EditableVariant[key]> | undefined

@@ -3,14 +3,14 @@ import type { ConditionalValue } from '../types/index';
 import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface TableVariant {
-  striped: boolean
+  /**
+ * @default "plain"
+ */
+variant: "outline" | "surface" | "plain"
+striped: boolean
 interactive: boolean
 columnBorder: boolean
 stickyHeader: boolean
-/**
- * @default "plain"
- */
-variant: "surface" | "outline" | "plain"
 /**
  * @default "md"
  */
@@ -21,7 +21,7 @@ type TableVariantMap = {
   [key in keyof TableVariant]: Array<TableVariant[key]>
 }
 
-type TableSlot = "root" | "body" | "cell" | "foot" | "head" | "header" | "row" | "caption" | "root" | "body" | "cell" | "footer" | "head" | "header" | "row" | "caption"
+type TableSlot = "root" | "body" | "cell" | "foot" | "head" | "header" | "row" | "caption" | "root" | "body" | "cell" | "footer" | "head" | "header" | "row" | "caption" | "root" | "body" | "cell" | "foot" | "head" | "header" | "row" | "caption"
 
 export type TableVariantProps = {
   [key in keyof TableVariant]?: ConditionalValue<TableVariant[key]> | undefined

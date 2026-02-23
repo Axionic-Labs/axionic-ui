@@ -4,13 +4,13 @@ import type { DistributiveOmit, Pretty } from '../types/system-types';
 
 interface CodeVariant {
   /**
- * @default "outline"
+ * @default "subtle"
  */
-variant: "solid" | "surface" | "subtle" | "plain" | "outline" | "ghost"
+variant: "ghost" | "solid" | "surface" | "subtle" | "outline" | "plain"
 /**
  * @default "md"
  */
-size: "xl" | "sm" | "md" | "lg"
+size: "sm" | "md" | "lg" | "xl"
 }
 
 type CodeVariantMap = {

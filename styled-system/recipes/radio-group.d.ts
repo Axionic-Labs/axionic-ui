@@ -17,7 +17,7 @@ type RadioGroupVariantMap = {
   [key in keyof RadioGroupVariant]: Array<RadioGroupVariant[key]>
 }
 
-type RadioGroupSlot = "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator"
+type RadioGroupSlot = "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator" | "root" | "label" | "item" | "itemText" | "itemControl" | "indicator"
 
 export type RadioGroupVariantProps = {
   [key in keyof RadioGroupVariant]?: ConditionalValue<RadioGroupVariant[key]> | undefined
