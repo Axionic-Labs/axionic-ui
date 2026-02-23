@@ -110,7 +110,7 @@ export const slotRecipes = {
 	select,
 	slider,
 	splitter,
-	switch: switchRecipe,
+	switchRecipe,
 	table,
 	tabs,
 	tagsInput,

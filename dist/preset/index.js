@@ -5053,7 +5053,7 @@ var slotRecipes = {
   select,
   slider,
   splitter,
-  switch: switchRecipe,
+  switchRecipe,
   table,
   tabs,
   tagsInput,
@@ -5253,5 +5253,5 @@ export {
   axionicSand
 };
 
-//# debugId=6F103DA72DECF5CA64756E2164756E21
+//# debugId=5E611355058D25A264756E2164756E21
 //# sourceMappingURL=index.js.map

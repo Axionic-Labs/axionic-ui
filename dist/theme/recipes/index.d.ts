@@ -163,7 +163,7 @@ export declare const slotRecipes: {
     select: import("@pandacss/types").SlotRecipeConfig;
     slider: import("@pandacss/types").SlotRecipeConfig;
     splitter: import("@pandacss/types").SlotRecipeConfig;
-    switch: import("@pandacss/types").SlotRecipeConfig;
+    switchRecipe: import("@pandacss/types").SlotRecipeConfig;
     table: import("@pandacss/types").SlotRecipeConfig;
     tabs: import("@pandacss/types").SlotRecipeConfig;
     tagsInput: import("@pandacss/types").SlotRecipeConfig;
