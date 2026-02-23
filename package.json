@@ -36,7 +36,7 @@
 		"./styles.css": "./styled-system/styles.css"
 	},
 	"scripts": {
-		"codegen": "panda codegen",
+		"codegen": "panda codegen && panda cssgen",
 		"build:js": "bun run build.ts",
 		"build": "bun run codegen && bun run build:js",
 		"typecheck": "tsc --noEmit",

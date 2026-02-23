@@ -9,6 +9,16 @@ export interface StatCardProps {
 	change?: string;
 	changeType?: 'positive' | 'negative' | 'neutral';
 	icon?: ReactNode;
+	/** Override icon wrapper background color (CSS value) */
+	iconBg?: string;
+	/** Override icon wrapper foreground color (CSS value) */
+	iconColor?: string;
+	/** Optional badge text displayed beside the change indicator */
+	badge?: string;
+	/** Badge text color (CSS value) */
+	badgeColor?: string;
+	/** Badge background color (CSS value) */
+	badgeBg?: string;
 	className?: string;
 }
 
@@ -55,7 +65,12 @@ const styles = {
 	}),
 };
 
-export function StatCard({ title, value, change, changeType = 'neutral', icon, className }: StatCardProps) {
+export function StatCard({
+	title, value, change, changeType = 'neutral',
+	icon, iconBg, iconColor,
+	badge, badgeColor, badgeBg,
+	className,
+}: StatCardProps) {
 	const changeColor =
 		changeType === 'positive'
 			? css({ color: '{colors.green.11}' })
@@ -65,11 +80,40 @@ export function StatCard({ title, value, change, changeType = 'neutral', icon, c
 
 	return (
 		<div className={cx(styles.root, className)}>
-			{icon && <div className={styles.iconWrap}>{icon}</div>}
+			{icon && (
+				<div
+					className={styles.iconWrap}
+					style={{
+						...(iconBg ? { backgroundColor: iconBg } : {}),
+						...(iconColor ? { color: iconColor } : {}),
+					}}
+				>
+					{icon}
+				</div>
+			)}
 			<div className={styles.content}>
 				<div className={styles.title}>{title}</div>
 				<div className={styles.value}>{value}</div>
-				{change && <div className={cx(styles.change, changeColor)}>{change}</div>}
+				<div className={css({ display: 'flex', alignItems: 'center', gap: '2', mt: '1' })}>
+					{change && <span className={cx(styles.change, changeColor)}>{change}</span>}
+					{badge && (
+						<span
+							className={css({
+								textStyle: 'small',
+								px: '2',
+								py: '0.5',
+								rounded: 'full',
+								fontSize: 'xs',
+							})}
+							style={{
+								color: badgeColor,
+								backgroundColor: badgeBg,
+							}}
+						>
+							{badge}
+						</span>
+					)}
+				</div>
 			</div>
 		</div>
 	);

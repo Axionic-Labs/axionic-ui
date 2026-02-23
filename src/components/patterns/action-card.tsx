@@ -7,6 +7,10 @@ export interface ActionCardProps {
 	title: string;
 	description?: string;
 	icon?: ReactNode;
+	/** Override icon wrapper background color (CSS value) */
+	iconBg?: string;
+	/** Override icon wrapper foreground color (CSS value) */
+	iconColor?: string;
 	onClick?: () => void;
 	className?: string;
 }
@@ -45,7 +49,7 @@ const styles = {
 	}),
 };
 
-export function ActionCard({ title, description, icon, onClick, className }: ActionCardProps) {
+export function ActionCard({ title, description, icon, iconBg, iconColor, onClick, className }: ActionCardProps) {
 	return (
 		<div
 			role="button"
@@ -54,7 +58,17 @@ export function ActionCard({ title, description, icon, onClick, className }: Act
 			onClick={onClick}
 			onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick?.(); } }}
 		>
-			{icon && <div className={styles.iconWrap}>{icon}</div>}
+			{icon && (
+				<div
+					className={styles.iconWrap}
+					style={{
+						...(iconBg ? { backgroundColor: iconBg } : {}),
+						...(iconColor ? { color: iconColor } : {}),
+					}}
+				>
+					{icon}
+				</div>
+			)}
 			<div className={styles.title}>{title}</div>
 			{description && <div className={styles.description}>{description}</div>}
 		</div>
