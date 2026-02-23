@@ -1,0 +1,9 @@
+import type { ComponentProps } from 'react';
+export type RootProps = ComponentProps<typeof Root>;
+export declare const Root: import("styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>, import("styled-system/recipes").CardRecipe>;
+export declare const Header: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Body: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Footer: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLHeadingElement> & import("react").HTMLAttributes<HTMLHeadingElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Title: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLHeadingElement> & import("react").HTMLAttributes<HTMLHeadingElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Description: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+//# sourceMappingURL=card.d.ts.map

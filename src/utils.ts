@@ -1,11 +1,11 @@
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cx } from 'styled-system/css';
+
+export { cx };
 
 /**
- * Merge Tailwind CSS classes with conflict resolution.
- * @param inputs - Class values to merge
- * @returns Merged class string with Tailwind conflicts resolved
+ * Merge class names. Drop-in replacement for clsx + tailwind-merge.
+ * Uses Panda CSS's built-in cx() which handles conditional class merging.
  */
-export function cn(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs));
+export function cn(...inputs: (string | undefined | null | false)[]) {
+	return cx(...inputs.filter(Boolean));
 }

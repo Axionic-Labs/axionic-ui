@@ -1,0 +1,25 @@
+import { Menu } from '@ark-ui/react/menu';
+import { type ComponentProps } from 'react';
+import { type HTMLStyledProps } from 'styled-system/jsx';
+export type RootProps = ComponentProps<typeof Root>;
+export declare const Root: import("styled-system/jsx").StyleContextRootProvider<(props: Menu.RootProps) => import("react/jsx-runtime").JSX.Element, import("styled-system/recipes").MenuRecipe>;
+export declare const RootProvider: import("styled-system/jsx").StyleContextRootProvider<(props: Menu.RootProps) => import("react/jsx-runtime").JSX.Element, import("styled-system/recipes").MenuRecipe>;
+export declare const Arrow: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ArrowProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ArrowTip: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ArrowTipProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const CheckboxItem: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.CheckboxItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ContextTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ContextTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+export declare const Indicator: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Item: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ItemGroup: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ItemGroupLabel: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemGroupLabelProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ItemText: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Positioner: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const RadioItem: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.RadioItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const RadioItemGroup: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.RadioItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Separator: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.SeparatorProps & import("react").RefAttributes<HTMLHRElement>>>;
+export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+export declare const TriggerItem: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.TriggerItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+export { MenuContext as Context, type MenuSelectionDetails as SelectionDetails, } from '@ark-ui/react/menu';
+export declare const ItemIndicator: import("react").ForwardRefExoticComponent<Omit<HTMLStyledProps<"div">, "ref"> & import("react").RefAttributes<HTMLDivElement>>;
+//# sourceMappingURL=menu.d.ts.map

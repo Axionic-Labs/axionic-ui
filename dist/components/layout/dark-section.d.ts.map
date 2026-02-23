@@ -1,0 +1,1 @@
+{"version":3,"file":"dark-section.d.ts","sourceRoot":"","sources":["../../../src/components/layout/dark-section.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,OAAO,CAAC;AAGvC,MAAM,WAAW,gBAAgB;IAChC,QAAQ,EAAE,SAAS,CAAC;IACpB,SAAS,CAAC,EAAE,MAAM,CAAC;IACnB,EAAE,CAAC,EAAE,MAAM,CAAC;CACZ;AAmBD,wBAAgB,WAAW,CAAC,EAAE,QAAQ,EAAE,SAAS,EAAE,EAAE,EAAE,EAAE,gBAAgB,2CAMxE"}

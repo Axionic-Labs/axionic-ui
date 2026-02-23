@@ -1,0 +1,9 @@
+import type { ComponentProps } from 'react';
+export type RootProps = ComponentProps<typeof Root>;
+export declare const Root: import("styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLElement> & import("react").HTMLAttributes<HTMLElement> & import("@ark-ui/react").PolymorphicProps>, import("styled-system/recipes").BreadcrumbRecipe>;
+export declare const List: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLOListElement> & import("react").OlHTMLAttributes<HTMLOListElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Item: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLLIElement> & import("react").LiHTMLAttributes<HTMLLIElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Link: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLAnchorElement> & import("react").AnchorHTMLAttributes<HTMLAnchorElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Ellipsis: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLLIElement> & import("react").LiHTMLAttributes<HTMLLIElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Separator: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLLIElement> & import("react").LiHTMLAttributes<HTMLLIElement> & import("@ark-ui/react").PolymorphicProps>>;
+//# sourceMappingURL=breadcrumb.d.ts.map

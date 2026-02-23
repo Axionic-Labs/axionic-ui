@@ -1,0 +1,26 @@
+import type { Assign, SelectRootProps } from '@ark-ui/react';
+import { Select } from '@ark-ui/react/select';
+import { type RefAttributes } from 'react';
+import { type SelectVariantProps } from 'styled-system/recipes';
+import type { HTMLStyledProps } from 'styled-system/types';
+type StyleProps = SelectVariantProps & HTMLStyledProps<'div'>;
+export type RootProps<T> = Assign<SelectRootProps<T>, StyleProps> & RefAttributes<HTMLDivElement>;
+export declare const Root: Select.RootComponent<StyleProps>;
+export declare const ClearTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ClearTriggerProps & RefAttributes<HTMLButtonElement>>>;
+export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ContentProps & RefAttributes<HTMLDivElement>>>;
+export declare const Control: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ControlProps & RefAttributes<HTMLDivElement>>>;
+export declare const IndicatorGroup: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Item: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemProps & RefAttributes<HTMLDivElement>>>;
+export declare const ItemGroup: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemGroupProps & RefAttributes<HTMLDivElement>>>;
+export declare const ItemGroupLabel: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemGroupLabelProps & RefAttributes<HTMLDivElement>>>;
+export declare const ItemText: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemTextProps & RefAttributes<HTMLDivElement>>>;
+export declare const Label: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.LabelProps & RefAttributes<HTMLLabelElement>>>;
+export declare const List: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ListProps & RefAttributes<HTMLDivElement>>>;
+export declare const Positioner: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.PositionerProps & RefAttributes<HTMLDivElement>>>;
+export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.TriggerProps & RefAttributes<HTMLButtonElement>>>;
+export declare const ValueText: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ValueTextProps & RefAttributes<HTMLSpanElement>>>;
+export declare const Indicator: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.IndicatorProps & RefAttributes<HTMLDivElement>>>;
+export declare const HiddenSelect: import("react").ForwardRefExoticComponent<Select.HiddenSelectProps & RefAttributes<HTMLSelectElement>>;
+export { SelectContext as Context, SelectItemContext as ItemContext, type SelectValueChangeDetails as ValueChangeDetails, } from '@ark-ui/react/select';
+export declare const ItemIndicator: import("react").ForwardRefExoticComponent<Omit<HTMLStyledProps<"div">, "ref"> & RefAttributes<HTMLDivElement>>;
+//# sourceMappingURL=select.d.ts.map

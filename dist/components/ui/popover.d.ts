@@ -1,0 +1,20 @@
+import { Popover } from '@ark-ui/react/popover';
+import type { ComponentProps } from 'react';
+export type RootProps = ComponentProps<typeof Root>;
+export declare const Root: import("styled-system/jsx").StyleContextRootProvider<(props: Popover.RootProps) => import("react/jsx-runtime").JSX.Element, import("styled-system/recipes").PopoverRecipe>;
+export declare const RootProvider: import("styled-system/jsx").StyleContextRootProvider<(props: Popover.RootProps) => import("react/jsx-runtime").JSX.Element, import("styled-system/recipes").PopoverRecipe>;
+export declare const Anchor: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.AnchorProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ArrowTip: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.ArrowTipProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Arrow: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.ArrowProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const CloseTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.CloseTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Description: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.DescriptionProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Indicator: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Positioner: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Title: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.TitleProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+export declare const Body: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Header: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Footer: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export { PopoverContext as Context } from '@ark-ui/react/popover';
+//# sourceMappingURL=popover.d.ts.map

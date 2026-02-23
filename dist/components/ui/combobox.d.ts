@@ -1,0 +1,23 @@
+import { Combobox } from '@ark-ui/react/combobox';
+import { type HTMLStyledProps } from 'styled-system/jsx';
+import { type ComboboxVariantProps } from 'styled-system/recipes';
+export type RootProps = HTMLStyledProps<'div'> & ComboboxVariantProps;
+export declare const Root: Combobox.RootComponent<RootProps>;
+export declare const RootProvider: Combobox.RootProviderComponent<RootProps>;
+export declare const ClearTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ClearTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Control: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Empty: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.EmptyProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const IndicatorGroup: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
+export declare const Input: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.InputProps & import("react").RefAttributes<HTMLInputElement>>>;
+export declare const Item: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ItemGroup: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ItemGroupLabel: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemGroupLabelProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const ItemText: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Label: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+export declare const List: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ListProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Positioner: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+export { ComboboxContext as Context } from '@ark-ui/react/combobox';
+export declare const ItemIndicator: import("react").ForwardRefExoticComponent<Omit<HTMLStyledProps<"div">, "ref"> & import("react").RefAttributes<HTMLDivElement>>;
+//# sourceMappingURL=combobox.d.ts.map
