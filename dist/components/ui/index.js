@@ -1103,7 +1103,6 @@ import { FileUpload, useFileUploadContext } from "@ark-ui/react/file-upload";
 import { forwardRef as forwardRef14, useMemo as useMemo2 } from "react";
 import { createStyleContext as createStyleContext18, Stack } from "styled-system/jsx";
 import { fileUpload } from "styled-system/recipes";
-import { Span as Span2 } from "~/components/ui";
 import { FileUploadContext } from "@ark-ui/react/file-upload";
 import { jsxDEV as jsxDEV15 } from "react/jsx-dev-runtime";
 "use client";
@@ -1174,7 +1173,7 @@ var FileText = forwardRef14(function FileUploadFileText(props, ref) {
     }
     return fallback;
   }, [acceptedFiles, fallback]);
-  return /* @__PURE__ */ jsxDEV15(Span2, {
+  return /* @__PURE__ */ jsxDEV15(Span, {
     ref,
     "data-placeholder": fileText === fallback ? "" : undefined,
     "data-scope": "file-upload",
@@ -2336,5 +2335,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=66B3B96BA09A5C5164756E2164756E21
+//# debugId=1059C2972C9C5DA864756E2164756E21
 //# sourceMappingURL=index.js.map

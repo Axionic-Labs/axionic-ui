@@ -1,5 +1,18 @@
+// src/components/ui/field.tsx
+import { Field } from "@ark-ui/react/field";
+import { createStyleContext } from "styled-system/jsx";
+import { field } from "styled-system/recipes";
+import { FieldContext } from "@ark-ui/react/field";
+"use client";
+var { withProvider, withContext } = createStyleContext(field);
+var Root = withProvider(Field.Root, "root");
+var RootProvider = withProvider(Field.RootProvider, "root");
+var ErrorText = withContext(Field.ErrorText, "errorText");
+var HelperText = withContext(Field.HelperText, "helperText");
+var Label = withContext(Field.Label, "label");
+var RequiredIndicator = withContext(Field.RequiredIndicator, "requiredIndicator");
+
 // src/components/forms/form-field.tsx
-import * as Field from "~/components/ui/field";
 import { jsxDEV } from "react/jsx-dev-runtime";
 "use client";
 function FormField({
@@ -10,21 +23,21 @@ function FormField({
   children,
   ...rootProps
 }) {
-  return /* @__PURE__ */ jsxDEV(Field.Root, {
+  return /* @__PURE__ */ jsxDEV(Root, {
     invalid: !!error,
     required,
     ...rootProps,
     children: [
-      /* @__PURE__ */ jsxDEV(Field.Label, {
+      /* @__PURE__ */ jsxDEV(Label, {
         children: [
           label,
-          required && /* @__PURE__ */ jsxDEV(Field.RequiredIndicator, {}, undefined, false, undefined, this)
+          required && /* @__PURE__ */ jsxDEV(RequiredIndicator, {}, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
       children,
-      error ? /* @__PURE__ */ jsxDEV(Field.ErrorText, {
+      error ? /* @__PURE__ */ jsxDEV(ErrorText, {
         children: error
-      }, undefined, false, undefined, this) : helperText ? /* @__PURE__ */ jsxDEV(Field.HelperText, {
+      }, undefined, false, undefined, this) : helperText ? /* @__PURE__ */ jsxDEV(HelperText, {
         children: helperText
       }, undefined, false, undefined, this) : null
     ]
@@ -141,5 +154,5 @@ export {
   FormAlert
 };
 
-//# debugId=0E34B0BEE5BF7A0F64756E2164756E21
+//# debugId=FC1A565501EF5FEF64756E2164756E21
 //# sourceMappingURL=index.js.map

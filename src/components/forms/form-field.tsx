@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import * as Field from '~/components/ui/field';
+import * as Field from '../ui/field';
 
 export interface FormFieldProps extends Field.RootProps {
 	/** Field label text */
