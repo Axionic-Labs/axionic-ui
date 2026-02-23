@@ -14,7 +14,12 @@ const buttonVariantMap = {
     "surface",
     "subtle",
     "outline",
-    "plain"
+    "plain",
+    "wheat",
+    "dark",
+    "oauth",
+    "outline-brand",
+    "ghost-dark"
   ],
   "size": [
     "2xs",
