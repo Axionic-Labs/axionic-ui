@@ -1278,11 +1278,17 @@ import { ark as ark18 } from "@ark-ui/react/factory";
 import { styled as styled15 } from "styled-system/jsx";
 import { kbd } from "styled-system/recipes";
 var Kbd = styled15(ark18.kbd, kbd);
-// src/components/ui/link.tsx
+// src/components/ui/label.tsx
 import { ark as ark19 } from "@ark-ui/react/factory";
 import { styled as styled16 } from "styled-system/jsx";
+var Label9 = styled16(ark19.label, {
+  base: { fontWeight: "medium", fontSize: "sm", color: "fg.default" }
+});
+// src/components/ui/link.tsx
+import { ark as ark20 } from "@ark-ui/react/factory";
+import { styled as styled17 } from "styled-system/jsx";
 import { link } from "styled-system/recipes";
-var Link2 = styled16(ark19.a, link);
+var Link2 = styled17(ark20.a, link);
 // src/components/ui/menu.tsx
 var exports_menu = {};
 __export(exports_menu, {
@@ -1360,7 +1366,7 @@ __export(exports_number_input, {
   Scrubber: () => Scrubber,
   RootProvider: () => RootProvider18,
   Root: () => Root22,
-  Label: () => Label9,
+  Label: () => Label10,
   Input: () => Input6,
   IncrementTrigger: () => IncrementTrigger,
   DecrementTrigger: () => DecrementTrigger,
@@ -1383,7 +1389,7 @@ var IncrementTrigger = withContext22(NumberInput.IncrementTrigger, "incrementTri
   defaultProps: { children: /* @__PURE__ */ jsxDEV19(ChevronUp, {}, undefined, false, undefined, this) }
 });
 var Input6 = withContext22(NumberInput.Input, "input");
-var Label9 = withContext22(NumberInput.Label, "label");
+var Label10 = withContext22(NumberInput.Label, "label");
 var Scrubber = withContext22(NumberInput.Scrubber, "scrubber");
 var ValueText2 = withContext22(NumberInput.ValueText, "valueText");
 var Control9 = withContext22(NumberInput.Control, "control", {
@@ -1451,7 +1457,7 @@ var exports_pin_input = {};
 __export(exports_pin_input, {
   RootProvider: () => RootProvider20,
   Root: () => Root24,
-  Label: () => Label10,
+  Label: () => Label11,
   Input: () => Input7,
   HiddenInput: () => HiddenInput4,
   Control: () => Control10,
@@ -1470,7 +1476,7 @@ var RootProvider20 = withProvider20(PinInput.RootProvider, "root");
 var Control10 = withContext24(PinInput.Control, "control");
 var HiddenInput4 = PinInput.HiddenInput;
 var Input7 = withContext24(PinInput.Input, "input");
-var Label10 = withContext24(PinInput.Label, "label");
+var Label11 = withContext24(PinInput.Label, "label");
 // src/components/ui/popover.tsx
 var exports_popover = {};
 __export(exports_popover, {
@@ -1491,7 +1497,7 @@ __export(exports_popover, {
   Arrow: () => Arrow3,
   Anchor: () => Anchor
 });
-import { ark as ark20 } from "@ark-ui/react/factory";
+import { ark as ark21 } from "@ark-ui/react/factory";
 import { Popover } from "@ark-ui/react/popover";
 import { createStyleContext as createStyleContext25 } from "styled-system/jsx";
 import { popover } from "styled-system/recipes";
@@ -1517,9 +1523,9 @@ var Indicator10 = withContext25(Popover.Indicator, "indicator");
 var Positioner8 = withContext25(Popover.Positioner, "positioner");
 var Title5 = withContext25(Popover.Title, "title");
 var Trigger11 = withContext25(Popover.Trigger, "trigger");
-var Body4 = withContext25(ark20.div, "body");
-var Header4 = withContext25(ark20.div, "header");
-var Footer4 = withContext25(ark20.div, "footer");
+var Body4 = withContext25(ark21.div, "body");
+var Header4 = withContext25(ark21.div, "header");
+var Footer4 = withContext25(ark21.div, "footer");
 // src/components/ui/progress.tsx
 var exports_progress = {};
 __export(exports_progress, {
@@ -1529,7 +1535,7 @@ __export(exports_progress, {
   RootProvider: () => RootProvider22,
   Root: () => Root26,
   Range: () => Range,
-  Label: () => Label11,
+  Label: () => Label12,
   CircleTrack: () => CircleTrack,
   CircleRange: () => CircleRange,
   Circle: () => Circle
@@ -1544,7 +1550,7 @@ var RootProvider22 = withProvider21(Progress.RootProvider, "root");
 var Circle = withContext26(Progress.Circle, "circle");
 var CircleRange = withContext26(Progress.CircleRange, "circleRange");
 var CircleTrack = withContext26(Progress.CircleTrack, "circleTrack");
-var Label11 = withContext26(Progress.Label, "label");
+var Label12 = withContext26(Progress.Label, "label");
 var Range = withContext26(Progress.Range, "range");
 var Track = withContext26(Progress.Track, "track");
 var ValueText3 = withContext26(Progress.ValueText, "valueText");
@@ -1554,7 +1560,7 @@ var exports_radio_card_group = {};
 __export(exports_radio_card_group, {
   RootProvider: () => RootProvider23,
   Root: () => Root27,
-  Label: () => Label12,
+  Label: () => Label13,
   ItemText: () => ItemText3,
   ItemHiddenInput: () => ItemHiddenInput,
   ItemControl: () => ItemControl,
@@ -1574,14 +1580,14 @@ var Indicator11 = withContext27(RadioGroup.Indicator, "indicator");
 var Item8 = withContext27(RadioGroup.Item, "item");
 var ItemControl = withContext27(RadioGroup.ItemControl, "itemControl");
 var ItemText3 = withContext27(RadioGroup.ItemText, "itemText");
-var Label12 = withContext27(RadioGroup.Label, "label");
+var Label13 = withContext27(RadioGroup.Label, "label");
 var ItemHiddenInput = RadioGroup.ItemHiddenInput;
 // src/components/ui/radio-group.tsx
 var exports_radio_group = {};
 __export(exports_radio_group, {
   RootProvider: () => RootProvider24,
   Root: () => Root28,
-  Label: () => Label13,
+  Label: () => Label14,
   ItemText: () => ItemText4,
   ItemHiddenInput: () => ItemHiddenInput2,
   ItemControl: () => ItemControl2,
@@ -1601,14 +1607,14 @@ var Indicator12 = withContext28(RadioGroup2.Indicator, "indicator");
 var Item9 = withContext28(RadioGroup2.Item, "item");
 var ItemControl2 = withContext28(RadioGroup2.ItemControl, "itemControl");
 var ItemText4 = withContext28(RadioGroup2.ItemText, "itemText");
-var Label13 = withContext28(RadioGroup2.Label, "label");
+var Label14 = withContext28(RadioGroup2.Label, "label");
 var ItemHiddenInput2 = RadioGroup2.ItemHiddenInput;
 // src/components/ui/rating-group.tsx
 var exports_rating_group = {};
 __export(exports_rating_group, {
   RootProvider: () => RootProvider25,
   Root: () => Root29,
-  Label: () => Label14,
+  Label: () => Label15,
   Items: () => Items3,
   ItemIndicator: () => ItemIndicator6,
   ItemContext: () => RatingGroupItemContext,
@@ -1639,7 +1645,7 @@ var { withProvider: withProvider24, withContext: withContext29 } = createStyleCo
 var Root29 = withProvider24(RatingGroup.Root, "root");
 var RootProvider25 = withProvider24(RatingGroup.RootProvider, "root");
 var Item10 = withContext29(RatingGroup.Item, "item");
-var Label14 = withContext29(RatingGroup.Label, "label");
+var Label15 = withContext29(RatingGroup.Label, "label");
 var HiddenInput5 = RatingGroup.HiddenInput;
 var StyledItemIndicator3 = withContext29("span", "itemIndicator");
 var cloneIcon = (icon2, type) => {
@@ -1710,7 +1716,7 @@ var exports_segment_group = {};
 __export(exports_segment_group, {
   RootProvider: () => RootProvider27,
   Root: () => Root31,
-  Label: () => Label15,
+  Label: () => Label16,
   Items: () => Items4,
   ItemText: () => ItemText5,
   ItemHiddenInput: () => ItemHiddenInput3,
@@ -1737,7 +1743,7 @@ var Item11 = withContext31(SegmentGroup.Item, "item");
 var ItemControl3 = withContext31(SegmentGroup.ItemControl, "itemControl");
 var ItemHiddenInput3 = SegmentGroup.ItemHiddenInput;
 var ItemText5 = withContext31(SegmentGroup.ItemText, "itemText");
-var Label15 = withContext31(SegmentGroup.Label, "label");
+var Label16 = withContext31(SegmentGroup.Label, "label");
 var Items4 = (props) => {
   const { items, ...itemProps } = props;
   const data = useMemo3(() => normalize(items), [items]);
@@ -1762,7 +1768,7 @@ __export(exports_select, {
   Root: () => Root32,
   Positioner: () => Positioner9,
   List: () => List4,
-  Label: () => Label16,
+  Label: () => Label17,
   ItemText: () => ItemText6,
   ItemIndicator: () => ItemIndicator8,
   ItemGroupLabel: () => ItemGroupLabel3,
@@ -1777,7 +1783,7 @@ __export(exports_select, {
   Content: () => Content13,
   ClearTrigger: () => ClearTrigger4
 });
-import { ark as ark21 } from "@ark-ui/react/factory";
+import { ark as ark22 } from "@ark-ui/react/factory";
 import { Select, useSelectItemContext } from "@ark-ui/react/select";
 import { forwardRef as forwardRef19 } from "react";
 import { createStyleContext as createStyleContext32 } from "styled-system/jsx";
@@ -1793,12 +1799,12 @@ var Root32 = withProvider27(Select.Root, "root");
 var ClearTrigger4 = withContext32(Select.ClearTrigger, "clearTrigger");
 var Content13 = withContext32(Select.Content, "content");
 var Control12 = withContext32(Select.Control, "control");
-var IndicatorGroup3 = withContext32(ark21.div, "indicatorGroup");
+var IndicatorGroup3 = withContext32(ark22.div, "indicatorGroup");
 var Item12 = withContext32(Select.Item, "item");
 var ItemGroup5 = withContext32(Select.ItemGroup, "itemGroup");
 var ItemGroupLabel3 = withContext32(Select.ItemGroupLabel, "itemGroupLabel");
 var ItemText6 = withContext32(Select.ItemText, "itemText");
-var Label16 = withContext32(Select.Label, "label");
+var Label17 = withContext32(Select.Label, "label");
 var List4 = withContext32(Select.List, "list");
 var Positioner9 = withContext32(Select.Positioner, "positioner");
 var Trigger12 = withContext32(Select.Trigger, "trigger");
@@ -1819,14 +1825,21 @@ var ItemIndicator8 = forwardRef19(function ItemIndicator9(props, ref) {
     focusable: "false"
   }, undefined, false, undefined, this);
 });
+// src/components/ui/separator.tsx
+import { ark as ark23 } from "@ark-ui/react/factory";
+import { styled as styled18 } from "styled-system/jsx";
+import { separator } from "styled-system/recipes";
+var Separator3 = styled18(ark23.hr, separator, {
+  defaultProps: { "data-orientation": "horizontal" }
+});
 // src/components/ui/skeleton.tsx
-import { ark as ark22 } from "@ark-ui/react/factory";
+import { ark as ark24 } from "@ark-ui/react/factory";
 import { forwardRef as forwardRef20 } from "react";
-import { Stack as Stack2, styled as styled17 } from "styled-system/jsx";
+import { Stack as Stack2, styled as styled19 } from "styled-system/jsx";
 import { skeleton } from "styled-system/recipes";
 import { jsxDEV as jsxDEV26 } from "react/jsx-dev-runtime";
-var Skeleton = styled17(ark22.div, skeleton);
-var SkeletonCircle = styled17(ark22.div, skeleton, { defaultProps: { circle: true } });
+var Skeleton = styled19(ark24.div, skeleton);
+var SkeletonCircle = styled19(ark24.div, skeleton, { defaultProps: { circle: true } });
 var SkeletonText = forwardRef20(function SkeletonText2(props, ref) {
   const { noOfLines = 3, gap, rootProps, ...skeletonProps } = props;
   return /* @__PURE__ */ jsxDEV26(Stack2, {
@@ -1854,13 +1867,13 @@ __export(exports_slider, {
   MarkerIndicator: () => MarkerIndicator,
   MarkerGroup: () => MarkerGroup,
   Marker: () => Marker,
-  Label: () => Label17,
+  Label: () => Label18,
   HiddenInput: () => HiddenInput6,
   DraggingIndicator: () => DraggingIndicator,
   Control: () => Control13,
   Context: () => SliderContext
 });
-import { ark as ark23 } from "@ark-ui/react/factory";
+import { ark as ark25 } from "@ark-ui/react/factory";
 import { Slider, useSliderContext } from "@ark-ui/react/slider";
 import { forwardRef as forwardRef21 } from "react";
 import { createStyleContext as createStyleContext33 } from "styled-system/jsx";
@@ -1872,9 +1885,9 @@ var { withProvider: withProvider28, withContext: withContext33 } = createStyleCo
 var Root33 = withProvider28(Slider.Root, "root");
 var Control13 = withContext33(Slider.Control, "control");
 var DraggingIndicator = withContext33(Slider.DraggingIndicator, "draggingIndicator");
-var Label17 = withContext33(Slider.Label, "label");
+var Label18 = withContext33(Slider.Label, "label");
 var Marker = withContext33(Slider.Marker, "marker");
-var MarkerIndicator = withContext33(ark23.div, "markerIndicator");
+var MarkerIndicator = withContext33(ark25.div, "markerIndicator");
 var MarkerGroup = withContext33(Slider.MarkerGroup, "markerGroup");
 var Range2 = withContext33(Slider.Range, "range");
 var Thumb2 = withContext33(Slider.Thumb, "thumb");
@@ -1937,16 +1950,16 @@ __export(exports_switch, {
   Thumb: () => Thumb3,
   RootProvider: () => RootProvider29,
   Root: () => Root35,
-  Label: () => Label18,
+  Label: () => Label19,
   Indicator: () => Indicator15,
   HiddenInput: () => HiddenInput7,
   Control: () => Control14,
   Context: () => SwitchContext
 });
-import { ark as ark24 } from "@ark-ui/react";
+import { ark as ark26 } from "@ark-ui/react";
 import { Switch, useSwitchContext } from "@ark-ui/react/switch";
 import { forwardRef as forwardRef22 } from "react";
-import { createStyleContext as createStyleContext35, styled as styled18 } from "styled-system/jsx";
+import { createStyleContext as createStyleContext35, styled as styled20 } from "styled-system/jsx";
 import { switchRecipe } from "styled-system/recipes";
 import { SwitchContext } from "@ark-ui/react/switch";
 import { jsxDEV as jsxDEV28 } from "react/jsx-dev-runtime";
@@ -1954,13 +1967,13 @@ import { jsxDEV as jsxDEV28 } from "react/jsx-dev-runtime";
 var { withProvider: withProvider30, withContext: withContext35 } = createStyleContext35(switchRecipe);
 var Root35 = withProvider30(Switch.Root, "root");
 var RootProvider29 = withProvider30(Switch.RootProvider, "root");
-var Label18 = withContext35(Switch.Label, "label");
+var Label19 = withContext35(Switch.Label, "label");
 var Thumb3 = withContext35(Switch.Thumb, "thumb");
 var HiddenInput7 = Switch.HiddenInput;
 var Control14 = withContext35(Switch.Control, "control", {
   defaultProps: { children: /* @__PURE__ */ jsxDEV28(Thumb3, {}, undefined, false, undefined, this) }
 });
-var StyledIndicator3 = withContext35(ark24.span, "indicator");
+var StyledIndicator3 = withContext35(ark26.span, "indicator");
 var Indicator15 = forwardRef22(function Indicator16(props, ref) {
   const { fallback, children, ...rest } = props;
   const api = useSwitchContext();
@@ -1971,7 +1984,7 @@ var Indicator15 = forwardRef22(function Indicator16(props, ref) {
     children: api.checked ? children : fallback
   }, undefined, false, undefined, this);
 });
-var StyledThumbIndicator = styled18(ark24.span);
+var StyledThumbIndicator = styled20(ark26.span);
 var ThumbIndicator = forwardRef22(function SwitchThumbIndicator(props, ref) {
   const { fallback, children, ...rest } = props;
   const api = useSwitchContext();
@@ -1994,19 +2007,19 @@ __export(exports_table, {
   Caption: () => Caption,
   Body: () => Body5
 });
-import { ark as ark25 } from "@ark-ui/react/factory";
+import { ark as ark27 } from "@ark-ui/react/factory";
 import { createStyleContext as createStyleContext36 } from "styled-system/jsx";
 import { table } from "styled-system/recipes";
 "use client";
 var { withProvider: withProvider31, withContext: withContext36 } = createStyleContext36(table);
-var Root36 = withProvider31(ark25.table, "root");
-var Body5 = withContext36(ark25.tbody, "body");
-var Caption = withContext36(ark25.caption, "caption");
-var Cell = withContext36(ark25.td, "cell");
-var Foot = withContext36(ark25.tfoot, "foot");
-var Head = withContext36(ark25.thead, "head");
-var Header5 = withContext36(ark25.th, "header");
-var Row = withContext36(ark25.tr, "row");
+var Root36 = withProvider31(ark27.table, "root");
+var Body5 = withContext36(ark27.tbody, "body");
+var Caption = withContext36(ark27.caption, "caption");
+var Cell = withContext36(ark27.td, "cell");
+var Foot = withContext36(ark27.tfoot, "foot");
+var Head = withContext36(ark27.thead, "head");
+var Header5 = withContext36(ark27.th, "header");
+var Row = withContext36(ark27.tr, "row");
 // src/components/ui/tabs.tsx
 var exports_tabs = {};
 __export(exports_tabs, {
@@ -2035,7 +2048,7 @@ var exports_tags_input = {};
 __export(exports_tags_input, {
   RootProvider: () => RootProvider31,
   Root: () => Root38,
-  Label: () => Label19,
+  Label: () => Label20,
   Items: () => Items5,
   ItemText: () => ItemText7,
   ItemPreview: () => ItemPreview2,
@@ -2070,7 +2083,7 @@ var ItemDeleteTrigger2 = withContext38(TagsInput.ItemDeleteTrigger, "itemDeleteT
 var ItemInput = withContext38(TagsInput.ItemInput, "itemInput");
 var ItemPreview2 = withContext38(TagsInput.ItemPreview, "itemPreview");
 var ItemText7 = withContext38(TagsInput.ItemText, "itemText");
-var Label19 = withContext38(TagsInput.Label, "label");
+var Label20 = withContext38(TagsInput.Label, "label");
 var Items5 = (props) => {
   const context = useTagsInputContext();
   return context.value.map((item, index) => /* @__PURE__ */ jsxDEV29(Item13, {
@@ -2091,19 +2104,19 @@ var Items5 = (props) => {
   }, index, true, undefined, this));
 };
 // src/components/ui/text.tsx
-import { styled as styled19 } from "styled-system/jsx";
+import { styled as styled21 } from "styled-system/jsx";
 import { text } from "styled-system/recipes";
-var Text = styled19("p", text);
+var Text = styled21("p", text);
 // src/components/ui/textarea.tsx
 import { Field as Field3 } from "@ark-ui/react/field";
-import { styled as styled20 } from "styled-system/jsx";
+import { styled as styled22 } from "styled-system/jsx";
 import { textarea } from "styled-system/recipes";
-var Textarea = styled20(Field3.Textarea, textarea);
+var Textarea = styled22(Field3.Textarea, textarea);
 // src/components/ui/toast.tsx
 import { Portal } from "@ark-ui/react/portal";
 import { Toaster as ArkToaster, createToaster, Toast, useToastContext } from "@ark-ui/react/toast";
 import { forwardRef as forwardRef23 } from "react";
-import { createStyleContext as createStyleContext39, Stack as Stack3, styled as styled21 } from "styled-system/jsx";
+import { createStyleContext as createStyleContext39, Stack as Stack3, styled as styled23 } from "styled-system/jsx";
 import { toast } from "styled-system/recipes";
 import { jsxDEV as jsxDEV30 } from "react/jsx-dev-runtime";
 "use client";
@@ -2113,7 +2126,7 @@ var Title6 = withContext39(Toast.Title, "title");
 var Description6 = withContext39(Toast.Description, "description");
 var ActionTrigger3 = withContext39(Toast.ActionTrigger, "actionTrigger");
 var CloseTrigger4 = withContext39(Toast.CloseTrigger, "closeTrigger");
-var StyledToaster = styled21(ArkToaster);
+var StyledToaster = styled23(ArkToaster);
 var iconMap = {
   warning: CircleAlert,
   success: CircleCheckBig,
@@ -2270,6 +2283,7 @@ export {
   SkeletonText,
   SkeletonCircle,
   Skeleton,
+  Separator3 as Separator,
   exports_select as Select,
   exports_segment_group as SegmentGroup,
   exports_scroll_area as ScrollArea,
@@ -2284,6 +2298,7 @@ export {
   exports_menu as Menu,
   Loader,
   Link2 as Link,
+  Label9 as Label,
   Kbd,
   InputGroup,
   InputAddon,
@@ -2321,5 +2336,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=80E299AC311C7B6764756E2164756E21
+//# debugId=66B3B96BA09A5C5164756E2164756E21
 //# sourceMappingURL=index.js.map

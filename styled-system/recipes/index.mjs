@@ -2,6 +2,7 @@ export * from './absolute-center.mjs';
 export * from './group.mjs';
 export * from './heading.mjs';
 export * from './input-addon.mjs';
+export * from './separator.mjs';
 export * from './badge.mjs';
 export * from './code.mjs';
 export * from './form-label.mjs';

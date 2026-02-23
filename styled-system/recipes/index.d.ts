@@ -3,6 +3,7 @@ export * from './absolute-center';
 export * from './group';
 export * from './heading';
 export * from './input-addon';
+export * from './separator';
 export * from './badge';
 export * from './code';
 export * from './form-label';

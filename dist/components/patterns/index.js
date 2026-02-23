@@ -35,7 +35,7 @@ var styles = {
     mt: "1"
   })
 };
-function ActionCard({ title, description, icon, onClick, className }) {
+function ActionCard({ title, description, icon, iconBg, iconColor, onClick, className }) {
   return /* @__PURE__ */ jsxDEV("div", {
     role: "button",
     tabIndex: 0,
@@ -50,6 +50,10 @@ function ActionCard({ title, description, icon, onClick, className }) {
     children: [
       icon && /* @__PURE__ */ jsxDEV("div", {
         className: styles.iconWrap,
+        style: {
+          ...iconBg ? { backgroundColor: iconBg } : {},
+          ...iconColor ? { color: iconColor } : {}
+        },
         children: icon
       }, undefined, false, undefined, this),
       /* @__PURE__ */ jsxDEV("div", {
@@ -249,13 +253,29 @@ var styles4 = {
     mt: "1"
   })
 };
-function StatCard({ title, value, change, changeType = "neutral", icon, className }) {
+function StatCard({
+  title,
+  value,
+  change,
+  changeType = "neutral",
+  icon,
+  iconBg,
+  iconColor,
+  badge,
+  badgeColor,
+  badgeBg,
+  className
+}) {
   const changeColor = changeType === "positive" ? css5({ color: "{colors.green.11}" }) : changeType === "negative" ? css5({ color: "{colors.red.11}" }) : css5({ color: "fg.muted" });
   return /* @__PURE__ */ jsxDEV5("div", {
     className: cx5(styles4.root, className),
     children: [
       icon && /* @__PURE__ */ jsxDEV5("div", {
         className: styles4.iconWrap,
+        style: {
+          ...iconBg ? { backgroundColor: iconBg } : {},
+          ...iconColor ? { color: iconColor } : {}
+        },
         children: icon
       }, undefined, false, undefined, this),
       /* @__PURE__ */ jsxDEV5("div", {
@@ -269,10 +289,29 @@ function StatCard({ title, value, change, changeType = "neutral", icon, classNam
             className: styles4.value,
             children: value
           }, undefined, false, undefined, this),
-          change && /* @__PURE__ */ jsxDEV5("div", {
-            className: cx5(styles4.change, changeColor),
-            children: change
-          }, undefined, false, undefined, this)
+          /* @__PURE__ */ jsxDEV5("div", {
+            className: css5({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
+            children: [
+              change && /* @__PURE__ */ jsxDEV5("span", {
+                className: cx5(styles4.change, changeColor),
+                children: change
+              }, undefined, false, undefined, this),
+              badge && /* @__PURE__ */ jsxDEV5("span", {
+                className: css5({
+                  textStyle: "small",
+                  px: "2",
+                  py: "0.5",
+                  rounded: "full",
+                  fontSize: "xs"
+                }),
+                style: {
+                  color: badgeColor,
+                  backgroundColor: badgeBg
+                },
+                children: badge
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this)
         ]
       }, undefined, true, undefined, this)
     ]
@@ -347,5 +386,5 @@ export {
   ActionCard
 };
 
-//# debugId=180F06E634063DCB64756E2164756E21
+//# debugId=20D4D96526A7EDC964756E2164756E21
 //# sourceMappingURL=index.js.map

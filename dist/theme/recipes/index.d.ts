@@ -122,6 +122,7 @@ export declare const recipes: {
     inputAddon: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;
     kbd: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;
     link: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;
+    separator: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;
     skeleton: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;
     spinner: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;
     text: import("@pandacss/types").RecipeConfig<import("@pandacss/types").RecipeVariantRecord>;

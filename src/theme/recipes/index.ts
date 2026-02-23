@@ -41,6 +41,7 @@ import { ratingGroup } from './rating-group'
 import { scrollArea } from './scroll-area'
 import { segmentGroup } from './segment-group'
 import { select } from './select'
+import { separator } from './separator'
 import { skeleton } from './skeleton'
 import { slider } from './slider'
 import { spinner } from './spinner'
@@ -67,6 +68,7 @@ export const recipes = {
 	inputAddon,
 	kbd,
 	link,
+	separator,
 	skeleton,
 	spinner,
 	text,

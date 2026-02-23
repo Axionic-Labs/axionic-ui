@@ -387,6 +387,21 @@ function createAxionicPreset() {
         },
         semanticTokens: {
           colors: {
+            fg: {
+              success: { value: { _light: "#16a34a", _dark: "#4ade80" } },
+              warning: { value: { _light: "#d97706", _dark: "#fbbf24" } },
+              info: { value: { _light: "#2563eb", _dark: "#60a5fa" } }
+            },
+            bg: {
+              success: { value: { _light: "rgba(22, 163, 74, 0.08)", _dark: "rgba(74, 222, 128, 0.12)" } },
+              warning: { value: { _light: "rgba(217, 119, 6, 0.08)", _dark: "rgba(251, 191, 36, 0.12)" } },
+              info: { value: { _light: "rgba(37, 99, 235, 0.08)", _dark: "rgba(96, 165, 250, 0.12)" } }
+            },
+            border: {
+              success: { value: { _light: "rgba(22, 163, 74, 0.3)", _dark: "rgba(74, 222, 128, 0.3)" } },
+              warning: { value: { _light: "rgba(217, 119, 6, 0.3)", _dark: "rgba(251, 191, 36, 0.3)" } },
+              info: { value: { _light: "rgba(37, 99, 235, 0.3)", _dark: "rgba(96, 165, 250, 0.3)" } }
+            },
             wheat: {
               "1": { value: { _light: "{colors.wheat.light.1}", _dark: "{colors.wheat.dark.1}" } },
               "2": { value: { _light: "{colors.wheat.light.2}", _dark: "{colors.wheat.dark.2}" } },
@@ -433,5 +448,5 @@ export {
   axionicSand
 };
 
-//# debugId=70FEDBE99640C0B464756E2164756E21
+//# debugId=A4921B06A822108764756E2164756E21
 //# sourceMappingURL=index.js.map

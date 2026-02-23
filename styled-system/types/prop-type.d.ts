@@ -204,7 +204,7 @@ export interface UtilityValues {
 	srOnly: boolean;
 	debug: boolean;
 	containerName: CssProperties["containerName"];
-	colorPalette: "current" | "black" | "white" | "transparent" | "red" | "red.light" | "red.dark" | "gray" | "gray.light" | "gray.dark" | "teal" | "teal.light" | "teal.dark" | "wheat" | "wheat.light" | "wheat.dark" | "bg" | "fg" | "border";
+	colorPalette: "current" | "black" | "white" | "transparent" | "red" | "red.light" | "red.dark" | "gray" | "gray.light" | "gray.dark" | "teal" | "teal.light" | "teal.dark" | "wheat" | "wheat.light" | "wheat.dark" | "fg" | "bg" | "border";
 	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "display" | "h1" | "h2" | "h3" | "body" | "small" | "caption" | "label" | "code";
 }
 
