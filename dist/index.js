@@ -122,30 +122,30 @@ var axionicSand = {
       a12: { value: "rgba(5, 5, 0, 0.89)" }
     },
     dark: {
-      "1": { value: "#111110" },
-      "2": { value: "#191918" },
-      "3": { value: "#222221" },
-      "4": { value: "#2a2a28" },
-      "5": { value: "#31312e" },
-      "6": { value: "#3b3b37" },
-      "7": { value: "#494844" },
-      "8": { value: "#62625b" },
-      "9": { value: "#6f6f68" },
-      "10": { value: "#7c7c74" },
-      "11": { value: "#b5b5ad" },
-      "12": { value: "#eeeeec" },
+      "1": { value: "#081618" },
+      "2": { value: "#1a2e30" },
+      "3": { value: "#1e3538" },
+      "4": { value: "#223e42" },
+      "5": { value: "#2a4a50" },
+      "6": { value: "#305558" },
+      "7": { value: "#345c62" },
+      "8": { value: "#4a7a82" },
+      "9": { value: "#5a9aa4" },
+      "10": { value: "#6eb0ba" },
+      "11": { value: "#a0d8e0" },
+      "12": { value: "#e1fdff" },
       a1: { value: "rgba(0, 0, 0, 0)" },
-      a2: { value: "rgba(245, 245, 200, 0.04)" },
-      a3: { value: "rgba(235, 235, 195, 0.08)" },
-      a4: { value: "rgba(230, 230, 175, 0.11)" },
-      a5: { value: "rgba(225, 225, 170, 0.14)" },
-      a6: { value: "rgba(220, 220, 165, 0.18)" },
-      a7: { value: "rgba(215, 215, 160, 0.24)" },
-      a8: { value: "rgba(210, 210, 155, 0.34)" },
-      a9: { value: "rgba(210, 210, 165, 0.39)" },
-      a10: { value: "rgba(210, 210, 170, 0.44)" },
-      a11: { value: "rgba(230, 230, 200, 0.68)" },
-      a12: { value: "rgba(250, 250, 240, 0.93)" }
+      a2: { value: "rgba(0, 200, 220, 0.06)" },
+      a3: { value: "rgba(0, 200, 220, 0.10)" },
+      a4: { value: "rgba(0, 200, 220, 0.14)" },
+      a5: { value: "rgba(0, 200, 220, 0.18)" },
+      a6: { value: "rgba(0, 200, 220, 0.24)" },
+      a7: { value: "rgba(0, 200, 220, 0.30)" },
+      a8: { value: "rgba(0, 200, 220, 0.40)" },
+      a9: { value: "rgba(0, 200, 220, 0.50)" },
+      a10: { value: "rgba(0, 200, 220, 0.56)" },
+      a11: { value: "rgba(0, 220, 240, 0.78)" },
+      a12: { value: "rgba(225, 253, 255, 0.93)" }
     }
   },
   semanticTokens: {
@@ -5243,7 +5243,10 @@ function createAxionicPreset() {
             bg: {
               success: { value: { _light: "rgba(22, 163, 74, 0.08)", _dark: "rgba(74, 222, 128, 0.12)" } },
               warning: { value: { _light: "rgba(217, 119, 6, 0.08)", _dark: "rgba(251, 191, 36, 0.12)" } },
-              info: { value: { _light: "rgba(37, 99, 235, 0.08)", _dark: "rgba(96, 165, 250, 0.12)" } }
+              info: { value: { _light: "rgba(37, 99, 235, 0.08)", _dark: "rgba(96, 165, 250, 0.12)" } },
+              deep: { value: { _light: "{colors.gray.light.1}", _dark: "#061012" } },
+              navbar: { value: { _light: "rgba(253, 253, 252, 0.85)", _dark: "rgba(26, 46, 48, 0.85)" } },
+              navbarIdle: { value: { _light: "rgba(253, 253, 252, 0.6)", _dark: "rgba(26, 46, 48, 0.6)" } }
             },
             border: {
               success: { value: { _light: "rgba(22, 163, 74, 0.3)", _dark: "rgba(74, 222, 128, 0.3)" } },
@@ -5292,5 +5295,5 @@ export {
   axionicSand
 };
 
-//# debugId=FCC15326D1F0E7CE64756E2164756E21
+//# debugId=2E7704484D7817AA64756E2164756E21
 //# sourceMappingURL=index.js.map
