@@ -87,6 +87,9 @@ export function createAxionicPreset() {
 							success: { value: { _light: 'rgba(22, 163, 74, 0.08)', _dark: 'rgba(74, 222, 128, 0.12)' } },
 							warning: { value: { _light: 'rgba(217, 119, 6, 0.08)', _dark: 'rgba(251, 191, 36, 0.12)' } },
 							info: { value: { _light: 'rgba(37, 99, 235, 0.08)', _dark: 'rgba(96, 165, 250, 0.12)' } },
+							deep: { value: { _light: '{colors.gray.light.1}', _dark: '#061012' } },
+							navbar: { value: { _light: 'rgba(253, 253, 252, 0.85)', _dark: 'rgba(26, 46, 48, 0.85)' } },
+							navbarIdle: { value: { _light: 'rgba(253, 253, 252, 0.6)', _dark: 'rgba(26, 46, 48, 0.6)' } },
 						},
 						border: {
 							success: { value: { _light: 'rgba(22, 163, 74, 0.3)', _dark: 'rgba(74, 222, 128, 0.3)' } },
