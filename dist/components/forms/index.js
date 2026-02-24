@@ -13,7 +13,7 @@ var Label = withContext(Field.Label, "label");
 var RequiredIndicator = withContext(Field.RequiredIndicator, "requiredIndicator");
 
 // src/components/forms/form-field.tsx
-import { jsxDEV } from "react/jsx-dev-runtime";
+import { jsx, jsxs } from "react/jsx-runtime";
 "use client";
 function FormField({
   label,
@@ -23,29 +23,29 @@ function FormField({
   children,
   ...rootProps
 }) {
-  return /* @__PURE__ */ jsxDEV(Root, {
+  return /* @__PURE__ */ jsxs(Root, {
     invalid: !!error,
     required,
     ...rootProps,
     children: [
-      /* @__PURE__ */ jsxDEV(Label, {
+      /* @__PURE__ */ jsxs(Label, {
         children: [
           label,
-          required && /* @__PURE__ */ jsxDEV(RequiredIndicator, {}, undefined, false, undefined, this)
+          required && /* @__PURE__ */ jsx(RequiredIndicator, {})
         ]
-      }, undefined, true, undefined, this),
+      }),
       children,
-      error ? /* @__PURE__ */ jsxDEV(ErrorText, {
+      error ? /* @__PURE__ */ jsx(ErrorText, {
         children: error
-      }, undefined, false, undefined, this) : helperText ? /* @__PURE__ */ jsxDEV(HelperText, {
+      }) : helperText ? /* @__PURE__ */ jsx(HelperText, {
         children: helperText
-      }, undefined, false, undefined, this) : null
+      }) : null
     ]
-  }, undefined, true, undefined, this);
+  });
 }
 // src/components/forms/form-message.tsx
 import { css, cx } from "styled-system/css";
-import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
+import { jsx as jsx2 } from "react/jsx-runtime";
 "use client";
 var base = css({
   display: "flex",
@@ -83,15 +83,15 @@ var variants = {
   })
 };
 function FormMessage({ variant, children, className }) {
-  return /* @__PURE__ */ jsxDEV2("div", {
+  return /* @__PURE__ */ jsx2("div", {
     role: variant === "error" ? "alert" : "status",
     className: cx(base, variants[variant], className),
     children
-  }, undefined, false, undefined, this);
+  });
 }
 // src/components/forms/form-alert.tsx
 import { css as css2, cx as cx2 } from "styled-system/css";
-import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
+import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
 "use client";
 var base2 = css2({
   display: "flex",
@@ -107,11 +107,11 @@ var base2 = css2({
   textStyle: "small"
 });
 function FormAlert({ children, className }) {
-  return /* @__PURE__ */ jsxDEV3("div", {
+  return /* @__PURE__ */ jsxs2("div", {
     role: "alert",
     className: cx2(base2, className),
     children: [
-      /* @__PURE__ */ jsxDEV3("svg", {
+      /* @__PURE__ */ jsxs2("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         width: "16",
         height: "16",
@@ -123,30 +123,30 @@ function FormAlert({ children, className }) {
         strokeLinejoin: "round",
         style: { flexShrink: 0, marginTop: "2px" },
         children: [
-          /* @__PURE__ */ jsxDEV3("circle", {
+          /* @__PURE__ */ jsx3("circle", {
             cx: "12",
             cy: "12",
             r: "10"
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsxDEV3("line", {
+          }),
+          /* @__PURE__ */ jsx3("line", {
             x1: "12",
             y1: "8",
             x2: "12",
             y2: "12"
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsxDEV3("line", {
+          }),
+          /* @__PURE__ */ jsx3("line", {
             x1: "12",
             y1: "16",
             x2: "12.01",
             y2: "16"
-          }, undefined, false, undefined, this)
+          })
         ]
-      }, undefined, true, undefined, this),
-      /* @__PURE__ */ jsxDEV3("div", {
+      }),
+      /* @__PURE__ */ jsx3("div", {
         children
-      }, undefined, false, undefined, this)
+      })
     ]
-  }, undefined, true, undefined, this);
+  });
 }
 export {
   FormMessage,
@@ -154,5 +154,5 @@ export {
   FormAlert
 };
 
-//# debugId=FC1A565501EF5FEF64756E2164756E21
+//# debugId=C00F6FBD03EE6E9A64756E2164756E21
 //# sourceMappingURL=index.js.map

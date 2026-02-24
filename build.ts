@@ -78,6 +78,7 @@ async function build() {
 				'react',
 				'react-dom',
 				'react/jsx-runtime',
+				'react/jsx-dev-runtime',
 				'@ark-ui/react',
 				'@ark-ui/react/*',
 				'@pandacss/dev',
@@ -85,6 +86,9 @@ async function build() {
 				'styled-system/*',
 				'~/components/*',
 			],
+			define: {
+				'process.env.NODE_ENV': '"production"',
+			},
 			splitting: false,
 		});
 

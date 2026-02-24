@@ -1,6 +1,6 @@
 // src/components/layout/dark-section.tsx
 import { css, cx } from "styled-system/css";
-import { jsxDEV } from "react/jsx-dev-runtime";
+import { jsx } from "react/jsx-runtime";
 var base = css({
   bg: "colorPalette.9",
   color: "white",
@@ -17,18 +17,18 @@ var inner = css({
   zIndex: 1
 });
 function DarkSection({ children, className, id }) {
-  return /* @__PURE__ */ jsxDEV("section", {
+  return /* @__PURE__ */ jsx("section", {
     id,
     className: cx(base, className),
-    children: /* @__PURE__ */ jsxDEV("div", {
+    children: /* @__PURE__ */ jsx("div", {
       className: inner,
       children
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    })
+  });
 }
 // src/components/layout/page-header.tsx
 import { css as css2, cx as cx2 } from "styled-system/css";
-import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
+import { jsx as jsx2, jsxs } from "react/jsx-runtime";
 var styles = {
   root: css2({
     display: "flex",
@@ -54,34 +54,34 @@ var styles = {
   })
 };
 function PageHeader({ title, subtitle, badge, action, className }) {
-  return /* @__PURE__ */ jsxDEV2("div", {
+  return /* @__PURE__ */ jsxs("div", {
     className: cx2(styles.root, className),
     children: [
-      /* @__PURE__ */ jsxDEV2("div", {
+      /* @__PURE__ */ jsxs("div", {
         children: [
-          /* @__PURE__ */ jsxDEV2("div", {
+          /* @__PURE__ */ jsxs("div", {
             className: styles.content,
             children: [
-              /* @__PURE__ */ jsxDEV2("h1", {
+              /* @__PURE__ */ jsx2("h1", {
                 className: styles.title,
                 children: title
-              }, undefined, false, undefined, this),
+              }),
               badge
             ]
-          }, undefined, true, undefined, this),
-          subtitle && /* @__PURE__ */ jsxDEV2("p", {
+          }),
+          subtitle && /* @__PURE__ */ jsx2("p", {
             className: styles.subtitle,
             children: subtitle
-          }, undefined, false, undefined, this)
+          })
         ]
-      }, undefined, true, undefined, this),
+      }),
       action
     ]
-  }, undefined, true, undefined, this);
+  });
 }
 // src/components/layout/section.tsx
 import { css as css3, cx as cx3 } from "styled-system/css";
-import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
+import { jsx as jsx3 } from "react/jsx-runtime";
 var base2 = css3({
   py: { base: "16", md: "24" },
   px: { base: "4", md: "6", lg: "8" },
@@ -90,15 +90,15 @@ var base2 = css3({
   w: "full"
 });
 function Section({ children, className, id }) {
-  return /* @__PURE__ */ jsxDEV3("section", {
+  return /* @__PURE__ */ jsx3("section", {
     id,
     className: cx3(base2, className),
     children
-  }, undefined, false, undefined, this);
+  });
 }
 // src/components/layout/split-section.tsx
 import { css as css4, cx as cx4 } from "styled-system/css";
-import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
+import { jsx as jsx4, jsxs as jsxs2 } from "react/jsx-runtime";
 var base3 = css4({
   display: "grid",
   gridTemplateColumns: { base: "1fr", lg: "1fr 1fr" },
@@ -111,19 +111,19 @@ var base3 = css4({
   w: "full"
 });
 function SplitSection({ left, right, className, reversed }) {
-  return /* @__PURE__ */ jsxDEV4("section", {
+  return /* @__PURE__ */ jsxs2("section", {
     className: cx4(base3, className),
     children: [
-      /* @__PURE__ */ jsxDEV4("div", {
+      /* @__PURE__ */ jsx4("div", {
         style: reversed ? { order: 2 } : undefined,
         children: left
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsxDEV4("div", {
+      }),
+      /* @__PURE__ */ jsx4("div", {
         style: reversed ? { order: 1 } : undefined,
         children: right
-      }, undefined, false, undefined, this)
+      })
     ]
-  }, undefined, true, undefined, this);
+  });
 }
 export {
   SplitSection,
@@ -132,5 +132,5 @@ export {
   DarkSection
 };
 
-//# debugId=583F5A01D880DA3364756E2164756E21
+//# debugId=2B0365C2349B0E2864756E2164756E21
 //# sourceMappingURL=index.js.map

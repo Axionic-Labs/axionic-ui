@@ -223,7 +223,7 @@ var X = createLucideIcon("x", __iconNode15);
 import { createStyleContext } from "styled-system/jsx";
 import { accordion } from "styled-system/recipes";
 import { AccordionContext } from "@ark-ui/react/accordion";
-import { jsxDEV } from "react/jsx-dev-runtime";
+import { jsx } from "react/jsx-runtime";
 "use client";
 var { withProvider, withContext } = createStyleContext(accordion);
 var Root = withProvider(Accordion.Root, "root");
@@ -231,7 +231,7 @@ var RootProvider = withProvider(Accordion.RootProvider, "root");
 var Item = withContext(Accordion.Item, "item");
 var ItemContent = withContext(Accordion.ItemContent, "itemContent");
 var ItemIndicator = withContext(Accordion.ItemIndicator, "itemIndicator", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV(ChevronDown, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx(ChevronDown, {}) }
 });
 var ItemTrigger = withContext(Accordion.ItemTrigger, "itemTrigger");
 var ItemBody = withContext(ark2.div, "itemBody");
@@ -248,7 +248,7 @@ import { ark as ark3 } from "@ark-ui/react/factory";
 import { forwardRef as forwardRef3 } from "react";
 import { createStyleContext as createStyleContext2 } from "styled-system/jsx";
 import { alert } from "styled-system/recipes";
-import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
+import { jsx as jsx2 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider2, withContext: withContext2 } = createStyleContext2(alert);
 var Root2 = withProvider2(ark3.div, "root");
@@ -257,11 +257,11 @@ var Description = withContext2(ark3.div, "description");
 var Content = withContext2(ark3.div, "content");
 var StyledIndicator = withContext2(ark3.span, "indicator");
 var Indicator = forwardRef3(function Indicator2(props, ref) {
-  return /* @__PURE__ */ jsxDEV2(StyledIndicator, {
+  return /* @__PURE__ */ jsx2(StyledIndicator, {
     ref,
     ...props,
-    children: /* @__PURE__ */ jsxDEV2(Info, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    children: /* @__PURE__ */ jsx2(Info, {})
+  });
 });
 // src/components/ui/avatar.tsx
 var exports_avatar = {};
@@ -277,7 +277,7 @@ import { forwardRef as forwardRef4 } from "react";
 import { createStyleContext as createStyleContext3 } from "styled-system/jsx";
 import { avatar } from "styled-system/recipes";
 import { AvatarContext } from "@ark-ui/react/avatar";
-import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
+import { jsx as jsx3 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider3, withContext: withContext3 } = createStyleContext3(avatar);
 var Root3 = withProvider3(Avatar.Root, "root");
@@ -291,12 +291,12 @@ var Image = withContext3(Avatar.Image, "image", {
 var StyledFallback = withContext3(Avatar.Fallback, "fallback");
 var Fallback = forwardRef4(function Fallback2(props, ref) {
   const { name, children, asChild, ...rest } = props;
-  const fallbackContent = children || asChild ? children : name ? getInitials(name) : /* @__PURE__ */ jsxDEV3(User, {}, undefined, false, undefined, this);
-  return /* @__PURE__ */ jsxDEV3(StyledFallback, {
+  const fallbackContent = children || asChild ? children : name ? getInitials(name) : /* @__PURE__ */ jsx3(User, {});
+  return /* @__PURE__ */ jsx3(StyledFallback, {
     ref,
     ...rest,
     children: fallbackContent
-  }, undefined, false, undefined, this);
+  });
 });
 var getInitials = (name) => {
   const names = name.trim().split(" ");
@@ -322,7 +322,7 @@ __export(exports_breadcrumb, {
 import { ark as ark5 } from "@ark-ui/react/factory";
 import { createStyleContext as createStyleContext4 } from "styled-system/jsx";
 import { breadcrumb } from "styled-system/recipes";
-import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
+import { jsx as jsx4 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider4, withContext: withContext4 } = createStyleContext4(breadcrumb);
 var Root4 = withProvider4(ark5.nav, "root", { defaultProps: { "aria-label": "breadcrumb" } });
@@ -339,7 +339,7 @@ var Ellipsis2 = withContext4(ark5.li, "ellipsis", {
 var Separator = withContext4(ark5.li, "separator", {
   defaultProps: {
     "aria-hidden": true,
-    children: /* @__PURE__ */ jsxDEV4(ChevronRight, {}, undefined, false, undefined, this)
+    children: /* @__PURE__ */ jsx4(ChevronRight, {})
   }
 });
 // src/components/ui/button.tsx
@@ -369,15 +369,15 @@ import { spinner } from "styled-system/recipes";
 var Spinner = styled5(ark7.span, spinner);
 
 // src/components/ui/loader.tsx
-import { jsxDEV as jsxDEV5 } from "react/jsx-dev-runtime";
+import { jsx as jsx5, jsxs } from "react/jsx-runtime";
 "use client";
 var Loader = forwardRef5(function Loader2(props, ref) {
   const {
-    spinner: spinner2 = /* @__PURE__ */ jsxDEV5(Spinner, {
+    spinner: spinner2 = /* @__PURE__ */ jsx5(Spinner, {
       size: "inherit",
       borderWidth: "0.125em",
       color: "inherit"
-    }, undefined, false, undefined, this),
+    }),
     spinnerPlacement = "start",
     children,
     text,
@@ -387,7 +387,7 @@ var Loader = forwardRef5(function Loader2(props, ref) {
   if (!visible)
     return children;
   if (text) {
-    return /* @__PURE__ */ jsxDEV5(Span, {
+    return /* @__PURE__ */ jsxs(Span, {
       ref,
       display: "contents",
       ...rest,
@@ -396,65 +396,65 @@ var Loader = forwardRef5(function Loader2(props, ref) {
         text,
         spinnerPlacement === "end" && spinner2
       ]
-    }, undefined, true, undefined, this);
+    });
   }
   if (spinner2) {
-    return /* @__PURE__ */ jsxDEV5(Span, {
+    return /* @__PURE__ */ jsxs(Span, {
       ref,
       display: "contents",
       ...rest,
       children: [
-        /* @__PURE__ */ jsxDEV5(AbsoluteCenter, {
+        /* @__PURE__ */ jsx5(AbsoluteCenter, {
           display: "inline-flex",
           children: spinner2
-        }, undefined, false, undefined, this),
-        /* @__PURE__ */ jsxDEV5(Span, {
+        }),
+        /* @__PURE__ */ jsx5(Span, {
           visibility: "hidden",
           display: "contents",
           children
-        }, undefined, false, undefined, this)
+        })
       ]
-    }, undefined, true, undefined, this);
+    });
   }
-  return /* @__PURE__ */ jsxDEV5(Span, {
+  return /* @__PURE__ */ jsx5(Span, {
     ref,
     display: "contents",
     ...rest,
     children
-  }, undefined, false, undefined, this);
+  });
 });
 
 // src/components/ui/button.tsx
-import { jsxDEV as jsxDEV6 } from "react/jsx-dev-runtime";
+import { jsx as jsx6 } from "react/jsx-runtime";
 "use client";
 var BaseButton = styled6(ark8.button, button);
 var Button = forwardRef6(function Button2(props, ref) {
   const propsContext = useButtonPropsContext();
   const buttonProps = useMemo(() => mergeProps(propsContext, props), [propsContext, props]);
   const { loading, loadingText, children, spinner: spinner2, spinnerPlacement, ...rest } = buttonProps;
-  return /* @__PURE__ */ jsxDEV6(BaseButton, {
+  return /* @__PURE__ */ jsx6(BaseButton, {
     type: "button",
     ref,
     ...rest,
     "data-loading": loading ? "" : undefined,
     disabled: loading || rest.disabled,
-    children: !props.asChild && loading ? /* @__PURE__ */ jsxDEV6(Loader, {
+    children: !props.asChild && loading ? /* @__PURE__ */ jsx6(Loader, {
       spinner: spinner2,
       text: loadingText,
       spinnerPlacement,
       children
-    }, undefined, false, undefined, this) : children
-  }, undefined, false, undefined, this);
+    }) : children
+  });
 });
 var ButtonGroup = forwardRef6(function ButtonGroup2(props, ref) {
   const [variantProps, otherProps] = useMemo(() => button.splitVariantProps(props), [props]);
-  return /* @__PURE__ */ jsxDEV6(ButtonPropsProvider, {
+  return /* @__PURE__ */ jsx6(ButtonPropsProvider, {
     value: variantProps,
-    children: /* @__PURE__ */ jsxDEV6(Group, {
+    children: /* @__PURE__ */ jsx6(Group, {
       ref,
       ...otherProps
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    })
+  });
 });
 var [ButtonPropsProvider, useButtonPropsContext] = createContext({
   name: "ButtonPropsContext",
@@ -503,7 +503,7 @@ import { forwardRef as forwardRef7 } from "react";
 import { createStyleContext as createStyleContext6 } from "styled-system/jsx";
 import { carousel } from "styled-system/recipes";
 import { CarouselContext } from "@ark-ui/react/carousel";
-import { jsxDEV as jsxDEV7 } from "react/jsx-dev-runtime";
+import { jsx as jsx7 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider6, withContext: withContext6 } = createStyleContext6(carousel);
 var Root6 = withProvider6(Carousel.Root, "root", {
@@ -521,13 +521,13 @@ var PrevTrigger = withContext6(Carousel.PrevTrigger, "prevTrigger");
 var StyledIndicatorGroup = withContext6(Carousel.IndicatorGroup, "indicatorGroup");
 var IndicatorGroup = forwardRef7((props, ref) => {
   const carousel2 = useCarouselContext();
-  return /* @__PURE__ */ jsxDEV7(StyledIndicatorGroup, {
+  return /* @__PURE__ */ jsx7(StyledIndicatorGroup, {
     ...props,
     ref,
-    children: carousel2.pageSnapPoints.map((_, index) => /* @__PURE__ */ jsxDEV7(Indicator3, {
+    children: carousel2.pageSnapPoints.map((_, index) => /* @__PURE__ */ jsx7(Indicator3, {
       index
-    }, index, false, undefined, this))
-  }, undefined, false, undefined, this);
+    }, index))
+  });
 });
 // src/components/ui/checkbox.tsx
 var exports_checkbox = {};
@@ -548,7 +548,7 @@ import { checkbox } from "styled-system/recipes";
 import {
   CheckboxGroupProvider
 } from "@ark-ui/react/checkbox";
-import { jsxDEV as jsxDEV8 } from "react/jsx-dev-runtime";
+import { jsx as jsx8, jsxs as jsxs2 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider7, withContext: withContext7 } = createStyleContext7(checkbox);
 var Root7 = withProvider7(Checkbox.Root, "root");
@@ -559,10 +559,10 @@ var Label = withContext7(Checkbox.Label, "label");
 var HiddenInput = Checkbox.HiddenInput;
 var Indicator4 = forwardRef8(function Indicator5(props, ref) {
   const { indeterminate, checked } = useCheckboxContext();
-  return /* @__PURE__ */ jsxDEV8(Checkbox.Indicator, {
+  return /* @__PURE__ */ jsx8(Checkbox.Indicator, {
     indeterminate,
     asChild: true,
-    children: /* @__PURE__ */ jsxDEV8(styled7.svg, {
+    children: /* @__PURE__ */ jsxs2(styled7.svg, {
       ref,
       viewBox: "0 0 24 24",
       fill: "none",
@@ -572,17 +572,17 @@ var Indicator4 = forwardRef8(function Indicator5(props, ref) {
       strokeLinejoin: "round",
       ...props,
       children: [
-        /* @__PURE__ */ jsxDEV8("title", {
+        /* @__PURE__ */ jsx8("title", {
           children: "Checkmark"
-        }, undefined, false, undefined, this),
-        indeterminate ? /* @__PURE__ */ jsxDEV8("path", {
+        }),
+        indeterminate ? /* @__PURE__ */ jsx8("path", {
           d: "M5 12h14"
-        }, undefined, false, undefined, this) : checked ? /* @__PURE__ */ jsxDEV8("path", {
+        }) : checked ? /* @__PURE__ */ jsx8("path", {
           d: "M20 6 9 17l-5-5"
-        }, undefined, false, undefined, this) : null
+        }) : null
       ]
-    }, undefined, true, undefined, this)
-  }, undefined, false, undefined, this);
+    })
+  });
 });
 // src/components/ui/clipboard.tsx
 var exports_clipboard = {};
@@ -602,7 +602,7 @@ import { forwardRef as forwardRef9 } from "react";
 import { createStyleContext as createStyleContext8 } from "styled-system/jsx";
 import { clipboard } from "styled-system/recipes";
 import { ClipboardContext } from "@ark-ui/react/clipboard";
-import { jsxDEV as jsxDEV9 } from "react/jsx-dev-runtime";
+import { jsx as jsx9 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider8, withContext: withContext8 } = createStyleContext8(clipboard);
 var Root8 = withProvider8(Clipboard.Root, "root");
@@ -613,47 +613,47 @@ var Label2 = withContext8(Clipboard.Label, "label");
 var Trigger = withContext8(Clipboard.Trigger, "trigger");
 var StyledIndicator2 = withContext8(Clipboard.Indicator, "indicator");
 var Indicator6 = forwardRef9(function Indicator7(props, ref) {
-  return /* @__PURE__ */ jsxDEV9(StyledIndicator2, {
+  return /* @__PURE__ */ jsx9(StyledIndicator2, {
     ref,
-    copied: /* @__PURE__ */ jsxDEV9(Check, {}, undefined, false, undefined, this),
+    copied: /* @__PURE__ */ jsx9(Check, {}),
     ...props,
-    children: /* @__PURE__ */ jsxDEV9(Copy, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    children: /* @__PURE__ */ jsx9(Copy, {})
+  });
 });
 var CopyText = forwardRef9(function CopyText2(props, ref) {
-  return /* @__PURE__ */ jsxDEV9(StyledIndicator2, {
+  return /* @__PURE__ */ jsx9(StyledIndicator2, {
     ref,
     copied: "Copied",
     ...props,
     children: "Copy"
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/close-button.tsx
 import { forwardRef as forwardRef11 } from "react";
 
 // src/components/ui/icon-button.tsx
 import { forwardRef as forwardRef10 } from "react";
-import { jsxDEV as jsxDEV10 } from "react/jsx-dev-runtime";
+import { jsx as jsx10 } from "react/jsx-runtime";
 var IconButton = forwardRef10(function IconButton2(props, ref) {
-  return /* @__PURE__ */ jsxDEV10(Button, {
+  return /* @__PURE__ */ jsx10(Button, {
     px: "0",
     py: "0",
     ref,
     ...props
-  }, undefined, false, undefined, this);
+  });
 });
 
 // src/components/ui/close-button.tsx
-import { jsxDEV as jsxDEV11 } from "react/jsx-dev-runtime";
+import { jsx as jsx11 } from "react/jsx-runtime";
 var CloseButton = forwardRef11(function CloseButton2(props, ref) {
-  return /* @__PURE__ */ jsxDEV11(IconButton, {
+  return /* @__PURE__ */ jsx11(IconButton, {
     variant: "plain",
     colorPalette: "gray",
     "aria-label": "Close",
     ref,
     ...props,
-    children: props.children ?? /* @__PURE__ */ jsxDEV11(X, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    children: props.children ?? /* @__PURE__ */ jsx11(X, {})
+  });
 });
 // src/components/ui/code.tsx
 import { ark as ark10 } from "@ark-ui/react/factory";
@@ -776,7 +776,7 @@ import { forwardRef as forwardRef12 } from "react";
 import { createStyleContext as createStyleContext11 } from "styled-system/jsx";
 import { combobox } from "styled-system/recipes";
 import { ComboboxContext } from "@ark-ui/react/combobox";
-import { jsxDEV as jsxDEV12 } from "react/jsx-dev-runtime";
+import { jsx as jsx12 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider11, withContext: withContext11 } = createStyleContext11(combobox);
 var Root11 = withProvider11(Combobox.Root, "root", {
@@ -784,7 +784,7 @@ var Root11 = withProvider11(Combobox.Root, "root", {
 });
 var RootProvider8 = withProvider11(Combobox.RootProvider, "root");
 var ClearTrigger = withContext11(Combobox.ClearTrigger, "clearTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV12(X, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx12(X, {}) }
 });
 var Content4 = withContext11(Combobox.Content, "content");
 var Control5 = withContext11(Combobox.Control, "control");
@@ -799,19 +799,19 @@ var Label4 = withContext11(Combobox.Label, "label");
 var List2 = withContext11(Combobox.List, "list");
 var Positioner2 = withContext11(Combobox.Positioner, "positioner");
 var Trigger4 = withContext11(Combobox.Trigger, "trigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV12(ChevronsUpDown, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx12(ChevronsUpDown, {}) }
 });
 var StyledItemIndicator = withContext11(Combobox.ItemIndicator, "itemIndicator");
 var ItemIndicator2 = forwardRef12(function ItemIndicator3(props, ref) {
   const item = useComboboxItemContext();
-  return item.selected ? /* @__PURE__ */ jsxDEV12(StyledItemIndicator, {
+  return item.selected ? /* @__PURE__ */ jsx12(StyledItemIndicator, {
     ref,
     ...props,
-    children: /* @__PURE__ */ jsxDEV12(Check, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this) : /* @__PURE__ */ jsxDEV12("svg", {
+    children: /* @__PURE__ */ jsx12(Check, {})
+  }) : /* @__PURE__ */ jsx12("svg", {
     "aria-hidden": "true",
     focusable: "false"
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/date-picker.tsx
 var exports_date_picker = {};
@@ -898,7 +898,7 @@ import { forwardRef as forwardRef13 } from "react";
 import { createStyleContext as createStyleContext13, styled as styled9 } from "styled-system/jsx";
 import { dialog } from "styled-system/recipes";
 import { DialogContext } from "@ark-ui/react/dialog";
-import { jsxDEV as jsxDEV13 } from "react/jsx-dev-runtime";
+import { jsx as jsx13 } from "react/jsx-runtime";
 "use client";
 var { withRootProvider, withContext: withContext13 } = createStyleContext13(dialog);
 var Root13 = withRootProvider(Dialog.Root, {
@@ -920,15 +920,15 @@ var Footer2 = withContext13(ark12.div, "footer");
 var StyledButton = styled9(ark12.button);
 var ActionTrigger = forwardRef13(function ActionTrigger2(props, ref) {
   const dialog2 = useDialogContext();
-  return /* @__PURE__ */ jsxDEV13(StyledButton, {
+  return /* @__PURE__ */ jsx13(StyledButton, {
     ...props,
     ref,
     onClick: () => dialog2.setOpen(false)
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/display-value.tsx
 import { VisuallyHidden } from "styled-system/jsx";
-import { jsxDEV as jsxDEV14, Fragment } from "react/jsx-dev-runtime";
+import { jsx as jsx14, jsxs as jsxs3, Fragment } from "react/jsx-runtime";
 "use client";
 var DisplayValue = (props) => {
   const { value, formatValue } = props;
@@ -936,18 +936,18 @@ var DisplayValue = (props) => {
   if (formattedValue) {
     return formattedValue;
   }
-  return /* @__PURE__ */ jsxDEV14(Fragment, {
+  return /* @__PURE__ */ jsxs3(Fragment, {
     children: [
-      /* @__PURE__ */ jsxDEV14(Span, {
+      /* @__PURE__ */ jsx14(Span, {
         color: "fg.subtle",
         "aria-hidden": true,
         children: "—"
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsxDEV14(VisuallyHidden, {
+      }),
+      /* @__PURE__ */ jsx14(VisuallyHidden, {
         children: "No value available"
-      }, undefined, false, undefined, this)
+      })
     ]
-  }, undefined, true, undefined, this);
+  });
 };
 var isString = (value) => typeof value === "string";
 var isNotEmpty = (value) => {
@@ -1104,7 +1104,7 @@ import { forwardRef as forwardRef14, useMemo as useMemo2 } from "react";
 import { createStyleContext as createStyleContext18, Stack } from "styled-system/jsx";
 import { fileUpload } from "styled-system/recipes";
 import { FileUploadContext } from "@ark-ui/react/file-upload";
-import { jsxDEV as jsxDEV15 } from "react/jsx-dev-runtime";
+import { jsx as jsx15, jsxs as jsxs4 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider16, withContext: withContext18 } = createStyleContext18(fileUpload);
 var Root18 = withProvider16(FileUpload.Root, "root");
@@ -1114,13 +1114,13 @@ var Dropzone = withContext18(FileUpload.Dropzone, "dropzone");
 var HiddenInput3 = FileUpload.HiddenInput;
 var Item5 = withContext18(FileUpload.Item, "item");
 var ItemDeleteTrigger = withContext18(FileUpload.ItemDeleteTrigger, "itemDeleteTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV15(X, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx15(X, {}) }
 });
 var ItemGroup3 = withContext18(FileUpload.ItemGroup, "itemGroup");
 var ItemName = withContext18(FileUpload.ItemName, "itemName");
 var ItemPreview = withContext18(FileUpload.ItemPreview, "itemPreview", {
   defaultProps: {
-    children: /* @__PURE__ */ jsxDEV15(File, {}, undefined, false, undefined, this)
+    children: /* @__PURE__ */ jsx15(File, {})
   }
 });
 var ItemPreviewImage = withContext18(FileUpload.ItemPreviewImage, "itemPreviewImage");
@@ -1131,34 +1131,34 @@ var Items = (props) => {
   const { showSize, clearable, files, ...rest } = props;
   const fileUpload2 = useFileUploadContext();
   const acceptedFiles = files ?? fileUpload2.acceptedFiles;
-  return acceptedFiles.map((file) => /* @__PURE__ */ jsxDEV15(Item5, {
+  return acceptedFiles.map((file) => /* @__PURE__ */ jsxs4(Item5, {
     file,
     ...rest,
     children: [
-      /* @__PURE__ */ jsxDEV15(ItemPreview, {}, undefined, false, undefined, this),
-      /* @__PURE__ */ jsxDEV15(Stack, {
+      /* @__PURE__ */ jsx15(ItemPreview, {}),
+      /* @__PURE__ */ jsxs4(Stack, {
         gap: "0.5",
         flex: "1",
         children: [
-          /* @__PURE__ */ jsxDEV15(ItemName, {}, undefined, false, undefined, this),
-          showSize && /* @__PURE__ */ jsxDEV15(ItemSizeText, {}, undefined, false, undefined, this)
+          /* @__PURE__ */ jsx15(ItemName, {}),
+          showSize && /* @__PURE__ */ jsx15(ItemSizeText, {})
         ]
-      }, undefined, true, undefined, this),
-      clearable && /* @__PURE__ */ jsxDEV15(ItemDeleteTrigger, {}, undefined, false, undefined, this)
+      }),
+      clearable && /* @__PURE__ */ jsx15(ItemDeleteTrigger, {})
     ]
-  }, file.name, true, undefined, this));
+  }, file.name));
 };
 var List3 = forwardRef14(function FileUploadList(props, ref) {
   const { showSize, clearable, files, ...rest } = props;
-  return /* @__PURE__ */ jsxDEV15(ItemGroup3, {
+  return /* @__PURE__ */ jsx15(ItemGroup3, {
     ref,
     ...rest,
-    children: /* @__PURE__ */ jsxDEV15(Items, {
+    children: /* @__PURE__ */ jsx15(Items, {
       showSize,
       clearable,
       files
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    })
+  });
 });
 var FileText = forwardRef14(function FileUploadFileText(props, ref) {
   const { fallback = "Select file(s)", ...rest } = props;
@@ -1173,14 +1173,14 @@ var FileText = forwardRef14(function FileUploadFileText(props, ref) {
     }
     return fallback;
   }, [acceptedFiles, fallback]);
-  return /* @__PURE__ */ jsxDEV15(Span, {
+  return /* @__PURE__ */ jsx15(Span, {
     ref,
     "data-placeholder": fileText === fallback ? "" : undefined,
     "data-scope": "file-upload",
     "data-part": "file-text",
     ...rest,
     children: fileText
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/heading.tsx
 import { styled as styled10 } from "styled-system/jsx";
@@ -1221,16 +1221,16 @@ var Icon2 = styled11(ark15.svg, icon, {
 // src/components/ui/image.tsx
 import { forwardRef as forwardRef15 } from "react";
 import { styled as styled12 } from "styled-system/jsx";
-import { jsxDEV as jsxDEV16 } from "react/jsx-dev-runtime";
+import { jsx as jsx16 } from "react/jsx-runtime";
 var StyledImage = styled12("img");
 var Image2 = forwardRef15(function Image3(props, ref) {
   const { align, fit = "cover", ...rest } = props;
-  return /* @__PURE__ */ jsxDEV16(StyledImage, {
+  return /* @__PURE__ */ jsx16(StyledImage, {
     ref,
     objectFit: fit,
     objectPosition: align,
     ...rest
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/input.tsx
 import { Field as Field2 } from "@ark-ui/react/field";
@@ -1247,30 +1247,30 @@ import { ark as ark17 } from "@ark-ui/react/factory";
 import { forwardRef as forwardRef16 } from "react";
 import { createStyleContext as createStyleContext20 } from "styled-system/jsx";
 import { inputGroup } from "styled-system/recipes";
-import { jsxDEV as jsxDEV17 } from "react/jsx-dev-runtime";
+import { jsx as jsx17, jsxs as jsxs5 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider17, withContext: withContext20 } = createStyleContext20(inputGroup);
 var Root20 = withProvider17(ark17.div, "root");
 var Element = withContext20(ark17.div, "element");
 var InputGroup = forwardRef16(function InputGroup2(props, ref) {
   const { startElement, endElement, children, ...rest } = props;
-  return /* @__PURE__ */ jsxDEV17(Root20, {
+  return /* @__PURE__ */ jsxs5(Root20, {
     ref,
     ...rest,
     children: [
-      startElement && /* @__PURE__ */ jsxDEV17(Element, {
+      startElement && /* @__PURE__ */ jsx17(Element, {
         insetInlineStart: "0",
         top: "0",
         children: startElement
-      }, undefined, false, undefined, this),
+      }),
       children,
-      endElement && /* @__PURE__ */ jsxDEV17(Element, {
+      endElement && /* @__PURE__ */ jsx17(Element, {
         insetInlineEnd: "0",
         top: "0",
         children: endElement
-      }, undefined, false, undefined, this)
+      })
     ]
-  }, undefined, true, undefined, this);
+  });
 });
 // src/components/ui/kbd.tsx
 import { ark as ark18 } from "@ark-ui/react/factory";
@@ -1319,7 +1319,7 @@ import { menu } from "styled-system/recipes";
 import {
   MenuContext
 } from "@ark-ui/react/menu";
-import { jsxDEV as jsxDEV18 } from "react/jsx-dev-runtime";
+import { jsx as jsx18 } from "react/jsx-runtime";
 "use client";
 var { withRootProvider: withRootProvider4, withContext: withContext21 } = createStyleContext21(menu);
 var Root21 = withRootProvider4(Menu.Root, {
@@ -1334,7 +1334,7 @@ var CheckboxItem = withContext21(Menu.CheckboxItem, "item");
 var Content10 = withContext21(Menu.Content, "content");
 var ContextTrigger = withContext21(Menu.ContextTrigger, "contextTrigger");
 var Indicator9 = withContext21(Menu.Indicator, "indicator", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV18(ChevronDown, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx18(ChevronDown, {}) }
 });
 var Item6 = withContext21(Menu.Item, "item");
 var ItemGroup4 = withContext21(Menu.ItemGroup, "itemGroup");
@@ -1349,14 +1349,14 @@ var TriggerItem = withContext21(Menu.TriggerItem, "item");
 var StyledItemIndicator2 = withContext21(Menu.ItemIndicator, "itemIndicator");
 var ItemIndicator4 = forwardRef17(function ItemIndicator5(props, ref) {
   const item = useMenuItemContext();
-  return item.checked ? /* @__PURE__ */ jsxDEV18(StyledItemIndicator2, {
+  return item.checked ? /* @__PURE__ */ jsx18(StyledItemIndicator2, {
     ref,
     ...props,
-    children: /* @__PURE__ */ jsxDEV18(Check, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this) : /* @__PURE__ */ jsxDEV18("svg", {
+    children: /* @__PURE__ */ jsx18(Check, {})
+  }) : /* @__PURE__ */ jsx18("svg", {
     "aria-hidden": "true",
     focusable: "false"
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/number-input.tsx
 var exports_number_input = {};
@@ -1376,16 +1376,16 @@ import { NumberInput } from "@ark-ui/react/number-input";
 import { createStyleContext as createStyleContext22 } from "styled-system/jsx";
 import { numberInput } from "styled-system/recipes";
 import { NumberInputContext } from "@ark-ui/react/number-input";
-import { jsxDEV as jsxDEV19, Fragment as Fragment2 } from "react/jsx-dev-runtime";
+import { jsx as jsx19, jsxs as jsxs6, Fragment as Fragment2 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider18, withContext: withContext22 } = createStyleContext22(numberInput);
 var Root22 = withProvider18(NumberInput.Root, "root");
 var RootProvider18 = withProvider18(NumberInput.RootProvider, "root");
 var DecrementTrigger = withContext22(NumberInput.DecrementTrigger, "decrementTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV19(ChevronDown, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx19(ChevronDown, {}) }
 });
 var IncrementTrigger = withContext22(NumberInput.IncrementTrigger, "incrementTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV19(ChevronUp, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx19(ChevronUp, {}) }
 });
 var Input6 = withContext22(NumberInput.Input, "input");
 var Label10 = withContext22(NumberInput.Label, "label");
@@ -1393,12 +1393,12 @@ var Scrubber = withContext22(NumberInput.Scrubber, "scrubber");
 var ValueText2 = withContext22(NumberInput.ValueText, "valueText");
 var Control9 = withContext22(NumberInput.Control, "control", {
   defaultProps: {
-    children: /* @__PURE__ */ jsxDEV19(Fragment2, {
+    children: /* @__PURE__ */ jsxs6(Fragment2, {
       children: [
-        /* @__PURE__ */ jsxDEV19(IncrementTrigger, {}, undefined, false, undefined, this),
-        /* @__PURE__ */ jsxDEV19(DecrementTrigger, {}, undefined, false, undefined, this)
+        /* @__PURE__ */ jsx19(IncrementTrigger, {}),
+        /* @__PURE__ */ jsx19(DecrementTrigger, {})
       ]
-    }, undefined, true, undefined, this)
+    })
   }
 });
 // src/components/ui/pagination.tsx
@@ -1417,7 +1417,7 @@ import { Pagination, usePaginationContext } from "@ark-ui/react/pagination";
 import { createStyleContext as createStyleContext23 } from "styled-system/jsx";
 import { pagination } from "styled-system/recipes";
 import { PaginationContext } from "@ark-ui/react/pagination";
-import { jsxDEV as jsxDEV20 } from "react/jsx-dev-runtime";
+import { jsx as jsx20 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider19, withContext: withContext23 } = createStyleContext23(pagination);
 var Root23 = withProvider19(Pagination.Root, "root");
@@ -1431,24 +1431,24 @@ var Items2 = (props) => {
   const { render, ellipsis, ...rest } = props;
   return ctx.pages.map((page, index) => {
     if (page.type === "ellipsis") {
-      return /* @__PURE__ */ jsxDEV20(Ellipsis3, {
+      return /* @__PURE__ */ jsx20(Ellipsis3, {
         asChild: true,
         index,
         ...rest,
-        children: ellipsis || /* @__PURE__ */ jsxDEV20(IconButton, {
+        children: ellipsis || /* @__PURE__ */ jsx20(IconButton, {
           as: "span",
           colorPalette: "gray",
-          children: /* @__PURE__ */ jsxDEV20(Ellipsis, {}, undefined, false, undefined, this)
-        }, undefined, false, undefined, this)
-      }, index, false, undefined, this);
+          children: /* @__PURE__ */ jsx20(Ellipsis, {})
+        })
+      }, index);
     }
-    return /* @__PURE__ */ jsxDEV20(Item7, {
+    return /* @__PURE__ */ jsx20(Item7, {
       asChild: true,
       type: "page",
       value: page.value,
       ...rest,
       children: render({ ...page, selected: ctx.page === page.value })
-    }, index, false, undefined, this);
+    }, index);
   });
 };
 // src/components/ui/pin-input.tsx
@@ -1501,7 +1501,7 @@ import { Popover } from "@ark-ui/react/popover";
 import { createStyleContext as createStyleContext25 } from "styled-system/jsx";
 import { popover } from "styled-system/recipes";
 import { PopoverContext } from "@ark-ui/react/popover";
-import { jsxDEV as jsxDEV21 } from "react/jsx-dev-runtime";
+import { jsx as jsx21 } from "react/jsx-runtime";
 "use client";
 var { withRootProvider: withRootProvider5, withContext: withContext25 } = createStyleContext25(popover);
 var Root25 = withRootProvider5(Popover.Root, {
@@ -1513,7 +1513,7 @@ var RootProvider21 = withRootProvider5(Popover.Root, {
 var Anchor = withContext25(Popover.Anchor, "anchor");
 var ArrowTip3 = withContext25(Popover.ArrowTip, "arrowTip");
 var Arrow3 = withContext25(Popover.Arrow, "arrow", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV21(ArrowTip3, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx21(ArrowTip3, {}) }
 });
 var CloseTrigger3 = withContext25(Popover.CloseTrigger, "closeTrigger");
 var Content11 = withContext25(Popover.Content, "content");
@@ -1638,7 +1638,7 @@ import {
   RatingGroupContext,
   RatingGroupItemContext
 } from "@ark-ui/react/rating-group";
-import { jsxDEV as jsxDEV22 } from "react/jsx-dev-runtime";
+import { jsx as jsx22, jsxs as jsxs7 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider24, withContext: withContext29 } = createStyleContext29(ratingGroup);
 var Root29 = withProvider24(RatingGroup.Root, "root");
@@ -1654,9 +1654,9 @@ var cloneIcon = (icon2, type) => {
   return cloneElement(icon2, props);
 };
 var ItemIndicator6 = forwardRef18(function ItemIndicator7(props, ref) {
-  const { icon: icon2 = /* @__PURE__ */ jsxDEV22(Star, {}, undefined, false, undefined, this), ...rest } = props;
+  const { icon: icon2 = /* @__PURE__ */ jsx22(Star, {}), ...rest } = props;
   const item = useRatingGroupItemContext();
-  return /* @__PURE__ */ jsxDEV22(StyledItemIndicator3, {
+  return /* @__PURE__ */ jsxs7(StyledItemIndicator3, {
     ref,
     ...rest,
     "data-highlighted": item.highlighted ? "" : undefined,
@@ -1666,21 +1666,21 @@ var ItemIndicator6 = forwardRef18(function ItemIndicator7(props, ref) {
       cloneIcon(icon2, "bg"),
       cloneIcon(icon2, "fg")
     ]
-  }, undefined, true, undefined, this);
+  });
 });
 var Items3 = (props) => {
   const { icon: icon2, ...rest } = props;
   const ratingGroup2 = useRatingGroupContext();
-  return ratingGroup2.items.map((item) => /* @__PURE__ */ jsxDEV22(Item10, {
+  return ratingGroup2.items.map((item) => /* @__PURE__ */ jsx22(Item10, {
     index: item,
     ...rest,
-    children: /* @__PURE__ */ jsxDEV22(ItemIndicator6, {
+    children: /* @__PURE__ */ jsx22(ItemIndicator6, {
       icon: icon2
-    }, undefined, false, undefined, this)
-  }, item, false, undefined, this));
+    })
+  }, item));
 };
 var Control11 = withContext29(RatingGroup.Control, "control", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV22(Items3, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx22(Items3, {}) }
 });
 // src/components/ui/scroll-area.tsx
 var exports_scroll_area = {};
@@ -1698,7 +1698,7 @@ import { ScrollArea } from "@ark-ui/react/scroll-area";
 import { createStyleContext as createStyleContext30 } from "styled-system/jsx";
 import { scrollArea } from "styled-system/recipes";
 import { ScrollAreaContext } from "@ark-ui/react/scroll-area";
-import { jsxDEV as jsxDEV23 } from "react/jsx-dev-runtime";
+import { jsx as jsx23 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider25, withContext: withContext30 } = createStyleContext30(scrollArea);
 var Root30 = withProvider25(ScrollArea.Root, "root");
@@ -1707,7 +1707,7 @@ var Content12 = withContext30(ScrollArea.Content, "content");
 var Corner = withContext30(ScrollArea.Corner, "corner");
 var Thumb = withContext30(ScrollArea.Thumb, "thumb");
 var Scrollbar = withContext30(ScrollArea.Scrollbar, "scrollbar", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV23(Thumb, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx23(Thumb, {}) }
 });
 var Viewport = withContext30(ScrollArea.Viewport, "viewport");
 // src/components/ui/segment-group.tsx
@@ -1729,7 +1729,7 @@ import { useMemo as useMemo3 } from "react";
 import { createStyleContext as createStyleContext31 } from "styled-system/jsx";
 import { segmentGroup } from "styled-system/recipes";
 import { SegmentGroupContext } from "@ark-ui/react/segment-group";
-import { jsxDEV as jsxDEV24 } from "react/jsx-dev-runtime";
+import { jsx as jsx24, jsxs as jsxs8 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider26, withContext: withContext31 } = createStyleContext31(segmentGroup);
 var Root31 = withProvider26(SegmentGroup.Root, "root", {
@@ -1746,17 +1746,17 @@ var Label16 = withContext31(SegmentGroup.Label, "label");
 var Items4 = (props) => {
   const { items, ...itemProps } = props;
   const data = useMemo3(() => normalize(items), [items]);
-  return data.map((item) => /* @__PURE__ */ jsxDEV24(Item11, {
+  return data.map((item) => /* @__PURE__ */ jsxs8(Item11, {
     value: item.value,
     disabled: item.disabled,
     ...itemProps,
     children: [
-      /* @__PURE__ */ jsxDEV24(ItemText5, {
+      /* @__PURE__ */ jsx24(ItemText5, {
         children: item.label
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsxDEV24(ItemHiddenInput3, {}, undefined, false, undefined, this)
+      }),
+      /* @__PURE__ */ jsx24(ItemHiddenInput3, {})
     ]
-  }, item.value, true, undefined, this));
+  }, item.value));
 };
 var normalize = (items) => items.map((item) => typeof item === "string" ? { value: item, label: item } : item);
 // src/components/ui/select.tsx
@@ -1791,7 +1791,7 @@ import {
   SelectContext,
   SelectItemContext
 } from "@ark-ui/react/select";
-import { jsxDEV as jsxDEV25 } from "react/jsx-dev-runtime";
+import { jsx as jsx25 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider27, withContext: withContext32 } = createStyleContext32(select);
 var Root32 = withProvider27(Select.Root, "root");
@@ -1809,20 +1809,20 @@ var Positioner9 = withContext32(Select.Positioner, "positioner");
 var Trigger12 = withContext32(Select.Trigger, "trigger");
 var ValueText4 = withContext32(Select.ValueText, "valueText");
 var Indicator14 = withContext32(Select.Indicator, "indicator", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV25(ChevronsUpDown, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx25(ChevronsUpDown, {}) }
 });
 var HiddenSelect = Select.HiddenSelect;
 var StyledItemIndicator4 = withContext32(Select.ItemIndicator, "itemIndicator");
 var ItemIndicator8 = forwardRef19(function ItemIndicator9(props, ref) {
   const item = useSelectItemContext();
-  return item.selected ? /* @__PURE__ */ jsxDEV25(StyledItemIndicator4, {
+  return item.selected ? /* @__PURE__ */ jsx25(StyledItemIndicator4, {
     ref,
     ...props,
-    children: /* @__PURE__ */ jsxDEV25(Check, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this) : /* @__PURE__ */ jsxDEV25("svg", {
+    children: /* @__PURE__ */ jsx25(Check, {})
+  }) : /* @__PURE__ */ jsx25("svg", {
     "aria-hidden": "true",
     focusable: "false"
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/separator.tsx
 import { ark as ark23 } from "@ark-ui/react/factory";
@@ -1836,22 +1836,22 @@ import { ark as ark24 } from "@ark-ui/react/factory";
 import { forwardRef as forwardRef20 } from "react";
 import { Stack as Stack2, styled as styled19 } from "styled-system/jsx";
 import { skeleton } from "styled-system/recipes";
-import { jsxDEV as jsxDEV26 } from "react/jsx-dev-runtime";
+import { jsx as jsx26 } from "react/jsx-runtime";
 var Skeleton = styled19(ark24.div, skeleton);
 var SkeletonCircle = styled19(ark24.div, skeleton, { defaultProps: { circle: true } });
 var SkeletonText = forwardRef20(function SkeletonText2(props, ref) {
   const { noOfLines = 3, gap, rootProps, ...skeletonProps } = props;
-  return /* @__PURE__ */ jsxDEV26(Stack2, {
+  return /* @__PURE__ */ jsx26(Stack2, {
     ref,
     gap,
     width: "full",
     ...rootProps,
-    children: [...Array(noOfLines).keys()].map((index) => /* @__PURE__ */ jsxDEV26(Skeleton, {
+    children: [...Array(noOfLines).keys()].map((index) => /* @__PURE__ */ jsx26(Skeleton, {
       height: "4",
       _last: { maxW: noOfLines === 1 ? "100%" : "80%" },
       ...skeletonProps
-    }, index, false, undefined, this))
-  }, undefined, false, undefined, this);
+    }, index))
+  });
 });
 // src/components/ui/slider.tsx
 var exports_slider = {};
@@ -1878,7 +1878,7 @@ import { forwardRef as forwardRef21 } from "react";
 import { createStyleContext as createStyleContext33 } from "styled-system/jsx";
 import { slider } from "styled-system/recipes";
 import { SliderContext } from "@ark-ui/react/slider";
-import { jsxDEV as jsxDEV27 } from "react/jsx-dev-runtime";
+import { jsx as jsx27, jsxs as jsxs9 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider28, withContext: withContext33 } = createStyleContext33(slider);
 var Root33 = withProvider28(Slider.Root, "root");
@@ -1897,31 +1897,31 @@ var Marks = forwardRef21(function Marks2(props, ref) {
   const { marks, ...rest } = props;
   if (!marks?.length)
     return null;
-  return /* @__PURE__ */ jsxDEV27(MarkerGroup, {
+  return /* @__PURE__ */ jsx27(MarkerGroup, {
     ref,
     ...rest,
     children: marks.map((mark, index) => {
       const value = typeof mark === "number" ? mark : mark.value;
       const label = typeof mark === "number" ? undefined : mark.label;
-      return /* @__PURE__ */ jsxDEV27(Marker, {
+      return /* @__PURE__ */ jsxs9(Marker, {
         value,
         children: [
-          /* @__PURE__ */ jsxDEV27(MarkerIndicator, {}, undefined, false, undefined, this),
-          label != null && /* @__PURE__ */ jsxDEV27("span", {
+          /* @__PURE__ */ jsx27(MarkerIndicator, {}),
+          label != null && /* @__PURE__ */ jsx27("span", {
             children: label
-          }, undefined, false, undefined, this)
+          })
         ]
-      }, index, true, undefined, this);
+      }, index);
     })
-  }, undefined, false, undefined, this);
+  });
 });
 var Thumbs = (props) => {
   const slider2 = useSliderContext();
-  return slider2.value.map((_, index) => /* @__PURE__ */ jsxDEV27(Thumb2, {
+  return slider2.value.map((_, index) => /* @__PURE__ */ jsx27(Thumb2, {
     index,
     ...props,
-    children: /* @__PURE__ */ jsxDEV27(HiddenInput6, {}, undefined, false, undefined, this)
-  }, index, false, undefined, this));
+    children: /* @__PURE__ */ jsx27(HiddenInput6, {})
+  }, index));
 };
 // src/components/ui/splitter.tsx
 var exports_splitter = {};
@@ -1961,7 +1961,7 @@ import { forwardRef as forwardRef22 } from "react";
 import { createStyleContext as createStyleContext35, styled as styled20 } from "styled-system/jsx";
 import { switchRecipe } from "styled-system/recipes";
 import { SwitchContext } from "@ark-ui/react/switch";
-import { jsxDEV as jsxDEV28 } from "react/jsx-dev-runtime";
+import { jsx as jsx28 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider30, withContext: withContext35 } = createStyleContext35(switchRecipe);
 var Root35 = withProvider30(Switch.Root, "root");
@@ -1970,29 +1970,29 @@ var Label19 = withContext35(Switch.Label, "label");
 var Thumb3 = withContext35(Switch.Thumb, "thumb");
 var HiddenInput7 = Switch.HiddenInput;
 var Control14 = withContext35(Switch.Control, "control", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV28(Thumb3, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx28(Thumb3, {}) }
 });
 var StyledIndicator3 = withContext35(ark26.span, "indicator");
 var Indicator15 = forwardRef22(function Indicator16(props, ref) {
   const { fallback, children, ...rest } = props;
   const api = useSwitchContext();
-  return /* @__PURE__ */ jsxDEV28(StyledIndicator3, {
+  return /* @__PURE__ */ jsx28(StyledIndicator3, {
     ref,
     "data-checked": api.checked ? "" : undefined,
     ...rest,
     children: api.checked ? children : fallback
-  }, undefined, false, undefined, this);
+  });
 });
 var StyledThumbIndicator = styled20(ark26.span);
 var ThumbIndicator = forwardRef22(function SwitchThumbIndicator(props, ref) {
   const { fallback, children, ...rest } = props;
   const api = useSwitchContext();
-  return /* @__PURE__ */ jsxDEV28(StyledThumbIndicator, {
+  return /* @__PURE__ */ jsx28(StyledThumbIndicator, {
     ref,
     "data-checked": api.checked ? "" : undefined,
     ...rest,
     children: api.checked ? children : fallback
-  }, undefined, false, undefined, this);
+  });
 });
 // src/components/ui/table.tsx
 var exports_table = {};
@@ -2064,20 +2064,20 @@ import { TagsInput, useTagsInputContext } from "@ark-ui/react/tags-input";
 import { createStyleContext as createStyleContext38 } from "styled-system/jsx";
 import { tagsInput } from "styled-system/recipes";
 import { TagsInputContext } from "@ark-ui/react/tags-input";
-import { jsxDEV as jsxDEV29 } from "react/jsx-dev-runtime";
+import { jsx as jsx29, jsxs as jsxs10 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider33, withContext: withContext38 } = createStyleContext38(tagsInput);
 var Root38 = withProvider33(TagsInput.Root, "root");
 var RootProvider31 = withProvider33(TagsInput.RootProvider, "root");
 var ClearTrigger5 = withContext38(TagsInput.ClearTrigger, "clearTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV29(X, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx29(X, {}) }
 });
 var Control15 = withContext38(TagsInput.Control, "control");
 var HiddenInput8 = TagsInput.HiddenInput;
 var Input8 = withContext38(TagsInput.Input, "input");
 var Item13 = withContext38(TagsInput.Item, "item");
 var ItemDeleteTrigger2 = withContext38(TagsInput.ItemDeleteTrigger, "itemDeleteTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsxDEV29(X, {}, undefined, false, undefined, this) }
+  defaultProps: { children: /* @__PURE__ */ jsx29(X, {}) }
 });
 var ItemInput = withContext38(TagsInput.ItemInput, "itemInput");
 var ItemPreview2 = withContext38(TagsInput.ItemPreview, "itemPreview");
@@ -2085,22 +2085,22 @@ var ItemText7 = withContext38(TagsInput.ItemText, "itemText");
 var Label20 = withContext38(TagsInput.Label, "label");
 var Items5 = (props) => {
   const context = useTagsInputContext();
-  return context.value.map((item, index) => /* @__PURE__ */ jsxDEV29(Item13, {
+  return context.value.map((item, index) => /* @__PURE__ */ jsxs10(Item13, {
     index,
     value: item,
     ...props,
     children: [
-      /* @__PURE__ */ jsxDEV29(ItemPreview2, {
+      /* @__PURE__ */ jsxs10(ItemPreview2, {
         children: [
-          /* @__PURE__ */ jsxDEV29(ItemText7, {
+          /* @__PURE__ */ jsx29(ItemText7, {
             children: item
-          }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsxDEV29(ItemDeleteTrigger2, {}, undefined, false, undefined, this)
+          }),
+          /* @__PURE__ */ jsx29(ItemDeleteTrigger2, {})
         ]
-      }, undefined, true, undefined, this),
-      /* @__PURE__ */ jsxDEV29(ItemInput, {}, undefined, false, undefined, this)
+      }),
+      /* @__PURE__ */ jsx29(ItemInput, {})
     ]
-  }, index, true, undefined, this));
+  }, index));
 };
 // src/components/ui/text.tsx
 import { styled as styled21 } from "styled-system/jsx";
@@ -2117,7 +2117,7 @@ import { Toaster as ArkToaster, createToaster, Toast, useToastContext } from "@a
 import { forwardRef as forwardRef23 } from "react";
 import { createStyleContext as createStyleContext39, Stack as Stack3, styled as styled23 } from "styled-system/jsx";
 import { toast } from "styled-system/recipes";
-import { jsxDEV as jsxDEV30 } from "react/jsx-dev-runtime";
+import { jsx as jsx30, jsxs as jsxs11 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider34, withContext: withContext39 } = createStyleContext39(toast);
 var Root39 = withProvider34(Toast.Root, "root");
@@ -2136,12 +2136,12 @@ var Indicator18 = forwardRef23((props, ref) => {
   const StatusIcon = iconMap[toast2.type];
   if (!StatusIcon)
     return null;
-  return /* @__PURE__ */ jsxDEV30(Icon2, {
+  return /* @__PURE__ */ jsx30(Icon2, {
     ref,
     "data-type": toast2.type,
     ...props,
-    children: /* @__PURE__ */ jsxDEV30(StatusIcon, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    children: /* @__PURE__ */ jsx30(StatusIcon, {})
+  });
 });
 var toaster = createToaster({
   placement: "bottom-end",
@@ -2150,45 +2150,45 @@ var toaster = createToaster({
   max: 5
 });
 var Toaster = () => {
-  return /* @__PURE__ */ jsxDEV30(Portal, {
-    children: /* @__PURE__ */ jsxDEV30(StyledToaster, {
+  return /* @__PURE__ */ jsx30(Portal, {
+    children: /* @__PURE__ */ jsx30(StyledToaster, {
       toaster,
       insetInline: { mdDown: "4" },
-      children: (toast2) => /* @__PURE__ */ jsxDEV30(Root39, {
+      children: (toast2) => /* @__PURE__ */ jsxs11(Root39, {
         children: [
-          toast2.type === "loading" ? /* @__PURE__ */ jsxDEV30(Spinner, {
+          toast2.type === "loading" ? /* @__PURE__ */ jsx30(Spinner, {
             color: "colorPalette.plain.fg"
-          }, undefined, false, undefined, this) : /* @__PURE__ */ jsxDEV30(Indicator18, {}, undefined, false, undefined, this),
-          /* @__PURE__ */ jsxDEV30(Stack3, {
+          }) : /* @__PURE__ */ jsx30(Indicator18, {}),
+          /* @__PURE__ */ jsxs11(Stack3, {
             gap: "3",
             alignItems: "start",
             children: [
-              /* @__PURE__ */ jsxDEV30(Stack3, {
+              /* @__PURE__ */ jsxs11(Stack3, {
                 gap: "1",
                 children: [
-                  toast2.title && /* @__PURE__ */ jsxDEV30(Title6, {
+                  toast2.title && /* @__PURE__ */ jsx30(Title6, {
                     children: toast2.title
-                  }, undefined, false, undefined, this),
-                  toast2.description && /* @__PURE__ */ jsxDEV30(Description6, {
+                  }),
+                  toast2.description && /* @__PURE__ */ jsx30(Description6, {
                     children: toast2.description
-                  }, undefined, false, undefined, this)
+                  })
                 ]
-              }, undefined, true, undefined, this),
-              toast2.action && /* @__PURE__ */ jsxDEV30(ActionTrigger3, {
+              }),
+              toast2.action && /* @__PURE__ */ jsx30(ActionTrigger3, {
                 children: toast2.action.label
-              }, undefined, false, undefined, this)
+              })
             ]
-          }, undefined, true, undefined, this),
-          toast2.closable && /* @__PURE__ */ jsxDEV30(CloseTrigger4, {
+          }),
+          toast2.closable && /* @__PURE__ */ jsx30(CloseTrigger4, {
             asChild: true,
-            children: /* @__PURE__ */ jsxDEV30(CloseButton, {
+            children: /* @__PURE__ */ jsx30(CloseButton, {
               size: "sm"
-            }, undefined, false, undefined, this)
-          }, undefined, false, undefined, this)
+            })
+          })
         ]
-      }, undefined, true, undefined, this)
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+      })
+    })
+  });
 };
 // src/components/ui/toggle-group.tsx
 var exports_toggle_group = {};
@@ -2214,7 +2214,7 @@ import { forwardRef as forwardRef24 } from "react";
 import { createStyleContext as createStyleContext41 } from "styled-system/jsx";
 import { tooltip } from "styled-system/recipes";
 import { TooltipContext } from "@ark-ui/react/tooltip";
-import { jsxDEV as jsxDEV31 } from "react/jsx-dev-runtime";
+import { jsx as jsx31, jsxs as jsxs12 } from "react/jsx-runtime";
 "use client";
 var { withRootProvider: withRootProvider6, withContext: withContext41 } = createStyleContext41(tooltip);
 var Root41 = withRootProvider6(ArkTooltip.Root, {
@@ -2238,31 +2238,31 @@ var Tooltip = forwardRef24(function Tooltip2(props, ref) {
   } = props;
   if (disabled)
     return children;
-  return /* @__PURE__ */ jsxDEV31(Root41, {
+  return /* @__PURE__ */ jsxs12(Root41, {
     ...rootProps,
     children: [
-      /* @__PURE__ */ jsxDEV31(Trigger14, {
+      /* @__PURE__ */ jsx31(Trigger14, {
         asChild: true,
         children
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsxDEV31(Portal2, {
+      }),
+      /* @__PURE__ */ jsx31(Portal2, {
         disabled: !portalled,
         container: portalRef,
-        children: /* @__PURE__ */ jsxDEV31(Positioner10, {
-          children: /* @__PURE__ */ jsxDEV31(Content15, {
+        children: /* @__PURE__ */ jsx31(Positioner10, {
+          children: /* @__PURE__ */ jsxs12(Content15, {
             ref,
             ...contentProps,
             children: [
-              showArrow && /* @__PURE__ */ jsxDEV31(Arrow4, {
-                children: /* @__PURE__ */ jsxDEV31(ArrowTip4, {}, undefined, false, undefined, this)
-              }, undefined, false, undefined, this),
+              showArrow && /* @__PURE__ */ jsx31(Arrow4, {
+                children: /* @__PURE__ */ jsx31(ArrowTip4, {})
+              }),
               content
             ]
-          }, undefined, true, undefined, this)
-        }, undefined, false, undefined, this)
-      }, undefined, false, undefined, this)
+          })
+        })
+      })
     ]
-  }, undefined, true, undefined, this);
+  });
 });
 export {
   toaster,
@@ -2335,5 +2335,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=1059C2972C9C5DA864756E2164756E21
+//# debugId=0DD597CAE6220AEA64756E2164756E21
 //# sourceMappingURL=index.js.map
