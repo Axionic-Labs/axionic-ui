@@ -909,6 +909,32 @@ var card = defineSlotRecipe5({
           bg: "gray.subtle.bg"
         }
       }
+    },
+    hover: {
+      true: {
+        root: {
+          cursor: "pointer",
+          transition: "all 0.2s",
+          _hover: {
+            boxShadow: "lg",
+            borderColor: "colorPalette.7",
+            transform: "translateY(-1px)"
+          },
+          _focusVisible: {
+            outline: "2px solid",
+            outlineColor: "colorPalette.8",
+            outlineOffset: "2px"
+          }
+        }
+      }
+    },
+    dashed: {
+      true: {
+        root: {
+          borderStyle: "dashed",
+          bg: "gray.subtle.bg/50"
+        }
+      }
     }
   }
 });
@@ -5288,5 +5314,5 @@ export {
   axionicSand
 };
 
-//# debugId=796247628E8D5A2564756E2164756E21
+//# debugId=A55FF3F15074EB7664756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -87,7 +87,9 @@ const cardFn = memo((props = {}) => {
 })
 
 const cardVariantKeys = [
-  "variant"
+  "variant",
+  "hover",
+  "dashed"
 ]
 const getVariantProps = (variants) => ({ ...cardDefaultVariants, ...compact(variants) })
 
@@ -102,6 +104,12 @@ export const card = /* @__PURE__ */ Object.assign(cardFn, {
     "elevated",
     "outline",
     "subtle"
+  ],
+  "hover": [
+    "true"
+  ],
+  "dashed": [
+    "true"
   ]
 },
   splitVariantProps(props) {
