@@ -39,6 +39,7 @@ export * from './editable';
 export * from './field';
 export * from './fieldset';
 export * from './file-upload';
+export * from './help-panel';
 export * from './hover-card';
 export * from './input-group';
 export * from './menu';

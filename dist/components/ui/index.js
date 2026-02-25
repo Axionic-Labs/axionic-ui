@@ -2146,7 +2146,8 @@ var Indicator18 = forwardRef23((props, ref) => {
 var toaster = createToaster({
   placement: "bottom-end",
   pauseOnPageIdle: true,
-  overlap: true,
+  overlap: false,
+  gap: 12,
   max: 5
 });
 var Toaster = () => {
@@ -2335,5 +2336,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=0DD597CAE6220AEA64756E2164756E21
+//# debugId=8B484F7647B22F2964756E2164756E21
 //# sourceMappingURL=index.js.map

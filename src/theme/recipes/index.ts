@@ -22,6 +22,7 @@ import { fieldset } from './fieldset'
 import { fileUpload } from './file-upload'
 import { group } from './group'
 import { heading } from './heading'
+import { helpPanel } from './help-panel'
 import { hoverCard } from './hover-card'
 import { icon } from './icon'
 import { input } from './input'
@@ -94,6 +95,7 @@ export const slotRecipes = {
 	field,
 	fieldset,
 	fileUpload,
+	helpPanel,
 	hoverCard,
 	inputGroup,
 	menu,

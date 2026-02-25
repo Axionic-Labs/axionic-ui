@@ -370,11 +370,321 @@ function FileTree({
     }, node.id))
   });
 }
-// src/components/patterns/icon-badge.tsx
+// src/components/patterns/help-panel.tsx
+import { forwardRef } from "react";
 import { css as css5, cx as cx5 } from "styled-system/css";
-import { jsx as jsx5 } from "react/jsx-runtime";
+import { jsx as jsx5, jsxs as jsxs5 } from "react/jsx-runtime";
 "use client";
-var base = css5({
+var Root = forwardRef(({ children, className }, ref) => /* @__PURE__ */ jsx5("div", {
+  ref,
+  className: cx5(css5({
+    position: "absolute",
+    top: "0",
+    right: "0",
+    zIndex: 40,
+    h: "full",
+    w: "96",
+    bgGradient: "to-b",
+    gradientFrom: "bg.subtle",
+    gradientTo: "bg.default",
+    borderLeftWidth: "1px",
+    borderColor: "border.default",
+    display: "flex",
+    flexDirection: "column",
+    boxShadow: "2xl",
+    overflow: "hidden",
+    animation: "slide-in-right 200ms ease-out"
+  }), className),
+  children
+}));
+Root.displayName = "HelpPanel.Root";
+var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs5("div", {
+  ref,
+  className: cx5(css5({
+    position: "relative",
+    px: "4",
+    py: "3",
+    borderBottomWidth: "1px",
+    borderColor: "border.default",
+    bg: "bg.default"
+  }), className),
+  children: [
+    accentBar && /* @__PURE__ */ jsx5("div", {
+      className: css5({
+        position: "absolute",
+        insetInline: "0",
+        top: "0",
+        h: "0.5",
+        bgGradient: "to-r",
+        gradientFrom: "colorPalette.7",
+        gradientVia: "colorPalette.9",
+        gradientTo: "colorPalette.11"
+      })
+    }),
+    /* @__PURE__ */ jsxs5("div", {
+      className: css5({ display: "flex", alignItems: "center", justifyContent: "space-between" }),
+      children: [
+        /* @__PURE__ */ jsxs5("div", {
+          className: css5({ display: "flex", alignItems: "center", gap: "3" }),
+          children: [
+            icon && /* @__PURE__ */ jsx5("div", {
+              className: css5({
+                w: "8",
+                h: "8",
+                borderRadius: "l2",
+                bg: "colorPalette.a3",
+                borderWidth: "1px",
+                borderColor: "colorPalette.8",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "colorPalette.11"
+              }),
+              children: icon
+            }),
+            /* @__PURE__ */ jsxs5("div", {
+              children: [
+                /* @__PURE__ */ jsx5("h2", {
+                  className: css5({
+                    fontSize: "sm",
+                    fontWeight: "semibold",
+                    color: "fg.default",
+                    letterSpacing: "wide"
+                  }),
+                  children: title
+                }),
+                subtitle && /* @__PURE__ */ jsx5("p", {
+                  className: css5({ fontSize: "xs", color: "fg.subtle" }),
+                  children: subtitle
+                })
+              ]
+            })
+          ]
+        }),
+        onClose && /* @__PURE__ */ jsx5("button", {
+          onClick: onClose,
+          type: "button",
+          className: css5({
+            w: "7",
+            h: "7",
+            borderRadius: "l1",
+            bg: "bg.subtle",
+            borderWidth: "1px",
+            borderColor: "border.default/50",
+            color: "fg.muted",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            transition: "all",
+            _hover: {
+              color: "fg.default",
+              borderColor: "colorPalette.8"
+            }
+          }),
+          children: closeIcon ?? /* @__PURE__ */ jsxs5("svg", {
+            width: "14",
+            height: "14",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            children: [
+              /* @__PURE__ */ jsx5("line", {
+                x1: "18",
+                y1: "6",
+                x2: "6",
+                y2: "18"
+              }),
+              /* @__PURE__ */ jsx5("line", {
+                x1: "6",
+                y1: "6",
+                x2: "18",
+                y2: "18"
+              })
+            ]
+          })
+        })
+      ]
+    })
+  ]
+}));
+Header.displayName = "HelpPanel.Header";
+var TabBar = forwardRef(({ children, className }, ref) => /* @__PURE__ */ jsx5("div", {
+  ref,
+  className: cx5(css5({
+    px: "2",
+    py: "2",
+    bg: "bg.default",
+    borderBottomWidth: "1px",
+    borderColor: "border.default/50"
+  }), className),
+  children: /* @__PURE__ */ jsx5("div", {
+    className: css5({ display: "flex", flexWrap: "wrap", gap: "1" }),
+    children
+  })
+}));
+TabBar.displayName = "HelpPanel.TabBar";
+var Tab = forwardRef(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs5("button", {
+  ref,
+  type: "button",
+  onClick,
+  title,
+  "data-selected": active ? "" : undefined,
+  className: cx5(css5({
+    display: "flex",
+    alignItems: "center",
+    gap: "1.5",
+    px: "2.5",
+    py: "1.5",
+    borderRadius: "l2",
+    fontSize: "xs",
+    fontWeight: "medium",
+    transition: "all",
+    borderWidth: "1px",
+    cursor: "pointer",
+    color: "fg.subtle",
+    borderColor: "transparent",
+    _hover: {
+      color: "fg.default",
+      bg: "bg.emphasized"
+    },
+    "&[data-selected]": {
+      bg: "colorPalette.a3",
+      color: "colorPalette.11",
+      borderColor: "colorPalette.8"
+    }
+  }), className),
+  children: [
+    icon,
+    /* @__PURE__ */ jsx5("span", {
+      className: css5({ display: { base: "none", sm: "inline" } }),
+      children: label
+    })
+  ]
+}));
+Tab.displayName = "HelpPanel.Tab";
+var Content = forwardRef(({ children, className }, ref) => /* @__PURE__ */ jsx5("div", {
+  ref,
+  className: cx5(css5({ flex: "1", overflowY: "auto" }), className),
+  children
+}));
+Content.displayName = "HelpPanel.Content";
+var Footer = forwardRef(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs5("div", {
+  ref,
+  className: cx5(css5({
+    position: "relative",
+    px: "4",
+    py: "2.5",
+    borderTopWidth: "1px",
+    borderColor: "border.default",
+    bg: "bg.default"
+  }), className),
+  children: [
+    accentBar && /* @__PURE__ */ jsx5("div", {
+      className: css5({
+        position: "absolute",
+        insetInline: "0",
+        bottom: "0",
+        h: "0.5",
+        bgGradient: "to-r",
+        gradientFrom: "colorPalette.7",
+        gradientVia: "colorPalette.9",
+        gradientTo: "colorPalette.11",
+        opacity: 0.3
+      })
+    }),
+    children ?? /* @__PURE__ */ jsxs5("div", {
+      className: css5({
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        fontSize: "xs",
+        color: "fg.subtle"
+      }),
+      children: [
+        hint && /* @__PURE__ */ jsx5("span", {
+          children: hint
+        }),
+        shortcutKey && /* @__PURE__ */ jsx5("kbd", {
+          className: css5({
+            px: "1.5",
+            py: "0.5",
+            fontSize: "xs",
+            fontFamily: "mono",
+            bg: "bg.subtle",
+            borderWidth: "1px",
+            borderColor: "border.default/50",
+            borderRadius: "l1",
+            color: "fg.muted"
+          }),
+          children: shortcutKey
+        })
+      ]
+    })
+  ]
+}));
+Footer.displayName = "HelpPanel.Footer";
+function SectionHeading({ label, dotColor, className }) {
+  return /* @__PURE__ */ jsxs5("h4", {
+    className: cx5(css5({
+      display: "flex",
+      alignItems: "center",
+      gap: "2",
+      fontSize: "xs",
+      fontWeight: "semibold",
+      textTransform: "uppercase",
+      letterSpacing: "wide",
+      mb: "2",
+      color: "colorPalette.11"
+    }), className),
+    children: [
+      /* @__PURE__ */ jsx5("span", {
+        className: css5({
+          w: "1.5",
+          h: "1.5",
+          borderRadius: "full",
+          bg: "colorPalette.11"
+        }),
+        style: dotColor ? { backgroundColor: dotColor } : undefined
+      }),
+      label
+    ]
+  });
+}
+var HelpPanel = {
+  Root,
+  Header,
+  TabBar,
+  Tab,
+  Content,
+  Footer,
+  SectionHeading
+};
+// src/components/patterns/help-trigger.tsx
+import { useCallback as useCallback2 } from "react";
+import { jsx as jsx6 } from "react/jsx-runtime";
+"use client";
+function HelpTrigger({ active, onActivate, children }) {
+  const handleMouseEnter = useCallback2(() => {
+    if (active) {
+      onActivate();
+    }
+  }, [active, onActivate]);
+  return /* @__PURE__ */ jsx6("div", {
+    style: { display: "contents" },
+    onMouseEnter: handleMouseEnter,
+    role: "group",
+    children
+  });
+}
+// src/components/patterns/icon-badge.tsx
+import { css as css6, cx as cx6 } from "styled-system/css";
+import { jsx as jsx7 } from "react/jsx-runtime";
+"use client";
+var base = css6({
   rounded: "l2",
   bg: "colorPalette.2",
   display: "flex",
@@ -384,24 +694,24 @@ var base = css5({
   flexShrink: 0
 });
 var sizes = {
-  sm: css5({ w: "8", h: "8" }),
-  md: css5({ w: "10", h: "10" }),
-  lg: css5({ w: "14", h: "14" })
+  sm: css6({ w: "8", h: "8" }),
+  md: css6({ w: "10", h: "10" }),
+  lg: css6({ w: "14", h: "14" })
 };
 function IconBadge({ icon, size = "md", className }) {
-  return /* @__PURE__ */ jsx5("div", {
-    className: cx5(base, sizes[size], className),
+  return /* @__PURE__ */ jsx7("div", {
+    className: cx6(base, sizes[size], className),
     children: icon
   });
 }
 // src/components/patterns/line-chart.tsx
 import { useRef } from "react";
-import { css as css6, cx as cx6 } from "styled-system/css";
+import { css as css7, cx as cx7 } from "styled-system/css";
 import { token } from "styled-system/tokens";
-import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
+import { jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
 "use client";
 var styles5 = {
-  root: css6({
+  root: css7({
     w: "full"
   })
 };
@@ -439,27 +749,27 @@ function LineChart({
   const areaPath = `${linePath} L ${scaleX(data[data.length - 1].x)} ${padding.top + chartHeight}` + ` L ${scaleX(data[0].x)} ${padding.top + chartHeight} Z`;
   const pointsVisible = showPoints ?? data.length < 20;
   const gridColor = "var(--colors-border-muted, currentColor)";
-  return /* @__PURE__ */ jsxs5("svg", {
+  return /* @__PURE__ */ jsxs6("svg", {
     viewBox: `0 0 ${width} ${height}`,
-    className: cx6(styles5.root, className),
+    className: cx7(styles5.root, className),
     preserveAspectRatio: "none",
     role: "img",
     "aria-label": "Line chart",
     children: [
-      /* @__PURE__ */ jsx6("defs", {
-        children: gradientFill && /* @__PURE__ */ jsxs5("linearGradient", {
+      /* @__PURE__ */ jsx8("defs", {
+        children: gradientFill && /* @__PURE__ */ jsxs6("linearGradient", {
           id: gradientId,
           x1: "0%",
           y1: "0%",
           x2: "0%",
           y2: "100%",
           children: [
-            /* @__PURE__ */ jsx6("stop", {
+            /* @__PURE__ */ jsx8("stop", {
               offset: "0%",
               stopColor: resolvedColor,
               stopOpacity: "0.3"
             }),
-            /* @__PURE__ */ jsx6("stop", {
+            /* @__PURE__ */ jsx8("stop", {
               offset: "100%",
               stopColor: resolvedColor,
               stopOpacity: "0"
@@ -467,9 +777,9 @@ function LineChart({
           ]
         })
       }),
-      showGrid && /* @__PURE__ */ jsx6("g", {
+      showGrid && /* @__PURE__ */ jsx8("g", {
         opacity: "0.2",
-        children: [0, 0.25, 0.5, 0.75, 1].map((ratio) => /* @__PURE__ */ jsx6("line", {
+        children: [0, 0.25, 0.5, 0.75, 1].map((ratio) => /* @__PURE__ */ jsx8("line", {
           x1: padding.left,
           y1: padding.top + chartHeight * ratio,
           x2: width - padding.right,
@@ -478,11 +788,11 @@ function LineChart({
           strokeDasharray: "2,4"
         }, ratio))
       }),
-      gradientFill && /* @__PURE__ */ jsx6("path", {
+      gradientFill && /* @__PURE__ */ jsx8("path", {
         d: areaPath,
         fill: `url(#${gradientId})`
       }),
-      /* @__PURE__ */ jsx6("path", {
+      /* @__PURE__ */ jsx8("path", {
         d: linePath,
         fill: "none",
         stroke: resolvedColor,
@@ -490,16 +800,16 @@ function LineChart({
         strokeLinecap: "round",
         strokeLinejoin: "round"
       }),
-      pointsVisible && data.map((d, i) => /* @__PURE__ */ jsx6("circle", {
+      pointsVisible && data.map((d, i) => /* @__PURE__ */ jsx8("circle", {
         cx: scaleX(d.x),
         cy: scaleY(d.y),
         r: "3",
         fill: resolvedColor,
         opacity: "0.8"
       }, `${d.x}-${d.y}-${i}`)),
-      showAxis && /* @__PURE__ */ jsxs5("g", {
+      showAxis && /* @__PURE__ */ jsxs6("g", {
         children: [
-          /* @__PURE__ */ jsx6("text", {
+          /* @__PURE__ */ jsx8("text", {
             x: padding.left - 4,
             y: padding.top + 4,
             textAnchor: "end",
@@ -507,7 +817,7 @@ function LineChart({
             fill: gridColor,
             children: yMax.toFixed(0)
           }),
-          /* @__PURE__ */ jsx6("text", {
+          /* @__PURE__ */ jsx8("text", {
             x: padding.left - 4,
             y: padding.top + chartHeight,
             textAnchor: "end",
@@ -521,11 +831,11 @@ function LineChart({
   });
 }
 // src/components/patterns/stat-card.tsx
-import { css as css7, cx as cx7 } from "styled-system/css";
-import { jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
+import { css as css8, cx as cx8 } from "styled-system/css";
+import { jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
 "use client";
 var styles6 = {
-  root: css7({
+  root: css8({
     bg: "bg.default",
     borderWidth: "1px",
     borderColor: "border.muted",
@@ -535,7 +845,7 @@ var styles6 = {
     alignItems: "flex-start",
     gap: "4"
   }),
-  iconWrap: css7({
+  iconWrap: css8({
     flexShrink: 0,
     w: "10",
     h: "10",
@@ -546,22 +856,22 @@ var styles6 = {
     justifyContent: "center",
     color: "colorPalette.9"
   }),
-  content: css7({
+  content: css8({
     flex: 1,
     minW: 0
   }),
-  title: css7({
+  title: css8({
     textStyle: "caption",
     color: "fg.muted",
     textTransform: "uppercase",
     letterSpacing: "0.05em"
   }),
-  value: css7({
+  value: css8({
     textStyle: "h2",
     color: "fg.default",
     mt: "1"
   }),
-  change: css7({
+  change: css8({
     textStyle: "small",
     mt: "1"
   })
@@ -579,11 +889,11 @@ function StatCard({
   badgeBg,
   className
 }) {
-  const changeColor = changeType === "positive" ? css7({ color: "{colors.green.11}" }) : changeType === "negative" ? css7({ color: "{colors.red.11}" }) : css7({ color: "fg.muted" });
-  return /* @__PURE__ */ jsxs6("div", {
-    className: cx7(styles6.root, className),
+  const changeColor = changeType === "positive" ? css8({ color: "{colors.green.11}" }) : changeType === "negative" ? css8({ color: "{colors.red.11}" }) : css8({ color: "fg.muted" });
+  return /* @__PURE__ */ jsxs7("div", {
+    className: cx8(styles6.root, className),
     children: [
-      icon && /* @__PURE__ */ jsx7("div", {
+      icon && /* @__PURE__ */ jsx9("div", {
         className: styles6.iconWrap,
         style: {
           ...iconBg ? { backgroundColor: iconBg } : {},
@@ -591,26 +901,26 @@ function StatCard({
         },
         children: icon
       }),
-      /* @__PURE__ */ jsxs6("div", {
+      /* @__PURE__ */ jsxs7("div", {
         className: styles6.content,
         children: [
-          /* @__PURE__ */ jsx7("div", {
+          /* @__PURE__ */ jsx9("div", {
             className: styles6.title,
             children: title
           }),
-          /* @__PURE__ */ jsx7("div", {
+          /* @__PURE__ */ jsx9("div", {
             className: styles6.value,
             children: value
           }),
-          /* @__PURE__ */ jsxs6("div", {
-            className: css7({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
+          /* @__PURE__ */ jsxs7("div", {
+            className: css8({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
             children: [
-              change && /* @__PURE__ */ jsx7("span", {
-                className: cx7(styles6.change, changeColor),
+              change && /* @__PURE__ */ jsx9("span", {
+                className: cx8(styles6.change, changeColor),
                 children: change
               }),
-              badge && /* @__PURE__ */ jsx7("span", {
-                className: css7({
+              badge && /* @__PURE__ */ jsx9("span", {
+                className: css8({
                   textStyle: "small",
                   px: "2",
                   py: "0.5",
@@ -631,15 +941,15 @@ function StatCard({
   });
 }
 // src/components/patterns/step-card.tsx
-import { css as css8, cx as cx8 } from "styled-system/css";
-import { jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
+import { css as css9, cx as cx9 } from "styled-system/css";
+import { jsx as jsx10, jsxs as jsxs8 } from "react/jsx-runtime";
 "use client";
 var styles7 = {
-  root: css8({
+  root: css9({
     display: "flex",
     gap: "4"
   }),
-  number: css8({
+  number: css9({
     w: "8",
     h: "8",
     rounded: "full",
@@ -651,36 +961,36 @@ var styles7 = {
     textStyle: "label",
     flexShrink: 0
   }),
-  content: css8({
+  content: css9({
     flex: 1,
     minW: 0
   }),
-  title: css8({
+  title: css9({
     textStyle: "label",
     color: "fg.default"
   }),
-  description: css8({
+  description: css9({
     textStyle: "small",
     color: "fg.muted",
     mt: "1"
   })
 };
 function StepCard({ step, title, description, children, className }) {
-  return /* @__PURE__ */ jsxs7("div", {
-    className: cx8(styles7.root, className),
+  return /* @__PURE__ */ jsxs8("div", {
+    className: cx9(styles7.root, className),
     children: [
-      /* @__PURE__ */ jsx8("div", {
+      /* @__PURE__ */ jsx10("div", {
         className: styles7.number,
         children: step
       }),
-      /* @__PURE__ */ jsxs7("div", {
+      /* @__PURE__ */ jsxs8("div", {
         className: styles7.content,
         children: [
-          /* @__PURE__ */ jsx8("div", {
+          /* @__PURE__ */ jsx10("div", {
             className: styles7.title,
             children: title
           }),
-          description && /* @__PURE__ */ jsx8("div", {
+          description && /* @__PURE__ */ jsx10("div", {
             className: styles7.description,
             children: description
           }),
@@ -691,62 +1001,62 @@ function StepCard({ step, title, description, children, className }) {
   });
 }
 // src/components/patterns/streaming-status.tsx
-import { css as css9, cx as cx9 } from "styled-system/css";
-import { jsx as jsx9, jsxs as jsxs8 } from "react/jsx-runtime";
+import { css as css10, cx as cx10 } from "styled-system/css";
+import { jsx as jsx11, jsxs as jsxs9 } from "react/jsx-runtime";
 "use client";
 var styles8 = {
-  root: css9({
+  root: css10({
     bg: "bg.default",
     borderWidth: "1px",
     borderColor: "border.muted",
     rounded: "l3",
     p: "4"
   }),
-  compactRoot: css9({
+  compactRoot: css10({
     display: "flex",
     alignItems: "center",
     gap: "2",
     textStyle: "sm"
   }),
-  header: css9({
+  header: css10({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     mb: "3"
   }),
-  headerLeft: css9({
+  headerLeft: css10({
     display: "flex",
     alignItems: "center",
     gap: "3"
   }),
-  statusLabel: css9({
+  statusLabel: css10({
     textStyle: "sm",
     fontWeight: "medium",
     color: "fg.default"
   }),
-  statusLabelError: css9({
+  statusLabelError: css10({
     color: "{colors.red.11}"
   }),
-  progressHint: css9({
+  progressHint: css10({
     textStyle: "xs",
     color: "fg.muted"
   }),
-  trackWrap: css9({
+  trackWrap: css10({
     mb: "3"
   }),
-  track: css9({
+  track: css10({
     h: "2",
     bg: "border.muted",
     rounded: "full",
     overflow: "hidden"
   }),
-  range: css9({
+  range: css10({
     h: "full",
     bg: "colorPalette.9",
     transition: "width 0.3s ease-out",
     rounded: "full"
   }),
-  errorBox: css9({
+  errorBox: css10({
     p: "3",
     bg: "{colors.red.2}",
     borderWidth: "1px",
@@ -756,11 +1066,11 @@ var styles8 = {
     alignItems: "flex-start",
     gap: "2"
   }),
-  errorText: css9({
+  errorText: css10({
     textStyle: "sm",
     color: "{colors.red.11}"
   }),
-  successBox: css9({
+  successBox: css10({
     p: "3",
     bg: "{colors.green.2}",
     borderWidth: "1px",
@@ -770,16 +1080,16 @@ var styles8 = {
     alignItems: "center",
     gap: "2"
   }),
-  successText: css9({
+  successText: css10({
     textStyle: "sm",
     color: "{colors.green.11}"
   }),
-  stepsGrid: css9({
+  stepsGrid: css10({
     mt: "4",
     display: "grid",
     gap: "2"
   }),
-  step: css9({
+  step: css10({
     textAlign: "center",
     p: "2",
     rounded: "l2",
@@ -787,22 +1097,22 @@ var styles8 = {
     transition: "all 0.15s",
     textStyle: "xs"
   }),
-  stepActive: css9({
+  stepActive: css10({
     bg: "colorPalette.2",
     borderColor: "colorPalette.6",
     color: "colorPalette.11"
   }),
-  stepDone: css9({
+  stepDone: css10({
     bg: "{colors.green.2}",
     borderColor: "{colors.green.6}",
     color: "{colors.green.11}"
   }),
-  stepPending: css9({
+  stepPending: css10({
     bg: "gray.subtle.bg",
     borderColor: "border.muted",
     color: "fg.muted"
   }),
-  abortButton: css9({
+  abortButton: css10({
     appearance: "none",
     border: "none",
     bg: "transparent",
@@ -816,7 +1126,7 @@ var styles8 = {
       color: "fg.default"
     }
   }),
-  iconWrap: css9({
+  iconWrap: css10({
     flexShrink: 0,
     display: "flex",
     alignItems: "center",
@@ -841,26 +1151,26 @@ function StreamingStatus({
   const isActive = !isComplete && !error;
   const hasProgress = typeof progress === "number";
   if (compact) {
-    return /* @__PURE__ */ jsxs8("div", {
-      className: cx9(styles8.compactRoot, className),
+    return /* @__PURE__ */ jsxs9("div", {
+      className: cx10(styles8.compactRoot, className),
       children: [
-        isActive && activeIcon && /* @__PURE__ */ jsx9("span", {
+        isActive && activeIcon && /* @__PURE__ */ jsx11("span", {
           className: styles8.iconWrap,
           children: activeIcon
         }),
-        isComplete && completeIcon && /* @__PURE__ */ jsx9("span", {
+        isComplete && completeIcon && /* @__PURE__ */ jsx11("span", {
           className: styles8.iconWrap,
           children: completeIcon
         }),
-        error && errorIcon && /* @__PURE__ */ jsx9("span", {
+        error && errorIcon && /* @__PURE__ */ jsx11("span", {
           className: styles8.iconWrap,
           children: errorIcon
         }),
-        /* @__PURE__ */ jsx9("span", {
-          className: cx9(styles8.statusLabel, error ? styles8.statusLabelError : undefined),
+        /* @__PURE__ */ jsx11("span", {
+          className: cx10(styles8.statusLabel, error ? styles8.statusLabelError : undefined),
           children: message || status
         }),
-        isActive && hasProgress && /* @__PURE__ */ jsxs8("span", {
+        isActive && hasProgress && /* @__PURE__ */ jsxs9("span", {
           className: styles8.progressHint,
           children: [
             "(",
@@ -868,7 +1178,7 @@ function StreamingStatus({
             "%)"
           ]
         }),
-        onAbort && isActive && /* @__PURE__ */ jsx9("button", {
+        onAbort && isActive && /* @__PURE__ */ jsx11("button", {
           onClick: onAbort,
           className: styles8.abortButton,
           title: "Abort operation",
@@ -879,34 +1189,34 @@ function StreamingStatus({
   }
   const stepKeys = steps?.map((s) => s.key) ?? [];
   const currentIdx = currentStep ? stepKeys.indexOf(currentStep) : -1;
-  return /* @__PURE__ */ jsxs8("div", {
-    className: cx9(styles8.root, className),
+  return /* @__PURE__ */ jsxs9("div", {
+    className: cx10(styles8.root, className),
     children: [
-      /* @__PURE__ */ jsxs8("div", {
+      /* @__PURE__ */ jsxs9("div", {
         className: styles8.header,
         children: [
-          /* @__PURE__ */ jsxs8("div", {
+          /* @__PURE__ */ jsxs9("div", {
             className: styles8.headerLeft,
             children: [
-              isActive && activeIcon && /* @__PURE__ */ jsx9("span", {
+              isActive && activeIcon && /* @__PURE__ */ jsx11("span", {
                 className: styles8.iconWrap,
                 children: activeIcon
               }),
-              isComplete && completeIcon && /* @__PURE__ */ jsx9("span", {
+              isComplete && completeIcon && /* @__PURE__ */ jsx11("span", {
                 className: styles8.iconWrap,
                 children: completeIcon
               }),
-              error && errorIcon && /* @__PURE__ */ jsx9("span", {
+              error && errorIcon && /* @__PURE__ */ jsx11("span", {
                 className: styles8.iconWrap,
                 children: errorIcon
               }),
-              /* @__PURE__ */ jsxs8("div", {
+              /* @__PURE__ */ jsxs9("div", {
                 children: [
-                  /* @__PURE__ */ jsx9("div", {
-                    className: cx9(styles8.statusLabel, error ? styles8.statusLabelError : undefined),
+                  /* @__PURE__ */ jsx11("div", {
+                    className: cx10(styles8.statusLabel, error ? styles8.statusLabelError : undefined),
                     children: message || status
                   }),
-                  isActive && hasProgress && /* @__PURE__ */ jsxs8("div", {
+                  isActive && hasProgress && /* @__PURE__ */ jsxs9("div", {
                     className: styles8.progressHint,
                     children: [
                       progress,
@@ -917,7 +1227,7 @@ function StreamingStatus({
               })
             ]
           }),
-          onAbort && isActive && /* @__PURE__ */ jsx9("button", {
+          onAbort && isActive && /* @__PURE__ */ jsx11("button", {
             onClick: onAbort,
             className: styles8.abortButton,
             title: "Abort operation",
@@ -925,50 +1235,50 @@ function StreamingStatus({
           })
         ]
       }),
-      isActive && hasProgress && /* @__PURE__ */ jsx9("div", {
+      isActive && hasProgress && /* @__PURE__ */ jsx11("div", {
         className: styles8.trackWrap,
-        children: /* @__PURE__ */ jsx9("div", {
+        children: /* @__PURE__ */ jsx11("div", {
           className: styles8.track,
-          children: /* @__PURE__ */ jsx9("div", {
+          children: /* @__PURE__ */ jsx11("div", {
             className: styles8.range,
             style: { width: `${progress}%` }
           })
         })
       }),
-      error && /* @__PURE__ */ jsxs8("div", {
+      error && /* @__PURE__ */ jsxs9("div", {
         className: styles8.errorBox,
         children: [
-          errorIcon && /* @__PURE__ */ jsx9("span", {
+          errorIcon && /* @__PURE__ */ jsx11("span", {
             className: styles8.iconWrap,
             children: errorIcon
           }),
-          /* @__PURE__ */ jsx9("span", {
+          /* @__PURE__ */ jsx11("span", {
             className: styles8.errorText,
             children: error
           })
         ]
       }),
-      isComplete && !error && /* @__PURE__ */ jsxs8("div", {
+      isComplete && !error && /* @__PURE__ */ jsxs9("div", {
         className: styles8.successBox,
         children: [
-          completeIcon && /* @__PURE__ */ jsx9("span", {
+          completeIcon && /* @__PURE__ */ jsx11("span", {
             className: styles8.iconWrap,
             children: completeIcon
           }),
-          /* @__PURE__ */ jsx9("span", {
+          /* @__PURE__ */ jsx11("span", {
             className: styles8.successText,
             children: "Operation completed successfully"
           })
         ]
       }),
-      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx9("div", {
+      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx11("div", {
         className: styles8.stepsGrid,
         style: { gridTemplateColumns: `repeat(${steps.length}, 1fr)` },
         children: steps.map((step, idx) => {
           const isCurrent = step.key === currentStep;
           const isDone = currentIdx >= 0 && idx < currentIdx;
-          return /* @__PURE__ */ jsx9("div", {
-            className: cx9(styles8.step, isCurrent ? styles8.stepActive : isDone ? styles8.stepDone : styles8.stepPending),
+          return /* @__PURE__ */ jsx11("div", {
+            className: cx10(styles8.step, isCurrent ? styles8.stepActive : isDone ? styles8.stepDone : styles8.stepPending),
             children: step.label
           }, step.key);
         })
@@ -982,11 +1292,13 @@ export {
   StatCard,
   LineChart,
   IconBadge,
+  HelpTrigger,
+  HelpPanel,
   FileTree,
   FeatureCard,
   EmptyState,
   ActionCard
 };
 
-//# debugId=347E1101EFD22F8E64756E2164756E21
+//# debugId=C5FC22BD49072C5664756E2164756E21
 //# sourceMappingURL=index.js.map

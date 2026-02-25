@@ -147,6 +147,7 @@ export declare const slotRecipes: {
     field: import("@pandacss/types").SlotRecipeConfig;
     fieldset: import("@pandacss/types").SlotRecipeConfig;
     fileUpload: import("@pandacss/types").SlotRecipeConfig;
+    helpPanel: import("@pandacss/types").SlotRecipeConfig;
     hoverCard: import("@pandacss/types").SlotRecipeConfig;
     inputGroup: import("@pandacss/types").SlotRecipeConfig;
     menu: import("@pandacss/types").SlotRecipeConfig;
