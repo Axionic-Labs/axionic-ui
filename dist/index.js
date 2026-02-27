@@ -1686,6 +1686,7 @@ var dialog = defineSlotRecipe13({
   base: {
     backdrop: {
       background: "black.a7",
+      backdropFilter: "blur(8px)",
       height: "100dvh",
       left: "0",
       position: "fixed",
@@ -5448,5 +5449,5 @@ export {
   axionicSand
 };
 
-//# debugId=3DEDE3A615B5630264756E2164756E21
+//# debugId=A229F05D81231D6564756E2164756E21
 //# sourceMappingURL=index.js.map
