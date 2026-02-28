@@ -2304,11 +2304,7 @@
     border-top-right-radius: 0;
 }
 
-  .\[\&_\>_\*\:first-child\]\:mb_-1px > *:first-child {
-    margin-bottom: -1px;
-}
-
-  .\[\&_\>_\*\:not\(\:first-child\)\:not\(\:last-child\)\]\:mb_-1px > *:not(:first-child):not(:last-child) {
+  .\[\&_\>_\*\:first-child\]\:mb_-1px > *:first-child,.\[\&_\>_\*\:not\(\:first-child\)\:not\(\:last-child\)\]\:mb_-1px > *:not(:first-child):not(:last-child) {
     margin-bottom: -1px;
 }
 

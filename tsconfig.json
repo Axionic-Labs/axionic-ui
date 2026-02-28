@@ -23,5 +23,5 @@
 		}
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],
-	"exclude": ["node_modules", "dist", "styled-system"]
+	"exclude": ["node_modules", "dist", "styled-system", "src/test"]
 }
