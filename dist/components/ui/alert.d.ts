@@ -11,8 +11,10 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     title?: string | undefined | undefined;
     className?: string | undefined | undefined;
     radioGroup?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     ref?: import("react").Ref<HTMLSpanElement> | undefined;
+    role?: import("react").AriaRole | undefined;
+    slot?: string | undefined | undefined;
     key?: import("react").Key | null | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
@@ -31,7 +33,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
-    role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -112,7 +113,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
-    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;

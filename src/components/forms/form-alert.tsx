@@ -43,6 +43,7 @@ export function FormAlert({ children, className }: FormAlertProps) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
+				aria-label="Alert"
 				style={{ flexShrink: 0, marginTop: '2px' }}
 			>
 				<circle cx="12" cy="12" r="10" />

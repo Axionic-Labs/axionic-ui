@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { type ReactNode, forwardRef } from 'react'
-import { css, cx } from 'styled-system/css'
+import { forwardRef, type ReactNode } from 'react';
+import { css, cx } from 'styled-system/css';
 
 /**
  * Props for the HelpPanel root container.
@@ -17,60 +17,58 @@ import { css, cx } from 'styled-system/css'
  * ```
  */
 export interface HelpPanelRootProps {
-	children: ReactNode
-	className?: string
+	children: ReactNode;
+	className?: string;
 }
 
 /**
  * Sliding panel container. Positioned absolutely to the right edge of its
  * containing block. Includes slide-in animation on mount.
  */
-const Root = forwardRef<HTMLDivElement, HelpPanelRootProps>(
-	({ children, className }, ref) => (
-		<div
-			ref={ref}
-			className={cx(
-				css({
-					position: 'absolute',
-					top: '0',
-					right: '0',
-					zIndex: 40,
-					h: 'full',
-					w: '96',
-					bgGradient: 'to-b',
-					gradientFrom: 'bg.subtle',
-					gradientTo: 'bg.default',
-					borderLeftWidth: '1px',
-					borderColor: 'border.default',
-					display: 'flex',
-					flexDirection: 'column',
-					boxShadow: '2xl',
-					overflow: 'hidden',
-					animation: 'slide-in-right 200ms ease-out',
-				}),
-				className,
-			)}
-		>
-			{children}
-		</div>
-	),
-)
-Root.displayName = 'HelpPanel.Root'
+const Root = forwardRef<HTMLDivElement, HelpPanelRootProps>(({ children, className }, ref) => (
+	<div
+		ref={ref}
+		className={cx(
+			css({
+				position: 'absolute',
+				top: '0',
+				right: '0',
+				zIndex: 40,
+				h: 'full',
+				w: '96',
+				bgGradient: 'to-b',
+				gradientFrom: 'bg.subtle',
+				gradientTo: 'bg.default',
+				borderLeftWidth: '1px',
+				borderColor: 'border.default',
+				display: 'flex',
+				flexDirection: 'column',
+				boxShadow: '2xl',
+				overflow: 'hidden',
+				animation: 'slide-in-right 200ms ease-out',
+			}),
+			className,
+		)}
+	>
+		{children}
+	</div>
+));
+Root.displayName = 'HelpPanel.Root';
 
 export interface HelpPanelHeaderProps {
 	/** Icon rendered in the header badge */
-	icon?: ReactNode
+	icon?: ReactNode;
 	/** Panel title */
-	title: string
+	title: string;
 	/** Subtitle text below the title */
-	subtitle?: string
+	subtitle?: string;
 	/** Close button handler */
-	onClose?: () => void
+	onClose?: () => void;
 	/** Close button icon (defaults to an X) */
-	closeIcon?: ReactNode
+	closeIcon?: ReactNode;
 	/** Whether to show the gradient accent bar at the top */
-	accentBar?: boolean
-	className?: string
+	accentBar?: boolean;
+	className?: string;
 }
 
 /**
@@ -107,7 +105,9 @@ const Header = forwardRef<HTMLDivElement, HelpPanelHeaderProps>(
 					})}
 				/>
 			)}
-			<div className={css({ display: 'flex', alignItems: 'center', justifyContent: 'space-between' })}>
+			<div
+				className={css({ display: 'flex', alignItems: 'center', justifyContent: 'space-between' })}
+			>
 				<div className={css({ display: 'flex', alignItems: 'center', gap: '3' })}>
 					{icon && (
 						<div
@@ -138,11 +138,7 @@ const Header = forwardRef<HTMLDivElement, HelpPanelHeaderProps>(
 						>
 							{title}
 						</h2>
-						{subtitle && (
-							<p className={css({ fontSize: 'xs', color: 'fg.subtle' })}>
-								{subtitle}
-							</p>
-						)}
+						{subtitle && <p className={css({ fontSize: 'xs', color: 'fg.subtle' })}>{subtitle}</p>}
 					</div>
 				</div>
 				{onClose && (
@@ -169,7 +165,17 @@ const Header = forwardRef<HTMLDivElement, HelpPanelHeaderProps>(
 						})}
 					>
 						{closeIcon ?? (
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								aria-label="Close"
+							>
 								<line x1="18" y1="6" x2="6" y2="18" />
 								<line x1="6" y1="6" x2="18" y2="18" />
 							</svg>
@@ -179,52 +185,48 @@ const Header = forwardRef<HTMLDivElement, HelpPanelHeaderProps>(
 			</div>
 		</div>
 	),
-)
-Header.displayName = 'HelpPanel.Header'
+);
+Header.displayName = 'HelpPanel.Header';
 
 export interface HelpPanelTabBarProps {
-	children: ReactNode
-	className?: string
+	children: ReactNode;
+	className?: string;
 }
 
 /**
  * Horizontal tab bar for category navigation. Wraps tab buttons.
  */
-const TabBar = forwardRef<HTMLDivElement, HelpPanelTabBarProps>(
-	({ children, className }, ref) => (
-		<div
-			ref={ref}
-			className={cx(
-				css({
-					px: '2',
-					py: '2',
-					bg: 'bg.default',
-					borderBottomWidth: '1px',
-					borderColor: 'border.default/50',
-				}),
-				className,
-			)}
-		>
-			<div className={css({ display: 'flex', flexWrap: 'wrap', gap: '1' })}>
-				{children}
-			</div>
-		</div>
-	),
-)
-TabBar.displayName = 'HelpPanel.TabBar'
+const TabBar = forwardRef<HTMLDivElement, HelpPanelTabBarProps>(({ children, className }, ref) => (
+	<div
+		ref={ref}
+		className={cx(
+			css({
+				px: '2',
+				py: '2',
+				bg: 'bg.default',
+				borderBottomWidth: '1px',
+				borderColor: 'border.default/50',
+			}),
+			className,
+		)}
+	>
+		<div className={css({ display: 'flex', flexWrap: 'wrap', gap: '1' })}>{children}</div>
+	</div>
+));
+TabBar.displayName = 'HelpPanel.TabBar';
 
 export interface HelpPanelTabProps {
 	/** Whether this tab is currently selected */
-	active?: boolean
+	active?: boolean;
 	/** Tab icon (rendered before label) */
-	icon?: ReactNode
+	icon?: ReactNode;
 	/** Tab label text */
-	label: string
+	label: string;
 	/** Click handler */
-	onClick?: () => void
+	onClick?: () => void;
 	/** Optional tooltip */
-	title?: string
-	className?: string
+	title?: string;
+	className?: string;
 }
 
 /**
@@ -271,12 +273,12 @@ const Tab = forwardRef<HTMLButtonElement, HelpPanelTabProps>(
 			<span className={css({ display: { base: 'none', sm: 'inline' } })}>{label}</span>
 		</button>
 	),
-)
-Tab.displayName = 'HelpPanel.Tab'
+);
+Tab.displayName = 'HelpPanel.Tab';
 
 export interface HelpPanelContentProps {
-	children: ReactNode
-	className?: string
+	children: ReactNode;
+	className?: string;
 }
 
 /**
@@ -284,28 +286,22 @@ export interface HelpPanelContentProps {
  */
 const Content = forwardRef<HTMLDivElement, HelpPanelContentProps>(
 	({ children, className }, ref) => (
-		<div
-			ref={ref}
-			className={cx(
-				css({ flex: '1', overflowY: 'auto' }),
-				className,
-			)}
-		>
+		<div ref={ref} className={cx(css({ flex: '1', overflowY: 'auto' }), className)}>
 			{children}
 		</div>
 	),
-)
-Content.displayName = 'HelpPanel.Content'
+);
+Content.displayName = 'HelpPanel.Content';
 
 export interface HelpPanelFooterProps {
 	/** Hint text displayed on the left */
-	hint?: string
+	hint?: string;
 	/** Keyboard shortcut key displayed on the right */
-	shortcutKey?: string
+	shortcutKey?: string;
 	/** Whether to show the gradient accent bar at the bottom */
-	accentBar?: boolean
-	children?: ReactNode
-	className?: string
+	accentBar?: boolean;
+	children?: ReactNode;
+	className?: string;
 }
 
 /**
@@ -375,15 +371,15 @@ const Footer = forwardRef<HTMLDivElement, HelpPanelFooterProps>(
 			)}
 		</div>
 	),
-)
-Footer.displayName = 'HelpPanel.Footer'
+);
+Footer.displayName = 'HelpPanel.Footer';
 
 export interface HelpPanelSectionHeadingProps {
 	/** Label text */
-	label: string
+	label: string;
 	/** Dot color (CSS value or Panda token reference) */
-	dotColor?: string
-	className?: string
+	dotColor?: string;
+	className?: string;
 }
 
 /**
@@ -419,7 +415,7 @@ function SectionHeading({ label, dotColor, className }: HelpPanelSectionHeadingP
 			/>
 			{label}
 		</h4>
-	)
+	);
 }
 
 export const HelpPanel = {
@@ -430,4 +426,4 @@ export const HelpPanel = {
 	Content,
 	Footer,
 	SectionHeading,
-}
+};

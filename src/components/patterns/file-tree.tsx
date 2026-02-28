@@ -150,7 +150,11 @@ function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }: 
 				className={cx(styles.node, isSelected && styles.nodeSelected)}
 				style={{ paddingLeft: `${depth * 20 + 8}px` }}
 				onClick={handleClick}
+				onKeyDown={(e) => {
+					if (e.key === 'Enter' || e.key === ' ') handleClick();
+				}}
 				role="treeitem"
+				tabIndex={0}
 				aria-selected={isSelected}
 				aria-expanded={isFolder ? isExpanded : undefined}
 			>
@@ -211,9 +215,7 @@ export function FileTree({
 	defaultExpanded = [],
 	className,
 }: FileTreeProps) {
-	const [expandedIds, setExpandedIds] = useState<Set<string>>(
-		() => new Set(defaultExpanded),
-	);
+	const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set(defaultExpanded));
 
 	const handleToggle = useCallback((id: string) => {
 		setExpandedIds((prev) => {

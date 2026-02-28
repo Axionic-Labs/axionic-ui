@@ -1,4 +1,4 @@
-import { defineSlotRecipe } from '@pandacss/dev'
+import { defineSlotRecipe } from '@pandacss/dev';
 
 export const helpPanel = defineSlotRecipe({
 	className: 'help-panel',
@@ -106,4 +106,4 @@ export const helpPanel = defineSlotRecipe({
 			gradientTo: 'colorPalette.11',
 		},
 	},
-})
+});

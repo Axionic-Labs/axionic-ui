@@ -79,8 +79,7 @@ export function LineChart({
 	const yMin = Math.min(...data.map((d) => d.y)) * 0.9;
 	const yMax = Math.max(...data.map((d) => d.y)) * 1.1;
 
-	const scaleX = (x: number) =>
-		padding.left + ((x - xMin) / (xMax - xMin || 1)) * chartWidth;
+	const scaleX = (x: number) => padding.left + ((x - xMin) / (xMax - xMin || 1)) * chartWidth;
 	const scaleY = (y: number) =>
 		padding.top + chartHeight - ((y - yMin) / (yMax - yMin || 1)) * chartHeight;
 

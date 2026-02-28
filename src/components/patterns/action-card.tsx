@@ -49,14 +49,27 @@ const styles = {
 	}),
 };
 
-export function ActionCard({ title, description, icon, iconBg, iconColor, onClick, className }: ActionCardProps) {
+export function ActionCard({
+	title,
+	description,
+	icon,
+	iconBg,
+	iconColor,
+	onClick,
+	className,
+}: ActionCardProps) {
 	return (
 		<div
 			role="button"
 			tabIndex={0}
 			className={cx(styles.root, className)}
 			onClick={onClick}
-			onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick?.(); } }}
+			onKeyDown={(e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					onClick?.();
+				}
+			}}
 		>
 			{icon && (
 				<div

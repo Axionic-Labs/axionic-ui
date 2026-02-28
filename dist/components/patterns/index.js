@@ -35,7 +35,15 @@ var styles = {
     mt: "1"
   })
 };
-function ActionCard({ title, description, icon, iconBg, iconColor, onClick, className }) {
+function ActionCard({
+  title,
+  description,
+  icon,
+  iconBg,
+  iconColor,
+  onClick,
+  className
+}) {
   return /* @__PURE__ */ jsxs("div", {
     role: "button",
     tabIndex: 0,
@@ -302,7 +310,12 @@ function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) 
         className: cx4(styles4.node, isSelected && styles4.nodeSelected),
         style: { paddingLeft: `${depth * 20 + 8}px` },
         onClick: handleClick,
+        onKeyDown: (e) => {
+          if (e.key === "Enter" || e.key === " ")
+            handleClick();
+        },
         role: "treeitem",
+        tabIndex: 0,
         "aria-selected": isSelected,
         "aria-expanded": isFolder ? isExpanded : undefined,
         children: [
@@ -491,6 +504,7 @@ var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar 
             strokeWidth: "2",
             strokeLinecap: "round",
             strokeLinejoin: "round",
+            "aria-label": "Close",
             children: [
               /* @__PURE__ */ jsx5("line", {
                 x1: "18",
@@ -1179,6 +1193,7 @@ function StreamingStatus({
           ]
         }),
         onAbort && isActive && /* @__PURE__ */ jsx11("button", {
+          type: "button",
           onClick: onAbort,
           className: styles8.abortButton,
           title: "Abort operation",
@@ -1228,6 +1243,7 @@ function StreamingStatus({
             ]
           }),
           onAbort && isActive && /* @__PURE__ */ jsx11("button", {
+            type: "button",
             onClick: onAbort,
             className: styles8.abortButton,
             title: "Abort operation",
@@ -1300,5 +1316,5 @@ export {
   ActionCard
 };
 
-//# debugId=C5FC22BD49072C5664756E2164756E21
+//# debugId=635ED2B60863F0ED64756E2164756E21
 //# sourceMappingURL=index.js.map
