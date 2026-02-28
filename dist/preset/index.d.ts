@@ -17,6 +17,6 @@
  * ```
  */
 export declare function createAxionicPreset(): import("@pandacss/types").Preset;
-export { axionicTeal } from './colors/teal';
 export { axionicSand } from './colors/sand';
+export { axionicTeal } from './colors/teal';
 //# sourceMappingURL=index.d.ts.map

@@ -1,6 +1,6 @@
 'use client';
 
-import { type ReactNode, type MouseEvent } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 
 export interface StreamingStep {
@@ -212,11 +212,14 @@ export function StreamingStatus({
 				<span className={cx(styles.statusLabel, error ? styles.statusLabelError : undefined)}>
 					{message || status}
 				</span>
-				{isActive && hasProgress && (
-					<span className={styles.progressHint}>({progress}%)</span>
-				)}
+				{isActive && hasProgress && <span className={styles.progressHint}>({progress}%)</span>}
 				{onAbort && isActive && (
-					<button onClick={onAbort} className={styles.abortButton} title="Abort operation">
+					<button
+						type="button"
+						onClick={onAbort}
+						className={styles.abortButton}
+						title="Abort operation"
+					>
 						&times;
 					</button>
 				)}
@@ -245,7 +248,12 @@ export function StreamingStatus({
 					</div>
 				</div>
 				{onAbort && isActive && (
-					<button onClick={onAbort} className={styles.abortButton} title="Abort operation">
+					<button
+						type="button"
+						onClick={onAbort}
+						className={styles.abortButton}
+						title="Abort operation"
+					>
 						&times;
 					</button>
 				)}

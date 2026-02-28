@@ -10,5 +10,5 @@ export interface ActionCardProps {
     onClick?: () => void;
     className?: string;
 }
-export declare function ActionCard({ title, description, icon, iconBg, iconColor, onClick, className }: ActionCardProps): import("react/jsx-runtime").JSX.Element;
+export declare function ActionCard({ title, description, icon, iconBg, iconColor, onClick, className, }: ActionCardProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=action-card.d.ts.map

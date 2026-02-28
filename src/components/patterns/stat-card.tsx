@@ -66,9 +66,16 @@ const styles = {
 };
 
 export function StatCard({
-	title, value, change, changeType = 'neutral',
-	icon, iconBg, iconColor,
-	badge, badgeColor, badgeBg,
+	title,
+	value,
+	change,
+	changeType = 'neutral',
+	icon,
+	iconBg,
+	iconColor,
+	badge,
+	badgeColor,
+	badgeBg,
 	className,
 }: StatCardProps) {
 	const changeColor =

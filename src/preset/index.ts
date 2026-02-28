@@ -1,11 +1,11 @@
 import { definePreset } from '@pandacss/dev';
 import { createPreset } from '@park-ui/panda-preset';
-import { axionicTeal } from './colors/teal';
-import { axionicSand } from './colors/sand';
 import { recipes as themeRecipes, slotRecipes as themeSlotRecipes } from '../theme/recipes/index';
-import { textStyles } from './text-styles';
-import { keyframes } from './keyframes';
+import { axionicSand } from './colors/sand';
+import { axionicTeal } from './colors/teal';
 import { globalCss } from './global-css';
+import { keyframes } from './keyframes';
+import { textStyles } from './text-styles';
 
 /**
  * Creates the Axionic UI Panda CSS preset.
@@ -84,17 +84,33 @@ export function createAxionicPreset() {
 							info: { value: { _light: '#2563eb', _dark: '#60a5fa' } },
 						},
 						bg: {
-							success: { value: { _light: 'rgba(22, 163, 74, 0.08)', _dark: 'rgba(74, 222, 128, 0.12)' } },
-							warning: { value: { _light: 'rgba(217, 119, 6, 0.08)', _dark: 'rgba(251, 191, 36, 0.12)' } },
-							info: { value: { _light: 'rgba(37, 99, 235, 0.08)', _dark: 'rgba(96, 165, 250, 0.12)' } },
+							success: {
+								value: { _light: 'rgba(22, 163, 74, 0.08)', _dark: 'rgba(74, 222, 128, 0.12)' },
+							},
+							warning: {
+								value: { _light: 'rgba(217, 119, 6, 0.08)', _dark: 'rgba(251, 191, 36, 0.12)' },
+							},
+							info: {
+								value: { _light: 'rgba(37, 99, 235, 0.08)', _dark: 'rgba(96, 165, 250, 0.12)' },
+							},
 							deep: { value: { _light: '{colors.gray.light.1}', _dark: '#061012' } },
-							navbar: { value: { _light: 'rgba(253, 253, 252, 0.85)', _dark: 'rgba(26, 46, 48, 0.85)' } },
-							navbarIdle: { value: { _light: 'rgba(253, 253, 252, 0.6)', _dark: 'rgba(26, 46, 48, 0.6)' } },
+							navbar: {
+								value: { _light: 'rgba(253, 253, 252, 0.85)', _dark: 'rgba(26, 46, 48, 0.85)' },
+							},
+							navbarIdle: {
+								value: { _light: 'rgba(253, 253, 252, 0.6)', _dark: 'rgba(26, 46, 48, 0.6)' },
+							},
 						},
 						border: {
-							success: { value: { _light: 'rgba(22, 163, 74, 0.3)', _dark: 'rgba(74, 222, 128, 0.3)' } },
-							warning: { value: { _light: 'rgba(217, 119, 6, 0.3)', _dark: 'rgba(251, 191, 36, 0.3)' } },
-							info: { value: { _light: 'rgba(37, 99, 235, 0.3)', _dark: 'rgba(96, 165, 250, 0.3)' } },
+							success: {
+								value: { _light: 'rgba(22, 163, 74, 0.3)', _dark: 'rgba(74, 222, 128, 0.3)' },
+							},
+							warning: {
+								value: { _light: 'rgba(217, 119, 6, 0.3)', _dark: 'rgba(251, 191, 36, 0.3)' },
+							},
+							info: {
+								value: { _light: 'rgba(37, 99, 235, 0.3)', _dark: 'rgba(96, 165, 250, 0.3)' },
+							},
 						},
 						wheat: {
 							'1': { value: { _light: '{colors.wheat.light.1}', _dark: '{colors.wheat.dark.1}' } },
@@ -106,13 +122,25 @@ export function createAxionicPreset() {
 							'7': { value: { _light: '{colors.wheat.light.7}', _dark: '{colors.wheat.dark.7}' } },
 							'8': { value: { _light: '{colors.wheat.light.8}', _dark: '{colors.wheat.dark.8}' } },
 							'9': { value: { _light: '{colors.wheat.light.9}', _dark: '{colors.wheat.dark.9}' } },
-							'10': { value: { _light: '{colors.wheat.light.10}', _dark: '{colors.wheat.dark.10}' } },
-							'11': { value: { _light: '{colors.wheat.light.11}', _dark: '{colors.wheat.dark.11}' } },
-							'12': { value: { _light: '{colors.wheat.light.12}', _dark: '{colors.wheat.dark.12}' } },
-							default: { value: { _light: '{colors.wheat.light.9}', _dark: '{colors.wheat.dark.9}' } },
-							emphasized: { value: { _light: '{colors.wheat.light.10}', _dark: '{colors.wheat.dark.10}' } },
+							'10': {
+								value: { _light: '{colors.wheat.light.10}', _dark: '{colors.wheat.dark.10}' },
+							},
+							'11': {
+								value: { _light: '{colors.wheat.light.11}', _dark: '{colors.wheat.dark.11}' },
+							},
+							'12': {
+								value: { _light: '{colors.wheat.light.12}', _dark: '{colors.wheat.dark.12}' },
+							},
+							default: {
+								value: { _light: '{colors.wheat.light.9}', _dark: '{colors.wheat.dark.9}' },
+							},
+							emphasized: {
+								value: { _light: '{colors.wheat.light.10}', _dark: '{colors.wheat.dark.10}' },
+							},
 							fg: { value: { _light: '{colors.wheat.light.12}', _dark: '{colors.wheat.dark.1}' } },
-							text: { value: { _light: '{colors.wheat.light.11}', _dark: '{colors.wheat.dark.11}' } },
+							text: {
+								value: { _light: '{colors.wheat.light.11}', _dark: '{colors.wheat.dark.11}' },
+							},
 						},
 					},
 				},
@@ -126,5 +154,5 @@ export function createAxionicPreset() {
 	});
 }
 
-export { axionicTeal } from './colors/teal';
 export { axionicSand } from './colors/sand';
+export { axionicTeal } from './colors/teal';

@@ -2,184 +2,6 @@
 import { definePreset } from "@pandacss/dev";
 import { createPreset } from "@park-ui/panda-preset";
 
-// src/preset/colors/teal.ts
-var axionicTeal = {
-  name: "teal",
-  tokens: {
-    light: {
-      "1": { value: "#f5fafa" },
-      "2": { value: "#e3f5f7" },
-      "3": { value: "#c5eaed" },
-      "4": { value: "#a3dde2" },
-      "5": { value: "#7eccd3" },
-      "6": { value: "#5ab8c1" },
-      "7": { value: "#3a9da7" },
-      "8": { value: "#1f808b" },
-      "9": { value: "#006270" },
-      "10": { value: "#005662" },
-      "11": { value: "#004a54" },
-      "12": { value: "#003e44" },
-      a1: { value: "rgba(0, 98, 112, 0.02)" },
-      a2: { value: "rgba(0, 98, 112, 0.06)" },
-      a3: { value: "rgba(0, 98, 112, 0.12)" },
-      a4: { value: "rgba(0, 98, 112, 0.20)" },
-      a5: { value: "rgba(0, 98, 112, 0.30)" },
-      a6: { value: "rgba(0, 98, 112, 0.42)" },
-      a7: { value: "rgba(0, 98, 112, 0.56)" },
-      a8: { value: "rgba(0, 98, 112, 0.70)" },
-      a9: { value: "rgba(0, 98, 112, 0.85)" },
-      a10: { value: "rgba(0, 98, 112, 0.88)" },
-      a11: { value: "rgba(0, 98, 112, 0.92)" },
-      a12: { value: "rgba(0, 62, 68, 0.97)" }
-    },
-    dark: {
-      "1": { value: "#061214" },
-      "2": { value: "#0b1d20" },
-      "3": { value: "#12292d" },
-      "4": { value: "#1a363b" },
-      "5": { value: "#23444a" },
-      "6": { value: "#2e555c" },
-      "7": { value: "#3d6f78" },
-      "8": { value: "#508d97" },
-      "9": { value: "#5ab8c1" },
-      "10": { value: "#7eccd3" },
-      "11": { value: "#a3dde2" },
-      "12": { value: "#e3f5f7" },
-      a1: { value: "rgba(90, 184, 193, 0.02)" },
-      a2: { value: "rgba(90, 184, 193, 0.06)" },
-      a3: { value: "rgba(90, 184, 193, 0.12)" },
-      a4: { value: "rgba(90, 184, 193, 0.18)" },
-      a5: { value: "rgba(90, 184, 193, 0.24)" },
-      a6: { value: "rgba(90, 184, 193, 0.32)" },
-      a7: { value: "rgba(90, 184, 193, 0.44)" },
-      a8: { value: "rgba(90, 184, 193, 0.58)" },
-      a9: { value: "rgba(90, 184, 193, 0.75)" },
-      a10: { value: "rgba(90, 184, 193, 0.82)" },
-      a11: { value: "rgba(90, 184, 193, 0.88)" },
-      a12: { value: "rgba(227, 245, 247, 0.95)" }
-    }
-  },
-  semanticTokens: {
-    "1": { value: { _light: "{colors.teal.light.1}", _dark: "{colors.teal.dark.1}" } },
-    "2": { value: { _light: "{colors.teal.light.2}", _dark: "{colors.teal.dark.2}" } },
-    "3": { value: { _light: "{colors.teal.light.3}", _dark: "{colors.teal.dark.3}" } },
-    "4": { value: { _light: "{colors.teal.light.4}", _dark: "{colors.teal.dark.4}" } },
-    "5": { value: { _light: "{colors.teal.light.5}", _dark: "{colors.teal.dark.5}" } },
-    "6": { value: { _light: "{colors.teal.light.6}", _dark: "{colors.teal.dark.6}" } },
-    "7": { value: { _light: "{colors.teal.light.7}", _dark: "{colors.teal.dark.7}" } },
-    "8": { value: { _light: "{colors.teal.light.8}", _dark: "{colors.teal.dark.8}" } },
-    "9": { value: { _light: "{colors.teal.light.9}", _dark: "{colors.teal.dark.9}" } },
-    "10": { value: { _light: "{colors.teal.light.10}", _dark: "{colors.teal.dark.10}" } },
-    "11": { value: { _light: "{colors.teal.light.11}", _dark: "{colors.teal.dark.11}" } },
-    "12": { value: { _light: "{colors.teal.light.12}", _dark: "{colors.teal.dark.12}" } },
-    a1: { value: { _light: "{colors.teal.light.a1}", _dark: "{colors.teal.dark.a1}" } },
-    a2: { value: { _light: "{colors.teal.light.a2}", _dark: "{colors.teal.dark.a2}" } },
-    a3: { value: { _light: "{colors.teal.light.a3}", _dark: "{colors.teal.dark.a3}" } },
-    a4: { value: { _light: "{colors.teal.light.a4}", _dark: "{colors.teal.dark.a4}" } },
-    a5: { value: { _light: "{colors.teal.light.a5}", _dark: "{colors.teal.dark.a5}" } },
-    a6: { value: { _light: "{colors.teal.light.a6}", _dark: "{colors.teal.dark.a6}" } },
-    a7: { value: { _light: "{colors.teal.light.a7}", _dark: "{colors.teal.dark.a7}" } },
-    a8: { value: { _light: "{colors.teal.light.a8}", _dark: "{colors.teal.dark.a8}" } },
-    a9: { value: { _light: "{colors.teal.light.a9}", _dark: "{colors.teal.dark.a9}" } },
-    a10: { value: { _light: "{colors.teal.light.a10}", _dark: "{colors.teal.dark.a10}" } },
-    a11: { value: { _light: "{colors.teal.light.a11}", _dark: "{colors.teal.dark.a11}" } },
-    a12: { value: { _light: "{colors.teal.light.a12}", _dark: "{colors.teal.dark.a12}" } },
-    default: { value: { _light: "{colors.teal.light.9}", _dark: "{colors.teal.dark.9}" } },
-    emphasized: { value: { _light: "{colors.teal.light.10}", _dark: "{colors.teal.dark.10}" } },
-    fg: { value: { _light: "{colors.teal.light.12}", _dark: "{colors.teal.dark.1}" } },
-    text: { value: { _light: "{colors.teal.light.11}", _dark: "{colors.teal.dark.11}" } }
-  }
-};
-
-// src/preset/colors/sand.ts
-var axionicSand = {
-  name: "sand",
-  tokens: {
-    light: {
-      "1": { value: "#fdfdfc" },
-      "2": { value: "#f9f9f8" },
-      "3": { value: "#f1f0ef" },
-      "4": { value: "#e9e8e6" },
-      "5": { value: "#e2e1de" },
-      "6": { value: "#d9d8d5" },
-      "7": { value: "#cfceca" },
-      "8": { value: "#bcbbb5" },
-      "9": { value: "#8d8d86" },
-      "10": { value: "#82827c" },
-      "11": { value: "#63635e" },
-      "12": { value: "#21201c" },
-      a1: { value: "rgba(85, 85, 0, 0.01)" },
-      a2: { value: "rgba(85, 85, 0, 0.03)" },
-      a3: { value: "rgba(75, 65, 0, 0.06)" },
-      a4: { value: "rgba(65, 55, 0, 0.10)" },
-      a5: { value: "rgba(60, 50, 0, 0.13)" },
-      a6: { value: "rgba(55, 45, 0, 0.17)" },
-      a7: { value: "rgba(50, 40, 0, 0.21)" },
-      a8: { value: "rgba(45, 40, 0, 0.29)" },
-      a9: { value: "rgba(30, 30, 0, 0.48)" },
-      a10: { value: "rgba(25, 25, 0, 0.51)" },
-      a11: { value: "rgba(15, 15, 0, 0.63)" },
-      a12: { value: "rgba(5, 5, 0, 0.89)" }
-    },
-    dark: {
-      "1": { value: "#081618" },
-      "2": { value: "#1a2e30" },
-      "3": { value: "#1e3538" },
-      "4": { value: "#223e42" },
-      "5": { value: "#2a4a50" },
-      "6": { value: "#305558" },
-      "7": { value: "#345c62" },
-      "8": { value: "#4a7a82" },
-      "9": { value: "#5a9aa4" },
-      "10": { value: "#6eb0ba" },
-      "11": { value: "#a0d8e0" },
-      "12": { value: "#e1fdff" },
-      a1: { value: "rgba(0, 0, 0, 0)" },
-      a2: { value: "rgba(0, 200, 220, 0.06)" },
-      a3: { value: "rgba(0, 200, 220, 0.10)" },
-      a4: { value: "rgba(0, 200, 220, 0.14)" },
-      a5: { value: "rgba(0, 200, 220, 0.18)" },
-      a6: { value: "rgba(0, 200, 220, 0.24)" },
-      a7: { value: "rgba(0, 200, 220, 0.30)" },
-      a8: { value: "rgba(0, 200, 220, 0.40)" },
-      a9: { value: "rgba(0, 200, 220, 0.50)" },
-      a10: { value: "rgba(0, 200, 220, 0.56)" },
-      a11: { value: "rgba(0, 220, 240, 0.78)" },
-      a12: { value: "rgba(225, 253, 255, 0.93)" }
-    }
-  },
-  semanticTokens: {
-    "1": { value: { _light: "{colors.sand.light.1}", _dark: "{colors.sand.dark.1}" } },
-    "2": { value: { _light: "{colors.sand.light.2}", _dark: "{colors.sand.dark.2}" } },
-    "3": { value: { _light: "{colors.sand.light.3}", _dark: "{colors.sand.dark.3}" } },
-    "4": { value: { _light: "{colors.sand.light.4}", _dark: "{colors.sand.dark.4}" } },
-    "5": { value: { _light: "{colors.sand.light.5}", _dark: "{colors.sand.dark.5}" } },
-    "6": { value: { _light: "{colors.sand.light.6}", _dark: "{colors.sand.dark.6}" } },
-    "7": { value: { _light: "{colors.sand.light.7}", _dark: "{colors.sand.dark.7}" } },
-    "8": { value: { _light: "{colors.sand.light.8}", _dark: "{colors.sand.dark.8}" } },
-    "9": { value: { _light: "{colors.sand.light.9}", _dark: "{colors.sand.dark.9}" } },
-    "10": { value: { _light: "{colors.sand.light.10}", _dark: "{colors.sand.dark.10}" } },
-    "11": { value: { _light: "{colors.sand.light.11}", _dark: "{colors.sand.dark.11}" } },
-    "12": { value: { _light: "{colors.sand.light.12}", _dark: "{colors.sand.dark.12}" } },
-    a1: { value: { _light: "{colors.sand.light.a1}", _dark: "{colors.sand.dark.a1}" } },
-    a2: { value: { _light: "{colors.sand.light.a2}", _dark: "{colors.sand.dark.a2}" } },
-    a3: { value: { _light: "{colors.sand.light.a3}", _dark: "{colors.sand.dark.a3}" } },
-    a4: { value: { _light: "{colors.sand.light.a4}", _dark: "{colors.sand.dark.a4}" } },
-    a5: { value: { _light: "{colors.sand.light.a5}", _dark: "{colors.sand.dark.a5}" } },
-    a6: { value: { _light: "{colors.sand.light.a6}", _dark: "{colors.sand.dark.a6}" } },
-    a7: { value: { _light: "{colors.sand.light.a7}", _dark: "{colors.sand.dark.a7}" } },
-    a8: { value: { _light: "{colors.sand.light.a8}", _dark: "{colors.sand.dark.a8}" } },
-    a9: { value: { _light: "{colors.sand.light.a9}", _dark: "{colors.sand.dark.a9}" } },
-    a10: { value: { _light: "{colors.sand.light.a10}", _dark: "{colors.sand.dark.a10}" } },
-    a11: { value: { _light: "{colors.sand.light.a11}", _dark: "{colors.sand.dark.a11}" } },
-    a12: { value: { _light: "{colors.sand.light.a12}", _dark: "{colors.sand.dark.a12}" } },
-    default: { value: { _light: "{colors.sand.light.9}", _dark: "{colors.sand.dark.9}" } },
-    emphasized: { value: { _light: "{colors.sand.light.10}", _dark: "{colors.sand.dark.10}" } },
-    fg: { value: { _light: "white", _dark: "white" } },
-    text: { value: { _light: "{colors.sand.light.12}", _dark: "{colors.sand.dark.12}" } }
-  }
-};
-
 // src/theme/recipes/absolute-center.ts
 import { defineRecipe } from "@pandacss/dev";
 var absoluteCenter = defineRecipe({
@@ -5232,35 +5054,204 @@ var slotRecipes = {
   tooltip
 };
 
-// src/preset/text-styles.ts
-import { defineTextStyles } from "@pandacss/dev";
-var textStyles = defineTextStyles({
-  display: {
-    value: { fontFamily: "display", fontSize: "3.5rem", fontWeight: "700", lineHeight: "1.1", letterSpacing: "-0.02em" }
+// src/preset/colors/sand.ts
+var axionicSand = {
+  name: "sand",
+  tokens: {
+    light: {
+      "1": { value: "#fdfdfc" },
+      "2": { value: "#f9f9f8" },
+      "3": { value: "#f1f0ef" },
+      "4": { value: "#e9e8e6" },
+      "5": { value: "#e2e1de" },
+      "6": { value: "#d9d8d5" },
+      "7": { value: "#cfceca" },
+      "8": { value: "#bcbbb5" },
+      "9": { value: "#8d8d86" },
+      "10": { value: "#82827c" },
+      "11": { value: "#63635e" },
+      "12": { value: "#21201c" },
+      a1: { value: "rgba(85, 85, 0, 0.01)" },
+      a2: { value: "rgba(85, 85, 0, 0.03)" },
+      a3: { value: "rgba(75, 65, 0, 0.06)" },
+      a4: { value: "rgba(65, 55, 0, 0.10)" },
+      a5: { value: "rgba(60, 50, 0, 0.13)" },
+      a6: { value: "rgba(55, 45, 0, 0.17)" },
+      a7: { value: "rgba(50, 40, 0, 0.21)" },
+      a8: { value: "rgba(45, 40, 0, 0.29)" },
+      a9: { value: "rgba(30, 30, 0, 0.48)" },
+      a10: { value: "rgba(25, 25, 0, 0.51)" },
+      a11: { value: "rgba(15, 15, 0, 0.63)" },
+      a12: { value: "rgba(5, 5, 0, 0.89)" }
+    },
+    dark: {
+      "1": { value: "#081618" },
+      "2": { value: "#1a2e30" },
+      "3": { value: "#1e3538" },
+      "4": { value: "#223e42" },
+      "5": { value: "#2a4a50" },
+      "6": { value: "#305558" },
+      "7": { value: "#345c62" },
+      "8": { value: "#4a7a82" },
+      "9": { value: "#5a9aa4" },
+      "10": { value: "#6eb0ba" },
+      "11": { value: "#a0d8e0" },
+      "12": { value: "#e1fdff" },
+      a1: { value: "rgba(0, 0, 0, 0)" },
+      a2: { value: "rgba(0, 200, 220, 0.06)" },
+      a3: { value: "rgba(0, 200, 220, 0.10)" },
+      a4: { value: "rgba(0, 200, 220, 0.14)" },
+      a5: { value: "rgba(0, 200, 220, 0.18)" },
+      a6: { value: "rgba(0, 200, 220, 0.24)" },
+      a7: { value: "rgba(0, 200, 220, 0.30)" },
+      a8: { value: "rgba(0, 200, 220, 0.40)" },
+      a9: { value: "rgba(0, 200, 220, 0.50)" },
+      a10: { value: "rgba(0, 200, 220, 0.56)" },
+      a11: { value: "rgba(0, 220, 240, 0.78)" },
+      a12: { value: "rgba(225, 253, 255, 0.93)" }
+    }
   },
-  h1: {
-    value: { fontFamily: "body", fontSize: "2.25rem", fontWeight: "700", lineHeight: "1.2", letterSpacing: "-0.01em" }
+  semanticTokens: {
+    "1": { value: { _light: "{colors.sand.light.1}", _dark: "{colors.sand.dark.1}" } },
+    "2": { value: { _light: "{colors.sand.light.2}", _dark: "{colors.sand.dark.2}" } },
+    "3": { value: { _light: "{colors.sand.light.3}", _dark: "{colors.sand.dark.3}" } },
+    "4": { value: { _light: "{colors.sand.light.4}", _dark: "{colors.sand.dark.4}" } },
+    "5": { value: { _light: "{colors.sand.light.5}", _dark: "{colors.sand.dark.5}" } },
+    "6": { value: { _light: "{colors.sand.light.6}", _dark: "{colors.sand.dark.6}" } },
+    "7": { value: { _light: "{colors.sand.light.7}", _dark: "{colors.sand.dark.7}" } },
+    "8": { value: { _light: "{colors.sand.light.8}", _dark: "{colors.sand.dark.8}" } },
+    "9": { value: { _light: "{colors.sand.light.9}", _dark: "{colors.sand.dark.9}" } },
+    "10": { value: { _light: "{colors.sand.light.10}", _dark: "{colors.sand.dark.10}" } },
+    "11": { value: { _light: "{colors.sand.light.11}", _dark: "{colors.sand.dark.11}" } },
+    "12": { value: { _light: "{colors.sand.light.12}", _dark: "{colors.sand.dark.12}" } },
+    a1: { value: { _light: "{colors.sand.light.a1}", _dark: "{colors.sand.dark.a1}" } },
+    a2: { value: { _light: "{colors.sand.light.a2}", _dark: "{colors.sand.dark.a2}" } },
+    a3: { value: { _light: "{colors.sand.light.a3}", _dark: "{colors.sand.dark.a3}" } },
+    a4: { value: { _light: "{colors.sand.light.a4}", _dark: "{colors.sand.dark.a4}" } },
+    a5: { value: { _light: "{colors.sand.light.a5}", _dark: "{colors.sand.dark.a5}" } },
+    a6: { value: { _light: "{colors.sand.light.a6}", _dark: "{colors.sand.dark.a6}" } },
+    a7: { value: { _light: "{colors.sand.light.a7}", _dark: "{colors.sand.dark.a7}" } },
+    a8: { value: { _light: "{colors.sand.light.a8}", _dark: "{colors.sand.dark.a8}" } },
+    a9: { value: { _light: "{colors.sand.light.a9}", _dark: "{colors.sand.dark.a9}" } },
+    a10: { value: { _light: "{colors.sand.light.a10}", _dark: "{colors.sand.dark.a10}" } },
+    a11: { value: { _light: "{colors.sand.light.a11}", _dark: "{colors.sand.dark.a11}" } },
+    a12: { value: { _light: "{colors.sand.light.a12}", _dark: "{colors.sand.dark.a12}" } },
+    default: { value: { _light: "{colors.sand.light.9}", _dark: "{colors.sand.dark.9}" } },
+    emphasized: { value: { _light: "{colors.sand.light.10}", _dark: "{colors.sand.dark.10}" } },
+    fg: { value: { _light: "white", _dark: "white" } },
+    text: { value: { _light: "{colors.sand.light.12}", _dark: "{colors.sand.dark.12}" } }
+  }
+};
+
+// src/preset/colors/teal.ts
+var axionicTeal = {
+  name: "teal",
+  tokens: {
+    light: {
+      "1": { value: "#f5fafa" },
+      "2": { value: "#e3f5f7" },
+      "3": { value: "#c5eaed" },
+      "4": { value: "#a3dde2" },
+      "5": { value: "#7eccd3" },
+      "6": { value: "#5ab8c1" },
+      "7": { value: "#3a9da7" },
+      "8": { value: "#1f808b" },
+      "9": { value: "#006270" },
+      "10": { value: "#005662" },
+      "11": { value: "#004a54" },
+      "12": { value: "#003e44" },
+      a1: { value: "rgba(0, 98, 112, 0.02)" },
+      a2: { value: "rgba(0, 98, 112, 0.06)" },
+      a3: { value: "rgba(0, 98, 112, 0.12)" },
+      a4: { value: "rgba(0, 98, 112, 0.20)" },
+      a5: { value: "rgba(0, 98, 112, 0.30)" },
+      a6: { value: "rgba(0, 98, 112, 0.42)" },
+      a7: { value: "rgba(0, 98, 112, 0.56)" },
+      a8: { value: "rgba(0, 98, 112, 0.70)" },
+      a9: { value: "rgba(0, 98, 112, 0.85)" },
+      a10: { value: "rgba(0, 98, 112, 0.88)" },
+      a11: { value: "rgba(0, 98, 112, 0.92)" },
+      a12: { value: "rgba(0, 62, 68, 0.97)" }
+    },
+    dark: {
+      "1": { value: "#061214" },
+      "2": { value: "#0b1d20" },
+      "3": { value: "#12292d" },
+      "4": { value: "#1a363b" },
+      "5": { value: "#23444a" },
+      "6": { value: "#2e555c" },
+      "7": { value: "#3d6f78" },
+      "8": { value: "#508d97" },
+      "9": { value: "#5ab8c1" },
+      "10": { value: "#7eccd3" },
+      "11": { value: "#a3dde2" },
+      "12": { value: "#e3f5f7" },
+      a1: { value: "rgba(90, 184, 193, 0.02)" },
+      a2: { value: "rgba(90, 184, 193, 0.06)" },
+      a3: { value: "rgba(90, 184, 193, 0.12)" },
+      a4: { value: "rgba(90, 184, 193, 0.18)" },
+      a5: { value: "rgba(90, 184, 193, 0.24)" },
+      a6: { value: "rgba(90, 184, 193, 0.32)" },
+      a7: { value: "rgba(90, 184, 193, 0.44)" },
+      a8: { value: "rgba(90, 184, 193, 0.58)" },
+      a9: { value: "rgba(90, 184, 193, 0.75)" },
+      a10: { value: "rgba(90, 184, 193, 0.82)" },
+      a11: { value: "rgba(90, 184, 193, 0.88)" },
+      a12: { value: "rgba(227, 245, 247, 0.95)" }
+    }
   },
-  h2: {
-    value: { fontFamily: "body", fontSize: "1.875rem", fontWeight: "600", lineHeight: "1.3" }
-  },
-  h3: {
-    value: { fontFamily: "body", fontSize: "1.5rem", fontWeight: "600", lineHeight: "1.4" }
+  semanticTokens: {
+    "1": { value: { _light: "{colors.teal.light.1}", _dark: "{colors.teal.dark.1}" } },
+    "2": { value: { _light: "{colors.teal.light.2}", _dark: "{colors.teal.dark.2}" } },
+    "3": { value: { _light: "{colors.teal.light.3}", _dark: "{colors.teal.dark.3}" } },
+    "4": { value: { _light: "{colors.teal.light.4}", _dark: "{colors.teal.dark.4}" } },
+    "5": { value: { _light: "{colors.teal.light.5}", _dark: "{colors.teal.dark.5}" } },
+    "6": { value: { _light: "{colors.teal.light.6}", _dark: "{colors.teal.dark.6}" } },
+    "7": { value: { _light: "{colors.teal.light.7}", _dark: "{colors.teal.dark.7}" } },
+    "8": { value: { _light: "{colors.teal.light.8}", _dark: "{colors.teal.dark.8}" } },
+    "9": { value: { _light: "{colors.teal.light.9}", _dark: "{colors.teal.dark.9}" } },
+    "10": { value: { _light: "{colors.teal.light.10}", _dark: "{colors.teal.dark.10}" } },
+    "11": { value: { _light: "{colors.teal.light.11}", _dark: "{colors.teal.dark.11}" } },
+    "12": { value: { _light: "{colors.teal.light.12}", _dark: "{colors.teal.dark.12}" } },
+    a1: { value: { _light: "{colors.teal.light.a1}", _dark: "{colors.teal.dark.a1}" } },
+    a2: { value: { _light: "{colors.teal.light.a2}", _dark: "{colors.teal.dark.a2}" } },
+    a3: { value: { _light: "{colors.teal.light.a3}", _dark: "{colors.teal.dark.a3}" } },
+    a4: { value: { _light: "{colors.teal.light.a4}", _dark: "{colors.teal.dark.a4}" } },
+    a5: { value: { _light: "{colors.teal.light.a5}", _dark: "{colors.teal.dark.a5}" } },
+    a6: { value: { _light: "{colors.teal.light.a6}", _dark: "{colors.teal.dark.a6}" } },
+    a7: { value: { _light: "{colors.teal.light.a7}", _dark: "{colors.teal.dark.a7}" } },
+    a8: { value: { _light: "{colors.teal.light.a8}", _dark: "{colors.teal.dark.a8}" } },
+    a9: { value: { _light: "{colors.teal.light.a9}", _dark: "{colors.teal.dark.a9}" } },
+    a10: { value: { _light: "{colors.teal.light.a10}", _dark: "{colors.teal.dark.a10}" } },
+    a11: { value: { _light: "{colors.teal.light.a11}", _dark: "{colors.teal.dark.a11}" } },
+    a12: { value: { _light: "{colors.teal.light.a12}", _dark: "{colors.teal.dark.a12}" } },
+    default: { value: { _light: "{colors.teal.light.9}", _dark: "{colors.teal.dark.9}" } },
+    emphasized: { value: { _light: "{colors.teal.light.10}", _dark: "{colors.teal.dark.10}" } },
+    fg: { value: { _light: "{colors.teal.light.12}", _dark: "{colors.teal.dark.1}" } },
+    text: { value: { _light: "{colors.teal.light.11}", _dark: "{colors.teal.dark.11}" } }
+  }
+};
+
+// src/preset/global-css.ts
+import { defineGlobalStyles } from "@pandacss/dev";
+var globalCss = defineGlobalStyles({
+  html: {
+    colorPalette: "teal"
   },
   body: {
-    value: { fontFamily: "body", fontSize: "1rem", fontWeight: "400", lineHeight: "1.6" }
+    fontFamily: "body",
+    color: "fg.default",
+    bg: "bg.canvas",
+    lineHeight: "1.6",
+    WebkitFontSmoothing: "antialiased",
+    MozOsxFontSmoothing: "grayscale"
   },
-  small: {
-    value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.5" }
+  "*, *::before, *::after": {
+    borderColor: "border.muted"
   },
-  caption: {
-    value: { fontFamily: "body", fontSize: "0.75rem", fontWeight: "500", lineHeight: "1.4" }
-  },
-  label: {
-    value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "600", lineHeight: "1.4" }
-  },
-  code: {
-    value: { fontFamily: "mono", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.6" }
+  "::selection": {
+    bg: "colorPalette.a4",
+    color: "colorPalette.12"
   }
 });
 
@@ -5312,26 +5303,47 @@ var keyframes = {
   }
 };
 
-// src/preset/global-css.ts
-import { defineGlobalStyles } from "@pandacss/dev";
-var globalCss = defineGlobalStyles({
-  html: {
-    colorPalette: "teal"
+// src/preset/text-styles.ts
+import { defineTextStyles } from "@pandacss/dev";
+var textStyles = defineTextStyles({
+  display: {
+    value: {
+      fontFamily: "display",
+      fontSize: "3.5rem",
+      fontWeight: "700",
+      lineHeight: "1.1",
+      letterSpacing: "-0.02em"
+    }
+  },
+  h1: {
+    value: {
+      fontFamily: "body",
+      fontSize: "2.25rem",
+      fontWeight: "700",
+      lineHeight: "1.2",
+      letterSpacing: "-0.01em"
+    }
+  },
+  h2: {
+    value: { fontFamily: "body", fontSize: "1.875rem", fontWeight: "600", lineHeight: "1.3" }
+  },
+  h3: {
+    value: { fontFamily: "body", fontSize: "1.5rem", fontWeight: "600", lineHeight: "1.4" }
   },
   body: {
-    fontFamily: "body",
-    color: "fg.default",
-    bg: "bg.canvas",
-    lineHeight: "1.6",
-    WebkitFontSmoothing: "antialiased",
-    MozOsxFontSmoothing: "grayscale"
+    value: { fontFamily: "body", fontSize: "1rem", fontWeight: "400", lineHeight: "1.6" }
   },
-  "*, *::before, *::after": {
-    borderColor: "border.muted"
+  small: {
+    value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.5" }
   },
-  "::selection": {
-    bg: "colorPalette.a4",
-    color: "colorPalette.12"
+  caption: {
+    value: { fontFamily: "body", fontSize: "0.75rem", fontWeight: "500", lineHeight: "1.4" }
+  },
+  label: {
+    value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "600", lineHeight: "1.4" }
+  },
+  code: {
+    value: { fontFamily: "mono", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.6" }
   }
 });
 
@@ -5395,17 +5407,33 @@ function createAxionicPreset() {
               info: { value: { _light: "#2563eb", _dark: "#60a5fa" } }
             },
             bg: {
-              success: { value: { _light: "rgba(22, 163, 74, 0.08)", _dark: "rgba(74, 222, 128, 0.12)" } },
-              warning: { value: { _light: "rgba(217, 119, 6, 0.08)", _dark: "rgba(251, 191, 36, 0.12)" } },
-              info: { value: { _light: "rgba(37, 99, 235, 0.08)", _dark: "rgba(96, 165, 250, 0.12)" } },
+              success: {
+                value: { _light: "rgba(22, 163, 74, 0.08)", _dark: "rgba(74, 222, 128, 0.12)" }
+              },
+              warning: {
+                value: { _light: "rgba(217, 119, 6, 0.08)", _dark: "rgba(251, 191, 36, 0.12)" }
+              },
+              info: {
+                value: { _light: "rgba(37, 99, 235, 0.08)", _dark: "rgba(96, 165, 250, 0.12)" }
+              },
               deep: { value: { _light: "{colors.gray.light.1}", _dark: "#061012" } },
-              navbar: { value: { _light: "rgba(253, 253, 252, 0.85)", _dark: "rgba(26, 46, 48, 0.85)" } },
-              navbarIdle: { value: { _light: "rgba(253, 253, 252, 0.6)", _dark: "rgba(26, 46, 48, 0.6)" } }
+              navbar: {
+                value: { _light: "rgba(253, 253, 252, 0.85)", _dark: "rgba(26, 46, 48, 0.85)" }
+              },
+              navbarIdle: {
+                value: { _light: "rgba(253, 253, 252, 0.6)", _dark: "rgba(26, 46, 48, 0.6)" }
+              }
             },
             border: {
-              success: { value: { _light: "rgba(22, 163, 74, 0.3)", _dark: "rgba(74, 222, 128, 0.3)" } },
-              warning: { value: { _light: "rgba(217, 119, 6, 0.3)", _dark: "rgba(251, 191, 36, 0.3)" } },
-              info: { value: { _light: "rgba(37, 99, 235, 0.3)", _dark: "rgba(96, 165, 250, 0.3)" } }
+              success: {
+                value: { _light: "rgba(22, 163, 74, 0.3)", _dark: "rgba(74, 222, 128, 0.3)" }
+              },
+              warning: {
+                value: { _light: "rgba(217, 119, 6, 0.3)", _dark: "rgba(251, 191, 36, 0.3)" }
+              },
+              info: {
+                value: { _light: "rgba(37, 99, 235, 0.3)", _dark: "rgba(96, 165, 250, 0.3)" }
+              }
             },
             wheat: {
               "1": { value: { _light: "{colors.wheat.light.1}", _dark: "{colors.wheat.dark.1}" } },
@@ -5417,13 +5445,25 @@ function createAxionicPreset() {
               "7": { value: { _light: "{colors.wheat.light.7}", _dark: "{colors.wheat.dark.7}" } },
               "8": { value: { _light: "{colors.wheat.light.8}", _dark: "{colors.wheat.dark.8}" } },
               "9": { value: { _light: "{colors.wheat.light.9}", _dark: "{colors.wheat.dark.9}" } },
-              "10": { value: { _light: "{colors.wheat.light.10}", _dark: "{colors.wheat.dark.10}" } },
-              "11": { value: { _light: "{colors.wheat.light.11}", _dark: "{colors.wheat.dark.11}" } },
-              "12": { value: { _light: "{colors.wheat.light.12}", _dark: "{colors.wheat.dark.12}" } },
-              default: { value: { _light: "{colors.wheat.light.9}", _dark: "{colors.wheat.dark.9}" } },
-              emphasized: { value: { _light: "{colors.wheat.light.10}", _dark: "{colors.wheat.dark.10}" } },
+              "10": {
+                value: { _light: "{colors.wheat.light.10}", _dark: "{colors.wheat.dark.10}" }
+              },
+              "11": {
+                value: { _light: "{colors.wheat.light.11}", _dark: "{colors.wheat.dark.11}" }
+              },
+              "12": {
+                value: { _light: "{colors.wheat.light.12}", _dark: "{colors.wheat.dark.12}" }
+              },
+              default: {
+                value: { _light: "{colors.wheat.light.9}", _dark: "{colors.wheat.dark.9}" }
+              },
+              emphasized: {
+                value: { _light: "{colors.wheat.light.10}", _dark: "{colors.wheat.dark.10}" }
+              },
               fg: { value: { _light: "{colors.wheat.light.12}", _dark: "{colors.wheat.dark.1}" } },
-              text: { value: { _light: "{colors.wheat.light.11}", _dark: "{colors.wheat.dark.11}" } }
+              text: {
+                value: { _light: "{colors.wheat.light.11}", _dark: "{colors.wheat.dark.11}" }
+              }
             }
           }
         },
@@ -5449,5 +5489,5 @@ export {
   axionicSand
 };
 
-//# debugId=A229F05D81231D6564756E2164756E21
+//# debugId=A16EF81E7E7C0BEF64756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { useCallback, type ReactNode } from 'react'
+import { type ReactNode, useCallback } from 'react';
 
 export interface HelpTriggerProps {
 	/** Whether the help panel is currently visible */
-	active: boolean
+	active: boolean;
 	/** Called when the trigger area is hovered while the panel is visible */
-	onActivate: () => void
-	children: ReactNode
+	onActivate: () => void;
+	children: ReactNode;
 }
 
 /**
@@ -25,17 +25,13 @@ export interface HelpTriggerProps {
 export function HelpTrigger({ active, onActivate, children }: HelpTriggerProps) {
 	const handleMouseEnter = useCallback(() => {
 		if (active) {
-			onActivate()
+			onActivate();
 		}
-	}, [active, onActivate])
+	}, [active, onActivate]);
 
 	return (
-		<div
-			style={{ display: 'contents' }}
-			onMouseEnter={handleMouseEnter}
-			role="group"
-		>
+		<div style={{ display: 'contents' }} onMouseEnter={handleMouseEnter} role="group">
 			{children}
 		</div>
-	)
+	);
 }

@@ -1,4 +1,4 @@
-import { defineRecipe } from '@pandacss/dev'
+import { defineRecipe } from '@pandacss/dev';
 
 export const separator = defineRecipe({
 	className: 'separator',
@@ -15,4 +15,4 @@ export const separator = defineRecipe({
 		},
 	},
 	defaultVariants: {},
-})
+});

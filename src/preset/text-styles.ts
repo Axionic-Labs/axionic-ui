@@ -2,10 +2,22 @@ import { defineTextStyles } from '@pandacss/dev';
 
 export const textStyles = defineTextStyles({
 	display: {
-		value: { fontFamily: 'display', fontSize: '3.5rem', fontWeight: '700', lineHeight: '1.1', letterSpacing: '-0.02em' },
+		value: {
+			fontFamily: 'display',
+			fontSize: '3.5rem',
+			fontWeight: '700',
+			lineHeight: '1.1',
+			letterSpacing: '-0.02em',
+		},
 	},
 	h1: {
-		value: { fontFamily: 'body', fontSize: '2.25rem', fontWeight: '700', lineHeight: '1.2', letterSpacing: '-0.01em' },
+		value: {
+			fontFamily: 'body',
+			fontSize: '2.25rem',
+			fontWeight: '700',
+			lineHeight: '1.2',
+			letterSpacing: '-0.01em',
+		},
 	},
 	h2: {
 		value: { fontFamily: 'body', fontSize: '1.875rem', fontWeight: '600', lineHeight: '1.3' },
