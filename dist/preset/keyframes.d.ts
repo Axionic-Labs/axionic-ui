@@ -17,6 +17,14 @@ export declare const keyframes: {
             opacity: string;
         };
     };
+    'fade-out': {
+        from: {
+            opacity: string;
+        };
+        to: {
+            opacity: string;
+        };
+    };
     'scale-in': {
         from: {
             opacity: string;
@@ -40,6 +48,36 @@ export declare const keyframes: {
             transform: string;
         };
         to: {
+            transform: string;
+        };
+    };
+    'slide-in-right': {
+        from: {
+            transform: string;
+            opacity: string;
+        };
+        to: {
+            transform: string;
+            opacity: string;
+        };
+    };
+    'slide-in-left': {
+        from: {
+            transform: string;
+            opacity: string;
+        };
+        to: {
+            transform: string;
+            opacity: string;
+        };
+    };
+    'fade-slide-up': {
+        from: {
+            opacity: string;
+            transform: string;
+        };
+        to: {
+            opacity: string;
             transform: string;
         };
     };

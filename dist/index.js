@@ -909,6 +909,32 @@ var card = defineSlotRecipe5({
           bg: "gray.subtle.bg"
         }
       }
+    },
+    hover: {
+      true: {
+        root: {
+          cursor: "pointer",
+          transition: "all 0.2s",
+          _hover: {
+            boxShadow: "lg",
+            borderColor: "colorPalette.7",
+            transform: "translateY(-1px)"
+          },
+          _focusVisible: {
+            outline: "2px solid",
+            outlineColor: "colorPalette.8",
+            outlineOffset: "2px"
+          }
+        }
+      }
+    },
+    dashed: {
+      true: {
+        root: {
+          borderStyle: "dashed",
+          bg: "gray.subtle.bg/50"
+        }
+      }
     }
   }
 });
@@ -1660,6 +1686,7 @@ var dialog = defineSlotRecipe13({
   base: {
     backdrop: {
       background: "black.a7",
+      backdropFilter: "blur(8px)",
       height: "100dvh",
       left: "0",
       position: "fixed",
@@ -2397,10 +2424,120 @@ var heading = defineRecipe6({
   }
 });
 
+// src/theme/recipes/help-panel.ts
+import { defineSlotRecipe as defineSlotRecipe19 } from "@pandacss/dev";
+var helpPanel = defineSlotRecipe19({
+  className: "help-panel",
+  slots: ["root", "header", "headerIcon", "tabBar", "tab", "content", "footer", "accentBar"],
+  base: {
+    root: {
+      position: "absolute",
+      top: "0",
+      right: "0",
+      zIndex: 40,
+      h: "full",
+      w: "96",
+      bgGradient: "to-b",
+      gradientFrom: "bg.subtle",
+      gradientTo: "bg.default",
+      borderLeftWidth: "1px",
+      borderColor: "border.default",
+      display: "flex",
+      flexDirection: "column",
+      boxShadow: "2xl",
+      overflow: "hidden",
+      animation: "slide-in-right 200ms ease-out"
+    },
+    header: {
+      position: "relative",
+      px: "4",
+      py: "3",
+      borderBottomWidth: "1px",
+      borderColor: "border.default",
+      bg: "bg.default",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between"
+    },
+    headerIcon: {
+      w: "8",
+      h: "8",
+      borderRadius: "l2",
+      bg: "colorPalette.a3",
+      borderWidth: "1px",
+      borderColor: "colorPalette.8",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "colorPalette.11"
+    },
+    tabBar: {
+      px: "2",
+      py: "2",
+      bg: "bg.default",
+      borderBottomWidth: "1px",
+      borderColor: "border.default/50",
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "1"
+    },
+    tab: {
+      display: "flex",
+      alignItems: "center",
+      gap: "1.5",
+      px: "2.5",
+      py: "1.5",
+      borderRadius: "l2",
+      fontSize: "xs",
+      fontWeight: "medium",
+      transition: "all",
+      borderWidth: "1px",
+      cursor: "pointer",
+      color: "fg.subtle",
+      borderColor: "transparent",
+      _hover: {
+        color: "fg.default",
+        bg: "bg.emphasized"
+      },
+      "&[data-selected]": {
+        bg: "colorPalette.a3",
+        color: "colorPalette.11",
+        borderColor: "colorPalette.8"
+      }
+    },
+    content: {
+      flex: "1",
+      overflowY: "auto"
+    },
+    footer: {
+      position: "relative",
+      px: "4",
+      py: "2.5",
+      borderTopWidth: "1px",
+      borderColor: "border.default",
+      bg: "bg.default",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      fontSize: "xs",
+      color: "fg.subtle"
+    },
+    accentBar: {
+      position: "absolute",
+      insetInline: "0",
+      h: "0.5",
+      bgGradient: "to-r",
+      gradientFrom: "colorPalette.7",
+      gradientVia: "colorPalette.9",
+      gradientTo: "colorPalette.11"
+    }
+  }
+});
+
 // src/theme/recipes/hover-card.ts
 import { hoverCardAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe19 } from "@pandacss/dev";
-var hoverCard = defineSlotRecipe19({
+import { defineSlotRecipe as defineSlotRecipe20 } from "@pandacss/dev";
+var hoverCard = defineSlotRecipe20({
   className: "hover-card",
   slots: hoverCardAnatomy.keys(),
   base: {
@@ -2508,8 +2645,8 @@ var inputAddon = defineRecipe8({
 });
 
 // src/theme/recipes/input-group.ts
-import { defineSlotRecipe as defineSlotRecipe20 } from "@pandacss/dev";
-var inputGroup = defineSlotRecipe20({
+import { defineSlotRecipe as defineSlotRecipe21 } from "@pandacss/dev";
+var inputGroup = defineSlotRecipe21({
   className: "input-group",
   slots: ["root", "element"],
   base: {
@@ -2673,8 +2810,8 @@ var link = defineRecipe10({
 
 // src/theme/recipes/menu.ts
 import { menuAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe21 } from "@pandacss/dev";
-var menu = defineSlotRecipe21({
+import { defineSlotRecipe as defineSlotRecipe22 } from "@pandacss/dev";
+var menu = defineSlotRecipe22({
   className: "menu",
   slots: menuAnatomy.keys(),
   base: {
@@ -2795,7 +2932,7 @@ var menu = defineSlotRecipe21({
 
 // src/theme/recipes/number-input.ts
 import { numberInputAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe22 } from "@pandacss/dev";
+import { defineSlotRecipe as defineSlotRecipe23 } from "@pandacss/dev";
 var trigger = {
   alignItems: "center",
   color: "fg.muted",
@@ -2816,7 +2953,7 @@ var trigger = {
     bg: "gray.surface.bg.active"
   }
 };
-var numberInput = defineSlotRecipe22({
+var numberInput = defineSlotRecipe23({
   className: "number-input",
   slots: numberInputAnatomy.keys(),
   base: {
@@ -2902,8 +3039,8 @@ var numberInput = defineSlotRecipe22({
 
 // src/theme/recipes/pagination.ts
 import { paginationAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe23 } from "@pandacss/dev";
-var pagination = defineSlotRecipe23({
+import { defineSlotRecipe as defineSlotRecipe24 } from "@pandacss/dev";
+var pagination = defineSlotRecipe24({
   className: "pagination",
   slots: paginationAnatomy.keys(),
   base: {}
@@ -2911,8 +3048,8 @@ var pagination = defineSlotRecipe23({
 
 // src/theme/recipes/pin-input.ts
 import { pinInputAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe24 } from "@pandacss/dev";
-var pinInput = defineSlotRecipe24({
+import { defineSlotRecipe as defineSlotRecipe25 } from "@pandacss/dev";
+var pinInput = defineSlotRecipe25({
   className: "pin-input",
   slots: pinInputAnatomy.keys(),
   base: {
@@ -2963,8 +3100,8 @@ var pinInput = defineSlotRecipe24({
 
 // src/theme/recipes/popover.ts
 import { popoverAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe25 } from "@pandacss/dev";
-var popover = defineSlotRecipe25({
+import { defineSlotRecipe as defineSlotRecipe26 } from "@pandacss/dev";
+var popover = defineSlotRecipe26({
   className: "popover",
   slots: popoverAnatomy.extendWith("header", "body", "footer").keys(),
   base: {
@@ -3034,8 +3171,8 @@ var popover = defineSlotRecipe25({
 
 // src/theme/recipes/progress.ts
 import { progressAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe26 } from "@pandacss/dev";
-var progress = defineSlotRecipe26({
+import { defineSlotRecipe as defineSlotRecipe27 } from "@pandacss/dev";
+var progress = defineSlotRecipe27({
   slots: progressAnatomy.keys(),
   className: "progress",
   base: {
@@ -3149,8 +3286,8 @@ var progress = defineSlotRecipe26({
 
 // src/theme/recipes/radio-card-group.ts
 import { radioGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe27 } from "@pandacss/dev";
-var radioCardGroup = defineSlotRecipe27({
+import { defineSlotRecipe as defineSlotRecipe28 } from "@pandacss/dev";
+var radioCardGroup = defineSlotRecipe28({
   className: "radio-card-group",
   slots: radioGroupAnatomy.keys(),
   base: {
@@ -3298,8 +3435,8 @@ var radioCardGroup = defineSlotRecipe27({
 
 // src/theme/recipes/radio-group.ts
 import { radioGroupAnatomy as radioGroupAnatomy2 } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe28 } from "@pandacss/dev";
-var radioGroup = defineSlotRecipe28({
+import { defineSlotRecipe as defineSlotRecipe29 } from "@pandacss/dev";
+var radioGroup = defineSlotRecipe29({
   className: "radio-group",
   slots: radioGroupAnatomy2.keys(),
   base: {
@@ -3381,8 +3518,8 @@ var radioGroup = defineSlotRecipe28({
 
 // src/theme/recipes/rating-group.ts
 import { ratingGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe29 } from "@pandacss/dev";
-var ratingGroup = defineSlotRecipe29({
+import { defineSlotRecipe as defineSlotRecipe30 } from "@pandacss/dev";
+var ratingGroup = defineSlotRecipe30({
   className: "rating-group",
   slots: ratingGroupAnatomy.extendWith("itemIndicator").keys(),
   base: {
@@ -3456,8 +3593,8 @@ var ratingGroup = defineSlotRecipe29({
 });
 
 // src/theme/recipes/scroll-area.ts
-import { defineSlotRecipe as defineSlotRecipe30 } from "@pandacss/dev";
-var scrollArea = defineSlotRecipe30({
+import { defineSlotRecipe as defineSlotRecipe31 } from "@pandacss/dev";
+var scrollArea = defineSlotRecipe31({
   className: "scroll-area",
   slots: ["root", "viewport", "content", "scrollbar", "thumb", "corner"],
   base: {
@@ -3576,8 +3713,8 @@ var scrollArea = defineSlotRecipe30({
 
 // src/theme/recipes/segment-group.ts
 import { segmentGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe31 } from "@pandacss/dev";
-var segmentGroup = defineSlotRecipe31({
+import { defineSlotRecipe as defineSlotRecipe32 } from "@pandacss/dev";
+var segmentGroup = defineSlotRecipe32({
   className: "segment-group",
   slots: segmentGroupAnatomy.keys(),
   base: {
@@ -3681,8 +3818,8 @@ var segmentGroup = defineSlotRecipe31({
 
 // src/theme/recipes/select.ts
 import { selectAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe32 } from "@pandacss/dev";
-var select = defineSlotRecipe32({
+import { defineSlotRecipe as defineSlotRecipe33 } from "@pandacss/dev";
+var select = defineSlotRecipe33({
   className: "select",
   slots: selectAnatomy.extendWith("indicatorGroup").keys(),
   base: {
@@ -3934,8 +4071,8 @@ var skeleton = defineRecipe12({
 
 // src/theme/recipes/slider.ts
 import { sliderAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe33 } from "@pandacss/dev";
-var slider = defineSlotRecipe33({
+import { defineSlotRecipe as defineSlotRecipe34 } from "@pandacss/dev";
+var slider = defineSlotRecipe34({
   className: "slider",
   slots: sliderAnatomy.extendWith("markerIndicator").keys(),
   base: {
@@ -4143,8 +4280,8 @@ var spinner = defineRecipe13({
 
 // src/theme/recipes/splitter.ts
 import { splitterAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe34 } from "@pandacss/dev";
-var splitter = defineSlotRecipe34({
+import { defineSlotRecipe as defineSlotRecipe35 } from "@pandacss/dev";
+var splitter = defineSlotRecipe35({
   className: "splitter",
   slots: splitterAnatomy.keys(),
   base: {
@@ -4175,8 +4312,8 @@ var splitter = defineSlotRecipe34({
 });
 
 // src/theme/recipes/switch.ts
-import { defineSlotRecipe as defineSlotRecipe35 } from "@pandacss/dev";
-var switchRecipe = defineSlotRecipe35({
+import { defineSlotRecipe as defineSlotRecipe36 } from "@pandacss/dev";
+var switchRecipe = defineSlotRecipe36({
   className: "switch",
   jsx: ["Switch", /Switch\.+/],
   slots: ["root", "label", "control", "thumb", "indicator"],
@@ -4316,8 +4453,8 @@ var switchRecipe = defineSlotRecipe35({
 });
 
 // src/theme/recipes/table.ts
-import { defineSlotRecipe as defineSlotRecipe36 } from "@pandacss/dev";
-var table = defineSlotRecipe36({
+import { defineSlotRecipe as defineSlotRecipe37 } from "@pandacss/dev";
+var table = defineSlotRecipe37({
   className: "table",
   slots: ["root", "body", "cell", "foot", "head", "header", "row", "caption"],
   base: {
@@ -4428,8 +4565,8 @@ var table = defineSlotRecipe36({
 
 // src/theme/recipes/tabs.ts
 import { tabsAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe37 } from "@pandacss/dev";
-var tabs = defineSlotRecipe37({
+import { defineSlotRecipe as defineSlotRecipe38 } from "@pandacss/dev";
+var tabs = defineSlotRecipe38({
   slots: tabsAnatomy.keys(),
   className: "tabs",
   base: {
@@ -4603,8 +4740,8 @@ var tabs = defineSlotRecipe37({
 
 // src/theme/recipes/tags-input.ts
 import { tagsInputAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe38 } from "@pandacss/dev";
-var tagsInput = defineSlotRecipe38({
+import { defineSlotRecipe as defineSlotRecipe39 } from "@pandacss/dev";
+var tagsInput = defineSlotRecipe39({
   className: "tags-input",
   slots: tagsInputAnatomy.keys(),
   base: {
@@ -4919,8 +5056,8 @@ var textarea = defineRecipe15({
 
 // src/theme/recipes/toast.ts
 import { toastAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe39 } from "@pandacss/dev";
-var toast = defineSlotRecipe39({
+import { defineSlotRecipe as defineSlotRecipe40 } from "@pandacss/dev";
+var toast = defineSlotRecipe40({
   className: "toast",
   slots: toastAnatomy.keys(),
   base: {
@@ -4933,6 +5070,7 @@ var toast = defineSlotRecipe39({
       gap: "4",
       height: "var(--height)",
       minWidth: "sm",
+      maxWidth: "md",
       opacity: "var(--opacity)",
       overflowWrap: "anywhere",
       p: "4",
@@ -4942,7 +5080,6 @@ var toast = defineSlotRecipe39({
       transitionProperty: "translate, scale, opacity, height",
       transitionTimingFunction: "default",
       translate: "var(--x) var(--y)",
-      width: "full",
       willChange: "translate, opacity, scale",
       zIndex: "var(--z-index)"
     },
@@ -4971,8 +5108,8 @@ var toast = defineSlotRecipe39({
 
 // src/theme/recipes/toggle-group.ts
 import { toggleGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe40 } from "@pandacss/dev";
-var toggleGroup = defineSlotRecipe40({
+import { defineSlotRecipe as defineSlotRecipe41 } from "@pandacss/dev";
+var toggleGroup = defineSlotRecipe41({
   className: "toggle-group",
   slots: toggleGroupAnatomy.keys(),
   base: {
@@ -4994,8 +5131,8 @@ var toggleGroup = defineSlotRecipe40({
 
 // src/theme/recipes/tooltip.ts
 import { tooltipAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe41 } from "@pandacss/dev";
-var tooltip = defineSlotRecipe41({
+import { defineSlotRecipe as defineSlotRecipe42 } from "@pandacss/dev";
+var tooltip = defineSlotRecipe42({
   className: "tooltip",
   slots: tooltipAnatomy.keys(),
   base: {
@@ -5069,6 +5206,7 @@ var slotRecipes = {
   field,
   fieldset,
   fileUpload,
+  helpPanel,
   hoverCard,
   inputGroup,
   menu,
@@ -5136,6 +5274,10 @@ var keyframes = {
     from: { opacity: "0" },
     to: { opacity: "1" }
   },
+  "fade-out": {
+    from: { opacity: "1" },
+    to: { opacity: "0" }
+  },
   "scale-in": {
     from: { opacity: "0", transform: "scale(0.95)" },
     to: { opacity: "1", transform: "scale(1)" }
@@ -5147,6 +5289,18 @@ var keyframes = {
   "slide-down": {
     from: { transform: "translateY(-100%)" },
     to: { transform: "translateY(0)" }
+  },
+  "slide-in-right": {
+    from: { transform: "translateX(100%)", opacity: "0" },
+    to: { transform: "translateX(0)", opacity: "1" }
+  },
+  "slide-in-left": {
+    from: { transform: "translateX(-100%)", opacity: "0" },
+    to: { transform: "translateX(0)", opacity: "1" }
+  },
+  "fade-slide-up": {
+    from: { opacity: "0", transform: "translateY(12px)" },
+    to: { opacity: "1", transform: "translateY(0)" }
   },
   pulse: {
     "0%, 100%": { opacity: "1" },
@@ -5295,5 +5449,5 @@ export {
   axionicSand
 };
 
-//# debugId=2E7704484D7817AA64756E2164756E21
+//# debugId=A229F05D81231D6564756E2164756E21
 //# sourceMappingURL=index.js.map

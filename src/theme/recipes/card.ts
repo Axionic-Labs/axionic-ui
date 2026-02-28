@@ -64,5 +64,31 @@ export const card = defineSlotRecipe({
         },
       },
     },
+    hover: {
+      true: {
+        root: {
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+          _hover: {
+            boxShadow: 'lg',
+            borderColor: 'colorPalette.7',
+            transform: 'translateY(-1px)',
+          },
+          _focusVisible: {
+            outline: '2px solid',
+            outlineColor: 'colorPalette.8',
+            outlineOffset: '2px',
+          },
+        },
+      },
+    },
+    dashed: {
+      true: {
+        root: {
+          borderStyle: 'dashed',
+          bg: 'gray.subtle.bg/50',
+        },
+      },
+    },
   },
 })

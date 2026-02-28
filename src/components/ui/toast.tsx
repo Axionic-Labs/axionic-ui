@@ -40,7 +40,8 @@ const Indicator = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
 export const toaster = createToaster({
   placement: 'bottom-end',
   pauseOnPageIdle: true,
-  overlap: true,
+  overlap: false,
+  gap: 12,
   max: 5,
 })
 

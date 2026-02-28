@@ -38,6 +38,7 @@ export * from './editable.mjs';
 export * from './field.mjs';
 export * from './fieldset.mjs';
 export * from './file-upload.mjs';
+export * from './help-panel.mjs';
 export * from './hover-card.mjs';
 export * from './input-group.mjs';
 export * from './menu.mjs';
