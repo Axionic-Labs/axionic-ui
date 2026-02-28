@@ -80,9 +80,9 @@ export function StatCard({
 }: StatCardProps) {
 	const changeColor =
 		changeType === 'positive'
-			? css({ color: '{colors.green.11}' })
+			? css({ color: 'fg.success' })
 			: changeType === 'negative'
-				? css({ color: '{colors.red.11}' })
+				? css({ color: 'fg.error' })
 				: css({ color: 'fg.muted' });
 
 	return (

@@ -1,7 +1,20 @@
 'use client';
 
+import { ark } from '@ark-ui/react/factory';
+import { X } from 'lucide-react';
 import { forwardRef, type ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
+import { createStyleContext } from 'styled-system/jsx';
+import { helpPanel } from 'styled-system/recipes';
+
+const { withRootProvider, withContext } = createStyleContext(helpPanel);
+
+// Internal slot primitives — not exported
+const HeaderContainer = withContext(ark.div, 'header');
+const HeaderIconBadge = withContext(ark.div, 'headerIcon');
+const AccentBar = withContext(ark.div, 'accentBar');
+const TabButton = withContext(ark.button, 'tab');
+const FooterContainer = withContext(ark.div, 'footer');
 
 /**
  * Props for the HelpPanel root container.
@@ -9,10 +22,12 @@ import { css, cx } from 'styled-system/css';
  * @example
  * ```tsx
  * <HelpPanel.Root>
- *   <HelpPanel.Header ... />
- *   <HelpPanel.TabBar>...</HelpPanel.TabBar>
+ *   <HelpPanel.Header title="Help" onClose={close} />
+ *   <HelpPanel.TabBar>
+ *     <HelpPanel.Tab label="Overview" active />
+ *   </HelpPanel.TabBar>
  *   <HelpPanel.Content>...</HelpPanel.Content>
- *   <HelpPanel.Footer ... />
+ *   <HelpPanel.Footer hint="Press ? to open" />
  * </HelpPanel.Root>
  * ```
  */
@@ -25,35 +40,9 @@ export interface HelpPanelRootProps {
  * Sliding panel container. Positioned absolutely to the right edge of its
  * containing block. Includes slide-in animation on mount.
  */
-const Root = forwardRef<HTMLDivElement, HelpPanelRootProps>(({ children, className }, ref) => (
-	<div
-		ref={ref}
-		className={cx(
-			css({
-				position: 'absolute',
-				top: '0',
-				right: '0',
-				zIndex: 40,
-				h: 'full',
-				w: '96',
-				bgGradient: 'to-b',
-				gradientFrom: 'bg.subtle',
-				gradientTo: 'bg.default',
-				borderLeftWidth: '1px',
-				borderColor: 'border.default',
-				display: 'flex',
-				flexDirection: 'column',
-				boxShadow: '2xl',
-				overflow: 'hidden',
-				animation: 'slide-in-right 200ms ease-out',
-			}),
-			className,
-		)}
-	>
-		{children}
-	</div>
-));
-Root.displayName = 'HelpPanel.Root';
+export const Root = withRootProvider(ark.div);
+// biome-ignore lint/suspicious/noExplicitAny: displayName is a valid React property
+(Root as any).displayName = 'HelpPanel.Root';
 
 export interface HelpPanelHeaderProps {
 	/** Icon rendered in the header badge */
@@ -77,113 +66,51 @@ export interface HelpPanelHeaderProps {
  */
 const Header = forwardRef<HTMLDivElement, HelpPanelHeaderProps>(
 	({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => (
-		<div
-			ref={ref}
-			className={cx(
-				css({
-					position: 'relative',
-					px: '4',
-					py: '3',
-					borderBottomWidth: '1px',
-					borderColor: 'border.default',
-					bg: 'bg.default',
-				}),
-				className,
-			)}
-		>
-			{accentBar && (
-				<div
-					className={css({
-						position: 'absolute',
-						insetInline: '0',
-						top: '0',
-						h: '0.5',
-						bgGradient: 'to-r',
-						gradientFrom: 'colorPalette.7',
-						gradientVia: 'colorPalette.9',
-						gradientTo: 'colorPalette.11',
-					})}
-				/>
-			)}
-			<div
-				className={css({ display: 'flex', alignItems: 'center', justifyContent: 'space-between' })}
-			>
-				<div className={css({ display: 'flex', alignItems: 'center', gap: '3' })}>
-					{icon && (
-						<div
-							className={css({
-								w: '8',
-								h: '8',
-								borderRadius: 'l2',
-								bg: 'colorPalette.a3',
-								borderWidth: '1px',
-								borderColor: 'colorPalette.8',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-								color: 'colorPalette.11',
-							})}
-						>
-							{icon}
-						</div>
-					)}
-					<div>
-						<h2
-							className={css({
-								fontSize: 'sm',
-								fontWeight: 'semibold',
-								color: 'fg.default',
-								letterSpacing: 'wide',
-							})}
-						>
-							{title}
-						</h2>
-						{subtitle && <p className={css({ fontSize: 'xs', color: 'fg.subtle' })}>{subtitle}</p>}
-					</div>
-				</div>
-				{onClose && (
-					<button
-						onClick={onClose}
-						type="button"
+		<HeaderContainer ref={ref} className={className}>
+			{accentBar && <AccentBar style={{ top: 0 }} />}
+			<div className={css({ display: 'flex', alignItems: 'center', gap: '3' })}>
+				{icon && <HeaderIconBadge>{icon}</HeaderIconBadge>}
+				<div>
+					<h2
 						className={css({
-							w: '7',
-							h: '7',
-							borderRadius: 'l1',
-							bg: 'bg.subtle',
-							borderWidth: '1px',
-							borderColor: 'border.default/50',
-							color: 'fg.muted',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							cursor: 'pointer',
-							transition: 'all',
-							_hover: {
-								color: 'fg.default',
-								borderColor: 'colorPalette.8',
-							},
+							fontSize: 'sm',
+							fontWeight: 'semibold',
+							color: 'fg.default',
+							letterSpacing: 'wide',
 						})}
 					>
-						{closeIcon ?? (
-							<svg
-								width="14"
-								height="14"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								aria-label="Close"
-							>
-								<line x1="18" y1="6" x2="6" y2="18" />
-								<line x1="6" y1="6" x2="18" y2="18" />
-							</svg>
-						)}
-					</button>
-				)}
+						{title}
+					</h2>
+					{subtitle && <p className={css({ fontSize: 'xs', color: 'fg.subtle' })}>{subtitle}</p>}
+				</div>
 			</div>
-		</div>
+			{onClose && (
+				<button
+					onClick={onClose}
+					type="button"
+					className={css({
+						w: '7',
+						h: '7',
+						borderRadius: 'l1',
+						bg: 'bg.subtle',
+						borderWidth: '1px',
+						borderColor: 'border.default/50',
+						color: 'fg.muted',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						cursor: 'pointer',
+						transition: 'all',
+						_hover: {
+							color: 'fg.default',
+							borderColor: 'colorPalette.8',
+						},
+					})}
+				>
+					{closeIcon ?? <X size={14} aria-label="Close" />}
+				</button>
+			)}
+		</HeaderContainer>
 	),
 );
 Header.displayName = 'HelpPanel.Header';
@@ -195,25 +122,11 @@ export interface HelpPanelTabBarProps {
 
 /**
  * Horizontal tab bar for category navigation. Wraps tab buttons.
+ * Recipe slot provides flex layout directly.
  */
-const TabBar = forwardRef<HTMLDivElement, HelpPanelTabBarProps>(({ children, className }, ref) => (
-	<div
-		ref={ref}
-		className={cx(
-			css({
-				px: '2',
-				py: '2',
-				bg: 'bg.default',
-				borderBottomWidth: '1px',
-				borderColor: 'border.default/50',
-			}),
-			className,
-		)}
-	>
-		<div className={css({ display: 'flex', flexWrap: 'wrap', gap: '1' })}>{children}</div>
-	</div>
-));
-TabBar.displayName = 'HelpPanel.TabBar';
+export const TabBar = withContext(ark.div, 'tabBar');
+// biome-ignore lint/suspicious/noExplicitAny: displayName is a valid React property
+(TabBar as any).displayName = 'HelpPanel.TabBar';
 
 export interface HelpPanelTabProps {
 	/** Whether this tab is currently selected */
@@ -235,43 +148,17 @@ export interface HelpPanelTabProps {
  */
 const Tab = forwardRef<HTMLButtonElement, HelpPanelTabProps>(
 	({ active, icon, label, onClick, title, className }, ref) => (
-		<button
+		<TabButton
 			ref={ref}
 			type="button"
 			onClick={onClick}
 			title={title}
 			data-selected={active ? '' : undefined}
-			className={cx(
-				css({
-					display: 'flex',
-					alignItems: 'center',
-					gap: '1.5',
-					px: '2.5',
-					py: '1.5',
-					borderRadius: 'l2',
-					fontSize: 'xs',
-					fontWeight: 'medium',
-					transition: 'all',
-					borderWidth: '1px',
-					cursor: 'pointer',
-					color: 'fg.subtle',
-					borderColor: 'transparent',
-					_hover: {
-						color: 'fg.default',
-						bg: 'bg.emphasized',
-					},
-					'&[data-selected]': {
-						bg: 'colorPalette.a3',
-						color: 'colorPalette.11',
-						borderColor: 'colorPalette.8',
-					},
-				}),
-				className,
-			)}
+			className={className}
 		>
 			{icon}
 			<span className={css({ display: { base: 'none', sm: 'inline' } })}>{label}</span>
-		</button>
+		</TabButton>
 	),
 );
 Tab.displayName = 'HelpPanel.Tab';
@@ -284,14 +171,9 @@ export interface HelpPanelContentProps {
 /**
  * Scrollable content area for topic details, shortcut lists, etc.
  */
-const Content = forwardRef<HTMLDivElement, HelpPanelContentProps>(
-	({ children, className }, ref) => (
-		<div ref={ref} className={cx(css({ flex: '1', overflowY: 'auto' }), className)}>
-			{children}
-		</div>
-	),
-);
-Content.displayName = 'HelpPanel.Content';
+export const Content = withContext(ark.div, 'content');
+// biome-ignore lint/suspicious/noExplicitAny: displayName is a valid React property
+(Content as any).displayName = 'HelpPanel.Content';
 
 export interface HelpPanelFooterProps {
 	/** Hint text displayed on the left */
@@ -310,45 +192,10 @@ export interface HelpPanelFooterProps {
  */
 const Footer = forwardRef<HTMLDivElement, HelpPanelFooterProps>(
 	({ hint, shortcutKey, accentBar = true, children, className }, ref) => (
-		<div
-			ref={ref}
-			className={cx(
-				css({
-					position: 'relative',
-					px: '4',
-					py: '2.5',
-					borderTopWidth: '1px',
-					borderColor: 'border.default',
-					bg: 'bg.default',
-				}),
-				className,
-			)}
-		>
-			{accentBar && (
-				<div
-					className={css({
-						position: 'absolute',
-						insetInline: '0',
-						bottom: '0',
-						h: '0.5',
-						bgGradient: 'to-r',
-						gradientFrom: 'colorPalette.7',
-						gradientVia: 'colorPalette.9',
-						gradientTo: 'colorPalette.11',
-						opacity: 0.3,
-					})}
-				/>
-			)}
+		<FooterContainer ref={ref} className={className}>
+			{accentBar && <AccentBar style={{ bottom: 0, opacity: 0.3 }} />}
 			{children ?? (
-				<div
-					className={css({
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between',
-						fontSize: 'xs',
-						color: 'fg.subtle',
-					})}
-				>
+				<>
 					{hint && <span>{hint}</span>}
 					{shortcutKey && (
 						<kbd
@@ -367,9 +214,9 @@ const Footer = forwardRef<HTMLDivElement, HelpPanelFooterProps>(
 							{shortcutKey}
 						</kbd>
 					)}
-				</div>
+				</>
 			)}
-		</div>
+		</FooterContainer>
 	),
 );
 Footer.displayName = 'HelpPanel.Footer';

@@ -82,6 +82,7 @@ export function createAxionicPreset() {
 							success: { value: { _light: '#16a34a', _dark: '#4ade80' } },
 							warning: { value: { _light: '#d97706', _dark: '#fbbf24' } },
 							info: { value: { _light: '#2563eb', _dark: '#60a5fa' } },
+							error: { value: { _light: '#dc2626', _dark: '#f87171' } },
 						},
 						bg: {
 							success: {
@@ -92,6 +93,9 @@ export function createAxionicPreset() {
 							},
 							info: {
 								value: { _light: 'rgba(37, 99, 235, 0.08)', _dark: 'rgba(96, 165, 250, 0.12)' },
+							},
+							error: {
+								value: { _light: 'rgba(220, 38, 38, 0.08)', _dark: 'rgba(248, 113, 113, 0.12)' },
 							},
 							deep: { value: { _light: '{colors.gray.light.1}', _dark: '#061012' } },
 							navbar: {
@@ -110,6 +114,9 @@ export function createAxionicPreset() {
 							},
 							info: {
 								value: { _light: 'rgba(37, 99, 235, 0.3)', _dark: 'rgba(96, 165, 250, 0.3)' },
+							},
+							error: {
+								value: { _light: 'rgba(220, 38, 38, 0.3)', _dark: 'rgba(248, 113, 113, 0.3)' },
 							},
 						},
 						wheat: {

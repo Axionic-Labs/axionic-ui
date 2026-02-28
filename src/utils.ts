@@ -3,8 +3,12 @@ import { cx } from 'styled-system/css';
 export { cx };
 
 /**
- * Merge class names. Drop-in replacement for clsx + tailwind-merge.
- * Uses Panda CSS's built-in cx() which handles conditional class merging.
+ * Merges class names, filtering out falsy values.
+ * Wrapper around Panda CSS's cx() that accepts undefined, null, and false.
+ * Not equivalent to clsx or tailwind-merge — no conflict resolution.
+ *
+ * @param inputs - Class name strings or falsy values to filter out
+ * @returns Merged class string
  */
 export function cn(...inputs: (string | undefined | null | false)[]) {
 	return cx(...inputs.filter(Boolean));
