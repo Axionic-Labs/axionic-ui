@@ -1622,10 +1622,6 @@
 }
 }
 
-  .bg_red\.a2 {
-    background: var(--colors-red-a2);
-}
-
   .bg_bg\.error {
     background: var(--colors-bg-error);
 }
@@ -1714,8 +1710,8 @@
     border-width: 1px;
 }
 
-  .bd-c_red\.a5 {
-    border-color: var(--colors-red-a5);
+  .bd-c_border\.error {
+    border-color: var(--colors-border-error);
 }
 
   .gap_2 {
@@ -1728,10 +1724,6 @@
 
   .py_2 {
     padding-block: var(--spacing-2);
-}
-
-  .bd-c_border\.error {
-    border-color: var(--colors-border-error);
 }
 
   .bd-c_border\.success {
@@ -1881,16 +1873,12 @@
     align-items: flex-start;
 }
 
-  .c_red\.11 {
-    color: var(--colors-red-11);
+  .c_fg\.error {
+    color: var(--colors-fg-error);
 }
 
   .ai_center {
     align-items: center;
-}
-
-  .c_fg\.error {
-    color: var(--colors-fg-error);
 }
 
   .c_fg\.success {

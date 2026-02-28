@@ -1,3 +1,93 @@
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
+import { forwardRef as forwardRef2, createElement as createElement2 } from "react";
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js
+var mergeClasses = (...classes) => classes.filter((className, index, array) => {
+  return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
+}).join(" ").trim();
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/toKebabCase.js
+var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.js
+var toCamelCase = (string) => string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase());
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.js
+var toPascalCase = (string) => {
+  const camelCase = toCamelCase(string);
+  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
+};
+
+// node_modules/lucide-react/dist/esm/Icon.js
+import { forwardRef, createElement } from "react";
+
+// node_modules/lucide-react/dist/esm/defaultAttributes.js
+var defaultAttributes = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+};
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.js
+var hasA11yProp = (props) => {
+  for (const prop in props) {
+    if (prop.startsWith("aria-") || prop === "role" || prop === "title") {
+      return true;
+    }
+  }
+  return false;
+};
+
+// node_modules/lucide-react/dist/esm/Icon.js
+var Icon = forwardRef(({
+  color = "currentColor",
+  size = 24,
+  strokeWidth = 2,
+  absoluteStrokeWidth,
+  className = "",
+  children,
+  iconNode,
+  ...rest
+}, ref) => createElement("svg", {
+  ref,
+  ...defaultAttributes,
+  width: size,
+  height: size,
+  stroke: color,
+  strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+  className: mergeClasses("lucide", className),
+  ...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
+  ...rest
+}, [
+  ...iconNode.map(([tag, attrs]) => createElement(tag, attrs)),
+  ...Array.isArray(children) ? children : [children]
+]));
+
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
+var createLucideIcon = (iconName, iconNode) => {
+  const Component = forwardRef2(({ className, ...props }, ref) => createElement2(Icon, {
+    ref,
+    iconNode,
+    className: mergeClasses(`lucide-${toKebabCase(toPascalCase(iconName))}`, `lucide-${iconName}`, className),
+    ...props
+  }));
+  Component.displayName = toPascalCase(iconName);
+  return Component;
+};
+
+// node_modules/lucide-react/dist/esm/icons/circle-alert.js
+var __iconNode = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
+];
+var CircleAlert = createLucideIcon("circle-alert", __iconNode);
 // src/components/forms/form-alert.tsx
 import { css, cx } from "styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
@@ -9,10 +99,10 @@ var base = css({
   px: "4",
   py: "3",
   rounded: "l2",
-  bg: "red.a2",
+  bg: "bg.error",
   borderWidth: "1px",
-  borderColor: "red.a5",
-  color: "red.11",
+  borderColor: "border.error",
+  color: "fg.error",
   textStyle: "small"
 });
 function FormAlert({ children, className }) {
@@ -20,37 +110,10 @@ function FormAlert({ children, className }) {
     role: "alert",
     className: cx(base, className),
     children: [
-      /* @__PURE__ */ jsxs("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: "16",
-        height: "16",
-        viewBox: "0 0 24 24",
-        fill: "none",
-        stroke: "currentColor",
-        strokeWidth: "2",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
+      /* @__PURE__ */ jsx(CircleAlert, {
+        size: 16,
         "aria-label": "Alert",
-        style: { flexShrink: 0, marginTop: "2px" },
-        children: [
-          /* @__PURE__ */ jsx("circle", {
-            cx: "12",
-            cy: "12",
-            r: "10"
-          }),
-          /* @__PURE__ */ jsx("line", {
-            x1: "12",
-            y1: "8",
-            x2: "12",
-            y2: "12"
-          }),
-          /* @__PURE__ */ jsx("line", {
-            x1: "12",
-            y1: "16",
-            x2: "12.01",
-            y2: "16"
-          })
-        ]
+        style: { flexShrink: 0, marginTop: "2px" }
       }),
       /* @__PURE__ */ jsx("div", {
         children
@@ -155,5 +218,5 @@ export {
   FormAlert
 };
 
-//# debugId=2112A059DF90B8CF64756E2164756E21
+//# debugId=54D1A57E6BD8224164756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronRight, File, Folder, FolderOpen } from 'lucide-react';
 import { type ReactNode, useCallback, useState } from 'react';
 import { css, cx } from 'styled-system/css';
 
@@ -81,47 +82,6 @@ const styles = {
 	}),
 };
 
-/** Simple SVG chevron */
-function ChevronIcon({ open }: { open: boolean }) {
-	return (
-		<svg
-			viewBox="0 0 16 16"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			className={styles.chevron}
-			style={{ transform: open ? 'rotate(90deg)' : undefined, transition: 'transform 0.15s' }}
-			aria-hidden="true"
-		>
-			<path d="M6 4l4 4-4 4" />
-		</svg>
-	);
-}
-
-/** Simple SVG folder icon */
-function FolderIcon({ open }: { open: boolean }) {
-	return (
-		<svg viewBox="0 0 16 16" fill="currentColor" className={styles.folderIcon} aria-hidden="true">
-			{open ? (
-				<path d="M1 3.5A1.5 1.5 0 012.5 2h3.172a1.5 1.5 0 011.06.44l.828.828a.5.5 0 00.354.146H13.5A1.5 1.5 0 0115 4.914V5H2.5A1.5 1.5 0 001 6.5V3.5zM1.059 6A1.5 1.5 0 012.5 5h11a1.5 1.5 0 011.441 1.91l-1.2 4.2A1.5 1.5 0 0112.3 12H3.7a1.5 1.5 0 01-1.441-1.089l-1.2-4.2A1.5 1.5 0 011.059 6z" />
-			) : (
-				<path d="M2.5 2A1.5 1.5 0 001 3.5v9A1.5 1.5 0 002.5 14h11a1.5 1.5 0 001.5-1.5V5.414a1.5 1.5 0 00-1.5-1.5H8.414a.5.5 0 01-.354-.146l-.828-.828A1.5 1.5 0 006.172 2.5H2.5z" />
-			)}
-		</svg>
-	);
-}
-
-/** Simple SVG file icon */
-function FileIcon() {
-	return (
-		<svg viewBox="0 0 16 16" fill="currentColor" className={styles.fileIcon} aria-hidden="true">
-			<path d="M4 1.5A1.5 1.5 0 015.5 0h4.586a.5.5 0 01.354.146l3.414 3.414a.5.5 0 01.146.354V14.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 014 14.5V1.5zM5.5 1a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h7a.5.5 0 00.5-.5V4.5H10.5A1.5 1.5 0 019 3V1H5.5z" />
-		</svg>
-	);
-}
-
 interface TreeNodeProps {
 	node: FileTreeNode;
 	depth: number;
@@ -159,16 +119,27 @@ function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }: 
 				aria-expanded={isFolder ? isExpanded : undefined}
 			>
 				{isFolder ? (
-					<ChevronIcon open={isExpanded} />
+					<ChevronRight
+						className={styles.chevron}
+						aria-hidden="true"
+						style={{
+							transform: isExpanded ? 'rotate(90deg)' : undefined,
+							transition: 'transform 0.15s',
+						}}
+					/>
 				) : (
 					<span className={styles.chevronPlaceholder} />
 				)}
 				{node.icon ? (
 					<span className={isFolder ? styles.folderIcon : styles.fileIcon}>{node.icon}</span>
 				) : isFolder ? (
-					<FolderIcon open={isExpanded} />
+					isExpanded ? (
+						<FolderOpen className={styles.folderIcon} aria-hidden="true" />
+					) : (
+						<Folder className={styles.folderIcon} aria-hidden="true" />
+					)
 				) : (
-					<FileIcon />
+					<File className={styles.fileIcon} aria-hidden="true" />
 				)}
 				<span className={styles.label}>{node.name}</span>
 			</div>

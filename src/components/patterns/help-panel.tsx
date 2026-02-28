@@ -1,6 +1,7 @@
 'use client';
 
 import { ark } from '@ark-ui/react/factory';
+import { X } from 'lucide-react';
 import { forwardRef, type ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import { createStyleContext } from 'styled-system/jsx';
@@ -106,22 +107,7 @@ const Header = forwardRef<HTMLDivElement, HelpPanelHeaderProps>(
 						},
 					})}
 				>
-					{closeIcon ?? (
-						<svg
-							width="14"
-							height="14"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							aria-label="Close"
-						>
-							<line x1="18" y1="6" x2="6" y2="18" />
-							<line x1="6" y1="6" x2="18" y2="18" />
-						</svg>
-					)}
+					{closeIcon ?? <X size={14} aria-label="Close" />}
 				</button>
 			)}
 		</HeaderContainer>

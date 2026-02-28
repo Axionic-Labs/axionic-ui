@@ -191,6 +191,136 @@ function FeatureCard({ title, description, icon, className }) {
     ]
   });
 }
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
+import { forwardRef as forwardRef2, createElement as createElement2 } from "react";
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js
+var mergeClasses = (...classes) => classes.filter((className, index, array) => {
+  return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
+}).join(" ").trim();
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/toKebabCase.js
+var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.js
+var toCamelCase = (string) => string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase());
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.js
+var toPascalCase = (string) => {
+  const camelCase = toCamelCase(string);
+  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
+};
+
+// node_modules/lucide-react/dist/esm/Icon.js
+import { forwardRef, createElement } from "react";
+
+// node_modules/lucide-react/dist/esm/defaultAttributes.js
+var defaultAttributes = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+};
+
+// node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.js
+var hasA11yProp = (props) => {
+  for (const prop in props) {
+    if (prop.startsWith("aria-") || prop === "role" || prop === "title") {
+      return true;
+    }
+  }
+  return false;
+};
+
+// node_modules/lucide-react/dist/esm/Icon.js
+var Icon = forwardRef(({
+  color = "currentColor",
+  size = 24,
+  strokeWidth = 2,
+  absoluteStrokeWidth,
+  className = "",
+  children,
+  iconNode,
+  ...rest
+}, ref) => createElement("svg", {
+  ref,
+  ...defaultAttributes,
+  width: size,
+  height: size,
+  stroke: color,
+  strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+  className: mergeClasses("lucide", className),
+  ...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
+  ...rest
+}, [
+  ...iconNode.map(([tag, attrs]) => createElement(tag, attrs)),
+  ...Array.isArray(children) ? children : [children]
+]));
+
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
+var createLucideIcon = (iconName, iconNode) => {
+  const Component = forwardRef2(({ className, ...props }, ref) => createElement2(Icon, {
+    ref,
+    iconNode,
+    className: mergeClasses(`lucide-${toKebabCase(toPascalCase(iconName))}`, `lucide-${iconName}`, className),
+    ...props
+  }));
+  Component.displayName = toPascalCase(iconName);
+  return Component;
+};
+
+// node_modules/lucide-react/dist/esm/icons/chevron-right.js
+var __iconNode = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+var ChevronRight = createLucideIcon("chevron-right", __iconNode);
+
+// node_modules/lucide-react/dist/esm/icons/file.js
+var __iconNode2 = [
+  [
+    "path",
+    {
+      d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+      key: "1oefj6"
+    }
+  ],
+  ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }]
+];
+var File = createLucideIcon("file", __iconNode2);
+
+// node_modules/lucide-react/dist/esm/icons/folder-open.js
+var __iconNode3 = [
+  [
+    "path",
+    {
+      d: "m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2",
+      key: "usdka0"
+    }
+  ]
+];
+var FolderOpen = createLucideIcon("folder-open", __iconNode3);
+
+// node_modules/lucide-react/dist/esm/icons/folder.js
+var __iconNode4 = [
+  [
+    "path",
+    {
+      d: "M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z",
+      key: "1kt360"
+    }
+  ]
+];
+var Folder = createLucideIcon("folder", __iconNode4);
+
+// node_modules/lucide-react/dist/esm/icons/x.js
+var __iconNode5 = [
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+];
+var X = createLucideIcon("x", __iconNode5);
 // src/components/patterns/file-tree.tsx
 import { useCallback, useState } from "react";
 import { css as css4, cx as cx4 } from "styled-system/css";
@@ -253,46 +383,6 @@ var styles4 = {
   }),
   children: css4({})
 };
-function ChevronIcon({ open }) {
-  return /* @__PURE__ */ jsx4("svg", {
-    viewBox: "0 0 16 16",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    className: styles4.chevron,
-    style: { transform: open ? "rotate(90deg)" : undefined, transition: "transform 0.15s" },
-    "aria-hidden": "true",
-    children: /* @__PURE__ */ jsx4("path", {
-      d: "M6 4l4 4-4 4"
-    })
-  });
-}
-function FolderIcon({ open }) {
-  return /* @__PURE__ */ jsx4("svg", {
-    viewBox: "0 0 16 16",
-    fill: "currentColor",
-    className: styles4.folderIcon,
-    "aria-hidden": "true",
-    children: open ? /* @__PURE__ */ jsx4("path", {
-      d: "M1 3.5A1.5 1.5 0 012.5 2h3.172a1.5 1.5 0 011.06.44l.828.828a.5.5 0 00.354.146H13.5A1.5 1.5 0 0115 4.914V5H2.5A1.5 1.5 0 001 6.5V3.5zM1.059 6A1.5 1.5 0 012.5 5h11a1.5 1.5 0 011.441 1.91l-1.2 4.2A1.5 1.5 0 0112.3 12H3.7a1.5 1.5 0 01-1.441-1.089l-1.2-4.2A1.5 1.5 0 011.059 6z"
-    }) : /* @__PURE__ */ jsx4("path", {
-      d: "M2.5 2A1.5 1.5 0 001 3.5v9A1.5 1.5 0 002.5 14h11a1.5 1.5 0 001.5-1.5V5.414a1.5 1.5 0 00-1.5-1.5H8.414a.5.5 0 01-.354-.146l-.828-.828A1.5 1.5 0 006.172 2.5H2.5z"
-    })
-  });
-}
-function FileIcon() {
-  return /* @__PURE__ */ jsx4("svg", {
-    viewBox: "0 0 16 16",
-    fill: "currentColor",
-    className: styles4.fileIcon,
-    "aria-hidden": "true",
-    children: /* @__PURE__ */ jsx4("path", {
-      d: "M4 1.5A1.5 1.5 0 015.5 0h4.586a.5.5 0 01.354.146l3.414 3.414a.5.5 0 01.146.354V14.5a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 014 14.5V1.5zM5.5 1a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h7a.5.5 0 00.5-.5V4.5H10.5A1.5 1.5 0 019 3V1H5.5z"
-    })
-  });
-}
 function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) {
   const isFolder = node.type === "folder";
   const isExpanded = expandedIds.has(node.id);
@@ -319,17 +409,29 @@ function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) 
         "aria-selected": isSelected,
         "aria-expanded": isFolder ? isExpanded : undefined,
         children: [
-          isFolder ? /* @__PURE__ */ jsx4(ChevronIcon, {
-            open: isExpanded
+          isFolder ? /* @__PURE__ */ jsx4(ChevronRight, {
+            className: styles4.chevron,
+            "aria-hidden": "true",
+            style: {
+              transform: isExpanded ? "rotate(90deg)" : undefined,
+              transition: "transform 0.15s"
+            }
           }) : /* @__PURE__ */ jsx4("span", {
             className: styles4.chevronPlaceholder
           }),
           node.icon ? /* @__PURE__ */ jsx4("span", {
             className: isFolder ? styles4.folderIcon : styles4.fileIcon,
             children: node.icon
-          }) : isFolder ? /* @__PURE__ */ jsx4(FolderIcon, {
-            open: isExpanded
-          }) : /* @__PURE__ */ jsx4(FileIcon, {}),
+          }) : isFolder ? isExpanded ? /* @__PURE__ */ jsx4(FolderOpen, {
+            className: styles4.folderIcon,
+            "aria-hidden": "true"
+          }) : /* @__PURE__ */ jsx4(Folder, {
+            className: styles4.folderIcon,
+            "aria-hidden": "true"
+          }) : /* @__PURE__ */ jsx4(File, {
+            className: styles4.fileIcon,
+            "aria-hidden": "true"
+          }),
           /* @__PURE__ */ jsx4("span", {
             className: styles4.label,
             children: node.name
@@ -385,7 +487,7 @@ function FileTree({
 }
 // src/components/patterns/help-panel.tsx
 import { ark } from "@ark-ui/react/factory";
-import { forwardRef } from "react";
+import { forwardRef as forwardRef3 } from "react";
 import { css as css5, cx as cx5 } from "styled-system/css";
 import { createStyleContext } from "styled-system/jsx";
 import { helpPanel } from "styled-system/recipes";
@@ -399,7 +501,7 @@ var TabButton = withContext(ark.button, "tab");
 var FooterContainer = withContext(ark.div, "footer");
 var Root = withRootProvider(ark.div);
 Root.displayName = "HelpPanel.Root";
-var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs5(HeaderContainer, {
+var Header = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs5(HeaderContainer, {
   ref,
   className,
   children: [
@@ -452,30 +554,9 @@ var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar 
           borderColor: "colorPalette.8"
         }
       }),
-      children: closeIcon ?? /* @__PURE__ */ jsxs5("svg", {
-        width: "14",
-        height: "14",
-        viewBox: "0 0 24 24",
-        fill: "none",
-        stroke: "currentColor",
-        strokeWidth: "2",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        "aria-label": "Close",
-        children: [
-          /* @__PURE__ */ jsx5("line", {
-            x1: "18",
-            y1: "6",
-            x2: "6",
-            y2: "18"
-          }),
-          /* @__PURE__ */ jsx5("line", {
-            x1: "6",
-            y1: "6",
-            x2: "18",
-            y2: "18"
-          })
-        ]
+      children: closeIcon ?? /* @__PURE__ */ jsx5(X, {
+        size: 14,
+        "aria-label": "Close"
       })
     })
   ]
@@ -483,7 +564,7 @@ var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar 
 Header.displayName = "HelpPanel.Header";
 var TabBar = withContext(ark.div, "tabBar");
 TabBar.displayName = "HelpPanel.TabBar";
-var Tab = forwardRef(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs5(TabButton, {
+var Tab = forwardRef3(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs5(TabButton, {
   ref,
   type: "button",
   onClick,
@@ -501,7 +582,7 @@ var Tab = forwardRef(({ active, icon, label, onClick, title, className }, ref) =
 Tab.displayName = "HelpPanel.Tab";
 var Content = withContext(ark.div, "content");
 Content.displayName = "HelpPanel.Content";
-var Footer = forwardRef(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs5(FooterContainer, {
+var Footer = forwardRef3(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs5(FooterContainer, {
   ref,
   className,
   children: [
@@ -1207,5 +1288,5 @@ export {
   ActionCard
 };
 
-//# debugId=BFAA132AA649C50064756E2164756E21
+//# debugId=C005F7EEB560F9C764756E2164756E21
 //# sourceMappingURL=index.js.map
