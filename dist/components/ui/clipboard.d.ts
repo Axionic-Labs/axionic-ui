@@ -10,12 +10,8 @@ export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<i
 export { ClipboardContext as Context } from '@ark-ui/react/clipboard';
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     children?: import("react").ReactNode;
+    className?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
     role?: import("react").AriaRole | undefined;
     suppressHydrationWarning?: boolean | undefined | undefined;
@@ -24,6 +20,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     part?: string | undefined | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     tabIndex?: number | undefined | undefined;
     "aria-activedescendant"?: string | undefined | undefined;
     "aria-atomic"?: (boolean | "true" | "false") | undefined;
@@ -250,6 +247,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onTransitionStart?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     key?: import("react").Key | null | undefined;
+    title?: string | undefined | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
     suppressContentEditableWarning?: boolean | undefined | undefined;
@@ -261,7 +259,9 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     dir?: string | undefined | undefined;
     draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
+    hidden?: boolean | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
+    radioGroup?: string | undefined | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -299,12 +299,8 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
 } & import("../../../styled-system/types").SystemStyleObject & import("../../../styled-system/types").WithCss, "ref"> & import("react").RefAttributes<HTMLDivElement>>;
 export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     children?: import("react").ReactNode;
+    className?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
     role?: import("react").AriaRole | undefined;
     suppressHydrationWarning?: boolean | undefined | undefined;
@@ -313,6 +309,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     part?: string | undefined | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     tabIndex?: number | undefined | undefined;
     "aria-activedescendant"?: string | undefined | undefined;
     "aria-atomic"?: (boolean | "true" | "false") | undefined;
@@ -539,6 +536,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onTransitionStart?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     key?: import("react").Key | null | undefined;
+    title?: string | undefined | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
     suppressContentEditableWarning?: boolean | undefined | undefined;
@@ -550,7 +548,9 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     dir?: string | undefined | undefined;
     draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
+    hidden?: boolean | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
+    radioGroup?: string | undefined | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
