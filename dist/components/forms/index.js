@@ -118,28 +118,28 @@ var base2 = css2({
 });
 var variants = {
   error: css2({
-    bg: "red.a2",
-    color: "red.11",
+    bg: "bg.error",
+    color: "fg.error",
     borderWidth: "1px",
-    borderColor: "red.a5"
+    borderColor: "border.error"
   }),
   success: css2({
-    bg: "green.a2",
-    color: "green.11",
+    bg: "bg.success",
+    color: "fg.success",
     borderWidth: "1px",
-    borderColor: "green.a5"
+    borderColor: "border.success"
   }),
   warning: css2({
-    bg: "yellow.a2",
-    color: "yellow.11",
+    bg: "bg.warning",
+    color: "fg.warning",
     borderWidth: "1px",
-    borderColor: "yellow.a5"
+    borderColor: "border.warning"
   }),
   info: css2({
-    bg: "blue.a2",
-    color: "blue.11",
+    bg: "bg.info",
+    color: "fg.info",
     borderWidth: "1px",
-    borderColor: "blue.a5"
+    borderColor: "border.info"
   })
 };
 function FormMessage({ variant, children, className }) {
@@ -155,5 +155,5 @@ export {
   FormAlert
 };
 
-//# debugId=05A126851AD98A4A64756E2164756E21
+//# debugId=2112A059DF90B8CF64756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -67,7 +67,7 @@ const styles = {
 		color: 'fg.default',
 	}),
 	statusLabelError: css({
-		color: '{colors.red.11}',
+		color: 'fg.error',
 	}),
 	progressHint: css({
 		textStyle: 'xs',
@@ -90,9 +90,9 @@ const styles = {
 	}),
 	errorBox: css({
 		p: '3',
-		bg: '{colors.red.2}',
+		bg: 'bg.error',
 		borderWidth: '1px',
-		borderColor: '{colors.red.6}',
+		borderColor: 'border.error',
 		rounded: 'l2',
 		display: 'flex',
 		alignItems: 'flex-start',
@@ -100,13 +100,13 @@ const styles = {
 	}),
 	errorText: css({
 		textStyle: 'sm',
-		color: '{colors.red.11}',
+		color: 'fg.error',
 	}),
 	successBox: css({
 		p: '3',
-		bg: '{colors.green.2}',
+		bg: 'bg.success',
 		borderWidth: '1px',
-		borderColor: '{colors.green.6}',
+		borderColor: 'border.success',
 		rounded: 'l2',
 		display: 'flex',
 		alignItems: 'center',
@@ -114,7 +114,7 @@ const styles = {
 	}),
 	successText: css({
 		textStyle: 'sm',
-		color: '{colors.green.11}',
+		color: 'fg.success',
 	}),
 	stepsGrid: css({
 		mt: '4',
@@ -135,9 +135,9 @@ const styles = {
 		color: 'colorPalette.11',
 	}),
 	stepDone: css({
-		bg: '{colors.green.2}',
-		borderColor: '{colors.green.6}',
-		color: '{colors.green.11}',
+		bg: 'bg.success',
+		borderColor: 'border.success',
+		color: 'fg.success',
 	}),
 	stepPending: css({
 		bg: 'gray.subtle.bg',

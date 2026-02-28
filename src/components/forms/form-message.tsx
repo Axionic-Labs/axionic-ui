@@ -23,28 +23,28 @@ const base = css({
 
 const variants: Record<MessageVariant, string> = {
 	error: css({
-		bg: 'red.a2',
-		color: 'red.11',
+		bg: 'bg.error',
+		color: 'fg.error',
 		borderWidth: '1px',
-		borderColor: 'red.a5',
+		borderColor: 'border.error',
 	}),
 	success: css({
-		bg: 'green.a2',
-		color: 'green.11',
+		bg: 'bg.success',
+		color: 'fg.success',
 		borderWidth: '1px',
-		borderColor: 'green.a5',
+		borderColor: 'border.success',
 	}),
 	warning: css({
-		bg: 'yellow.a2',
-		color: 'yellow.11',
+		bg: 'bg.warning',
+		color: 'fg.warning',
 		borderWidth: '1px',
-		borderColor: 'yellow.a5',
+		borderColor: 'border.warning',
 	}),
 	info: css({
-		bg: 'blue.a2',
-		color: 'blue.11',
+		bg: 'bg.info',
+		color: 'fg.info',
 		borderWidth: '1px',
-		borderColor: 'blue.a5',
+		borderColor: 'border.info',
 	}),
 };
 

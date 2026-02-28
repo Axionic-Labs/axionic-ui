@@ -2067,10 +2067,6 @@ const tokens = {
     "value": "var(--colors-fg-disabled)",
     "variable": "var(--colors-fg-disabled)"
   },
-  "colors.fg.error": {
-    "value": "var(--colors-fg-error)",
-    "variable": "var(--colors-fg-error)"
-  },
   "colors.fg.success": {
     "value": "var(--colors-fg-success)",
     "variable": "var(--colors-fg-success)"
@@ -2082,6 +2078,10 @@ const tokens = {
   "colors.fg.info": {
     "value": "var(--colors-fg-info)",
     "variable": "var(--colors-fg-info)"
+  },
+  "colors.fg.error": {
+    "value": "var(--colors-fg-error)",
+    "variable": "var(--colors-fg-error)"
   },
   "colors.bg.canvas": {
     "value": "var(--colors-bg-canvas)",
@@ -2119,6 +2119,10 @@ const tokens = {
     "value": "var(--colors-bg-info)",
     "variable": "var(--colors-bg-info)"
   },
+  "colors.bg.error": {
+    "value": "var(--colors-bg-error)",
+    "variable": "var(--colors-bg-error)"
+  },
   "colors.bg.deep": {
     "value": "var(--colors-bg-deep)",
     "variable": "var(--colors-bg-deep)"
@@ -2151,10 +2155,6 @@ const tokens = {
     "value": "var(--colors-border-outline)",
     "variable": "var(--colors-border-outline)"
   },
-  "colors.border.error": {
-    "value": "var(--colors-border-error)",
-    "variable": "var(--colors-border-error)"
-  },
   "colors.border.success": {
     "value": "var(--colors-border-success)",
     "variable": "var(--colors-border-success)"
@@ -2166,6 +2166,10 @@ const tokens = {
   "colors.border.info": {
     "value": "var(--colors-border-info)",
     "variable": "var(--colors-border-info)"
+  },
+  "colors.border.error": {
+    "value": "var(--colors-border-error)",
+    "variable": "var(--colors-border-error)"
   },
   "colors.wheat.1": {
     "value": "var(--colors-wheat-1)",
@@ -2551,10 +2555,6 @@ const tokens = {
     "value": "var(--colors-color-palette-disabled)",
     "variable": "var(--colors-color-palette-disabled)"
   },
-  "colors.colorPalette.error": {
-    "value": "var(--colors-color-palette-error)",
-    "variable": "var(--colors-color-palette-error)"
-  },
   "colors.colorPalette.success": {
     "value": "var(--colors-color-palette-success)",
     "variable": "var(--colors-color-palette-success)"
@@ -2566,6 +2566,10 @@ const tokens = {
   "colors.colorPalette.info": {
     "value": "var(--colors-color-palette-info)",
     "variable": "var(--colors-color-palette-info)"
+  },
+  "colors.colorPalette.error": {
+    "value": "var(--colors-color-palette-error)",
+    "variable": "var(--colors-color-palette-error)"
   },
   "colors.colorPalette.canvas": {
     "value": "var(--colors-color-palette-canvas)",

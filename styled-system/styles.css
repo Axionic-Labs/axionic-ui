@@ -810,10 +810,10 @@
     --colors-fg-muted: var(--colors-gray-11);
     --colors-fg-subtle: var(--colors-gray-10);
     --colors-fg-disabled: var(--colors-gray-9);
-    --colors-fg-error: var(--colors-red-9);
     --colors-fg-success: #16a34a;
     --colors-fg-warning: #d97706;
     --colors-fg-info: #2563eb;
+    --colors-fg-error: #dc2626;
     --colors-bg-canvas: var(--colors-gray-1);
     --colors-bg-default: white;
     --colors-bg-subtle: var(--colors-gray-2);
@@ -823,6 +823,7 @@
     --colors-bg-success: rgba(22, 163, 74, 0.08);
     --colors-bg-warning: rgba(217, 119, 6, 0.08);
     --colors-bg-info: rgba(37, 99, 235, 0.08);
+    --colors-bg-error: rgba(220, 38, 38, 0.08);
     --colors-bg-deep: var(--colors-gray-light-1);
     --colors-bg-navbar: rgba(253, 253, 252, 0.85);
     --colors-bg-navbar-idle: rgba(253, 253, 252, 0.6);
@@ -831,10 +832,10 @@
     --colors-border-subtle: var(--colors-gray-4);
     --colors-border-disabled: var(--colors-gray-5);
     --colors-border-outline: var(--colors-gray-a9);
-    --colors-border-error: var(--colors-red-9);
     --colors-border-success: rgba(22, 163, 74, 0.3);
     --colors-border-warning: rgba(217, 119, 6, 0.3);
     --colors-border-info: rgba(37, 99, 235, 0.3);
+    --colors-border-error: rgba(220, 38, 38, 0.3);
     --colors-wheat-1: var(--colors-wheat-light-1);
     --colors-wheat-2: var(--colors-wheat-light-2);
     --colors-wheat-3: var(--colors-wheat-light-3);
@@ -948,10 +949,10 @@
     --colors-fg-muted: var(--colors-gray-11);
     --colors-fg-subtle: var(--colors-gray-10);
     --colors-fg-disabled: var(--colors-gray-9);
-    --colors-fg-error: var(--colors-red-9);
     --colors-fg-success: #4ade80;
     --colors-fg-warning: #fbbf24;
     --colors-fg-info: #60a5fa;
+    --colors-fg-error: #f87171;
     --colors-bg-canvas: var(--colors-gray-1);
     --colors-bg-default: var(--colors-gray-2);
     --colors-bg-subtle: var(--colors-gray-3);
@@ -961,6 +962,7 @@
     --colors-bg-success: rgba(74, 222, 128, 0.12);
     --colors-bg-warning: rgba(251, 191, 36, 0.12);
     --colors-bg-info: rgba(96, 165, 250, 0.12);
+    --colors-bg-error: rgba(248, 113, 113, 0.12);
     --colors-bg-deep: #061012;
     --colors-bg-navbar: rgba(26, 46, 48, 0.85);
     --colors-bg-navbar-idle: rgba(26, 46, 48, 0.6);
@@ -969,10 +971,10 @@
     --colors-border-subtle: var(--colors-gray-4);
     --colors-border-disabled: var(--colors-gray-5);
     --colors-border-outline: var(--colors-gray-a9);
-    --colors-border-error: var(--colors-red-9);
     --colors-border-success: rgba(74, 222, 128, 0.3);
     --colors-border-warning: rgba(251, 191, 36, 0.3);
     --colors-border-info: rgba(96, 165, 250, 0.3);
+    --colors-border-error: rgba(248, 113, 113, 0.3);
     --colors-wheat-1: var(--colors-wheat-dark-1);
     --colors-wheat-2: var(--colors-wheat-dark-2);
     --colors-wheat-3: var(--colors-wheat-dark-3);
@@ -1624,16 +1626,20 @@
     background: var(--colors-red-a2);
 }
 
-  .bg_green\.a2 {
-    background: green.a2;
+  .bg_bg\.error {
+    background: var(--colors-bg-error);
 }
 
-  .bg_yellow\.a2 {
-    background: yellow.a2;
+  .bg_bg\.success {
+    background: var(--colors-bg-success);
 }
 
-  .bg_blue\.a2 {
-    background: blue.a2;
+  .bg_bg\.warning {
+    background: var(--colors-bg-warning);
+}
+
+  .bg_bg\.info {
+    background: var(--colors-bg-info);
 }
 
   .bg_colorPalette\.9 {
@@ -1670,14 +1676,6 @@
 
   .p_3 {
     padding: var(--spacing-3);
-}
-
-  .bg_\{colors\.red\.2\} {
-    background: var(--colors-red-2);
-}
-
-  .bg_\{colors\.green\.2\} {
-    background: colors\.green\.2;
 }
 
   .p_2 {
@@ -1732,16 +1730,20 @@
     padding-block: var(--spacing-2);
 }
 
-  .bd-c_green\.a5 {
-    border-color: green.a5;
+  .bd-c_border\.error {
+    border-color: var(--colors-border-error);
 }
 
-  .bd-c_yellow\.a5 {
-    border-color: yellow.a5;
+  .bd-c_border\.success {
+    border-color: var(--colors-border-success);
 }
 
-  .bd-c_blue\.a5 {
-    border-color: blue.a5;
+  .bd-c_border\.warning {
+    border-color: var(--colors-border-warning);
+}
+
+  .bd-c_border\.info {
+    border-color: var(--colors-border-info);
 }
 
   .py_16 {
@@ -1839,14 +1841,6 @@
     transition: width 0.3s ease-out;
 }
 
-  .bd-c_\{colors\.red\.6\} {
-    border-color: var(--colors-red-6);
-}
-
-  .bd-c_\{colors\.green\.6\} {
-    border-color: colors\.green\.6;
-}
-
   .trs_all_0\.15s {
     transition: all 0.15s;
 }
@@ -1895,16 +1889,20 @@
     align-items: center;
 }
 
-  .c_green\.11 {
-    color: green.11;
+  .c_fg\.error {
+    color: var(--colors-fg-error);
 }
 
-  .c_yellow\.11 {
-    color: yellow.11;
+  .c_fg\.success {
+    color: var(--colors-fg-success);
 }
 
-  .c_blue\.11 {
-    color: blue.11;
+  .c_fg\.warning {
+    color: var(--colors-fg-warning);
+}
+
+  .c_fg\.info {
+    color: var(--colors-fg-info);
 }
 
   .c_white {
@@ -2012,14 +2010,6 @@
 
   .ls_0\.05em {
     letter-spacing: 0.05em;
-}
-
-  .c_\{colors\.green\.11\} {
-    color: colors\.green\.11;
-}
-
-  .c_\{colors\.red\.11\} {
-    color: var(--colors-red-11);
 }
 
   .c_colorPalette\.fg {
