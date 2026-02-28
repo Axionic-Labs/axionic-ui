@@ -5,10 +5,12 @@ import { type ReactNode } from 'react';
  * @example
  * ```tsx
  * <HelpPanel.Root>
- *   <HelpPanel.Header ... />
- *   <HelpPanel.TabBar>...</HelpPanel.TabBar>
+ *   <HelpPanel.Header title="Help" onClose={close} />
+ *   <HelpPanel.TabBar>
+ *     <HelpPanel.Tab label="Overview" active />
+ *   </HelpPanel.TabBar>
  *   <HelpPanel.Content>...</HelpPanel.Content>
- *   <HelpPanel.Footer ... />
+ *   <HelpPanel.Footer hint="Press ? to open" />
  * </HelpPanel.Root>
  * ```
  */
@@ -16,6 +18,11 @@ export interface HelpPanelRootProps {
     children: ReactNode;
     className?: string;
 }
+/**
+ * Sliding panel container. Positioned absolutely to the right edge of its
+ * containing block. Includes slide-in animation on mount.
+ */
+export declare const Root: import("styled-system/jsx").StyleContextRootProvider<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>, import("styled-system/recipes").HelpPanelRecipe>;
 export interface HelpPanelHeaderProps {
     /** Icon rendered in the header badge */
     icon?: ReactNode;
@@ -35,6 +42,11 @@ export interface HelpPanelTabBarProps {
     children: ReactNode;
     className?: string;
 }
+/**
+ * Horizontal tab bar for category navigation. Wraps tab buttons.
+ * Recipe slot provides flex layout directly.
+ */
+export declare const TabBar: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
 export interface HelpPanelTabProps {
     /** Whether this tab is currently selected */
     active?: boolean;
@@ -52,6 +64,10 @@ export interface HelpPanelContentProps {
     children: ReactNode;
     className?: string;
 }
+/**
+ * Scrollable content area for topic details, shortcut lists, etc.
+ */
+export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
 export interface HelpPanelFooterProps {
     /** Hint text displayed on the left */
     hint?: string;
@@ -75,11 +91,11 @@ export interface HelpPanelSectionHeadingProps {
  */
 declare function SectionHeading({ label, dotColor, className }: HelpPanelSectionHeadingProps): import("react/jsx-runtime").JSX.Element;
 export declare const HelpPanel: {
-    Root: import("react").ForwardRefExoticComponent<HelpPanelRootProps & import("react").RefAttributes<HTMLDivElement>>;
+    Root: import("styled-system/jsx").StyleContextRootProvider<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>, import("styled-system/recipes").HelpPanelRecipe>;
     Header: import("react").ForwardRefExoticComponent<HelpPanelHeaderProps & import("react").RefAttributes<HTMLDivElement>>;
-    TabBar: import("react").ForwardRefExoticComponent<HelpPanelTabBarProps & import("react").RefAttributes<HTMLDivElement>>;
+    TabBar: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
     Tab: import("react").ForwardRefExoticComponent<HelpPanelTabProps & import("react").RefAttributes<HTMLButtonElement>>;
-    Content: import("react").ForwardRefExoticComponent<HelpPanelContentProps & import("react").RefAttributes<HTMLDivElement>>;
+    Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
     Footer: import("react").ForwardRefExoticComponent<HelpPanelFooterProps & import("react").RefAttributes<HTMLDivElement>>;
     SectionHeading: typeof SectionHeading;
 };

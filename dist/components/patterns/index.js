@@ -384,193 +384,112 @@ function FileTree({
   });
 }
 // src/components/patterns/help-panel.tsx
+import { ark } from "@ark-ui/react/factory";
 import { forwardRef } from "react";
 import { css as css5, cx as cx5 } from "styled-system/css";
-import { jsx as jsx5, jsxs as jsxs5 } from "react/jsx-runtime";
+import { createStyleContext } from "styled-system/jsx";
+import { helpPanel } from "styled-system/recipes";
+import { jsx as jsx5, jsxs as jsxs5, Fragment } from "react/jsx-runtime";
 "use client";
-var Root = forwardRef(({ children, className }, ref) => /* @__PURE__ */ jsx5("div", {
-  ref,
-  className: cx5(css5({
-    position: "absolute",
-    top: "0",
-    right: "0",
-    zIndex: 40,
-    h: "full",
-    w: "96",
-    bgGradient: "to-b",
-    gradientFrom: "bg.subtle",
-    gradientTo: "bg.default",
-    borderLeftWidth: "1px",
-    borderColor: "border.default",
-    display: "flex",
-    flexDirection: "column",
-    boxShadow: "2xl",
-    overflow: "hidden",
-    animation: "slide-in-right 200ms ease-out"
-  }), className),
-  children
-}));
+var { withRootProvider, withContext } = createStyleContext(helpPanel);
+var HeaderContainer = withContext(ark.div, "header");
+var HeaderIconBadge = withContext(ark.div, "headerIcon");
+var AccentBar = withContext(ark.div, "accentBar");
+var TabButton = withContext(ark.button, "tab");
+var FooterContainer = withContext(ark.div, "footer");
+var Root = withRootProvider(ark.div);
 Root.displayName = "HelpPanel.Root";
-var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs5("div", {
+var Header = forwardRef(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs5(HeaderContainer, {
   ref,
-  className: cx5(css5({
-    position: "relative",
-    px: "4",
-    py: "3",
-    borderBottomWidth: "1px",
-    borderColor: "border.default",
-    bg: "bg.default"
-  }), className),
+  className,
   children: [
-    accentBar && /* @__PURE__ */ jsx5("div", {
-      className: css5({
-        position: "absolute",
-        insetInline: "0",
-        top: "0",
-        h: "0.5",
-        bgGradient: "to-r",
-        gradientFrom: "colorPalette.7",
-        gradientVia: "colorPalette.9",
-        gradientTo: "colorPalette.11"
-      })
+    accentBar && /* @__PURE__ */ jsx5(AccentBar, {
+      style: { top: 0 }
     }),
     /* @__PURE__ */ jsxs5("div", {
-      className: css5({ display: "flex", alignItems: "center", justifyContent: "space-between" }),
+      className: css5({ display: "flex", alignItems: "center", gap: "3" }),
       children: [
+        icon && /* @__PURE__ */ jsx5(HeaderIconBadge, {
+          children: icon
+        }),
         /* @__PURE__ */ jsxs5("div", {
-          className: css5({ display: "flex", alignItems: "center", gap: "3" }),
           children: [
-            icon && /* @__PURE__ */ jsx5("div", {
+            /* @__PURE__ */ jsx5("h2", {
               className: css5({
-                w: "8",
-                h: "8",
-                borderRadius: "l2",
-                bg: "colorPalette.a3",
-                borderWidth: "1px",
-                borderColor: "colorPalette.8",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "colorPalette.11"
+                fontSize: "sm",
+                fontWeight: "semibold",
+                color: "fg.default",
+                letterSpacing: "wide"
               }),
-              children: icon
+              children: title
             }),
-            /* @__PURE__ */ jsxs5("div", {
-              children: [
-                /* @__PURE__ */ jsx5("h2", {
-                  className: css5({
-                    fontSize: "sm",
-                    fontWeight: "semibold",
-                    color: "fg.default",
-                    letterSpacing: "wide"
-                  }),
-                  children: title
-                }),
-                subtitle && /* @__PURE__ */ jsx5("p", {
-                  className: css5({ fontSize: "xs", color: "fg.subtle" }),
-                  children: subtitle
-                })
-              ]
+            subtitle && /* @__PURE__ */ jsx5("p", {
+              className: css5({ fontSize: "xs", color: "fg.subtle" }),
+              children: subtitle
             })
           ]
-        }),
-        onClose && /* @__PURE__ */ jsx5("button", {
-          onClick: onClose,
-          type: "button",
-          className: css5({
-            w: "7",
-            h: "7",
-            borderRadius: "l1",
-            bg: "bg.subtle",
-            borderWidth: "1px",
-            borderColor: "border.default/50",
-            color: "fg.muted",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            transition: "all",
-            _hover: {
-              color: "fg.default",
-              borderColor: "colorPalette.8"
-            }
-          }),
-          children: closeIcon ?? /* @__PURE__ */ jsxs5("svg", {
-            width: "14",
-            height: "14",
-            viewBox: "0 0 24 24",
-            fill: "none",
-            stroke: "currentColor",
-            strokeWidth: "2",
-            strokeLinecap: "round",
-            strokeLinejoin: "round",
-            "aria-label": "Close",
-            children: [
-              /* @__PURE__ */ jsx5("line", {
-                x1: "18",
-                y1: "6",
-                x2: "6",
-                y2: "18"
-              }),
-              /* @__PURE__ */ jsx5("line", {
-                x1: "6",
-                y1: "6",
-                x2: "18",
-                y2: "18"
-              })
-            ]
-          })
         })
       ]
+    }),
+    onClose && /* @__PURE__ */ jsx5("button", {
+      onClick: onClose,
+      type: "button",
+      className: css5({
+        w: "7",
+        h: "7",
+        borderRadius: "l1",
+        bg: "bg.subtle",
+        borderWidth: "1px",
+        borderColor: "border.default/50",
+        color: "fg.muted",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        transition: "all",
+        _hover: {
+          color: "fg.default",
+          borderColor: "colorPalette.8"
+        }
+      }),
+      children: closeIcon ?? /* @__PURE__ */ jsxs5("svg", {
+        width: "14",
+        height: "14",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        "aria-label": "Close",
+        children: [
+          /* @__PURE__ */ jsx5("line", {
+            x1: "18",
+            y1: "6",
+            x2: "6",
+            y2: "18"
+          }),
+          /* @__PURE__ */ jsx5("line", {
+            x1: "6",
+            y1: "6",
+            x2: "18",
+            y2: "18"
+          })
+        ]
+      })
     })
   ]
 }));
 Header.displayName = "HelpPanel.Header";
-var TabBar = forwardRef(({ children, className }, ref) => /* @__PURE__ */ jsx5("div", {
-  ref,
-  className: cx5(css5({
-    px: "2",
-    py: "2",
-    bg: "bg.default",
-    borderBottomWidth: "1px",
-    borderColor: "border.default/50"
-  }), className),
-  children: /* @__PURE__ */ jsx5("div", {
-    className: css5({ display: "flex", flexWrap: "wrap", gap: "1" }),
-    children
-  })
-}));
+var TabBar = withContext(ark.div, "tabBar");
 TabBar.displayName = "HelpPanel.TabBar";
-var Tab = forwardRef(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs5("button", {
+var Tab = forwardRef(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs5(TabButton, {
   ref,
   type: "button",
   onClick,
   title,
   "data-selected": active ? "" : undefined,
-  className: cx5(css5({
-    display: "flex",
-    alignItems: "center",
-    gap: "1.5",
-    px: "2.5",
-    py: "1.5",
-    borderRadius: "l2",
-    fontSize: "xs",
-    fontWeight: "medium",
-    transition: "all",
-    borderWidth: "1px",
-    cursor: "pointer",
-    color: "fg.subtle",
-    borderColor: "transparent",
-    _hover: {
-      color: "fg.default",
-      bg: "bg.emphasized"
-    },
-    "&[data-selected]": {
-      bg: "colorPalette.a3",
-      color: "colorPalette.11",
-      borderColor: "colorPalette.8"
-    }
-  }), className),
+  className,
   children: [
     icon,
     /* @__PURE__ */ jsx5("span", {
@@ -580,44 +499,16 @@ var Tab = forwardRef(({ active, icon, label, onClick, title, className }, ref) =
   ]
 }));
 Tab.displayName = "HelpPanel.Tab";
-var Content = forwardRef(({ children, className }, ref) => /* @__PURE__ */ jsx5("div", {
-  ref,
-  className: cx5(css5({ flex: "1", overflowY: "auto" }), className),
-  children
-}));
+var Content = withContext(ark.div, "content");
 Content.displayName = "HelpPanel.Content";
-var Footer = forwardRef(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs5("div", {
+var Footer = forwardRef(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs5(FooterContainer, {
   ref,
-  className: cx5(css5({
-    position: "relative",
-    px: "4",
-    py: "2.5",
-    borderTopWidth: "1px",
-    borderColor: "border.default",
-    bg: "bg.default"
-  }), className),
+  className,
   children: [
-    accentBar && /* @__PURE__ */ jsx5("div", {
-      className: css5({
-        position: "absolute",
-        insetInline: "0",
-        bottom: "0",
-        h: "0.5",
-        bgGradient: "to-r",
-        gradientFrom: "colorPalette.7",
-        gradientVia: "colorPalette.9",
-        gradientTo: "colorPalette.11",
-        opacity: 0.3
-      })
+    accentBar && /* @__PURE__ */ jsx5(AccentBar, {
+      style: { bottom: 0, opacity: 0.3 }
     }),
-    children ?? /* @__PURE__ */ jsxs5("div", {
-      className: css5({
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        fontSize: "xs",
-        color: "fg.subtle"
-      }),
+    children ?? /* @__PURE__ */ jsxs5(Fragment, {
       children: [
         hint && /* @__PURE__ */ jsx5("span", {
           children: hint
@@ -1316,5 +1207,5 @@ export {
   ActionCard
 };
 
-//# debugId=635ED2B60863F0ED64756E2164756E21
+//# debugId=B3F086A053A8CDD664756E2164756E21
 //# sourceMappingURL=index.js.map
