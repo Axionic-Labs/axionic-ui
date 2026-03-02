@@ -2752,9 +2752,102 @@ var menu = defineSlotRecipe22({
   }
 });
 
+// src/theme/recipes/navbar-link.ts
+import { defineSlotRecipe as defineSlotRecipe23 } from "@pandacss/dev";
+var navbarLink = defineSlotRecipe23({
+  className: "navbar-link",
+  slots: ["trigger", "chevron"],
+  base: {
+    trigger: {
+      position: "relative",
+      color: "teal.11",
+      fontWeight: "500",
+      letterSpacing: "0.01em",
+      transition: "color 0.2s ease",
+      _after: {
+        content: '""',
+        position: "absolute",
+        bottom: "-2px",
+        left: "50%",
+        width: "0",
+        height: "2px",
+        bg: "wheat.9",
+        borderRadius: "1px",
+        transition: "width 0.25s ease, left 0.25s ease"
+      },
+      _hover: {
+        color: "teal.12",
+        _after: {
+          width: "60%",
+          left: "20%"
+        }
+      }
+    },
+    chevron: {
+      transition: "transform 0.2s ease",
+      _groupOpen: {
+        transform: "rotate(180deg)"
+      }
+    }
+  },
+  variants: {
+    active: {
+      true: {
+        trigger: {
+          color: "teal.12",
+          fontWeight: "600",
+          _after: {
+            width: "100%",
+            left: "0"
+          }
+        }
+      }
+    },
+    dropdown: {
+      true: {
+        trigger: {
+          display: "flex",
+          alignItems: "center",
+          gap: "1",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          fontFamily: "inherit",
+          _open: {
+            _after: {
+              width: "60%",
+              left: "20%"
+            }
+          }
+        }
+      }
+    }
+  },
+  compoundVariants: [
+    {
+      active: true,
+      dropdown: true,
+      css: {
+        trigger: {
+          _open: {
+            _after: {
+              width: "100%",
+              left: "0"
+            }
+          }
+        }
+      }
+    }
+  ],
+  defaultVariants: {
+    active: false,
+    dropdown: false
+  }
+});
+
 // src/theme/recipes/number-input.ts
 import { numberInputAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe23 } from "@pandacss/dev";
+import { defineSlotRecipe as defineSlotRecipe24 } from "@pandacss/dev";
 var trigger = {
   alignItems: "center",
   color: "fg.muted",
@@ -2775,7 +2868,7 @@ var trigger = {
     bg: "gray.surface.bg.active"
   }
 };
-var numberInput = defineSlotRecipe23({
+var numberInput = defineSlotRecipe24({
   className: "number-input",
   slots: numberInputAnatomy.keys(),
   base: {
@@ -2861,8 +2954,8 @@ var numberInput = defineSlotRecipe23({
 
 // src/theme/recipes/pagination.ts
 import { paginationAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe24 } from "@pandacss/dev";
-var pagination = defineSlotRecipe24({
+import { defineSlotRecipe as defineSlotRecipe25 } from "@pandacss/dev";
+var pagination = defineSlotRecipe25({
   className: "pagination",
   slots: paginationAnatomy.keys(),
   base: {}
@@ -2870,8 +2963,8 @@ var pagination = defineSlotRecipe24({
 
 // src/theme/recipes/pin-input.ts
 import { pinInputAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe25 } from "@pandacss/dev";
-var pinInput = defineSlotRecipe25({
+import { defineSlotRecipe as defineSlotRecipe26 } from "@pandacss/dev";
+var pinInput = defineSlotRecipe26({
   className: "pin-input",
   slots: pinInputAnatomy.keys(),
   base: {
@@ -2922,8 +3015,8 @@ var pinInput = defineSlotRecipe25({
 
 // src/theme/recipes/popover.ts
 import { popoverAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe26 } from "@pandacss/dev";
-var popover = defineSlotRecipe26({
+import { defineSlotRecipe as defineSlotRecipe27 } from "@pandacss/dev";
+var popover = defineSlotRecipe27({
   className: "popover",
   slots: popoverAnatomy.extendWith("header", "body", "footer").keys(),
   base: {
@@ -2993,8 +3086,8 @@ var popover = defineSlotRecipe26({
 
 // src/theme/recipes/progress.ts
 import { progressAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe27 } from "@pandacss/dev";
-var progress = defineSlotRecipe27({
+import { defineSlotRecipe as defineSlotRecipe28 } from "@pandacss/dev";
+var progress = defineSlotRecipe28({
   slots: progressAnatomy.keys(),
   className: "progress",
   base: {
@@ -3108,8 +3201,8 @@ var progress = defineSlotRecipe27({
 
 // src/theme/recipes/radio-card-group.ts
 import { radioGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe28 } from "@pandacss/dev";
-var radioCardGroup = defineSlotRecipe28({
+import { defineSlotRecipe as defineSlotRecipe29 } from "@pandacss/dev";
+var radioCardGroup = defineSlotRecipe29({
   className: "radio-card-group",
   slots: radioGroupAnatomy.keys(),
   base: {
@@ -3257,8 +3350,8 @@ var radioCardGroup = defineSlotRecipe28({
 
 // src/theme/recipes/radio-group.ts
 import { radioGroupAnatomy as radioGroupAnatomy2 } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe29 } from "@pandacss/dev";
-var radioGroup = defineSlotRecipe29({
+import { defineSlotRecipe as defineSlotRecipe30 } from "@pandacss/dev";
+var radioGroup = defineSlotRecipe30({
   className: "radio-group",
   slots: radioGroupAnatomy2.keys(),
   base: {
@@ -3340,8 +3433,8 @@ var radioGroup = defineSlotRecipe29({
 
 // src/theme/recipes/rating-group.ts
 import { ratingGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe30 } from "@pandacss/dev";
-var ratingGroup = defineSlotRecipe30({
+import { defineSlotRecipe as defineSlotRecipe31 } from "@pandacss/dev";
+var ratingGroup = defineSlotRecipe31({
   className: "rating-group",
   slots: ratingGroupAnatomy.extendWith("itemIndicator").keys(),
   base: {
@@ -3415,8 +3508,8 @@ var ratingGroup = defineSlotRecipe30({
 });
 
 // src/theme/recipes/scroll-area.ts
-import { defineSlotRecipe as defineSlotRecipe31 } from "@pandacss/dev";
-var scrollArea = defineSlotRecipe31({
+import { defineSlotRecipe as defineSlotRecipe32 } from "@pandacss/dev";
+var scrollArea = defineSlotRecipe32({
   className: "scroll-area",
   slots: ["root", "viewport", "content", "scrollbar", "thumb", "corner"],
   base: {
@@ -3535,8 +3628,8 @@ var scrollArea = defineSlotRecipe31({
 
 // src/theme/recipes/segment-group.ts
 import { segmentGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe32 } from "@pandacss/dev";
-var segmentGroup = defineSlotRecipe32({
+import { defineSlotRecipe as defineSlotRecipe33 } from "@pandacss/dev";
+var segmentGroup = defineSlotRecipe33({
   className: "segment-group",
   slots: segmentGroupAnatomy.keys(),
   base: {
@@ -3640,8 +3733,8 @@ var segmentGroup = defineSlotRecipe32({
 
 // src/theme/recipes/select.ts
 import { selectAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe33 } from "@pandacss/dev";
-var select = defineSlotRecipe33({
+import { defineSlotRecipe as defineSlotRecipe34 } from "@pandacss/dev";
+var select = defineSlotRecipe34({
   className: "select",
   slots: selectAnatomy.extendWith("indicatorGroup").keys(),
   base: {
@@ -3893,8 +3986,8 @@ var skeleton = defineRecipe12({
 
 // src/theme/recipes/slider.ts
 import { sliderAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe34 } from "@pandacss/dev";
-var slider = defineSlotRecipe34({
+import { defineSlotRecipe as defineSlotRecipe35 } from "@pandacss/dev";
+var slider = defineSlotRecipe35({
   className: "slider",
   slots: sliderAnatomy.extendWith("markerIndicator").keys(),
   base: {
@@ -4102,8 +4195,8 @@ var spinner = defineRecipe13({
 
 // src/theme/recipes/splitter.ts
 import { splitterAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe35 } from "@pandacss/dev";
-var splitter = defineSlotRecipe35({
+import { defineSlotRecipe as defineSlotRecipe36 } from "@pandacss/dev";
+var splitter = defineSlotRecipe36({
   className: "splitter",
   slots: splitterAnatomy.keys(),
   base: {
@@ -4134,8 +4227,8 @@ var splitter = defineSlotRecipe35({
 });
 
 // src/theme/recipes/switch.ts
-import { defineSlotRecipe as defineSlotRecipe36 } from "@pandacss/dev";
-var switchRecipe = defineSlotRecipe36({
+import { defineSlotRecipe as defineSlotRecipe37 } from "@pandacss/dev";
+var switchRecipe = defineSlotRecipe37({
   className: "switch",
   jsx: ["Switch", /Switch\.+/],
   slots: ["root", "label", "control", "thumb", "indicator"],
@@ -4275,8 +4368,8 @@ var switchRecipe = defineSlotRecipe36({
 });
 
 // src/theme/recipes/table.ts
-import { defineSlotRecipe as defineSlotRecipe37 } from "@pandacss/dev";
-var table = defineSlotRecipe37({
+import { defineSlotRecipe as defineSlotRecipe38 } from "@pandacss/dev";
+var table = defineSlotRecipe38({
   className: "table",
   slots: ["root", "body", "cell", "foot", "head", "header", "row", "caption"],
   base: {
@@ -4387,8 +4480,8 @@ var table = defineSlotRecipe37({
 
 // src/theme/recipes/tabs.ts
 import { tabsAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe38 } from "@pandacss/dev";
-var tabs = defineSlotRecipe38({
+import { defineSlotRecipe as defineSlotRecipe39 } from "@pandacss/dev";
+var tabs = defineSlotRecipe39({
   slots: tabsAnatomy.keys(),
   className: "tabs",
   base: {
@@ -4562,8 +4655,8 @@ var tabs = defineSlotRecipe38({
 
 // src/theme/recipes/tags-input.ts
 import { tagsInputAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe39 } from "@pandacss/dev";
-var tagsInput = defineSlotRecipe39({
+import { defineSlotRecipe as defineSlotRecipe40 } from "@pandacss/dev";
+var tagsInput = defineSlotRecipe40({
   className: "tags-input",
   slots: tagsInputAnatomy.keys(),
   base: {
@@ -4878,8 +4971,8 @@ var textarea = defineRecipe15({
 
 // src/theme/recipes/toast.ts
 import { toastAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe40 } from "@pandacss/dev";
-var toast = defineSlotRecipe40({
+import { defineSlotRecipe as defineSlotRecipe41 } from "@pandacss/dev";
+var toast = defineSlotRecipe41({
   className: "toast",
   slots: toastAnatomy.keys(),
   base: {
@@ -4930,8 +5023,8 @@ var toast = defineSlotRecipe40({
 
 // src/theme/recipes/toggle-group.ts
 import { toggleGroupAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe41 } from "@pandacss/dev";
-var toggleGroup = defineSlotRecipe41({
+import { defineSlotRecipe as defineSlotRecipe42 } from "@pandacss/dev";
+var toggleGroup = defineSlotRecipe42({
   className: "toggle-group",
   slots: toggleGroupAnatomy.keys(),
   base: {
@@ -4953,8 +5046,8 @@ var toggleGroup = defineSlotRecipe41({
 
 // src/theme/recipes/tooltip.ts
 import { tooltipAnatomy } from "@ark-ui/react/anatomy";
-import { defineSlotRecipe as defineSlotRecipe42 } from "@pandacss/dev";
-var tooltip = defineSlotRecipe42({
+import { defineSlotRecipe as defineSlotRecipe43 } from "@pandacss/dev";
+var tooltip = defineSlotRecipe43({
   className: "tooltip",
   slots: tooltipAnatomy.keys(),
   base: {
@@ -5011,6 +5104,7 @@ var recipes = {
 };
 var slotRecipes = {
   accordion,
+  navbarLink,
   alert,
   avatar,
   breadcrumb,
@@ -5489,5 +5583,5 @@ export {
   axionicSand
 };
 
-//# debugId=D41C7F584244113B64756E2164756E21
+//# debugId=86CE12261D28A59A64756E2164756E21
 //# sourceMappingURL=index.js.map

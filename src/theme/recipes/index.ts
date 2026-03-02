@@ -31,6 +31,7 @@ import { inputGroup } from './input-group';
 import { kbd } from './kbd';
 import { link } from './link';
 import { menu } from './menu';
+import { navbarLink } from './navbar-link';
 import { numberInput } from './number-input';
 import { pagination } from './pagination';
 import { pinInput } from './pin-input';
@@ -78,6 +79,7 @@ export const recipes = {
 
 export const slotRecipes = {
 	accordion,
+	navbarLink,
 	alert,
 	avatar,
 	breadcrumb,

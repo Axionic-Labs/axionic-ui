@@ -130,6 +130,7 @@ export declare const recipes: {
 };
 export declare const slotRecipes: {
     accordion: import("@pandacss/types").SlotRecipeConfig;
+    navbarLink: import("@pandacss/types").SlotRecipeConfig;
     alert: import("@pandacss/types").SlotRecipeConfig;
     avatar: import("@pandacss/types").SlotRecipeConfig;
     breadcrumb: import("@pandacss/types").SlotRecipeConfig;

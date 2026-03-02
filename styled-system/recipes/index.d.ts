@@ -22,6 +22,7 @@ export * from './switch-recipe';
 export * from './tree-view';
 export * from './qr-code';
 export * from './accordion';
+export * from './navbar-link';
 export * from './alert';
 export * from './avatar';
 export * from './breadcrumb';

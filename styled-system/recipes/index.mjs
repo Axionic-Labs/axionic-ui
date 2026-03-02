@@ -21,6 +21,7 @@ export * from './switch-recipe.mjs';
 export * from './tree-view.mjs';
 export * from './qr-code.mjs';
 export * from './accordion.mjs';
+export * from './navbar-link.mjs';
 export * from './alert.mjs';
 export * from './avatar.mjs';
 export * from './breadcrumb.mjs';
