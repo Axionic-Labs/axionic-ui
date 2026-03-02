@@ -61,7 +61,7 @@ const switchVariantKeys = [
 ]
 const getVariantProps = (variants) => ({ ...switchDefaultVariants, ...compact(variants) })
 
-export const switch = /* @__PURE__ */ Object.assign(switchFn, {
+export const switchSlotRecipe = /* @__PURE__ */ Object.assign(switchFn, {
   __recipe__: false,
   __name__: 'switch',
   raw: (props) => props,
