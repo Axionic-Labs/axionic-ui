@@ -38,6 +38,12 @@ async function patchGeneratedDeclarations() {
 			label: 'switch.d.ts reserved word',
 		},
 		{
+			file: 'styled-system/recipes/switch.mjs',
+			find: 'export const switch =',
+			replace: 'export const switchSlotRecipe =',
+			label: 'switch.mjs reserved word',
+		},
+		{
 			file: 'styled-system/recipes/switch-recipe.d.ts',
 			find: 'type SwitchRecipeSlot = "root" | "label" | "control" | "thumb"',
 			replace: 'type SwitchRecipeSlot = "root" | "label" | "control" | "thumb" | "indicator"',
@@ -83,7 +89,6 @@ async function build() {
 				'@ark-ui/react/*',
 				'@pandacss/dev',
 				'@park-ui/panda-preset',
-				'styled-system/*',
 				'~/components/*',
 			],
 			define: {
