@@ -2257,9 +2257,7 @@ var helpPanel = defineSlotRecipe19({
       zIndex: 40,
       h: "full",
       w: "96",
-      bgGradient: "to-b",
-      gradientFrom: "bg.subtle",
-      gradientTo: "bg.default",
+      bg: "bg.default",
       borderLeftWidth: "1px",
       borderColor: "border.default",
       display: "flex",
@@ -5581,5 +5579,5 @@ export {
   axionicSand
 };
 
-//# debugId=4F3402511FABC93664756E2164756E21
+//# debugId=36B46A69D409BE0E64756E2164756E21
 //# sourceMappingURL=index.js.map
