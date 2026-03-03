@@ -2171,11 +2171,11 @@ var tokens = {
     variable: "var(--fonts-serif)"
   },
   "fonts.body": {
-    value: '"Mulish", sans-serif',
+    value: '"Graphik", "Satoshi", sans-serif',
     variable: "var(--fonts-body)"
   },
   "fonts.display": {
-    value: '"Mulish", sans-serif',
+    value: '"Satoshi", "Graphik", sans-serif',
     variable: "var(--fonts-display)"
   },
   "fonts.mono": {
@@ -4635,5 +4635,5 @@ export {
   ActionCard
 };
 
-//# debugId=B3B83843777E804F64756E2164756E21
+//# debugId=A34A3073D483EF7864756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -683,22 +683,20 @@ var card = defineSlotRecipe5({
       display: "flex",
       flexDirection: "column",
       gap: "1",
-      p: "6"
+      p: "4"
     },
     body: {
       display: "flex",
       flex: "1",
       flexDirection: "column",
-      pb: "6",
-      px: "6"
+      p: "4"
     },
     footer: {
       display: "flex",
       justifyContent: "flex-end",
       gap: "3",
-      pb: "6",
-      pt: "2",
-      px: "6"
+      p: "4",
+      pt: "2"
     },
     title: {
       textStyle: "lg",
@@ -5456,8 +5454,8 @@ function createAxionicPreset() {
       extend: {
         tokens: {
           fonts: {
-            body: { value: '"Mulish", sans-serif' },
-            display: { value: '"Mulish", sans-serif' },
+            body: { value: '"Graphik", "Satoshi", sans-serif' },
+            display: { value: '"Satoshi", "Graphik", sans-serif' },
             mono: { value: '"JetBrains Mono", "Consolas", monospace' }
           },
           colors: {
@@ -5583,5 +5581,5 @@ export {
   axionicSand
 };
 
-//# debugId=86CE12261D28A59A64756E2164756E21
+//# debugId=4F3402511FABC93664756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -728,11 +728,11 @@ const tokens = {
     "variable": "var(--fonts-serif)"
   },
   "fonts.body": {
-    "value": "\"Mulish\", sans-serif",
+    "value": "\"Graphik\", \"Satoshi\", sans-serif",
     "variable": "var(--fonts-body)"
   },
   "fonts.display": {
-    "value": "\"Mulish\", sans-serif",
+    "value": "\"Satoshi\", \"Graphik\", sans-serif",
     "variable": "var(--fonts-display)"
   },
   "fonts.mono": {

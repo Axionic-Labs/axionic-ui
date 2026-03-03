@@ -39,8 +39,8 @@ export function createAxionicPreset() {
 			extend: {
 				tokens: {
 					fonts: {
-						body: { value: '"Mulish", sans-serif' },
-						display: { value: '"Mulish", sans-serif' },
+						body: { value: '"Graphik", "Satoshi", sans-serif' },
+						display: { value: '"Satoshi", "Graphik", sans-serif' },
 						mono: { value: '"JetBrains Mono", "Consolas", monospace' },
 					},
 					colors: {
