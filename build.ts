@@ -87,6 +87,7 @@ async function build() {
 				'react/jsx-dev-runtime',
 				'@ark-ui/react',
 				'@ark-ui/react/*',
+				'lucide-react',
 				'@pandacss/dev',
 				'@park-ui/panda-preset',
 				'~/components/*',

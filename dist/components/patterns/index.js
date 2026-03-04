@@ -503,419 +503,164 @@ function ActionCard({
     ]
   });
 }
-// src/components/patterns/empty-state.tsx
+// src/components/patterns/gradient-picker.tsx
+import { Plus, X } from "lucide-react";
 import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
 "use client";
-var styles2 = {
-  root: css({
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    py: "16",
-    px: "6"
-  }),
-  iconWrap: css({
-    w: "14",
-    h: "14",
-    rounded: "full",
-    bg: "colorPalette.2",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "colorPalette.9",
-    mb: "4"
-  }),
-  title: css({
-    textStyle: "h3",
-    color: "fg.default"
-  }),
-  description: css({
-    textStyle: "body",
-    color: "fg.muted",
-    mt: "2",
-    maxW: "md"
-  }),
-  action: css({
-    mt: "6"
-  })
-};
-function EmptyState({ icon, title, description, action, className }) {
-  return /* @__PURE__ */ jsxs2("div", {
-    className: cx(styles2.root, className),
-    children: [
-      icon && /* @__PURE__ */ jsx2("div", {
-        className: styles2.iconWrap,
-        children: icon
-      }),
-      /* @__PURE__ */ jsx2("h3", {
-        className: styles2.title,
-        children: title
-      }),
-      description && /* @__PURE__ */ jsx2("p", {
-        className: styles2.description,
-        children: description
-      }),
-      action && /* @__PURE__ */ jsx2("div", {
-        className: styles2.action,
-        children: action
-      })
-    ]
-  });
+var ANGLE_PRESETS = [45, 90, 135, 180, 225];
+function buildGradientStyle(colors, angle) {
+  if (colors.length === 1)
+    return colors[0];
+  return `linear-gradient(${angle}deg, ${colors.join(", ")})`;
 }
-// src/components/patterns/feature-card.tsx
-import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
-"use client";
-var styles3 = {
-  root: css({
-    bg: "bg.default",
-    borderWidth: "1px",
-    borderColor: "border.muted",
-    rounded: "l3",
-    p: "6",
-    transition: "border-color 0.2s ease",
-    _hover: { borderColor: "colorPalette.7" }
-  }),
-  iconWrap: css({
-    w: "10",
-    h: "10",
-    rounded: "l2",
-    bg: "colorPalette.2",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "colorPalette.9",
-    mb: "4"
-  }),
-  title: css({
-    textStyle: "label",
-    color: "fg.default",
-    mb: "2"
-  }),
-  description: css({
-    textStyle: "small",
-    color: "fg.muted"
-  })
-};
-function FeatureCard({ title, description, icon, className }) {
-  return /* @__PURE__ */ jsxs3("div", {
-    className: cx(styles3.root, className),
-    children: [
-      icon && /* @__PURE__ */ jsx3("div", {
-        className: styles3.iconWrap,
-        children: icon
-      }),
-      /* @__PURE__ */ jsx3("div", {
-        className: styles3.title,
-        children: title
-      }),
-      /* @__PURE__ */ jsx3("div", {
-        className: styles3.description,
-        children: description
-      })
-    ]
-  });
-}
-// node_modules/lucide-react/dist/esm/createLucideIcon.js
-import { forwardRef as forwardRef2, createElement as createElement2 } from "react";
-
-// node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js
-var mergeClasses = (...classes) => classes.filter((className, index, array) => {
-  return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
-}).join(" ").trim();
-
-// node_modules/lucide-react/dist/esm/shared/src/utils/toKebabCase.js
-var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
-
-// node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.js
-var toCamelCase = (string) => string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase());
-
-// node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.js
-var toPascalCase = (string) => {
-  const camelCase = toCamelCase(string);
-  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
-};
-
-// node_modules/lucide-react/dist/esm/Icon.js
-import { forwardRef, createElement } from "react";
-
-// node_modules/lucide-react/dist/esm/defaultAttributes.js
-var defaultAttributes = {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: 24,
-  height: 24,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 2,
-  strokeLinecap: "round",
-  strokeLinejoin: "round"
-};
-
-// node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.js
-var hasA11yProp = (props) => {
-  for (const prop in props) {
-    if (prop.startsWith("aria-") || prop === "role" || prop === "title") {
-      return true;
-    }
-  }
-  return false;
-};
-
-// node_modules/lucide-react/dist/esm/Icon.js
-var Icon = forwardRef(({
-  color = "currentColor",
-  size = 24,
-  strokeWidth = 2,
-  absoluteStrokeWidth,
-  className = "",
-  children,
-  iconNode,
-  ...rest
-}, ref) => createElement("svg", {
-  ref,
-  ...defaultAttributes,
-  width: size,
-  height: size,
-  stroke: color,
-  strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
-  className: mergeClasses("lucide", className),
-  ...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
-  ...rest
-}, [
-  ...iconNode.map(([tag, attrs]) => createElement(tag, attrs)),
-  ...Array.isArray(children) ? children : [children]
-]));
-
-// node_modules/lucide-react/dist/esm/createLucideIcon.js
-var createLucideIcon = (iconName, iconNode) => {
-  const Component = forwardRef2(({ className, ...props }, ref) => createElement2(Icon, {
-    ref,
-    iconNode,
-    className: mergeClasses(`lucide-${toKebabCase(toPascalCase(iconName))}`, `lucide-${iconName}`, className),
-    ...props
-  }));
-  Component.displayName = toPascalCase(iconName);
-  return Component;
-};
-
-// node_modules/lucide-react/dist/esm/icons/chevron-right.js
-var __iconNode = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-var ChevronRight = createLucideIcon("chevron-right", __iconNode);
-
-// node_modules/lucide-react/dist/esm/icons/file.js
-var __iconNode2 = [
-  [
-    "path",
-    {
-      d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
-      key: "1oefj6"
-    }
-  ],
-  ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }]
-];
-var File = createLucideIcon("file", __iconNode2);
-
-// node_modules/lucide-react/dist/esm/icons/folder-open.js
-var __iconNode3 = [
-  [
-    "path",
-    {
-      d: "m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2",
-      key: "usdka0"
-    }
-  ]
-];
-var FolderOpen = createLucideIcon("folder-open", __iconNode3);
-
-// node_modules/lucide-react/dist/esm/icons/folder.js
-var __iconNode4 = [
-  [
-    "path",
-    {
-      d: "M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z",
-      key: "1kt360"
-    }
-  ]
-];
-var Folder = createLucideIcon("folder", __iconNode4);
-
-// node_modules/lucide-react/dist/esm/icons/x.js
-var __iconNode5 = [
-  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
-  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
-];
-var X = createLucideIcon("x", __iconNode5);
-// src/components/patterns/file-tree.tsx
-import { useCallback, useState } from "react";
-import { jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
-"use client";
-var styles4 = {
-  root: css({
-    overflow: "auto"
-  }),
-  node: css({
-    display: "flex",
-    alignItems: "center",
-    gap: "1.5",
-    py: "1",
-    px: "2",
-    cursor: "pointer",
-    rounded: "l1",
-    textStyle: "sm",
-    color: "fg.default",
-    transition: "background 0.1s",
-    userSelect: "none",
-    _hover: {
-      bg: "gray.subtle.bg"
-    }
-  }),
-  nodeSelected: css({
-    bg: "colorPalette.2",
-    color: "colorPalette.11",
-    _hover: {
-      bg: "colorPalette.3"
-    }
-  }),
-  chevron: css({
-    flexShrink: 0,
-    w: "3.5",
-    h: "3.5",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "fg.muted"
-  }),
-  chevronPlaceholder: css({
-    flexShrink: 0,
-    w: "3.5"
-  }),
-  folderIcon: css({
-    flexShrink: 0,
-    w: "3.5",
-    h: "3.5",
-    color: "colorPalette.9"
-  }),
-  fileIcon: css({
-    flexShrink: 0,
-    w: "3.5",
-    h: "3.5",
-    color: "fg.muted"
-  }),
-  label: css({
-    truncate: true
-  }),
-  children: css({})
-};
-function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) {
-  const isFolder = node.type === "folder";
-  const isExpanded = expandedIds.has(node.id);
-  const isSelected = selectedId === node.id;
-  const handleClick = () => {
-    if (isFolder) {
-      onToggle(node.id);
-    } else {
-      onSelect?.(node);
-    }
+var swatchStyle = css({
+  display: "block",
+  w: "8",
+  h: "8",
+  rounded: "md",
+  cursor: "pointer",
+  borderWidth: "2px",
+  borderColor: "border.default",
+  overflow: "hidden",
+  _hover: { borderColor: "teal.a5" },
+  transition: "colors"
+});
+var hiddenInput = css({ opacity: 0, position: "absolute", w: 0, h: 0 });
+var removeBtn = css({
+  position: "absolute",
+  top: "-1.5",
+  right: "-1.5",
+  w: "4",
+  h: "4",
+  rounded: "full",
+  bg: "bg.emphasized",
+  color: "fg.default",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  fontSize: "xs",
+  _hover: { bg: "bg.subtle" }
+});
+var addBtn = css({
+  w: "8",
+  h: "8",
+  rounded: "md",
+  borderWidth: "1px",
+  borderStyle: "dashed",
+  borderColor: "border.default",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  color: "fg.subtle",
+  _hover: { borderColor: "teal.a5", color: "fg.muted" },
+  transition: "colors"
+});
+var pillBase = css({
+  px: "2",
+  py: "0.5",
+  rounded: "full",
+  fontSize: "xs",
+  fontWeight: "medium",
+  cursor: "pointer",
+  transition: "colors",
+  _hover: { bg: "teal.a2" }
+});
+var pillActive = css({ bg: "teal.a3", color: "fg.default" });
+var pillInactive = css({ bg: "transparent", color: "fg.subtle" });
+var previewBar = css({
+  h: "3",
+  rounded: "sm",
+  borderWidth: "1px",
+  borderColor: "border.default"
+});
+function GradientPicker({
+  colors,
+  angle,
+  onColorsChange,
+  onAngleChange,
+  className
+}) {
+  const addColor = () => {
+    if (colors.length >= 3)
+      return;
+    onColorsChange([...colors, "#6366f1"]);
   };
-  return /* @__PURE__ */ jsxs4("div", {
+  const removeColor = (index) => {
+    if (colors.length <= 1)
+      return;
+    onColorsChange(colors.filter((_, i) => i !== index));
+  };
+  const updateColor = (index, value) => {
+    const next = [...colors];
+    next[index] = value;
+    onColorsChange(next);
+  };
+  return /* @__PURE__ */ jsxs2("div", {
+    className: cx(css({ display: "flex", flexDir: "column", gap: "2" }), className),
     children: [
-      /* @__PURE__ */ jsxs4("div", {
-        className: cx(styles4.node, isSelected && styles4.nodeSelected),
-        style: { paddingLeft: `${depth * 20 + 8}px` },
-        onClick: handleClick,
-        onKeyDown: (e) => {
-          if (e.key === "Enter" || e.key === " ")
-            handleClick();
-        },
-        role: "treeitem",
-        tabIndex: 0,
-        "aria-selected": isSelected,
-        "aria-expanded": isFolder ? isExpanded : undefined,
+      /* @__PURE__ */ jsxs2("div", {
+        className: css({ display: "flex", alignItems: "center", gap: "2" }),
         children: [
-          isFolder ? /* @__PURE__ */ jsx4(ChevronRight, {
-            className: styles4.chevron,
-            "aria-hidden": "true",
-            style: {
-              transform: isExpanded ? "rotate(90deg)" : undefined,
-              transition: "transform 0.15s"
-            }
-          }) : /* @__PURE__ */ jsx4("span", {
-            className: styles4.chevronPlaceholder
-          }),
-          node.icon ? /* @__PURE__ */ jsx4("span", {
-            className: isFolder ? styles4.folderIcon : styles4.fileIcon,
-            children: node.icon
-          }) : isFolder ? isExpanded ? /* @__PURE__ */ jsx4(FolderOpen, {
-            className: styles4.folderIcon,
-            "aria-hidden": "true"
-          }) : /* @__PURE__ */ jsx4(Folder, {
-            className: styles4.folderIcon,
-            "aria-hidden": "true"
-          }) : /* @__PURE__ */ jsx4(File, {
-            className: styles4.fileIcon,
-            "aria-hidden": "true"
-          }),
-          /* @__PURE__ */ jsx4("span", {
-            className: styles4.label,
-            children: node.name
+          colors.map((color, i) => /* @__PURE__ */ jsxs2("div", {
+            className: css({ position: "relative" }),
+            children: [
+              /* @__PURE__ */ jsx2("label", {
+                className: swatchStyle,
+                style: { backgroundColor: color },
+                children: /* @__PURE__ */ jsx2("input", {
+                  type: "color",
+                  value: color,
+                  onChange: (e) => updateColor(i, e.target.value),
+                  className: hiddenInput
+                })
+              }),
+              colors.length > 1 && /* @__PURE__ */ jsx2("button", {
+                type: "button",
+                onClick: () => removeColor(i),
+                className: removeBtn,
+                children: /* @__PURE__ */ jsx2(X, {
+                  size: 10
+                })
+              })
+            ]
+          }, i)),
+          colors.length < 3 && /* @__PURE__ */ jsx2("button", {
+            type: "button",
+            onClick: addColor,
+            className: addBtn,
+            children: /* @__PURE__ */ jsx2(Plus, {
+              size: 14
+            })
           })
         ]
       }),
-      isFolder && isExpanded && node.children && /* @__PURE__ */ jsx4("div", {
-        className: styles4.children,
-        role: "group",
-        children: node.children.map((child) => /* @__PURE__ */ jsx4(TreeNode, {
-          node: child,
-          depth: depth + 1,
-          selectedId,
-          expandedIds,
-          onToggle,
-          onSelect
-        }, child.id))
+      colors.length > 1 && /* @__PURE__ */ jsx2("div", {
+        className: css({ display: "flex", gap: "1" }),
+        children: ANGLE_PRESETS.map((preset) => /* @__PURE__ */ jsx2("button", {
+          type: "button",
+          onClick: () => onAngleChange(preset),
+          className: cx(pillBase, angle === preset ? pillActive : pillInactive),
+          children: preset
+        }, preset))
+      }),
+      /* @__PURE__ */ jsx2("div", {
+        className: previewBar,
+        style: { background: buildGradientStyle(colors, angle) }
       })
     ]
   });
 }
-function FileTree({
-  nodes,
-  onSelect,
-  selectedId,
-  defaultExpanded = [],
-  className
-}) {
-  const [expandedIds, setExpandedIds] = useState(() => new Set(defaultExpanded));
-  const handleToggle = useCallback((id) => {
-    setExpandedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  }, []);
-  return /* @__PURE__ */ jsx4("div", {
-    className: cx(styles4.root, className),
-    role: "tree",
-    children: nodes.map((node) => /* @__PURE__ */ jsx4(TreeNode, {
-      node,
-      depth: 0,
-      selectedId,
-      expandedIds,
-      onToggle: handleToggle,
-      onSelect
-    }, node.id))
-  });
-}
-// src/components/patterns/help-panel.tsx
-import { ark } from "@ark-ui/react/factory";
-import { forwardRef as forwardRef5 } from "react";
+// src/components/patterns/icon-picker.tsx
+import { useMemo as useMemo2, useState } from "react";
+import { icons } from "lucide-react";
+
+// src/components/ui/input.tsx
+import { Field } from "@ark-ui/react/field";
 
 // styled-system/jsx/factory.mjs
-import { createElement as createElement3, forwardRef as forwardRef3, useMemo } from "react";
+import { createElement, forwardRef, useMemo } from "react";
 
 // styled-system/jsx/is-valid-prop.mjs
 var userGeneratedStr = "css,pos,insetX,insetY,insetEnd,end,insetStart,start,flexDir,p,pl,pr,pt,pb,py,paddingY,paddingX,px,pe,paddingEnd,ps,paddingStart,ml,mr,mt,mb,m,my,marginY,mx,marginX,me,marginEnd,ms,marginStart,ringWidth,ringColor,ring,ringOffset,w,minW,maxW,h,minH,maxH,textShadowColor,bgPosition,bgPositionX,bgPositionY,bgAttachment,bgClip,bg,bgColor,bgOrigin,bgImage,bgRepeat,bgBlendMode,bgSize,bgGradient,bgLinear,bgRadial,bgConic,rounded,roundedTopLeft,roundedTopRight,roundedBottomRight,roundedBottomLeft,roundedTop,roundedRight,roundedBottom,roundedLeft,roundedStartStart,roundedStartEnd,roundedStart,roundedEndStart,roundedEndEnd,roundedEnd,borderX,borderXWidth,borderXColor,borderY,borderYWidth,borderYColor,borderStart,borderStartWidth,borderStartColor,borderEnd,borderEndWidth,borderEndColor,shadow,shadowColor,x,y,z,scrollMarginY,scrollMarginX,scrollPaddingY,scrollPaddingX,aspectRatio,boxDecorationBreak,zIndex,boxSizing,objectPosition,objectFit,overscrollBehavior,overscrollBehaviorX,overscrollBehaviorY,position,top,left,inset,insetInline,insetBlock,insetBlockEnd,insetBlockStart,insetInlineEnd,insetInlineStart,right,bottom,float,visibility,display,hideFrom,hideBelow,flexBasis,flex,flexDirection,flexGrow,flexShrink,gridTemplateColumns,gridTemplateRows,gridColumn,gridRow,gridColumnStart,gridColumnEnd,gridAutoFlow,gridAutoColumns,gridAutoRows,gap,gridGap,gridRowGap,gridColumnGap,rowGap,columnGap,justifyContent,alignContent,alignItems,alignSelf,padding,paddingLeft,paddingRight,paddingTop,paddingBottom,paddingBlock,paddingBlockEnd,paddingBlockStart,paddingInline,paddingInlineEnd,paddingInlineStart,marginLeft,marginRight,marginTop,marginBottom,margin,marginBlock,marginBlockEnd,marginBlockStart,marginInline,marginInlineEnd,marginInlineStart,spaceX,spaceY,outlineWidth,outlineColor,outline,outlineOffset,focusRing,focusVisibleRing,focusRingColor,focusRingOffset,focusRingWidth,focusRingStyle,divideX,divideY,divideColor,divideStyle,width,inlineSize,minWidth,minInlineSize,maxWidth,maxInlineSize,height,blockSize,minHeight,minBlockSize,maxHeight,maxBlockSize,boxSize,color,fontFamily,fontSize,fontSizeAdjust,fontPalette,fontKerning,fontFeatureSettings,fontWeight,fontSmoothing,fontVariant,fontVariantAlternates,fontVariantCaps,fontVariationSettings,fontVariantNumeric,letterSpacing,lineHeight,textAlign,textDecoration,textDecorationColor,textEmphasisColor,textDecorationStyle,textDecorationThickness,textUnderlineOffset,textTransform,textIndent,textShadow,WebkitTextFillColor,textOverflow,verticalAlign,wordBreak,textWrap,truncate,lineClamp,listStyleType,listStylePosition,listStyleImage,listStyle,backgroundPosition,backgroundPositionX,backgroundPositionY,backgroundAttachment,backgroundClip,background,backgroundColor,backgroundOrigin,backgroundImage,backgroundRepeat,backgroundBlendMode,backgroundSize,backgroundGradient,backgroundLinear,backgroundRadial,backgroundConic,textGradient,gradientFromPosition,gradientToPosition,gradientFrom,gradientTo,gradientVia,gradientViaPosition,borderRadius,borderTopLeftRadius,borderTopRightRadius,borderBottomRightRadius,borderBottomLeftRadius,borderTopRadius,borderRightRadius,borderBottomRadius,borderLeftRadius,borderStartStartRadius,borderStartEndRadius,borderStartRadius,borderEndStartRadius,borderEndEndRadius,borderEndRadius,border,borderWidth,borderTopWidth,borderLeftWidth,borderRightWidth,borderBottomWidth,borderBlockStartWidth,borderBlockEndWidth,borderColor,borderInline,borderInlineWidth,borderInlineColor,borderBlock,borderBlockWidth,borderBlockColor,borderLeft,borderLeftColor,borderInlineStart,borderInlineStartWidth,borderInlineStartColor,borderRight,borderRightColor,borderInlineEnd,borderInlineEndWidth,borderInlineEndColor,borderTop,borderTopColor,borderBottom,borderBottomColor,borderBlockEnd,borderBlockEndColor,borderBlockStart,borderBlockStartColor,opacity,boxShadow,boxShadowColor,mixBlendMode,filter,brightness,contrast,grayscale,hueRotate,invert,saturate,sepia,dropShadow,blur,backdropFilter,backdropBlur,backdropBrightness,backdropContrast,backdropGrayscale,backdropHueRotate,backdropInvert,backdropOpacity,backdropSaturate,backdropSepia,borderCollapse,borderSpacing,borderSpacingX,borderSpacingY,tableLayout,transitionTimingFunction,transitionDelay,transitionDuration,transitionProperty,transition,animation,animationName,animationTimingFunction,animationDuration,animationDelay,animationPlayState,animationComposition,animationFillMode,animationDirection,animationIterationCount,animationRange,animationState,animationRangeStart,animationRangeEnd,animationTimeline,transformOrigin,transformBox,transformStyle,transform,rotate,rotateX,rotateY,rotateZ,scale,scaleX,scaleY,translate,translateX,translateY,translateZ,accentColor,caretColor,scrollBehavior,scrollbar,scrollbarColor,scrollbarGutter,scrollbarWidth,scrollMargin,scrollMarginLeft,scrollMarginRight,scrollMarginTop,scrollMarginBottom,scrollMarginBlock,scrollMarginBlockEnd,scrollMarginBlockStart,scrollMarginInline,scrollMarginInlineEnd,scrollMarginInlineStart,scrollPadding,scrollPaddingBlock,scrollPaddingBlockStart,scrollPaddingBlockEnd,scrollPaddingInline,scrollPaddingInlineEnd,scrollPaddingInlineStart,scrollPaddingLeft,scrollPaddingRight,scrollPaddingTop,scrollPaddingBottom,scrollSnapAlign,scrollSnapStop,scrollSnapType,scrollSnapStrictness,scrollSnapMargin,scrollSnapMarginTop,scrollSnapMarginBottom,scrollSnapMarginLeft,scrollSnapMarginRight,scrollSnapCoordinate,scrollSnapDestination,scrollSnapPointsX,scrollSnapPointsY,scrollSnapTypeX,scrollSnapTypeY,scrollTimeline,scrollTimelineAxis,scrollTimelineName,touchAction,userSelect,overflow,overflowWrap,overflowX,overflowY,overflowAnchor,overflowBlock,overflowInline,overflowClipBox,overflowClipMargin,overscrollBehaviorBlock,overscrollBehaviorInline,fill,stroke,strokeWidth,strokeDasharray,strokeDashoffset,strokeLinecap,strokeLinejoin,strokeMiterlimit,strokeOpacity,srOnly,debug,appearance,backfaceVisibility,clipPath,hyphens,mask,maskImage,maskSize,textSizeAdjust,container,containerName,containerType,cursor,colorPalette,_hover,_focus,_focusWithin,_focusVisible,_disabled,_active,_visited,_target,_readOnly,_readWrite,_empty,_checked,_enabled,_expanded,_highlighted,_complete,_incomplete,_dragging,_before,_after,_firstLetter,_firstLine,_marker,_selection,_file,_backdrop,_first,_last,_only,_even,_odd,_firstOfType,_lastOfType,_onlyOfType,_peerFocus,_peerHover,_peerActive,_peerFocusWithin,_peerFocusVisible,_peerDisabled,_peerChecked,_peerInvalid,_peerExpanded,_peerPlaceholderShown,_groupFocus,_groupHover,_groupActive,_groupFocusWithin,_groupFocusVisible,_groupDisabled,_groupChecked,_groupExpanded,_groupInvalid,_indeterminate,_required,_valid,_invalid,_autofill,_inRange,_outOfRange,_placeholder,_placeholderShown,_pressed,_selected,_grabbed,_underValue,_overValue,_atValue,_default,_optional,_open,_closed,_fullscreen,_loading,_hidden,_current,_currentPage,_currentStep,_today,_unavailable,_rangeStart,_rangeEnd,_now,_topmost,_motionReduce,_motionSafe,_print,_landscape,_portrait,_dark,_light,_osDark,_osLight,_highContrast,_lessContrast,_moreContrast,_ltr,_rtl,_scrollbar,_scrollbarThumb,_scrollbarTrack,_horizontal,_vertical,_icon,_starting,_noscript,_invertedColors,_collapsed,_off,_on,sm,smOnly,smDown,md,mdOnly,mdDown,lg,lgOnly,lgDown,xl,xlOnly,xlDown,2xl,2xlOnly,2xlDown,smToMd,smToLg,smToXl,smTo2xl,mdToLg,mdToXl,mdTo2xl,lgToXl,lgTo2xl,xlTo2xl,textStyle";
@@ -961,7 +706,7 @@ function styledFn(Dynamic, configOrCva = {}, options = {}) {
   const __cvaFn__ = composeCvaFn(Dynamic.__cva__, cvaFn);
   const __shouldForwardProps__ = composeShouldForwardProps(Dynamic, shouldForwardProp);
   const __base__ = Dynamic.__base__ || Dynamic;
-  const StyledComponent = /* @__PURE__ */ forwardRef3(function StyledComponent(props, ref) {
+  const StyledComponent = /* @__PURE__ */ forwardRef(function StyledComponent(props, ref) {
     const { as: Element = __base__, unstyled, children, ...restProps } = props;
     const combinedProps = useMemo(() => Object.assign({}, defaultProps, restProps), [restProps]);
     const [htmlProps2, forwardedProps, variantProps, styleProps, elementProps] = useMemo(() => {
@@ -984,7 +729,7 @@ function styledFn(Dynamic, configOrCva = {}, options = {}) {
       }
       return configOrCva.__recipe__ ? recipeClass() : cvaClass();
     };
-    return createElement3(Element, {
+    return createElement(Element, {
       ref,
       ...forwardedProps,
       ...elementProps,
@@ -1016,7 +761,7 @@ function createJsxFactory() {
 var styled = /* @__PURE__ */ createJsxFactory();
 
 // styled-system/jsx/create-style-context.mjs
-import { createContext, useContext, createElement as createElement4, forwardRef as forwardRef4 } from "react";
+import { createContext, useContext, createElement as createElement2, forwardRef as forwardRef2 } from "react";
 "use client";
 function createSafeContext(contextName) {
   const Context = createContext(undefined);
@@ -1052,9 +797,9 @@ function createStyleContext(recipe) {
       const slotStyles = isConfigRecipe ? svaFn(variantProps) : svaFn.raw(variantProps);
       slotStyles._classNameMap = svaFn.classNameMap;
       const mergedProps = options?.defaultProps ? { ...options.defaultProps, ...otherProps } : otherProps;
-      return createElement4(StyleContext.Provider, {
+      return createElement2(StyleContext.Provider, {
         value: slotStyles,
-        children: createElement4(Component, mergedProps)
+        children: createElement2(Component, mergedProps)
       });
     };
     const componentName = getDisplayName(Component);
@@ -1063,15 +808,15 @@ function createStyleContext(recipe) {
   };
   const withProvider = (Component, slot, options) => {
     const StyledComponent = styled(Component, {}, options);
-    const WithProvider = forwardRef4((props, ref) => {
+    const WithProvider = forwardRef2((props, ref) => {
       const [variantProps, restProps] = svaFn.splitVariantProps(props);
       const slotStyles = isConfigRecipe ? svaFn(variantProps) : svaFn.raw(variantProps);
       slotStyles._classNameMap = svaFn.classNameMap;
       const propsWithClass = { ...restProps, className: restProps.className ?? options?.defaultProps?.className };
       const resolvedProps = getResolvedProps(propsWithClass, slotStyles[slot]);
-      return createElement4(StyleContext.Provider, {
+      return createElement2(StyleContext.Provider, {
         value: slotStyles,
-        children: createElement4(StyledComponent, {
+        children: createElement2(StyledComponent, {
           ...resolvedProps,
           className: cx(resolvedProps.className, slotStyles._classNameMap[slot]),
           ref
@@ -1085,11 +830,11 @@ function createStyleContext(recipe) {
   const withContext = (Component, slot, options) => {
     const StyledComponent = styled(Component, {}, options);
     const componentName = getDisplayName(Component);
-    const WithContext = forwardRef4((props, ref) => {
+    const WithContext = forwardRef2((props, ref) => {
       const slotStyles = useStyleContext(componentName, slot);
       const propsWithClass = { ...props, className: props.className ?? options?.defaultProps?.className };
       const resolvedProps = getResolvedProps(propsWithClass, slotStyles[slot]);
-      return createElement4(StyledComponent, {
+      return createElement2(StyledComponent, {
         ...resolvedProps,
         className: cx(resolvedProps.className, slotStyles._classNameMap[slot]),
         ref
@@ -1149,6 +894,67 @@ var createRecipe = (name, defaultVariants, compoundVariants) => {
     }
   };
 };
+var mergeRecipes = (recipeA, recipeB) => {
+  if (recipeA && !recipeB)
+    return recipeA;
+  if (!recipeA && recipeB)
+    return recipeB;
+  const recipeFn = (...args) => cx(recipeA(...args), recipeB(...args));
+  const variantKeys = uniq(recipeA.variantKeys, recipeB.variantKeys);
+  const variantMap = variantKeys.reduce((acc, key) => {
+    acc[key] = uniq(recipeA.variantMap[key], recipeB.variantMap[key]);
+    return acc;
+  }, {});
+  return Object.assign(recipeFn, {
+    __recipe__: true,
+    __name__: `${recipeA.__name__} ${recipeB.__name__}`,
+    raw: (props) => props,
+    variantKeys,
+    variantMap,
+    splitVariantProps(props) {
+      return splitProps(props, variantKeys);
+    }
+  });
+};
+
+// styled-system/recipes/input.mjs
+var inputFn = /* @__PURE__ */ createRecipe("input", {
+  size: "md",
+  variant: "outline"
+}, []);
+var inputVariantMap = {
+  variant: [
+    "outline",
+    "surface",
+    "subtle",
+    "flushed"
+  ],
+  size: [
+    "2xs",
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "2xl"
+  ]
+};
+var inputVariantKeys = Object.keys(inputVariantMap);
+var input = /* @__PURE__ */ Object.assign(memo(inputFn.recipeFn), {
+  __recipe__: true,
+  __name__: "input",
+  __getCompoundVariantCss__: inputFn.__getCompoundVariantCss__,
+  raw: (props) => props,
+  variantKeys: inputVariantKeys,
+  variantMap: inputVariantMap,
+  merge(recipe) {
+    return mergeRecipes(this, recipe);
+  },
+  splitVariantProps(props) {
+    return splitProps(props, inputVariantKeys);
+  },
+  getVariantProps: inputFn.getVariantProps
+});
 
 // styled-system/recipes/help-panel.mjs
 var helpPanelDefaultVariants = {};
@@ -1238,33 +1044,837 @@ var helpPanel = /* @__PURE__ */ Object.assign(helpPanelFn, {
   getVariantProps
 });
 
-// src/components/patterns/help-panel.tsx
-import { jsx as jsx5, jsxs as jsxs5, Fragment } from "react/jsx-runtime";
+// styled-system/recipes/popover.mjs
+var popoverDefaultVariants = {};
+var popoverCompoundVariants = [];
+var popoverSlotNames = [
+  [
+    "arrow",
+    "popover__arrow"
+  ],
+  [
+    "arrowTip",
+    "popover__arrowTip"
+  ],
+  [
+    "anchor",
+    "popover__anchor"
+  ],
+  [
+    "trigger",
+    "popover__trigger"
+  ],
+  [
+    "indicator",
+    "popover__indicator"
+  ],
+  [
+    "positioner",
+    "popover__positioner"
+  ],
+  [
+    "content",
+    "popover__content"
+  ],
+  [
+    "title",
+    "popover__title"
+  ],
+  [
+    "description",
+    "popover__description"
+  ],
+  [
+    "closeTrigger",
+    "popover__closeTrigger"
+  ],
+  [
+    "header",
+    "popover__header"
+  ],
+  [
+    "body",
+    "popover__body"
+  ],
+  [
+    "footer",
+    "popover__footer"
+  ],
+  [
+    "arrow",
+    "popover__arrow"
+  ],
+  [
+    "arrowTip",
+    "popover__arrowTip"
+  ],
+  [
+    "anchor",
+    "popover__anchor"
+  ],
+  [
+    "trigger",
+    "popover__trigger"
+  ],
+  [
+    "indicator",
+    "popover__indicator"
+  ],
+  [
+    "positioner",
+    "popover__positioner"
+  ],
+  [
+    "content",
+    "popover__content"
+  ],
+  [
+    "title",
+    "popover__title"
+  ],
+  [
+    "description",
+    "popover__description"
+  ],
+  [
+    "closeTrigger",
+    "popover__closeTrigger"
+  ],
+  [
+    "arrow",
+    "popover__arrow"
+  ],
+  [
+    "arrowTip",
+    "popover__arrowTip"
+  ],
+  [
+    "anchor",
+    "popover__anchor"
+  ],
+  [
+    "trigger",
+    "popover__trigger"
+  ],
+  [
+    "indicator",
+    "popover__indicator"
+  ],
+  [
+    "positioner",
+    "popover__positioner"
+  ],
+  [
+    "content",
+    "popover__content"
+  ],
+  [
+    "title",
+    "popover__title"
+  ],
+  [
+    "description",
+    "popover__description"
+  ],
+  [
+    "closeTrigger",
+    "popover__closeTrigger"
+  ],
+  [
+    "header",
+    "popover__header"
+  ],
+  [
+    "body",
+    "popover__body"
+  ],
+  [
+    "footer",
+    "popover__footer"
+  ]
+];
+var popoverSlotFns = /* @__PURE__ */ popoverSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, popoverDefaultVariants, getSlotCompoundVariant(popoverCompoundVariants, slotName))]);
+var popoverFn = memo((props = {}) => {
+  return Object.fromEntries(popoverSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]));
+});
+var popoverVariantKeys = [];
+var getVariantProps2 = (variants) => ({ ...popoverDefaultVariants, ...compact(variants) });
+var popover = /* @__PURE__ */ Object.assign(popoverFn, {
+  __recipe__: false,
+  __name__: "popover",
+  raw: (props) => props,
+  classNameMap: {},
+  variantKeys: popoverVariantKeys,
+  variantMap: {},
+  splitVariantProps(props) {
+    return splitProps(props, popoverVariantKeys);
+  },
+  getVariantProps: getVariantProps2
+});
+
+// src/components/ui/input.tsx
+var Input = styled(Field.Input, input);
+
+// src/components/ui/popover.tsx
+import { ark } from "@ark-ui/react/factory";
+import { Popover } from "@ark-ui/react/popover";
+import { PopoverContext } from "@ark-ui/react/popover";
+import { jsx as jsx3 } from "react/jsx-runtime";
 "use client";
-var { withRootProvider, withContext } = createStyleContext(helpPanel);
-var HeaderContainer = withContext(ark.div, "header");
-var HeaderIconBadge = withContext(ark.div, "headerIcon");
-var AccentBar = withContext(ark.div, "accentBar");
-var TabButton = withContext(ark.button, "tab");
-var FooterContainer = withContext(ark.div, "footer");
-var Root = withRootProvider(ark.div);
-Root.displayName = "HelpPanel.Root";
-var Header = forwardRef5(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs5(HeaderContainer, {
+var { withRootProvider, withContext } = createStyleContext(popover);
+var Root = withRootProvider(Popover.Root, {
+  defaultProps: { unmountOnExit: true, lazyMount: true }
+});
+var RootProvider = withRootProvider(Popover.Root, {
+  defaultProps: { unmountOnExit: true, lazyMount: true }
+});
+var Anchor = withContext(Popover.Anchor, "anchor");
+var ArrowTip = withContext(Popover.ArrowTip, "arrowTip");
+var Arrow = withContext(Popover.Arrow, "arrow", {
+  defaultProps: { children: /* @__PURE__ */ jsx3(ArrowTip, {}) }
+});
+var CloseTrigger = withContext(Popover.CloseTrigger, "closeTrigger");
+var Content = withContext(Popover.Content, "content");
+var Description = withContext(Popover.Description, "description");
+var Indicator = withContext(Popover.Indicator, "indicator");
+var Positioner = withContext(Popover.Positioner, "positioner");
+var Title = withContext(Popover.Title, "title");
+var Trigger = withContext(Popover.Trigger, "trigger");
+var Body = withContext(ark.div, "body");
+var Header = withContext(ark.div, "header");
+var Footer = withContext(ark.div, "footer");
+
+// src/components/patterns/icon-picker.tsx
+import { jsx as jsx4, jsxs as jsxs3 } from "react/jsx-runtime";
+"use client";
+var CURATED_ICONS = [
+  "Brain",
+  "Bot",
+  "Cpu",
+  "Rocket",
+  "Sparkles",
+  "Zap",
+  "Target",
+  "Shield",
+  "Star",
+  "Heart",
+  "Gem",
+  "Crown",
+  "Flame",
+  "Lightbulb",
+  "Atom",
+  "Orbit",
+  "Globe",
+  "Compass",
+  "Telescope",
+  "Microscope",
+  "Dna",
+  "FlaskConical",
+  "Gauge",
+  "Activity",
+  "TrendingUp",
+  "BarChart3",
+  "PieChart",
+  "LineChart",
+  "Code",
+  "Terminal",
+  "Server",
+  "Database",
+  "HardDrive",
+  "Cloud",
+  "Wifi",
+  "Radio",
+  "Satellite",
+  "Cable",
+  "Network",
+  "Router",
+  "Lock",
+  "Key",
+  "Fingerprint",
+  "Eye",
+  "ScanFace",
+  "ShieldCheck",
+  "MessageSquare",
+  "Mail",
+  "Send",
+  "Bell",
+  "Megaphone",
+  "Mic",
+  "Image",
+  "Camera",
+  "Video",
+  "Music",
+  "Palette",
+  "Paintbrush",
+  "Pen",
+  "PenTool",
+  "Layers",
+  "Grid3x3",
+  "Box",
+  "Package",
+  "Truck",
+  "Plane",
+  "Car",
+  "Bike",
+  "Ship",
+  "TrainFront",
+  "Home",
+  "Building2",
+  "Factory",
+  "Store",
+  "Landmark",
+  "Hospital",
+  "User",
+  "Users",
+  "UserCheck",
+  "Briefcase",
+  "GraduationCap",
+  "Award",
+  "Wrench",
+  "Settings",
+  "Cog",
+  "Hammer",
+  "Drill",
+  "Plug"
+];
+var triggerStyle = css({
+  display: "flex",
+  alignItems: "center",
+  gap: "2",
+  px: "3",
+  py: "1.5",
+  rounded: "md",
+  borderWidth: "1px",
+  borderColor: "border.default",
+  cursor: "pointer",
+  bg: "bg.default",
+  _hover: { borderColor: "teal.a5" },
+  transition: "colors"
+});
+var gridStyle = css({
+  display: "grid",
+  gridTemplateColumns: "repeat(6, 1fr)",
+  gap: "1",
+  maxH: "220px",
+  overflowY: "auto"
+});
+var cellBase = css({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  w: "10",
+  h: "10",
+  rounded: "md",
+  cursor: "pointer",
+  transition: "colors",
+  _hover: { bg: "teal.a2" }
+});
+var cellActive = css({ bg: "teal.a3" });
+var labelStyle = css({ fontSize: "sm", color: "fg.muted" });
+var emptyStyle = css({ fontSize: "sm", color: "fg.subtle", textAlign: "center", py: "4" });
+function IconPicker({ value, onChange, className }) {
+  const [search, setSearch] = useState("");
+  const displayedIcons = useMemo2(() => {
+    if (!search.trim()) {
+      return CURATED_ICONS.filter((name) => (name in icons));
+    }
+    const query = search.toLowerCase();
+    return Object.keys(icons).filter((name) => name.toLowerCase().includes(query)).slice(0, 60);
+  }, [search]);
+  const SelectedIcon = icons[value];
+  return /* @__PURE__ */ jsxs3(Root, {
+    portalled: true,
+    children: [
+      /* @__PURE__ */ jsx4(Trigger, {
+        asChild: true,
+        children: /* @__PURE__ */ jsxs3("button", {
+          type: "button",
+          className: cx(triggerStyle, className),
+          children: [
+            SelectedIcon && /* @__PURE__ */ jsx4(SelectedIcon, {
+              size: 16
+            }),
+            /* @__PURE__ */ jsx4("span", {
+              className: labelStyle,
+              children: value
+            })
+          ]
+        })
+      }),
+      /* @__PURE__ */ jsx4(Positioner, {
+        className: css({ zIndex: "popover" }),
+        children: /* @__PURE__ */ jsxs3(Content, {
+          className: css({ w: "280px", p: "3" }),
+          children: [
+            /* @__PURE__ */ jsx4(Input, {
+              type: "text",
+              value: search,
+              onChange: (e) => setSearch(e.target.value),
+              placeholder: "Search icons...",
+              size: "sm",
+              className: css({ mb: "2" })
+            }),
+            /* @__PURE__ */ jsx4("div", {
+              className: gridStyle,
+              children: displayedIcons.map((name) => {
+                const Icon = icons[name];
+                if (!Icon)
+                  return null;
+                return /* @__PURE__ */ jsx4("button", {
+                  type: "button",
+                  title: name,
+                  onClick: () => {
+                    onChange(name);
+                    setSearch("");
+                  },
+                  className: cx(cellBase, name === value && cellActive),
+                  children: /* @__PURE__ */ jsx4(Icon, {
+                    size: 18
+                  })
+                }, name);
+              })
+            }),
+            displayedIcons.length === 0 && /* @__PURE__ */ jsx4("p", {
+              className: emptyStyle,
+              children: "No icons found"
+            })
+          ]
+        })
+      })
+    ]
+  });
+}
+// src/components/patterns/model-icon-customizer.tsx
+import { icons as icons2 } from "lucide-react";
+import { jsx as jsx5, jsxs as jsxs4 } from "react/jsx-runtime";
+"use client";
+var DEFAULT_ICON_CONFIG = {
+  iconName: "Cpu",
+  bgColors: ["#5AB8C4", "#9333ea"],
+  bgAngle: 135,
+  iconColor: "#ffffff"
+};
+var cardIconBase = css({
+  rounded: "lg",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0
+});
+function ModelCardIcon({
+  config,
+  size = 40,
+  iconSize = 20,
+  className
+}) {
+  const c = config ?? DEFAULT_ICON_CONFIG;
+  const Icon = icons2[c.iconName];
+  return /* @__PURE__ */ jsx5("div", {
+    className: cx(cardIconBase, className),
+    style: {
+      width: size,
+      height: size,
+      background: buildGradientStyle(c.bgColors, c.bgAngle ?? 135)
+    },
+    children: Icon && /* @__PURE__ */ jsx5(Icon, {
+      size: iconSize,
+      style: { color: c.iconColor ?? "#ffffff" }
+    })
+  });
+}
+var swatchStyle2 = css({
+  display: "block",
+  w: "8",
+  h: "8",
+  rounded: "md",
+  cursor: "pointer",
+  borderWidth: "2px",
+  borderColor: "border.default",
+  overflow: "hidden",
+  _hover: { borderColor: "teal.a5" },
+  transition: "colors"
+});
+var hiddenInput2 = css({ opacity: 0, position: "absolute", w: 0, h: 0 });
+var rowStyle = css({ display: "flex", alignItems: "center", gap: "3" });
+var rowStartStyle = css({ display: "flex", alignItems: "flex-start", gap: "3" });
+var labelStyle2 = css({ fontSize: "sm", color: "fg.muted", w: "20", flexShrink: 0 });
+var labelTopStyle = css({ fontSize: "sm", color: "fg.muted", w: "20", flexShrink: 0, pt: "1" });
+function ModelIconCustomizer({
+  value,
+  onChange,
+  className
+}) {
+  return /* @__PURE__ */ jsxs4("div", {
+    className: cx(css({ display: "flex", gap: "4", alignItems: "flex-start" }), className),
+    children: [
+      /* @__PURE__ */ jsx5(ModelCardIcon, {
+        config: value,
+        size: 48,
+        iconSize: 24
+      }),
+      /* @__PURE__ */ jsxs4("div", {
+        className: css({ display: "flex", flexDir: "column", gap: "3", flex: 1 }),
+        children: [
+          /* @__PURE__ */ jsxs4("div", {
+            className: rowStyle,
+            children: [
+              /* @__PURE__ */ jsx5("label", {
+                className: labelStyle2,
+                children: "Icon"
+              }),
+              /* @__PURE__ */ jsx5(IconPicker, {
+                value: value.iconName,
+                onChange: (iconName) => onChange({ ...value, iconName })
+              })
+            ]
+          }),
+          /* @__PURE__ */ jsxs4("div", {
+            className: rowStartStyle,
+            children: [
+              /* @__PURE__ */ jsx5("label", {
+                className: labelTopStyle,
+                children: "Background"
+              }),
+              /* @__PURE__ */ jsx5(GradientPicker, {
+                colors: value.bgColors,
+                angle: value.bgAngle ?? 135,
+                onColorsChange: (bgColors) => onChange({ ...value, bgColors }),
+                onAngleChange: (bgAngle) => onChange({ ...value, bgAngle })
+              })
+            ]
+          }),
+          /* @__PURE__ */ jsxs4("div", {
+            className: rowStyle,
+            children: [
+              /* @__PURE__ */ jsx5("label", {
+                className: labelStyle2,
+                children: "Icon Color"
+              }),
+              /* @__PURE__ */ jsx5("label", {
+                className: swatchStyle2,
+                style: { backgroundColor: value.iconColor ?? "#ffffff" },
+                children: /* @__PURE__ */ jsx5("input", {
+                  type: "color",
+                  value: value.iconColor ?? "#ffffff",
+                  onChange: (e) => onChange({ ...value, iconColor: e.target.value }),
+                  className: hiddenInput2
+                })
+              })
+            ]
+          })
+        ]
+      })
+    ]
+  });
+}
+// src/components/patterns/empty-state.tsx
+import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
+"use client";
+var styles2 = {
+  root: css({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    py: "16",
+    px: "6"
+  }),
+  iconWrap: css({
+    w: "14",
+    h: "14",
+    rounded: "full",
+    bg: "colorPalette.2",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "colorPalette.9",
+    mb: "4"
+  }),
+  title: css({
+    textStyle: "h3",
+    color: "fg.default"
+  }),
+  description: css({
+    textStyle: "body",
+    color: "fg.muted",
+    mt: "2",
+    maxW: "md"
+  }),
+  action: css({
+    mt: "6"
+  })
+};
+function EmptyState({ icon, title, description, action, className }) {
+  return /* @__PURE__ */ jsxs5("div", {
+    className: cx(styles2.root, className),
+    children: [
+      icon && /* @__PURE__ */ jsx6("div", {
+        className: styles2.iconWrap,
+        children: icon
+      }),
+      /* @__PURE__ */ jsx6("h3", {
+        className: styles2.title,
+        children: title
+      }),
+      description && /* @__PURE__ */ jsx6("p", {
+        className: styles2.description,
+        children: description
+      }),
+      action && /* @__PURE__ */ jsx6("div", {
+        className: styles2.action,
+        children: action
+      })
+    ]
+  });
+}
+// src/components/patterns/feature-card.tsx
+import { jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
+"use client";
+var styles3 = {
+  root: css({
+    bg: "bg.default",
+    borderWidth: "1px",
+    borderColor: "border.muted",
+    rounded: "l3",
+    p: "6",
+    transition: "border-color 0.2s ease",
+    _hover: { borderColor: "colorPalette.7" }
+  }),
+  iconWrap: css({
+    w: "10",
+    h: "10",
+    rounded: "l2",
+    bg: "colorPalette.2",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "colorPalette.9",
+    mb: "4"
+  }),
+  title: css({
+    textStyle: "label",
+    color: "fg.default",
+    mb: "2"
+  }),
+  description: css({
+    textStyle: "small",
+    color: "fg.muted"
+  })
+};
+function FeatureCard({ title, description, icon, className }) {
+  return /* @__PURE__ */ jsxs6("div", {
+    className: cx(styles3.root, className),
+    children: [
+      icon && /* @__PURE__ */ jsx7("div", {
+        className: styles3.iconWrap,
+        children: icon
+      }),
+      /* @__PURE__ */ jsx7("div", {
+        className: styles3.title,
+        children: title
+      }),
+      /* @__PURE__ */ jsx7("div", {
+        className: styles3.description,
+        children: description
+      })
+    ]
+  });
+}
+// src/components/patterns/file-tree.tsx
+import { ChevronRight, File, Folder, FolderOpen } from "lucide-react";
+import { useCallback, useState as useState2 } from "react";
+import { jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
+"use client";
+var styles4 = {
+  root: css({
+    overflow: "auto"
+  }),
+  node: css({
+    display: "flex",
+    alignItems: "center",
+    gap: "1.5",
+    py: "1",
+    px: "2",
+    cursor: "pointer",
+    rounded: "l1",
+    textStyle: "sm",
+    color: "fg.default",
+    transition: "background 0.1s",
+    userSelect: "none",
+    _hover: {
+      bg: "gray.subtle.bg"
+    }
+  }),
+  nodeSelected: css({
+    bg: "colorPalette.2",
+    color: "colorPalette.11",
+    _hover: {
+      bg: "colorPalette.3"
+    }
+  }),
+  chevron: css({
+    flexShrink: 0,
+    w: "3.5",
+    h: "3.5",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "fg.muted"
+  }),
+  chevronPlaceholder: css({
+    flexShrink: 0,
+    w: "3.5"
+  }),
+  folderIcon: css({
+    flexShrink: 0,
+    w: "3.5",
+    h: "3.5",
+    color: "colorPalette.9"
+  }),
+  fileIcon: css({
+    flexShrink: 0,
+    w: "3.5",
+    h: "3.5",
+    color: "fg.muted"
+  }),
+  label: css({
+    truncate: true
+  }),
+  children: css({})
+};
+function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) {
+  const isFolder = node.type === "folder";
+  const isExpanded = expandedIds.has(node.id);
+  const isSelected = selectedId === node.id;
+  const handleClick = () => {
+    if (isFolder) {
+      onToggle(node.id);
+    } else {
+      onSelect?.(node);
+    }
+  };
+  return /* @__PURE__ */ jsxs7("div", {
+    children: [
+      /* @__PURE__ */ jsxs7("div", {
+        className: cx(styles4.node, isSelected && styles4.nodeSelected),
+        style: { paddingLeft: `${depth * 20 + 8}px` },
+        onClick: handleClick,
+        onKeyDown: (e) => {
+          if (e.key === "Enter" || e.key === " ")
+            handleClick();
+        },
+        role: "treeitem",
+        tabIndex: 0,
+        "aria-selected": isSelected,
+        "aria-expanded": isFolder ? isExpanded : undefined,
+        children: [
+          isFolder ? /* @__PURE__ */ jsx8(ChevronRight, {
+            className: styles4.chevron,
+            "aria-hidden": "true",
+            style: {
+              transform: isExpanded ? "rotate(90deg)" : undefined,
+              transition: "transform 0.15s"
+            }
+          }) : /* @__PURE__ */ jsx8("span", {
+            className: styles4.chevronPlaceholder
+          }),
+          node.icon ? /* @__PURE__ */ jsx8("span", {
+            className: isFolder ? styles4.folderIcon : styles4.fileIcon,
+            children: node.icon
+          }) : isFolder ? isExpanded ? /* @__PURE__ */ jsx8(FolderOpen, {
+            className: styles4.folderIcon,
+            "aria-hidden": "true"
+          }) : /* @__PURE__ */ jsx8(Folder, {
+            className: styles4.folderIcon,
+            "aria-hidden": "true"
+          }) : /* @__PURE__ */ jsx8(File, {
+            className: styles4.fileIcon,
+            "aria-hidden": "true"
+          }),
+          /* @__PURE__ */ jsx8("span", {
+            className: styles4.label,
+            children: node.name
+          })
+        ]
+      }),
+      isFolder && isExpanded && node.children && /* @__PURE__ */ jsx8("div", {
+        className: styles4.children,
+        role: "group",
+        children: node.children.map((child) => /* @__PURE__ */ jsx8(TreeNode, {
+          node: child,
+          depth: depth + 1,
+          selectedId,
+          expandedIds,
+          onToggle,
+          onSelect
+        }, child.id))
+      })
+    ]
+  });
+}
+function FileTree({
+  nodes,
+  onSelect,
+  selectedId,
+  defaultExpanded = [],
+  className
+}) {
+  const [expandedIds, setExpandedIds] = useState2(() => new Set(defaultExpanded));
+  const handleToggle = useCallback((id) => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }, []);
+  return /* @__PURE__ */ jsx8("div", {
+    className: cx(styles4.root, className),
+    role: "tree",
+    children: nodes.map((node) => /* @__PURE__ */ jsx8(TreeNode, {
+      node,
+      depth: 0,
+      selectedId,
+      expandedIds,
+      onToggle: handleToggle,
+      onSelect
+    }, node.id))
+  });
+}
+// src/components/patterns/help-panel.tsx
+import { ark as ark2 } from "@ark-ui/react/factory";
+import { X as X2 } from "lucide-react";
+import { forwardRef as forwardRef3 } from "react";
+import { jsx as jsx9, jsxs as jsxs8, Fragment } from "react/jsx-runtime";
+"use client";
+var { withRootProvider: withRootProvider2, withContext: withContext2 } = createStyleContext(helpPanel);
+var HeaderContainer = withContext2(ark2.div, "header");
+var HeaderIconBadge = withContext2(ark2.div, "headerIcon");
+var AccentBar = withContext2(ark2.div, "accentBar");
+var TabButton = withContext2(ark2.button, "tab");
+var FooterContainer = withContext2(ark2.div, "footer");
+var Root2 = withRootProvider2(ark2.div);
+Root2.displayName = "HelpPanel.Root";
+var Header2 = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs8(HeaderContainer, {
   ref,
   className,
   children: [
-    accentBar && /* @__PURE__ */ jsx5(AccentBar, {
+    accentBar && /* @__PURE__ */ jsx9(AccentBar, {
       style: { top: 0 }
     }),
-    /* @__PURE__ */ jsxs5("div", {
+    /* @__PURE__ */ jsxs8("div", {
       className: css({ display: "flex", alignItems: "center", gap: "3" }),
       children: [
-        icon && /* @__PURE__ */ jsx5(HeaderIconBadge, {
+        icon && /* @__PURE__ */ jsx9(HeaderIconBadge, {
           children: icon
         }),
-        /* @__PURE__ */ jsxs5("div", {
+        /* @__PURE__ */ jsxs8("div", {
           children: [
-            /* @__PURE__ */ jsx5("h2", {
+            /* @__PURE__ */ jsx9("h2", {
               className: css({
                 fontSize: "sm",
                 fontWeight: "semibold",
@@ -1273,7 +1883,7 @@ var Header = forwardRef5(({ icon, title, subtitle, onClose, closeIcon, accentBar
               }),
               children: title
             }),
-            subtitle && /* @__PURE__ */ jsx5("p", {
+            subtitle && /* @__PURE__ */ jsx9("p", {
               className: css({ fontSize: "xs", color: "fg.subtle" }),
               children: subtitle
             })
@@ -1281,7 +1891,7 @@ var Header = forwardRef5(({ icon, title, subtitle, onClose, closeIcon, accentBar
         })
       ]
     }),
-    onClose && /* @__PURE__ */ jsx5("button", {
+    onClose && /* @__PURE__ */ jsx9("button", {
       onClick: onClose,
       type: "button",
       className: css({
@@ -1302,17 +1912,17 @@ var Header = forwardRef5(({ icon, title, subtitle, onClose, closeIcon, accentBar
           borderColor: "colorPalette.8"
         }
       }),
-      children: closeIcon ?? /* @__PURE__ */ jsx5(X, {
+      children: closeIcon ?? /* @__PURE__ */ jsx9(X2, {
         size: 14,
         "aria-label": "Close"
       })
     })
   ]
 }));
-Header.displayName = "HelpPanel.Header";
-var TabBar = withContext(ark.div, "tabBar");
+Header2.displayName = "HelpPanel.Header";
+var TabBar = withContext2(ark2.div, "tabBar");
 TabBar.displayName = "HelpPanel.TabBar";
-var Tab = forwardRef5(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs5(TabButton, {
+var Tab = forwardRef3(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs8(TabButton, {
   ref,
   type: "button",
   onClick,
@@ -1321,28 +1931,28 @@ var Tab = forwardRef5(({ active, icon, label, onClick, title, className }, ref) 
   className,
   children: [
     icon,
-    /* @__PURE__ */ jsx5("span", {
+    /* @__PURE__ */ jsx9("span", {
       className: css({ display: { base: "none", sm: "inline" } }),
       children: label
     })
   ]
 }));
 Tab.displayName = "HelpPanel.Tab";
-var Content = withContext(ark.div, "content");
-Content.displayName = "HelpPanel.Content";
-var Footer = forwardRef5(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs5(FooterContainer, {
+var Content2 = withContext2(ark2.div, "content");
+Content2.displayName = "HelpPanel.Content";
+var Footer2 = forwardRef3(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs8(FooterContainer, {
   ref,
   className,
   children: [
-    accentBar && /* @__PURE__ */ jsx5(AccentBar, {
+    accentBar && /* @__PURE__ */ jsx9(AccentBar, {
       style: { bottom: 0, opacity: 0.3 }
     }),
-    children ?? /* @__PURE__ */ jsxs5(Fragment, {
+    children ?? /* @__PURE__ */ jsxs8(Fragment, {
       children: [
-        hint && /* @__PURE__ */ jsx5("span", {
+        hint && /* @__PURE__ */ jsx9("span", {
           children: hint
         }),
-        shortcutKey && /* @__PURE__ */ jsx5("kbd", {
+        shortcutKey && /* @__PURE__ */ jsx9("kbd", {
           className: css({
             px: "1.5",
             py: "0.5",
@@ -1360,9 +1970,9 @@ var Footer = forwardRef5(({ hint, shortcutKey, accentBar = true, children, class
     })
   ]
 }));
-Footer.displayName = "HelpPanel.Footer";
+Footer2.displayName = "HelpPanel.Footer";
 function SectionHeading({ label, dotColor, className }) {
-  return /* @__PURE__ */ jsxs5("h4", {
+  return /* @__PURE__ */ jsxs8("h4", {
     className: cx(css({
       display: "flex",
       alignItems: "center",
@@ -1375,7 +1985,7 @@ function SectionHeading({ label, dotColor, className }) {
       color: "colorPalette.11"
     }), className),
     children: [
-      /* @__PURE__ */ jsx5("span", {
+      /* @__PURE__ */ jsx9("span", {
         className: css({
           w: "1.5",
           h: "1.5",
@@ -1389,17 +1999,17 @@ function SectionHeading({ label, dotColor, className }) {
   });
 }
 var HelpPanel = {
-  Root,
-  Header,
+  Root: Root2,
+  Header: Header2,
   TabBar,
   Tab,
-  Content,
-  Footer,
+  Content: Content2,
+  Footer: Footer2,
   SectionHeading
 };
 // src/components/patterns/help-trigger.tsx
 import { useCallback as useCallback2 } from "react";
-import { jsx as jsx6 } from "react/jsx-runtime";
+import { jsx as jsx10 } from "react/jsx-runtime";
 "use client";
 function HelpTrigger({ active, onActivate, children }) {
   const handleMouseEnter = useCallback2(() => {
@@ -1407,7 +2017,7 @@ function HelpTrigger({ active, onActivate, children }) {
       onActivate();
     }
   }, [active, onActivate]);
-  return /* @__PURE__ */ jsx6("div", {
+  return /* @__PURE__ */ jsx10("div", {
     style: { display: "contents" },
     onMouseEnter: handleMouseEnter,
     role: "group",
@@ -1415,7 +2025,7 @@ function HelpTrigger({ active, onActivate, children }) {
   });
 }
 // src/components/patterns/icon-badge.tsx
-import { jsx as jsx7 } from "react/jsx-runtime";
+import { jsx as jsx11 } from "react/jsx-runtime";
 "use client";
 var base = css({
   rounded: "l2",
@@ -1432,7 +2042,7 @@ var sizes = {
   lg: css({ w: "14", h: "14" })
 };
 function IconBadge({ icon, size = "md", className }) {
-  return /* @__PURE__ */ jsx7("div", {
+  return /* @__PURE__ */ jsx11("div", {
     className: cx(base, sizes[size], className),
     children: icon
   });
@@ -4044,7 +4654,7 @@ function tokenVar(path, fallback) {
 token.var = tokenVar;
 
 // src/components/patterns/line-chart.tsx
-import { jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
+import { jsx as jsx12, jsxs as jsxs9 } from "react/jsx-runtime";
 "use client";
 var styles5 = {
   root: css({
@@ -4085,27 +4695,27 @@ function LineChart({
   const areaPath = `${linePath} L ${scaleX(data[data.length - 1].x)} ${padding.top + chartHeight}` + ` L ${scaleX(data[0].x)} ${padding.top + chartHeight} Z`;
   const pointsVisible = showPoints ?? data.length < 20;
   const gridColor = "var(--colors-border-muted, currentColor)";
-  return /* @__PURE__ */ jsxs6("svg", {
+  return /* @__PURE__ */ jsxs9("svg", {
     viewBox: `0 0 ${width} ${height}`,
     className: cx(styles5.root, className),
     preserveAspectRatio: "none",
     role: "img",
     "aria-label": "Line chart",
     children: [
-      /* @__PURE__ */ jsx8("defs", {
-        children: gradientFill && /* @__PURE__ */ jsxs6("linearGradient", {
+      /* @__PURE__ */ jsx12("defs", {
+        children: gradientFill && /* @__PURE__ */ jsxs9("linearGradient", {
           id: gradientId,
           x1: "0%",
           y1: "0%",
           x2: "0%",
           y2: "100%",
           children: [
-            /* @__PURE__ */ jsx8("stop", {
+            /* @__PURE__ */ jsx12("stop", {
               offset: "0%",
               stopColor: resolvedColor,
               stopOpacity: "0.3"
             }),
-            /* @__PURE__ */ jsx8("stop", {
+            /* @__PURE__ */ jsx12("stop", {
               offset: "100%",
               stopColor: resolvedColor,
               stopOpacity: "0"
@@ -4113,9 +4723,9 @@ function LineChart({
           ]
         })
       }),
-      showGrid && /* @__PURE__ */ jsx8("g", {
+      showGrid && /* @__PURE__ */ jsx12("g", {
         opacity: "0.2",
-        children: [0, 0.25, 0.5, 0.75, 1].map((ratio) => /* @__PURE__ */ jsx8("line", {
+        children: [0, 0.25, 0.5, 0.75, 1].map((ratio) => /* @__PURE__ */ jsx12("line", {
           x1: padding.left,
           y1: padding.top + chartHeight * ratio,
           x2: width - padding.right,
@@ -4124,11 +4734,11 @@ function LineChart({
           strokeDasharray: "2,4"
         }, ratio))
       }),
-      gradientFill && /* @__PURE__ */ jsx8("path", {
+      gradientFill && /* @__PURE__ */ jsx12("path", {
         d: areaPath,
         fill: `url(#${gradientId})`
       }),
-      /* @__PURE__ */ jsx8("path", {
+      /* @__PURE__ */ jsx12("path", {
         d: linePath,
         fill: "none",
         stroke: resolvedColor,
@@ -4136,16 +4746,16 @@ function LineChart({
         strokeLinecap: "round",
         strokeLinejoin: "round"
       }),
-      pointsVisible && data.map((d, i) => /* @__PURE__ */ jsx8("circle", {
+      pointsVisible && data.map((d, i) => /* @__PURE__ */ jsx12("circle", {
         cx: scaleX(d.x),
         cy: scaleY(d.y),
         r: "3",
         fill: resolvedColor,
         opacity: "0.8"
       }, `${d.x}-${d.y}-${i}`)),
-      showAxis && /* @__PURE__ */ jsxs6("g", {
+      showAxis && /* @__PURE__ */ jsxs9("g", {
         children: [
-          /* @__PURE__ */ jsx8("text", {
+          /* @__PURE__ */ jsx12("text", {
             x: padding.left - 4,
             y: padding.top + 4,
             textAnchor: "end",
@@ -4153,7 +4763,7 @@ function LineChart({
             fill: gridColor,
             children: yMax.toFixed(0)
           }),
-          /* @__PURE__ */ jsx8("text", {
+          /* @__PURE__ */ jsx12("text", {
             x: padding.left - 4,
             y: padding.top + chartHeight,
             textAnchor: "end",
@@ -4167,7 +4777,7 @@ function LineChart({
   });
 }
 // src/components/patterns/stat-card.tsx
-import { jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
+import { jsx as jsx13, jsxs as jsxs10 } from "react/jsx-runtime";
 "use client";
 var styles6 = {
   root: css({
@@ -4225,10 +4835,10 @@ function StatCard({
   className
 }) {
   const changeColor = changeType === "positive" ? css({ color: "fg.success" }) : changeType === "negative" ? css({ color: "fg.error" }) : css({ color: "fg.muted" });
-  return /* @__PURE__ */ jsxs7("div", {
+  return /* @__PURE__ */ jsxs10("div", {
     className: cx(styles6.root, className),
     children: [
-      icon && /* @__PURE__ */ jsx9("div", {
+      icon && /* @__PURE__ */ jsx13("div", {
         className: styles6.iconWrap,
         style: {
           ...iconBg ? { backgroundColor: iconBg } : {},
@@ -4236,25 +4846,25 @@ function StatCard({
         },
         children: icon
       }),
-      /* @__PURE__ */ jsxs7("div", {
+      /* @__PURE__ */ jsxs10("div", {
         className: styles6.content,
         children: [
-          /* @__PURE__ */ jsx9("div", {
+          /* @__PURE__ */ jsx13("div", {
             className: styles6.title,
             children: title
           }),
-          /* @__PURE__ */ jsx9("div", {
+          /* @__PURE__ */ jsx13("div", {
             className: styles6.value,
             children: value
           }),
-          /* @__PURE__ */ jsxs7("div", {
+          /* @__PURE__ */ jsxs10("div", {
             className: css({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
             children: [
-              change && /* @__PURE__ */ jsx9("span", {
+              change && /* @__PURE__ */ jsx13("span", {
                 className: cx(styles6.change, changeColor),
                 children: change
               }),
-              badge && /* @__PURE__ */ jsx9("span", {
+              badge && /* @__PURE__ */ jsx13("span", {
                 className: css({
                   textStyle: "small",
                   px: "2",
@@ -4276,7 +4886,7 @@ function StatCard({
   });
 }
 // src/components/patterns/step-card.tsx
-import { jsx as jsx10, jsxs as jsxs8 } from "react/jsx-runtime";
+import { jsx as jsx14, jsxs as jsxs11 } from "react/jsx-runtime";
 "use client";
 var styles7 = {
   root: css({
@@ -4310,21 +4920,21 @@ var styles7 = {
   })
 };
 function StepCard({ step, title, description, children, className }) {
-  return /* @__PURE__ */ jsxs8("div", {
+  return /* @__PURE__ */ jsxs11("div", {
     className: cx(styles7.root, className),
     children: [
-      /* @__PURE__ */ jsx10("div", {
+      /* @__PURE__ */ jsx14("div", {
         className: styles7.number,
         children: step
       }),
-      /* @__PURE__ */ jsxs8("div", {
+      /* @__PURE__ */ jsxs11("div", {
         className: styles7.content,
         children: [
-          /* @__PURE__ */ jsx10("div", {
+          /* @__PURE__ */ jsx14("div", {
             className: styles7.title,
             children: title
           }),
-          description && /* @__PURE__ */ jsx10("div", {
+          description && /* @__PURE__ */ jsx14("div", {
             className: styles7.description,
             children: description
           }),
@@ -4335,7 +4945,7 @@ function StepCard({ step, title, description, children, className }) {
   });
 }
 // src/components/patterns/streaming-status.tsx
-import { jsx as jsx11, jsxs as jsxs9 } from "react/jsx-runtime";
+import { jsx as jsx15, jsxs as jsxs12 } from "react/jsx-runtime";
 "use client";
 var styles8 = {
   root: css({
@@ -4484,26 +5094,26 @@ function StreamingStatus({
   const isActive = !isComplete && !error;
   const hasProgress = typeof progress === "number";
   if (compact2) {
-    return /* @__PURE__ */ jsxs9("div", {
+    return /* @__PURE__ */ jsxs12("div", {
       className: cx(styles8.compactRoot, className),
       children: [
-        isActive && activeIcon && /* @__PURE__ */ jsx11("span", {
+        isActive && activeIcon && /* @__PURE__ */ jsx15("span", {
           className: styles8.iconWrap,
           children: activeIcon
         }),
-        isComplete && completeIcon && /* @__PURE__ */ jsx11("span", {
+        isComplete && completeIcon && /* @__PURE__ */ jsx15("span", {
           className: styles8.iconWrap,
           children: completeIcon
         }),
-        error && errorIcon && /* @__PURE__ */ jsx11("span", {
+        error && errorIcon && /* @__PURE__ */ jsx15("span", {
           className: styles8.iconWrap,
           children: errorIcon
         }),
-        /* @__PURE__ */ jsx11("span", {
+        /* @__PURE__ */ jsx15("span", {
           className: cx(styles8.statusLabel, error ? styles8.statusLabelError : undefined),
           children: message || status
         }),
-        isActive && hasProgress && /* @__PURE__ */ jsxs9("span", {
+        isActive && hasProgress && /* @__PURE__ */ jsxs12("span", {
           className: styles8.progressHint,
           children: [
             "(",
@@ -4511,7 +5121,7 @@ function StreamingStatus({
             "%)"
           ]
         }),
-        onAbort && isActive && /* @__PURE__ */ jsx11("button", {
+        onAbort && isActive && /* @__PURE__ */ jsx15("button", {
           type: "button",
           onClick: onAbort,
           className: styles8.abortButton,
@@ -4523,34 +5133,34 @@ function StreamingStatus({
   }
   const stepKeys = steps?.map((s) => s.key) ?? [];
   const currentIdx = currentStep ? stepKeys.indexOf(currentStep) : -1;
-  return /* @__PURE__ */ jsxs9("div", {
+  return /* @__PURE__ */ jsxs12("div", {
     className: cx(styles8.root, className),
     children: [
-      /* @__PURE__ */ jsxs9("div", {
+      /* @__PURE__ */ jsxs12("div", {
         className: styles8.header,
         children: [
-          /* @__PURE__ */ jsxs9("div", {
+          /* @__PURE__ */ jsxs12("div", {
             className: styles8.headerLeft,
             children: [
-              isActive && activeIcon && /* @__PURE__ */ jsx11("span", {
+              isActive && activeIcon && /* @__PURE__ */ jsx15("span", {
                 className: styles8.iconWrap,
                 children: activeIcon
               }),
-              isComplete && completeIcon && /* @__PURE__ */ jsx11("span", {
+              isComplete && completeIcon && /* @__PURE__ */ jsx15("span", {
                 className: styles8.iconWrap,
                 children: completeIcon
               }),
-              error && errorIcon && /* @__PURE__ */ jsx11("span", {
+              error && errorIcon && /* @__PURE__ */ jsx15("span", {
                 className: styles8.iconWrap,
                 children: errorIcon
               }),
-              /* @__PURE__ */ jsxs9("div", {
+              /* @__PURE__ */ jsxs12("div", {
                 children: [
-                  /* @__PURE__ */ jsx11("div", {
+                  /* @__PURE__ */ jsx15("div", {
                     className: cx(styles8.statusLabel, error ? styles8.statusLabelError : undefined),
                     children: message || status
                   }),
-                  isActive && hasProgress && /* @__PURE__ */ jsxs9("div", {
+                  isActive && hasProgress && /* @__PURE__ */ jsxs12("div", {
                     className: styles8.progressHint,
                     children: [
                       progress,
@@ -4561,7 +5171,7 @@ function StreamingStatus({
               })
             ]
           }),
-          onAbort && isActive && /* @__PURE__ */ jsx11("button", {
+          onAbort && isActive && /* @__PURE__ */ jsx15("button", {
             type: "button",
             onClick: onAbort,
             className: styles8.abortButton,
@@ -4570,49 +5180,49 @@ function StreamingStatus({
           })
         ]
       }),
-      isActive && hasProgress && /* @__PURE__ */ jsx11("div", {
+      isActive && hasProgress && /* @__PURE__ */ jsx15("div", {
         className: styles8.trackWrap,
-        children: /* @__PURE__ */ jsx11("div", {
+        children: /* @__PURE__ */ jsx15("div", {
           className: styles8.track,
-          children: /* @__PURE__ */ jsx11("div", {
+          children: /* @__PURE__ */ jsx15("div", {
             className: styles8.range,
             style: { width: `${progress}%` }
           })
         })
       }),
-      error && /* @__PURE__ */ jsxs9("div", {
+      error && /* @__PURE__ */ jsxs12("div", {
         className: styles8.errorBox,
         children: [
-          errorIcon && /* @__PURE__ */ jsx11("span", {
+          errorIcon && /* @__PURE__ */ jsx15("span", {
             className: styles8.iconWrap,
             children: errorIcon
           }),
-          /* @__PURE__ */ jsx11("span", {
+          /* @__PURE__ */ jsx15("span", {
             className: styles8.errorText,
             children: error
           })
         ]
       }),
-      isComplete && !error && /* @__PURE__ */ jsxs9("div", {
+      isComplete && !error && /* @__PURE__ */ jsxs12("div", {
         className: styles8.successBox,
         children: [
-          completeIcon && /* @__PURE__ */ jsx11("span", {
+          completeIcon && /* @__PURE__ */ jsx15("span", {
             className: styles8.iconWrap,
             children: completeIcon
           }),
-          /* @__PURE__ */ jsx11("span", {
+          /* @__PURE__ */ jsx15("span", {
             className: styles8.successText,
             children: "Operation completed successfully"
           })
         ]
       }),
-      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx11("div", {
+      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx15("div", {
         className: styles8.stepsGrid,
         style: { gridTemplateColumns: `repeat(${steps.length}, 1fr)` },
         children: steps.map((step, idx) => {
           const isCurrent = step.key === currentStep;
           const isDone = currentIdx >= 0 && idx < currentIdx;
-          return /* @__PURE__ */ jsx11("div", {
+          return /* @__PURE__ */ jsx15("div", {
             className: cx(styles8.step, isCurrent ? styles8.stepActive : isDone ? styles8.stepDone : styles8.stepPending),
             children: step.label
           }, step.key);
@@ -4622,18 +5232,24 @@ function StreamingStatus({
   });
 }
 export {
+  buildGradientStyle,
   StreamingStatus,
   StepCard,
   StatCard,
+  ModelIconCustomizer,
+  ModelCardIcon,
   LineChart,
+  IconPicker,
   IconBadge,
   HelpTrigger,
   HelpPanel,
+  GradientPicker,
   FileTree,
   FeatureCard,
   EmptyState,
+  DEFAULT_ICON_CONFIG,
   ActionCard
 };
 
-//# debugId=A34A3073D483EF7864756E2164756E21
+//# debugId=88C44035C274302164756E2164756E21
 //# sourceMappingURL=index.js.map
