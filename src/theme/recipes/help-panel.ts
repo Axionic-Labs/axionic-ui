@@ -5,12 +5,6 @@ export const helpPanel = defineSlotRecipe({
 	slots: ['root', 'header', 'headerIcon', 'tabBar', 'tab', 'content', 'footer', 'accentBar'],
 	base: {
 		root: {
-			position: 'absolute',
-			top: '0',
-			right: '0',
-			zIndex: 40,
-			h: 'full',
-			w: '96',
 			bg: 'bg.default',
 			borderLeftWidth: '1px',
 			borderColor: 'border.default',
@@ -18,7 +12,6 @@ export const helpPanel = defineSlotRecipe({
 			flexDirection: 'column',
 			boxShadow: '2xl',
 			overflow: 'hidden',
-			animation: 'slide-in-right 200ms ease-out',
 		},
 		header: {
 			position: 'relative',

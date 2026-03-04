@@ -41,6 +41,18 @@ export const toast = defineSlotRecipe({
 			cursor: 'pointer',
 			fontWeight: 'semibold',
 			textStyle: 'sm',
+			px: '2',
+			py: '0.5',
+			borderRadius: 'l1',
+			borderWidth: '1px',
+			borderColor: 'colorPalette.plain.fg/30',
+			transition: 'colors',
+			_hover: {
+				bg: 'colorPalette.plain.fg/10',
+			},
+			_active: {
+				bg: 'colorPalette.plain.fg/20',
+			},
 		},
 		closeTrigger: {
 			position: 'absolute',
