@@ -102,7 +102,7 @@ export function IconPicker({ value, onChange, className }: IconPickerProps): Rea
 				</button>
 			</Popover.Trigger>
 			<Popover.Positioner className={css({ zIndex: 'popover' })}>
-				<Popover.Content className={css({ w: '280px', p: '3' })}>
+				<Popover.Content className={css({ w: '280px', p: '3', bg: 'bg.default', borderWidth: '1px', borderColor: 'border.default', shadow: 'lg', rounded: 'lg' })}>
 					<Input
 						type="text"
 						value={search}

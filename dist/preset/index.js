@@ -2251,20 +2251,13 @@ var helpPanel = defineSlotRecipe19({
   slots: ["root", "header", "headerIcon", "tabBar", "tab", "content", "footer", "accentBar"],
   base: {
     root: {
-      position: "absolute",
-      top: "0",
-      right: "0",
-      zIndex: 40,
-      h: "full",
-      w: "96",
       bg: "bg.default",
       borderLeftWidth: "1px",
       borderColor: "border.default",
       display: "flex",
       flexDirection: "column",
       boxShadow: "2xl",
-      overflow: "hidden",
-      animation: "slide-in-right 200ms ease-out"
+      overflow: "hidden"
     },
     header: {
       position: "relative",
@@ -5007,7 +5000,19 @@ var toast = defineSlotRecipe41({
       color: "colorPalette.plain.fg",
       cursor: "pointer",
       fontWeight: "semibold",
-      textStyle: "sm"
+      textStyle: "sm",
+      px: "2",
+      py: "0.5",
+      borderRadius: "l1",
+      borderWidth: "1px",
+      borderColor: "colorPalette.plain.fg/30",
+      transition: "colors",
+      _hover: {
+        bg: "colorPalette.plain.fg/10"
+      },
+      _active: {
+        bg: "colorPalette.plain.fg/20"
+      }
     },
     closeTrigger: {
       position: "absolute",
@@ -5579,5 +5584,5 @@ export {
   axionicSand
 };
 
-//# debugId=36B46A69D409BE0E64756E2164756E21
+//# debugId=D7B17E8F1EF6685F64756E2164756E21
 //# sourceMappingURL=index.js.map

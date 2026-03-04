@@ -1404,7 +1404,7 @@ function IconPicker({ value, onChange, className }) {
       /* @__PURE__ */ jsx4(Positioner, {
         className: css({ zIndex: "popover" }),
         children: /* @__PURE__ */ jsxs3(Content, {
-          className: css({ w: "280px", p: "3" }),
+          className: css({ w: "280px", p: "3", bg: "bg.default", borderWidth: "1px", borderColor: "border.default", shadow: "lg", rounded: "lg" }),
           children: [
             /* @__PURE__ */ jsx4(Input, {
               type: "text",
@@ -5251,5 +5251,5 @@ export {
   ActionCard
 };
 
-//# debugId=88C44035C274302164756E2164756E21
+//# debugId=2CC600D7E59A59E364756E2164756E21
 //# sourceMappingURL=index.js.map
