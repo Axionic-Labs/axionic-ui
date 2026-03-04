@@ -37,8 +37,8 @@ export interface HelpPanelRootProps {
 }
 
 /**
- * Sliding panel container. Positioned absolutely to the right edge of its
- * containing block. Includes slide-in animation on mount.
+ * Panel container with visual styling (background, border, shadow, flex column).
+ * Positioning, dimensions, and animation are left to the consumer.
  */
 export const Root = withRootProvider(ark.div);
 // biome-ignore lint/suspicious/noExplicitAny: displayName is a valid React property

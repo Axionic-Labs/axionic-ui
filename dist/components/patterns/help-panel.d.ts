@@ -19,8 +19,8 @@ export interface HelpPanelRootProps {
     className?: string;
 }
 /**
- * Sliding panel container. Positioned absolutely to the right edge of its
- * containing block. Includes slide-in animation on mount.
+ * Panel container with visual styling (background, border, shadow, flex column).
+ * Positioning, dimensions, and animation are left to the consumer.
  */
 export declare const Root: import("styled-system/jsx").StyleContextRootProvider<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>, import("styled-system/recipes").HelpPanelRecipe>;
 export interface HelpPanelHeaderProps {
