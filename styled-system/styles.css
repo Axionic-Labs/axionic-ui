@@ -2492,6 +2492,10 @@
     height: var(--sizes-3);
 }
 
+  .min-w_0 {
+    min-width: var(--sizes-0);
+}
+
   .w_7 {
     width: var(--sizes-7);
 }
@@ -2526,10 +2530,6 @@
 
   .pt_1 {
     padding-top: var(--spacing-1);
-}
-
-  .min-w_0 {
-    min-width: var(--sizes-0);
 }
 
   .h_2 {

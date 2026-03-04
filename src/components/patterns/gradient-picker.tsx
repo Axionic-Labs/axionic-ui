@@ -127,7 +127,7 @@ export function GradientPicker({
 	};
 
 	return (
-		<div className={cx(css({ display: 'flex', flexDir: 'column', gap: '2' }), className)}>
+		<div className={cx(css({ display: 'flex', flexDir: 'column', gap: '2', minW: 0 }), className)}>
 			{/* Color swatches */}
 			<div className={css({ display: 'flex', alignItems: 'center', gap: '2' })}>
 				{colors.map((color, i) => (

@@ -598,7 +598,7 @@ function GradientPicker({
     onColorsChange(next);
   };
   return /* @__PURE__ */ jsxs2("div", {
-    className: cx(css({ display: "flex", flexDir: "column", gap: "2" }), className),
+    className: cx(css({ display: "flex", flexDir: "column", gap: "2", minW: 0 }), className),
     children: [
       /* @__PURE__ */ jsxs2("div", {
         className: css({ display: "flex", alignItems: "center", gap: "2" }),
@@ -1513,7 +1513,7 @@ function ModelIconCustomizer({
         iconSize: 24
       }),
       /* @__PURE__ */ jsxs4("div", {
-        className: css({ display: "flex", flexDir: "column", gap: "3", flex: 1 }),
+        className: css({ display: "flex", flexDir: "column", gap: "3", flex: 1, minW: 0 }),
         children: [
           /* @__PURE__ */ jsxs4("div", {
             className: rowStyle,
@@ -5251,5 +5251,5 @@ export {
   ActionCard
 };
 
-//# debugId=2CC600D7E59A59E364756E2164756E21
+//# debugId=A0196E915E556C5564756E2164756E21
 //# sourceMappingURL=index.js.map

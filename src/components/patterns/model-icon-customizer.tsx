@@ -120,7 +120,7 @@ export function ModelIconCustomizer({
 			<ModelCardIcon config={value} size={48} iconSize={24} />
 
 			{/* Controls */}
-			<div className={css({ display: 'flex', flexDir: 'column', gap: '3', flex: 1 })}>
+			<div className={css({ display: 'flex', flexDir: 'column', gap: '3', flex: 1, minW: 0 })}>
 				{/* Icon selector */}
 				<div className={rowStyle}>
 					<label className={labelStyle}>Icon</label>
