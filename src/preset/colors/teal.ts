@@ -1,40 +1,43 @@
 import type { ColorPalette } from '@park-ui/panda-preset';
 
 /**
- * Axionic teal accent scale derived from Rich Black (#003e44).
+ * Axionic teal accent scale -- warm green-teal.
  *
  * 12-step Radix-style color scale:
  * Steps 1-2: backgrounds, 3-5: component backgrounds,
  * 6-8: borders, 9-10: solid colors, 11-12: text.
+ *
+ * Light values derived from the Spectra app palette (#1A3D42 heading,
+ * #2A4F54 label, #6B8A8F muted) for a warmer, greener teal.
  */
 export const axionicTeal: ColorPalette = {
 	name: 'teal',
 	tokens: {
 		light: {
-			'1': { value: '#f5fafa' },
-			'2': { value: '#e3f5f7' },
-			'3': { value: '#c5eaed' },
-			'4': { value: '#a3dde2' },
-			'5': { value: '#7eccd3' },
-			'6': { value: '#5ab8c1' },
-			'7': { value: '#3a9da7' },
-			'8': { value: '#1f808b' },
-			'9': { value: '#006270' },
-			'10': { value: '#005662' },
-			'11': { value: '#004a54' },
-			'12': { value: '#003e44' },
-			a1: { value: 'rgba(0, 98, 112, 0.02)' },
-			a2: { value: 'rgba(0, 98, 112, 0.06)' },
-			a3: { value: 'rgba(0, 98, 112, 0.12)' },
-			a4: { value: 'rgba(0, 98, 112, 0.20)' },
-			a5: { value: 'rgba(0, 98, 112, 0.30)' },
-			a6: { value: 'rgba(0, 98, 112, 0.42)' },
-			a7: { value: 'rgba(0, 98, 112, 0.56)' },
-			a8: { value: 'rgba(0, 98, 112, 0.70)' },
-			a9: { value: 'rgba(0, 98, 112, 0.85)' },
-			a10: { value: 'rgba(0, 98, 112, 0.88)' },
-			a11: { value: 'rgba(0, 98, 112, 0.92)' },
-			a12: { value: 'rgba(0, 62, 68, 0.97)' },
+			'1': { value: '#F2F8F8' },
+			'2': { value: '#E5F0F1' },
+			'3': { value: '#D4E6E8' },
+			'4': { value: '#C0DBDD' },
+			'5': { value: '#A8CDD0' },
+			'6': { value: '#8FBDC0' },
+			'7': { value: '#7AABAF' },
+			'8': { value: '#5E9398' },
+			'9': { value: '#4A7D82' },
+			'10': { value: '#336569' },
+			'11': { value: '#2A4F54' },
+			'12': { value: '#1A3D42' },
+			a1: { value: 'rgba(26, 61, 66, 0.02)' },
+			a2: { value: 'rgba(26, 61, 66, 0.06)' },
+			a3: { value: 'rgba(26, 61, 66, 0.12)' },
+			a4: { value: 'rgba(26, 61, 66, 0.20)' },
+			a5: { value: 'rgba(26, 61, 66, 0.30)' },
+			a6: { value: 'rgba(26, 61, 66, 0.42)' },
+			a7: { value: 'rgba(26, 61, 66, 0.52)' },
+			a8: { value: 'rgba(26, 61, 66, 0.65)' },
+			a9: { value: 'rgba(26, 61, 66, 0.75)' },
+			a10: { value: 'rgba(26, 61, 66, 0.82)' },
+			a11: { value: 'rgba(26, 61, 66, 0.88)' },
+			a12: { value: 'rgba(26, 61, 66, 0.95)' },
 		},
 		dark: {
 			'1': { value: '#061214' },
