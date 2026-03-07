@@ -2628,7 +2628,9 @@ var menu = defineSlotRecipe22({
   base: {
     content: {
       "--menu-z-index": "zIndex.dropdown",
-      bg: "gray.surface.bg",
+      bg: "bg.default",
+      borderWidth: "1px",
+      borderColor: "border.default",
       borderRadius: "l3",
       boxShadow: "md",
       display: "flex",
@@ -2660,7 +2662,7 @@ var menu = defineSlotRecipe22({
       userSelect: "none",
       width: "100%",
       _highlighted: {
-        bg: "gray.surface.bg.hover"
+        bg: "bg.subtle"
       },
       _disabled: {
         layerStyle: "disabled"
@@ -5584,5 +5586,5 @@ export {
   axionicSand
 };
 
-//# debugId=2CB6AB13A91D558364756E2164756E21
+//# debugId=B80BBE3401B38FB864756E2164756E21
 //# sourceMappingURL=index.js.map
