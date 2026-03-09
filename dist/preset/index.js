@@ -5446,7 +5446,7 @@ var textStyles = defineTextStyles({
     description: "High-contrast warm gold text for subtitles on dark backgrounds.",
     value: {
       fontWeight: "600",
-      color: "{colors.wheat.11}"
+      color: "#f5dfc0"
     }
   }
 });
@@ -5593,5 +5593,5 @@ export {
   axionicSand
 };
 
-//# debugId=5CFFB375E615488764756E2164756E21
+//# debugId=BA221FAF2802C0F764756E2164756E21
 //# sourceMappingURL=index.js.map

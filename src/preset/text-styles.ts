@@ -44,7 +44,7 @@ export const textStyles = defineTextStyles({
 		description: 'High-contrast warm gold text for subtitles on dark backgrounds.',
 		value: {
 			fontWeight: '600',
-			color: '{colors.wheat.11}',
+			color: '#f5dfc0',
 		},
 	},
 });
