@@ -5442,12 +5442,11 @@ var textStyles = defineTextStyles({
   code: {
     value: { fontFamily: "mono", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.6" }
   },
-  accentGlow: {
-    description: "Wheat-colored text with a soft warm glow. Use on dark backgrounds for accent subtitles.",
+  accentSubtitle: {
+    description: "High-contrast warm gold text for subtitles on dark backgrounds.",
     value: {
       fontWeight: "600",
-      color: "{colors.wheat.9}",
-      textShadow: "0 0 4px rgba(230, 182, 133, 0.8), 0 0 14px rgba(230, 182, 133, 0.55), 0 0 32px rgba(230, 182, 133, 0.3), 0 0 60px rgba(230, 182, 133, 0.12)"
+      color: "{colors.wheat.11}"
     }
   }
 });
@@ -5594,5 +5593,5 @@ export {
   axionicSand
 };
 
-//# debugId=EBFC62C201A7DBBB64756E2164756E21
+//# debugId=5CFFB375E615488764756E2164756E21
 //# sourceMappingURL=index.js.map
