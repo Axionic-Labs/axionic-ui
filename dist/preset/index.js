@@ -5447,7 +5447,7 @@ var textStyles = defineTextStyles({
     value: {
       fontWeight: "600",
       color: "{colors.wheat.9}",
-      textShadow: "0 0 18px rgba(230, 182, 133, 0.45), 0 0 40px rgba(230, 182, 133, 0.15)"
+      textShadow: "0 0 4px rgba(230, 182, 133, 0.8), 0 0 14px rgba(230, 182, 133, 0.55), 0 0 32px rgba(230, 182, 133, 0.3), 0 0 60px rgba(230, 182, 133, 0.12)"
     }
   }
 });
@@ -5594,5 +5594,5 @@ export {
   axionicSand
 };
 
-//# debugId=DCE20ED92EBCAD4164756E2164756E21
+//# debugId=EBFC62C201A7DBBB64756E2164756E21
 //# sourceMappingURL=index.js.map
