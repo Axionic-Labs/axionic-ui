@@ -40,4 +40,12 @@ export const textStyles = defineTextStyles({
 	code: {
 		value: { fontFamily: 'mono', fontSize: '0.875rem', fontWeight: '400', lineHeight: '1.6' },
 	},
+	accentGlow: {
+		description: 'Wheat-colored text with a soft warm glow. Use on dark backgrounds for accent subtitles.',
+		value: {
+			fontWeight: '600',
+			color: '{colors.wheat.9}',
+			textShadow: '0 0 18px rgba(230, 182, 133, 0.45), 0 0 40px rgba(230, 182, 133, 0.15)',
+		},
+	},
 });
