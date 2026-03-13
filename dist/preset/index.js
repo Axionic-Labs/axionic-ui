@@ -1553,6 +1553,8 @@ var dialog = defineSlotRecipe13({
       "--dialog-z-index": "zIndex.modal",
       bg: "gray.surface.bg",
       borderRadius: "l3",
+      borderWidth: "1px",
+      borderColor: "border.muted",
       boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
@@ -1576,6 +1578,9 @@ var dialog = defineSlotRecipe13({
       flexDirection: "column",
       gap: "0.5",
       px: { base: "4", md: "6" },
+      pb: { base: "4", md: "6" },
+      borderBottomWidth: "1px",
+      borderBottomColor: "border.muted",
       flex: "0"
     },
     body: {
@@ -1591,7 +1596,10 @@ var dialog = defineSlotRecipe13({
       justifyContent: "flex-end",
       flex: "0",
       gap: "3",
-      px: { base: "4", md: "6" }
+      px: { base: "4", md: "6" },
+      pt: { base: "4", md: "6" },
+      borderTopWidth: "1px",
+      borderTopColor: "border.muted"
     }
   },
   defaultVariants: {
@@ -5593,5 +5601,5 @@ export {
   axionicSand
 };
 
-//# debugId=BA221FAF2802C0F764756E2164756E21
+//# debugId=C95A6643B1BFC5E564756E2164756E21
 //# sourceMappingURL=index.js.map

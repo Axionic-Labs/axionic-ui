@@ -1,10 +1,10 @@
 'use client';
 
-import type { ReactElement } from 'react';
 import { icons } from 'lucide-react';
+import type { ReactElement } from 'react';
 import { css, cx } from 'styled-system/css';
+import { buildGradientStyle, GradientPicker } from './gradient-picker';
 import { IconPicker } from './icon-picker';
-import { GradientPicker, buildGradientStyle } from './gradient-picker';
 
 /** Custom icon and gradient config for model cards */
 export interface ModelIconConfig {
