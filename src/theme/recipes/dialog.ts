@@ -55,6 +55,8 @@ export const dialog = defineSlotRecipe({
 			'--dialog-z-index': 'zIndex.modal',
 			bg: 'gray.surface.bg',
 			borderRadius: 'l3',
+			borderWidth: '1px',
+			borderColor: 'border.muted',
 			boxShadow: 'lg',
 			display: 'flex',
 			flexDirection: 'column',
@@ -78,6 +80,9 @@ export const dialog = defineSlotRecipe({
 			flexDirection: 'column',
 			gap: '0.5',
 			px: { base: '4', md: '6' },
+			pb: { base: '4', md: '6' },
+			borderBottomWidth: '1px',
+			borderBottomColor: 'border.muted',
 			flex: '0',
 		},
 		body: {
@@ -94,6 +99,9 @@ export const dialog = defineSlotRecipe({
 			flex: '0',
 			gap: '3',
 			px: { base: '4', md: '6' },
+			pt: { base: '4', md: '6' },
+			borderTopWidth: '1px',
+			borderTopColor: 'border.muted',
 		},
 	},
 	defaultVariants: {
