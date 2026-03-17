@@ -98,6 +98,9 @@ export function createAxionicPreset() {
 								value: { _light: 'rgba(220, 38, 38, 0.08)', _dark: 'rgba(248, 113, 113, 0.12)' },
 							},
 							deep: { value: { _light: '{colors.gray.light.1}', _dark: '#061012' } },
+						snow: {
+							value: { _light: '#E3FDFF', _dark: '#E3FDFF' },
+						},
 							navbar: {
 								value: { _light: 'rgba(253, 253, 252, 0.85)', _dark: 'rgba(26, 46, 48, 0.85)' },
 							},

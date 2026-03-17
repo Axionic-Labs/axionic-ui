@@ -1,43 +1,45 @@
 import type { ColorPalette } from '@park-ui/panda-preset';
 
 /**
- * Axionic teal accent scale -- warm green-teal.
+ * Axionic teal accent scale -- aligned with official brand palette.
  *
  * 12-step Radix-style color scale:
  * Steps 1-2: backgrounds, 3-5: component backgrounds,
  * 6-8: borders, 9-10: solid colors, 11-12: text.
  *
- * Light values derived from the Spectra app palette (#1A3D42 heading,
- * #2A4F54 label, #6B8A8F muted) for a warmer, greener teal.
+ * Anchored to the official brand secondary scale:
+ * Step 12: #003E44 (Rich Black), Step 10: #336569,
+ * Step 8: #668B8F, Step 5: #99B2B4, Step 3: #CCD8DA.
+ * Other steps are smooth interpolations between anchors.
  */
 export const axionicTeal: ColorPalette = {
 	name: 'teal',
 	tokens: {
 		light: {
-			'1': { value: '#F2F8F8' },
-			'2': { value: '#E5F0F1' },
-			'3': { value: '#D4E6E8' },
-			'4': { value: '#C0DBDD' },
-			'5': { value: '#A8CDD0' },
-			'6': { value: '#8FBDC0' },
-			'7': { value: '#7AABAF' },
-			'8': { value: '#5E9398' },
-			'9': { value: '#4A7D82' },
+			'1': { value: '#F5F9FA' },
+			'2': { value: '#ECF3F4' },
+			'3': { value: '#CCD8DA' },
+			'4': { value: '#B3C5C7' },
+			'5': { value: '#99B2B4' },
+			'6': { value: '#88A5A8' },
+			'7': { value: '#77989B' },
+			'8': { value: '#668B8F' },
+			'9': { value: '#4D787C' },
 			'10': { value: '#336569' },
-			'11': { value: '#2A4F54' },
-			'12': { value: '#1A3D42' },
-			a1: { value: 'rgba(26, 61, 66, 0.02)' },
-			a2: { value: 'rgba(26, 61, 66, 0.06)' },
-			a3: { value: 'rgba(26, 61, 66, 0.12)' },
-			a4: { value: 'rgba(26, 61, 66, 0.20)' },
-			a5: { value: 'rgba(26, 61, 66, 0.30)' },
-			a6: { value: 'rgba(26, 61, 66, 0.42)' },
-			a7: { value: 'rgba(26, 61, 66, 0.52)' },
-			a8: { value: 'rgba(26, 61, 66, 0.65)' },
-			a9: { value: 'rgba(26, 61, 66, 0.75)' },
-			a10: { value: 'rgba(26, 61, 66, 0.82)' },
-			a11: { value: 'rgba(26, 61, 66, 0.88)' },
-			a12: { value: 'rgba(26, 61, 66, 0.95)' },
+			'11': { value: '#1A5257' },
+			'12': { value: '#003E44' },
+			a1: { value: 'rgba(0, 62, 68, 0.02)' },
+			a2: { value: 'rgba(0, 62, 68, 0.06)' },
+			a3: { value: 'rgba(0, 62, 68, 0.12)' },
+			a4: { value: 'rgba(0, 62, 68, 0.20)' },
+			a5: { value: 'rgba(0, 62, 68, 0.30)' },
+			a6: { value: 'rgba(0, 62, 68, 0.42)' },
+			a7: { value: 'rgba(0, 62, 68, 0.52)' },
+			a8: { value: 'rgba(0, 62, 68, 0.65)' },
+			a9: { value: 'rgba(0, 62, 68, 0.75)' },
+			a10: { value: 'rgba(0, 62, 68, 0.82)' },
+			a11: { value: 'rgba(0, 62, 68, 0.88)' },
+			a12: { value: 'rgba(0, 62, 68, 0.95)' },
 		},
 		dark: {
 			'1': { value: '#061214' },
@@ -51,7 +53,7 @@ export const axionicTeal: ColorPalette = {
 			'9': { value: '#5ab8c1' },
 			'10': { value: '#7eccd3' },
 			'11': { value: '#a3dde2' },
-			'12': { value: '#e3f5f7' },
+			'12': { value: '#E3FDFF' },
 			a1: { value: 'rgba(90, 184, 193, 0.02)' },
 			a2: { value: 'rgba(90, 184, 193, 0.06)' },
 			a3: { value: 'rgba(90, 184, 193, 0.12)' },
@@ -63,7 +65,7 @@ export const axionicTeal: ColorPalette = {
 			a9: { value: 'rgba(90, 184, 193, 0.75)' },
 			a10: { value: 'rgba(90, 184, 193, 0.82)' },
 			a11: { value: 'rgba(90, 184, 193, 0.88)' },
-			a12: { value: 'rgba(227, 245, 247, 0.95)' },
+			a12: { value: 'rgba(227, 253, 255, 0.95)' },
 		},
 	},
 	semanticTokens: {

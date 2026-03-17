@@ -5253,30 +5253,30 @@ var axionicTeal = {
   name: "teal",
   tokens: {
     light: {
-      "1": { value: "#F2F8F8" },
-      "2": { value: "#E5F0F1" },
-      "3": { value: "#D4E6E8" },
-      "4": { value: "#C0DBDD" },
-      "5": { value: "#A8CDD0" },
-      "6": { value: "#8FBDC0" },
-      "7": { value: "#7AABAF" },
-      "8": { value: "#5E9398" },
-      "9": { value: "#4A7D82" },
+      "1": { value: "#F5F9FA" },
+      "2": { value: "#ECF3F4" },
+      "3": { value: "#CCD8DA" },
+      "4": { value: "#B3C5C7" },
+      "5": { value: "#99B2B4" },
+      "6": { value: "#88A5A8" },
+      "7": { value: "#77989B" },
+      "8": { value: "#668B8F" },
+      "9": { value: "#4D787C" },
       "10": { value: "#336569" },
-      "11": { value: "#2A4F54" },
-      "12": { value: "#1A3D42" },
-      a1: { value: "rgba(26, 61, 66, 0.02)" },
-      a2: { value: "rgba(26, 61, 66, 0.06)" },
-      a3: { value: "rgba(26, 61, 66, 0.12)" },
-      a4: { value: "rgba(26, 61, 66, 0.20)" },
-      a5: { value: "rgba(26, 61, 66, 0.30)" },
-      a6: { value: "rgba(26, 61, 66, 0.42)" },
-      a7: { value: "rgba(26, 61, 66, 0.52)" },
-      a8: { value: "rgba(26, 61, 66, 0.65)" },
-      a9: { value: "rgba(26, 61, 66, 0.75)" },
-      a10: { value: "rgba(26, 61, 66, 0.82)" },
-      a11: { value: "rgba(26, 61, 66, 0.88)" },
-      a12: { value: "rgba(26, 61, 66, 0.95)" }
+      "11": { value: "#1A5257" },
+      "12": { value: "#003E44" },
+      a1: { value: "rgba(0, 62, 68, 0.02)" },
+      a2: { value: "rgba(0, 62, 68, 0.06)" },
+      a3: { value: "rgba(0, 62, 68, 0.12)" },
+      a4: { value: "rgba(0, 62, 68, 0.20)" },
+      a5: { value: "rgba(0, 62, 68, 0.30)" },
+      a6: { value: "rgba(0, 62, 68, 0.42)" },
+      a7: { value: "rgba(0, 62, 68, 0.52)" },
+      a8: { value: "rgba(0, 62, 68, 0.65)" },
+      a9: { value: "rgba(0, 62, 68, 0.75)" },
+      a10: { value: "rgba(0, 62, 68, 0.82)" },
+      a11: { value: "rgba(0, 62, 68, 0.88)" },
+      a12: { value: "rgba(0, 62, 68, 0.95)" }
     },
     dark: {
       "1": { value: "#061214" },
@@ -5290,7 +5290,7 @@ var axionicTeal = {
       "9": { value: "#5ab8c1" },
       "10": { value: "#7eccd3" },
       "11": { value: "#a3dde2" },
-      "12": { value: "#e3f5f7" },
+      "12": { value: "#E3FDFF" },
       a1: { value: "rgba(90, 184, 193, 0.02)" },
       a2: { value: "rgba(90, 184, 193, 0.06)" },
       a3: { value: "rgba(90, 184, 193, 0.12)" },
@@ -5302,7 +5302,7 @@ var axionicTeal = {
       a9: { value: "rgba(90, 184, 193, 0.75)" },
       a10: { value: "rgba(90, 184, 193, 0.82)" },
       a11: { value: "rgba(90, 184, 193, 0.88)" },
-      a12: { value: "rgba(227, 245, 247, 0.95)" }
+      a12: { value: "rgba(227, 253, 255, 0.95)" }
     }
   },
   semanticTokens: {
@@ -5533,6 +5533,9 @@ function createAxionicPreset() {
                 value: { _light: "rgba(220, 38, 38, 0.08)", _dark: "rgba(248, 113, 113, 0.12)" }
               },
               deep: { value: { _light: "{colors.gray.light.1}", _dark: "#061012" } },
+              snow: {
+                value: { _light: "#E3FDFF", _dark: "#E3FDFF" }
+              },
               navbar: {
                 value: { _light: "rgba(253, 253, 252, 0.85)", _dark: "rgba(26, 46, 48, 0.85)" }
               },
@@ -5601,5 +5604,5 @@ export {
   axionicSand
 };
 
-//# debugId=C95A6643B1BFC5E564756E2164756E21
+//# debugId=6ADADF4C6E5729E564756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -1236,39 +1236,39 @@ const tokens = {
     "variable": "var(--colors-gray-dark-a12)"
   },
   "colors.teal.light.1": {
-    "value": "#F2F8F8",
+    "value": "#F5F9FA",
     "variable": "var(--colors-teal-light-1)"
   },
   "colors.teal.light.2": {
-    "value": "#E5F0F1",
+    "value": "#ECF3F4",
     "variable": "var(--colors-teal-light-2)"
   },
   "colors.teal.light.3": {
-    "value": "#D4E6E8",
+    "value": "#CCD8DA",
     "variable": "var(--colors-teal-light-3)"
   },
   "colors.teal.light.4": {
-    "value": "#C0DBDD",
+    "value": "#B3C5C7",
     "variable": "var(--colors-teal-light-4)"
   },
   "colors.teal.light.5": {
-    "value": "#A8CDD0",
+    "value": "#99B2B4",
     "variable": "var(--colors-teal-light-5)"
   },
   "colors.teal.light.6": {
-    "value": "#8FBDC0",
+    "value": "#88A5A8",
     "variable": "var(--colors-teal-light-6)"
   },
   "colors.teal.light.7": {
-    "value": "#7AABAF",
+    "value": "#77989B",
     "variable": "var(--colors-teal-light-7)"
   },
   "colors.teal.light.8": {
-    "value": "#5E9398",
+    "value": "#668B8F",
     "variable": "var(--colors-teal-light-8)"
   },
   "colors.teal.light.9": {
-    "value": "#4A7D82",
+    "value": "#4D787C",
     "variable": "var(--colors-teal-light-9)"
   },
   "colors.teal.light.10": {
@@ -1276,59 +1276,59 @@ const tokens = {
     "variable": "var(--colors-teal-light-10)"
   },
   "colors.teal.light.11": {
-    "value": "#2A4F54",
+    "value": "#1A5257",
     "variable": "var(--colors-teal-light-11)"
   },
   "colors.teal.light.12": {
-    "value": "#1A3D42",
+    "value": "#003E44",
     "variable": "var(--colors-teal-light-12)"
   },
   "colors.teal.light.a1": {
-    "value": "rgba(26, 61, 66, 0.02)",
+    "value": "rgba(0, 62, 68, 0.02)",
     "variable": "var(--colors-teal-light-a1)"
   },
   "colors.teal.light.a2": {
-    "value": "rgba(26, 61, 66, 0.06)",
+    "value": "rgba(0, 62, 68, 0.06)",
     "variable": "var(--colors-teal-light-a2)"
   },
   "colors.teal.light.a3": {
-    "value": "rgba(26, 61, 66, 0.12)",
+    "value": "rgba(0, 62, 68, 0.12)",
     "variable": "var(--colors-teal-light-a3)"
   },
   "colors.teal.light.a4": {
-    "value": "rgba(26, 61, 66, 0.20)",
+    "value": "rgba(0, 62, 68, 0.20)",
     "variable": "var(--colors-teal-light-a4)"
   },
   "colors.teal.light.a5": {
-    "value": "rgba(26, 61, 66, 0.30)",
+    "value": "rgba(0, 62, 68, 0.30)",
     "variable": "var(--colors-teal-light-a5)"
   },
   "colors.teal.light.a6": {
-    "value": "rgba(26, 61, 66, 0.42)",
+    "value": "rgba(0, 62, 68, 0.42)",
     "variable": "var(--colors-teal-light-a6)"
   },
   "colors.teal.light.a7": {
-    "value": "rgba(26, 61, 66, 0.52)",
+    "value": "rgba(0, 62, 68, 0.52)",
     "variable": "var(--colors-teal-light-a7)"
   },
   "colors.teal.light.a8": {
-    "value": "rgba(26, 61, 66, 0.65)",
+    "value": "rgba(0, 62, 68, 0.65)",
     "variable": "var(--colors-teal-light-a8)"
   },
   "colors.teal.light.a9": {
-    "value": "rgba(26, 61, 66, 0.75)",
+    "value": "rgba(0, 62, 68, 0.75)",
     "variable": "var(--colors-teal-light-a9)"
   },
   "colors.teal.light.a10": {
-    "value": "rgba(26, 61, 66, 0.82)",
+    "value": "rgba(0, 62, 68, 0.82)",
     "variable": "var(--colors-teal-light-a10)"
   },
   "colors.teal.light.a11": {
-    "value": "rgba(26, 61, 66, 0.88)",
+    "value": "rgba(0, 62, 68, 0.88)",
     "variable": "var(--colors-teal-light-a11)"
   },
   "colors.teal.light.a12": {
-    "value": "rgba(26, 61, 66, 0.95)",
+    "value": "rgba(0, 62, 68, 0.95)",
     "variable": "var(--colors-teal-light-a12)"
   },
   "colors.teal.dark.1": {
@@ -1376,7 +1376,7 @@ const tokens = {
     "variable": "var(--colors-teal-dark-11)"
   },
   "colors.teal.dark.12": {
-    "value": "#e3f5f7",
+    "value": "#E3FDFF",
     "variable": "var(--colors-teal-dark-12)"
   },
   "colors.teal.dark.a1": {
@@ -1424,7 +1424,7 @@ const tokens = {
     "variable": "var(--colors-teal-dark-a11)"
   },
   "colors.teal.dark.a12": {
-    "value": "rgba(227, 245, 247, 0.95)",
+    "value": "rgba(227, 253, 255, 0.95)",
     "variable": "var(--colors-teal-dark-a12)"
   },
   "colors.wheat.light.1": {
@@ -2127,6 +2127,10 @@ const tokens = {
     "value": "var(--colors-bg-deep)",
     "variable": "var(--colors-bg-deep)"
   },
+  "colors.bg.snow": {
+    "value": "var(--colors-bg-snow)",
+    "variable": "var(--colors-bg-snow)"
+  },
   "colors.bg.navbar": {
     "value": "var(--colors-bg-navbar)",
     "variable": "var(--colors-bg-navbar)"
@@ -2578,6 +2582,10 @@ const tokens = {
   "colors.colorPalette.deep": {
     "value": "var(--colors-color-palette-deep)",
     "variable": "var(--colors-color-palette-deep)"
+  },
+  "colors.colorPalette.snow": {
+    "value": "var(--colors-color-palette-snow)",
+    "variable": "var(--colors-color-palette-snow)"
   },
   "colors.colorPalette.navbar": {
     "value": "var(--colors-color-palette-navbar)",
