@@ -622,18 +622,22 @@ var button = defineRecipe3({
         }
       },
       wheat: {
-        bg: "{colors.wheat.9}",
-        color: "{colors.wheat.12}",
+        bg: "transparent",
+        color: "{colors.wheat.9}",
         fontWeight: "600",
-        _hover: { bg: "{colors.wheat.10}" },
-        _active: { bg: "{colors.wheat.8}" }
+        borderWidth: "1px",
+        borderColor: "{colors.wheat.9}",
+        _hover: { bg: "{colors.wheat.9}", color: "{colors.wheat.12}" },
+        _active: { bg: "{colors.wheat.10}", color: "{colors.wheat.12}" }
       },
       dark: {
-        bg: "colorPalette.12",
-        color: "bg.canvas",
+        bg: "transparent",
+        color: "colorPalette.12",
         fontWeight: "600",
-        _hover: { bg: "colorPalette.11" },
-        _active: { bg: "colorPalette.10" }
+        borderWidth: "1px",
+        borderColor: "colorPalette.12",
+        _hover: { bg: "colorPalette.12", color: "bg.canvas" },
+        _active: { bg: "colorPalette.11", color: "bg.canvas" }
       },
       oauth: {
         bg: "bg.default",
@@ -648,6 +652,15 @@ var button = defineRecipe3({
         borderColor: "colorPalette.7",
         color: "colorPalette.11",
         _hover: { bg: "colorPalette.a2" }
+      },
+      light: {
+        bg: "transparent",
+        color: "{colors.bg.snow}",
+        fontWeight: "600",
+        borderWidth: "1px",
+        borderColor: "{colors.bg.snow}",
+        _hover: { bg: "{colors.bg.snow}", color: "colorPalette.12" },
+        _active: { bg: "{colors.teal.light.3}", color: "colorPalette.12" }
       },
       "ghost-dark": {
         color: "bg.canvas",
@@ -5604,5 +5617,5 @@ export {
   axionicSand
 };
 
-//# debugId=24D98AF8296F6CB364756E2164756E21
+//# debugId=57E127635C2F14BD64756E2164756E21
 //# sourceMappingURL=index.js.map
