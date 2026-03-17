@@ -864,6 +864,7 @@ var buttonVariantMap = {
     "dark",
     "oauth",
     "outline-brand",
+    "light",
     "ghost-dark"
   ],
   size: [
@@ -8909,5 +8910,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=9C6D7B5488D80F4864756E2164756E21
+//# debugId=5F89DE2BC0B2CB0364756E2164756E21
 //# sourceMappingURL=index.js.map

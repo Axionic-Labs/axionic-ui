@@ -1,14 +1,18 @@
 import type { ColorPalette } from '@park-ui/panda-preset';
 
 /**
- * Axionic teal accent scale -- warm green-teal.
+ * Axionic teal accent scale -- brand-aligned functional UI scale.
  *
  * 12-step Radix-style color scale:
  * Steps 1-2: backgrounds, 3-5: component backgrounds,
  * 6-8: borders, 9-10: solid colors, 11-12: text.
  *
- * Light values derived from the Spectra app palette (#1A3D42 heading,
- * #2A4F54 label, #6B8A8F muted) for a warmer, greener teal.
+ * Steps 10-12 anchored to the official brand palette:
+ * Step 12: #003E44 (Rich Black), Step 10: #336569.
+ * Steps 1-9 maintain higher saturation for functional UI readability
+ * (component backgrounds, borders, solid fills). The official secondary
+ * scale (#668B8F, #99B2B4, #CCD8DA) is decorative -- not suited for
+ * functional UI text/borders where contrast is critical.
  */
 export const axionicTeal: ColorPalette = {
 	name: 'teal',
@@ -24,20 +28,20 @@ export const axionicTeal: ColorPalette = {
 			'8': { value: '#5E9398' },
 			'9': { value: '#4A7D82' },
 			'10': { value: '#336569' },
-			'11': { value: '#2A4F54' },
-			'12': { value: '#1A3D42' },
-			a1: { value: 'rgba(26, 61, 66, 0.02)' },
-			a2: { value: 'rgba(26, 61, 66, 0.06)' },
-			a3: { value: 'rgba(26, 61, 66, 0.12)' },
-			a4: { value: 'rgba(26, 61, 66, 0.20)' },
-			a5: { value: 'rgba(26, 61, 66, 0.30)' },
-			a6: { value: 'rgba(26, 61, 66, 0.42)' },
-			a7: { value: 'rgba(26, 61, 66, 0.52)' },
-			a8: { value: 'rgba(26, 61, 66, 0.65)' },
-			a9: { value: 'rgba(26, 61, 66, 0.75)' },
-			a10: { value: 'rgba(26, 61, 66, 0.82)' },
-			a11: { value: 'rgba(26, 61, 66, 0.88)' },
-			a12: { value: 'rgba(26, 61, 66, 0.95)' },
+			'11': { value: '#1A5257' },
+			'12': { value: '#003E44' },
+			a1: { value: 'rgba(0, 62, 68, 0.02)' },
+			a2: { value: 'rgba(0, 62, 68, 0.06)' },
+			a3: { value: 'rgba(0, 62, 68, 0.12)' },
+			a4: { value: 'rgba(0, 62, 68, 0.20)' },
+			a5: { value: 'rgba(0, 62, 68, 0.30)' },
+			a6: { value: 'rgba(0, 62, 68, 0.42)' },
+			a7: { value: 'rgba(0, 62, 68, 0.52)' },
+			a8: { value: 'rgba(0, 62, 68, 0.65)' },
+			a9: { value: 'rgba(0, 62, 68, 0.75)' },
+			a10: { value: 'rgba(0, 62, 68, 0.82)' },
+			a11: { value: 'rgba(0, 62, 68, 0.88)' },
+			a12: { value: 'rgba(0, 62, 68, 0.95)' },
 		},
 		dark: {
 			'1': { value: '#061214' },
@@ -51,7 +55,7 @@ export const axionicTeal: ColorPalette = {
 			'9': { value: '#5ab8c1' },
 			'10': { value: '#7eccd3' },
 			'11': { value: '#a3dde2' },
-			'12': { value: '#e3f5f7' },
+			'12': { value: '#E3FDFF' },
 			a1: { value: 'rgba(90, 184, 193, 0.02)' },
 			a2: { value: 'rgba(90, 184, 193, 0.06)' },
 			a3: { value: 'rgba(90, 184, 193, 0.12)' },
@@ -63,7 +67,7 @@ export const axionicTeal: ColorPalette = {
 			a9: { value: 'rgba(90, 184, 193, 0.75)' },
 			a10: { value: 'rgba(90, 184, 193, 0.82)' },
 			a11: { value: 'rgba(90, 184, 193, 0.88)' },
-			a12: { value: 'rgba(227, 245, 247, 0.95)' },
+			a12: { value: 'rgba(227, 253, 255, 0.95)' },
 		},
 	},
 	semanticTokens: {

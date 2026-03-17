@@ -19,6 +19,7 @@ const buttonVariantMap = {
     "dark",
     "oauth",
     "outline-brand",
+    "light",
     "ghost-dark"
   ],
   "size": [
