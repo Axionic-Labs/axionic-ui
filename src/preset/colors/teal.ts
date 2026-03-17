@@ -1,30 +1,32 @@
 import type { ColorPalette } from '@park-ui/panda-preset';
 
 /**
- * Axionic teal accent scale -- aligned with official brand palette.
+ * Axionic teal accent scale -- brand-aligned functional UI scale.
  *
  * 12-step Radix-style color scale:
  * Steps 1-2: backgrounds, 3-5: component backgrounds,
  * 6-8: borders, 9-10: solid colors, 11-12: text.
  *
- * Anchored to the official brand secondary scale:
- * Step 12: #003E44 (Rich Black), Step 10: #336569,
- * Step 8: #668B8F, Step 5: #99B2B4, Step 3: #CCD8DA.
- * Other steps are smooth interpolations between anchors.
+ * Steps 10-12 anchored to the official brand palette:
+ * Step 12: #003E44 (Rich Black), Step 10: #336569.
+ * Steps 1-9 maintain higher saturation for functional UI readability
+ * (component backgrounds, borders, solid fills). The official secondary
+ * scale (#668B8F, #99B2B4, #CCD8DA) is decorative -- not suited for
+ * functional UI text/borders where contrast is critical.
  */
 export const axionicTeal: ColorPalette = {
 	name: 'teal',
 	tokens: {
 		light: {
-			'1': { value: '#F5F9FA' },
-			'2': { value: '#ECF3F4' },
-			'3': { value: '#CCD8DA' },
-			'4': { value: '#B3C5C7' },
-			'5': { value: '#99B2B4' },
-			'6': { value: '#88A5A8' },
-			'7': { value: '#77989B' },
-			'8': { value: '#668B8F' },
-			'9': { value: '#4D787C' },
+			'1': { value: '#F2F8F8' },
+			'2': { value: '#E5F0F1' },
+			'3': { value: '#D4E6E8' },
+			'4': { value: '#C0DBDD' },
+			'5': { value: '#A8CDD0' },
+			'6': { value: '#8FBDC0' },
+			'7': { value: '#7AABAF' },
+			'8': { value: '#5E9398' },
+			'9': { value: '#4A7D82' },
 			'10': { value: '#336569' },
 			'11': { value: '#1A5257' },
 			'12': { value: '#003E44' },

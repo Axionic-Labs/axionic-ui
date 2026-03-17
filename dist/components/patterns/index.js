@@ -3386,39 +3386,39 @@ var tokens = {
     variable: "var(--colors-gray-dark-a12)"
   },
   "colors.teal.light.1": {
-    value: "#F5F9FA",
+    value: "#F2F8F8",
     variable: "var(--colors-teal-light-1)"
   },
   "colors.teal.light.2": {
-    value: "#ECF3F4",
+    value: "#E5F0F1",
     variable: "var(--colors-teal-light-2)"
   },
   "colors.teal.light.3": {
-    value: "#CCD8DA",
+    value: "#D4E6E8",
     variable: "var(--colors-teal-light-3)"
   },
   "colors.teal.light.4": {
-    value: "#B3C5C7",
+    value: "#C0DBDD",
     variable: "var(--colors-teal-light-4)"
   },
   "colors.teal.light.5": {
-    value: "#99B2B4",
+    value: "#A8CDD0",
     variable: "var(--colors-teal-light-5)"
   },
   "colors.teal.light.6": {
-    value: "#88A5A8",
+    value: "#8FBDC0",
     variable: "var(--colors-teal-light-6)"
   },
   "colors.teal.light.7": {
-    value: "#77989B",
+    value: "#7AABAF",
     variable: "var(--colors-teal-light-7)"
   },
   "colors.teal.light.8": {
-    value: "#668B8F",
+    value: "#5E9398",
     variable: "var(--colors-teal-light-8)"
   },
   "colors.teal.light.9": {
-    value: "#4D787C",
+    value: "#4A7D82",
     variable: "var(--colors-teal-light-9)"
   },
   "colors.teal.light.10": {
@@ -5640,5 +5640,5 @@ export {
   ActionCard
 };
 
-//# debugId=6EE77AC99E42E3EB64756E2164756E21
+//# debugId=A1D93B466BFDDE6F64756E2164756E21
 //# sourceMappingURL=index.js.map

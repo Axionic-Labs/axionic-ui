@@ -5253,15 +5253,15 @@ var axionicTeal = {
   name: "teal",
   tokens: {
     light: {
-      "1": { value: "#F5F9FA" },
-      "2": { value: "#ECF3F4" },
-      "3": { value: "#CCD8DA" },
-      "4": { value: "#B3C5C7" },
-      "5": { value: "#99B2B4" },
-      "6": { value: "#88A5A8" },
-      "7": { value: "#77989B" },
-      "8": { value: "#668B8F" },
-      "9": { value: "#4D787C" },
+      "1": { value: "#F2F8F8" },
+      "2": { value: "#E5F0F1" },
+      "3": { value: "#D4E6E8" },
+      "4": { value: "#C0DBDD" },
+      "5": { value: "#A8CDD0" },
+      "6": { value: "#8FBDC0" },
+      "7": { value: "#7AABAF" },
+      "8": { value: "#5E9398" },
+      "9": { value: "#4A7D82" },
       "10": { value: "#336569" },
       "11": { value: "#1A5257" },
       "12": { value: "#003E44" },
@@ -5604,5 +5604,5 @@ export {
   axionicSand
 };
 
-//# debugId=6ADADF4C6E5729E564756E2164756E21
+//# debugId=24D98AF8296F6CB364756E2164756E21
 //# sourceMappingURL=index.js.map
