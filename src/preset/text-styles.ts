@@ -13,17 +13,17 @@ export const textStyles = defineTextStyles({
 	h1: {
 		value: {
 			fontFamily: 'body',
-			fontSize: '2.25rem',
-			fontWeight: '700',
-			lineHeight: '1.2',
-			letterSpacing: '-0.01em',
+			fontSize: '2.75rem',
+			fontWeight: '800',
+			lineHeight: '1.15',
+			letterSpacing: '-0.02em',
 		},
 	},
 	h2: {
-		value: { fontFamily: 'body', fontSize: '1.875rem', fontWeight: '600', lineHeight: '1.3' },
+		value: { fontFamily: 'body', fontSize: '2rem', fontWeight: '700', lineHeight: '1.25' },
 	},
 	h3: {
-		value: { fontFamily: 'body', fontSize: '1.5rem', fontWeight: '600', lineHeight: '1.4' },
+		value: { fontFamily: 'body', fontSize: '1.5rem', fontWeight: '700', lineHeight: '1.35' },
 	},
 	body: {
 		value: { fontFamily: 'body', fontSize: '1rem', fontWeight: '400', lineHeight: '1.6' },

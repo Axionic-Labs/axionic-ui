@@ -734,7 +734,8 @@ var card = defineSlotRecipe5({
       outline: {
         root: {
           bg: "gray.surface.bg",
-          borderWidth: "1px"
+          borderWidth: "1px",
+          borderColor: "border.default"
         }
       },
       subtle: {
@@ -5436,17 +5437,17 @@ var textStyles = defineTextStyles({
   h1: {
     value: {
       fontFamily: "body",
-      fontSize: "2.25rem",
-      fontWeight: "700",
-      lineHeight: "1.2",
-      letterSpacing: "-0.01em"
+      fontSize: "2.75rem",
+      fontWeight: "800",
+      lineHeight: "1.15",
+      letterSpacing: "-0.02em"
     }
   },
   h2: {
-    value: { fontFamily: "body", fontSize: "1.875rem", fontWeight: "600", lineHeight: "1.3" }
+    value: { fontFamily: "body", fontSize: "2rem", fontWeight: "700", lineHeight: "1.25" }
   },
   h3: {
-    value: { fontFamily: "body", fontSize: "1.5rem", fontWeight: "600", lineHeight: "1.4" }
+    value: { fontFamily: "body", fontSize: "1.5rem", fontWeight: "700", lineHeight: "1.35" }
   },
   body: {
     value: { fontFamily: "body", fontSize: "1rem", fontWeight: "400", lineHeight: "1.6" }
@@ -5617,5 +5618,5 @@ export {
   axionicSand
 };
 
-//# debugId=57E127635C2F14BD64756E2164756E21
+//# debugId=4771583C0DC94DF364756E2164756E21
 //# sourceMappingURL=index.js.map

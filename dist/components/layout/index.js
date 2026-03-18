@@ -321,8 +321,9 @@ var styles = {
   }),
   subtitle: css({
     textStyle: "body",
-    color: "fg.muted",
-    mt: "1"
+    color: "fg.default",
+    opacity: "0.6",
+    mt: "2"
   })
 };
 function PageHeader({ title, subtitle, badge, action, className }) {
@@ -402,5 +403,5 @@ export {
   DarkSection
 };
 
-//# debugId=CFE6C755BBB7CB1664756E2164756E21
+//# debugId=13F553346582B0B864756E2164756E21
 //# sourceMappingURL=index.js.map

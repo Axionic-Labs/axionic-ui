@@ -29,8 +29,9 @@ const styles = {
 	}),
 	subtitle: css({
 		textStyle: 'body',
-		color: 'fg.muted',
-		mt: '1',
+		color: 'fg.default',
+		opacity: '0.6',
+		mt: '2',
 	}),
 };
 
