@@ -103,5 +103,23 @@ export const card = defineSlotRecipe({
 				},
 			},
 		},
+		gradient: {
+			true: {
+				root: {
+					position: 'relative',
+					overflow: 'hidden',
+					_before: {
+						content: '""',
+						position: 'absolute',
+						top: '0',
+						left: '0',
+						right: '0',
+						height: '3px',
+						background: 'linear-gradient(90deg, {colors.teal.light.9}, {colors.wheat.light.9})',
+						zIndex: '1',
+					},
+				},
+			},
+		},
 	},
 });

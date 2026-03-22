@@ -21,7 +21,8 @@ const buttonVariantMap = {
     "outline-brand",
     "light",
     "ghost-dark",
-    "brand"
+    "brand",
+    "danger"
   ],
   "size": [
     "2xs",

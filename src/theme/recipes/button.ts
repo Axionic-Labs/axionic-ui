@@ -152,6 +152,12 @@ export const button = defineRecipe({
 					background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.10})',
 				},
 			},
+			danger: {
+				bg: '{colors.fg.error}',
+				color: 'white',
+				_hover: { opacity: '0.9' },
+				_active: { opacity: '0.85' },
+			},
 		},
 		size: {
 			'2xs': { h: '6', minW: '6', textStyle: 'xs', px: '2', _icon: { boxSize: '3.5' } },

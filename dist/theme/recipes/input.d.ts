@@ -25,7 +25,15 @@ export declare const input: {
             outline: {
                 borderWidth: "1px";
                 borderColor: "gray.outline.border";
-                focusVisibleRing: string;
+                borderLeftWidth: "2px";
+                borderLeftColor: "{colors.teal.light.6}";
+                transition: "border-color 0.15s, box-shadow 0.15s";
+                _focus: {
+                    borderColor: "{colors.teal.light.8}";
+                    borderLeftColor: "{colors.teal.light.9}";
+                    boxShadow: "0 0 0 2px {colors.teal.light.a3}";
+                    outline: "none";
+                };
                 _invalid: {
                     focusRingColor: string;
                     borderColor: "error";

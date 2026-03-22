@@ -676,6 +676,12 @@ var button = defineRecipe3({
         _active: {
           background: "linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.10})"
         }
+      },
+      danger: {
+        bg: "{colors.fg.error}",
+        color: "white",
+        _hover: { opacity: "0.9" },
+        _active: { opacity: "0.85" }
       }
     },
     size: {
@@ -792,6 +798,24 @@ var card = defineSlotRecipe5({
         root: {
           borderTopWidth: "2px",
           borderTopColor: "{colors.wheat.light.9}"
+        }
+      }
+    },
+    gradient: {
+      true: {
+        root: {
+          position: "relative",
+          overflow: "hidden",
+          _before: {
+            content: '""',
+            position: "absolute",
+            top: "0",
+            left: "0",
+            right: "0",
+            height: "3px",
+            background: "linear-gradient(90deg, {colors.teal.light.9}, {colors.wheat.light.9})",
+            zIndex: "1"
+          }
         }
       }
     }
@@ -1197,7 +1221,15 @@ var input = {
       outline: {
         borderWidth: "1px",
         borderColor: "gray.outline.border",
-        focusVisibleRing: "inside",
+        borderLeftWidth: "2px",
+        borderLeftColor: "{colors.teal.light.6}",
+        transition: "border-color 0.15s, box-shadow 0.15s",
+        _focus: {
+          borderColor: "{colors.teal.light.8}",
+          borderLeftColor: "{colors.teal.light.9}",
+          boxShadow: "0 0 0 2px {colors.teal.light.a3}",
+          outline: "none"
+        },
         _invalid: {
           focusRingColor: "error",
           borderColor: "error"
@@ -5516,6 +5548,33 @@ var textStyles = defineTextStyles({
       fontWeight: "600",
       color: "#f5dfc0"
     }
+  },
+  cardHeading: {
+    description: "Card section title — bold teal heading.",
+    value: {
+      fontFamily: "body",
+      fontSize: "1.125rem",
+      fontWeight: "700",
+      lineHeight: "1.35"
+    }
+  },
+  sectionHeading: {
+    description: "Smaller section heading within cards.",
+    value: {
+      fontFamily: "body",
+      fontSize: "0.875rem",
+      fontWeight: "700",
+      lineHeight: "1.4"
+    }
+  },
+  description: {
+    description: "Small muted description/helper text.",
+    value: {
+      fontFamily: "body",
+      fontSize: "0.75rem",
+      fontWeight: "400",
+      lineHeight: "1.5"
+    }
   }
 });
 
@@ -5664,5 +5723,5 @@ export {
   axionicSand
 };
 
-//# debugId=0650226591EAC76D64756E2164756E21
+//# debugId=79E12096F52C3A5264756E2164756E21
 //# sourceMappingURL=index.js.map

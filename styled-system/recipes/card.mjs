@@ -90,7 +90,8 @@ const cardVariantKeys = [
   "variant",
   "hover",
   "dashed",
-  "accent"
+  "accent",
+  "gradient"
 ]
 const getVariantProps = (variants) => ({ ...cardDefaultVariants, ...compact(variants) })
 
@@ -115,6 +116,9 @@ export const card = /* @__PURE__ */ Object.assign(cardFn, {
   "accent": [
     "teal",
     "wheat"
+  ],
+  "gradient": [
+    "true"
   ]
 },
   splitVariantProps(props) {

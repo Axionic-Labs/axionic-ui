@@ -47,4 +47,31 @@ export const textStyles = defineTextStyles({
 			color: '#f5dfc0',
 		},
 	},
+	cardHeading: {
+		description: 'Card section title — bold teal heading.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '1.125rem',
+			fontWeight: '700',
+			lineHeight: '1.35',
+		},
+	},
+	sectionHeading: {
+		description: 'Smaller section heading within cards.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '0.875rem',
+			fontWeight: '700',
+			lineHeight: '1.4',
+		},
+	},
+	description: {
+		description: 'Small muted description/helper text.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '0.75rem',
+			fontWeight: '400',
+			lineHeight: '1.5',
+		},
+	},
 });
