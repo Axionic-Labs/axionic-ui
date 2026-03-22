@@ -15,6 +15,7 @@ size: "xs" | "sm" | "md" | "lg" | "xl" | "cover" | "full"
  * @default "center"
  */
 placement: "center" | "top" | "bottom"
+accent: boolean
 /**
  * @default "outside"
  */

@@ -665,6 +665,17 @@ var button = defineRecipe3({
       "ghost-dark": {
         color: "bg.canvas",
         _hover: { bg: "colorPalette.a3" }
+      },
+      brand: {
+        background: "linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})",
+        color: "white",
+        boxShadow: "0 2px 8px rgba(0, 62, 68, 0.25)",
+        _hover: {
+          background: "linear-gradient(135deg, {colors.teal.light.9}, {colors.teal.light.8})"
+        },
+        _active: {
+          background: "linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.10})"
+        }
       }
     },
     size: {
@@ -767,6 +778,20 @@ var card = defineSlotRecipe5({
         root: {
           borderStyle: "dashed",
           bg: "gray.subtle.bg/50"
+        }
+      }
+    },
+    accent: {
+      teal: {
+        root: {
+          borderTopWidth: "2px",
+          borderTopColor: "{colors.teal.light.7}"
+        }
+      },
+      wheat: {
+        root: {
+          borderTopWidth: "2px",
+          borderTopColor: "{colors.wheat.light.9}"
         }
       }
     }
@@ -1705,6 +1730,27 @@ var dialog = defineSlotRecipe13({
         content: {
           "--dialog-base-margin": "spacing.16",
           mx: "auto"
+        }
+      }
+    },
+    accent: {
+      true: {
+        content: {
+          _before: {
+            content: '""',
+            display: "block",
+            height: "3px",
+            width: "100%",
+            position: "absolute",
+            top: "0",
+            left: "0",
+            right: "0",
+            borderTopRadius: "l3",
+            background: "linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})"
+          }
+        },
+        title: {
+          color: "{colors.teal.light.12}"
         }
       }
     },
@@ -5618,5 +5664,5 @@ export {
   axionicSand
 };
 
-//# debugId=4771583C0DC94DF364756E2164756E21
+//# debugId=0650226591EAC76D64756E2164756E21
 //# sourceMappingURL=index.js.map
