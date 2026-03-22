@@ -196,6 +196,27 @@ export const dialog = defineSlotRecipe({
 				},
 			},
 		},
+		accent: {
+			true: {
+				content: {
+					_before: {
+						content: '""',
+						display: 'block',
+						height: '3px',
+						width: '100%',
+						position: 'absolute',
+						top: '0',
+						left: '0',
+						right: '0',
+						borderTopRadius: 'l3',
+						background: 'linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})',
+					},
+				},
+				title: {
+					color: '{colors.teal.light.12}',
+				},
+			},
+		},
 		scrollBehavior: {
 			inside: {
 				positioner: {

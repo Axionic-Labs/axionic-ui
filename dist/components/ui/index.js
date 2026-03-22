@@ -865,7 +865,8 @@ var buttonVariantMap = {
     "oauth",
     "outline-brand",
     "light",
-    "ghost-dark"
+    "ghost-dark",
+    "brand"
   ],
   size: [
     "2xs",
@@ -1918,7 +1919,8 @@ var cardFn = memo((props = {}) => {
 var cardVariantKeys = [
   "variant",
   "hover",
-  "dashed"
+  "dashed",
+  "accent"
 ];
 var getVariantProps6 = (variants) => ({ ...cardDefaultVariants, ...compact(variants) });
 var card = /* @__PURE__ */ Object.assign(cardFn, {
@@ -1938,6 +1940,10 @@ var card = /* @__PURE__ */ Object.assign(cardFn, {
     ],
     dashed: [
       "true"
+    ],
+    accent: [
+      "teal",
+      "wheat"
     ]
   },
   splitVariantProps(props) {
@@ -3387,6 +3393,7 @@ var dialogVariantKeys = [
   "motionPreset",
   "size",
   "placement",
+  "accent",
   "scrollBehavior"
 ];
 var getVariantProps14 = (variants) => ({ ...dialogDefaultVariants, ...compact(variants) });
@@ -3418,6 +3425,9 @@ var dialog = /* @__PURE__ */ Object.assign(dialogFn, {
       "center",
       "top",
       "bottom"
+    ],
+    accent: [
+      "true"
     ],
     scrollBehavior: [
       "inside",
@@ -8910,5 +8920,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=5F89DE2BC0B2CB0364756E2164756E21
+//# debugId=0D5C09A6C1333EC464756E2164756E21
 //# sourceMappingURL=index.js.map

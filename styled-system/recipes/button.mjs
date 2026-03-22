@@ -20,7 +20,8 @@ const buttonVariantMap = {
     "oauth",
     "outline-brand",
     "light",
-    "ghost-dark"
+    "ghost-dark",
+    "brand"
   ],
   "size": [
     "2xs",

@@ -129,6 +129,7 @@ const dialogVariantKeys = [
   "motionPreset",
   "size",
   "placement",
+  "accent",
   "scrollBehavior"
 ]
 const getVariantProps = (variants) => ({ ...dialogDefaultVariants, ...compact(variants) })
@@ -161,6 +162,9 @@ export const dialog = /* @__PURE__ */ Object.assign(dialogFn, {
     "center",
     "top",
     "bottom"
+  ],
+  "accent": [
+    "true"
   ],
   "scrollBehavior": [
     "inside",

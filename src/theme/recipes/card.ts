@@ -89,5 +89,19 @@ export const card = defineSlotRecipe({
 				},
 			},
 		},
+		accent: {
+			teal: {
+				root: {
+					borderTopWidth: '2px',
+					borderTopColor: '{colors.teal.light.7}',
+				},
+			},
+			wheat: {
+				root: {
+					borderTopWidth: '2px',
+					borderTopColor: '{colors.wheat.light.9}',
+				},
+			},
+		},
 	},
 });

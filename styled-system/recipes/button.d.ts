@@ -6,7 +6,7 @@ interface ButtonVariant {
   /**
  * @default "solid"
  */
-variant: "ghost" | "link" | "solid" | "surface" | "subtle" | "outline" | "plain" | "wheat" | "dark" | "oauth" | "outline-brand" | "light" | "ghost-dark"
+variant: "ghost" | "link" | "solid" | "surface" | "subtle" | "outline" | "plain" | "wheat" | "dark" | "oauth" | "outline-brand" | "light" | "ghost-dark" | "brand"
 /**
  * @default "md"
  */

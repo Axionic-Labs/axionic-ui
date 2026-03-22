@@ -141,6 +141,17 @@ export const button = defineRecipe({
 				color: 'bg.canvas',
 				_hover: { bg: 'colorPalette.a3' },
 			},
+			brand: {
+				background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})',
+				color: 'white',
+				boxShadow: '0 2px 8px rgba(0, 62, 68, 0.25)',
+				_hover: {
+					background: 'linear-gradient(135deg, {colors.teal.light.9}, {colors.teal.light.8})',
+				},
+				_active: {
+					background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.10})',
+				},
+			},
 		},
 		size: {
 			'2xs': { h: '6', minW: '6', textStyle: 'xs', px: '2', _icon: { boxSize: '3.5' } },

@@ -9,6 +9,7 @@ interface CardVariant {
 variant: "elevated" | "outline" | "subtle"
 hover: boolean
 dashed: boolean
+accent: "teal" | "wheat"
 }
 
 type CardVariantMap = {
