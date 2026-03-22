@@ -1,3 +1,4 @@
+export { AccentLabel, type AccentLabelProps } from './accent-label';
 export { ActionCard, type ActionCardProps } from './action-card';
 export { AmountSelector, type AmountSelectorProps } from './amount-selector';
 export { EmptyState, type EmptyStateProps } from './empty-state';
@@ -10,7 +11,9 @@ export { IconBadge, type IconBadgeProps } from './icon-badge';
 export { IconPicker, type IconPickerProps } from './icon-picker';
 export { LineChart, type LineChartProps } from './line-chart';
 export { DEFAULT_ICON_CONFIG, ModelCardIcon, type ModelCardIconProps, type ModelIconConfig, ModelIconCustomizer, type ModelIconCustomizerProps, } from './model-icon-customizer';
+export { PageTitle, type PageTitleProps } from './page-title';
 export { PricingCard, type PricingCardProps } from './pricing-card';
+export { SectionHeader, type SectionHeaderProps } from './section-header';
 export { StatCard, type StatCardProps } from './stat-card';
 export { StepCard, type StepCardProps } from './step-card';
 export { StreamingStatus, type StreamingStatusProps, type StreamingStep } from './streaming-status';

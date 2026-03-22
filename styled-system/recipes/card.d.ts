@@ -10,6 +10,7 @@ variant: "elevated" | "outline" | "subtle"
 hover: boolean
 dashed: boolean
 accent: "teal" | "wheat"
+gradient: boolean
 }
 
 type CardVariantMap = {

@@ -866,7 +866,8 @@ var buttonVariantMap = {
     "outline-brand",
     "light",
     "ghost-dark",
-    "brand"
+    "brand",
+    "danger"
   ],
   size: [
     "2xs",
@@ -1920,7 +1921,8 @@ var cardVariantKeys = [
   "variant",
   "hover",
   "dashed",
-  "accent"
+  "accent",
+  "gradient"
 ];
 var getVariantProps6 = (variants) => ({ ...cardDefaultVariants, ...compact(variants) });
 var card = /* @__PURE__ */ Object.assign(cardFn, {
@@ -1944,6 +1946,9 @@ var card = /* @__PURE__ */ Object.assign(cardFn, {
     accent: [
       "teal",
       "wheat"
+    ],
+    gradient: [
+      "true"
     ]
   },
   splitVariantProps(props) {
@@ -8920,5 +8925,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=0D5C09A6C1333EC464756E2164756E21
+//# debugId=D67A397CE3A11EAA64756E2164756E21
 //# sourceMappingURL=index.js.map
