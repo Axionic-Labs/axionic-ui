@@ -1031,6 +1031,66 @@ function buildGradientStyle(colors, angle) {
     return colors[0];
   return `linear-gradient(${angle}deg, ${colors.join(", ")})`;
 }
+function shiftHue(hex, shift = 30) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const d = max - min;
+  let h = 0;
+  const s = max === 0 ? 0 : d / max;
+  const v = max;
+  if (d !== 0) {
+    if (max === r)
+      h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+    else if (max === g)
+      h = ((b - r) / d + 2) / 6;
+    else
+      h = ((r - g) / d + 4) / 6;
+  }
+  h = (h * 360 + shift) % 360 / 360;
+  const i = Math.floor(h * 6);
+  const f = h * 6 - i;
+  const p = v * (1 - s);
+  const q = v * (1 - f * s);
+  const t = v * (1 - (1 - f) * s);
+  let ro, go, bo;
+  switch (i % 6) {
+    case 0:
+      ro = v;
+      go = t;
+      bo = p;
+      break;
+    case 1:
+      ro = q;
+      go = v;
+      bo = p;
+      break;
+    case 2:
+      ro = p;
+      go = v;
+      bo = t;
+      break;
+    case 3:
+      ro = p;
+      go = q;
+      bo = v;
+      break;
+    case 4:
+      ro = t;
+      go = p;
+      bo = v;
+      break;
+    default:
+      ro = v;
+      go = p;
+      bo = q;
+      break;
+  }
+  const toHex = (n) => Math.round(n * 255).toString(16).padStart(2, "0");
+  return `#${toHex(ro)}${toHex(go)}${toHex(bo)}`;
+}
 var swatchStyle = css({
   display: "block",
   w: "8",
@@ -1103,7 +1163,8 @@ function GradientPicker({
   const addColor = () => {
     if (colors.length >= 3)
       return;
-    onColorsChange([...colors, "#6366f1"]);
+    const base2 = colors[colors.length - 1] ?? "#6366f1";
+    onColorsChange([...colors, shiftHue(base2)]);
   };
   const removeColor = (index) => {
     if (colors.length <= 1)
@@ -1119,7 +1180,7 @@ function GradientPicker({
     className: cx(css({ display: "flex", flexDir: "column", gap: "2", minW: 0 }), className),
     children: [
       /* @__PURE__ */ jsxs6("div", {
-        className: css({ display: "flex", alignItems: "center", gap: "2" }),
+        className: css({ display: "flex", alignItems: "center", gap: "2", flexWrap: "wrap" }),
         children: [
           colors.map((color, i) => /* @__PURE__ */ jsxs6("div", {
             className: css({ position: "relative" }),
@@ -1155,7 +1216,7 @@ function GradientPicker({
         ]
       }),
       colors.length > 1 && /* @__PURE__ */ jsx7("div", {
-        className: css({ display: "flex", gap: "1" }),
+        className: css({ display: "flex", gap: "1", flexWrap: "wrap" }),
         children: ANGLE_PRESETS.map((preset) => /* @__PURE__ */ jsx7("button", {
           type: "button",
           onClick: () => onAngleChange(preset),
@@ -4974,8 +5035,8 @@ function ModelIconCustomizer({
     children: [
       /* @__PURE__ */ jsx14(ModelCardIcon, {
         config: value,
-        size: 48,
-        iconSize: 24
+        size: 56,
+        iconSize: 28
       }),
       /* @__PURE__ */ jsxs10("div", {
         className: css({ display: "flex", flexDir: "column", gap: "3", flex: 1, minW: 0 }),
@@ -5764,5 +5825,5 @@ export {
   AccentLabel
 };
 
-//# debugId=6B83966D6CE4437B64756E2164756E21
+//# debugId=241B3AB86FB02E3464756E2164756E21
 //# sourceMappingURL=index.js.map

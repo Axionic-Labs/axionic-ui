@@ -21,6 +21,8 @@ export declare function buildGradientStyle(colors: string[], angle: number): str
 /**
  * 1-3 color gradient picker with angle presets and live preview bar.
  * Uses native `<input type="color">` for OS-level color selection.
+ * New colors are hue-shifted from the last color so the OS picker
+ * opens in a similar position on the hue wheel.
  */
 export declare function GradientPicker({ colors, angle, onColorsChange, onAngleChange, className, }: GradientPickerProps): ReactElement;
 //# sourceMappingURL=gradient-picker.d.ts.map

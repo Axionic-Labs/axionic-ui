@@ -117,7 +117,7 @@ export function ModelIconCustomizer({
 	return (
 		<div className={cx(css({ display: 'flex', gap: '4', alignItems: 'flex-start' }), className)}>
 			{/* Live preview */}
-			<ModelCardIcon config={value} size={48} iconSize={24} />
+			<ModelCardIcon config={value} size={56} iconSize={28} />
 
 			{/* Controls */}
 			<div className={css({ display: 'flex', flexDir: 'column', gap: '3', flex: 1, minW: 0 })}>
