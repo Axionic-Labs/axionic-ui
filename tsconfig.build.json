@@ -1,0 +1,18 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"incremental": true,
+		"tsBuildInfoFile": ".tsbuildinfo",
+		"emitDeclarationOnly": true,
+		"outDir": "dist"
+	},
+	"include": [
+		"src/index.ts",
+		"src/preset/index.ts",
+		"src/components/ui/index.ts",
+		"src/components/patterns/index.ts",
+		"src/components/layout/index.ts",
+		"src/components/forms/index.ts",
+		"src/utils.ts"
+	]
+}

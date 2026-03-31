@@ -5,7 +5,8 @@
  * Usage: bun run build.ts
  */
 import { $ } from 'bun';
-import { readFile, rm, writeFile } from 'node:fs/promises';
+import { readFile, rm, unlink, writeFile } from 'node:fs/promises';
+import { glob } from 'node:fs/promises';
 import path from 'node:path';
 
 const entrypoints = {
@@ -66,7 +67,11 @@ async function patchGeneratedDeclarations() {
 }
 
 async function build() {
-	await rm('dist', { recursive: true, force: true });
+	// Clean only JS output (bun regenerates every time).
+	// Leave .d.ts files so tsc incremental can skip unchanged declarations.
+	for await (const file of glob('dist/**/*.js{,.map}')) {
+		await unlink(file);
+	}
 
 	// Patch known codegen issues before tsc runs
 	await patchGeneratedDeclarations();
@@ -109,7 +114,7 @@ async function build() {
 
 	console.log('JS build complete.');
 
-	await $`bunx tsc --emitDeclarationOnly --outDir dist`.quiet();
+	await $`bunx tsc -p tsconfig.build.json`.quiet();
 	console.log('Declaration files generated.');
 
 	console.log('Build complete.');
