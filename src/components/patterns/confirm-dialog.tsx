@@ -2,8 +2,8 @@
 
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
-import * as Dialog from '~/components/ui/dialog';
-import { Button } from '~/components/ui/button';
+import * as Dialog from '../ui/dialog';
+import { Button } from '../ui/button';
 
 export interface ConfirmDialogProps {
 	/** Controls dialog visibility. */
