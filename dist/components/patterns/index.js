@@ -531,9 +531,94 @@ function ActionCard({
     ]
   });
 }
+// src/components/patterns/confirm-dialog.tsx
+import * as Dialog from "~/components/ui/dialog";
+import { Button } from "~/components/ui/button";
+import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
+"use client";
+var accentBar = css({
+  h: "3px",
+  w: "full",
+  roundedTop: "l3"
+});
+var tealGradient = css({
+  background: "linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})"
+});
+var dangerGradient = css({
+  background: "linear-gradient(90deg, {colors.fg.error}, {colors.fg.warning})"
+});
+var bodyText = css({
+  textStyle: "sm",
+  color: "fg.muted",
+  lineHeight: "1.6"
+});
+function ConfirmDialog({
+  open,
+  onOpenChange,
+  onConfirm,
+  title,
+  children,
+  confirmLabel = "Confirm",
+  cancelLabel = "Cancel",
+  confirmVariant = "solid",
+  destructive = false,
+  size = "sm",
+  className
+}) {
+  return /* @__PURE__ */ jsxs2(Dialog.Root, {
+    open,
+    onOpenChange: (details) => onOpenChange(details.open),
+    size,
+    children: [
+      /* @__PURE__ */ jsx3(Dialog.Backdrop, {}),
+      /* @__PURE__ */ jsx3(Dialog.Positioner, {
+        children: /* @__PURE__ */ jsxs2(Dialog.Content, {
+          className,
+          children: [
+            /* @__PURE__ */ jsx3("div", {
+              className: cx(accentBar, destructive ? dangerGradient : tealGradient)
+            }),
+            /* @__PURE__ */ jsx3(Dialog.Header, {
+              children: /* @__PURE__ */ jsx3(Dialog.Title, {
+                children: title
+              })
+            }),
+            /* @__PURE__ */ jsx3(Dialog.Body, {
+              children: typeof children === "string" ? /* @__PURE__ */ jsx3("p", {
+                className: bodyText,
+                children
+              }) : children
+            }),
+            /* @__PURE__ */ jsxs2(Dialog.Footer, {
+              children: [
+                /* @__PURE__ */ jsx3(Dialog.CloseTrigger, {
+                  asChild: true,
+                  children: /* @__PURE__ */ jsx3(Button, {
+                    variant: "outline",
+                    size: "sm",
+                    children: cancelLabel
+                  })
+                }),
+                /* @__PURE__ */ jsx3(Button, {
+                  variant: destructive ? "danger" : confirmVariant,
+                  size: "sm",
+                  onClick: () => {
+                    onOpenChange(false);
+                    onConfirm();
+                  },
+                  children: confirmLabel
+                })
+              ]
+            })
+          ]
+        })
+      })
+    ]
+  });
+}
 // src/components/patterns/amount-selector.tsx
 import { useState } from "react";
-import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
+import { jsx as jsx4, jsxs as jsxs3 } from "react/jsx-runtime";
 "use client";
 var styles2 = {
   root: css({
@@ -673,18 +758,18 @@ function AmountSelector({
   };
   const resolvedLabel = loading ? "Processing..." : typeof submitLabel === "function" ? submitLabel(value) : typeof submitLabel === "string" ? submitLabel : `${currency}${value.toFixed(2)}`;
   const isSubmitDisabled = disabled || loading || !!validationError || value <= 0;
-  return /* @__PURE__ */ jsxs2("div", {
+  return /* @__PURE__ */ jsxs3("div", {
     className: cx(styles2.root, className),
     children: [
-      /* @__PURE__ */ jsxs2("div", {
+      /* @__PURE__ */ jsxs3("div", {
         children: [
-          /* @__PURE__ */ jsx3("div", {
+          /* @__PURE__ */ jsx4("div", {
             className: styles2.sectionLabel,
             children: "Select an amount"
           }),
-          /* @__PURE__ */ jsx3("div", {
+          /* @__PURE__ */ jsx4("div", {
             className: styles2.presetRow,
-            children: presets.map((preset) => /* @__PURE__ */ jsxs2("button", {
+            children: presets.map((preset) => /* @__PURE__ */ jsxs3("button", {
               type: "button",
               disabled,
               onClick: () => handlePresetClick(preset),
@@ -697,20 +782,20 @@ function AmountSelector({
           })
         ]
       }),
-      /* @__PURE__ */ jsxs2("div", {
+      /* @__PURE__ */ jsxs3("div", {
         children: [
-          /* @__PURE__ */ jsx3("div", {
+          /* @__PURE__ */ jsx4("div", {
             className: styles2.inputLabel,
             children: "Or enter a custom amount"
           }),
-          /* @__PURE__ */ jsxs2("div", {
+          /* @__PURE__ */ jsxs3("div", {
             className: styles2.inputRow,
             children: [
-              /* @__PURE__ */ jsx3("span", {
+              /* @__PURE__ */ jsx4("span", {
                 className: styles2.currencySymbol,
                 children: currency
               }),
-              /* @__PURE__ */ jsx3("input", {
+              /* @__PURE__ */ jsx4("input", {
                 type: "number",
                 min,
                 max,
@@ -721,19 +806,19 @@ function AmountSelector({
                 disabled,
                 className: styles2.input
               }),
-              /* @__PURE__ */ jsx3("span", {
+              /* @__PURE__ */ jsx4("span", {
                 className: styles2.currencyCode,
                 children: "USD"
               })
             ]
           }),
-          validationError && customInput && /* @__PURE__ */ jsx3("div", {
+          validationError && customInput && /* @__PURE__ */ jsx4("div", {
             className: styles2.validationError,
             children: validationError
           })
         ]
       }),
-      onSubmit && /* @__PURE__ */ jsx3("button", {
+      onSubmit && /* @__PURE__ */ jsx4("button", {
         type: "button",
         disabled: isSubmitDisabled,
         onClick: onSubmit,
@@ -744,7 +829,7 @@ function AmountSelector({
   });
 }
 // src/components/patterns/empty-state.tsx
-import { jsx as jsx4, jsxs as jsxs3 } from "react/jsx-runtime";
+import { jsx as jsx5, jsxs as jsxs4 } from "react/jsx-runtime";
 "use client";
 var styles3 = {
   root: css({
@@ -782,22 +867,22 @@ var styles3 = {
   })
 };
 function EmptyState({ icon, title, description, action, className }) {
-  return /* @__PURE__ */ jsxs3("div", {
+  return /* @__PURE__ */ jsxs4("div", {
     className: cx(styles3.root, className),
     children: [
-      icon && /* @__PURE__ */ jsx4("div", {
+      icon && /* @__PURE__ */ jsx5("div", {
         className: styles3.iconWrap,
         children: icon
       }),
-      /* @__PURE__ */ jsx4("h3", {
+      /* @__PURE__ */ jsx5("h3", {
         className: styles3.title,
         children: title
       }),
-      description && /* @__PURE__ */ jsx4("p", {
+      description && /* @__PURE__ */ jsx5("p", {
         className: styles3.description,
         children: description
       }),
-      action && /* @__PURE__ */ jsx4("div", {
+      action && /* @__PURE__ */ jsx5("div", {
         className: styles3.action,
         children: action
       })
@@ -805,7 +890,7 @@ function EmptyState({ icon, title, description, action, className }) {
   });
 }
 // src/components/patterns/feature-card.tsx
-import { jsx as jsx5, jsxs as jsxs4 } from "react/jsx-runtime";
+import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
 "use client";
 var styles4 = {
   root: css({
@@ -839,18 +924,18 @@ var styles4 = {
   })
 };
 function FeatureCard({ title, description, icon, className }) {
-  return /* @__PURE__ */ jsxs4("div", {
+  return /* @__PURE__ */ jsxs5("div", {
     className: cx(styles4.root, className),
     children: [
-      icon && /* @__PURE__ */ jsx5("div", {
+      icon && /* @__PURE__ */ jsx6("div", {
         className: styles4.iconWrap,
         children: icon
       }),
-      /* @__PURE__ */ jsx5("div", {
+      /* @__PURE__ */ jsx6("div", {
         className: styles4.title,
         children: title
       }),
-      /* @__PURE__ */ jsx5("div", {
+      /* @__PURE__ */ jsx6("div", {
         className: styles4.description,
         children: description
       })
@@ -860,7 +945,7 @@ function FeatureCard({ title, description, icon, className }) {
 // src/components/patterns/file-tree.tsx
 import { ChevronRight, File, Folder, FolderOpen } from "lucide-react";
 import { useCallback, useState as useState2 } from "react";
-import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
+import { jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
 "use client";
 var styles5 = {
   root: css({
@@ -930,9 +1015,9 @@ function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) 
       onSelect?.(node);
     }
   };
-  return /* @__PURE__ */ jsxs5("div", {
+  return /* @__PURE__ */ jsxs6("div", {
     children: [
-      /* @__PURE__ */ jsxs5("div", {
+      /* @__PURE__ */ jsxs6("div", {
         className: cx(styles5.node, isSelected && styles5.nodeSelected),
         style: { paddingLeft: `${depth * 20 + 8}px` },
         onClick: handleClick,
@@ -945,39 +1030,39 @@ function TreeNode({ node, depth, selectedId, expandedIds, onToggle, onSelect }) 
         "aria-selected": isSelected,
         "aria-expanded": isFolder ? isExpanded : undefined,
         children: [
-          isFolder ? /* @__PURE__ */ jsx6(ChevronRight, {
+          isFolder ? /* @__PURE__ */ jsx7(ChevronRight, {
             className: styles5.chevron,
             "aria-hidden": "true",
             style: {
               transform: isExpanded ? "rotate(90deg)" : undefined,
               transition: "transform 0.15s"
             }
-          }) : /* @__PURE__ */ jsx6("span", {
+          }) : /* @__PURE__ */ jsx7("span", {
             className: styles5.chevronPlaceholder
           }),
-          node.icon ? /* @__PURE__ */ jsx6("span", {
+          node.icon ? /* @__PURE__ */ jsx7("span", {
             className: isFolder ? styles5.folderIcon : styles5.fileIcon,
             children: node.icon
-          }) : isFolder ? isExpanded ? /* @__PURE__ */ jsx6(FolderOpen, {
+          }) : isFolder ? isExpanded ? /* @__PURE__ */ jsx7(FolderOpen, {
             className: styles5.folderIcon,
             "aria-hidden": "true"
-          }) : /* @__PURE__ */ jsx6(Folder, {
+          }) : /* @__PURE__ */ jsx7(Folder, {
             className: styles5.folderIcon,
             "aria-hidden": "true"
-          }) : /* @__PURE__ */ jsx6(File, {
+          }) : /* @__PURE__ */ jsx7(File, {
             className: styles5.fileIcon,
             "aria-hidden": "true"
           }),
-          /* @__PURE__ */ jsx6("span", {
+          /* @__PURE__ */ jsx7("span", {
             className: styles5.label,
             children: node.name
           })
         ]
       }),
-      isFolder && isExpanded && node.children && /* @__PURE__ */ jsx6("div", {
+      isFolder && isExpanded && node.children && /* @__PURE__ */ jsx7("div", {
         className: styles5.children,
         role: "group",
-        children: node.children.map((child) => /* @__PURE__ */ jsx6(TreeNode, {
+        children: node.children.map((child) => /* @__PURE__ */ jsx7(TreeNode, {
           node: child,
           depth: depth + 1,
           selectedId,
@@ -1008,10 +1093,10 @@ function FileTree({
       return next;
     });
   }, []);
-  return /* @__PURE__ */ jsx6("div", {
+  return /* @__PURE__ */ jsx7("div", {
     className: cx(styles5.root, className),
     role: "tree",
-    children: nodes.map((node) => /* @__PURE__ */ jsx6(TreeNode, {
+    children: nodes.map((node) => /* @__PURE__ */ jsx7(TreeNode, {
       node,
       depth: 0,
       selectedId,
@@ -1023,7 +1108,7 @@ function FileTree({
 }
 // src/components/patterns/gradient-picker.tsx
 import { Plus, X } from "lucide-react";
-import { jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
+import { jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
 "use client";
 var ANGLE_PRESETS = [45, 90, 135, 180, 225];
 function buildGradientStyle(colors, angle) {
@@ -1176,55 +1261,55 @@ function GradientPicker({
     next[index] = value;
     onColorsChange(next);
   };
-  return /* @__PURE__ */ jsxs6("div", {
+  return /* @__PURE__ */ jsxs7("div", {
     className: cx(css({ display: "flex", flexDir: "column", gap: "2", minW: 0 }), className),
     children: [
-      /* @__PURE__ */ jsxs6("div", {
+      /* @__PURE__ */ jsxs7("div", {
         className: css({ display: "flex", alignItems: "center", gap: "2", flexWrap: "wrap" }),
         children: [
-          colors.map((color, i) => /* @__PURE__ */ jsxs6("div", {
+          colors.map((color, i) => /* @__PURE__ */ jsxs7("div", {
             className: css({ position: "relative" }),
             children: [
-              /* @__PURE__ */ jsx7("label", {
+              /* @__PURE__ */ jsx8("label", {
                 className: swatchStyle,
                 style: { backgroundColor: color },
-                children: /* @__PURE__ */ jsx7("input", {
+                children: /* @__PURE__ */ jsx8("input", {
                   type: "color",
                   value: color,
                   onChange: (e) => updateColor(i, e.target.value),
                   className: hiddenInput
                 })
               }),
-              colors.length > 1 && /* @__PURE__ */ jsx7("button", {
+              colors.length > 1 && /* @__PURE__ */ jsx8("button", {
                 type: "button",
                 onClick: () => removeColor(i),
                 className: removeBtn,
-                children: /* @__PURE__ */ jsx7(X, {
+                children: /* @__PURE__ */ jsx8(X, {
                   size: 10
                 })
               })
             ]
           }, i)),
-          colors.length < 3 && /* @__PURE__ */ jsx7("button", {
+          colors.length < 3 && /* @__PURE__ */ jsx8("button", {
             type: "button",
             onClick: addColor,
             className: addBtn,
-            children: /* @__PURE__ */ jsx7(Plus, {
+            children: /* @__PURE__ */ jsx8(Plus, {
               size: 14
             })
           })
         ]
       }),
-      colors.length > 1 && /* @__PURE__ */ jsx7("div", {
+      colors.length > 1 && /* @__PURE__ */ jsx8("div", {
         className: css({ display: "flex", gap: "1", flexWrap: "wrap" }),
-        children: ANGLE_PRESETS.map((preset) => /* @__PURE__ */ jsx7("button", {
+        children: ANGLE_PRESETS.map((preset) => /* @__PURE__ */ jsx8("button", {
           type: "button",
           onClick: () => onAngleChange(preset),
           className: cx(pillBase, angle === preset ? pillActive : pillInactive),
           children: preset
         }, preset))
       }),
-      /* @__PURE__ */ jsx7("div", {
+      /* @__PURE__ */ jsx8("div", {
         className: previewBar,
         style: { background: buildGradientStyle(colors, angle) }
       })
@@ -1790,7 +1875,7 @@ var popover = /* @__PURE__ */ Object.assign(popoverFn, {
 });
 
 // src/components/patterns/help-panel.tsx
-import { jsx as jsx8, jsxs as jsxs7, Fragment } from "react/jsx-runtime";
+import { jsx as jsx9, jsxs as jsxs8, Fragment } from "react/jsx-runtime";
 "use client";
 var { withRootProvider, withContext } = createStyleContext(helpPanel);
 var HeaderContainer = withContext(ark.div, "header");
@@ -1798,24 +1883,24 @@ var HeaderIconBadge = withContext(ark.div, "headerIcon");
 var AccentBar = withContext(ark.div, "accentBar");
 var TabButton = withContext(ark.button, "tab");
 var FooterContainer = withContext(ark.div, "footer");
-var Root = withRootProvider(ark.div);
-Root.displayName = "HelpPanel.Root";
-var Header = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar = true, className }, ref) => /* @__PURE__ */ jsxs7(HeaderContainer, {
+var Root2 = withRootProvider(ark.div);
+Root2.displayName = "HelpPanel.Root";
+var Header2 = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar: accentBar2 = true, className }, ref) => /* @__PURE__ */ jsxs8(HeaderContainer, {
   ref,
   className,
   children: [
-    accentBar && /* @__PURE__ */ jsx8(AccentBar, {
+    accentBar2 && /* @__PURE__ */ jsx9(AccentBar, {
       style: { top: 0 }
     }),
-    /* @__PURE__ */ jsxs7("div", {
+    /* @__PURE__ */ jsxs8("div", {
       className: css({ display: "flex", alignItems: "center", gap: "3" }),
       children: [
-        icon && /* @__PURE__ */ jsx8(HeaderIconBadge, {
+        icon && /* @__PURE__ */ jsx9(HeaderIconBadge, {
           children: icon
         }),
-        /* @__PURE__ */ jsxs7("div", {
+        /* @__PURE__ */ jsxs8("div", {
           children: [
-            /* @__PURE__ */ jsx8("h2", {
+            /* @__PURE__ */ jsx9("h2", {
               className: css({
                 fontSize: "sm",
                 fontWeight: "semibold",
@@ -1824,7 +1909,7 @@ var Header = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar
               }),
               children: title
             }),
-            subtitle && /* @__PURE__ */ jsx8("p", {
+            subtitle && /* @__PURE__ */ jsx9("p", {
               className: css({ fontSize: "xs", color: "fg.subtle" }),
               children: subtitle
             })
@@ -1832,7 +1917,7 @@ var Header = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar
         })
       ]
     }),
-    onClose && /* @__PURE__ */ jsx8("button", {
+    onClose && /* @__PURE__ */ jsx9("button", {
       onClick: onClose,
       type: "button",
       className: css({
@@ -1853,17 +1938,17 @@ var Header = forwardRef3(({ icon, title, subtitle, onClose, closeIcon, accentBar
           borderColor: "colorPalette.8"
         }
       }),
-      children: closeIcon ?? /* @__PURE__ */ jsx8(X2, {
+      children: closeIcon ?? /* @__PURE__ */ jsx9(X2, {
         size: 14,
         "aria-label": "Close"
       })
     })
   ]
 }));
-Header.displayName = "HelpPanel.Header";
+Header2.displayName = "HelpPanel.Header";
 var TabBar = withContext(ark.div, "tabBar");
 TabBar.displayName = "HelpPanel.TabBar";
-var Tab = forwardRef3(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs7(TabButton, {
+var Tab = forwardRef3(({ active, icon, label, onClick, title, className }, ref) => /* @__PURE__ */ jsxs8(TabButton, {
   ref,
   type: "button",
   onClick,
@@ -1872,28 +1957,28 @@ var Tab = forwardRef3(({ active, icon, label, onClick, title, className }, ref) 
   className,
   children: [
     icon,
-    /* @__PURE__ */ jsx8("span", {
+    /* @__PURE__ */ jsx9("span", {
       className: css({ display: { base: "none", sm: "inline" } }),
       children: label
     })
   ]
 }));
 Tab.displayName = "HelpPanel.Tab";
-var Content = withContext(ark.div, "content");
-Content.displayName = "HelpPanel.Content";
-var Footer = forwardRef3(({ hint, shortcutKey, accentBar = true, children, className }, ref) => /* @__PURE__ */ jsxs7(FooterContainer, {
+var Content2 = withContext(ark.div, "content");
+Content2.displayName = "HelpPanel.Content";
+var Footer2 = forwardRef3(({ hint, shortcutKey, accentBar: accentBar2 = true, children, className }, ref) => /* @__PURE__ */ jsxs8(FooterContainer, {
   ref,
   className,
   children: [
-    accentBar && /* @__PURE__ */ jsx8(AccentBar, {
+    accentBar2 && /* @__PURE__ */ jsx9(AccentBar, {
       style: { bottom: 0, opacity: 0.3 }
     }),
-    children ?? /* @__PURE__ */ jsxs7(Fragment, {
+    children ?? /* @__PURE__ */ jsxs8(Fragment, {
       children: [
-        hint && /* @__PURE__ */ jsx8("span", {
+        hint && /* @__PURE__ */ jsx9("span", {
           children: hint
         }),
-        shortcutKey && /* @__PURE__ */ jsx8("kbd", {
+        shortcutKey && /* @__PURE__ */ jsx9("kbd", {
           className: css({
             px: "1.5",
             py: "0.5",
@@ -1911,9 +1996,9 @@ var Footer = forwardRef3(({ hint, shortcutKey, accentBar = true, children, class
     })
   ]
 }));
-Footer.displayName = "HelpPanel.Footer";
+Footer2.displayName = "HelpPanel.Footer";
 function SectionHeading({ label, dotColor, className }) {
-  return /* @__PURE__ */ jsxs7("h4", {
+  return /* @__PURE__ */ jsxs8("h4", {
     className: cx(css({
       display: "flex",
       alignItems: "center",
@@ -1926,7 +2011,7 @@ function SectionHeading({ label, dotColor, className }) {
       color: "colorPalette.11"
     }), className),
     children: [
-      /* @__PURE__ */ jsx8("span", {
+      /* @__PURE__ */ jsx9("span", {
         className: css({
           w: "1.5",
           h: "1.5",
@@ -1940,17 +2025,17 @@ function SectionHeading({ label, dotColor, className }) {
   });
 }
 var HelpPanel = {
-  Root,
-  Header,
+  Root: Root2,
+  Header: Header2,
   TabBar,
   Tab,
-  Content,
-  Footer,
+  Content: Content2,
+  Footer: Footer2,
   SectionHeading
 };
 // src/components/patterns/help-trigger.tsx
 import { useCallback as useCallback2 } from "react";
-import { jsx as jsx9 } from "react/jsx-runtime";
+import { jsx as jsx10 } from "react/jsx-runtime";
 "use client";
 function HelpTrigger({ active, onActivate, children }) {
   const handleMouseEnter = useCallback2(() => {
@@ -1958,7 +2043,7 @@ function HelpTrigger({ active, onActivate, children }) {
       onActivate();
     }
   }, [active, onActivate]);
-  return /* @__PURE__ */ jsx9("div", {
+  return /* @__PURE__ */ jsx10("div", {
     style: { display: "contents" },
     onMouseEnter: handleMouseEnter,
     role: "group",
@@ -1966,7 +2051,7 @@ function HelpTrigger({ active, onActivate, children }) {
   });
 }
 // src/components/patterns/icon-badge.tsx
-import { jsx as jsx10 } from "react/jsx-runtime";
+import { jsx as jsx11 } from "react/jsx-runtime";
 "use client";
 var base2 = css({
   rounded: "l2",
@@ -1983,7 +2068,7 @@ var sizes = {
   lg: css({ w: "14", h: "14" })
 };
 function IconBadge({ icon, size = "md", className }) {
-  return /* @__PURE__ */ jsx10("div", {
+  return /* @__PURE__ */ jsx11("div", {
     className: cx(base2, sizes[size], className),
     children: icon
   });
@@ -2000,10 +2085,10 @@ var Input = styled(Field.Input, input);
 import { ark as ark2 } from "@ark-ui/react/factory";
 import { Popover } from "@ark-ui/react/popover";
 import { PopoverContext } from "@ark-ui/react/popover";
-import { jsx as jsx11 } from "react/jsx-runtime";
+import { jsx as jsx12 } from "react/jsx-runtime";
 "use client";
 var { withRootProvider: withRootProvider2, withContext: withContext2 } = createStyleContext(popover);
-var Root2 = withRootProvider2(Popover.Root, {
+var Root3 = withRootProvider2(Popover.Root, {
   defaultProps: { unmountOnExit: true, lazyMount: true }
 });
 var RootProvider = withRootProvider2(Popover.Root, {
@@ -2012,21 +2097,21 @@ var RootProvider = withRootProvider2(Popover.Root, {
 var Anchor = withContext2(Popover.Anchor, "anchor");
 var ArrowTip = withContext2(Popover.ArrowTip, "arrowTip");
 var Arrow = withContext2(Popover.Arrow, "arrow", {
-  defaultProps: { children: /* @__PURE__ */ jsx11(ArrowTip, {}) }
+  defaultProps: { children: /* @__PURE__ */ jsx12(ArrowTip, {}) }
 });
-var CloseTrigger = withContext2(Popover.CloseTrigger, "closeTrigger");
-var Content2 = withContext2(Popover.Content, "content");
+var CloseTrigger2 = withContext2(Popover.CloseTrigger, "closeTrigger");
+var Content3 = withContext2(Popover.Content, "content");
 var Description = withContext2(Popover.Description, "description");
 var Indicator = withContext2(Popover.Indicator, "indicator");
-var Positioner = withContext2(Popover.Positioner, "positioner");
-var Title = withContext2(Popover.Title, "title");
+var Positioner2 = withContext2(Popover.Positioner, "positioner");
+var Title2 = withContext2(Popover.Title, "title");
 var Trigger = withContext2(Popover.Trigger, "trigger");
-var Body = withContext2(ark2.div, "body");
-var Header2 = withContext2(ark2.div, "header");
-var Footer2 = withContext2(ark2.div, "footer");
+var Body2 = withContext2(ark2.div, "body");
+var Header3 = withContext2(ark2.div, "header");
+var Footer3 = withContext2(ark2.div, "footer");
 
 // src/components/patterns/icon-picker.tsx
-import { jsx as jsx12, jsxs as jsxs8 } from "react/jsx-runtime";
+import { jsx as jsx13, jsxs as jsxs9 } from "react/jsx-runtime";
 "use client";
 var CURATED_ICONS = [
   "Brain",
@@ -2163,28 +2248,28 @@ function IconPicker({ value, onChange, className }) {
     return Object.keys(icons).filter((name) => name.toLowerCase().includes(query)).slice(0, 60);
   }, [search]);
   const SelectedIcon = icons[value];
-  return /* @__PURE__ */ jsxs8(Root2, {
+  return /* @__PURE__ */ jsxs9(Root3, {
     portalled: true,
     children: [
-      /* @__PURE__ */ jsx12(Trigger, {
+      /* @__PURE__ */ jsx13(Trigger, {
         asChild: true,
-        children: /* @__PURE__ */ jsxs8("button", {
+        children: /* @__PURE__ */ jsxs9("button", {
           type: "button",
           className: cx(triggerStyle, className),
           children: [
-            SelectedIcon && /* @__PURE__ */ jsx12(SelectedIcon, {
+            SelectedIcon && /* @__PURE__ */ jsx13(SelectedIcon, {
               size: 16
             }),
-            /* @__PURE__ */ jsx12("span", {
+            /* @__PURE__ */ jsx13("span", {
               className: labelStyle,
               children: value
             })
           ]
         })
       }),
-      /* @__PURE__ */ jsx12(Positioner, {
+      /* @__PURE__ */ jsx13(Positioner2, {
         className: css({ zIndex: "popover" }),
-        children: /* @__PURE__ */ jsxs8(Content2, {
+        children: /* @__PURE__ */ jsxs9(Content3, {
           className: css({
             w: "280px",
             p: "3",
@@ -2195,7 +2280,7 @@ function IconPicker({ value, onChange, className }) {
             rounded: "lg"
           }),
           children: [
-            /* @__PURE__ */ jsx12(Input, {
+            /* @__PURE__ */ jsx13(Input, {
               type: "text",
               value: search,
               onChange: (e) => setSearch(e.target.value),
@@ -2203,13 +2288,13 @@ function IconPicker({ value, onChange, className }) {
               size: "sm",
               className: css({ mb: "2" })
             }),
-            /* @__PURE__ */ jsx12("div", {
+            /* @__PURE__ */ jsx13("div", {
               className: gridStyle,
               children: displayedIcons.map((name) => {
                 const Icon = icons[name];
                 if (!Icon)
                   return null;
-                return /* @__PURE__ */ jsx12("button", {
+                return /* @__PURE__ */ jsx13("button", {
                   type: "button",
                   title: name,
                   onClick: () => {
@@ -2217,13 +2302,13 @@ function IconPicker({ value, onChange, className }) {
                     setSearch("");
                   },
                   className: cx(cellBase, name === value && cellActive),
-                  children: /* @__PURE__ */ jsx12(Icon, {
+                  children: /* @__PURE__ */ jsx13(Icon, {
                     size: 18
                   })
                 }, name);
               })
             }),
-            displayedIcons.length === 0 && /* @__PURE__ */ jsx12("p", {
+            displayedIcons.length === 0 && /* @__PURE__ */ jsx13("p", {
               className: emptyStyle,
               children: "No icons found"
             })
@@ -4848,7 +4933,7 @@ function tokenVar(path, fallback) {
 token.var = tokenVar;
 
 // src/components/patterns/line-chart.tsx
-import { jsx as jsx13, jsxs as jsxs9 } from "react/jsx-runtime";
+import { jsx as jsx14, jsxs as jsxs10 } from "react/jsx-runtime";
 "use client";
 var styles6 = {
   root: css({
@@ -4889,27 +4974,27 @@ function LineChart({
   const areaPath = `${linePath} L ${scaleX(data[data.length - 1].x)} ${padding.top + chartHeight}` + ` L ${scaleX(data[0].x)} ${padding.top + chartHeight} Z`;
   const pointsVisible = showPoints ?? data.length < 20;
   const gridColor = "var(--colors-border-muted, currentColor)";
-  return /* @__PURE__ */ jsxs9("svg", {
+  return /* @__PURE__ */ jsxs10("svg", {
     viewBox: `0 0 ${width} ${height}`,
     className: cx(styles6.root, className),
     preserveAspectRatio: "none",
     role: "img",
     "aria-label": "Line chart",
     children: [
-      /* @__PURE__ */ jsx13("defs", {
-        children: gradientFill && /* @__PURE__ */ jsxs9("linearGradient", {
+      /* @__PURE__ */ jsx14("defs", {
+        children: gradientFill && /* @__PURE__ */ jsxs10("linearGradient", {
           id: gradientId,
           x1: "0%",
           y1: "0%",
           x2: "0%",
           y2: "100%",
           children: [
-            /* @__PURE__ */ jsx13("stop", {
+            /* @__PURE__ */ jsx14("stop", {
               offset: "0%",
               stopColor: resolvedColor,
               stopOpacity: "0.3"
             }),
-            /* @__PURE__ */ jsx13("stop", {
+            /* @__PURE__ */ jsx14("stop", {
               offset: "100%",
               stopColor: resolvedColor,
               stopOpacity: "0"
@@ -4917,9 +5002,9 @@ function LineChart({
           ]
         })
       }),
-      showGrid && /* @__PURE__ */ jsx13("g", {
+      showGrid && /* @__PURE__ */ jsx14("g", {
         opacity: "0.2",
-        children: [0, 0.25, 0.5, 0.75, 1].map((ratio) => /* @__PURE__ */ jsx13("line", {
+        children: [0, 0.25, 0.5, 0.75, 1].map((ratio) => /* @__PURE__ */ jsx14("line", {
           x1: padding.left,
           y1: padding.top + chartHeight * ratio,
           x2: width - padding.right,
@@ -4928,11 +5013,11 @@ function LineChart({
           strokeDasharray: "2,4"
         }, ratio))
       }),
-      gradientFill && /* @__PURE__ */ jsx13("path", {
+      gradientFill && /* @__PURE__ */ jsx14("path", {
         d: areaPath,
         fill: `url(#${gradientId})`
       }),
-      /* @__PURE__ */ jsx13("path", {
+      /* @__PURE__ */ jsx14("path", {
         d: linePath,
         fill: "none",
         stroke: resolvedColor,
@@ -4940,16 +5025,16 @@ function LineChart({
         strokeLinecap: "round",
         strokeLinejoin: "round"
       }),
-      pointsVisible && data.map((d, i) => /* @__PURE__ */ jsx13("circle", {
+      pointsVisible && data.map((d, i) => /* @__PURE__ */ jsx14("circle", {
         cx: scaleX(d.x),
         cy: scaleY(d.y),
         r: "3",
         fill: resolvedColor,
         opacity: "0.8"
       }, `${d.x}-${d.y}-${i}`)),
-      showAxis && /* @__PURE__ */ jsxs9("g", {
+      showAxis && /* @__PURE__ */ jsxs10("g", {
         children: [
-          /* @__PURE__ */ jsx13("text", {
+          /* @__PURE__ */ jsx14("text", {
             x: padding.left - 4,
             y: padding.top + 4,
             textAnchor: "end",
@@ -4957,7 +5042,7 @@ function LineChart({
             fill: gridColor,
             children: yMax.toFixed(0)
           }),
-          /* @__PURE__ */ jsx13("text", {
+          /* @__PURE__ */ jsx14("text", {
             x: padding.left - 4,
             y: padding.top + chartHeight,
             textAnchor: "end",
@@ -4972,7 +5057,7 @@ function LineChart({
 }
 // src/components/patterns/model-icon-customizer.tsx
 import { icons as icons2 } from "lucide-react";
-import { jsx as jsx14, jsxs as jsxs10 } from "react/jsx-runtime";
+import { jsx as jsx15, jsxs as jsxs11 } from "react/jsx-runtime";
 "use client";
 var DEFAULT_ICON_CONFIG = {
   iconName: "Cpu",
@@ -4995,14 +5080,14 @@ function ModelCardIcon({
 }) {
   const c = config ?? DEFAULT_ICON_CONFIG;
   const Icon = icons2[c.iconName];
-  return /* @__PURE__ */ jsx14("div", {
+  return /* @__PURE__ */ jsx15("div", {
     className: cx(cardIconBase, className),
     style: {
       width: size,
       height: size,
       background: buildGradientStyle(c.bgColors, c.bgAngle ?? 135)
     },
-    children: Icon && /* @__PURE__ */ jsx14(Icon, {
+    children: Icon && /* @__PURE__ */ jsx15(Icon, {
       size: iconSize,
       style: { color: c.iconColor ?? "#ffffff" }
     })
@@ -5030,38 +5115,38 @@ function ModelIconCustomizer({
   onChange,
   className
 }) {
-  return /* @__PURE__ */ jsxs10("div", {
+  return /* @__PURE__ */ jsxs11("div", {
     className: cx(css({ display: "flex", gap: "4", alignItems: "flex-start" }), className),
     children: [
-      /* @__PURE__ */ jsx14(ModelCardIcon, {
+      /* @__PURE__ */ jsx15(ModelCardIcon, {
         config: value,
         size: 56,
         iconSize: 28
       }),
-      /* @__PURE__ */ jsxs10("div", {
+      /* @__PURE__ */ jsxs11("div", {
         className: css({ display: "flex", flexDir: "column", gap: "3", flex: 1, minW: 0 }),
         children: [
-          /* @__PURE__ */ jsxs10("div", {
+          /* @__PURE__ */ jsxs11("div", {
             className: rowStyle,
             children: [
-              /* @__PURE__ */ jsx14("label", {
+              /* @__PURE__ */ jsx15("label", {
                 className: labelStyle2,
                 children: "Icon"
               }),
-              /* @__PURE__ */ jsx14(IconPicker, {
+              /* @__PURE__ */ jsx15(IconPicker, {
                 value: value.iconName,
                 onChange: (iconName) => onChange({ ...value, iconName })
               })
             ]
           }),
-          /* @__PURE__ */ jsxs10("div", {
+          /* @__PURE__ */ jsxs11("div", {
             className: rowStartStyle,
             children: [
-              /* @__PURE__ */ jsx14("label", {
+              /* @__PURE__ */ jsx15("label", {
                 className: labelTopStyle,
                 children: "Background"
               }),
-              /* @__PURE__ */ jsx14(GradientPicker, {
+              /* @__PURE__ */ jsx15(GradientPicker, {
                 colors: value.bgColors,
                 angle: value.bgAngle ?? 135,
                 onColorsChange: (bgColors) => onChange({ ...value, bgColors }),
@@ -5069,17 +5154,17 @@ function ModelIconCustomizer({
               })
             ]
           }),
-          /* @__PURE__ */ jsxs10("div", {
+          /* @__PURE__ */ jsxs11("div", {
             className: rowStyle,
             children: [
-              /* @__PURE__ */ jsx14("label", {
+              /* @__PURE__ */ jsx15("label", {
                 className: labelStyle2,
                 children: "Icon Color"
               }),
-              /* @__PURE__ */ jsx14("label", {
+              /* @__PURE__ */ jsx15("label", {
                 className: swatchStyle2,
                 style: { backgroundColor: value.iconColor ?? "#ffffff" },
-                children: /* @__PURE__ */ jsx14("input", {
+                children: /* @__PURE__ */ jsx15("input", {
                   type: "color",
                   value: value.iconColor ?? "#ffffff",
                   onChange: (e) => onChange({ ...value, iconColor: e.target.value }),
@@ -5094,7 +5179,7 @@ function ModelIconCustomizer({
   });
 }
 // src/components/patterns/page-title.tsx
-import { jsx as jsx15, jsxs as jsxs11 } from "react/jsx-runtime";
+import { jsx as jsx16, jsxs as jsxs12 } from "react/jsx-runtime";
 "use client";
 var titleStyle = css({
   textStyle: "h2",
@@ -5106,14 +5191,14 @@ var subtitleStyle = css({
   mt: "1"
 });
 function PageTitle({ children, subtitle, className }) {
-  return /* @__PURE__ */ jsxs11("div", {
+  return /* @__PURE__ */ jsxs12("div", {
     className,
     children: [
-      /* @__PURE__ */ jsx15("h1", {
+      /* @__PURE__ */ jsx16("h1", {
         className: cx(titleStyle),
         children
       }),
-      subtitle && /* @__PURE__ */ jsx15("p", {
+      subtitle && /* @__PURE__ */ jsx16("p", {
         className: subtitleStyle,
         children: subtitle
       })
@@ -5121,7 +5206,7 @@ function PageTitle({ children, subtitle, className }) {
   });
 }
 // src/components/patterns/pricing-card.tsx
-import { jsx as jsx16, jsxs as jsxs12 } from "react/jsx-runtime";
+import { jsx as jsx17, jsxs as jsxs13 } from "react/jsx-runtime";
 "use client";
 var styles7 = {
   root: css({
@@ -5223,10 +5308,10 @@ function PricingCard({
   features,
   className
 }) {
-  return /* @__PURE__ */ jsxs12("div", {
+  return /* @__PURE__ */ jsxs13("div", {
     className: cx(styles7.root, highlight && styles7.highlighted, className),
     children: [
-      badge && /* @__PURE__ */ jsx16("span", {
+      badge && /* @__PURE__ */ jsx17("span", {
         className: styles7.badge,
         style: {
           ...badgeBg ? { backgroundColor: badgeBg } : {},
@@ -5234,23 +5319,23 @@ function PricingCard({
         },
         children: badge
       }),
-      /* @__PURE__ */ jsx16("div", {
+      /* @__PURE__ */ jsx17("div", {
         className: styles7.name,
         style: accentColor ? { color: accentColor } : undefined,
         children: name
       }),
-      description && /* @__PURE__ */ jsx16("div", {
+      description && /* @__PURE__ */ jsx17("div", {
         className: styles7.description,
         children: description
       }),
-      /* @__PURE__ */ jsxs12("div", {
+      /* @__PURE__ */ jsxs13("div", {
         className: styles7.priceArea,
         children: [
-          /* @__PURE__ */ jsx16("span", {
+          /* @__PURE__ */ jsx17("span", {
             className: styles7.price,
             children: price
           }),
-          interval && /* @__PURE__ */ jsxs12("span", {
+          interval && /* @__PURE__ */ jsxs13("span", {
             className: styles7.interval,
             children: [
               "/",
@@ -5259,12 +5344,12 @@ function PricingCard({
           })
         ]
       }),
-      features && features.length > 0 && /* @__PURE__ */ jsx16("ul", {
+      features && features.length > 0 && /* @__PURE__ */ jsx17("ul", {
         className: styles7.featureList,
-        children: features.map((feature) => /* @__PURE__ */ jsxs12("li", {
+        children: features.map((feature) => /* @__PURE__ */ jsxs13("li", {
           className: styles7.featureItem,
           children: [
-            /* @__PURE__ */ jsx16("span", {
+            /* @__PURE__ */ jsx17("span", {
               className: styles7.checkmark,
               children: "✓"
             }),
@@ -5272,7 +5357,7 @@ function PricingCard({
           ]
         }, feature))
       }),
-      action && /* @__PURE__ */ jsx16("div", {
+      action && /* @__PURE__ */ jsx17("div", {
         className: styles7.actionWrap,
         children: action
       })
@@ -5280,7 +5365,7 @@ function PricingCard({
   });
 }
 // src/components/patterns/section-header.tsx
-import { jsx as jsx17, jsxs as jsxs13 } from "react/jsx-runtime";
+import { jsx as jsx18, jsxs as jsxs14 } from "react/jsx-runtime";
 "use client";
 var base3 = css({
   px: "4",
@@ -5323,30 +5408,30 @@ function SectionHeader({
   actions,
   className
 }) {
-  return /* @__PURE__ */ jsxs13("div", {
+  return /* @__PURE__ */ jsxs14("div", {
     className: cx(base3, variants2[variant], className),
     children: [
-      /* @__PURE__ */ jsxs13("div", {
+      /* @__PURE__ */ jsxs14("div", {
         className: css({ display: "flex", alignItems: "center", gap: "2" }),
         children: [
-          icon && /* @__PURE__ */ jsx17("div", {
+          icon && /* @__PURE__ */ jsx18("div", {
             className: badgeStyle,
             children: icon
           }),
-          /* @__PURE__ */ jsx17("h3", {
+          /* @__PURE__ */ jsx18("h3", {
             className: titleStyle2,
             children: title
           })
         ]
       }),
-      actions && /* @__PURE__ */ jsx17("div", {
+      actions && /* @__PURE__ */ jsx18("div", {
         children: actions
       })
     ]
   });
 }
 // src/components/patterns/stat-card.tsx
-import { jsx as jsx18, jsxs as jsxs14 } from "react/jsx-runtime";
+import { jsx as jsx19, jsxs as jsxs15 } from "react/jsx-runtime";
 "use client";
 var styles8 = {
   root: css({
@@ -5404,10 +5489,10 @@ function StatCard({
   className
 }) {
   const changeColor = changeType === "positive" ? css({ color: "fg.success" }) : changeType === "negative" ? css({ color: "fg.error" }) : css({ color: "fg.muted" });
-  return /* @__PURE__ */ jsxs14("div", {
+  return /* @__PURE__ */ jsxs15("div", {
     className: cx(styles8.root, className),
     children: [
-      icon && /* @__PURE__ */ jsx18("div", {
+      icon && /* @__PURE__ */ jsx19("div", {
         className: styles8.iconWrap,
         style: {
           ...iconBg ? { backgroundColor: iconBg } : {},
@@ -5415,25 +5500,25 @@ function StatCard({
         },
         children: icon
       }),
-      /* @__PURE__ */ jsxs14("div", {
+      /* @__PURE__ */ jsxs15("div", {
         className: styles8.content,
         children: [
-          /* @__PURE__ */ jsx18("div", {
+          /* @__PURE__ */ jsx19("div", {
             className: styles8.title,
             children: title
           }),
-          /* @__PURE__ */ jsx18("div", {
+          /* @__PURE__ */ jsx19("div", {
             className: styles8.value,
             children: value
           }),
-          /* @__PURE__ */ jsxs14("div", {
+          /* @__PURE__ */ jsxs15("div", {
             className: css({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
             children: [
-              change && /* @__PURE__ */ jsx18("span", {
+              change && /* @__PURE__ */ jsx19("span", {
                 className: cx(styles8.change, changeColor),
                 children: change
               }),
-              badge && /* @__PURE__ */ jsx18("span", {
+              badge && /* @__PURE__ */ jsx19("span", {
                 className: css({
                   textStyle: "small",
                   px: "2",
@@ -5455,7 +5540,7 @@ function StatCard({
   });
 }
 // src/components/patterns/step-card.tsx
-import { jsx as jsx19, jsxs as jsxs15 } from "react/jsx-runtime";
+import { jsx as jsx20, jsxs as jsxs16 } from "react/jsx-runtime";
 "use client";
 var styles9 = {
   root: css({
@@ -5489,21 +5574,21 @@ var styles9 = {
   })
 };
 function StepCard({ step, title, description, children, className }) {
-  return /* @__PURE__ */ jsxs15("div", {
+  return /* @__PURE__ */ jsxs16("div", {
     className: cx(styles9.root, className),
     children: [
-      /* @__PURE__ */ jsx19("div", {
+      /* @__PURE__ */ jsx20("div", {
         className: styles9.number,
         children: step
       }),
-      /* @__PURE__ */ jsxs15("div", {
+      /* @__PURE__ */ jsxs16("div", {
         className: styles9.content,
         children: [
-          /* @__PURE__ */ jsx19("div", {
+          /* @__PURE__ */ jsx20("div", {
             className: styles9.title,
             children: title
           }),
-          description && /* @__PURE__ */ jsx19("div", {
+          description && /* @__PURE__ */ jsx20("div", {
             className: styles9.description,
             children: description
           }),
@@ -5514,7 +5599,7 @@ function StepCard({ step, title, description, children, className }) {
   });
 }
 // src/components/patterns/streaming-status.tsx
-import { jsx as jsx20, jsxs as jsxs16 } from "react/jsx-runtime";
+import { jsx as jsx21, jsxs as jsxs17 } from "react/jsx-runtime";
 "use client";
 var styles10 = {
   root: css({
@@ -5663,26 +5748,26 @@ function StreamingStatus({
   const isActive = !isComplete && !error;
   const hasProgress = typeof progress === "number";
   if (compact2) {
-    return /* @__PURE__ */ jsxs16("div", {
+    return /* @__PURE__ */ jsxs17("div", {
       className: cx(styles10.compactRoot, className),
       children: [
-        isActive && activeIcon && /* @__PURE__ */ jsx20("span", {
+        isActive && activeIcon && /* @__PURE__ */ jsx21("span", {
           className: styles10.iconWrap,
           children: activeIcon
         }),
-        isComplete && completeIcon && /* @__PURE__ */ jsx20("span", {
+        isComplete && completeIcon && /* @__PURE__ */ jsx21("span", {
           className: styles10.iconWrap,
           children: completeIcon
         }),
-        error && errorIcon && /* @__PURE__ */ jsx20("span", {
+        error && errorIcon && /* @__PURE__ */ jsx21("span", {
           className: styles10.iconWrap,
           children: errorIcon
         }),
-        /* @__PURE__ */ jsx20("span", {
+        /* @__PURE__ */ jsx21("span", {
           className: cx(styles10.statusLabel, error ? styles10.statusLabelError : undefined),
           children: message || status
         }),
-        isActive && hasProgress && /* @__PURE__ */ jsxs16("span", {
+        isActive && hasProgress && /* @__PURE__ */ jsxs17("span", {
           className: styles10.progressHint,
           children: [
             "(",
@@ -5690,7 +5775,7 @@ function StreamingStatus({
             "%)"
           ]
         }),
-        onAbort && isActive && /* @__PURE__ */ jsx20("button", {
+        onAbort && isActive && /* @__PURE__ */ jsx21("button", {
           type: "button",
           onClick: onAbort,
           className: styles10.abortButton,
@@ -5702,34 +5787,34 @@ function StreamingStatus({
   }
   const stepKeys = steps?.map((s) => s.key) ?? [];
   const currentIdx = currentStep ? stepKeys.indexOf(currentStep) : -1;
-  return /* @__PURE__ */ jsxs16("div", {
+  return /* @__PURE__ */ jsxs17("div", {
     className: cx(styles10.root, className),
     children: [
-      /* @__PURE__ */ jsxs16("div", {
+      /* @__PURE__ */ jsxs17("div", {
         className: styles10.header,
         children: [
-          /* @__PURE__ */ jsxs16("div", {
+          /* @__PURE__ */ jsxs17("div", {
             className: styles10.headerLeft,
             children: [
-              isActive && activeIcon && /* @__PURE__ */ jsx20("span", {
+              isActive && activeIcon && /* @__PURE__ */ jsx21("span", {
                 className: styles10.iconWrap,
                 children: activeIcon
               }),
-              isComplete && completeIcon && /* @__PURE__ */ jsx20("span", {
+              isComplete && completeIcon && /* @__PURE__ */ jsx21("span", {
                 className: styles10.iconWrap,
                 children: completeIcon
               }),
-              error && errorIcon && /* @__PURE__ */ jsx20("span", {
+              error && errorIcon && /* @__PURE__ */ jsx21("span", {
                 className: styles10.iconWrap,
                 children: errorIcon
               }),
-              /* @__PURE__ */ jsxs16("div", {
+              /* @__PURE__ */ jsxs17("div", {
                 children: [
-                  /* @__PURE__ */ jsx20("div", {
+                  /* @__PURE__ */ jsx21("div", {
                     className: cx(styles10.statusLabel, error ? styles10.statusLabelError : undefined),
                     children: message || status
                   }),
-                  isActive && hasProgress && /* @__PURE__ */ jsxs16("div", {
+                  isActive && hasProgress && /* @__PURE__ */ jsxs17("div", {
                     className: styles10.progressHint,
                     children: [
                       progress,
@@ -5740,7 +5825,7 @@ function StreamingStatus({
               })
             ]
           }),
-          onAbort && isActive && /* @__PURE__ */ jsx20("button", {
+          onAbort && isActive && /* @__PURE__ */ jsx21("button", {
             type: "button",
             onClick: onAbort,
             className: styles10.abortButton,
@@ -5749,49 +5834,49 @@ function StreamingStatus({
           })
         ]
       }),
-      isActive && hasProgress && /* @__PURE__ */ jsx20("div", {
+      isActive && hasProgress && /* @__PURE__ */ jsx21("div", {
         className: styles10.trackWrap,
-        children: /* @__PURE__ */ jsx20("div", {
+        children: /* @__PURE__ */ jsx21("div", {
           className: styles10.track,
-          children: /* @__PURE__ */ jsx20("div", {
+          children: /* @__PURE__ */ jsx21("div", {
             className: styles10.range,
             style: { width: `${progress}%` }
           })
         })
       }),
-      error && /* @__PURE__ */ jsxs16("div", {
+      error && /* @__PURE__ */ jsxs17("div", {
         className: styles10.errorBox,
         children: [
-          errorIcon && /* @__PURE__ */ jsx20("span", {
+          errorIcon && /* @__PURE__ */ jsx21("span", {
             className: styles10.iconWrap,
             children: errorIcon
           }),
-          /* @__PURE__ */ jsx20("span", {
+          /* @__PURE__ */ jsx21("span", {
             className: styles10.errorText,
             children: error
           })
         ]
       }),
-      isComplete && !error && /* @__PURE__ */ jsxs16("div", {
+      isComplete && !error && /* @__PURE__ */ jsxs17("div", {
         className: styles10.successBox,
         children: [
-          completeIcon && /* @__PURE__ */ jsx20("span", {
+          completeIcon && /* @__PURE__ */ jsx21("span", {
             className: styles10.iconWrap,
             children: completeIcon
           }),
-          /* @__PURE__ */ jsx20("span", {
+          /* @__PURE__ */ jsx21("span", {
             className: styles10.successText,
             children: "Operation completed successfully"
           })
         ]
       }),
-      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx20("div", {
+      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx21("div", {
         className: styles10.stepsGrid,
         style: { gridTemplateColumns: `repeat(${steps.length}, 1fr)` },
         children: steps.map((step, idx) => {
           const isCurrent = step.key === currentStep;
           const isDone = currentIdx >= 0 && idx < currentIdx;
-          return /* @__PURE__ */ jsx20("div", {
+          return /* @__PURE__ */ jsx21("div", {
             className: cx(styles10.step, isCurrent ? styles10.stepActive : isDone ? styles10.stepDone : styles10.stepPending),
             children: step.label
           }, step.key);
@@ -5820,10 +5905,11 @@ export {
   FeatureCard,
   EmptyState,
   DEFAULT_ICON_CONFIG,
+  ConfirmDialog,
   AmountSelector,
   ActionCard,
   AccentLabel
 };
 
-//# debugId=241B3AB86FB02E3464756E2164756E21
+//# debugId=884F8220D0FD381264756E2164756E21
 //# sourceMappingURL=index.js.map

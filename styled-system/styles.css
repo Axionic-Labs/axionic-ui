@@ -1237,6 +1237,59 @@
 @layer recipes{
   @layer _base{
 
+    .button {
+      border-radius: var(--radii-l2);
+      gap: var(--spacing-2);
+      outline: 0;
+      transition-property: background-color, border-color, color, box-shadow;
+      transition-timing-function: var(--easings-default);
+      transition-duration: var(--durations-normal);
+      --transition-duration: var(--durations-normal);
+      --transition-easing: var(--easings-default);
+      align-items: center;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      display: inline-flex;
+      flex-shrink: 0;
+      font-weight: var(--font-weights-semibold);
+      isolation: isolate;
+      justify-content: center;
+      position: relative;
+      --transition-prop: background-color, border-color, color, box-shadow;
+      -webkit-user-select: none;
+      user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
+      --focus-ring-color: var(--focus-ring-color-prop, var(--global-color-focus-ring, #005FCC));
+}
+
+    .button:is(:focus-visible, [data-focus-visible]) {
+      outline-width: var(--focus-ring-width, 2px);
+      outline-offset: var(--focus-ring-offset, 2px);
+      outline-style: var(--focus-ring-style, solid);
+      outline-color: var(--focus-ring-color);
+}
+
+    .button {
+      min-width: var(--sizes-0);
+}
+
+    .button:is([hidden]) {
+      display: none;
+}
+
+    .button :where(svg) {
+      font-size: 1.1em;
+      flex-shrink: 0;
+      width: 1.1em;
+      height: 1.1em;
+}
+
+    .button:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      layer-style: disabled;
+}
+
     .input {
       background: none;
       border-color: var(--colors-border-default);
@@ -1298,59 +1351,6 @@
       z-index: 1;
 }
 
-    .button {
-      border-radius: var(--radii-l2);
-      gap: var(--spacing-2);
-      outline: 0;
-      transition-property: background-color, border-color, color, box-shadow;
-      transition-timing-function: var(--easings-default);
-      transition-duration: var(--durations-normal);
-      --transition-duration: var(--durations-normal);
-      --transition-easing: var(--easings-default);
-      align-items: center;
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      display: inline-flex;
-      flex-shrink: 0;
-      font-weight: var(--font-weights-semibold);
-      isolation: isolate;
-      justify-content: center;
-      position: relative;
-      --transition-prop: background-color, border-color, color, box-shadow;
-      -webkit-user-select: none;
-      user-select: none;
-      vertical-align: middle;
-      white-space: nowrap;
-      --focus-ring-color: var(--focus-ring-color-prop, var(--global-color-focus-ring, #005FCC));
-}
-
-    .button:is(:focus-visible, [data-focus-visible]) {
-      outline-width: var(--focus-ring-width, 2px);
-      outline-offset: var(--focus-ring-offset, 2px);
-      outline-style: var(--focus-ring-style, solid);
-      outline-color: var(--focus-ring-color);
-}
-
-    .button {
-      min-width: var(--sizes-0);
-}
-
-    .button:is([hidden]) {
-      display: none;
-}
-
-    .button :where(svg) {
-      font-size: 1.1em;
-      flex-shrink: 0;
-      width: 1.1em;
-      height: 1.1em;
-}
-
-    .button:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
-      layer-style: disabled;
-}
-
     .spinner {
       --spinner-track-color: transparent;
       animation: var(--animations-spin);
@@ -1405,6 +1405,180 @@
 }
 }
 
+  .button--variant_outline {
+    border-width: 1px;
+    border-color: colorPalette.outline.border;
+    --colors-color-palette-light-1: var(--colors-gray-light-1);
+    --colors-color-palette-light-2: var(--colors-gray-light-2);
+    --colors-color-palette-light-3: var(--colors-gray-light-3);
+    --colors-color-palette-light-4: var(--colors-gray-light-4);
+    --colors-color-palette-light-5: var(--colors-gray-light-5);
+    --colors-color-palette-light-6: var(--colors-gray-light-6);
+    --colors-color-palette-light-7: var(--colors-gray-light-7);
+    --colors-color-palette-light-8: var(--colors-gray-light-8);
+    --colors-color-palette-light-9: var(--colors-gray-light-9);
+    --colors-color-palette-light-10: var(--colors-gray-light-10);
+    --colors-color-palette-light-11: var(--colors-gray-light-11);
+    --colors-color-palette-light-12: var(--colors-gray-light-12);
+    --colors-color-palette-light-a1: var(--colors-gray-light-a1);
+    --colors-color-palette-light-a2: var(--colors-gray-light-a2);
+    --colors-color-palette-light-a3: var(--colors-gray-light-a3);
+    --colors-color-palette-light-a4: var(--colors-gray-light-a4);
+    --colors-color-palette-light-a5: var(--colors-gray-light-a5);
+    --colors-color-palette-light-a6: var(--colors-gray-light-a6);
+    --colors-color-palette-light-a7: var(--colors-gray-light-a7);
+    --colors-color-palette-light-a8: var(--colors-gray-light-a8);
+    --colors-color-palette-light-a9: var(--colors-gray-light-a9);
+    --colors-color-palette-light-a10: var(--colors-gray-light-a10);
+    --colors-color-palette-light-a11: var(--colors-gray-light-a11);
+    --colors-color-palette-light-a12: var(--colors-gray-light-a12);
+    --colors-color-palette-dark-1: var(--colors-gray-dark-1);
+    --colors-color-palette-dark-2: var(--colors-gray-dark-2);
+    --colors-color-palette-dark-3: var(--colors-gray-dark-3);
+    --colors-color-palette-dark-4: var(--colors-gray-dark-4);
+    --colors-color-palette-dark-5: var(--colors-gray-dark-5);
+    --colors-color-palette-dark-6: var(--colors-gray-dark-6);
+    --colors-color-palette-dark-7: var(--colors-gray-dark-7);
+    --colors-color-palette-dark-8: var(--colors-gray-dark-8);
+    --colors-color-palette-dark-9: var(--colors-gray-dark-9);
+    --colors-color-palette-dark-10: var(--colors-gray-dark-10);
+    --colors-color-palette-dark-11: var(--colors-gray-dark-11);
+    --colors-color-palette-dark-12: var(--colors-gray-dark-12);
+    --colors-color-palette-dark-a1: var(--colors-gray-dark-a1);
+    --colors-color-palette-dark-a2: var(--colors-gray-dark-a2);
+    --colors-color-palette-dark-a3: var(--colors-gray-dark-a3);
+    --colors-color-palette-dark-a4: var(--colors-gray-dark-a4);
+    --colors-color-palette-dark-a5: var(--colors-gray-dark-a5);
+    --colors-color-palette-dark-a6: var(--colors-gray-dark-a6);
+    --colors-color-palette-dark-a7: var(--colors-gray-dark-a7);
+    --colors-color-palette-dark-a8: var(--colors-gray-dark-a8);
+    --colors-color-palette-dark-a9: var(--colors-gray-dark-a9);
+    --colors-color-palette-dark-a10: var(--colors-gray-dark-a10);
+    --colors-color-palette-dark-a11: var(--colors-gray-dark-a11);
+    --colors-color-palette-dark-a12: var(--colors-gray-dark-a12);
+    --colors-color-palette-1: var(--colors-gray-1);
+    --colors-color-palette-2: var(--colors-gray-2);
+    --colors-color-palette-3: var(--colors-gray-3);
+    --colors-color-palette-4: var(--colors-gray-4);
+    --colors-color-palette-5: var(--colors-gray-5);
+    --colors-color-palette-6: var(--colors-gray-6);
+    --colors-color-palette-7: var(--colors-gray-7);
+    --colors-color-palette-8: var(--colors-gray-8);
+    --colors-color-palette-9: var(--colors-gray-9);
+    --colors-color-palette-10: var(--colors-gray-10);
+    --colors-color-palette-11: var(--colors-gray-11);
+    --colors-color-palette-12: var(--colors-gray-12);
+    --colors-color-palette-a1: var(--colors-gray-a1);
+    --colors-color-palette-a2: var(--colors-gray-a2);
+    --colors-color-palette-a3: var(--colors-gray-a3);
+    --colors-color-palette-a4: var(--colors-gray-a4);
+    --colors-color-palette-a5: var(--colors-gray-a5);
+    --colors-color-palette-a6: var(--colors-gray-a6);
+    --colors-color-palette-a7: var(--colors-gray-a7);
+    --colors-color-palette-a8: var(--colors-gray-a8);
+    --colors-color-palette-a9: var(--colors-gray-a9);
+    --colors-color-palette-a10: var(--colors-gray-a10);
+    --colors-color-palette-a11: var(--colors-gray-a11);
+    --colors-color-palette-a12: var(--colors-gray-a12);
+    --colors-color-palette-default: var(--colors-gray-default);
+    --colors-color-palette-emphasized: var(--colors-gray-emphasized);
+    --colors-color-palette-fg: var(--colors-gray-fg);
+    --colors-color-palette-text: var(--colors-gray-text);
+    color: colorPalette.outline.fg;
+}
+
+  .button--variant_outline:is([aria-selected=true], [data-selected]) {
+    background: accent.default;
+    border-color: accent.default;
+    color: accent.fg;
+}
+
+  .button--variant_outline:is([data-state="on"]) {
+    background: colorPalette.outline.bg.active;
+}
+
+  .button--variant_outline:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+    border-color: var(--colors-border-disabled);
+    color: var(--colors-fg-disabled);
+    cursor: not-allowed;
+}
+
+  .button--variant_outline:is(:focus-visible, [data-focus-visible]) {
+    outline: 2px solid;
+    outline-color: var(--colors-color-palette-default);
+    outline-offset: 2px;
+}
+
+  .button--variant_outline:is(:active, [data-active]) {
+    background: colorPalette.outline.bg.active;
+}
+
+  .button--size_sm {
+    gap: var(--spacing-2);
+    padding-inline: var(--spacing-3);
+    font-size: var(--font-sizes-sm);
+    line-height: 1.25rem;
+    height: var(--sizes-9);
+    min-width: var(--sizes-9);
+}
+
+  .button--size_sm :where(svg) {
+    width: var(--sizes-4);
+    height: var(--sizes-4);
+}
+
+  .button--variant_danger {
+    background: var(--colors-fg-error);
+    color: var(--colors-white);
+}
+
+  .button--variant_danger:is(:active, [data-active]) {
+    opacity: 0.85;
+}
+
+  .button--size_md {
+    gap: var(--spacing-2);
+    padding-inline: var(--spacing-3\.5);
+    font-size: var(--font-sizes-sm);
+    line-height: 1.25rem;
+    height: var(--sizes-10);
+    min-width: var(--sizes-10);
+}
+
+  .button--size_md :where(svg) {
+    width: var(--sizes-5);
+    height: var(--sizes-5);
+}
+
+  .button--variant_solid {
+    background: colorPalette.solid.bg;
+    color: colorPalette.solid.fg;
+}
+
+  .button--variant_solid:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+    background: var(--colors-bg-disabled);
+    color: var(--colors-fg-disabled);
+    cursor: not-allowed;
+}
+
+  .button--variant_solid:is(:focus-visible, [data-focus-visible]) {
+    outline: 2px solid;
+    outline-color: var(--colors-color-palette-default);
+    outline-offset: 2px;
+}
+
+  .button--variant_plain {
+    color: colorPalette.plain.fg;
+}
+
+  .button--variant_plain:is([data-state="on"]) {
+    background: colorPalette.plain.bg.active;
+}
+
+  .button--variant_plain:is(:active, [data-active]) {
+    background: colorPalette.plain.bg.active;
+}
+
   .input--size_sm {
     --input-height: var(--sizes-9);
     padding-inline: var(--spacing-2\.5);
@@ -1441,63 +1615,6 @@
 
   .group--orientation_horizontal {
     flex-direction: row;
-}
-
-  .button--variant_plain {
-    color: colorPalette.plain.fg;
-}
-
-  .button--variant_plain:is([data-state="on"]) {
-    background: colorPalette.plain.bg.active;
-}
-
-  .button--variant_plain:is(:active, [data-active]) {
-    background: colorPalette.plain.bg.active;
-}
-
-  .button--size_md {
-    gap: var(--spacing-2);
-    padding-inline: var(--spacing-3\.5);
-    font-size: var(--font-sizes-sm);
-    line-height: 1.25rem;
-    height: var(--sizes-10);
-    min-width: var(--sizes-10);
-}
-
-  .button--size_md :where(svg) {
-    width: var(--sizes-5);
-    height: var(--sizes-5);
-}
-
-  .button--variant_solid {
-    background: colorPalette.solid.bg;
-    color: colorPalette.solid.fg;
-}
-
-  .button--variant_solid:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
-    background: var(--colors-bg-disabled);
-    color: var(--colors-fg-disabled);
-    cursor: not-allowed;
-}
-
-  .button--variant_solid:is(:focus-visible, [data-focus-visible]) {
-    outline: 2px solid;
-    outline-color: var(--colors-color-palette-default);
-    outline-offset: 2px;
-}
-
-  .button--size_sm {
-    gap: var(--spacing-2);
-    padding-inline: var(--spacing-3);
-    font-size: var(--font-sizes-sm);
-    line-height: 1.25rem;
-    height: var(--sizes-9);
-    min-width: var(--sizes-9);
-}
-
-  .button--size_sm :where(svg) {
-    width: var(--sizes-4);
-    height: var(--sizes-4);
 }
 
   .spinner--size_inherit {
@@ -1551,8 +1668,25 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
-    .button--variant_plain:is(:hover, [data-hover]) {
-      background: colorPalette.plain.bg.hover;
+    .button--variant_outline:is(:hover, [data-hover]) {
+      background: colorPalette.outline.bg.hover;
+}
+
+    .button--variant_outline:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
+      background: var(--colors-transparent);
+      border-color: var(--colors-border-disabled);
+      color: var(--colors-fg-disabled);
+}
+
+    .button--variant_outline:is([aria-selected=true], [data-selected]):is(:hover, [data-hover]) {
+      background: accent.emphasized;
+      border-color: accent.emphasized;
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .button--variant_danger:is(:hover, [data-hover]) {
+      opacity: 0.9;
 }
 }
 
@@ -1564,6 +1698,12 @@
     .button--variant_solid:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
       background: var(--colors-bg-disabled);
       color: var(--colors-fg-disabled);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .button--variant_plain:is(:hover, [data-hover]) {
+      background: colorPalette.plain.bg.hover;
 }
 }
 }
@@ -1622,6 +1762,128 @@
 
     .field__requiredIndicator {
       color: colorPalette.solid;
+}
+
+    .dialog__backdrop {
+      background: var(--colors-black-a7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      position: fixed;
+      z-index: var(--z-index);
+      height: 100dvh;
+      left: var(--spacing-0);
+      top: var(--spacing-0);
+      width: 100dvw;
+}
+
+    .dialog__backdrop:is([open], [data-open], [data-state="open"], :popover-open) {
+      animation: var(--animations-backdrop-in);
+      animation-name: fade-in;
+      animation-timing-function: var(--easings-emphasized-in);
+      animation-duration: var(--durations-normal);
+}
+
+    .dialog__backdrop:is([closed], [data-closed], [data-state="closed"]) {
+      animation: var(--animations-backdrop-out);
+      animation-name: fade-out;
+      animation-timing-function: var(--easings-emphasized-out);
+      animation-duration: var(--durations-fast);
+}
+
+    .dialog__positioner {
+      overflow: auto;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      height: 100dvh;
+      left: var(--spacing-0);
+      overscroll-behavior-y: none;
+      top: var(--spacing-0);
+      width: 100dvw;
+}
+
+    .dialog__positioner,.dialog__content {
+      --dialog-z-index: var(--z-index-modal);
+      display: flex;
+      z-index: calc(var(--dialog-z-index) + var(--layer-index, 0));
+}
+
+    .dialog__content {
+      background: gray.surface.bg;
+      border-radius: var(--radii-l3);
+      border-width: 1px;
+      border-color: var(--colors-border-muted);
+      margin-block: var(--dialog-margin, var(--dialog-base-margin));
+      outline: 0;
+      padding-block: var(--spacing-4);
+      gap: var(--spacing-4);
+      box-shadow: var(--shadows-lg);
+      flex-direction: column;
+      position: relative;
+      font-size: var(--font-sizes-sm);
+      line-height: 1.25rem;
+      min-width: var(--sizes-sm);
+      width: 100%;
+}
+
+    .dialog__content:is([open], [data-open], [data-state="open"], :popover-open) {
+      animation: var(--animations-dialog-in);
+      animation-duration: var(--durations-slowest);
+}
+
+    .dialog__content:is([closed], [data-closed], [data-state="closed"]) {
+      animation: var(--animations-dialog-out);
+      animation-duration: var(--durations-normal);
+}
+
+    .dialog__title {
+      font-weight: var(--font-weights-semibold);
+      font-size: var(--font-sizes-lg);
+      line-height: 1.75rem;
+}
+
+    .dialog__description {
+      color: var(--colors-fg-muted);
+      font-size: var(--font-sizes-sm);
+      line-height: 1.25rem;
+}
+
+    .dialog__closeTrigger {
+      position: absolute;
+      inset-inline-end: var(--spacing-3);
+      top: var(--spacing-3);
+}
+
+    .dialog__header {
+      gap: var(--spacing-0\.5);
+      flex: 0;
+      flex-direction: column;
+      padding-bottom: var(--spacing-4);
+      border-bottom-width: 1px;
+      border-bottom-color: var(--colors-border-muted);
+}
+
+    .dialog__header,.dialog__body {
+      padding-inline: var(--spacing-4);
+      display: flex;
+}
+
+    .dialog__body {
+      flex: 1 1 0%;
+      flex-direction: column;
+      align-items: flex-start;
+}
+
+    .dialog__footer {
+      flex: 0;
+      gap: var(--spacing-3);
+      padding-inline: var(--spacing-4);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: var(--spacing-4);
+      border-top-width: 1px;
+      border-top-color: var(--colors-border-muted);
 }
 
     .popover__arrow {
@@ -1716,6 +1978,48 @@
       justify-content: flex-end;
       padding-bottom: var(--popover-padding);
 }
+
+    @media screen and (min-width: 48rem) {
+      .dialog__content {
+        padding-block: var(--spacing-6);
+        gap: var(--spacing-6);
+}
+      .dialog__header {
+        padding-bottom: var(--spacing-6);
+}
+      .dialog__header,.dialog__body,.dialog__footer {
+        padding-inline: var(--spacing-6);
+}
+      .dialog__footer {
+        padding-top: var(--spacing-6);
+}
+}
+}
+
+  .dialog__content--size_sm {
+    max-width: var(--sizes-sm);
+}
+
+  .dialog__positioner--scrollBehavior_outside {
+    overflow: auto;
+    pointer-events: auto;
+}
+
+  .dialog__positioner--placement_center {
+    align-items: center;
+}
+
+  .dialog__content--placement_center {
+    --dialog-base-margin: auto;
+    margin-inline: auto;
+}
+
+  .dialog__content--motionPreset_scale:is([open], [data-open], [data-state="open"], :popover-open) {
+    animation-name: scale-in, fade-in;
+}
+
+  .dialog__content--motionPreset_scale:is([closed], [data-closed], [data-state="closed"]) {
+    animation-name: scale-out, fade-out;
 }
 }
 
@@ -1755,22 +2059,23 @@
       line-height: 1.4;
 }
 
-    .textStyle_h3 {
-      font-family: var(--fonts-body);
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1.35;
-}
-
     .textStyle_sm {
       font-size: var(--font-sizes-sm);
       line-height: 1.25rem;
 }
 
-    .textStyle_h2 {
+    .textStyle_h3 {
+      font-size: 1.5rem;
+      line-height: 1.35;
+}
+
+    .textStyle_h3,.textStyle_h2 {
       font-family: var(--fonts-body);
-      font-size: 2rem;
       font-weight: 700;
+}
+
+    .textStyle_h2 {
+      font-size: 2rem;
       line-height: 1.25;
 }
 
@@ -1829,6 +2134,14 @@
 
   .bg_transparent {
     background: var(--colors-transparent);
+}
+
+  .bg_linear-gradient\(90deg\,_\{colors\.teal\.light\.9\}\,_\{colors\.teal\.light\.8\}\,_\{colors\.wheat\.light\.9\}\) {
+    background: linear-gradient(90deg, var(--colors-teal-light-9), var(--colors-teal-light-8), var(--colors-wheat-light-9));
+}
+
+  .bg_linear-gradient\(90deg\,_\{colors\.fg\.error\}\,_\{colors\.fg\.warning\}\) {
+    background: linear-gradient(90deg, var(--colors-fg-error), var(--colors-fg-warning));
 }
 
   .bg_bg\.emphasized {
@@ -2280,6 +2593,15 @@
     align-self: flex-end;
 }
 
+  .bdr-t_l3 {
+    border-top-left-radius: var(--radii-l3);
+    border-top-right-radius: var(--radii-l3);
+}
+
+  .lh_1\.6 {
+    line-height: 1.6;
+}
+
   .ta_center {
     text-align: center;
 }
@@ -2573,6 +2895,10 @@
 
   .mb_2 {
     margin-bottom: var(--spacing-2);
+}
+
+  .h_3px {
+    height: 3px;
 }
 
   .w_14 {

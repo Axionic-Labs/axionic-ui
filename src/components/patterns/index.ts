@@ -1,5 +1,6 @@
 export { AccentLabel, type AccentLabelProps } from './accent-label';
 export { ActionCard, type ActionCardProps } from './action-card';
+export { ConfirmDialog, type ConfirmDialogProps } from './confirm-dialog';
 export { AmountSelector, type AmountSelectorProps } from './amount-selector';
 export { EmptyState, type EmptyStateProps } from './empty-state';
 export { FeatureCard, type FeatureCardProps } from './feature-card';
