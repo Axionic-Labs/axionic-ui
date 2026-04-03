@@ -95,6 +95,8 @@ async function build() {
 				'lucide-react',
 				'@pandacss/dev',
 				'@park-ui/panda-preset',
+				'styled-system',
+				'styled-system/*',
 			],
 			define: {
 				'process.env.NODE_ENV': '"production"',
