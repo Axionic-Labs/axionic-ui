@@ -3119,8 +3119,8 @@ var popover = defineSlotRecipe27({
       boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
-      maxHeight: "var(--available-height)",
       outline: "0",
+      overflow: "visible",
       position: "relative",
       textStyle: "sm",
       transformOrigin: "var(--transform-origin)",
@@ -3171,6 +3171,16 @@ var popover = defineSlotRecipe27({
     arrowTip: {
       borderTopWidth: "0.5px",
       borderInlineStartWidth: "0.5px"
+    }
+  },
+  variants: {
+    scrollable: {
+      true: {
+        content: {
+          maxHeight: "var(--available-height)",
+          overflow: "auto"
+        }
+      }
     }
   }
 });
@@ -5723,5 +5733,5 @@ export {
   axionicSand
 };
 
-//# debugId=79E12096F52C3A5264756E2164756E21
+//# debugId=C985CE2A462CBBBC64756E2164756E21
 //# sourceMappingURL=index.js.map

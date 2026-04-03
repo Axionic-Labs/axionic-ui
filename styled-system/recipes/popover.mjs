@@ -156,7 +156,9 @@ const popoverFn = memo((props = {}) => {
   return Object.fromEntries(popoverSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
-const popoverVariantKeys = []
+const popoverVariantKeys = [
+  "scrollable"
+]
 const getVariantProps = (variants) => ({ ...popoverDefaultVariants, ...compact(variants) })
 
 export const popover = /* @__PURE__ */ Object.assign(popoverFn, {
@@ -165,7 +167,11 @@ export const popover = /* @__PURE__ */ Object.assign(popoverFn, {
   raw: (props) => props,
   classNameMap: {},
   variantKeys: popoverVariantKeys,
-  variantMap: {},
+  variantMap: {
+  "scrollable": [
+    "true"
+  ]
+},
   splitVariantProps(props) {
     return splitProps(props, popoverVariantKeys)
   },

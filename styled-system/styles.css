@@ -1908,6 +1908,7 @@
       background: var(--popover-bg);
       border-radius: var(--radii-l3);
       outline: 0;
+      overflow: visible;
       box-shadow: var(--shadows-lg);
       display: flex;
       flex-direction: column;
@@ -1916,7 +1917,6 @@
       transform-origin: var(--transform-origin);
       z-index: calc(var(--z-index-popover) + var(--layer-index, 0));
       max-width: var(--sizes-sm);
-      max-height: var(--available-height);
       width: var(--sizes-xs);
 }
 

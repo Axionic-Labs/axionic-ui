@@ -4962,7 +4962,9 @@ var popoverSlotFns = /* @__PURE__ */ popoverSlotNames.map(([slotName, slotKey]) 
 var popoverFn = memo((props = {}) => {
   return Object.fromEntries(popoverSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]));
 });
-var popoverVariantKeys = [];
+var popoverVariantKeys = [
+  "scrollable"
+];
 var getVariantProps26 = (variants) => ({ ...popoverDefaultVariants, ...compact(variants) });
 var popover = /* @__PURE__ */ Object.assign(popoverFn, {
   __recipe__: false,
@@ -4970,7 +4972,11 @@ var popover = /* @__PURE__ */ Object.assign(popoverFn, {
   raw: (props) => props,
   classNameMap: {},
   variantKeys: popoverVariantKeys,
-  variantMap: {},
+  variantMap: {
+    scrollable: [
+      "true"
+    ]
+  },
   splitVariantProps(props) {
     return splitProps(props, popoverVariantKeys);
   },
@@ -8925,5 +8931,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=D67A397CE3A11EAA64756E2164756E21
+//# debugId=AD13141E79AF4D1264756E2164756E21
 //# sourceMappingURL=index.js.map

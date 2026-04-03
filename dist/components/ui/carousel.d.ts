@@ -12,11 +12,9 @@ export declare const NextTrigger: import("styled-system/jsx").StyleContextConsum
 export declare const PrevTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Carousel.PrevTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
 export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
+    title?: string | undefined | undefined;
     hidden?: boolean | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     slot?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
     unstyled?: boolean | undefined | undefined;
@@ -29,6 +27,7 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     accessKey?: string | undefined | undefined;
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
+    className?: string | undefined | undefined;
     contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
@@ -39,6 +38,7 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;

@@ -14,8 +14,8 @@ export const popover = defineSlotRecipe({
 			boxShadow: 'lg',
 			display: 'flex',
 			flexDirection: 'column',
-			maxHeight: 'var(--available-height)',
 			outline: '0',
+			overflow: 'visible',
 			position: 'relative',
 			textStyle: 'sm',
 			transformOrigin: 'var(--transform-origin)',
@@ -66,6 +66,16 @@ export const popover = defineSlotRecipe({
 		arrowTip: {
 			borderTopWidth: '0.5px',
 			borderInlineStartWidth: '0.5px',
+		},
+	},
+	variants: {
+		scrollable: {
+			true: {
+				content: {
+					maxHeight: 'var(--available-height)',
+					overflow: 'auto',
+				},
+			},
 		},
 	},
 });
