@@ -76,10 +76,10 @@ export function createAxionicPreset() {
 						},
 					},
 					shadows: {
-						whisper: { value: '0 24px 40px rgba(25, 28, 28, 0.04)' },
-						float: { value: '0 28px 48px rgba(25, 28, 28, 0.08)' },
-						panel: { value: '0 12px 24px rgba(25, 28, 28, 0.04)' },
-						'panel.hover': { value: '0 18px 32px rgba(25, 28, 28, 0.08)' },
+						whisper: { value: '0 12px 28px rgba(25, 28, 28, 0.035)' },
+						float: { value: '0 22px 42px rgba(25, 28, 28, 0.08)' },
+						panel: { value: '0 8px 18px rgba(25, 28, 28, 0.04)' },
+						'panel.hover': { value: '0 14px 26px rgba(25, 28, 28, 0.08)' },
 					},
 				},
 				semanticTokens: {
@@ -95,36 +95,36 @@ export function createAxionicPreset() {
 								raised: { value: { _light: '#fcfdfd', _dark: '#163135' } },
 							},
 							panel: {
-								value: { _light: 'rgba(255, 255, 255, 0.92)', _dark: 'rgba(16, 32, 34, 0.92)' },
+								value: { _light: 'rgba(255, 255, 255, 0.94)', _dark: 'rgba(16, 32, 34, 0.92)' },
 							},
 							toolbar: {
-								value: { _light: 'rgba(248, 249, 249, 0.92)', _dark: 'rgba(8, 18, 20, 0.92)' },
+								value: { _light: 'rgba(255, 255, 255, 0.94)', _dark: 'rgba(8, 18, 20, 0.92)' },
 							},
 							nav: {
-								DEFAULT: { value: { _light: '#f3f4f4', _dark: '#0d191b' } },
-								active: { value: { _light: '#e9efef', _dark: '#143034' } },
+								DEFAULT: { value: { _light: '#f4f5f5', _dark: '#0d191b' } },
+								active: { value: { _light: '#ffffff', _dark: '#143034' } },
 							},
 							accent: {
-								DEFAULT: { value: { _light: '#235353', _dark: '#a3dde2' } },
+								DEFAULT: { value: { _light: '#2d6461', _dark: '#a3dde2' } },
 								soft: {
-									value: { _light: 'rgba(35, 83, 83, 0.08)', _dark: 'rgba(163, 221, 226, 0.12)' },
+									value: { _light: 'rgba(45, 100, 97, 0.06)', _dark: 'rgba(163, 221, 226, 0.12)' },
 								},
 								muted: {
-									value: { _light: 'rgba(35, 83, 83, 0.14)', _dark: 'rgba(163, 221, 226, 0.18)' },
+									value: { _light: 'rgba(45, 100, 97, 0.12)', _dark: 'rgba(163, 221, 226, 0.18)' },
 								},
 							},
 							border: {
 								DEFAULT: {
-									value: { _light: 'rgba(35, 83, 83, 0.12)', _dark: 'rgba(163, 221, 226, 0.14)' },
+									value: { _light: 'rgba(45, 75, 74, 0.1)', _dark: 'rgba(163, 221, 226, 0.14)' },
 								},
 								strong: {
-									value: { _light: 'rgba(35, 83, 83, 0.2)', _dark: 'rgba(163, 221, 226, 0.24)' },
+									value: { _light: 'rgba(45, 75, 74, 0.16)', _dark: 'rgba(163, 221, 226, 0.24)' },
 								},
 							},
 							text: {
-								DEFAULT: { value: { _light: '#235353', _dark: '#e3fdff' } },
-								muted: { value: { _light: '#627877', _dark: '#a0bec1' } },
-								subtle: { value: { _light: '#7f9292', _dark: '#88a5a8' } },
+								DEFAULT: { value: { _light: '#2d5654', _dark: '#e3fdff' } },
+								muted: { value: { _light: '#6c7f7e', _dark: '#a0bec1' } },
+								subtle: { value: { _light: '#8a9998', _dark: '#88a5a8' } },
 								inverse: { value: { _light: '#f8f9f9', _dark: '#f8f9f9' } },
 							},
 						},

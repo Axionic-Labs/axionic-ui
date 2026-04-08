@@ -17,21 +17,21 @@ const styles = {
 	root: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
-		paddingX: { base: '4', md: '6', xl: '8' },
-		paddingY: '4',
+		gap: '3',
+		paddingX: { base: '4', md: '6', xl: '6' },
+		paddingY: '3.5',
 	}),
 	row: css({
 		display: 'flex',
 		alignItems: { base: 'flex-start', md: 'center' },
 		justifyContent: 'space-between',
 		flexDirection: { base: 'column', md: 'row' },
-		gap: '4',
+		gap: '3',
 	}),
 	left: css({
 		display: 'flex',
 		alignItems: { base: 'flex-start', md: 'center' },
-		gap: '4',
+		gap: '6',
 		minWidth: 0,
 		flex: '1',
 	}),
@@ -51,7 +51,8 @@ const styles = {
 	}),
 	center: css({
 		width: '100%',
-		maxWidth: { base: 'full', md: '28rem' },
+		maxWidth: { base: 'full', md: 'none' },
+		flex: { md: '1' },
 	}),
 	trailing: css({
 		display: 'flex',

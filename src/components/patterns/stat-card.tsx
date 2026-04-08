@@ -30,16 +30,22 @@ const styles = {
 		rounded: 'l3',
 		p: '6',
 		display: 'flex',
-		alignItems: 'flex-start',
-		gap: '4',
+		flexDirection: 'column',
+		gap: '5',
 		boxShadow: '{shadows.whisper}',
+	}),
+	header: css({
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		gap: '3',
 	}),
 	iconWrap: css({
 		flexShrink: 0,
-		w: '10',
-		h: '10',
-		rounded: 'l2',
-		bg: 'app.accent.soft',
+		w: '8',
+		h: '8',
+		rounded: 'full',
+		bg: 'transparent',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -56,7 +62,6 @@ const styles = {
 	value: css({
 		textStyle: 'metricValue',
 		color: 'app.text',
-		mt: '2',
 	}),
 	change: css({
 		textStyle: 'small',
@@ -86,19 +91,21 @@ export function StatCard({
 
 	return (
 		<div className={cx(styles.root, className)}>
-			{icon && (
-				<div
-					className={styles.iconWrap}
-					style={{
-						...(iconBg ? { backgroundColor: iconBg } : {}),
-						...(iconColor ? { color: iconColor } : {}),
-					}}
-				>
-					{icon}
-				</div>
-			)}
 			<div className={styles.content}>
-				<div className={styles.title}>{title}</div>
+				<div className={styles.header}>
+					<div className={styles.title}>{title}</div>
+					{icon && (
+						<div
+							className={styles.iconWrap}
+							style={{
+								...(iconBg ? { backgroundColor: iconBg } : {}),
+								...(iconColor ? { color: iconColor } : {}),
+							}}
+						>
+							{icon}
+						</div>
+					)}
+				</div>
 				<div className={styles.value}>{value}</div>
 				<div className={css({ display: 'flex', alignItems: 'center', gap: '2', mt: '1' })}>
 					{change && <span className={cx(styles.change, changeColor)}>{change}</span>}

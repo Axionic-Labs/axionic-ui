@@ -25,6 +25,9 @@ export interface SidebarNavProps {
 	brand?: ReactNode;
 	sections: SidebarNavSection[];
 	footer?: ReactNode;
+	showDescriptions?: boolean;
+	showSectionTitles?: boolean;
+	variant?: 'default' | 'shell';
 	renderItem?: (options: {
 		item: SidebarNavItem;
 		className: string;
@@ -39,7 +42,7 @@ const styles = {
 		height: '100%',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '6',
+		gap: '5',
 	}),
 	brand: css({
 		display: 'flex',
@@ -49,13 +52,13 @@ const styles = {
 	sections: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
+		gap: '6',
 		flex: '1',
 	}),
 	section: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '2',
+		gap: '1.5',
 	}),
 	sectionTitle: css({
 		textStyle: 'eyebrow',
@@ -77,9 +80,9 @@ const styles = {
 		gridTemplateColumns: 'auto minmax(0, 1fr) auto',
 		alignItems: 'center',
 		gap: '3',
-		paddingX: '3',
+		paddingX: '3.5',
 		paddingY: '3',
-		borderRadius: 'l3',
+		borderRadius: 'xl',
 		borderWidth: '1px',
 		borderColor: 'transparent',
 		color: 'app.text.muted',
@@ -91,8 +94,9 @@ const styles = {
 		transitionTimingFunction: 'ease',
 		_hover: {
 			bg: 'app.surface',
-			borderColor: 'app.border',
+			borderColor: 'transparent',
 			color: 'app.text',
+			boxShadow: '{shadows.whisper}',
 		},
 		_focusVisible: {
 			outline: '2px solid',
@@ -106,18 +110,16 @@ const styles = {
 	}),
 	itemActive: css({
 		bg: 'app.nav.active',
-		borderColor: 'app.border',
+		borderColor: 'transparent',
 		color: 'app.text',
-		boxShadow: '{shadows.panel}',
+		boxShadow: '{shadows.whisper}',
 	}),
 	itemIcon: css({
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '9',
-		borderRadius: 'l2',
-		bg: 'app.surface',
-		color: 'app.accent',
+		boxSize: '5',
+		color: 'app.text.subtle',
 	}),
 	itemText: css({
 		minWidth: 0,
@@ -162,16 +164,18 @@ const styles = {
 function SidebarNavEntry({
 	item,
 	renderItem,
+	showDescriptions,
 }: {
 	item: SidebarNavItem;
 	renderItem?: SidebarNavProps['renderItem'];
+	showDescriptions: boolean;
 }) {
 	const content = (
 		<>
 			{item.icon && <span className={styles.itemIcon}>{item.icon}</span>}
 			<span className={styles.itemText}>
 				<span className={styles.itemLabel}>{item.label}</span>
-				{item.description && <span className={styles.itemDescription}>{item.description}</span>}
+				{showDescriptions && item.description && <span className={styles.itemDescription}>{item.description}</span>}
 			</span>
 			<span className={styles.itemEnd}>
 				{item.badge && <span className={styles.badge}>{item.badge}</span>}
@@ -220,18 +224,26 @@ function SidebarNavEntry({
 	);
 }
 
-export function SidebarNav({ brand, sections, footer, renderItem, className }: SidebarNavProps) {
+export function SidebarNav({
+	brand,
+	sections,
+	footer,
+	showDescriptions = true,
+	showSectionTitles = true,
+	renderItem,
+	className,
+}: SidebarNavProps) {
 	return (
 		<nav className={cx(styles.root, className)} aria-label="Sidebar Navigation">
 			{brand && <div className={styles.brand}>{brand}</div>}
 			<div className={styles.sections}>
 				{sections.map((section, index) => (
 					<section key={section.title ?? index} className={styles.section}>
-						{section.title && <p className={styles.sectionTitle}>{section.title}</p>}
+						{showSectionTitles && section.title && <p className={styles.sectionTitle}>{section.title}</p>}
 						<ul className={styles.list}>
 							{section.items.map((item, itemIndex) => (
 								<li key={item.id ?? item.href ?? `${item.label}-${itemIndex}`}>
-									<SidebarNavEntry item={item} renderItem={renderItem} />
+									<SidebarNavEntry item={item} renderItem={renderItem} showDescriptions={showDescriptions} />
 								</li>
 							))}
 						</ul>

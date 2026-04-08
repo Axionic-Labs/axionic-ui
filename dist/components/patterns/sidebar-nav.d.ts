@@ -19,6 +19,9 @@ export interface SidebarNavProps {
     brand?: ReactNode;
     sections: SidebarNavSection[];
     footer?: ReactNode;
+    showDescriptions?: boolean;
+    showSectionTitles?: boolean;
+    variant?: 'default' | 'shell';
     renderItem?: (options: {
         item: SidebarNavItem;
         className: string;
@@ -27,5 +30,5 @@ export interface SidebarNavProps {
     }) => ReactNode;
     className?: string;
 }
-export declare function SidebarNav({ brand, sections, footer, renderItem, className }: SidebarNavProps): import("react/jsx-runtime").JSX.Element;
+export declare function SidebarNav({ brand, sections, footer, showDescriptions, showSectionTitles, renderItem, className, }: SidebarNavProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=sidebar-nav.d.ts.map

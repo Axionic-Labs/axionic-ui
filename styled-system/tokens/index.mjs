@@ -1524,19 +1524,19 @@ const tokens = {
     "variable": "var(--colors-wheat-dark-12)"
   },
   "shadows.whisper": {
-    "value": "0 24px 40px rgba(25, 28, 28, 0.04)",
+    "value": "0 12px 28px rgba(25, 28, 28, 0.035)",
     "variable": "var(--shadows-whisper)"
   },
   "shadows.float": {
-    "value": "0 28px 48px rgba(25, 28, 28, 0.08)",
+    "value": "0 22px 42px rgba(25, 28, 28, 0.08)",
     "variable": "var(--shadows-float)"
   },
   "shadows.panel": {
-    "value": "0 12px 24px rgba(25, 28, 28, 0.04)",
+    "value": "0 8px 18px rgba(25, 28, 28, 0.04)",
     "variable": "var(--shadows-panel)"
   },
   "shadows.panel.hover": {
-    "value": "0 18px 32px rgba(25, 28, 28, 0.08)",
+    "value": "0 14px 26px rgba(25, 28, 28, 0.08)",
     "variable": "var(--shadows-panel\\.hover)"
   },
   "breakpoints.sm": {

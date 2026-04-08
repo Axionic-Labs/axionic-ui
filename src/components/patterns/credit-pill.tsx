@@ -11,6 +11,7 @@ export interface CreditPillProps {
 	detail?: ReactNode;
 	icon?: ReactNode;
 	tone?: CreditPillTone;
+	layout?: 'inline' | 'stacked';
 	className?: string;
 }
 
@@ -18,21 +19,21 @@ const styles = {
 	root: css({
 		display: 'inline-flex',
 		alignItems: 'center',
-		gap: '3',
-		minHeight: '11',
+		gap: '2.5',
+		minHeight: '9',
 		paddingLeft: '3',
-		paddingRight: '3.5',
+		paddingRight: '3',
 		borderRadius: 'full',
 		borderWidth: '1px',
 		borderColor: 'app.border',
 		bg: 'app.surface',
-		boxShadow: '{shadows.panel}',
+		boxShadow: '{shadows.whisper}',
 	}),
 	icon: css({
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '8',
+		boxSize: '7',
 		borderRadius: 'full',
 		bg: 'app.surface.muted',
 		color: 'app.accent',
@@ -79,24 +80,44 @@ const toneStyles: Record<CreditPillTone, string> = {
 	}),
 };
 
+const inlineText = css({
+	display: 'inline-flex',
+	alignItems: 'center',
+	gap: '1.5',
+});
+
+const inlineLabel = css({
+	textStyle: 'toolbarLabel',
+	color: 'app.text',
+});
+
 export function CreditPill({
 	label = 'Credits',
 	value,
 	detail,
 	icon,
 	tone = 'default',
+	layout = 'inline',
 	className,
 }: CreditPillProps) {
 	return (
 		<div className={cx(styles.root, toneStyles[tone], className)}>
 			{icon && <span className={styles.icon}>{icon}</span>}
-			<span className={styles.text}>
-				<span className={styles.label}>{label}</span>
-				<span className={styles.valueRow}>
+			{layout === 'stacked' ? (
+				<span className={styles.text}>
+					<span className={styles.label}>{label}</span>
+					<span className={styles.valueRow}>
+						<span className={styles.value}>{value}</span>
+						{detail && <span className={styles.detail}>{detail}</span>}
+					</span>
+				</span>
+			) : (
+				<span className={inlineText}>
 					<span className={styles.value}>{value}</span>
+					{label && <span className={inlineLabel}>{label}</span>}
 					{detail && <span className={styles.detail}>{detail}</span>}
 				</span>
-			</span>
+			)}
 		</div>
 	);
 }

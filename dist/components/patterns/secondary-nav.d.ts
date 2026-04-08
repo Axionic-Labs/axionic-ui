@@ -11,7 +11,8 @@ export interface SecondaryNavItem {
 export interface SecondaryNavProps {
     items: SecondaryNavItem[];
     trailing?: ReactNode;
+    variant?: 'pill' | 'toolbar';
     className?: string;
 }
-export declare function SecondaryNav({ items, trailing, className }: SecondaryNavProps): import("react/jsx-runtime").JSX.Element;
+export declare function SecondaryNav({ items, trailing, variant, className }: SecondaryNavProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=secondary-nav.d.ts.map

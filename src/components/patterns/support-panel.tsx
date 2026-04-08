@@ -9,6 +9,7 @@ export interface SupportPanelProps {
 	description?: ReactNode;
 	actions?: ReactNode;
 	aside?: ReactNode;
+	tone?: 'muted' | 'accent';
 	className?: string;
 }
 
@@ -24,6 +25,11 @@ const styles = {
 		bg: 'app.surface.muted',
 		boxShadow: '{shadows.panel}',
 	}),
+	rootAccent: css({
+		bg: 'app.accent',
+		borderColor: 'transparent',
+		boxShadow: 'none',
+	}),
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
@@ -33,14 +39,23 @@ const styles = {
 		textStyle: 'eyebrow',
 		color: 'app.text.subtle',
 	}),
+	eyebrowAccent: css({
+		color: 'rgba(248, 249, 249, 0.72)',
+	}),
 	title: css({
 		textStyle: 'sectionTitle',
 		color: 'app.text',
+	}),
+	titleAccent: css({
+		color: 'app.text.inverse',
 	}),
 	description: css({
 		textStyle: 'body',
 		color: 'app.text.muted',
 		maxWidth: '2xl',
+	}),
+	descriptionAccent: css({
+		color: 'rgba(248, 249, 249, 0.76)',
 	}),
 	actions: css({
 		display: 'flex',
@@ -61,14 +76,15 @@ export function SupportPanel({
 	description,
 	actions,
 	aside,
+	tone = 'muted',
 	className,
 }: SupportPanelProps) {
 	return (
-		<section className={cx(styles.root, className)}>
+		<section className={cx(styles.root, tone === 'accent' && styles.rootAccent, className)}>
 			<div className={styles.copy}>
-				{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
-				<div className={styles.title}>{title}</div>
-				{description && <div className={styles.description}>{description}</div>}
+				{eyebrow && <div className={cx(styles.eyebrow, tone === 'accent' && styles.eyebrowAccent)}>{eyebrow}</div>}
+				<div className={cx(styles.title, tone === 'accent' && styles.titleAccent)}>{title}</div>
+				{description && <div className={cx(styles.description, tone === 'accent' && styles.descriptionAccent)}>{description}</div>}
 				{actions && <div className={styles.actions}>{actions}</div>}
 			</div>
 			{aside && <div className={styles.aside}>{aside}</div>}

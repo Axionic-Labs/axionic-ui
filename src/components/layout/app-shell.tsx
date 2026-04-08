@@ -50,7 +50,7 @@ const styles = {
 		minWidth: 0,
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '8',
+		gap: '6',
 	}),
 	aside: css({
 		minWidth: 0,
@@ -75,15 +75,15 @@ export function AppShell({
 }: AppShellProps) {
 	const rootClassName = css({
 		display: 'grid',
-		gridTemplateColumns: sidebar ? { base: '1fr', lg: '17.5rem minmax(0, 1fr)' } : '1fr',
+		gridTemplateColumns: sidebar ? { base: '1fr', lg: '15.5rem minmax(0, 1fr)' } : '1fr',
 	});
 
 	const contentClassName = css({
 		flex: '1',
 		display: 'grid',
-		gap: '6',
-		paddingX: { base: '4', md: '6', xl: '8' },
-		paddingY: { base: '5', md: '6', xl: '8' },
+		gap: '5',
+		paddingX: { base: '4', md: '6', xl: '6' },
+		paddingY: { base: '4', md: '5', xl: '6' },
 		gridTemplateColumns: aside ? { base: '1fr', xl: 'minmax(0, 1fr) 22rem' } : '1fr',
 		alignItems: 'start',
 	});

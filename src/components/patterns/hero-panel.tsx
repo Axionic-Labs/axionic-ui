@@ -16,24 +16,32 @@ export interface HeroPanelProps {
 const styles = {
 	root: css({
 		display: 'grid',
-		gridTemplateColumns: { base: '1fr', xl: 'minmax(0, 1.25fr) minmax(18rem, 0.75fr)' },
-		gap: '6',
-		padding: { base: '6', md: '7', xl: '8' },
+		gridTemplateColumns: { base: '1fr', xl: 'minmax(0, 1.05fr) minmax(20rem, 0.95fr)' },
+		gap: '0',
 		borderRadius: 'l3',
 		borderWidth: '1px',
 		borderColor: 'app.border',
 		bg: 'app.surface',
 		boxShadow: '{shadows.whisper}',
+		overflow: 'hidden',
 	}),
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '5',
 		minWidth: 0,
+		padding: { base: '6', md: '7', xl: '8' },
 	}),
 	eyebrow: css({
+		display: 'inline-flex',
+		alignItems: 'center',
+		width: 'fit-content',
+		paddingX: '3',
+		paddingY: '1.5',
+		borderRadius: 'full',
+		bg: 'app.accent.soft',
+		color: 'app.accent',
 		textStyle: 'eyebrow',
-		color: 'app.text.subtle',
 	}),
 	title: css({
 		textStyle: 'h1',
@@ -43,7 +51,7 @@ const styles = {
 	description: css({
 		textStyle: 'body',
 		color: 'app.text.muted',
-		maxWidth: '2xl',
+		maxWidth: '28rem',
 	}),
 	actions: css({
 		display: 'flex',
@@ -58,16 +66,15 @@ const styles = {
 		color: 'app.text.muted',
 	}),
 	media: css({
-		minHeight: '15rem',
+		minHeight: '100%',
 		display: 'flex',
 		alignItems: 'stretch',
 		justifyContent: 'stretch',
-		padding: { base: '4', md: '5' },
-		borderRadius: 'l3',
-		bg: 'app.surface.muted',
-		borderWidth: '1px',
+		padding: { base: '5', md: '6' },
+		bg: 'linear-gradient(180deg, #f3f4f4 0%, #ecefee 100%)',
+		borderLeftWidth: { base: '0', xl: '1px' },
+		borderTopWidth: { base: '1px', xl: '0' },
 		borderColor: 'app.border',
-		boxShadow: '{shadows.panel}',
 	}),
 };
 

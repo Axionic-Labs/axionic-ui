@@ -76,7 +76,7 @@ const styles = {
 		textAlign: 'left',
 		borderBottomWidth: '1px',
 		borderColor: 'app.border',
-		bg: 'app.surface.muted',
+		bg: 'transparent',
 	}),
 	row: css({
 		borderBottomWidth: '1px',
@@ -89,7 +89,7 @@ const styles = {
 		cursor: 'pointer',
 		transition: 'background-color 160ms ease',
 		_hover: {
-			bg: 'app.surface.muted',
+			bg: 'app.canvas.subtle',
 		},
 	}),
 	cell: css({

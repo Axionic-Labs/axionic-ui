@@ -163,7 +163,7 @@ var styles2 = {
     textAlign: "left",
     borderBottomWidth: "1px",
     borderColor: "app.border",
-    bg: "app.surface.muted"
+    bg: "transparent"
   }),
   row: css3({
     borderBottomWidth: "1px",
@@ -176,7 +176,7 @@ var styles2 = {
     cursor: "pointer",
     transition: "background-color 160ms ease",
     _hover: {
-      bg: "app.surface.muted"
+      bg: "app.canvas.subtle"
     }
   }),
   cell: css3({
@@ -877,21 +877,21 @@ var styles5 = {
   root: css7({
     display: "inline-flex",
     alignItems: "center",
-    gap: "3",
-    minHeight: "11",
+    gap: "2.5",
+    minHeight: "9",
     paddingLeft: "3",
-    paddingRight: "3.5",
+    paddingRight: "3",
     borderRadius: "full",
     borderWidth: "1px",
     borderColor: "app.border",
     bg: "app.surface",
-    boxShadow: "{shadows.panel}"
+    boxShadow: "{shadows.whisper}"
   }),
   icon: css7({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "8",
+    boxSize: "7",
     borderRadius: "full",
     bg: "app.surface.muted",
     color: "app.accent"
@@ -936,12 +936,22 @@ var toneStyles = {
     borderColor: "border.warning"
   })
 };
+var inlineText = css7({
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "1.5"
+});
+var inlineLabel = css7({
+  textStyle: "toolbarLabel",
+  color: "app.text"
+});
 function CreditPill({
   label = "Credits",
   value,
   detail,
   icon,
   tone = "default",
+  layout = "inline",
   className
 }) {
   return /* @__PURE__ */ jsxs7("div", {
@@ -951,7 +961,7 @@ function CreditPill({
         className: styles5.icon,
         children: icon
       }),
-      /* @__PURE__ */ jsxs7("span", {
+      layout === "stacked" ? /* @__PURE__ */ jsxs7("span", {
         className: styles5.text,
         children: [
           /* @__PURE__ */ jsx10("span", {
@@ -970,6 +980,22 @@ function CreditPill({
                 children: detail
               })
             ]
+          })
+        ]
+      }) : /* @__PURE__ */ jsxs7("span", {
+        className: inlineText,
+        children: [
+          /* @__PURE__ */ jsx10("span", {
+            className: styles5.value,
+            children: value
+          }),
+          label && /* @__PURE__ */ jsx10("span", {
+            className: inlineLabel,
+            children: label
+          }),
+          detail && /* @__PURE__ */ jsx10("span", {
+            className: styles5.detail,
+            children: detail
           })
         ]
       })
@@ -2183,24 +2209,32 @@ import { jsx as jsx22, jsxs as jsxs16 } from "react/jsx-runtime";
 var styles12 = {
   root: css16({
     display: "grid",
-    gridTemplateColumns: { base: "1fr", xl: "minmax(0, 1.25fr) minmax(18rem, 0.75fr)" },
-    gap: "6",
-    padding: { base: "6", md: "7", xl: "8" },
+    gridTemplateColumns: { base: "1fr", xl: "minmax(0, 1.05fr) minmax(20rem, 0.95fr)" },
+    gap: "0",
     borderRadius: "l3",
     borderWidth: "1px",
     borderColor: "app.border",
     bg: "app.surface",
-    boxShadow: "{shadows.whisper}"
+    boxShadow: "{shadows.whisper}",
+    overflow: "hidden"
   }),
   copy: css16({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
-    minWidth: 0
+    gap: "5",
+    minWidth: 0,
+    padding: { base: "6", md: "7", xl: "8" }
   }),
   eyebrow: css16({
-    textStyle: "eyebrow",
-    color: "app.text.subtle"
+    display: "inline-flex",
+    alignItems: "center",
+    width: "fit-content",
+    paddingX: "3",
+    paddingY: "1.5",
+    borderRadius: "full",
+    bg: "app.accent.soft",
+    color: "app.accent",
+    textStyle: "eyebrow"
   }),
   title: css16({
     textStyle: "h1",
@@ -2210,7 +2244,7 @@ var styles12 = {
   description: css16({
     textStyle: "body",
     color: "app.text.muted",
-    maxWidth: "2xl"
+    maxWidth: "28rem"
   }),
   actions: css16({
     display: "flex",
@@ -2225,16 +2259,15 @@ var styles12 = {
     color: "app.text.muted"
   }),
   media: css16({
-    minHeight: "15rem",
+    minHeight: "100%",
     display: "flex",
     alignItems: "stretch",
     justifyContent: "stretch",
-    padding: { base: "4", md: "5" },
-    borderRadius: "l3",
-    bg: "app.surface.muted",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    boxShadow: "{shadows.panel}"
+    padding: { base: "5", md: "6" },
+    bg: "linear-gradient(180deg, #f3f4f4 0%, #ecefee 100%)",
+    borderLeftWidth: { base: "0", xl: "1px" },
+    borderTopWidth: { base: "1px", xl: "0" },
+    borderColor: "app.border"
   })
 };
 function HeroPanel({
@@ -2767,16 +2800,22 @@ var styles15 = {
     rounded: "l3",
     p: "6",
     display: "flex",
-    alignItems: "flex-start",
-    gap: "4",
+    flexDirection: "column",
+    gap: "5",
     boxShadow: "{shadows.whisper}"
+  }),
+  header: css21({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "3"
   }),
   iconWrap: css21({
     flexShrink: 0,
-    w: "10",
-    h: "10",
-    rounded: "l2",
-    bg: "app.accent.soft",
+    w: "8",
+    h: "8",
+    rounded: "full",
+    bg: "transparent",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -2792,8 +2831,7 @@ var styles15 = {
   }),
   value: css21({
     textStyle: "metricValue",
-    color: "app.text",
-    mt: "2"
+    color: "app.text"
   }),
   change: css21({
     textStyle: "small",
@@ -2814,56 +2852,59 @@ function StatCard({
   className
 }) {
   const changeColor = changeType === "positive" ? css21({ color: "fg.success" }) : changeType === "negative" ? css21({ color: "fg.error" }) : css21({ color: "app.text.muted" });
-  return /* @__PURE__ */ jsxs20("div", {
+  return /* @__PURE__ */ jsx28("div", {
     className: cx21(styles15.root, className),
-    children: [
-      icon && /* @__PURE__ */ jsx28("div", {
-        className: styles15.iconWrap,
-        style: {
-          ...iconBg ? { backgroundColor: iconBg } : {},
-          ...iconColor ? { color: iconColor } : {}
-        },
-        children: icon
-      }),
-      /* @__PURE__ */ jsxs20("div", {
-        className: styles15.content,
-        children: [
-          /* @__PURE__ */ jsx28("div", {
-            className: styles15.title,
-            children: title
-          }),
-          /* @__PURE__ */ jsx28("div", {
-            className: styles15.value,
-            children: value
-          }),
-          /* @__PURE__ */ jsxs20("div", {
-            className: css21({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
-            children: [
-              change && /* @__PURE__ */ jsx28("span", {
-                className: cx21(styles15.change, changeColor),
-                children: change
+    children: /* @__PURE__ */ jsxs20("div", {
+      className: styles15.content,
+      children: [
+        /* @__PURE__ */ jsxs20("div", {
+          className: styles15.header,
+          children: [
+            /* @__PURE__ */ jsx28("div", {
+              className: styles15.title,
+              children: title
+            }),
+            icon && /* @__PURE__ */ jsx28("div", {
+              className: styles15.iconWrap,
+              style: {
+                ...iconBg ? { backgroundColor: iconBg } : {},
+                ...iconColor ? { color: iconColor } : {}
+              },
+              children: icon
+            })
+          ]
+        }),
+        /* @__PURE__ */ jsx28("div", {
+          className: styles15.value,
+          children: value
+        }),
+        /* @__PURE__ */ jsxs20("div", {
+          className: css21({ display: "flex", alignItems: "center", gap: "2", mt: "1" }),
+          children: [
+            change && /* @__PURE__ */ jsx28("span", {
+              className: cx21(styles15.change, changeColor),
+              children: change
+            }),
+            badge && /* @__PURE__ */ jsx28("span", {
+              className: css21({
+                textStyle: "small",
+                px: "2",
+                py: "0.5",
+                rounded: "full",
+                fontSize: "xs",
+                bg: "app.surface.muted",
+                color: "app.text"
               }),
-              badge && /* @__PURE__ */ jsx28("span", {
-                className: css21({
-                  textStyle: "small",
-                  px: "2",
-                  py: "0.5",
-                  rounded: "full",
-                  fontSize: "xs",
-                  bg: "app.surface.muted",
-                  color: "app.text"
-                }),
-                style: {
-                  color: badgeColor,
-                  backgroundColor: badgeBg
-                },
-                children: badge
-              })
-            ]
-          })
-        ]
-      })
-    ]
+              style: {
+                color: badgeColor,
+                backgroundColor: badgeBg
+              },
+              children: badge
+            })
+          ]
+        })
+      ]
+    })
   });
 }
 
@@ -3534,9 +3575,33 @@ var styles19 = {
     alignItems: "center",
     flexWrap: "wrap",
     gap: "2.5"
+  }),
+  toolbarList: css28({
+    gap: "5"
+  }),
+  toolbarItem: css28({
+    minHeight: "auto",
+    paddingX: "0",
+    paddingY: "2",
+    borderRadius: "0",
+    borderWidth: "0",
+    color: "app.text.subtle",
+    _hover: {
+      bg: "transparent",
+      color: "app.text"
+    }
+  }),
+  toolbarItemActive: css28({
+    bg: "transparent",
+    borderColor: "transparent",
+    color: "app.text",
+    boxShadow: "inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)"
   })
 };
-function SecondaryNavEntry({ item }) {
+function SecondaryNavEntry({
+  item,
+  variant
+}) {
   const content = /* @__PURE__ */ jsxs26(Fragment2, {
     children: [
       item.icon,
@@ -3550,7 +3615,7 @@ function SecondaryNavEntry({ item }) {
       })
     ]
   });
-  const className = cx28(styles19.item, item.active && styles19.itemActive);
+  const className = cx28(styles19.item, variant === "toolbar" && styles19.toolbarItem, item.active && styles19.itemActive, item.active && variant === "toolbar" && styles19.toolbarItemActive);
   if (item.href) {
     return /* @__PURE__ */ jsx35("a", {
       className,
@@ -3566,15 +3631,16 @@ function SecondaryNavEntry({ item }) {
     children: content
   });
 }
-function SecondaryNav({ items, trailing, className }) {
+function SecondaryNav({ items, trailing, variant = "pill", className }) {
   return /* @__PURE__ */ jsxs26("div", {
     className: cx28(styles19.root, className),
     children: [
       /* @__PURE__ */ jsx35("ul", {
-        className: styles19.list,
+        className: cx28(styles19.list, variant === "toolbar" && styles19.toolbarList),
         children: items.map((item) => /* @__PURE__ */ jsx35("li", {
           children: /* @__PURE__ */ jsx35(SecondaryNavEntry, {
-            item
+            item,
+            variant
           })
         }, item.id ?? item.href ?? item.label))
       }),
@@ -4141,7 +4207,7 @@ var styles24 = {
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    gap: "6"
+    gap: "5"
   }),
   brand: css34({
     display: "flex",
@@ -4151,13 +4217,13 @@ var styles24 = {
   sections: css34({
     display: "flex",
     flexDirection: "column",
-    gap: "5",
+    gap: "6",
     flex: "1"
   }),
   section: css34({
     display: "flex",
     flexDirection: "column",
-    gap: "2"
+    gap: "1.5"
   }),
   sectionTitle: css34({
     textStyle: "eyebrow",
@@ -4179,9 +4245,9 @@ var styles24 = {
     gridTemplateColumns: "auto minmax(0, 1fr) auto",
     alignItems: "center",
     gap: "3",
-    paddingX: "3",
+    paddingX: "3.5",
     paddingY: "3",
-    borderRadius: "l3",
+    borderRadius: "xl",
     borderWidth: "1px",
     borderColor: "transparent",
     color: "app.text.muted",
@@ -4193,8 +4259,9 @@ var styles24 = {
     transitionTimingFunction: "ease",
     _hover: {
       bg: "app.surface",
-      borderColor: "app.border",
-      color: "app.text"
+      borderColor: "transparent",
+      color: "app.text",
+      boxShadow: "{shadows.whisper}"
     },
     _focusVisible: {
       outline: "2px solid",
@@ -4208,18 +4275,16 @@ var styles24 = {
   }),
   itemActive: css34({
     bg: "app.nav.active",
-    borderColor: "app.border",
+    borderColor: "transparent",
     color: "app.text",
-    boxShadow: "{shadows.panel}"
+    boxShadow: "{shadows.whisper}"
   }),
   itemIcon: css34({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "9",
-    borderRadius: "l2",
-    bg: "app.surface",
-    color: "app.accent"
+    boxSize: "5",
+    color: "app.text.subtle"
   }),
   itemText: css34({
     minWidth: 0,
@@ -4262,7 +4327,8 @@ var styles24 = {
 };
 function SidebarNavEntry({
   item,
-  renderItem
+  renderItem,
+  showDescriptions
 }) {
   const content = /* @__PURE__ */ jsxs32(Fragment3, {
     children: [
@@ -4277,7 +4343,7 @@ function SidebarNavEntry({
             className: styles24.itemLabel,
             children: item.label
           }),
-          item.description && /* @__PURE__ */ jsx41("span", {
+          showDescriptions && item.description && /* @__PURE__ */ jsx41("span", {
             className: styles24.itemDescription,
             children: item.description
           })
@@ -4325,7 +4391,15 @@ function SidebarNavEntry({
     children: content
   });
 }
-function SidebarNav({ brand, sections, footer, renderItem, className }) {
+function SidebarNav({
+  brand,
+  sections,
+  footer,
+  showDescriptions = true,
+  showSectionTitles = true,
+  renderItem,
+  className
+}) {
   return /* @__PURE__ */ jsxs32("nav", {
     className: cx34(styles24.root, className),
     "aria-label": "Sidebar Navigation",
@@ -4339,7 +4413,7 @@ function SidebarNav({ brand, sections, footer, renderItem, className }) {
         children: sections.map((section, index) => /* @__PURE__ */ jsxs32("section", {
           className: styles24.section,
           children: [
-            section.title && /* @__PURE__ */ jsx41("p", {
+            showSectionTitles && section.title && /* @__PURE__ */ jsx41("p", {
               className: styles24.sectionTitle,
               children: section.title
             }),
@@ -4348,7 +4422,8 @@ function SidebarNav({ brand, sections, footer, renderItem, className }) {
               children: section.items.map((item, itemIndex) => /* @__PURE__ */ jsx41("li", {
                 children: /* @__PURE__ */ jsx41(SidebarNavEntry, {
                   item,
-                  renderItem
+                  renderItem,
+                  showDescriptions
                 })
               }, item.id ?? item.href ?? `${item.label}-${itemIndex}`))
             })
@@ -4482,19 +4557,21 @@ import { jsx as jsx43, jsxs as jsxs34 } from "react/jsx-runtime";
 var styles26 = {
   root: css36({
     display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     gap: "4",
-    bg: "app.surface",
+    bg: "rgba(255, 255, 255, 0.88)",
     borderWidth: "1px",
     borderColor: "app.border",
     boxShadow: "{shadows.whisper}",
-    rounded: "l3",
+    rounded: "2xl",
     p: "5"
   }),
   number: css36({
-    w: "10",
-    h: "10",
-    rounded: "l2",
-    bg: "app.accent.soft",
+    w: "8",
+    h: "8",
+    rounded: "xl",
+    bg: "rgba(45, 100, 97, 0.08)",
     color: "app.accent",
     display: "flex",
     alignItems: "center",
@@ -4505,7 +4582,8 @@ var styles26 = {
   }),
   content: css36({
     flex: 1,
-    minW: 0
+    minW: 0,
+    paddingRight: "2"
   }),
   title: css36({
     textStyle: "sectionTitle",
@@ -4515,29 +4593,45 @@ var styles26 = {
     textStyle: "small",
     color: "app.text.muted",
     mt: "1.5"
+  }),
+  endSlot: css36({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "app.text.subtle",
+    flexShrink: 0
   })
 };
-function StepCard({ step, title, description, children, className }) {
+function StepCard({ step, title, description, children, endSlot, className }) {
   return /* @__PURE__ */ jsxs34("div", {
     className: cx36(styles26.root, className),
     children: [
-      /* @__PURE__ */ jsx43("div", {
-        className: styles26.number,
-        children: step
-      }),
       /* @__PURE__ */ jsxs34("div", {
-        className: styles26.content,
+        className: css36({ display: "flex", alignItems: "center", gap: "4", minWidth: 0, flex: "1" }),
         children: [
           /* @__PURE__ */ jsx43("div", {
-            className: styles26.title,
-            children: title
+            className: styles26.number,
+            children: step
           }),
-          description && /* @__PURE__ */ jsx43("div", {
-            className: styles26.description,
-            children: description
-          }),
-          children
+          /* @__PURE__ */ jsxs34("div", {
+            className: styles26.content,
+            children: [
+              /* @__PURE__ */ jsx43("div", {
+                className: styles26.title,
+                children: title
+              }),
+              description && /* @__PURE__ */ jsx43("div", {
+                className: styles26.description,
+                children: description
+              }),
+              children
+            ]
+          })
         ]
+      }),
+      endSlot && /* @__PURE__ */ jsx43("div", {
+        className: styles26.endSlot,
+        children: endSlot
       })
     ]
   });
@@ -4846,6 +4940,11 @@ var styles28 = {
     bg: "app.surface.muted",
     boxShadow: "{shadows.panel}"
   }),
+  rootAccent: css38({
+    bg: "app.accent",
+    borderColor: "transparent",
+    boxShadow: "none"
+  }),
   copy: css38({
     display: "flex",
     flexDirection: "column",
@@ -4855,14 +4954,23 @@ var styles28 = {
     textStyle: "eyebrow",
     color: "app.text.subtle"
   }),
+  eyebrowAccent: css38({
+    color: "rgba(248, 249, 249, 0.72)"
+  }),
   title: css38({
     textStyle: "sectionTitle",
     color: "app.text"
+  }),
+  titleAccent: css38({
+    color: "app.text.inverse"
   }),
   description: css38({
     textStyle: "body",
     color: "app.text.muted",
     maxWidth: "2xl"
+  }),
+  descriptionAccent: css38({
+    color: "rgba(248, 249, 249, 0.76)"
   }),
   actions: css38({
     display: "flex",
@@ -4882,24 +4990,25 @@ function SupportPanel({
   description,
   actions,
   aside,
+  tone = "muted",
   className
 }) {
   return /* @__PURE__ */ jsxs36("section", {
-    className: cx38(styles28.root, className),
+    className: cx38(styles28.root, tone === "accent" && styles28.rootAccent, className),
     children: [
       /* @__PURE__ */ jsxs36("div", {
         className: styles28.copy,
         children: [
           eyebrow && /* @__PURE__ */ jsx45("div", {
-            className: styles28.eyebrow,
+            className: cx38(styles28.eyebrow, tone === "accent" && styles28.eyebrowAccent),
             children: eyebrow
           }),
           /* @__PURE__ */ jsx45("div", {
-            className: styles28.title,
+            className: cx38(styles28.title, tone === "accent" && styles28.titleAccent),
             children: title
           }),
           description && /* @__PURE__ */ jsx45("div", {
-            className: styles28.description,
+            className: cx38(styles28.description, tone === "accent" && styles28.descriptionAccent),
             children: description
           }),
           actions && /* @__PURE__ */ jsx45("div", {
@@ -4923,21 +5032,21 @@ var styles29 = {
   root: css39({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
-    paddingX: { base: "4", md: "6", xl: "8" },
-    paddingY: "4"
+    gap: "3",
+    paddingX: { base: "4", md: "6", xl: "6" },
+    paddingY: "3.5"
   }),
   row: css39({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     justifyContent: "space-between",
     flexDirection: { base: "column", md: "row" },
-    gap: "4"
+    gap: "3"
   }),
   left: css39({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
-    gap: "4",
+    gap: "6",
     minWidth: 0,
     flex: "1"
   }),
@@ -4957,7 +5066,8 @@ var styles29 = {
   }),
   center: css39({
     width: "100%",
-    maxWidth: { base: "full", md: "28rem" }
+    maxWidth: { base: "full", md: "none" },
+    flex: { md: "1" }
   }),
   trailing: css39({
     display: "flex",
@@ -5209,5 +5319,5 @@ export {
   AccentLabel
 };
 
-//# debugId=C8C49FFCB5B82E4764756E2164756E21
+//# debugId=9EBA2B229D3261F164756E2164756E21
 //# sourceMappingURL=index.js.map

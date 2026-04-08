@@ -4,8 +4,8 @@ export const textStyles = defineTextStyles({
 	display: {
 		value: {
 			fontFamily: 'display',
-			fontSize: '3.75rem',
-			fontWeight: '700',
+			fontSize: '3.875rem',
+			fontWeight: '760',
 			lineHeight: '1.02',
 			letterSpacing: '-0.03em',
 		},
@@ -13,9 +13,9 @@ export const textStyles = defineTextStyles({
 	h1: {
 		value: {
 			fontFamily: 'body',
-			fontSize: '3rem',
-			fontWeight: '800',
-			lineHeight: '1.06',
+			fontSize: '3.75rem',
+			fontWeight: '760',
+			lineHeight: '1.02',
 			letterSpacing: '-0.03em',
 		},
 	},
@@ -74,9 +74,9 @@ export const textStyles = defineTextStyles({
 		description: 'Primary page title used in app workspace intros.',
 		value: {
 			fontFamily: 'body',
-			fontSize: '3rem',
-			fontWeight: '800',
-			lineHeight: '1.05',
+			fontSize: '2.5rem',
+			fontWeight: '760',
+			lineHeight: '1.04',
 			letterSpacing: '-0.03em',
 		},
 	},
@@ -84,8 +84,8 @@ export const textStyles = defineTextStyles({
 		description: 'Panel and section title within product workspaces.',
 		value: {
 			fontFamily: 'body',
-			fontSize: '1.125rem',
-			fontWeight: '700',
+			fontSize: '1rem',
+			fontWeight: '650',
 			lineHeight: '1.25',
 		},
 	},
@@ -102,8 +102,8 @@ export const textStyles = defineTextStyles({
 		description: 'Large metric value used in KPI tiles.',
 		value: {
 			fontFamily: 'body',
-			fontSize: '2rem',
-			fontWeight: '800',
+			fontSize: '1.8rem',
+			fontWeight: '760',
 			lineHeight: '1',
 			letterSpacing: '-0.03em',
 		},
@@ -112,10 +112,10 @@ export const textStyles = defineTextStyles({
 		description: 'Small uppercase metric label used in KPI tiles.',
 		value: {
 			fontFamily: 'body',
-			fontSize: '0.75rem',
+			fontSize: '0.6875rem',
 			fontWeight: '700',
 			lineHeight: '1.2',
-			letterSpacing: '0.12em',
+			letterSpacing: '0.14em',
 			textTransform: 'uppercase',
 		},
 	},

@@ -16,6 +16,7 @@ export interface SecondaryNavItem {
 export interface SecondaryNavProps {
 	items: SecondaryNavItem[];
 	trailing?: ReactNode;
+	variant?: 'pill' | 'toolbar';
 	className?: string;
 }
 
@@ -86,9 +87,36 @@ const styles = {
 		flexWrap: 'wrap',
 		gap: '2.5',
 	}),
+	toolbarList: css({
+		gap: '5',
+	}),
+	toolbarItem: css({
+		minHeight: 'auto',
+		paddingX: '0',
+		paddingY: '2',
+		borderRadius: '0',
+		borderWidth: '0',
+		color: 'app.text.subtle',
+		_hover: {
+			bg: 'transparent',
+			color: 'app.text',
+		},
+	}),
+	toolbarItemActive: css({
+		bg: 'transparent',
+		borderColor: 'transparent',
+		color: 'app.text',
+		boxShadow: 'inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)',
+	}),
 };
 
-function SecondaryNavEntry({ item }: { item: SecondaryNavItem }) {
+function SecondaryNavEntry({
+	item,
+	variant,
+}: {
+	item: SecondaryNavItem;
+	variant: NonNullable<SecondaryNavProps['variant']>;
+}) {
 	const content = (
 		<>
 			{item.icon}
@@ -97,7 +125,12 @@ function SecondaryNavEntry({ item }: { item: SecondaryNavItem }) {
 		</>
 	);
 
-	const className = cx(styles.item, item.active && styles.itemActive);
+	const className = cx(
+		styles.item,
+		variant === 'toolbar' && styles.toolbarItem,
+		item.active && styles.itemActive,
+		item.active && variant === 'toolbar' && styles.toolbarItemActive,
+	);
 
 	if (item.href) {
 		return (
@@ -114,13 +147,13 @@ function SecondaryNavEntry({ item }: { item: SecondaryNavItem }) {
 	);
 }
 
-export function SecondaryNav({ items, trailing, className }: SecondaryNavProps) {
+export function SecondaryNav({ items, trailing, variant = 'pill', className }: SecondaryNavProps) {
 	return (
 		<div className={cx(styles.root, className)}>
-			<ul className={styles.list}>
+			<ul className={cx(styles.list, variant === 'toolbar' && styles.toolbarList)}>
 				{items.map((item) => (
 					<li key={item.id ?? item.href ?? item.label}>
-						<SecondaryNavEntry item={item} />
+						<SecondaryNavEntry item={item} variant={variant} />
 					</li>
 				))}
 			</ul>
