@@ -3781,13 +3781,11 @@ var segmentGroup = defineSlotRecipe33({
   slots: segmentGroupAnatomy.keys(),
   base: {
     root: {
-      bg: {
-        _light: "gray.2",
-        _dark: "gray.1"
-      },
+      bg: "app.surface.muted",
       borderRadius: "l3",
-      boxShadow: "inset 0 0 0px 1px var(--shadow-color)",
-      boxShadowColor: "border",
+      borderWidth: "1px",
+      borderColor: "app.border",
+      padding: "1",
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
@@ -3801,6 +3799,7 @@ var segmentGroup = defineSlotRecipe33({
     item: {
       alignItems: "center",
       borderRadius: "l3",
+      color: "app.text.muted",
       display: "inline-flex",
       flexShrink: "0",
       fontWeight: "medium",
@@ -3817,7 +3816,7 @@ var segmentGroup = defineSlotRecipe33({
       _before: {
         content: '""',
         position: "absolute",
-        bg: "gray.surface.border",
+        bg: "transparent",
         transition: "opacity 0.2s"
       },
       _horizontal: {
@@ -3838,17 +3837,18 @@ var segmentGroup = defineSlotRecipe33({
         _before: {
           opacity: "0"
         }
+      },
+      "&[data-state=checked]": {
+        color: "app.text"
       }
     },
     indicator: {
-      bg: {
-        _light: "white",
-        _dark: "gray.2"
-      },
+      bg: "app.surface",
       borderWidth: "1px",
-      borderColor: "gray.surface.border",
+      borderColor: "app.border",
       borderRadius: "l3",
       height: "var(--height)",
+      boxShadow: "{shadows.panel}",
       pos: "absolute",
       width: "var(--width)",
       zIndex: -1
@@ -3856,9 +3856,11 @@ var segmentGroup = defineSlotRecipe33({
   },
   variants: {
     size: {
-      xs: { item: { h: "8", minW: "8", textStyle: "sm", px: "2.5", _icon: { boxSize: "4" } } },
-      sm: { item: { h: "9", minW: "9", textStyle: "sm", px: "3", _icon: { boxSize: "4" } } },
-      md: { item: { h: "10", minW: "10", textStyle: "sm", px: "3.5", _icon: { boxSize: "5" } } },
+      xs: { item: { h: "8", minW: "8", textStyle: "caption", px: "2.5", _icon: { boxSize: "4" } } },
+      sm: { item: { h: "9", minW: "9", textStyle: "small", px: "3", _icon: { boxSize: "4" } } },
+      md: {
+        item: { h: "10", minW: "10", textStyle: "small", px: "3.5", _icon: { boxSize: "4.5" } }
+      },
       lg: { item: { h: "11", minW: "11", textStyle: "md", px: "4", _icon: { boxSize: "5" } } },
       xl: { item: { h: "12", minW: "12", textStyle: "md", px: "4.5", _icon: { boxSize: "5.5" } } }
     },
@@ -5822,9 +5824,9 @@ function createAxionicPreset() {
                 }
               },
               text: {
-                DEFAULT: { value: { _light: "#2d5654", _dark: "#e3fdff" } },
-                muted: { value: { _light: "#6c7f7e", _dark: "#a0bec1" } },
-                subtle: { value: { _light: "#8a9998", _dark: "#88a5a8" } },
+                DEFAULT: { value: { _light: "#243634", _dark: "#e3fdff" } },
+                muted: { value: { _light: "#637472", _dark: "#a0bec1" } },
+                subtle: { value: { _light: "#83918f", _dark: "#88a5a8" } },
                 inverse: { value: { _light: "#f8f9f9", _dark: "#f8f9f9" } }
               }
             },
@@ -5919,5 +5921,5 @@ export {
   axionicSand
 };
 
-//# debugId=552DCCFF3EDB5C2064756E2164756E21
+//# debugId=4264DADF06CAA0F364756E2164756E21
 //# sourceMappingURL=index.js.map

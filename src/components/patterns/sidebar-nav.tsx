@@ -42,7 +42,7 @@ const styles = {
 		height: '100%',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
+		gap: '3.5',
 	}),
 	brand: css({
 		display: 'flex',
@@ -52,7 +52,7 @@ const styles = {
 	sections: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '6',
+		gap: '4',
 		flex: '1',
 	}),
 	section: css({
@@ -69,7 +69,7 @@ const styles = {
 		listStyle: 'none',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '1.5',
+		gap: '1',
 		padding: '0',
 		margin: '0',
 	}),
@@ -79,24 +79,20 @@ const styles = {
 		display: 'grid',
 		gridTemplateColumns: 'auto minmax(0, 1fr) auto',
 		alignItems: 'center',
-		gap: '3',
+		gap: '2.25',
 		paddingX: '3.5',
-		paddingY: '3',
+		paddingY: '2.25',
 		borderRadius: 'xl',
-		borderWidth: '1px',
-		borderColor: 'transparent',
 		color: 'app.text.muted',
 		bg: 'transparent',
 		textAlign: 'left',
 		textDecoration: 'none',
-		transitionProperty: 'background-color, border-color, color, box-shadow, transform',
+		transitionProperty: 'background-color, color, box-shadow, transform',
 		transitionDuration: '180ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
 			bg: 'app.surface',
-			borderColor: 'transparent',
 			color: 'app.text',
-			boxShadow: '{shadows.whisper}',
 		},
 		_focusVisible: {
 			outline: '2px solid',
@@ -109,16 +105,15 @@ const styles = {
 		},
 	}),
 	itemActive: css({
-		bg: 'app.nav.active',
-		borderColor: 'transparent',
+		bg: 'app.surface',
 		color: 'app.text',
-		boxShadow: '{shadows.whisper}',
+		boxShadow: '{shadows.panel}',
 	}),
 	itemIcon: css({
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '5',
+		boxSize: '4.5',
 		color: 'app.text.subtle',
 	}),
 	itemText: css({
@@ -128,8 +123,11 @@ const styles = {
 		gap: '0.5',
 	}),
 	itemLabel: css({
-		textStyle: 'toolbarLabel',
+		textStyle: 'caption',
 		color: 'currentColor',
+		fontWeight: '600',
+		letterSpacing: '0.1em',
+		textTransform: 'uppercase',
 	}),
 	itemDescription: css({
 		textStyle: 'small',
@@ -155,7 +153,7 @@ const styles = {
 		textStyle: 'caption',
 	}),
 	footer: css({
-		paddingTop: '4',
+		paddingTop: '4.5',
 		borderTopWidth: '1px',
 		borderColor: 'app.border',
 	}),
@@ -175,7 +173,9 @@ function SidebarNavEntry({
 			{item.icon && <span className={styles.itemIcon}>{item.icon}</span>}
 			<span className={styles.itemText}>
 				<span className={styles.itemLabel}>{item.label}</span>
-				{showDescriptions && item.description && <span className={styles.itemDescription}>{item.description}</span>}
+				{showDescriptions && item.description && (
+					<span className={styles.itemDescription}>{item.description}</span>
+				)}
 			</span>
 			<span className={styles.itemEnd}>
 				{item.badge && <span className={styles.badge}>{item.badge}</span>}
@@ -239,11 +239,17 @@ export function SidebarNav({
 			<div className={styles.sections}>
 				{sections.map((section, index) => (
 					<section key={section.title ?? index} className={styles.section}>
-						{showSectionTitles && section.title && <p className={styles.sectionTitle}>{section.title}</p>}
+						{showSectionTitles && section.title && (
+							<p className={styles.sectionTitle}>{section.title}</p>
+						)}
 						<ul className={styles.list}>
 							{section.items.map((item, itemIndex) => (
 								<li key={item.id ?? item.href ?? `${item.label}-${itemIndex}`}>
-									<SidebarNavEntry item={item} renderItem={renderItem} showDescriptions={showDescriptions} />
+									<SidebarNavEntry
+										item={item}
+										renderItem={renderItem}
+										showDescriptions={showDescriptions}
+									/>
 								</li>
 							))}
 						</ul>

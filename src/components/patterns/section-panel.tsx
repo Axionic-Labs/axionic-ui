@@ -26,11 +26,9 @@ const styles = {
 	}),
 	default: css({
 		bg: 'app.surface',
-		boxShadow: '{shadows.whisper}',
 	}),
 	muted: css({
 		bg: 'app.surface.muted',
-		boxShadow: '{shadows.panel}',
 	}),
 	header: css({
 		display: 'flex',
@@ -38,8 +36,8 @@ const styles = {
 		justifyContent: 'space-between',
 		flexDirection: { base: 'column', md: 'row' },
 		gap: '4',
-		paddingX: { base: '5', md: '6' },
-		paddingY: { base: '5', md: '6' },
+		paddingX: { base: '4.5', md: '5.5' },
+		paddingY: { base: '4.5', md: '5' },
 	}),
 	headerBorder: css({
 		borderBottomWidth: '1px',
@@ -79,8 +77,8 @@ const styles = {
 		gap: '3',
 	}),
 	body: css({
-		paddingX: { base: '5', md: '6' },
-		paddingY: { base: '5', md: '6' },
+		paddingX: { base: '4.5', md: '5.5' },
+		paddingY: { base: '4.5', md: '5.5' },
 	}),
 	footer: css({
 		paddingX: { base: '5', md: '6' },

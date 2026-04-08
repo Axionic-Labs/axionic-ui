@@ -122,9 +122,9 @@ export function createAxionicPreset() {
 								},
 							},
 							text: {
-								DEFAULT: { value: { _light: '#2d5654', _dark: '#e3fdff' } },
-								muted: { value: { _light: '#6c7f7e', _dark: '#a0bec1' } },
-								subtle: { value: { _light: '#8a9998', _dark: '#88a5a8' } },
+								DEFAULT: { value: { _light: '#243634', _dark: '#e3fdff' } },
+								muted: { value: { _light: '#637472', _dark: '#a0bec1' } },
+								subtle: { value: { _light: '#83918f', _dark: '#88a5a8' } },
 								inverse: { value: { _light: '#f8f9f9', _dark: '#f8f9f9' } },
 							},
 						},

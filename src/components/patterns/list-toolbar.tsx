@@ -8,6 +8,7 @@ export interface ListToolbarProps {
 	filters?: ReactNode;
 	meta?: ReactNode;
 	actions?: ReactNode;
+	variant?: 'panel' | 'inline';
 	className?: string;
 }
 
@@ -18,12 +19,19 @@ const styles = {
 		justifyContent: 'space-between',
 		flexDirection: { base: 'column', xl: 'row' },
 		gap: '3',
+	}),
+	panel: css({
 		padding: { base: '4', md: '4.5' },
 		borderRadius: 'l3',
 		borderWidth: '1px',
 		borderColor: 'app.border',
-		bg: 'app.surface.muted',
-		boxShadow: '{shadows.panel}',
+		bg: 'app.surface',
+	}),
+	inline: css({
+		padding: '0',
+		borderRadius: '0',
+		borderWidth: '0',
+		bg: 'transparent',
 	}),
 	leading: css({
 		display: 'flex',
@@ -54,9 +62,16 @@ const styles = {
 	}),
 };
 
-export function ListToolbar({ search, filters, meta, actions, className }: ListToolbarProps) {
+export function ListToolbar({
+	search,
+	filters,
+	meta,
+	actions,
+	variant = 'panel',
+	className,
+}: ListToolbarProps) {
 	return (
-		<div className={cx(styles.root, className)}>
+		<div className={cx(styles.root, variant === 'panel' ? styles.panel : styles.inline, className)}>
 			<div className={styles.leading}>
 				{search}
 				{filters && <div className={styles.filters}>{filters}</div>}

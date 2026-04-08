@@ -31,7 +31,7 @@ const styles = {
 		borderColor: 'app.border',
 		borderBottomWidth: { base: '1px', lg: '0' },
 		borderRightWidth: { base: '0', lg: '1px' },
-		padding: { base: '4', md: '5', lg: '6' },
+		padding: { base: '4', md: '4.5', lg: '4.5' },
 		position: { base: 'relative', lg: 'sticky' },
 		top: { base: 'auto', lg: '0' },
 		height: { base: 'auto', lg: '100dvh' },
@@ -50,7 +50,7 @@ const styles = {
 		minWidth: 0,
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '6',
+		gap: '4.5',
 	}),
 	aside: css({
 		minWidth: 0,
@@ -75,15 +75,15 @@ export function AppShell({
 }: AppShellProps) {
 	const rootClassName = css({
 		display: 'grid',
-		gridTemplateColumns: sidebar ? { base: '1fr', lg: '15.5rem minmax(0, 1fr)' } : '1fr',
+		gridTemplateColumns: sidebar ? { base: '1fr', lg: '13rem minmax(0, 1fr)' } : '1fr',
 	});
 
 	const contentClassName = css({
 		flex: '1',
 		display: 'grid',
-		gap: '5',
-		paddingX: { base: '4', md: '6', xl: '6' },
-		paddingY: { base: '4', md: '5', xl: '6' },
+		gap: '4',
+		paddingX: { base: '4', md: '4.5', xl: '5' },
+		paddingY: { base: '4', md: '4.5', xl: '4.5' },
 		gridTemplateColumns: aside ? { base: '1fr', xl: 'minmax(0, 1fr) 22rem' } : '1fr',
 		alignItems: 'start',
 	});

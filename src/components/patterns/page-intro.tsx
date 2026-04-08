@@ -17,19 +17,19 @@ const styles = {
 	root: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
+		gap: '3.5',
 	}),
 	row: css({
 		display: 'flex',
 		flexDirection: { base: 'column', lg: 'row' },
-		alignItems: { base: 'flex-start', lg: 'flex-end' },
+		alignItems: { base: 'flex-start', lg: 'flex-start' },
 		justifyContent: 'space-between',
-		gap: '5',
+		gap: '3.5',
 	}),
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '3',
+		gap: '2',
 		maxWidth: '3xl',
 	}),
 	eyebrow: css({
@@ -61,7 +61,7 @@ const styles = {
 	children: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '2.5',
 	}),
 };
 

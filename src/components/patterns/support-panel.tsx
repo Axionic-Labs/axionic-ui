@@ -82,9 +82,17 @@ export function SupportPanel({
 	return (
 		<section className={cx(styles.root, tone === 'accent' && styles.rootAccent, className)}>
 			<div className={styles.copy}>
-				{eyebrow && <div className={cx(styles.eyebrow, tone === 'accent' && styles.eyebrowAccent)}>{eyebrow}</div>}
+				{eyebrow && (
+					<div className={cx(styles.eyebrow, tone === 'accent' && styles.eyebrowAccent)}>
+						{eyebrow}
+					</div>
+				)}
 				<div className={cx(styles.title, tone === 'accent' && styles.titleAccent)}>{title}</div>
-				{description && <div className={cx(styles.description, tone === 'accent' && styles.descriptionAccent)}>{description}</div>}
+				{description && (
+					<div className={cx(styles.description, tone === 'accent' && styles.descriptionAccent)}>
+						{description}
+					</div>
+				)}
 				{actions && <div className={styles.actions}>{actions}</div>}
 			</div>
 			{aside && <div className={styles.aside}>{aside}</div>}

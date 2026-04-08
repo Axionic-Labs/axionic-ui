@@ -32,11 +32,13 @@ describe('@axionic/ui entry point smoke tests', () => {
 		expect(mod.ActionCard).toBeDefined();
 		expect(mod.CreditPill).toBeDefined();
 		expect(mod.CredentialCard).toBeDefined();
+		expect(mod.OptionRow).toBeDefined();
 		expect(mod.DetailDialog).toBeDefined();
 		expect(mod.DetailPanel).toBeDefined();
 		expect(mod.HeroPanel).toBeDefined();
 		expect(mod.MetricRail).toBeDefined();
 		expect(mod.PageIntro).toBeDefined();
+		expect(mod.PickerField).toBeDefined();
 		expect(mod.ResourceList).toBeDefined();
 		expect(mod.SecondaryNav).toBeDefined();
 		expect(mod.SecretField).toBeDefined();

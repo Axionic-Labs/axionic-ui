@@ -4,7 +4,8 @@ export interface ListToolbarProps {
     filters?: ReactNode;
     meta?: ReactNode;
     actions?: ReactNode;
+    variant?: 'panel' | 'inline';
     className?: string;
 }
-export declare function ListToolbar({ search, filters, meta, actions, className }: ListToolbarProps): import("react/jsx-runtime").JSX.Element;
+export declare function ListToolbar({ search, filters, meta, actions, variant, className, }: ListToolbarProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=list-toolbar.d.ts.map

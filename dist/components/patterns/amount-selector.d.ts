@@ -3,8 +3,12 @@ export interface AmountSelectorProps {
     presets?: number[];
     /** Currently selected amount */
     value: number;
+    /** Raw custom input value when the parent wants to control it */
+    customValue?: string;
     /** Called when the selected amount changes */
     onChange: (amount: number) => void;
+    /** Called when the raw custom input changes */
+    onCustomValueChange?: (value: string) => void;
     /** Minimum allowed amount */
     min?: number;
     /** Maximum allowed amount */
@@ -39,5 +43,5 @@ export interface AmountSelectorProps {
  * />
  * ```
  */
-export declare function AmountSelector({ presets, value, onChange, min, max, currency, loading, disabled, onSubmit, submitLabel, className, }: AmountSelectorProps): import("react/jsx-runtime").JSX.Element;
+export declare function AmountSelector({ presets, value, customValue, onChange, onCustomValueChange, min, max, currency, loading, disabled, onSubmit, submitLabel, className, }: AmountSelectorProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=amount-selector.d.ts.map

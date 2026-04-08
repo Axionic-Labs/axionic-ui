@@ -6,18 +6,16 @@ export declare const Description: import("styled-system/jsx").StyleContextConsum
 export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
+    onChange?: import("react").ChangeEventHandler<HTMLSpanElement, Element> | undefined;
+    onSubmit?: import("react").SubmitEventHandler<HTMLSpanElement> | undefined;
     className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLSpanElement> | undefined;
     children?: import("react").ReactNode;
     onClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
-    onKeyDown?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
-    tabIndex?: number | undefined | undefined;
-    role?: import("react").AriaRole | undefined;
+    hidden?: boolean | undefined | undefined;
+    title?: string | undefined | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -37,6 +35,9 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
+    tabIndex?: number | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
+    role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -136,7 +137,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onFocusCapture?: import("react").FocusEventHandler<HTMLSpanElement> | undefined;
     onBlur?: import("react").FocusEventHandler<HTMLSpanElement> | undefined;
     onBlurCapture?: import("react").FocusEventHandler<HTMLSpanElement> | undefined;
-    onChange?: import("react").ChangeEventHandler<HTMLSpanElement, Element> | undefined;
     onChangeCapture?: import("react").ChangeEventHandler<HTMLSpanElement, Element> | undefined;
     onBeforeInput?: import("react").InputEventHandler<HTMLSpanElement> | undefined;
     onBeforeInputCapture?: import("react").InputEventHandler<HTMLSpanElement> | undefined;
@@ -144,7 +144,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onInputCapture?: import("react").InputEventHandler<HTMLSpanElement> | undefined;
     onReset?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onResetCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
-    onSubmit?: import("react").SubmitEventHandler<HTMLSpanElement> | undefined;
     onSubmitCapture?: import("react").SubmitEventHandler<HTMLSpanElement> | undefined;
     onInvalid?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onInvalidCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
@@ -152,6 +151,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onLoadCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onError?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onErrorCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
+    onKeyDown?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
     onKeyDownCapture?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
     onKeyPress?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
     onKeyPressCapture?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;

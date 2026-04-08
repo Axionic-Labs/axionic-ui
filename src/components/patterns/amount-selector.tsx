@@ -8,8 +8,12 @@ export interface AmountSelectorProps {
 	presets?: number[];
 	/** Currently selected amount */
 	value: number;
+	/** Raw custom input value when the parent wants to control it */
+	customValue?: string;
 	/** Called when the selected amount changes */
 	onChange: (amount: number) => void;
+	/** Called when the raw custom input changes */
+	onCustomValueChange?: (value: string) => void;
 	/** Minimum allowed amount */
 	min?: number;
 	/** Maximum allowed amount */
@@ -30,9 +34,9 @@ export interface AmountSelectorProps {
 
 const styles = {
 	root: css({
-		bg: 'bg.default',
+		bg: 'app.surface',
 		borderWidth: '1px',
-		borderColor: 'border.muted',
+		borderColor: 'app.border',
 		rounded: 'l3',
 		p: '6',
 		display: 'flex',
@@ -40,8 +44,8 @@ const styles = {
 		gap: '5',
 	}),
 	sectionLabel: css({
-		textStyle: 'small',
-		color: 'fg.muted',
+		textStyle: 'caption',
+		color: 'app.text.subtle',
 		mb: '3',
 	}),
 	presetRow: css({
@@ -52,7 +56,7 @@ const styles = {
 	presetBase: css({
 		px: '5',
 		py: '2',
-		rounded: 'l2',
+		rounded: 'full',
 		fontWeight: 'medium',
 		fontSize: 'sm',
 		cursor: 'pointer',
@@ -60,22 +64,22 @@ const styles = {
 		borderWidth: '1px',
 	}),
 	presetActive: css({
-		bg: 'colorPalette.9',
-		color: 'white',
-		borderColor: 'colorPalette.9',
+		bg: 'app.accent',
+		color: 'app.text.inverse',
+		borderColor: 'transparent',
 	}),
 	presetInactive: css({
-		bg: 'bg.default',
-		color: 'fg.default',
-		borderColor: 'border.default',
+		bg: 'app.surface.muted',
+		color: 'app.text',
+		borderColor: 'transparent',
 		_hover: {
-			borderColor: 'colorPalette.a3',
-			color: 'colorPalette.11',
+			bg: 'app.canvas.subtle',
+			color: 'app.text',
 		},
 	}),
 	inputLabel: css({
-		textStyle: 'small',
-		color: 'fg.muted',
+		textStyle: 'caption',
+		color: 'app.text.subtle',
 		mb: '2',
 	}),
 	inputRow: css({
@@ -85,7 +89,7 @@ const styles = {
 	}),
 	currencySymbol: css({
 		fontSize: 'lg',
-		color: 'fg.muted',
+		color: 'app.text.subtle',
 	}),
 	input: css({
 		flex: 1,
@@ -93,14 +97,14 @@ const styles = {
 		py: '2',
 		rounded: 'l2',
 		borderWidth: '1px',
-		borderColor: 'border.default',
-		bg: 'transparent',
-		color: 'fg.default',
+		borderColor: 'app.border',
+		bg: 'app.surface',
+		color: 'app.text',
 		fontSize: 'sm',
 		outline: 'none',
 		_focus: {
 			ringWidth: '2px',
-			ringColor: 'colorPalette.a3',
+			ringColor: 'app.accent.soft',
 			ringOffset: '0',
 		},
 		_disabled: {
@@ -110,7 +114,7 @@ const styles = {
 	}),
 	currencyCode: css({
 		fontSize: 'sm',
-		color: 'fg.subtle',
+		color: 'app.text.subtle',
 	}),
 	validationError: css({
 		fontSize: 'xs',
@@ -121,16 +125,16 @@ const styles = {
 		alignSelf: 'flex-end',
 		px: '8',
 		py: '2.5',
-		rounded: 'l2',
+		rounded: 'full',
 		fontWeight: 'medium',
 		fontSize: 'sm',
-		bg: 'colorPalette.9',
-		color: 'white',
+		bg: 'app.accent',
+		color: 'app.text.inverse',
 		cursor: 'pointer',
 		transition: 'all 150ms',
 		borderWidth: '0',
 		_hover: {
-			bg: 'colorPalette.10',
+			opacity: 0.92,
 		},
 		_disabled: {
 			opacity: 0.5,
@@ -159,7 +163,9 @@ const styles = {
 export function AmountSelector({
 	presets = [5, 10, 25, 50, 100],
 	value,
+	customValue,
 	onChange,
+	onCustomValueChange,
 	min = 5,
 	max = 500,
 	currency = '$',
@@ -170,6 +176,7 @@ export function AmountSelector({
 	className,
 }: AmountSelectorProps) {
 	const [customInput, setCustomInput] = useState('');
+	const resolvedCustomInput = customValue ?? customInput;
 
 	const validationError =
 		value < min
@@ -180,11 +187,13 @@ export function AmountSelector({
 
 	const handlePresetClick = (preset: number) => {
 		setCustomInput('');
+		onCustomValueChange?.('');
 		onChange(preset);
 	};
 
 	const handleCustomChange = (raw: string) => {
 		setCustomInput(raw);
+		onCustomValueChange?.(raw);
 		const parsed = Number.parseFloat(raw);
 		if (!Number.isNaN(parsed) && parsed > 0) {
 			onChange(parsed);
@@ -215,7 +224,9 @@ export function AmountSelector({
 							onClick={() => handlePresetClick(preset)}
 							className={cx(
 								styles.presetBase,
-								value === preset && !customInput ? styles.presetActive : styles.presetInactive,
+								value === preset && !resolvedCustomInput
+									? styles.presetActive
+									: styles.presetInactive,
 							)}
 						>
 							{currency}
@@ -235,7 +246,7 @@ export function AmountSelector({
 						min={min}
 						max={max}
 						step="0.01"
-						value={customInput}
+						value={resolvedCustomInput}
 						onChange={(e) => handleCustomChange(e.target.value)}
 						placeholder={`${min} - ${max}`}
 						disabled={disabled}
@@ -243,7 +254,7 @@ export function AmountSelector({
 					/>
 					<span className={styles.currencyCode}>USD</span>
 				</div>
-				{validationError && customInput && (
+				{validationError && resolvedCustomInput && (
 					<div className={styles.validationError}>{validationError}</div>
 				)}
 			</div>

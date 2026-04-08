@@ -61,10 +61,19 @@ const styles = {
 	}),
 };
 
-export function StepCard({ step, title, description, children, endSlot, className }: StepCardProps) {
+export function StepCard({
+	step,
+	title,
+	description,
+	children,
+	endSlot,
+	className,
+}: StepCardProps) {
 	return (
 		<div className={cx(styles.root, className)}>
-			<div className={css({ display: 'flex', alignItems: 'center', gap: '4', minWidth: 0, flex: '1' })}>
+			<div
+				className={css({ display: 'flex', alignItems: 'center', gap: '4', minWidth: 0, flex: '1' })}
+			>
 				<div className={styles.number}>{step}</div>
 				<div className={styles.content}>
 					<div className={styles.title}>{title}</div>
