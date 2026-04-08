@@ -2,8 +2,8 @@
 
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
-import * as Dialog from '../ui/dialog';
 import { Button } from '../ui/button';
+import * as Dialog from '../ui/dialog';
 
 export interface ConfirmDialogProps {
 	/** Controls dialog visibility. */
@@ -44,7 +44,8 @@ const accentBar = css({
 });
 
 const tealGradient = css({
-	background: 'linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})',
+	background:
+		'linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})',
 });
 
 const dangerGradient = css({
@@ -104,11 +105,7 @@ export function ConfirmDialog({
 	className,
 }: ConfirmDialogProps) {
 	return (
-		<Dialog.Root
-			open={open}
-			onOpenChange={(details) => onOpenChange(details.open)}
-			size={size}
-		>
+		<Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)} size={size}>
 			<Dialog.Backdrop />
 			<Dialog.Positioner>
 				<Dialog.Content className={className}>
@@ -117,11 +114,7 @@ export function ConfirmDialog({
 						<Dialog.Title>{title}</Dialog.Title>
 					</Dialog.Header>
 					<Dialog.Body>
-						{typeof children === 'string' ? (
-							<p className={bodyText}>{children}</p>
-						) : (
-							children
-						)}
+						{typeof children === 'string' ? <p className={bodyText}>{children}</p> : children}
 					</Dialog.Body>
 					<Dialog.Footer>
 						<Dialog.CloseTrigger asChild>

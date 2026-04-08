@@ -531,7 +531,7 @@ var button = defineRecipe3({
   base: {
     alignItems: "center",
     appearance: "none",
-    borderRadius: "l2",
+    borderRadius: "l3",
     cursor: "pointer",
     display: "inline-flex",
     flexShrink: "0",
@@ -541,8 +541,8 @@ var button = defineRecipe3({
     justifyContent: "center",
     outline: "0",
     position: "relative",
-    transition: "colors",
-    transitionProperty: "background-color, border-color, color, box-shadow",
+    transition: "all 180ms ease",
+    transitionProperty: "background-color, border-color, color, box-shadow, transform",
     userSelect: "none",
     verticalAlign: "middle",
     whiteSpace: "nowrap",
@@ -568,57 +568,86 @@ var button = defineRecipe3({
         }
       },
       surface: {
-        bg: "colorPalette.surface.bg",
+        bg: "app.surface",
         borderWidth: "1px",
-        borderColor: "colorPalette.surface.border",
-        color: "colorPalette.surface.fg",
+        borderColor: "app.border",
+        color: "app.text",
         _hover: {
-          borderColor: "colorPalette.surface.border.hover"
+          bg: "app.surface.raised",
+          borderColor: "app.border.strong"
         },
         _active: {
-          bg: "colorPalette.surface.bg.active"
+          bg: "app.surface.muted"
         },
         _on: {
-          bg: "colorPalette.surface.bg.active"
+          bg: "app.surface.muted"
         }
       },
       subtle: {
-        bg: "colorPalette.subtle.bg",
-        color: "colorPalette.subtle.fg",
+        bg: "app.surface.muted",
+        color: "app.text",
         _hover: {
-          bg: "colorPalette.subtle.bg.hover"
+          bg: "app.surface"
         },
         _active: {
-          bg: "colorPalette.subtle.bg.active"
+          bg: "app.surface.muted"
         },
         _on: {
-          bg: "colorPalette.subtle.bg.active"
+          bg: "app.surface.muted"
         }
       },
       outline: {
         borderWidth: "1px",
-        borderColor: "colorPalette.outline.border",
-        color: "colorPalette.outline.fg",
+        borderColor: "app.border",
+        color: "app.text",
         _hover: {
-          bg: "colorPalette.outline.bg.hover"
+          bg: "app.surface.muted",
+          borderColor: "app.border.strong"
         },
         _active: {
-          bg: "colorPalette.outline.bg.active"
+          bg: "app.surface.muted"
         },
         _on: {
-          bg: "colorPalette.outline.bg.active"
+          bg: "app.surface.muted"
         }
       },
       plain: {
-        color: "colorPalette.plain.fg",
+        color: "app.text",
         _hover: {
-          bg: "colorPalette.plain.bg.hover"
+          bg: "app.surface.muted"
         },
         _active: {
-          bg: "colorPalette.plain.bg.active"
+          bg: "app.accent.soft"
         },
         _on: {
-          bg: "colorPalette.plain.bg.active"
+          bg: "app.accent.soft"
+        }
+      },
+      quiet: {
+        bg: "app.surface.muted",
+        color: "app.text",
+        borderWidth: "1px",
+        borderColor: "transparent",
+        _hover: {
+          bg: "app.surface",
+          borderColor: "app.border"
+        },
+        _active: {
+          bg: "app.surface.muted"
+        }
+      },
+      toolbar: {
+        bg: "transparent",
+        color: "app.text.muted",
+        borderWidth: "1px",
+        borderColor: "transparent",
+        _hover: {
+          bg: "app.surface.muted",
+          color: "app.text"
+        },
+        _active: {
+          bg: "app.accent.soft",
+          color: "app.text"
         }
       },
       wheat: {
@@ -640,18 +669,18 @@ var button = defineRecipe3({
         _active: { bg: "colorPalette.11", color: "bg.canvas" }
       },
       oauth: {
-        bg: "bg.default",
-        color: "fg.default",
+        bg: "app.surface",
+        color: "app.text",
         borderWidth: "1px",
-        borderColor: "border.default",
+        borderColor: "app.border",
         fontWeight: "500",
-        _hover: { bg: "bg.subtle", borderColor: "colorPalette.7" }
+        _hover: { bg: "app.surface.muted", borderColor: "app.border.strong" }
       },
       "outline-brand": {
         borderWidth: "1px",
         borderColor: "colorPalette.7",
-        color: "colorPalette.11",
-        _hover: { bg: "colorPalette.a2" }
+        color: "app.text",
+        _hover: { bg: "app.accent.soft" }
       },
       light: {
         bg: "transparent",
@@ -667,14 +696,17 @@ var button = defineRecipe3({
         _hover: { bg: "colorPalette.a3" }
       },
       brand: {
-        background: "linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})",
+        background: "linear-gradient(135deg, {colors.teal.light.11}, {colors.teal.light.10})",
         color: "white",
-        boxShadow: "0 2px 8px rgba(0, 62, 68, 0.25)",
+        boxShadow: "{shadows.whisper}",
         _hover: {
-          background: "linear-gradient(135deg, {colors.teal.light.9}, {colors.teal.light.8})"
+          background: "linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})",
+          transform: "translateY(-1px)",
+          boxShadow: "{shadows.float}"
         },
         _active: {
-          background: "linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.10})"
+          background: "linear-gradient(135deg, {colors.teal.light.11}, {colors.teal.light.10})",
+          transform: "translateY(0)"
         }
       },
       danger: {
@@ -685,13 +717,13 @@ var button = defineRecipe3({
       }
     },
     size: {
-      "2xs": { h: "6", minW: "6", textStyle: "xs", px: "2", _icon: { boxSize: "3.5" } },
-      xs: { h: "8", minW: "8", textStyle: "sm", px: "2.5", _icon: { boxSize: "4" } },
-      sm: { h: "9", minW: "9", textStyle: "sm", px: "3", _icon: { boxSize: "4" } },
-      md: { h: "10", minW: "10", textStyle: "sm", px: "3.5", _icon: { boxSize: "5" } },
-      lg: { h: "11", minW: "11", textStyle: "md", px: "4", _icon: { boxSize: "5" } },
-      xl: { h: "12", minW: "12", textStyle: "md", px: "4.5", _icon: { boxSize: "5.5" } },
-      "2xl": { h: "16", minW: "16", textStyle: "xl", px: "6", _icon: { boxSize: "6" } }
+      "2xs": { h: "7", minW: "7", textStyle: "xs", px: "2.5", _icon: { boxSize: "3.5" } },
+      xs: { h: "8", minW: "8", textStyle: "sm", px: "3", _icon: { boxSize: "4" } },
+      sm: { h: "9", minW: "9", textStyle: "sm", px: "3.5", _icon: { boxSize: "4" } },
+      md: { h: "10", minW: "10", textStyle: "sm", px: "4", _icon: { boxSize: "4.5" } },
+      lg: { h: "11", minW: "11", textStyle: "md", px: "4.5", _icon: { boxSize: "5" } },
+      xl: { h: "12", minW: "12", textStyle: "md", px: "5", _icon: { boxSize: "5.5" } },
+      "2xl": { h: "16", minW: "16", textStyle: "xl", px: "6.5", _icon: { boxSize: "6" } }
     }
   }
 });
@@ -744,20 +776,25 @@ var card = defineSlotRecipe5({
     variant: {
       elevated: {
         root: {
-          bg: "gray.surface.bg",
-          boxShadow: "lg"
+          bg: "app.surface",
+          borderWidth: "1px",
+          borderColor: "app.border",
+          boxShadow: "{shadows.whisper}"
         }
       },
       outline: {
         root: {
-          bg: "gray.surface.bg",
+          bg: "app.surface",
           borderWidth: "1px",
-          borderColor: "border.default"
+          borderColor: "app.border",
+          boxShadow: "{shadows.panel}"
         }
       },
       subtle: {
         root: {
-          bg: "gray.subtle.bg"
+          bg: "app.surface.muted",
+          borderWidth: "1px",
+          borderColor: "transparent"
         }
       }
     },
@@ -767,8 +804,8 @@ var card = defineSlotRecipe5({
           cursor: "pointer",
           transition: "all 0.2s",
           _hover: {
-            boxShadow: "lg",
-            borderColor: "colorPalette.7",
+            boxShadow: "{shadows.float}",
+            borderColor: "app.border.strong",
             transform: "translateY(-1px)"
           },
           _focusVisible: {
@@ -783,7 +820,7 @@ var card = defineSlotRecipe5({
       true: {
         root: {
           borderStyle: "dashed",
-          bg: "gray.subtle.bg/50"
+          bg: "app.surface.muted"
         }
       }
     },
@@ -1199,7 +1236,7 @@ var input = {
   jsx: ["Input", "Field.Input"],
   base: {
     appearance: "none",
-    borderRadius: "l2",
+    borderRadius: "l3",
     height: "var(--input-height)",
     minHeight: "var(--input-height)",
     minW: "var(--input-height)",
@@ -1219,15 +1256,14 @@ var input = {
   variants: {
     variant: {
       outline: {
+        bg: "app.surface",
         borderWidth: "1px",
-        borderColor: "gray.outline.border",
-        borderLeftWidth: "2px",
-        borderLeftColor: "{colors.teal.light.6}",
-        transition: "border-color 0.15s, box-shadow 0.15s",
+        borderColor: "app.border",
+        color: "app.text",
+        transition: "border-color 0.15s, box-shadow 0.15s, background-color 0.15s",
         _focus: {
-          borderColor: "{colors.teal.light.8}",
-          borderLeftColor: "{colors.teal.light.9}",
-          boxShadow: "0 0 0 2px {colors.teal.light.a3}",
+          borderColor: "app.accent",
+          boxShadow: "0 0 0 3px {colors.teal.light.a3}",
           outline: "none"
         },
         _invalid: {
@@ -1236,10 +1272,15 @@ var input = {
         }
       },
       surface: {
-        bg: "gray.surface.bg",
+        bg: "app.surface.muted",
         borderWidth: "1px",
-        borderColor: "gray.surface.border",
-        focusVisibleRing: "inside",
+        borderColor: "app.border",
+        color: "app.text",
+        _focus: {
+          borderColor: "app.accent",
+          boxShadow: "0 0 0 3px {colors.teal.light.a3}",
+          outline: "none"
+        },
         _invalid: {
           focusRingColor: "error",
           borderColor: "error"
@@ -1248,9 +1289,13 @@ var input = {
       subtle: {
         borderWidth: "1px",
         borderColor: "transparent",
-        bg: "gray.subtle.bg",
-        color: "gray.subtle.fg",
-        focusVisibleRing: "inside",
+        bg: "app.canvas.subtle",
+        color: "app.text",
+        _focus: {
+          borderColor: "app.border",
+          bg: "app.surface",
+          outline: "none"
+        },
         _invalid: {
           focusRingColor: "error",
           borderColor: "error"
@@ -1277,13 +1322,13 @@ var input = {
       }
     },
     size: {
-      "2xs": { textStyle: "xs", px: "1.5", "--input-height": "sizes.7" },
-      xs: { textStyle: "sm", px: "2", "--input-height": "sizes.8" },
-      sm: { textStyle: "sm", px: "2.5", "--input-height": "sizes.9" },
-      md: { textStyle: "md", px: "3", "--input-height": "sizes.10" },
-      lg: { textStyle: "md", px: "3.5", "--input-height": "sizes.11" },
-      xl: { textStyle: "lg", px: "4", "--input-height": "sizes.12" },
-      "2xl": { textStyle: "3xl", px: "4.5", "--input-height": "sizes.16" }
+      "2xs": { textStyle: "xs", px: "2", "--input-height": "sizes.8" },
+      xs: { textStyle: "sm", px: "2.5", "--input-height": "sizes.9" },
+      sm: { textStyle: "sm", px: "3", "--input-height": "sizes.10" },
+      md: { textStyle: "md", px: "3.5", "--input-height": "sizes.11" },
+      lg: { textStyle: "md", px: "4", "--input-height": "sizes.12" },
+      xl: { textStyle: "lg", px: "4.5", "--input-height": "sizes.14" },
+      "2xl": { textStyle: "3xl", px: "5", "--input-height": "sizes.16" }
     }
   }
 };
@@ -2728,11 +2773,11 @@ var menu = defineSlotRecipe22({
   base: {
     content: {
       "--menu-z-index": "zIndex.dropdown",
-      bg: "bg.default",
+      bg: "app.surface",
       borderWidth: "1px",
-      borderColor: "border.default",
+      borderColor: "app.border",
       borderRadius: "l3",
-      boxShadow: "md",
+      boxShadow: "{shadows.float}",
       display: "flex",
       flexDirection: "column",
       maxH: "min(var(--available-height), {sizes.96})",
@@ -2754,6 +2799,7 @@ var menu = defineSlotRecipe22({
     item: {
       alignItems: "center",
       borderRadius: "l2",
+      color: "app.text",
       display: "flex",
       flex: "0 0 auto",
       outline: "0",
@@ -2762,7 +2808,7 @@ var menu = defineSlotRecipe22({
       userSelect: "none",
       width: "100%",
       _highlighted: {
-        bg: "bg.subtle"
+        bg: "app.surface.muted"
       },
       _disabled: {
         layerStyle: "disabled"
@@ -2775,7 +2821,7 @@ var menu = defineSlotRecipe22({
     },
     itemGroupLabel: {
       alignItems: "flex-start",
-      color: "fg.subtle",
+      color: "app.text.subtle",
       display: "flex",
       flexDirection: "column",
       fontWeight: "medium",
@@ -2785,7 +2831,7 @@ var menu = defineSlotRecipe22({
         content: '""',
         width: "100%",
         height: "1px",
-        bg: "border"
+        bg: "app.border"
       }
     },
     itemIndicator: {
@@ -4483,31 +4529,32 @@ var table = defineSlotRecipe38({
     },
     cell: {
       alignItems: "center",
-      color: "fg.muted",
+      color: "app.text.muted",
       textAlign: "start",
       textOverflow: "ellipsis",
       textStyle: "sm",
       whiteSpace: "nowrap",
       overflow: "hidden",
       boxShadow: "inset 0 -1px 0 0 var(--shadow-color)",
-      shadowColor: "border",
+      shadowColor: "app.border",
       _pinned: {
         bg: "inherit",
         boxShadow: "inset 0 -1px 0 0 var(--shadow-color)",
         overflow: "unset",
         position: "sticky",
-        shadowColor: "border",
+        shadowColor: "app.border",
         zIndex: 1
       }
     },
     row: {
+      transition: "background-color 160ms ease",
       _last: { "& td": { boxShadow: "none" } }
     },
     header: {
       textAlign: "left",
       verticalAlign: "middle",
       boxShadow: "inset 0 -1px 0 0 var(--shadow-color)",
-      shadowColor: "border",
+      shadowColor: "app.border",
       _pinned: {
         position: "sticky",
         bg: "inherit",
@@ -4515,19 +4562,21 @@ var table = defineSlotRecipe38({
       }
     },
     head: {
-      color: "fg.muted",
-      fontWeight: "semibold",
+      color: "app.text.subtle",
+      fontWeight: "700",
       textAlign: "start",
       whiteSpace: "nowrap",
-      textStyle: "xs"
+      textStyle: "xs",
+      letterSpacing: "0.08em",
+      textTransform: "uppercase"
     },
     caption: {
-      color: "fg.subtle",
+      color: "app.text.subtle",
       fontWeight: "medium"
     },
     foot: {
       fontWeight: "medium",
-      "& td": { boxShadow: "inset 0 1px 0 0 var(--shadow-color)!", shadowColor: "border" }
+      "& td": { boxShadow: "inset 0 1px 0 0 var(--shadow-color)!", shadowColor: "app.border" }
     }
   },
   defaultVariants: {
@@ -4537,19 +4586,19 @@ var table = defineSlotRecipe38({
   variants: {
     variant: {
       surface: {
-        header: { bg: "gray.surface.bg.hover" },
-        row: { bg: "gray.surface.bg" }
+        header: { bg: "app.surface.muted" },
+        row: { bg: "app.surface" }
       },
       plain: {}
     },
     striped: {
       true: {
-        row: { "&:nth-of-type(odd) td": { bg: "gray.surface.bg.hover" } }
+        row: { "&:nth-of-type(odd) td": { bg: "app.surface.muted" } }
       }
     },
     interactive: {
       true: {
-        body: { "& tr": { _hover: { bg: "gray.surface.bg.hover" } } }
+        body: { "& tr": { _hover: { bg: "app.surface.muted" } } }
       }
     },
     columnBorder: {
@@ -4993,7 +5042,7 @@ var textarea = defineRecipe15({
   className: "textarea",
   base: {
     appearance: "none",
-    borderRadius: "l2",
+    borderRadius: "l3",
     minWidth: "0",
     outline: "0",
     position: "relative",
@@ -5011,19 +5060,30 @@ var textarea = defineRecipe15({
   variants: {
     variant: {
       outline: {
+        bg: "app.surface",
         borderWidth: "1px",
-        borderColor: "gray.outline.border",
-        focusVisibleRing: "inside",
+        borderColor: "app.border",
+        color: "app.text",
+        _focus: {
+          borderColor: "app.accent",
+          boxShadow: "0 0 0 3px {colors.teal.light.a3}",
+          outline: "none"
+        },
         _invalid: {
           borderColor: "error",
           focusRingColor: "error"
         }
       },
       surface: {
-        bg: "gray.surface.bg",
+        bg: "app.surface.muted",
         borderWidth: "1px",
-        borderColor: "gray.surface.border",
-        focusVisibleRing: "inside",
+        borderColor: "app.border",
+        color: "app.text",
+        _focus: {
+          borderColor: "app.accent",
+          boxShadow: "0 0 0 3px {colors.teal.light.a3}",
+          outline: "none"
+        },
         _invalid: {
           borderColor: "error",
           focusRingColor: "error"
@@ -5032,9 +5092,13 @@ var textarea = defineRecipe15({
       subtle: {
         borderWidth: "1px",
         borderColor: "transparent",
-        bg: "gray.subtle.bg",
-        color: "gray.subtle.fg",
-        focusVisibleRing: "inside",
+        bg: "app.canvas.subtle",
+        color: "app.text",
+        _focus: {
+          borderColor: "app.border",
+          bg: "app.surface",
+          outline: "none"
+        },
         _invalid: {
           borderColor: "error",
           focusRingColor: "error"
@@ -5061,11 +5125,11 @@ var textarea = defineRecipe15({
       }
     },
     size: {
-      xs: { textStyle: "sm", px: "2", py: "5px", scrollPaddingBottom: "5px" },
-      sm: { textStyle: "sm", px: "2.5", py: "7px", scrollPaddingBottom: "7px" },
-      md: { textStyle: "md", px: "3", py: "7px", scrollPaddingBottom: "7px" },
-      lg: { textStyle: "md", px: "3.5", py: "9px", scrollPaddingBottom: "9px" },
-      xl: { textStyle: "lg", px: "4", py: "9px", scrollPaddingBottom: "9px" }
+      xs: { textStyle: "sm", px: "2.5", py: "7px", scrollPaddingBottom: "7px" },
+      sm: { textStyle: "sm", px: "3", py: "9px", scrollPaddingBottom: "9px" },
+      md: { textStyle: "md", px: "3.5", py: "9px", scrollPaddingBottom: "9px" },
+      lg: { textStyle: "md", px: "4", py: "11px", scrollPaddingBottom: "11px" },
+      xl: { textStyle: "lg", px: "4.5", py: "11px", scrollPaddingBottom: "11px" }
     }
   }
 });
@@ -5447,18 +5511,18 @@ var globalCss = defineGlobalStyles({
   },
   body: {
     fontFamily: "body",
-    color: "fg.default",
-    bg: "bg.canvas",
-    lineHeight: "1.6",
+    color: "app.text",
+    bg: "app.canvas",
+    lineHeight: "1.55",
     WebkitFontSmoothing: "antialiased",
     MozOsxFontSmoothing: "grayscale"
   },
   "*, *::before, *::after": {
-    borderColor: "border.muted"
+    borderColor: "app.border"
   },
   "::selection": {
-    bg: "colorPalette.a4",
-    color: "colorPalette.12"
+    bg: "teal.a3",
+    color: "app.text"
   }
 });
 
@@ -5516,35 +5580,47 @@ var textStyles = defineTextStyles({
   display: {
     value: {
       fontFamily: "display",
-      fontSize: "3.5rem",
+      fontSize: "3.75rem",
       fontWeight: "700",
-      lineHeight: "1.1",
-      letterSpacing: "-0.02em"
+      lineHeight: "1.02",
+      letterSpacing: "-0.03em"
     }
   },
   h1: {
     value: {
       fontFamily: "body",
-      fontSize: "2.75rem",
+      fontSize: "3rem",
       fontWeight: "800",
-      lineHeight: "1.15",
-      letterSpacing: "-0.02em"
+      lineHeight: "1.06",
+      letterSpacing: "-0.03em"
     }
   },
   h2: {
-    value: { fontFamily: "body", fontSize: "2rem", fontWeight: "700", lineHeight: "1.25" }
+    value: {
+      fontFamily: "body",
+      fontSize: "2.25rem",
+      fontWeight: "750",
+      lineHeight: "1.12",
+      letterSpacing: "-0.02em"
+    }
   },
   h3: {
-    value: { fontFamily: "body", fontSize: "1.5rem", fontWeight: "700", lineHeight: "1.35" }
+    value: {
+      fontFamily: "body",
+      fontSize: "1.625rem",
+      fontWeight: "700",
+      lineHeight: "1.2",
+      letterSpacing: "-0.01em"
+    }
   },
   body: {
-    value: { fontFamily: "body", fontSize: "1rem", fontWeight: "400", lineHeight: "1.6" }
+    value: { fontFamily: "body", fontSize: "1rem", fontWeight: "400", lineHeight: "1.55" }
   },
   small: {
-    value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.5" }
+    value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "400", lineHeight: "1.45" }
   },
   caption: {
-    value: { fontFamily: "body", fontSize: "0.75rem", fontWeight: "500", lineHeight: "1.4" }
+    value: { fontFamily: "body", fontSize: "0.75rem", fontWeight: "600", lineHeight: "1.35" }
   },
   label: {
     value: { fontFamily: "body", fontSize: "0.875rem", fontWeight: "600", lineHeight: "1.4" }
@@ -5556,7 +5632,67 @@ var textStyles = defineTextStyles({
     description: "High-contrast warm gold text for subtitles on dark backgrounds.",
     value: {
       fontWeight: "600",
-      color: "#f5dfc0"
+      color: "wheat.11"
+    }
+  },
+  eyebrow: {
+    description: "Compact uppercase eyebrow for page and panel intros.",
+    value: {
+      fontFamily: "body",
+      fontSize: "0.75rem",
+      fontWeight: "700",
+      lineHeight: "1.2",
+      letterSpacing: "0.18em",
+      textTransform: "uppercase"
+    }
+  },
+  pageTitle: {
+    description: "Primary page title used in app workspace intros.",
+    value: {
+      fontFamily: "body",
+      fontSize: "3rem",
+      fontWeight: "800",
+      lineHeight: "1.05",
+      letterSpacing: "-0.03em"
+    }
+  },
+  sectionTitle: {
+    description: "Panel and section title within product workspaces.",
+    value: {
+      fontFamily: "body",
+      fontSize: "1.125rem",
+      fontWeight: "700",
+      lineHeight: "1.25"
+    }
+  },
+  toolbarLabel: {
+    description: "Compact toolbar label and top-nav text.",
+    value: {
+      fontFamily: "body",
+      fontSize: "0.875rem",
+      fontWeight: "600",
+      lineHeight: "1.25"
+    }
+  },
+  metricValue: {
+    description: "Large metric value used in KPI tiles.",
+    value: {
+      fontFamily: "body",
+      fontSize: "2rem",
+      fontWeight: "800",
+      lineHeight: "1",
+      letterSpacing: "-0.03em"
+    }
+  },
+  metricLabel: {
+    description: "Small uppercase metric label used in KPI tiles.",
+    value: {
+      fontFamily: "body",
+      fontSize: "0.75rem",
+      fontWeight: "700",
+      lineHeight: "1.2",
+      letterSpacing: "0.12em",
+      textTransform: "uppercase"
     }
   },
   cardHeading: {
@@ -5581,7 +5717,7 @@ var textStyles = defineTextStyles({
     description: "Small muted description/helper text.",
     value: {
       fontFamily: "body",
-      fontSize: "0.75rem",
+      fontSize: "0.875rem",
       fontWeight: "400",
       lineHeight: "1.5"
     }
@@ -5596,7 +5732,7 @@ function createAxionicPreset() {
       createPreset({
         accentColor: axionicTeal,
         grayColor: axionicSand,
-        radius: "sm"
+        radius: "md"
       })
     ],
     theme: {
@@ -5638,10 +5774,60 @@ function createAxionicPreset() {
                 "12": { value: "#fdf5eb" }
               }
             }
+          },
+          shadows: {
+            whisper: { value: "0 24px 40px rgba(25, 28, 28, 0.04)" },
+            float: { value: "0 28px 48px rgba(25, 28, 28, 0.08)" },
+            panel: { value: "0 12px 24px rgba(25, 28, 28, 0.04)" },
+            "panel.hover": { value: "0 18px 32px rgba(25, 28, 28, 0.08)" }
           }
         },
         semanticTokens: {
           colors: {
+            app: {
+              canvas: {
+                DEFAULT: { value: { _light: "#f8f9f9", _dark: "#081214" } },
+                subtle: { value: { _light: "#f3f4f4", _dark: "#0d191b" } }
+              },
+              surface: {
+                DEFAULT: { value: { _light: "#ffffff", _dark: "#102022" } },
+                muted: { value: { _light: "#f3f4f4", _dark: "#122629" } },
+                raised: { value: { _light: "#fcfdfd", _dark: "#163135" } }
+              },
+              panel: {
+                value: { _light: "rgba(255, 255, 255, 0.92)", _dark: "rgba(16, 32, 34, 0.92)" }
+              },
+              toolbar: {
+                value: { _light: "rgba(248, 249, 249, 0.92)", _dark: "rgba(8, 18, 20, 0.92)" }
+              },
+              nav: {
+                DEFAULT: { value: { _light: "#f3f4f4", _dark: "#0d191b" } },
+                active: { value: { _light: "#e9efef", _dark: "#143034" } }
+              },
+              accent: {
+                DEFAULT: { value: { _light: "#235353", _dark: "#a3dde2" } },
+                soft: {
+                  value: { _light: "rgba(35, 83, 83, 0.08)", _dark: "rgba(163, 221, 226, 0.12)" }
+                },
+                muted: {
+                  value: { _light: "rgba(35, 83, 83, 0.14)", _dark: "rgba(163, 221, 226, 0.18)" }
+                }
+              },
+              border: {
+                DEFAULT: {
+                  value: { _light: "rgba(35, 83, 83, 0.12)", _dark: "rgba(163, 221, 226, 0.14)" }
+                },
+                strong: {
+                  value: { _light: "rgba(35, 83, 83, 0.2)", _dark: "rgba(163, 221, 226, 0.24)" }
+                }
+              },
+              text: {
+                DEFAULT: { value: { _light: "#235353", _dark: "#e3fdff" } },
+                muted: { value: { _light: "#627877", _dark: "#a0bec1" } },
+                subtle: { value: { _light: "#7f9292", _dark: "#88a5a8" } },
+                inverse: { value: { _light: "#f8f9f9", _dark: "#f8f9f9" } }
+              }
+            },
             fg: {
               success: { value: { _light: "#16a34a", _dark: "#4ade80" } },
               warning: { value: { _light: "#d97706", _dark: "#fbbf24" } },
@@ -5666,10 +5852,10 @@ function createAxionicPreset() {
                 value: { _light: "#E3FDFF", _dark: "#E3FDFF" }
               },
               navbar: {
-                value: { _light: "rgba(253, 253, 252, 0.85)", _dark: "rgba(26, 46, 48, 0.85)" }
+                value: { _light: "rgba(248, 249, 249, 0.88)", _dark: "rgba(8, 18, 20, 0.88)" }
               },
               navbarIdle: {
-                value: { _light: "rgba(253, 253, 252, 0.6)", _dark: "rgba(26, 46, 48, 0.6)" }
+                value: { _light: "rgba(248, 249, 249, 0.6)", _dark: "rgba(8, 18, 20, 0.6)" }
               }
             },
             border: {
@@ -5733,5 +5919,5 @@ export {
   axionicSand
 };
 
-//# debugId=C985CE2A462CBBBC64756E2164756E21
+//# debugId=76AD84CF1C839CC264756E2164756E21
 //# sourceMappingURL=index.js.map

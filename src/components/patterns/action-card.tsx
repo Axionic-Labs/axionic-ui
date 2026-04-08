@@ -17,35 +17,40 @@ export interface ActionCardProps {
 
 const styles = {
 	root: css({
-		bg: 'bg.default',
+		bg: 'app.surface',
 		borderWidth: '1px',
-		borderColor: 'border.muted',
+		borderColor: 'app.border',
 		rounded: 'l3',
 		p: '6',
 		cursor: 'pointer',
+		boxShadow: '{shadows.whisper}',
 		transition: 'all 0.2s ease',
-		_hover: { shadow: 'md', borderColor: 'colorPalette.7', translateY: '-1px' },
+		_hover: {
+			boxShadow: '{shadows.float}',
+			borderColor: 'app.border.strong',
+			transform: 'translateY(-1px)',
+		},
 		_focusVisible: { outline: '2px solid', outlineColor: 'colorPalette.8', outlineOffset: '2px' },
 	}),
 	iconWrap: css({
 		w: '10',
 		h: '10',
 		rounded: 'l2',
-		bg: 'colorPalette.2',
+		bg: 'app.accent.soft',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		color: 'colorPalette.9',
+		color: 'app.accent',
 		mb: '3',
 	}),
 	title: css({
-		textStyle: 'label',
-		color: 'fg.default',
+		textStyle: 'sectionTitle',
+		color: 'app.text',
 	}),
 	description: css({
 		textStyle: 'small',
-		color: 'fg.muted',
-		mt: '1',
+		color: 'app.text.muted',
+		mt: '1.5',
 	}),
 };
 

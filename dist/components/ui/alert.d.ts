@@ -11,8 +11,13 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     title?: string | undefined | undefined;
     className?: string | undefined | undefined;
     radioGroup?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLSpanElement> | undefined;
+    children?: import("react").ReactNode;
+    onClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
+    onKeyDown?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
+    tabIndex?: number | undefined | undefined;
+    role?: import("react").AriaRole | undefined;
+    slot?: string | undefined | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -32,8 +37,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
-    tabIndex?: number | undefined | undefined;
-    role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -114,7 +117,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
-    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -150,7 +152,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onLoadCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onError?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onErrorCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
-    onKeyDown?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
     onKeyDownCapture?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
     onKeyPress?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
     onKeyPressCapture?: import("react").KeyboardEventHandler<HTMLSpanElement> | undefined;
@@ -202,7 +203,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onWaitingCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
-    onClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;

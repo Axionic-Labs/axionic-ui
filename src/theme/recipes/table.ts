@@ -13,31 +13,32 @@ export const table = defineSlotRecipe({
 		},
 		cell: {
 			alignItems: 'center',
-			color: 'fg.muted',
+			color: 'app.text.muted',
 			textAlign: 'start',
 			textOverflow: 'ellipsis',
 			textStyle: 'sm',
 			whiteSpace: 'nowrap',
 			overflow: 'hidden',
 			boxShadow: 'inset 0 -1px 0 0 var(--shadow-color)',
-			shadowColor: 'border',
+			shadowColor: 'app.border',
 			_pinned: {
 				bg: 'inherit',
 				boxShadow: 'inset 0 -1px 0 0 var(--shadow-color)',
 				overflow: 'unset',
 				position: 'sticky',
-				shadowColor: 'border',
+				shadowColor: 'app.border',
 				zIndex: 1,
 			},
 		},
 		row: {
+			transition: 'background-color 160ms ease',
 			_last: { '& td': { boxShadow: 'none' } },
 		},
 		header: {
 			textAlign: 'left',
 			verticalAlign: 'middle',
 			boxShadow: 'inset 0 -1px 0 0 var(--shadow-color)',
-			shadowColor: 'border',
+			shadowColor: 'app.border',
 			_pinned: {
 				position: 'sticky',
 				bg: 'inherit',
@@ -45,19 +46,21 @@ export const table = defineSlotRecipe({
 			},
 		},
 		head: {
-			color: 'fg.muted',
-			fontWeight: 'semibold',
+			color: 'app.text.subtle',
+			fontWeight: '700',
 			textAlign: 'start',
 			whiteSpace: 'nowrap',
 			textStyle: 'xs',
+			letterSpacing: '0.08em',
+			textTransform: 'uppercase',
 		},
 		caption: {
-			color: 'fg.subtle',
+			color: 'app.text.subtle',
 			fontWeight: 'medium',
 		},
 		foot: {
 			fontWeight: 'medium',
-			'& td': { boxShadow: 'inset 0 1px 0 0 var(--shadow-color)!', shadowColor: 'border' },
+			'& td': { boxShadow: 'inset 0 1px 0 0 var(--shadow-color)!', shadowColor: 'app.border' },
 		},
 	},
 	defaultVariants: {
@@ -67,19 +70,19 @@ export const table = defineSlotRecipe({
 	variants: {
 		variant: {
 			surface: {
-				header: { bg: 'gray.surface.bg.hover' },
-				row: { bg: 'gray.surface.bg' },
+				header: { bg: 'app.surface.muted' },
+				row: { bg: 'app.surface' },
 			},
 			plain: {},
 		},
 		striped: {
 			true: {
-				row: { '&:nth-of-type(odd) td': { bg: 'gray.surface.bg.hover' } },
+				row: { '&:nth-of-type(odd) td': { bg: 'app.surface.muted' } },
 			},
 		},
 		interactive: {
 			true: {
-				body: { '& tr': { _hover: { bg: 'gray.surface.bg.hover' } } },
+				body: { '& tr': { _hover: { bg: 'app.surface.muted' } } },
 			},
 		},
 		columnBorder: {

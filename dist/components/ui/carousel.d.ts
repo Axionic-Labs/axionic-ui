@@ -17,8 +17,13 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     title?: string | undefined | undefined;
     className?: string | undefined | undefined;
     radioGroup?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
+    children?: import("react").ReactNode;
+    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
+    onKeyDown?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
+    tabIndex?: number | undefined | undefined;
+    role?: import("react").AriaRole | undefined;
+    slot?: string | undefined | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -38,8 +43,6 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
-    tabIndex?: number | undefined | undefined;
-    role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -120,7 +123,6 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
-    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -156,7 +158,6 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     onLoadCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onError?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onErrorCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
-    onKeyDown?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyDownCapture?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyPress?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyPressCapture?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
@@ -208,7 +209,6 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     onWaitingCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;

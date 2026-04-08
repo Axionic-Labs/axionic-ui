@@ -1,8 +1,19 @@
 export { AccentLabel, type AccentLabelProps } from './accent-label';
 export { ActionCard, type ActionCardProps } from './action-card';
-export { ConfirmDialog, type ConfirmDialogProps } from './confirm-dialog';
+export {
+	ActivityTable,
+	type ActivityTableColumn,
+	type ActivityTableProps,
+	type ActivityTableRow,
+} from './activity-table';
 export { AmountSelector, type AmountSelectorProps } from './amount-selector';
+export { ConfirmDialog, type ConfirmDialogProps } from './confirm-dialog';
+export { CredentialCard, type CredentialCardProps } from './credential-card';
+export { CreditPill, type CreditPillProps } from './credit-pill';
+export { DetailDialog, type DetailDialogProps } from './detail-dialog';
+export { DetailPanel, type DetailPanelProps } from './detail-panel';
 export { EmptyState, type EmptyStateProps } from './empty-state';
+export { EntityCard, type EntityCardProps } from './entity-card';
 export { FeatureCard, type FeatureCardProps } from './feature-card';
 export { FileTree, type FileTreeNode, type FileTreeProps } from './file-tree';
 export { buildGradientStyle, GradientPicker, type GradientPickerProps } from './gradient-picker';
@@ -17,9 +28,12 @@ export {
 	type HelpPanelTabProps,
 } from './help-panel';
 export { HelpTrigger, type HelpTriggerProps } from './help-trigger';
+export { HeroPanel, type HeroPanelProps } from './hero-panel';
 export { IconBadge, type IconBadgeProps } from './icon-badge';
 export { IconPicker, type IconPickerProps } from './icon-picker';
 export { LineChart, type LineChartProps } from './line-chart';
+export { ListToolbar, type ListToolbarProps } from './list-toolbar';
+export { MetricRail, type MetricRailProps } from './metric-rail';
 export {
 	DEFAULT_ICON_CONFIG,
 	ModelCardIcon,
@@ -28,9 +42,30 @@ export {
 	ModelIconCustomizer,
 	type ModelIconCustomizerProps,
 } from './model-icon-customizer';
+export { PageIntro, type PageIntroProps } from './page-intro';
 export { PageTitle, type PageTitleProps } from './page-title';
 export { PricingCard, type PricingCardProps } from './pricing-card';
+export { ResourceList, type ResourceListItem, type ResourceListProps } from './resource-list';
+export { SecondaryNav, type SecondaryNavItem, type SecondaryNavProps } from './secondary-nav';
+export { SecretField, type SecretFieldProps } from './secret-field';
 export { SectionHeader, type SectionHeaderProps } from './section-header';
+export { SectionPanel, type SectionPanelProps } from './section-panel';
+export { SelectionToolbar, type SelectionToolbarProps } from './selection-toolbar';
+export {
+	SettingsSectionNav,
+	type SettingsSectionNavItem,
+	type SettingsSectionNavProps,
+} from './settings-section-nav';
+export {
+	SidebarNav,
+	type SidebarNavItem,
+	type SidebarNavProps,
+	type SidebarNavSection,
+} from './sidebar-nav';
 export { StatCard, type StatCardProps } from './stat-card';
+export { StatusBanner, type StatusBannerProps } from './status-banner';
 export { StepCard, type StepCardProps } from './step-card';
 export { StreamingStatus, type StreamingStatusProps, type StreamingStep } from './streaming-status';
+export { SupportPanel, type SupportPanelProps } from './support-panel';
+export { TopToolbar, type TopToolbarProps } from './top-toolbar';
+export { ValueField, type ValueFieldProps } from './value-field';

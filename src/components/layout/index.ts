@@ -1,3 +1,4 @@
+export { AppShell, type AppShellProps } from './app-shell';
 export { DarkSection, type DarkSectionProps } from './dark-section';
 export { PageHeader, type PageHeaderProps } from './page-header';
 export { Section, type SectionProps } from './section';

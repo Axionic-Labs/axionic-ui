@@ -5,7 +5,7 @@ export const input = {
 	jsx: ['Input', 'Field.Input'],
 	base: {
 		appearance: 'none',
-		borderRadius: 'l2',
+		borderRadius: 'l3',
 		height: 'var(--input-height)',
 		minHeight: 'var(--input-height)',
 		minW: 'var(--input-height)',
@@ -25,15 +25,14 @@ export const input = {
 	variants: {
 		variant: {
 			outline: {
+				bg: 'app.surface',
 				borderWidth: '1px',
-				borderColor: 'gray.outline.border',
-				borderLeftWidth: '2px',
-				borderLeftColor: '{colors.teal.light.6}',
-				transition: 'border-color 0.15s, box-shadow 0.15s',
+				borderColor: 'app.border',
+				color: 'app.text',
+				transition: 'border-color 0.15s, box-shadow 0.15s, background-color 0.15s',
 				_focus: {
-					borderColor: '{colors.teal.light.8}',
-					borderLeftColor: '{colors.teal.light.9}',
-					boxShadow: '0 0 0 2px {colors.teal.light.a3}',
+					borderColor: 'app.accent',
+					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
 					outline: 'none',
 				},
 				_invalid: {
@@ -42,10 +41,15 @@ export const input = {
 				},
 			},
 			surface: {
-				bg: 'gray.surface.bg',
+				bg: 'app.surface.muted',
 				borderWidth: '1px',
-				borderColor: 'gray.surface.border',
-				focusVisibleRing: 'inside',
+				borderColor: 'app.border',
+				color: 'app.text',
+				_focus: {
+					borderColor: 'app.accent',
+					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+					outline: 'none',
+				},
 
 				_invalid: {
 					focusRingColor: 'error',
@@ -55,9 +59,13 @@ export const input = {
 			subtle: {
 				borderWidth: '1px',
 				borderColor: 'transparent',
-				bg: 'gray.subtle.bg',
-				color: 'gray.subtle.fg',
-				focusVisibleRing: 'inside',
+				bg: 'app.canvas.subtle',
+				color: 'app.text',
+				_focus: {
+					borderColor: 'app.border',
+					bg: 'app.surface',
+					outline: 'none',
+				},
 
 				_invalid: {
 					focusRingColor: 'error',
@@ -85,13 +93,13 @@ export const input = {
 			},
 		},
 		size: {
-			'2xs': { textStyle: 'xs', px: '1.5', '--input-height': 'sizes.7' },
-			xs: { textStyle: 'sm', px: '2', '--input-height': 'sizes.8' },
-			sm: { textStyle: 'sm', px: '2.5', '--input-height': 'sizes.9' },
-			md: { textStyle: 'md', px: '3', '--input-height': 'sizes.10' },
-			lg: { textStyle: 'md', px: '3.5', '--input-height': 'sizes.11' },
-			xl: { textStyle: 'lg', px: '4', '--input-height': 'sizes.12' },
-			'2xl': { textStyle: '3xl', px: '4.5', '--input-height': 'sizes.16' },
+			'2xs': { textStyle: 'xs', px: '2', '--input-height': 'sizes.8' },
+			xs: { textStyle: 'sm', px: '2.5', '--input-height': 'sizes.9' },
+			sm: { textStyle: 'sm', px: '3', '--input-height': 'sizes.10' },
+			md: { textStyle: 'md', px: '3.5', '--input-height': 'sizes.11' },
+			lg: { textStyle: 'md', px: '4', '--input-height': 'sizes.12' },
+			xl: { textStyle: 'lg', px: '4.5', '--input-height': 'sizes.14' },
+			'2xl': { textStyle: '3xl', px: '5', '--input-height': 'sizes.16' },
 		},
 	},
 } satisfies RecipeConfig;

@@ -4,7 +4,7 @@ export const textarea = defineRecipe({
 	className: 'textarea',
 	base: {
 		appearance: 'none',
-		borderRadius: 'l2',
+		borderRadius: 'l3',
 		minWidth: '0',
 		outline: '0',
 		position: 'relative',
@@ -22,19 +22,30 @@ export const textarea = defineRecipe({
 	variants: {
 		variant: {
 			outline: {
+				bg: 'app.surface',
 				borderWidth: '1px',
-				borderColor: 'gray.outline.border',
-				focusVisibleRing: 'inside',
+				borderColor: 'app.border',
+				color: 'app.text',
+				_focus: {
+					borderColor: 'app.accent',
+					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+					outline: 'none',
+				},
 				_invalid: {
 					borderColor: 'error',
 					focusRingColor: 'error',
 				},
 			},
 			surface: {
-				bg: 'gray.surface.bg',
+				bg: 'app.surface.muted',
 				borderWidth: '1px',
-				borderColor: 'gray.surface.border',
-				focusVisibleRing: 'inside',
+				borderColor: 'app.border',
+				color: 'app.text',
+				_focus: {
+					borderColor: 'app.accent',
+					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+					outline: 'none',
+				},
 				_invalid: {
 					borderColor: 'error',
 					focusRingColor: 'error',
@@ -43,9 +54,13 @@ export const textarea = defineRecipe({
 			subtle: {
 				borderWidth: '1px',
 				borderColor: 'transparent',
-				bg: 'gray.subtle.bg',
-				color: 'gray.subtle.fg',
-				focusVisibleRing: 'inside',
+				bg: 'app.canvas.subtle',
+				color: 'app.text',
+				_focus: {
+					borderColor: 'app.border',
+					bg: 'app.surface',
+					outline: 'none',
+				},
 				_invalid: {
 					borderColor: 'error',
 					focusRingColor: 'error',
@@ -72,11 +87,11 @@ export const textarea = defineRecipe({
 			},
 		},
 		size: {
-			xs: { textStyle: 'sm', px: '2', py: '5px', scrollPaddingBottom: '5px' },
-			sm: { textStyle: 'sm', px: '2.5', py: '7px', scrollPaddingBottom: '7px' },
-			md: { textStyle: 'md', px: '3', py: '7px', scrollPaddingBottom: '7px' },
-			lg: { textStyle: 'md', px: '3.5', py: '9px', scrollPaddingBottom: '9px' },
-			xl: { textStyle: 'lg', px: '4', py: '9px', scrollPaddingBottom: '9px' },
+			xs: { textStyle: 'sm', px: '2.5', py: '7px', scrollPaddingBottom: '7px' },
+			sm: { textStyle: 'sm', px: '3', py: '9px', scrollPaddingBottom: '9px' },
+			md: { textStyle: 'md', px: '3.5', py: '9px', scrollPaddingBottom: '9px' },
+			lg: { textStyle: 'md', px: '4', py: '11px', scrollPaddingBottom: '11px' },
+			xl: { textStyle: 'lg', px: '4.5', py: '11px', scrollPaddingBottom: '11px' },
 		},
 	},
 });

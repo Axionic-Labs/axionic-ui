@@ -24,44 +24,43 @@ export interface StatCardProps {
 
 const styles = {
 	root: css({
-		bg: 'bg.default',
+		bg: 'app.surface',
 		borderWidth: '1px',
-		borderColor: 'border.muted',
+		borderColor: 'app.border',
 		rounded: 'l3',
 		p: '6',
 		display: 'flex',
 		alignItems: 'flex-start',
 		gap: '4',
+		boxShadow: '{shadows.whisper}',
 	}),
 	iconWrap: css({
 		flexShrink: 0,
 		w: '10',
 		h: '10',
 		rounded: 'l2',
-		bg: 'colorPalette.2',
+		bg: 'app.accent.soft',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		color: 'colorPalette.9',
+		color: 'app.accent',
 	}),
 	content: css({
 		flex: 1,
 		minW: 0,
 	}),
 	title: css({
-		textStyle: 'caption',
-		color: 'fg.muted',
-		textTransform: 'uppercase',
-		letterSpacing: '0.05em',
+		textStyle: 'metricLabel',
+		color: 'app.text.subtle',
 	}),
 	value: css({
-		textStyle: 'h2',
-		color: 'fg.default',
-		mt: '1',
+		textStyle: 'metricValue',
+		color: 'app.text',
+		mt: '2',
 	}),
 	change: css({
 		textStyle: 'small',
-		mt: '1',
+		mt: '1.5',
 	}),
 };
 
@@ -83,7 +82,7 @@ export function StatCard({
 			? css({ color: 'fg.success' })
 			: changeType === 'negative'
 				? css({ color: 'fg.error' })
-				: css({ color: 'fg.muted' });
+				: css({ color: 'app.text.muted' });
 
 	return (
 		<div className={cx(styles.root, className)}>
@@ -111,6 +110,8 @@ export function StatCard({
 								py: '0.5',
 								rounded: 'full',
 								fontSize: 'xs',
+								bg: 'app.surface.muted',
+								color: 'app.text',
 							})}
 							style={{
 								color: badgeColor,

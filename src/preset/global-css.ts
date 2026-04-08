@@ -6,17 +6,17 @@ export const globalCss = defineGlobalStyles({
 	},
 	body: {
 		fontFamily: 'body',
-		color: 'fg.default',
-		bg: 'bg.canvas',
-		lineHeight: '1.6',
+		color: 'app.text',
+		bg: 'app.canvas',
+		lineHeight: '1.55',
 		WebkitFontSmoothing: 'antialiased',
 		MozOsxFontSmoothing: 'grayscale',
 	},
 	'*, *::before, *::after': {
-		borderColor: 'border.muted',
+		borderColor: 'app.border',
 	},
 	'::selection': {
-		bg: 'colorPalette.a4',
-		color: 'colorPalette.12',
+		bg: 'teal.a3',
+		color: 'app.text',
 	},
 });

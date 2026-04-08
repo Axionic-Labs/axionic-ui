@@ -15,6 +15,8 @@ const buttonVariantMap = {
     "subtle",
     "outline",
     "plain",
+    "quiet",
+    "toolbar",
     "wheat",
     "dark",
     "oauth",

@@ -13,14 +13,14 @@ export interface PageTitleProps {
 }
 
 const titleStyle = css({
-	textStyle: 'h2',
-	color: 'colorPalette.12',
+	textStyle: 'pageTitle',
+	color: 'app.text',
 });
 
 const subtitleStyle = css({
 	textStyle: 'description',
-	color: 'fg.muted',
-	mt: '1',
+	color: 'app.text.muted',
+	mt: '2',
 });
 
 /**

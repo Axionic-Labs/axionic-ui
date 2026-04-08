@@ -15,23 +15,23 @@ const styles = {
 		alignItems: { base: 'flex-start', md: 'center' },
 		justifyContent: 'space-between',
 		flexDirection: { base: 'column', md: 'row' },
-		gap: '4',
-		mb: '8',
+		gap: '5',
+		mb: '10',
 	}),
 	content: css({
 		display: 'flex',
-		alignItems: 'center',
+		alignItems: 'flex-start',
 		gap: '3',
 	}),
 	title: css({
-		textStyle: 'h1',
-		color: 'fg.default',
+		textStyle: 'pageTitle',
+		color: 'app.text',
 	}),
 	subtitle: css({
-		textStyle: 'body',
-		color: 'fg.default',
-		opacity: '0.6',
-		mt: '2',
+		textStyle: 'small',
+		color: 'app.text.muted',
+		mt: '2.5',
+		maxW: '2xl',
 	}),
 };
 

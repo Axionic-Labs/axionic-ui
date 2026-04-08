@@ -123,7 +123,7 @@ export function ModelIconCustomizer({
 			<div className={css({ display: 'flex', flexDir: 'column', gap: '3', flex: 1, minW: 0 })}>
 				{/* Icon selector */}
 				<div className={rowStyle}>
-					<label className={labelStyle}>Icon</label>
+					<div className={labelStyle}>Icon</div>
 					<IconPicker
 						value={value.iconName}
 						onChange={(iconName) => onChange({ ...value, iconName })}
@@ -132,7 +132,7 @@ export function ModelIconCustomizer({
 
 				{/* Background gradient */}
 				<div className={rowStartStyle}>
-					<label className={labelTopStyle}>Background</label>
+					<div className={labelTopStyle}>Background</div>
 					<GradientPicker
 						colors={value.bgColors}
 						angle={value.bgAngle ?? 135}
@@ -143,7 +143,7 @@ export function ModelIconCustomizer({
 
 				{/* Icon color */}
 				<div className={rowStyle}>
-					<label className={labelStyle}>Icon Color</label>
+					<div className={labelStyle}>Icon Color</div>
 					<label className={swatchStyle} style={{ backgroundColor: value.iconColor ?? '#ffffff' }}>
 						<input
 							type="color"

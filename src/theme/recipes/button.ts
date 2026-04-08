@@ -6,7 +6,7 @@ export const button = defineRecipe({
 	base: {
 		alignItems: 'center',
 		appearance: 'none',
-		borderRadius: 'l2',
+		borderRadius: 'l3',
 		cursor: 'pointer',
 		display: 'inline-flex',
 		flexShrink: '0',
@@ -16,8 +16,8 @@ export const button = defineRecipe({
 		justifyContent: 'center',
 		outline: '0',
 		position: 'relative',
-		transition: 'colors',
-		transitionProperty: 'background-color, border-color, color, box-shadow',
+		transition: 'all 180ms ease',
+		transitionProperty: 'background-color, border-color, color, box-shadow, transform',
 		userSelect: 'none',
 		verticalAlign: 'middle',
 		whiteSpace: 'nowrap',
@@ -43,57 +43,86 @@ export const button = defineRecipe({
 				},
 			},
 			surface: {
-				bg: 'colorPalette.surface.bg',
+				bg: 'app.surface',
 				borderWidth: '1px',
-				borderColor: 'colorPalette.surface.border',
-				color: 'colorPalette.surface.fg',
+				borderColor: 'app.border',
+				color: 'app.text',
 				_hover: {
-					borderColor: 'colorPalette.surface.border.hover',
+					bg: 'app.surface.raised',
+					borderColor: 'app.border.strong',
 				},
 				_active: {
-					bg: 'colorPalette.surface.bg.active',
+					bg: 'app.surface.muted',
 				},
 				_on: {
-					bg: 'colorPalette.surface.bg.active',
+					bg: 'app.surface.muted',
 				},
 			},
 			subtle: {
-				bg: 'colorPalette.subtle.bg',
-				color: 'colorPalette.subtle.fg',
+				bg: 'app.surface.muted',
+				color: 'app.text',
 				_hover: {
-					bg: 'colorPalette.subtle.bg.hover',
+					bg: 'app.surface',
 				},
 				_active: {
-					bg: 'colorPalette.subtle.bg.active',
+					bg: 'app.surface.muted',
 				},
 				_on: {
-					bg: 'colorPalette.subtle.bg.active',
+					bg: 'app.surface.muted',
 				},
 			},
 			outline: {
 				borderWidth: '1px',
-				borderColor: 'colorPalette.outline.border',
-				color: 'colorPalette.outline.fg',
+				borderColor: 'app.border',
+				color: 'app.text',
 				_hover: {
-					bg: 'colorPalette.outline.bg.hover',
+					bg: 'app.surface.muted',
+					borderColor: 'app.border.strong',
 				},
 				_active: {
-					bg: 'colorPalette.outline.bg.active',
+					bg: 'app.surface.muted',
 				},
 				_on: {
-					bg: 'colorPalette.outline.bg.active',
+					bg: 'app.surface.muted',
 				},
 			},
 			plain: {
-				color: 'colorPalette.plain.fg',
+				color: 'app.text',
 				_hover: {
-					bg: 'colorPalette.plain.bg.hover',
+					bg: 'app.surface.muted',
 				},
 				_active: {
-					bg: 'colorPalette.plain.bg.active',
+					bg: 'app.accent.soft',
 				},
 				_on: {
-					bg: 'colorPalette.plain.bg.active',
+					bg: 'app.accent.soft',
+				},
+			},
+			quiet: {
+				bg: 'app.surface.muted',
+				color: 'app.text',
+				borderWidth: '1px',
+				borderColor: 'transparent',
+				_hover: {
+					bg: 'app.surface',
+					borderColor: 'app.border',
+				},
+				_active: {
+					bg: 'app.surface.muted',
+				},
+			},
+			toolbar: {
+				bg: 'transparent',
+				color: 'app.text.muted',
+				borderWidth: '1px',
+				borderColor: 'transparent',
+				_hover: {
+					bg: 'app.surface.muted',
+					color: 'app.text',
+				},
+				_active: {
+					bg: 'app.accent.soft',
+					color: 'app.text',
 				},
 			},
 			wheat: {
@@ -115,18 +144,18 @@ export const button = defineRecipe({
 				_active: { bg: 'colorPalette.11', color: 'bg.canvas' },
 			},
 			oauth: {
-				bg: 'bg.default',
-				color: 'fg.default',
+				bg: 'app.surface',
+				color: 'app.text',
 				borderWidth: '1px',
-				borderColor: 'border.default',
+				borderColor: 'app.border',
 				fontWeight: '500',
-				_hover: { bg: 'bg.subtle', borderColor: 'colorPalette.7' },
+				_hover: { bg: 'app.surface.muted', borderColor: 'app.border.strong' },
 			},
 			'outline-brand': {
 				borderWidth: '1px',
 				borderColor: 'colorPalette.7',
-				color: 'colorPalette.11',
-				_hover: { bg: 'colorPalette.a2' },
+				color: 'app.text',
+				_hover: { bg: 'app.accent.soft' },
 			},
 			light: {
 				bg: 'transparent',
@@ -142,14 +171,17 @@ export const button = defineRecipe({
 				_hover: { bg: 'colorPalette.a3' },
 			},
 			brand: {
-				background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})',
+				background: 'linear-gradient(135deg, {colors.teal.light.11}, {colors.teal.light.10})',
 				color: 'white',
-				boxShadow: '0 2px 8px rgba(0, 62, 68, 0.25)',
+				boxShadow: '{shadows.whisper}',
 				_hover: {
-					background: 'linear-gradient(135deg, {colors.teal.light.9}, {colors.teal.light.8})',
+					background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})',
+					transform: 'translateY(-1px)',
+					boxShadow: '{shadows.float}',
 				},
 				_active: {
-					background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.10})',
+					background: 'linear-gradient(135deg, {colors.teal.light.11}, {colors.teal.light.10})',
+					transform: 'translateY(0)',
 				},
 			},
 			danger: {
@@ -160,13 +192,13 @@ export const button = defineRecipe({
 			},
 		},
 		size: {
-			'2xs': { h: '6', minW: '6', textStyle: 'xs', px: '2', _icon: { boxSize: '3.5' } },
-			xs: { h: '8', minW: '8', textStyle: 'sm', px: '2.5', _icon: { boxSize: '4' } },
-			sm: { h: '9', minW: '9', textStyle: 'sm', px: '3', _icon: { boxSize: '4' } },
-			md: { h: '10', minW: '10', textStyle: 'sm', px: '3.5', _icon: { boxSize: '5' } },
-			lg: { h: '11', minW: '11', textStyle: 'md', px: '4', _icon: { boxSize: '5' } },
-			xl: { h: '12', minW: '12', textStyle: 'md', px: '4.5', _icon: { boxSize: '5.5' } },
-			'2xl': { h: '16', minW: '16', textStyle: 'xl', px: '6', _icon: { boxSize: '6' } },
+			'2xs': { h: '7', minW: '7', textStyle: 'xs', px: '2.5', _icon: { boxSize: '3.5' } },
+			xs: { h: '8', minW: '8', textStyle: 'sm', px: '3', _icon: { boxSize: '4' } },
+			sm: { h: '9', minW: '9', textStyle: 'sm', px: '3.5', _icon: { boxSize: '4' } },
+			md: { h: '10', minW: '10', textStyle: 'sm', px: '4', _icon: { boxSize: '4.5' } },
+			lg: { h: '11', minW: '11', textStyle: 'md', px: '4.5', _icon: { boxSize: '5' } },
+			xl: { h: '12', minW: '12', textStyle: 'md', px: '5', _icon: { boxSize: '5.5' } },
+			'2xl': { h: '16', minW: '16', textStyle: 'xl', px: '6.5', _icon: { boxSize: '6' } },
 		},
 	},
 });

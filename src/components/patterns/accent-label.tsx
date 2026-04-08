@@ -43,5 +43,5 @@ const variants = {
  * ```
  */
 export function AccentLabel({ children, variant = 'teal', className }: AccentLabelProps) {
-	return <label className={cx(base, variants[variant], className)}>{children}</label>;
+	return <span className={cx(base, variants[variant], className)}>{children}</span>;
 }

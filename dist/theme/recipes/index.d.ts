@@ -11,7 +11,7 @@ export declare const recipes: {
         jsx: string[];
         base: {
             appearance: "none";
-            borderRadius: "l2";
+            borderRadius: "l3";
             height: "var(--input-height)";
             minHeight: "var(--input-height)";
             minW: string;
@@ -31,15 +31,14 @@ export declare const recipes: {
         variants: {
             variant: {
                 outline: {
+                    bg: string;
                     borderWidth: "1px";
-                    borderColor: "gray.outline.border";
-                    borderLeftWidth: "2px";
-                    borderLeftColor: "{colors.teal.light.6}";
-                    transition: "border-color 0.15s, box-shadow 0.15s";
+                    borderColor: "app.border";
+                    color: "app.text";
+                    transition: "border-color 0.15s, box-shadow 0.15s, background-color 0.15s";
                     _focus: {
-                        borderColor: "{colors.teal.light.8}";
-                        borderLeftColor: "{colors.teal.light.9}";
-                        boxShadow: "0 0 0 2px {colors.teal.light.a3}";
+                        borderColor: "app.accent";
+                        boxShadow: "0 0 0 3px {colors.teal.light.a3}";
                         outline: "none";
                     };
                     _invalid: {
@@ -50,8 +49,13 @@ export declare const recipes: {
                 surface: {
                     bg: string;
                     borderWidth: "1px";
-                    borderColor: "gray.surface.border";
-                    focusVisibleRing: string;
+                    borderColor: "app.border";
+                    color: "app.text";
+                    _focus: {
+                        borderColor: "app.accent";
+                        boxShadow: "0 0 0 3px {colors.teal.light.a3}";
+                        outline: "none";
+                    };
                     _invalid: {
                         focusRingColor: string;
                         borderColor: "error";
@@ -61,8 +65,12 @@ export declare const recipes: {
                     borderWidth: "1px";
                     borderColor: "transparent";
                     bg: string;
-                    color: "gray.subtle.fg";
-                    focusVisibleRing: string;
+                    color: "app.text";
+                    _focus: {
+                        borderColor: "app.border";
+                        bg: string;
+                        outline: "none";
+                    };
                     _invalid: {
                         focusRingColor: string;
                         borderColor: "error";

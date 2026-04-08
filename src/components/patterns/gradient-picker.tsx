@@ -59,14 +59,41 @@ function shiftHue(hex: string, shift = 30): string {
 	const t = v * (1 - (1 - f) * s);
 	let ro: number, go: number, bo: number;
 	switch (i % 6) {
-		case 0: ro = v; go = t; bo = p; break;
-		case 1: ro = q; go = v; bo = p; break;
-		case 2: ro = p; go = v; bo = t; break;
-		case 3: ro = p; go = q; bo = v; break;
-		case 4: ro = t; go = p; bo = v; break;
-		default: ro = v; go = p; bo = q; break;
+		case 0:
+			ro = v;
+			go = t;
+			bo = p;
+			break;
+		case 1:
+			ro = q;
+			go = v;
+			bo = p;
+			break;
+		case 2:
+			ro = p;
+			go = v;
+			bo = t;
+			break;
+		case 3:
+			ro = p;
+			go = q;
+			bo = v;
+			break;
+		case 4:
+			ro = t;
+			go = p;
+			bo = v;
+			break;
+		default:
+			ro = v;
+			go = p;
+			bo = q;
+			break;
 	}
-	const toHex = (n: number) => Math.round(n * 255).toString(16).padStart(2, '0');
+	const toHex = (n: number) =>
+		Math.round(n * 255)
+			.toString(16)
+			.padStart(2, '0');
 	return `#${toHex(ro)}${toHex(go)}${toHex(bo)}`;
 }
 

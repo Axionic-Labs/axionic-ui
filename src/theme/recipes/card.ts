@@ -46,20 +46,25 @@ export const card = defineSlotRecipe({
 		variant: {
 			elevated: {
 				root: {
-					bg: 'gray.surface.bg',
-					boxShadow: 'lg',
+					bg: 'app.surface',
+					borderWidth: '1px',
+					borderColor: 'app.border',
+					boxShadow: '{shadows.whisper}',
 				},
 			},
 			outline: {
 				root: {
-					bg: 'gray.surface.bg',
+					bg: 'app.surface',
 					borderWidth: '1px',
-					borderColor: 'border.default',
+					borderColor: 'app.border',
+					boxShadow: '{shadows.panel}',
 				},
 			},
 			subtle: {
 				root: {
-					bg: 'gray.subtle.bg',
+					bg: 'app.surface.muted',
+					borderWidth: '1px',
+					borderColor: 'transparent',
 				},
 			},
 		},
@@ -69,8 +74,8 @@ export const card = defineSlotRecipe({
 					cursor: 'pointer',
 					transition: 'all 0.2s',
 					_hover: {
-						boxShadow: 'lg',
-						borderColor: 'colorPalette.7',
+						boxShadow: '{shadows.float}',
+						borderColor: 'app.border.strong',
 						transform: 'translateY(-1px)',
 					},
 					_focusVisible: {
@@ -85,7 +90,7 @@ export const card = defineSlotRecipe({
 			true: {
 				root: {
 					borderStyle: 'dashed',
-					bg: 'gray.subtle.bg/50',
+					bg: 'app.surface.muted',
 				},
 			},
 		},

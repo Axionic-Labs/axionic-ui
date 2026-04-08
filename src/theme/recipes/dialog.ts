@@ -209,7 +209,8 @@ export const dialog = defineSlotRecipe({
 						left: '0',
 						right: '0',
 						borderTopRadius: 'l3',
-						background: 'linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})',
+						background:
+							'linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})',
 					},
 				},
 				title: {

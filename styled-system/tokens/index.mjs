@@ -1523,6 +1523,22 @@ const tokens = {
     "value": "#fdf5eb",
     "variable": "var(--colors-wheat-dark-12)"
   },
+  "shadows.whisper": {
+    "value": "0 24px 40px rgba(25, 28, 28, 0.04)",
+    "variable": "var(--shadows-whisper)"
+  },
+  "shadows.float": {
+    "value": "0 28px 48px rgba(25, 28, 28, 0.08)",
+    "variable": "var(--shadows-float)"
+  },
+  "shadows.panel": {
+    "value": "0 12px 24px rgba(25, 28, 28, 0.04)",
+    "variable": "var(--shadows-panel)"
+  },
+  "shadows.panel.hover": {
+    "value": "0 18px 32px rgba(25, 28, 28, 0.08)",
+    "variable": "var(--shadows-panel\\.hover)"
+  },
   "breakpoints.sm": {
     "value": "640px",
     "variable": "var(--breakpoints-sm)"
@@ -1544,15 +1560,15 @@ const tokens = {
     "variable": "var(--breakpoints-2xl)"
   },
   "radii.l1": {
-    "value": "var(--radii-xs)",
+    "value": "var(--radii-sm)",
     "variable": "var(--radii-l1)"
   },
   "radii.l2": {
-    "value": "var(--radii-sm)",
+    "value": "var(--radii-md)",
     "variable": "var(--radii-l2)"
   },
   "radii.l3": {
-    "value": "var(--radii-md)",
+    "value": "var(--radii-lg)",
     "variable": "var(--radii-l3)"
   },
   "spacing.-1": {
@@ -2051,6 +2067,78 @@ const tokens = {
     "value": "var(--colors-teal-text)",
     "variable": "var(--colors-teal-text)"
   },
+  "colors.app.canvas": {
+    "value": "var(--colors-app-canvas)",
+    "variable": "var(--colors-app-canvas)"
+  },
+  "colors.app.canvas.subtle": {
+    "value": "var(--colors-app-canvas-subtle)",
+    "variable": "var(--colors-app-canvas-subtle)"
+  },
+  "colors.app.surface": {
+    "value": "var(--colors-app-surface)",
+    "variable": "var(--colors-app-surface)"
+  },
+  "colors.app.surface.muted": {
+    "value": "var(--colors-app-surface-muted)",
+    "variable": "var(--colors-app-surface-muted)"
+  },
+  "colors.app.surface.raised": {
+    "value": "var(--colors-app-surface-raised)",
+    "variable": "var(--colors-app-surface-raised)"
+  },
+  "colors.app.panel": {
+    "value": "var(--colors-app-panel)",
+    "variable": "var(--colors-app-panel)"
+  },
+  "colors.app.toolbar": {
+    "value": "var(--colors-app-toolbar)",
+    "variable": "var(--colors-app-toolbar)"
+  },
+  "colors.app.nav": {
+    "value": "var(--colors-app-nav)",
+    "variable": "var(--colors-app-nav)"
+  },
+  "colors.app.nav.active": {
+    "value": "var(--colors-app-nav-active)",
+    "variable": "var(--colors-app-nav-active)"
+  },
+  "colors.app.accent": {
+    "value": "var(--colors-app-accent)",
+    "variable": "var(--colors-app-accent)"
+  },
+  "colors.app.accent.soft": {
+    "value": "var(--colors-app-accent-soft)",
+    "variable": "var(--colors-app-accent-soft)"
+  },
+  "colors.app.accent.muted": {
+    "value": "var(--colors-app-accent-muted)",
+    "variable": "var(--colors-app-accent-muted)"
+  },
+  "colors.app.border": {
+    "value": "var(--colors-app-border)",
+    "variable": "var(--colors-app-border)"
+  },
+  "colors.app.border.strong": {
+    "value": "var(--colors-app-border-strong)",
+    "variable": "var(--colors-app-border-strong)"
+  },
+  "colors.app.text": {
+    "value": "var(--colors-app-text)",
+    "variable": "var(--colors-app-text)"
+  },
+  "colors.app.text.muted": {
+    "value": "var(--colors-app-text-muted)",
+    "variable": "var(--colors-app-text-muted)"
+  },
+  "colors.app.text.subtle": {
+    "value": "var(--colors-app-text-subtle)",
+    "variable": "var(--colors-app-text-subtle)"
+  },
+  "colors.app.text.inverse": {
+    "value": "var(--colors-app-text-inverse)",
+    "variable": "var(--colors-app-text-inverse)"
+  },
   "colors.fg.default": {
     "value": "var(--colors-fg-default)",
     "variable": "var(--colors-fg-default)"
@@ -2547,13 +2635,101 @@ const tokens = {
     "value": "var(--colors-color-palette-text)",
     "variable": "var(--colors-color-palette-text)"
   },
-  "colors.colorPalette.muted": {
-    "value": "var(--colors-color-palette-muted)",
-    "variable": "var(--colors-color-palette-muted)"
+  "colors.colorPalette.canvas": {
+    "value": "var(--colors-color-palette-canvas)",
+    "variable": "var(--colors-color-palette-canvas)"
+  },
+  "colors.colorPalette.canvas.subtle": {
+    "value": "var(--colors-color-palette-canvas-subtle)",
+    "variable": "var(--colors-color-palette-canvas-subtle)"
   },
   "colors.colorPalette.subtle": {
     "value": "var(--colors-color-palette-subtle)",
     "variable": "var(--colors-color-palette-subtle)"
+  },
+  "colors.colorPalette.surface": {
+    "value": "var(--colors-color-palette-surface)",
+    "variable": "var(--colors-color-palette-surface)"
+  },
+  "colors.colorPalette.surface.muted": {
+    "value": "var(--colors-color-palette-surface-muted)",
+    "variable": "var(--colors-color-palette-surface-muted)"
+  },
+  "colors.colorPalette.muted": {
+    "value": "var(--colors-color-palette-muted)",
+    "variable": "var(--colors-color-palette-muted)"
+  },
+  "colors.colorPalette.surface.raised": {
+    "value": "var(--colors-color-palette-surface-raised)",
+    "variable": "var(--colors-color-palette-surface-raised)"
+  },
+  "colors.colorPalette.raised": {
+    "value": "var(--colors-color-palette-raised)",
+    "variable": "var(--colors-color-palette-raised)"
+  },
+  "colors.colorPalette.panel": {
+    "value": "var(--colors-color-palette-panel)",
+    "variable": "var(--colors-color-palette-panel)"
+  },
+  "colors.colorPalette.toolbar": {
+    "value": "var(--colors-color-palette-toolbar)",
+    "variable": "var(--colors-color-palette-toolbar)"
+  },
+  "colors.colorPalette.nav": {
+    "value": "var(--colors-color-palette-nav)",
+    "variable": "var(--colors-color-palette-nav)"
+  },
+  "colors.colorPalette.nav.active": {
+    "value": "var(--colors-color-palette-nav-active)",
+    "variable": "var(--colors-color-palette-nav-active)"
+  },
+  "colors.colorPalette.active": {
+    "value": "var(--colors-color-palette-active)",
+    "variable": "var(--colors-color-palette-active)"
+  },
+  "colors.colorPalette.accent": {
+    "value": "var(--colors-color-palette-accent)",
+    "variable": "var(--colors-color-palette-accent)"
+  },
+  "colors.colorPalette.accent.soft": {
+    "value": "var(--colors-color-palette-accent-soft)",
+    "variable": "var(--colors-color-palette-accent-soft)"
+  },
+  "colors.colorPalette.soft": {
+    "value": "var(--colors-color-palette-soft)",
+    "variable": "var(--colors-color-palette-soft)"
+  },
+  "colors.colorPalette.accent.muted": {
+    "value": "var(--colors-color-palette-accent-muted)",
+    "variable": "var(--colors-color-palette-accent-muted)"
+  },
+  "colors.colorPalette.border": {
+    "value": "var(--colors-color-palette-border)",
+    "variable": "var(--colors-color-palette-border)"
+  },
+  "colors.colorPalette.border.strong": {
+    "value": "var(--colors-color-palette-border-strong)",
+    "variable": "var(--colors-color-palette-border-strong)"
+  },
+  "colors.colorPalette.strong": {
+    "value": "var(--colors-color-palette-strong)",
+    "variable": "var(--colors-color-palette-strong)"
+  },
+  "colors.colorPalette.text.muted": {
+    "value": "var(--colors-color-palette-text-muted)",
+    "variable": "var(--colors-color-palette-text-muted)"
+  },
+  "colors.colorPalette.text.subtle": {
+    "value": "var(--colors-color-palette-text-subtle)",
+    "variable": "var(--colors-color-palette-text-subtle)"
+  },
+  "colors.colorPalette.text.inverse": {
+    "value": "var(--colors-color-palette-text-inverse)",
+    "variable": "var(--colors-color-palette-text-inverse)"
+  },
+  "colors.colorPalette.inverse": {
+    "value": "var(--colors-color-palette-inverse)",
+    "variable": "var(--colors-color-palette-inverse)"
   },
   "colors.colorPalette.disabled": {
     "value": "var(--colors-color-palette-disabled)",
@@ -2574,10 +2750,6 @@ const tokens = {
   "colors.colorPalette.error": {
     "value": "var(--colors-color-palette-error)",
     "variable": "var(--colors-color-palette-error)"
-  },
-  "colors.colorPalette.canvas": {
-    "value": "var(--colors-color-palette-canvas)",
-    "variable": "var(--colors-color-palette-canvas)"
   },
   "colors.colorPalette.deep": {
     "value": "var(--colors-color-palette-deep)",

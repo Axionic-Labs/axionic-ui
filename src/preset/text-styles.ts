@@ -4,35 +4,47 @@ export const textStyles = defineTextStyles({
 	display: {
 		value: {
 			fontFamily: 'display',
-			fontSize: '3.5rem',
+			fontSize: '3.75rem',
 			fontWeight: '700',
-			lineHeight: '1.1',
-			letterSpacing: '-0.02em',
+			lineHeight: '1.02',
+			letterSpacing: '-0.03em',
 		},
 	},
 	h1: {
 		value: {
 			fontFamily: 'body',
-			fontSize: '2.75rem',
+			fontSize: '3rem',
 			fontWeight: '800',
-			lineHeight: '1.15',
-			letterSpacing: '-0.02em',
+			lineHeight: '1.06',
+			letterSpacing: '-0.03em',
 		},
 	},
 	h2: {
-		value: { fontFamily: 'body', fontSize: '2rem', fontWeight: '700', lineHeight: '1.25' },
+		value: {
+			fontFamily: 'body',
+			fontSize: '2.25rem',
+			fontWeight: '750',
+			lineHeight: '1.12',
+			letterSpacing: '-0.02em',
+		},
 	},
 	h3: {
-		value: { fontFamily: 'body', fontSize: '1.5rem', fontWeight: '700', lineHeight: '1.35' },
+		value: {
+			fontFamily: 'body',
+			fontSize: '1.625rem',
+			fontWeight: '700',
+			lineHeight: '1.2',
+			letterSpacing: '-0.01em',
+		},
 	},
 	body: {
-		value: { fontFamily: 'body', fontSize: '1rem', fontWeight: '400', lineHeight: '1.6' },
+		value: { fontFamily: 'body', fontSize: '1rem', fontWeight: '400', lineHeight: '1.55' },
 	},
 	small: {
-		value: { fontFamily: 'body', fontSize: '0.875rem', fontWeight: '400', lineHeight: '1.5' },
+		value: { fontFamily: 'body', fontSize: '0.875rem', fontWeight: '400', lineHeight: '1.45' },
 	},
 	caption: {
-		value: { fontFamily: 'body', fontSize: '0.75rem', fontWeight: '500', lineHeight: '1.4' },
+		value: { fontFamily: 'body', fontSize: '0.75rem', fontWeight: '600', lineHeight: '1.35' },
 	},
 	label: {
 		value: { fontFamily: 'body', fontSize: '0.875rem', fontWeight: '600', lineHeight: '1.4' },
@@ -44,7 +56,67 @@ export const textStyles = defineTextStyles({
 		description: 'High-contrast warm gold text for subtitles on dark backgrounds.',
 		value: {
 			fontWeight: '600',
-			color: '#f5dfc0',
+			color: 'wheat.11',
+		},
+	},
+	eyebrow: {
+		description: 'Compact uppercase eyebrow for page and panel intros.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '0.75rem',
+			fontWeight: '700',
+			lineHeight: '1.2',
+			letterSpacing: '0.18em',
+			textTransform: 'uppercase',
+		},
+	},
+	pageTitle: {
+		description: 'Primary page title used in app workspace intros.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '3rem',
+			fontWeight: '800',
+			lineHeight: '1.05',
+			letterSpacing: '-0.03em',
+		},
+	},
+	sectionTitle: {
+		description: 'Panel and section title within product workspaces.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '1.125rem',
+			fontWeight: '700',
+			lineHeight: '1.25',
+		},
+	},
+	toolbarLabel: {
+		description: 'Compact toolbar label and top-nav text.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '0.875rem',
+			fontWeight: '600',
+			lineHeight: '1.25',
+		},
+	},
+	metricValue: {
+		description: 'Large metric value used in KPI tiles.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '2rem',
+			fontWeight: '800',
+			lineHeight: '1',
+			letterSpacing: '-0.03em',
+		},
+	},
+	metricLabel: {
+		description: 'Small uppercase metric label used in KPI tiles.',
+		value: {
+			fontFamily: 'body',
+			fontSize: '0.75rem',
+			fontWeight: '700',
+			lineHeight: '1.2',
+			letterSpacing: '0.12em',
+			textTransform: 'uppercase',
 		},
 	},
 	cardHeading: {
@@ -69,7 +141,7 @@ export const textStyles = defineTextStyles({
 		description: 'Small muted description/helper text.',
 		value: {
 			fontFamily: 'body',
-			fontSize: '0.75rem',
+			fontSize: '0.875rem',
 			fontWeight: '400',
 			lineHeight: '1.5',
 		},
