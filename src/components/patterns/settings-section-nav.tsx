@@ -16,6 +16,8 @@ export interface SettingsSectionNavProps {
 	title?: ReactNode;
 	items: SettingsSectionNavItem[];
 	footer?: ReactNode;
+	layout?: 'sidebar' | 'tabs';
+	showIcons?: boolean;
 	className?: string;
 }
 
@@ -102,31 +104,90 @@ const styles = {
 		borderTopWidth: '1px',
 		borderColor: 'app.border',
 	}),
+	rootTabs: css({
+		padding: '0',
+		borderWidth: '0',
+		bg: 'transparent',
+		boxShadow: 'none',
+		gap: '0',
+	}),
+	listTabs: css({
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		gap: '2',
+	}),
+	itemTabs: css({
+		width: 'auto',
+		gridTemplateColumns: 'minmax(0, 1fr)',
+		gap: '0',
+		paddingX: '3.5',
+		paddingY: '2',
+		rounded: 'full',
+		bg: 'app.surface',
+		borderColor: 'app.border',
+	}),
+	itemActiveTabs: css({
+		bg: 'app.accent.soft',
+		borderColor: 'app.border.strong',
+		color: 'app.text',
+		boxShadow: 'none',
+	}),
+	copyTabs: css({
+		display: 'inline-flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		gap: '0',
+	}),
+	labelTabs: css({
+		textStyle: 'small',
+		fontWeight: '600',
+	}),
 };
 
-export function SettingsSectionNav({ title, items, footer, className }: SettingsSectionNavProps) {
+export function SettingsSectionNav({
+	title,
+	items,
+	footer,
+	layout = 'sidebar',
+	showIcons = true,
+	className,
+}: SettingsSectionNavProps) {
+	const isTabs = layout === 'tabs';
+
 	return (
-		<nav className={cx(styles.root, className)} aria-label="Settings Sections">
+		<nav
+			className={cx(styles.root, isTabs && styles.rootTabs, className)}
+			aria-label="Settings Sections"
+		>
 			{title && <div className={styles.title}>{title}</div>}
-			<ul className={styles.list}>
+			<ul className={cx(styles.list, isTabs && styles.listTabs)}>
 				{items.map((item, index) => (
 					<li key={item.id ?? `${item.label}-${index}`}>
 						<button
 							type="button"
-							className={cx(styles.item, item.active && styles.itemActive)}
+							className={cx(
+								styles.item,
+								isTabs && styles.itemTabs,
+								item.active && styles.itemActive,
+								item.active && isTabs && styles.itemActiveTabs,
+							)}
 							onClick={item.onClick}
 							aria-current={item.active ? 'page' : undefined}
 						>
-							{item.icon && <span className={styles.icon}>{item.icon}</span>}
-							<span className={styles.copy}>
-								<span className={styles.label}>{item.label}</span>
-								{item.description && <span className={styles.description}>{item.description}</span>}
+							{showIcons && !isTabs && item.icon && (
+								<span className={styles.icon}>{item.icon}</span>
+							)}
+							<span className={cx(styles.copy, isTabs && styles.copyTabs)}>
+								<span className={cx(styles.label, isTabs && styles.labelTabs)}>{item.label}</span>
+								{!isTabs && item.description && (
+									<span className={styles.description}>{item.description}</span>
+								)}
 							</span>
 						</button>
 					</li>
 				))}
 			</ul>
-			{footer && <div className={styles.footer}>{footer}</div>}
+			{footer && !isTabs && <div className={styles.footer}>{footer}</div>}
 		</nav>
 	);
 }

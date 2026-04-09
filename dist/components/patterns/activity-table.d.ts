@@ -17,7 +17,8 @@ export interface ActivityTableProps {
     columns: ActivityTableColumn[];
     rows: ActivityTableRow[];
     emptyState?: ReactNode;
+    bodyMaxHeight?: string;
     className?: string;
 }
-export declare function ActivityTable({ title, description, actions, columns, rows, emptyState, className, }: ActivityTableProps): import("react/jsx-runtime").JSX.Element;
+export declare function ActivityTable({ title, description, actions, columns, rows, emptyState, bodyMaxHeight, className, }: ActivityTableProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=activity-table.d.ts.map

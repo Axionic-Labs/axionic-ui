@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-type CreditPillTone = 'default' | 'accent' | 'success' | 'warning';
+type CreditPillTone = 'default' | 'accent' | 'success' | 'warning' | 'starter' | 'pro';
 export interface CreditPillProps {
     label?: string;
     value: ReactNode;

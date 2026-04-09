@@ -13,6 +13,7 @@ export { EmptyState, type EmptyStateProps } from './empty-state';
 export { EntityCard, type EntityCardProps } from './entity-card';
 export { FeatureCard, type FeatureCardProps } from './feature-card';
 export { FileTree, type FileTreeNode, type FileTreeProps } from './file-tree';
+export { FormDialog, type FormDialogProps } from './form-dialog';
 export { buildGradientStyle, GradientPicker, type GradientPickerProps } from './gradient-picker';
 export { HelpPanel, type HelpPanelContentProps, type HelpPanelFooterProps, type HelpPanelHeaderProps, type HelpPanelRootProps, type HelpPanelSectionHeadingProps, type HelpPanelTabBarProps, type HelpPanelTabProps, } from './help-panel';
 export { HelpTrigger, type HelpTriggerProps } from './help-trigger';
@@ -46,5 +47,6 @@ export { StreamingStatus, type StreamingStatusProps, type StreamingStep } from '
 export { SupportPanel, type SupportPanelProps } from './support-panel';
 export { TopToolbar, type TopToolbarProps } from './top-toolbar';
 export { ValueField, type ValueFieldProps } from './value-field';
+export { ValueSlider, type ValueSliderProps } from './value-slider';
 export { WorkspacePage, type WorkspacePageProps } from './workspace-page';
 //# sourceMappingURL=index.d.ts.map

@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 
-type CreditPillTone = 'default' | 'accent' | 'success' | 'warning';
+type CreditPillTone = 'default' | 'accent' | 'success' | 'warning' | 'starter' | 'pro';
 
 export interface CreditPillProps {
 	label?: string;
@@ -77,6 +77,16 @@ const toneStyles: Record<CreditPillTone, string> = {
 	warning: css({
 		bg: 'bg.warning',
 		borderColor: 'border.warning',
+	}),
+	starter: css({
+		bg: 'app.surface',
+		borderColor: '#c9d0d6',
+		boxShadow: '0 0 0 1px rgba(201, 208, 214, 0.35)',
+	}),
+	pro: css({
+		bg: 'app.surface',
+		borderColor: '#c9a54c',
+		boxShadow: '0 0 0 1px rgba(201, 165, 76, 0.38)',
 	}),
 };
 

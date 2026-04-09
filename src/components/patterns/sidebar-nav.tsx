@@ -52,7 +52,7 @@ const styles = {
 	sections: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '4.5',
 		flex: '1',
 	}),
 	section: css({
@@ -69,7 +69,7 @@ const styles = {
 		listStyle: 'none',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '1',
+		gap: '1.5',
 		padding: '0',
 		margin: '0',
 	}),
@@ -80,8 +80,8 @@ const styles = {
 		gridTemplateColumns: 'auto minmax(0, 1fr) auto',
 		alignItems: 'center',
 		gap: '2.25',
-		paddingX: '3.5',
-		paddingY: '2.25',
+		paddingX: '3.75',
+		paddingY: '2.75',
 		borderRadius: 'xl',
 		color: 'app.text.muted',
 		bg: 'transparent',
@@ -93,6 +93,9 @@ const styles = {
 		_hover: {
 			bg: 'app.surface',
 			color: 'app.text',
+			'& [data-sidebar-icon]': {
+				transform: 'translateX(4px)',
+			},
 		},
 		_focusVisible: {
 			outline: '2px solid',
@@ -113,8 +116,9 @@ const styles = {
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '4.5',
+		boxSize: '5',
 		color: 'app.text.subtle',
+		transition: 'transform 180ms ease, color 180ms ease',
 	}),
 	itemText: css({
 		minWidth: 0,
@@ -123,11 +127,10 @@ const styles = {
 		gap: '0.5',
 	}),
 	itemLabel: css({
-		textStyle: 'caption',
+		textStyle: 'small',
 		color: 'currentColor',
 		fontWeight: '600',
-		letterSpacing: '0.1em',
-		textTransform: 'uppercase',
+		letterSpacing: '-0.01em',
 	}),
 	itemDescription: css({
 		textStyle: 'small',
@@ -170,7 +173,11 @@ function SidebarNavEntry({
 }) {
 	const content = (
 		<>
-			{item.icon && <span className={styles.itemIcon}>{item.icon}</span>}
+			{item.icon && (
+				<span className={styles.itemIcon} data-sidebar-icon="">
+					{item.icon}
+				</span>
+			)}
 			<span className={styles.itemText}>
 				<span className={styles.itemLabel}>{item.label}</span>
 				{showDescriptions && item.description && (

@@ -23,6 +23,7 @@ export interface ActivityTableProps {
 	columns: ActivityTableColumn[];
 	rows: ActivityTableRow[];
 	emptyState?: ReactNode;
+	bodyMaxHeight?: string;
 	className?: string;
 }
 
@@ -119,6 +120,7 @@ export function ActivityTable({
 	columns,
 	rows,
 	emptyState,
+	bodyMaxHeight,
 	className,
 }: ActivityTableProps) {
 	return (
@@ -132,7 +134,17 @@ export function ActivityTable({
 					{actions}
 				</div>
 			)}
-			<div className={styles.tableWrap}>
+			<div
+				className={styles.tableWrap}
+				style={
+					bodyMaxHeight
+						? {
+								maxHeight: bodyMaxHeight,
+								overflowY: 'auto',
+							}
+						: undefined
+				}
+			>
 				<table className={styles.table}>
 					<thead>
 						<tr>
