@@ -8,33 +8,36 @@ export const field = defineSlotRecipe({
 		root: {
 			display: 'flex',
 			flexDirection: 'column',
-			gap: '1.5',
+			gap: '2',
 		},
 		label: {
 			alignItems: 'center',
-			color: 'fg.default',
+			color: 'app.text',
 			display: 'flex',
 			gap: '0.5',
+			fontWeight: 'semibold',
 			textAlign: 'start',
 			userSelect: 'none',
-			textStyle: 'label',
+			textStyle: 'small',
 			_disabled: {
 				layerStyle: 'disabled',
 			},
 		},
 		requiredIndicator: {
-			color: 'colorPalette.solid',
+			color: 'app.accent',
 		},
 		helperText: {
-			color: 'fg.muted',
-			textStyle: 'sm',
+			color: 'app.text.subtle',
+			textStyle: 'caption',
+			lineHeight: '1.5',
 			_disabled: {
 				layerStyle: 'disabled',
 			},
 		},
 		errorText: {
-			color: 'error',
-			textStyle: 'sm',
+			color: 'fg.error',
+			textStyle: 'caption',
+			lineHeight: '1.5',
 		},
 	},
 });

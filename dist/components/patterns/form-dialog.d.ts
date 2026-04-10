@@ -6,6 +6,8 @@ export interface FormDialogProps {
     description?: ReactNode;
     eyebrow?: ReactNode;
     icon?: ReactNode;
+    aside?: ReactNode;
+    asideFooter?: ReactNode;
     children: ReactNode;
     size?: 'sm' | 'md' | 'lg' | 'xl';
     submitLabel?: ReactNode;
@@ -20,5 +22,5 @@ export interface FormDialogProps {
     bodyClassName?: string;
     hideFooter?: boolean;
 }
-export declare function FormDialog({ open, onOpenChange, title, description, eyebrow, icon, children, size, submitLabel, cancelLabel, submitting, disableSubmit, onSubmit, onCancel, footerHint, footer, className, bodyClassName, hideFooter, }: FormDialogProps): import("react/jsx-runtime").JSX.Element;
+export declare function FormDialog({ open, onOpenChange, title, description, eyebrow, icon, aside, asideFooter, children, size, submitLabel, cancelLabel, submitting, disableSubmit, onSubmit, onCancel, footerHint, footer, className, bodyClassName, hideFooter, }: FormDialogProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=form-dialog.d.ts.map

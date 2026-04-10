@@ -8,7 +8,7 @@ export const slider = defineSlotRecipe({
 		root: {
 			display: 'flex',
 			flexDirection: 'column',
-			gap: '1',
+			gap: '2',
 			textStyle: 'sm',
 			position: 'relative',
 			isolation: 'isolate',
@@ -16,8 +16,9 @@ export const slider = defineSlotRecipe({
 			width: 'full',
 		},
 		label: {
-			fontWeight: 'medium',
-			textStyle: 'sm',
+			color: 'app.text',
+			fontWeight: 'semibold',
+			textStyle: 'small',
 		},
 		control: {
 			display: 'inline-flex',
@@ -27,6 +28,8 @@ export const slider = defineSlotRecipe({
 			overflow: 'hidden',
 			borderRadius: 'full',
 			flex: '1',
+			borderWidth: '1px',
+			borderColor: 'app.border',
 		},
 		range: {
 			width: 'inherit',
@@ -40,14 +43,14 @@ export const slider = defineSlotRecipe({
 			display: 'flex',
 			alignItems: 'center',
 			gap: 'calc(var(--slider-thumb-size) / 2)',
-			color: 'fg.muted',
-			textStyle: 'xs',
+			color: 'app.text.subtle',
+			textStyle: 'caption',
 		},
 		markerIndicator: {
 			width: 'var(--slider-marker-size)',
 			height: 'var(--slider-marker-size)',
 			borderRadius: 'full',
-			bg: 'colorPalette.solid.fg',
+			bg: 'app.accent',
 		},
 		thumb: {
 			width: 'var(--slider-thumb-size)',
@@ -104,16 +107,16 @@ export const slider = defineSlotRecipe({
 		variant: {
 			outline: {
 				thumb: {
-					bg: 'gray.surface.bg',
+					bg: 'app.surface',
 					borderWidth: '2px',
-					borderColor: 'colorPalette.solid.bg',
-					boxShadow: 'xs',
+					borderColor: 'app.accent',
+					boxShadow: '{shadows.panel}',
 				},
 				range: {
-					bg: 'colorPalette.solid.bg',
+					bg: 'app.accent',
 				},
 				track: {
-					bg: 'border',
+					bg: 'app.surface.muted',
 				},
 			},
 		},

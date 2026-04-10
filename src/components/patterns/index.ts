@@ -19,6 +19,7 @@ export { EntityCard, type EntityCardProps } from './entity-card';
 export { FeatureCard, type FeatureCardProps } from './feature-card';
 export { FileTree, type FileTreeNode, type FileTreeProps } from './file-tree';
 export { FormDialog, type FormDialogProps } from './form-dialog';
+export { FormSection, type FormSectionProps } from './form-section';
 export { buildGradientStyle, GradientPicker, type GradientPickerProps } from './gradient-picker';
 export {
 	HelpPanel,

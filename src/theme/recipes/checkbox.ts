@@ -21,9 +21,10 @@ export const checkbox = defineSlotRecipe({
 			justifyContent: 'center',
 			flexShrink: '0',
 			borderWidth: '1px',
-			borderColor: 'transparent',
-			borderRadius: 'l1',
+			borderColor: 'app.border',
+			borderRadius: 'md',
 			cursor: 'pointer',
+			bg: 'app.surface.muted',
 			focusVisibleRing: 'outside',
 
 			_icon: {
@@ -31,7 +32,8 @@ export const checkbox = defineSlotRecipe({
 			},
 		},
 		label: {
-			fontWeight: 'medium',
+			color: 'app.text',
+			fontWeight: 'semibold',
 			userSelect: 'none',
 		},
 	},
@@ -58,40 +60,37 @@ export const checkbox = defineSlotRecipe({
 		variant: {
 			solid: {
 				control: {
-					control: {
-						borderColor: 'border',
-						_checked: {
-							bg: 'colorPalette.solid.bg',
-							borderColor: 'colorPalette.solid.bg',
-							color: 'colorPalette.solid.fg',
-						},
-						_invalid: {
-							background: 'error',
-						},
+					_checked: {
+						bg: 'app.accent',
+						borderColor: 'app.accent',
+						color: 'white',
+					},
+					_invalid: {
+						background: 'error',
 					},
 				},
 			},
 			surface: {
 				control: {
-					bg: 'colorPalette.surface.bg',
+					bg: 'app.surface',
 					borderWidth: '1px',
-					borderColor: 'colorPalette.surface.border',
-					color: 'colorPalette.surface.fg',
+					borderColor: 'app.border',
+					color: 'app.text',
 				},
 			},
 			subtle: {
 				control: {
-					bg: 'colorPalette.subtle.bg',
-					color: 'colorPalette.subtle.fg',
+					bg: 'app.canvas.subtle',
+					color: 'app.text',
 				},
 			},
 			outline: {
 				control: {
 					borderWidth: '1px',
-					borderColor: 'colorPalette.outline.border',
-					color: 'colorPalette.outline.fg',
+					borderColor: 'app.border',
+					color: 'app.text',
 					_checked: {
-						borderColor: 'colorPalette.solid.bg',
+						borderColor: 'app.accent',
 					},
 				},
 			},

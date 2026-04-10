@@ -28,9 +28,9 @@ const styles = {
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
+		gap: '4',
 		minWidth: 0,
-		padding: { base: '6', md: '7', xl: '8' },
+		padding: { base: '5', md: '6', xl: '7' },
 	}),
 	eyebrow: css({
 		display: 'inline-flex',
@@ -52,6 +52,7 @@ const styles = {
 		textStyle: 'body',
 		color: 'app.text.muted',
 		maxWidth: '28rem',
+		lineHeight: '1.65',
 	}),
 	actions: css({
 		display: 'flex',
@@ -70,7 +71,7 @@ const styles = {
 		display: 'flex',
 		alignItems: 'stretch',
 		justifyContent: 'stretch',
-		padding: { base: '5', md: '6' },
+		padding: { base: '4.5', md: '5' },
 		bg: 'linear-gradient(180deg, #f3f4f4 0%, #ecefee 100%)',
 		borderLeftWidth: { base: '0', xl: '1px' },
 		borderTopWidth: { base: '1px', xl: '0' },

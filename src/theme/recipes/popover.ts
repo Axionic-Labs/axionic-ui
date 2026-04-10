@@ -6,12 +6,14 @@ export const popover = defineSlotRecipe({
 	slots: popoverAnatomy.extendWith('header', 'body', 'footer').keys(),
 	base: {
 		content: {
-			'--popover-bg': 'colors.gray.surface.bg',
+			'--popover-bg': 'colors.app.surface',
 			'--popover-padding': 'spacing.4',
 
 			background: 'var(--popover-bg)',
 			borderRadius: 'l3',
-			boxShadow: 'lg',
+			borderWidth: '1px',
+			borderColor: 'app.border',
+			boxShadow: '{shadows.float}',
 			display: 'flex',
 			flexDirection: 'column',
 			outline: '0',
@@ -31,13 +33,13 @@ export const popover = defineSlotRecipe({
 			},
 		},
 		title: {
-			color: 'fg.default',
-			fontWeight: 'medium',
-			textStyle: 'md',
+			color: 'app.text',
+			fontWeight: 'semibold',
+			textStyle: 'small',
 		},
 		description: {
-			color: 'fg.muted',
-			textStyle: 'sm',
+			color: 'app.text.muted',
+			textStyle: 'caption',
 		},
 		closeTrigger: {
 			position: 'absolute',
@@ -47,6 +49,7 @@ export const popover = defineSlotRecipe({
 		header: {
 			display: 'flex',
 			flexDirection: 'column',
+			gap: '1',
 			pt: 'var(--popover-padding)',
 			px: 'var(--popover-padding)',
 		},

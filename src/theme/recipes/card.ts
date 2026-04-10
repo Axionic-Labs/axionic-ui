@@ -15,20 +15,20 @@ export const card = defineSlotRecipe({
 			display: 'flex',
 			flexDirection: 'column',
 			gap: '1',
-			p: '4',
+			p: '4.5',
 		},
 		body: {
 			display: 'flex',
 			flex: '1',
 			flexDirection: 'column',
-			p: '4',
+			p: '4.5',
 		},
 		footer: {
 			display: 'flex',
 			justifyContent: 'flex-end',
 			gap: '3',
-			p: '4',
-			pt: '2',
+			p: '4.5',
+			pt: '2.5',
 		},
 		title: {
 			textStyle: 'lg',
@@ -57,7 +57,7 @@ export const card = defineSlotRecipe({
 					bg: 'app.surface',
 					borderWidth: '1px',
 					borderColor: 'app.border',
-					boxShadow: '{shadows.panel}',
+					boxShadow: '{shadows.whisper}',
 				},
 			},
 			subtle: {

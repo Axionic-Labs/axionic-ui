@@ -12,8 +12,11 @@ export const input = {
 		outline: '0',
 		position: 'relative',
 		textAlign: 'start',
-		transition: 'colors',
+		transition: 'border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease',
 		width: '100%',
+		_placeholder: {
+			color: 'app.text.subtle',
+		},
 		_disabled: {
 			layerStyle: 'disabled',
 		},
@@ -25,15 +28,19 @@ export const input = {
 	variants: {
 		variant: {
 			outline: {
-				bg: 'app.surface',
+				bg: 'app.surface.muted',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
-				transition: 'border-color 0.15s, box-shadow 0.15s, background-color 0.15s',
+				_hover: {
+					borderColor: 'app.border.strong',
+					bg: 'app.surface',
+				},
 				_focus: {
 					borderColor: 'app.accent',
 					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
 					outline: 'none',
+					bg: 'app.surface',
 				},
 				_invalid: {
 					focusRingColor: 'error',
@@ -41,14 +48,18 @@ export const input = {
 				},
 			},
 			surface: {
-				bg: 'app.surface.muted',
+				bg: 'app.canvas.subtle',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
+				_hover: {
+					borderColor: 'app.border.strong',
+				},
 				_focus: {
 					borderColor: 'app.accent',
 					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
 					outline: 'none',
+					bg: 'app.surface',
 				},
 
 				_invalid: {
@@ -96,7 +107,7 @@ export const input = {
 			'2xs': { textStyle: 'xs', px: '2', '--input-height': 'sizes.8' },
 			xs: { textStyle: 'sm', px: '2.5', '--input-height': 'sizes.9' },
 			sm: { textStyle: 'sm', px: '3', '--input-height': 'sizes.10' },
-			md: { textStyle: 'md', px: '3.5', '--input-height': 'sizes.11' },
+			md: { textStyle: 'sm', px: '3.5', '--input-height': 'sizes.11' },
 			lg: { textStyle: 'md', px: '4', '--input-height': 'sizes.12' },
 			xl: { textStyle: 'lg', px: '4.5', '--input-height': 'sizes.14' },
 			'2xl': { textStyle: '3xl', px: '5', '--input-height': 'sizes.16' },

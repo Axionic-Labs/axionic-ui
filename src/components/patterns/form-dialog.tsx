@@ -13,6 +13,8 @@ export interface FormDialogProps {
 	description?: ReactNode;
 	eyebrow?: ReactNode;
 	icon?: ReactNode;
+	aside?: ReactNode;
+	asideFooter?: ReactNode;
 	children: ReactNode;
 	size?: 'sm' | 'md' | 'lg' | 'xl';
 	submitLabel?: ReactNode;
@@ -29,17 +31,10 @@ export interface FormDialogProps {
 }
 
 const styles = {
-	accentBar: css({
-		h: '3px',
-		w: 'full',
-		roundedTop: 'l3',
-		background:
-			'linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})',
-	}),
 	header: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '3',
+		gap: '2.5',
 	}),
 	headerRow: css({
 		display: 'flex',
@@ -57,11 +52,11 @@ const styles = {
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '10',
+		boxSize: '11',
 		rounded: '2xl',
 		borderWidth: '1px',
 		borderColor: 'app.border',
-		bg: 'app.accent.soft',
+		bg: 'app.surface.muted',
 		color: 'app.accent',
 		flexShrink: 0,
 	}),
@@ -78,15 +73,38 @@ const styles = {
 	description: css({
 		textStyle: 'small',
 		color: 'app.text.muted',
-		maxWidth: '2xl',
+		maxWidth: '42rem',
+		lineHeight: '1.6',
 	}),
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
-		maxHeight: 'min(72vh, 48rem)',
+		gap: '4',
+		maxHeight: 'min(68vh, 42rem)',
 		overflowY: 'auto',
 		paddingRight: '1',
+	}),
+	splitShell: css({
+		display: 'grid',
+		gridTemplateColumns: { base: '1fr', lg: '19rem minmax(0, 1fr)' },
+		minHeight: { lg: '36rem' },
+	}),
+	splitAside: css({
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		gap: '4',
+		padding: { base: '5', md: '6' },
+		background: 'app.canvas.subtle',
+		borderBottomWidth: { base: '1px', lg: '0' },
+		borderRightWidth: { base: '0', lg: '1px' },
+		borderColor: 'app.border',
+	}),
+	splitMain: css({
+		position: 'relative',
+		display: 'flex',
+		flexDirection: 'column',
+		minWidth: 0,
 	}),
 	footer: css({
 		display: 'flex',
@@ -99,11 +117,17 @@ const styles = {
 		textStyle: 'caption',
 		color: 'app.text.subtle',
 	}),
+	closeButton: css({
+		position: 'absolute',
+		top: '3',
+		right: '3',
+		zIndex: 2,
+	}),
 	actions: css({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'flex-end',
-		gap: '2.5',
+		gap: '2',
 		flexWrap: 'wrap',
 		marginLeft: 'auto',
 	}),
@@ -116,6 +140,8 @@ export function FormDialog({
 	description,
 	eyebrow,
 	icon,
+	aside,
+	asideFooter,
 	children,
 	size = 'xl',
 	submitLabel = 'Save',
@@ -130,61 +156,82 @@ export function FormDialog({
 	bodyClassName,
 	hideFooter = false,
 }: FormDialogProps) {
+	const renderedFooter = footer ? (
+		<Dialog.Footer>{footer}</Dialog.Footer>
+	) : (
+		<Dialog.Footer className={styles.footer}>
+			{footerHint ? <div className={styles.footerHint}>{footerHint}</div> : <div />}
+			<div className={styles.actions}>
+				<Button
+					variant="outline"
+					size="sm"
+					onClick={() => {
+						onCancel?.();
+						onOpenChange(false);
+					}}
+				>
+					{cancelLabel}
+				</Button>
+				<Button
+					variant="brand"
+					size="sm"
+					onClick={onSubmit}
+					disabled={disableSubmit}
+					loading={submitting}
+				>
+					{submitLabel}
+				</Button>
+			</div>
+		</Dialog.Footer>
+	);
+
+	const renderedHeader = (
+		<Dialog.Header className={styles.header}>
+			<div className={styles.headerRow}>
+				<div className={styles.headerCopy}>
+					{icon && <div className={styles.icon}>{icon}</div>}
+					<div className={styles.copy}>
+						{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
+						<Dialog.Title>{title}</Dialog.Title>
+						{description && (
+							<Dialog.Description className={styles.description}>{description}</Dialog.Description>
+						)}
+					</div>
+				</div>
+			</div>
+		</Dialog.Header>
+	);
+
 	return (
 		<Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)} size={size}>
 			<Dialog.Backdrop />
 			<Dialog.Positioner>
 				<Dialog.Content className={className}>
-					<div className={styles.accentBar} />
-					<Dialog.CloseTrigger asChild>
-						<CloseButton size="sm" aria-label="Close dialog" />
-					</Dialog.CloseTrigger>
-					<Dialog.Header className={styles.header}>
-						<div className={styles.headerRow}>
-							<div className={styles.headerCopy}>
-								{icon && <div className={styles.icon}>{icon}</div>}
-								<div className={styles.copy}>
-									{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
-									<Dialog.Title>{title}</Dialog.Title>
-									{description && (
-										<Dialog.Description className={styles.description}>
-											{description}
-										</Dialog.Description>
-									)}
-								</div>
+					{aside ? (
+						<div className={styles.splitShell}>
+							<div className={styles.splitAside}>
+								<div>{aside}</div>
+								{asideFooter}
+							</div>
+							<div className={styles.splitMain}>
+								<Dialog.CloseTrigger asChild>
+									<CloseButton className={styles.closeButton} size="sm" aria-label="Close dialog" />
+								</Dialog.CloseTrigger>
+								{renderedHeader}
+								<Dialog.Body className={cx(styles.body, bodyClassName)}>{children}</Dialog.Body>
+								{!hideFooter && renderedFooter}
 							</div>
 						</div>
-					</Dialog.Header>
-					<Dialog.Body className={cx(styles.body, bodyClassName)}>{children}</Dialog.Body>
-					{!hideFooter &&
-						(footer ? (
-							<Dialog.Footer>{footer}</Dialog.Footer>
-						) : (
-							<Dialog.Footer className={styles.footer}>
-								{footerHint ? <div className={styles.footerHint}>{footerHint}</div> : <div />}
-								<div className={styles.actions}>
-									<Button
-										variant="outline"
-										size="sm"
-										onClick={() => {
-											onCancel?.();
-											onOpenChange(false);
-										}}
-									>
-										{cancelLabel}
-									</Button>
-									<Button
-										variant="brand"
-										size="sm"
-										onClick={onSubmit}
-										disabled={disableSubmit}
-										loading={submitting}
-									>
-										{submitLabel}
-									</Button>
-								</div>
-							</Dialog.Footer>
-						))}
+					) : (
+						<>
+							<Dialog.CloseTrigger asChild>
+								<CloseButton className={styles.closeButton} size="sm" aria-label="Close dialog" />
+							</Dialog.CloseTrigger>
+							{renderedHeader}
+							<Dialog.Body className={cx(styles.body, bodyClassName)}>{children}</Dialog.Body>
+							{!hideFooter && renderedFooter}
+						</>
+					)}
 				</Dialog.Content>
 			</Dialog.Positioner>
 		</Dialog.Root>

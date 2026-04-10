@@ -59,7 +59,7 @@ export const menu = defineSlotRecipe({
 			color: 'app.text.subtle',
 			display: 'flex',
 			flexDirection: 'column',
-			fontWeight: 'medium',
+			fontWeight: 'semibold',
 			gap: '1px',
 			justifyContent: 'center',
 			_after: {
@@ -101,7 +101,7 @@ export const menu = defineSlotRecipe({
 				separator: { mx: '-1.5', my: '0.5' },
 			},
 			md: {
-				content: { p: '1', gap: '0.5', textStyle: 'md' },
+				content: { p: '1.5', gap: '1', textStyle: 'sm' },
 				item: { px: '2', minH: '10', gap: '2', _icon: { boxSize: '4' } },
 				itemGroup: { gap: '0.5' },
 				itemGroupLabel: { px: '2', height: '10' },

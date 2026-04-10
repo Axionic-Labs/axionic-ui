@@ -17,7 +17,8 @@ export const switchRecipe = defineSlotRecipe({
 			},
 		},
 		label: {
-			fontWeight: 'medium',
+			color: 'app.text',
+			fontWeight: 'semibold',
 			userSelect: 'none',
 			lineHeight: '1',
 		},
@@ -80,21 +81,23 @@ export const switchRecipe = defineSlotRecipe({
 			solid: {
 				control: {
 					borderRadius: 'full',
-					bg: 'gray.subtle.bg',
-					focusVisibleRing: 'outside',
+					bg: 'app.surface.muted',
+					borderWidth: '1px',
+					borderColor: 'app.border',
 					_checked: {
-						bg: 'colorPalette.solid.bg',
+						bg: 'app.accent',
+						borderColor: 'app.accent',
 					},
 				},
 				thumb: {
-					bg: 'white',
+					bg: 'app.surface',
 					_checked: {
-						bg: 'colorPalette.solid.fg',
+						bg: 'white',
 					},
 					width: 'var(--switch-height)',
 					height: 'var(--switch-height)',
-					scale: '0.8',
-					boxShadow: 'xs',
+					scale: '0.76',
+					boxShadow: '{shadows.panel}',
 				},
 			},
 		},

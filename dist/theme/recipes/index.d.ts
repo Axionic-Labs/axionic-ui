@@ -18,8 +18,11 @@ export declare const recipes: {
             outline: "0";
             position: "relative";
             textAlign: "start";
-            transition: "colors";
+            transition: "border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease";
             width: "100%";
+            _placeholder: {
+                color: "app.text.subtle";
+            };
             _disabled: {
                 layerStyle: string;
             };
@@ -35,11 +38,15 @@ export declare const recipes: {
                     borderWidth: "1px";
                     borderColor: "app.border";
                     color: "app.text";
-                    transition: "border-color 0.15s, box-shadow 0.15s, background-color 0.15s";
+                    _hover: {
+                        borderColor: "app.border.strong";
+                        bg: string;
+                    };
                     _focus: {
                         borderColor: "app.accent";
                         boxShadow: "0 0 0 3px {colors.teal.light.a3}";
                         outline: "none";
+                        bg: string;
                     };
                     _invalid: {
                         focusRingColor: string;
@@ -51,10 +58,14 @@ export declare const recipes: {
                     borderWidth: "1px";
                     borderColor: "app.border";
                     color: "app.text";
+                    _hover: {
+                        borderColor: "app.border.strong";
+                    };
                     _focus: {
                         borderColor: "app.accent";
                         boxShadow: "0 0 0 3px {colors.teal.light.a3}";
                         outline: "none";
+                        bg: string;
                     };
                     _invalid: {
                         focusRingColor: string;

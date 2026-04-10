@@ -6,8 +6,8 @@ export const dialog = defineSlotRecipe({
 	slots: dialogAnatomy.extendWith('header', 'body', 'footer').keys(),
 	base: {
 		backdrop: {
-			background: 'black.a7',
-			backdropFilter: 'blur(8px)',
+			background: 'rgba(16, 20, 22, 0.22)',
+			backdropFilter: 'blur(14px)',
 			height: '100dvh',
 			left: '0',
 			position: 'fixed',
@@ -53,11 +53,11 @@ export const dialog = defineSlotRecipe({
 		},
 		content: {
 			'--dialog-z-index': 'zIndex.modal',
-			bg: 'gray.surface.bg',
+			bg: 'app.surface',
 			borderRadius: 'l3',
 			borderWidth: '1px',
-			borderColor: 'border.muted',
-			boxShadow: 'lg',
+			borderColor: 'rgba(45, 75, 74, 0.12)',
+			boxShadow: '0 28px 56px rgba(19, 24, 25, 0.16)',
 			display: 'flex',
 			flexDirection: 'column',
 			my: 'var(--dialog-margin, var(--dialog-base-margin))',
@@ -66,31 +66,38 @@ export const dialog = defineSlotRecipe({
 			textStyle: 'sm',
 			width: '100%',
 			zIndex: 'calc(var(--dialog-z-index) + var(--layer-index, 0))',
-			py: { base: '4', md: '6' },
-			gap: { base: '4', md: '6' },
 			_open: {
 				animationDuration: 'slowest',
 			},
 			_closed: {
 				animationDuration: 'normal',
 			},
+			_dark: {
+				bg: '#111a1d',
+				borderColor: 'rgba(183, 207, 209, 0.08)',
+			},
 		},
 		header: {
 			display: 'flex',
 			flexDirection: 'column',
-			gap: '0.5',
-			px: { base: '4', md: '6' },
-			pb: { base: '4', md: '6' },
+			gap: '1',
+			px: { base: '5', md: '6' },
+			pt: { base: '5', md: '6' },
+			pb: { base: '4', md: '5' },
 			borderBottomWidth: '1px',
-			borderBottomColor: 'border.muted',
+			borderBottomColor: 'rgba(45, 75, 74, 0.08)',
 			flex: '0',
+			_dark: {
+				borderBottomColor: 'rgba(183, 207, 209, 0.08)',
+			},
 		},
 		body: {
 			display: 'flex',
 			flex: '1',
 			flexDirection: 'column',
 			alignItems: 'flex-start',
-			px: { base: '4', md: '6' },
+			px: { base: '5', md: '6' },
+			pb: { base: '5', md: '6' },
 		},
 		footer: {
 			display: 'flex',
@@ -98,10 +105,13 @@ export const dialog = defineSlotRecipe({
 			justifyContent: 'flex-end',
 			flex: '0',
 			gap: '3',
-			px: { base: '4', md: '6' },
-			pt: { base: '4', md: '6' },
+			px: { base: '5', md: '6' },
+			py: { base: '4', md: '5' },
 			borderTopWidth: '1px',
-			borderTopColor: 'border.muted',
+			borderTopColor: 'rgba(45, 75, 74, 0.08)',
+			_dark: {
+				borderTopColor: 'rgba(183, 207, 209, 0.08)',
+			},
 		},
 	},
 	defaultVariants: {
@@ -145,11 +155,11 @@ export const dialog = defineSlotRecipe({
 			none: {},
 		},
 		size: {
-			xs: { content: { maxW: 'xs' } },
-			sm: { content: { maxW: 'sm' } },
-			md: { content: { maxW: 'md' } },
-			lg: { content: { maxW: 'lg' } },
-			xl: { content: { maxW: 'xl' } },
+			xs: { content: { maxW: 'sm' } },
+			sm: { content: { maxW: 'md' } },
+			md: { content: { maxW: '3xl' } },
+			lg: { content: { maxW: '5xl' } },
+			xl: { content: { maxW: '6xl' } },
 			cover: {
 				positioner: { padding: '8' },
 				content: {
@@ -224,7 +234,7 @@ export const dialog = defineSlotRecipe({
 					overflow: 'hidden',
 				},
 				content: {
-					maxH: 'calc(100% - 7.5rem)',
+					maxH: 'calc(100dvh - 5rem)',
 				},
 				body: {
 					overflow: 'auto',

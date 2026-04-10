@@ -52,7 +52,7 @@ const styles = {
 	sections: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4.5',
+		gap: '5',
 		flex: '1',
 	}),
 	section: css({
@@ -69,7 +69,7 @@ const styles = {
 		listStyle: 'none',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '1.5',
+		gap: '2',
 		padding: '0',
 		margin: '0',
 	}),
@@ -79,9 +79,9 @@ const styles = {
 		display: 'grid',
 		gridTemplateColumns: 'auto minmax(0, 1fr) auto',
 		alignItems: 'center',
-		gap: '2.25',
-		paddingX: '3.75',
-		paddingY: '2.75',
+		gap: '2.75',
+		paddingX: '4',
+		paddingY: '3',
 		borderRadius: 'xl',
 		color: 'app.text.muted',
 		bg: 'transparent',
@@ -94,7 +94,8 @@ const styles = {
 			bg: 'app.surface',
 			color: 'app.text',
 			'& [data-sidebar-icon]': {
-				transform: 'translateX(4px)',
+				transform: 'translateX(6px)',
+				color: 'app.accent',
 			},
 		},
 		_focusVisible: {
@@ -116,9 +117,9 @@ const styles = {
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '5',
+		boxSize: '5.5',
 		color: 'app.text.subtle',
-		transition: 'transform 180ms ease, color 180ms ease',
+		transition: 'transform 220ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease',
 	}),
 	itemText: css({
 		minWidth: 0,
@@ -127,7 +128,7 @@ const styles = {
 		gap: '0.5',
 	}),
 	itemLabel: css({
-		textStyle: 'small',
+		textStyle: 'body',
 		color: 'currentColor',
 		fontWeight: '600',
 		letterSpacing: '-0.01em',
