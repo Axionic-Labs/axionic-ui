@@ -1335,7 +1335,7 @@
       background: none;
       border-color: var(--colors-border-default);
       border-width: 1px;
-      border-radius: var(--radii-l3);
+      border-radius: var(--radii-xl);
       outline: 0;
       transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
       color: var(--colors-fg-default);
@@ -1741,7 +1741,7 @@
 }
 
   .input--variant_outline {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-canvas-subtle);
     border-width: 1px;
     border-color: var(--colors-app-border);
     color: var(--colors-app-text);
@@ -1890,7 +1890,7 @@
   @layer _base{
 
     .field__root {
-      gap: var(--spacing-2);
+      gap: var(--spacing-2\.5);
       display: flex;
       flex-direction: column;
 }
@@ -1915,7 +1915,7 @@
       font-family: var(--fonts-body);
       font-size: 0.75rem;
       font-weight: 600;
-      line-height: 1.5;
+      line-height: 1.6;
 }
 
     .field__helperText:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
@@ -1924,7 +1924,7 @@
 }
 
     .field__label {
-      gap: var(--spacing-0\.5);
+      gap: 0.75px;
       align-items: center;
       color: var(--colors-app-text);
       display: flex;
@@ -2362,7 +2362,7 @@
 }
 
     .slider__root {
-      gap: var(--spacing-2);
+      gap: var(--spacing-2\.5);
       display: flex;
       flex-direction: column;
       font-size: var(--font-sizes-sm);
@@ -2375,10 +2375,12 @@
 
     .slider__label {
       color: var(--colors-app-text);
-      font-weight: 400;
+      font-weight: 600;
       font-family: var(--fonts-body);
-      font-size: 0.875rem;
-      line-height: 1.45;
+      font-size: 0.75rem;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
 }
 
     .slider__thumb {
@@ -2628,11 +2630,11 @@
     background: var(--colors-app-surface);
     border-width: 2px;
     border-color: var(--colors-app-accent);
-    box-shadow: var(--shadows-panel);
+    box-shadow: var(--shadows-whisper);
 }
 
   .slider__track--variant_outline {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-canvas-subtle);
 }
 
   .slider__range--variant_outline {

@@ -3,7 +3,7 @@ export declare const input: {
     jsx: string[];
     base: {
         appearance: "none";
-        borderRadius: "l3";
+        borderRadius: "xl";
         height: "var(--input-height)";
         minHeight: "var(--input-height)";
         minW: string;
@@ -52,6 +52,7 @@ export declare const input: {
                 color: "app.text";
                 _hover: {
                     borderColor: "app.border.strong";
+                    bg: string;
                 };
                 _focus: {
                     borderColor: "app.accent";

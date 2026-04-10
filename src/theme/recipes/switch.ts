@@ -81,7 +81,7 @@ export const switchRecipe = defineSlotRecipe({
 			solid: {
 				control: {
 					borderRadius: 'full',
-					bg: 'app.surface.muted',
+					bg: 'app.canvas.subtle',
 					borderWidth: '1px',
 					borderColor: 'app.border',
 					_checked: {
@@ -96,8 +96,8 @@ export const switchRecipe = defineSlotRecipe({
 					},
 					width: 'var(--switch-height)',
 					height: 'var(--switch-height)',
-					scale: '0.76',
-					boxShadow: '{shadows.panel}',
+					scale: '0.72',
+					boxShadow: '{shadows.whisper}',
 				},
 			},
 		},

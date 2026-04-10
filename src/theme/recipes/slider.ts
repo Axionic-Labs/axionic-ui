@@ -8,7 +8,7 @@ export const slider = defineSlotRecipe({
 		root: {
 			display: 'flex',
 			flexDirection: 'column',
-			gap: '2',
+			gap: '2.5',
 			textStyle: 'sm',
 			position: 'relative',
 			isolation: 'isolate',
@@ -18,7 +18,9 @@ export const slider = defineSlotRecipe({
 		label: {
 			color: 'app.text',
 			fontWeight: 'semibold',
-			textStyle: 'small',
+			textStyle: 'caption',
+			textTransform: 'uppercase',
+			letterSpacing: '0.08em',
 		},
 		control: {
 			display: 'inline-flex',
@@ -105,18 +107,18 @@ export const slider = defineSlotRecipe({
 			},
 		},
 		variant: {
-			outline: {
+				outline: {
 				thumb: {
 					bg: 'app.surface',
 					borderWidth: '2px',
 					borderColor: 'app.accent',
-					boxShadow: '{shadows.panel}',
+					boxShadow: '{shadows.whisper}',
 				},
 				range: {
 					bg: 'app.accent',
 				},
 				track: {
-					bg: 'app.surface.muted',
+					bg: 'app.canvas.subtle',
 				},
 			},
 		},

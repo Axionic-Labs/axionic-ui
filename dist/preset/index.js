@@ -1235,7 +1235,7 @@ var input = {
   jsx: ["Input", "Field.Input"],
   base: {
     appearance: "none",
-    borderRadius: "l3",
+    borderRadius: "xl",
     height: "var(--input-height)",
     minHeight: "var(--input-height)",
     minW: "var(--input-height)",
@@ -1258,7 +1258,7 @@ var input = {
   variants: {
     variant: {
       outline: {
-        bg: "app.surface.muted",
+        bg: "app.canvas.subtle",
         borderWidth: "1px",
         borderColor: "app.border",
         color: "app.text",
@@ -1278,12 +1278,13 @@ var input = {
         }
       },
       surface: {
-        bg: "app.canvas.subtle",
+        bg: "app.surface",
         borderWidth: "1px",
         borderColor: "app.border",
         color: "app.text",
         _hover: {
-          borderColor: "app.border.strong"
+          borderColor: "app.border.strong",
+          bg: "app.surface"
         },
         _focus: {
           borderColor: "app.accent",
@@ -2159,13 +2160,13 @@ var field = defineSlotRecipe16({
     root: {
       display: "flex",
       flexDirection: "column",
-      gap: "2"
+      gap: "2.5"
     },
     label: {
       alignItems: "center",
       color: "app.text",
       display: "flex",
-      gap: "0.5",
+      gap: "0.75",
       fontWeight: "semibold",
       textAlign: "start",
       userSelect: "none",
@@ -2180,7 +2181,7 @@ var field = defineSlotRecipe16({
     helperText: {
       color: "app.text.subtle",
       textStyle: "caption",
-      lineHeight: "1.5",
+      lineHeight: "1.6",
       _disabled: {
         layerStyle: "disabled"
       }
@@ -2799,7 +2800,7 @@ var menu = defineSlotRecipe22({
       bg: "app.surface",
       borderWidth: "1px",
       borderColor: "app.border",
-      borderRadius: "l3",
+      borderRadius: "2xl",
       boxShadow: "{shadows.float}",
       display: "flex",
       flexDirection: "column",
@@ -2821,7 +2822,7 @@ var menu = defineSlotRecipe22({
     },
     item: {
       alignItems: "center",
-      borderRadius: "l2",
+      borderRadius: "xl",
       color: "app.text",
       display: "flex",
       flex: "0 0 auto",
@@ -2874,29 +2875,29 @@ var menu = defineSlotRecipe22({
   variants: {
     size: {
       xs: {
-        content: { p: "1", gap: "0.5", textStyle: "sm" },
-        item: { px: "1", minH: "8", gap: "2", _icon: { boxSize: "3.5" } },
+        content: { p: "1.5", gap: "0.5", textStyle: "sm" },
+        item: { px: "2", minH: "8", gap: "2", _icon: { boxSize: "3.5" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "1", height: "8" },
         separator: { mx: "-1", my: "0.5" }
       },
       sm: {
-        content: { p: "1", gap: "0.5", textStyle: "sm" },
-        item: { px: "1.5", minH: "9", gap: "2", _icon: { boxSize: "4" } },
+        content: { p: "1.5", gap: "0.5", textStyle: "sm" },
+        item: { px: "2.25", minH: "9", gap: "2", _icon: { boxSize: "4" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "1.5", height: "9" },
         separator: { mx: "-1.5", my: "0.5" }
       },
       md: {
-        content: { p: "1.5", gap: "1", textStyle: "sm" },
-        item: { px: "2", minH: "10", gap: "2", _icon: { boxSize: "4" } },
+        content: { p: "2", gap: "1", textStyle: "sm" },
+        item: { px: "2.5", minH: "10", gap: "2.5", _icon: { boxSize: "4" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "2", height: "10" },
         separator: { mx: "-2", my: "0.5" }
       },
       lg: {
-        content: { p: "1", gap: "0.5", textStyle: "md" },
-        item: { px: "2.5", minH: "11", gap: "2", _icon: { boxSize: "4.5" } },
+        content: { p: "2", gap: "0.5", textStyle: "md" },
+        item: { px: "3", minH: "11", gap: "2.5", _icon: { boxSize: "4.5" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "2.5", height: "11" },
         separator: { mx: "-2.5", my: "0.5" }
@@ -3921,7 +3922,7 @@ var select = defineSlotRecipe34({
     },
     content: {
       background: "app.surface",
-      borderRadius: "l3",
+      borderRadius: "2xl",
       borderWidth: "1px",
       borderColor: "app.border",
       boxShadow: "{shadows.float}",
@@ -3943,7 +3944,7 @@ var select = defineSlotRecipe34({
     },
     item: {
       alignItems: "center",
-      borderRadius: "l2",
+      borderRadius: "xl",
       color: "app.text",
       cursor: "pointer",
       display: "flex",
@@ -3998,8 +3999,8 @@ var select = defineSlotRecipe34({
     },
     trigger: {
       alignItems: "center",
-      bg: "app.surface.muted",
-      borderRadius: "l3",
+      bg: "app.canvas.subtle",
+      borderRadius: "xl",
       cursor: "pointer",
       display: "flex",
       justifyContent: "space-between",
@@ -4063,29 +4064,29 @@ var select = defineSlotRecipe34({
     },
     size: {
       xs: {
-        content: { p: "1", gap: "0.5", textStyle: "sm" },
-        item: { px: "1", minH: "8", gap: "2", _icon: { boxSize: "3.5" } },
+        content: { p: "1.5", gap: "0.75", textStyle: "sm" },
+        item: { px: "2", minH: "8", gap: "2", _icon: { boxSize: "3.5" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "1", height: "8" },
         trigger: { px: "2", h: "8", textStyle: "sm", gap: "2", _icon: { boxSize: "3.5" } }
       },
       sm: {
-        content: { p: "1", gap: "0.5", textStyle: "sm" },
-        item: { px: "1.5", minH: "9", gap: "2", _icon: { boxSize: "4" } },
+        content: { p: "1.5", gap: "0.75", textStyle: "sm" },
+        item: { px: "2.25", minH: "9", gap: "2", _icon: { boxSize: "4" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "1.5", height: "9" },
         trigger: { px: "2.5", h: "9", textStyle: "sm", gap: "2", _icon: { boxSize: "4" } }
       },
       md: {
-        content: { p: "1.5", gap: "1", textStyle: "sm" },
-        item: { px: "2", minH: "10", gap: "2", _icon: { boxSize: "4" } },
+        content: { p: "2", gap: "1", textStyle: "sm" },
+        item: { px: "2.5", minH: "10", gap: "2", _icon: { boxSize: "4" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "2", height: "10" },
         trigger: { px: "3", h: "10", textStyle: "sm", gap: "2", _icon: { boxSize: "4" } }
       },
       lg: {
-        content: { p: "1", gap: "0.5", textStyle: "md" },
-        item: { px: "2.5", minH: "11", gap: "2", _icon: { boxSize: "4.5" } },
+        content: { p: "2", gap: "0.75", textStyle: "md" },
+        item: { px: "3", minH: "11", gap: "2", _icon: { boxSize: "4.5" } },
         itemGroup: { gap: "0.5" },
         itemGroupLabel: { px: "2.5", height: "11" },
         trigger: { px: "3.5", h: "11", textStyle: "md", gap: "2", _icon: { boxSize: "4.5" } }
@@ -4191,7 +4192,7 @@ var slider = defineSlotRecipe35({
     root: {
       display: "flex",
       flexDirection: "column",
-      gap: "2",
+      gap: "2.5",
       textStyle: "sm",
       position: "relative",
       isolation: "isolate",
@@ -4201,7 +4202,9 @@ var slider = defineSlotRecipe35({
     label: {
       color: "app.text",
       fontWeight: "semibold",
-      textStyle: "small"
+      textStyle: "caption",
+      textTransform: "uppercase",
+      letterSpacing: "0.08em"
     },
     control: {
       display: "inline-flex",
@@ -4293,13 +4296,13 @@ var slider = defineSlotRecipe35({
           bg: "app.surface",
           borderWidth: "2px",
           borderColor: "app.accent",
-          boxShadow: "{shadows.panel}"
+          boxShadow: "{shadows.whisper}"
         },
         range: {
           bg: "app.accent"
         },
         track: {
-          bg: "app.surface.muted"
+          bg: "app.canvas.subtle"
         }
       }
     },
@@ -4509,7 +4512,7 @@ var switchRecipe = defineSlotRecipe37({
       solid: {
         control: {
           borderRadius: "full",
-          bg: "app.surface.muted",
+          bg: "app.canvas.subtle",
           borderWidth: "1px",
           borderColor: "app.border",
           _checked: {
@@ -4524,8 +4527,8 @@ var switchRecipe = defineSlotRecipe37({
           },
           width: "var(--switch-height)",
           height: "var(--switch-height)",
-          scale: "0.76",
-          boxShadow: "{shadows.panel}"
+          scale: "0.72",
+          boxShadow: "{shadows.whisper}"
         }
       }
     },
@@ -5987,5 +5990,5 @@ export {
   axionicSand
 };
 
-//# debugId=179A27A736F3255E64756E2164756E21
+//# debugId=98E5BA09FCF0231164756E2164756E21
 //# sourceMappingURL=index.js.map

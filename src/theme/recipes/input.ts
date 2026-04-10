@@ -5,7 +5,7 @@ export const input = {
 	jsx: ['Input', 'Field.Input'],
 	base: {
 		appearance: 'none',
-		borderRadius: 'l3',
+		borderRadius: 'xl',
 		height: 'var(--input-height)',
 		minHeight: 'var(--input-height)',
 		minW: 'var(--input-height)',
@@ -28,7 +28,7 @@ export const input = {
 	variants: {
 		variant: {
 			outline: {
-				bg: 'app.surface.muted',
+				bg: 'app.canvas.subtle',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
@@ -48,12 +48,13 @@ export const input = {
 				},
 			},
 			surface: {
-				bg: 'app.canvas.subtle',
+				bg: 'app.surface',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
 				_hover: {
 					borderColor: 'app.border.strong',
+					bg: 'app.surface',
 				},
 				_focus: {
 					borderColor: 'app.accent',
