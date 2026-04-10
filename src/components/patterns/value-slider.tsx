@@ -90,7 +90,7 @@ export function ValueSlider({
 							w: '4',
 							h: '4',
 							rounded: 'full',
-							bg: 'white',
+							bg: 'app.surface',
 							borderWidth: '2px',
 							borderColor: colors.border,
 							boxShadow: '0 8px 18px rgba(8, 18, 20, 0.12)',

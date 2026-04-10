@@ -37,7 +37,7 @@ var styles = {
     borderWidth: "1px",
     borderColor: "app.border",
     rounded: "l3",
-    p: "6",
+    p: "5.5",
     cursor: "pointer",
     boxShadow: "{shadows.whisper}",
     transition: "all 0.2s ease",
@@ -51,7 +51,7 @@ var styles = {
   iconWrap: css2({
     w: "10",
     h: "10",
-    rounded: "l2",
+    rounded: "xl",
     bg: "app.accent.soft",
     display: "flex",
     alignItems: "center",
@@ -527,7 +527,7 @@ var styles4 = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "radial-gradient(circle at top, color-mix(in srgb, token(colors.teal.4) 45%, transparent) 0%, transparent 42%), linear-gradient(180deg, #f8f9f9 0%, #f3f4f4 100%)",
+    background: "radial-gradient(circle at top, color-mix(in srgb, token(colors.teal.4) 28%, transparent) 0%, transparent 40%), linear-gradient(180deg, #f8f9f9 0%, #f2f4f3 100%)",
     paddingX: { base: "4", md: "6" },
     paddingY: { base: "8", md: "12" }
   }),
@@ -584,8 +584,7 @@ var styles4 = {
     maxWidth: "lg",
     boxShadow: "{shadows.whisper}",
     borderColor: "app.border",
-    background: "rgba(255, 255, 255, 0.94)",
-    backdropFilter: "blur(10px)"
+    background: "app.surface"
   }),
   formHeader: css5({
     display: "flex",
@@ -1556,7 +1555,7 @@ import { jsx as jsx19, jsxs as jsxs14 } from "react/jsx-runtime";
 "use client";
 var styles11 = {
   accentBar: css13({
-    h: "3px",
+    h: "2px",
     w: "full",
     roundedTop: "l3",
     background: "linear-gradient(90deg, {colors.teal.light.9}, {colors.teal.light.8}, {colors.wheat.light.9})"
@@ -1564,42 +1563,41 @@ var styles11 = {
   header: css13({
     display: "flex",
     flexDirection: "column",
-    gap: "3"
+    gap: "3.5"
   }),
   eyebrow: css13({
     textStyle: "eyebrow",
     color: "app.text.subtle"
   }),
   headerRow: css13({
-    display: "flex",
-    alignItems: { base: "flex-start", md: "center" },
-    justifyContent: "space-between",
-    flexDirection: { base: "column", md: "row" },
-    gap: "3",
-    minWidth: 0,
-    paddingRight: "10"
+    display: "grid",
+    gridTemplateColumns: { base: "1fr", md: "minmax(0, 1fr) auto" },
+    alignItems: "start",
+    gap: "4",
+    minWidth: 0
   }),
   headerCopy: css13({
     display: "flex",
     flexDirection: "column",
-    gap: "1",
+    gap: "1.5",
     minWidth: 0
   }),
   description: css13({
     color: "app.text.muted",
     textStyle: "small",
-    maxWidth: "2xl"
+    maxWidth: "34rem"
   }),
   actions: css13({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
-    gap: "2.5"
+    gap: "2.5",
+    justifySelf: { base: "start", md: "end" }
   }),
   body: css13({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
+    gap: "4.5",
     color: "app.text.muted"
   })
 };
@@ -1612,7 +1610,7 @@ function DetailDialog({
   actions,
   children,
   footer,
-  size = "lg",
+  size = "xl",
   className
 }) {
   return /* @__PURE__ */ jsxs14(Root3, {
@@ -1686,13 +1684,13 @@ var styles12 = {
   root: css14({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
-    padding: { base: "5", md: "6" },
+    gap: "4.5",
+    padding: { base: "5.5", md: "6.5" },
     borderRadius: "l3",
     borderWidth: "1px",
     borderColor: "app.border",
     bg: "app.surface",
-    boxShadow: "{shadows.whisper}"
+    boxShadow: "{shadows.float}"
   }),
   header: css14({
     display: "flex",
@@ -1704,7 +1702,7 @@ var styles12 = {
   headerCopy: css14({
     display: "flex",
     alignItems: "flex-start",
-    gap: "3.5",
+    gap: "4",
     minWidth: 0
   }),
   iconWrap: css14({
@@ -1722,7 +1720,7 @@ var styles12 = {
   copy: css14({
     display: "flex",
     flexDirection: "column",
-    gap: "1.5",
+    gap: "1.75",
     minWidth: 0
   }),
   eyebrow: css14({
@@ -1735,7 +1733,8 @@ var styles12 = {
   }),
   description: css14({
     textStyle: "small",
-    color: "app.text.muted"
+    color: "app.text.muted",
+    lineHeight: "1.65"
   }),
   meta: css14({
     display: "flex",
@@ -1754,12 +1753,12 @@ var styles12 = {
   body: css14({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
+    gap: "4.5",
     minWidth: 0,
     color: "app.text.muted"
   }),
   footer: css14({
-    paddingTop: "4",
+    paddingTop: "4.5",
     borderTopWidth: "1px",
     borderColor: "app.border",
     color: "app.text.muted"
@@ -2319,29 +2318,29 @@ var styles17 = {
   header: css19({
     display: "flex",
     flexDirection: "column",
-    gap: "3"
+    gap: "3.5"
   }),
   headerRow: css19({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "space-between",
-    gap: "4"
+    gap: "4.5"
   }),
   headerCopy: css19({
     display: "flex",
     alignItems: "flex-start",
-    gap: "3.5",
+    gap: "4",
     minWidth: 0
   }),
   icon: css19({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "10",
+    boxSize: "11",
     rounded: "2xl",
     borderWidth: "1px",
     borderColor: "app.border",
-    bg: "app.canvas.subtle",
+    bg: "app.surface.muted",
     color: "app.accent",
     flexShrink: 0
   }),
@@ -2358,29 +2357,29 @@ var styles17 = {
   description: css19({
     textStyle: "small",
     color: "app.text.muted",
-    maxWidth: "40rem",
+    maxWidth: "42rem",
     lineHeight: "1.65"
   }),
   body: css19({
     display: "flex",
     flexDirection: "column",
-    gap: "4.5",
-    maxHeight: "min(68vh, 42rem)",
+    gap: "5",
+    maxHeight: "min(72vh, 48rem)",
     overflowY: "auto",
-    paddingRight: "1.5"
+    paddingRight: "1"
   }),
   splitShell: css19({
     display: "grid",
-    gridTemplateColumns: { base: "1fr", lg: "20rem minmax(0, 1fr)" },
-    minHeight: { lg: "36rem" }
+    gridTemplateColumns: { base: "1fr", lg: "22rem minmax(0, 1fr)" },
+    minHeight: { lg: "40rem" }
   }),
   splitAside: css19({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    gap: "4",
+    gap: "4.5",
     padding: { base: "5.5", md: "6.5" },
-    background: "linear-gradient(180deg, #f4f6f5 0%, #eef1f0 100%)",
+    background: "app.surface.muted",
     borderBottomWidth: { base: "1px", lg: "0" },
     borderRightWidth: { base: "0", lg: "1px" },
     borderColor: "app.border"
@@ -2405,8 +2404,8 @@ var styles17 = {
   }),
   closeButton: css19({
     position: "absolute",
-    top: "3",
-    right: "3",
+    top: "4",
+    right: "4",
     zIndex: 2
   }),
   actions: css19({
@@ -2582,7 +2581,7 @@ var styles18 = {
     borderRadius: "2xl",
     borderWidth: "1px",
     borderColor: "app.border",
-    bg: "rgba(255,255,255,0.72)"
+    bg: "app.surface"
   }),
   subtle: css20({
     bg: "app.surface"
@@ -3731,7 +3730,7 @@ var styles24 = {
     p: "5.5",
     display: "flex",
     flexDirection: "column",
-    gap: "4",
+    gap: "3.5",
     boxShadow: "{shadows.whisper}"
   }),
   header: css30({
@@ -3742,10 +3741,10 @@ var styles24 = {
   }),
   iconWrap: css30({
     flexShrink: 0,
-    w: "8.5",
-    h: "8.5",
-    rounded: "full",
-    bg: "transparent",
+    w: "9",
+    h: "9",
+    rounded: "xl",
+    bg: "app.surface.muted",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -3766,7 +3765,7 @@ var styles24 = {
   }),
   change: css30({
     textStyle: "small",
-    mt: "1.5"
+    mt: "1.25"
   })
 };
 function StatCard({
@@ -5037,8 +5036,8 @@ var styles31 = {
     justifyContent: "space-between",
     flexDirection: { base: "column", md: "row" },
     gap: "4",
-    paddingX: { base: "5", md: "6" },
-    paddingY: { base: "4.75", md: "5.25" }
+    paddingX: { base: "5.5", md: "6.5" },
+    paddingY: { base: "5", md: "5.5" }
   }),
   headerBorder: css41({
     borderBottomWidth: "1px",
@@ -5061,7 +5060,8 @@ var styles31 = {
   description: css41({
     textStyle: "body",
     color: "app.text.muted",
-    maxWidth: "3xl"
+    maxWidth: "3xl",
+    lineHeight: "1.65"
   }),
   meta: css41({
     display: "flex",
@@ -5080,13 +5080,13 @@ var styles31 = {
   body: css41({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
-    paddingX: { base: "5", md: "6" },
-    paddingY: { base: "5", md: "5.75" }
+    gap: "4.5",
+    paddingX: { base: "5.5", md: "6.5" },
+    paddingY: { base: "5.5", md: "6" }
   }),
   footer: css41({
-    paddingX: { base: "5", md: "6" },
-    paddingY: "4.5",
+    paddingX: { base: "5.5", md: "6.5" },
+    paddingY: "5",
     borderTopWidth: "1px",
     borderColor: "app.border",
     color: "app.text.muted"
@@ -5446,7 +5446,7 @@ var styles34 = {
     paddingX: "3",
     paddingY: "1.5",
     rounded: "xl",
-    bg: "app.canvas.subtle",
+    bg: "app.surface.muted",
     borderColor: "app.border"
   }),
   itemActiveTabs: css44({
@@ -5529,7 +5529,7 @@ var styles35 = {
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    gap: "3.5"
+    gap: "4"
   }),
   brand: css45({
     display: "flex",
@@ -5539,24 +5539,24 @@ var styles35 = {
   sections: css45({
     display: "flex",
     flexDirection: "column",
-    gap: "5",
+    gap: "5.5",
     flex: "1"
   }),
   section: css45({
     display: "flex",
     flexDirection: "column",
-    gap: "1.5"
+    gap: "2"
   }),
   sectionTitle: css45({
     textStyle: "eyebrow",
     color: "app.text.subtle",
-    paddingX: "3"
+    paddingX: "3.5"
   }),
   list: css45({
     listStyle: "none",
     display: "flex",
     flexDirection: "column",
-    gap: "3",
+    gap: "3.5",
     padding: "0",
     margin: "0"
   }),
@@ -5566,10 +5566,10 @@ var styles35 = {
     display: "grid",
     gridTemplateColumns: "auto minmax(0, 1fr) auto",
     alignItems: "center",
-    gap: "3.75",
-    paddingX: "4.5",
-    paddingY: "3.5",
-    borderRadius: "xl",
+    gap: "4",
+    paddingX: "5",
+    paddingY: "4",
+    borderRadius: "2xl",
     color: "app.text.muted",
     bg: "transparent",
     textAlign: "left",
@@ -5580,8 +5580,9 @@ var styles35 = {
     _hover: {
       bg: "app.surface",
       color: "app.text",
+      boxShadow: "{shadows.whisper}",
       "& [data-sidebar-icon]": {
-        transform: "translateX(8px)",
+        transform: "translateX(6px)",
         color: "app.accent"
       }
     },
@@ -5604,9 +5605,9 @@ var styles35 = {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "6",
+    boxSize: "5.5",
     color: "app.text.subtle",
-    transition: "transform 220ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease"
+    transition: "transform 240ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease"
   }),
   itemText: css45({
     minWidth: 0,
@@ -5616,7 +5617,7 @@ var styles35 = {
   }),
   itemLabel: css45({
     fontFamily: "display",
-    fontSize: "1rem",
+    fontSize: "1.05rem",
     lineHeight: "1.32",
     color: "currentColor",
     fontWeight: "600",
@@ -5624,7 +5625,8 @@ var styles35 = {
   }),
   itemDescription: css45({
     textStyle: "small",
-    color: "app.text.subtle"
+    color: "app.text.subtle",
+    lineHeight: "1.45"
   }),
   itemEnd: css45({
     display: "inline-flex",
@@ -5635,8 +5637,8 @@ var styles35 = {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    minWidth: "6",
-    height: "6",
+    minWidth: "6.5",
+    height: "6.5",
     paddingX: "2",
     borderRadius: "full",
     bg: "app.surface",
@@ -5646,7 +5648,7 @@ var styles35 = {
     textStyle: "caption"
   }),
   footer: css45({
-    paddingTop: "4.5",
+    paddingTop: "5",
     borderTopWidth: "1px",
     borderColor: "app.border"
   })
@@ -5886,18 +5888,19 @@ var styles37 = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: "3",
-    bg: "rgba(255, 255, 255, 0.96)",
+    gap: "3.5",
+    bg: "app.surface",
     borderWidth: "1px",
     borderColor: "app.border",
-    rounded: "xl",
-    p: "3.5"
+    rounded: "l3",
+    p: "4",
+    boxShadow: "{shadows.whisper}"
   }),
   number: css47({
-    w: "7",
-    h: "7",
-    rounded: "lg",
-    bg: "rgba(45, 100, 97, 0.08)",
+    w: "7.5",
+    h: "7.5",
+    rounded: "xl",
+    bg: "app.accent.soft",
     color: "app.accent",
     display: "flex",
     alignItems: "center",
@@ -5909,7 +5912,7 @@ var styles37 = {
   content: css47({
     flex: 1,
     minW: 0,
-    paddingRight: "1.5"
+    paddingRight: "2"
   }),
   title: css47({
     textStyle: "toolbarLabel",
@@ -5918,7 +5921,7 @@ var styles37 = {
   description: css47({
     textStyle: "caption",
     color: "app.text.muted",
-    mt: "1",
+    mt: "1.25",
     lineHeight: "1.55"
   }),
   endSlot: css47({
@@ -6267,7 +6270,7 @@ var styles39 = {
     display: "grid",
     gridTemplateColumns: { base: "1fr", lg: "minmax(0, 1fr) auto" },
     gap: "4",
-    padding: { base: "4.5", md: "5" },
+    padding: { base: "5", md: "5.5" },
     borderRadius: "l3",
     borderWidth: "1px",
     borderColor: "app.border",
@@ -6275,9 +6278,9 @@ var styles39 = {
     boxShadow: "{shadows.whisper}"
   }),
   rootAccent: css49({
-    bg: "linear-gradient(180deg, {colors.teal.light.11}, {colors.teal.light.10})",
-    borderColor: "transparent",
-    boxShadow: "{shadows.float}"
+    bg: "app.accent.soft",
+    borderColor: "app.border.strong",
+    boxShadow: "{shadows.whisper}"
   }),
   copy: css49({
     display: "flex",
@@ -6296,7 +6299,7 @@ var styles39 = {
     color: "app.text"
   }),
   titleAccent: css49({
-    color: "app.text.inverse"
+    color: "app.text"
   }),
   description: css49({
     textStyle: "body",
@@ -6305,7 +6308,7 @@ var styles39 = {
     lineHeight: "1.6"
   }),
   descriptionAccent: css49({
-    color: "rgba(248, 249, 249, 0.76)"
+    color: "app.text.muted"
   }),
   actions: css49({
     display: "flex",
@@ -6492,9 +6495,9 @@ var styles41 = {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "space-between",
-    gap: "3",
-    paddingX: "4.5",
-    paddingY: "3.5",
+    gap: "3.5",
+    paddingX: "5",
+    paddingY: "4",
     borderBottomWidth: "1px",
     borderColor: "app.border",
     background: "app.surface.muted"
@@ -6512,7 +6515,7 @@ var styles41 = {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "10",
+    boxSize: "11",
     borderRadius: "xl",
     borderWidth: "1px",
     borderColor: "app.border",
@@ -6527,13 +6530,13 @@ var styles41 = {
     gap: "0.5"
   }),
   title: css51({
-    textStyle: "sectionTitle",
+    textStyle: "toolbarLabel",
     color: "app.text"
   }),
   subtitle: css51({
     textStyle: "small",
     color: "app.text.subtle",
-    lineHeight: "1.5"
+    lineHeight: "1.55"
   }),
   controls: css51({
     display: "inline-flex",
@@ -6548,8 +6551,8 @@ var styles41 = {
     minHeight: 0
   }),
   footer: css51({
-    paddingX: "4",
-    paddingY: "3",
+    paddingX: "5",
+    paddingY: "3.5",
     borderTopWidth: "1px",
     borderColor: "app.border",
     background: "app.surface.muted"
@@ -6867,7 +6870,7 @@ function ValueSlider({
                 w: "4",
                 h: "4",
                 rounded: "full",
-                bg: "white",
+                bg: "app.surface",
                 borderWidth: "2px",
                 borderColor: colors.border,
                 boxShadow: "0 8px 18px rgba(8, 18, 20, 0.12)",
@@ -6974,5 +6977,5 @@ export {
   AccentLabel
 };
 
-//# debugId=5359ACBBB1C57F9464756E2164756E21
+//# debugId=9BB871744A12583664756E2164756E21
 //# sourceMappingURL=index.js.map

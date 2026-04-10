@@ -12,7 +12,8 @@ export const input = {
 		outline: '0',
 		position: 'relative',
 		textAlign: 'start',
-		transition: 'border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, transform 0.18s ease',
+		transition:
+			'border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, transform 0.18s ease',
 		width: '100%',
 		_placeholder: {
 			color: 'app.text.subtle',
@@ -28,13 +29,13 @@ export const input = {
 	variants: {
 		variant: {
 			outline: {
-				bg: 'rgba(255,255,255,0.88)',
+				bg: 'app.surface',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
 				_hover: {
 					borderColor: 'app.border.strong',
-					bg: 'app.surface',
+					bg: 'app.surface.muted',
 				},
 				_focus: {
 					borderColor: 'app.accent',
@@ -54,7 +55,7 @@ export const input = {
 				color: 'app.text',
 				_hover: {
 					borderColor: 'app.border.strong',
-					bg: 'app.surface',
+					bg: 'app.surface.muted',
 				},
 				_focus: {
 					borderColor: 'app.accent',

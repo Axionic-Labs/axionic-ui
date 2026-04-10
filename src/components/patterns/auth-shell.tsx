@@ -24,7 +24,7 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		background:
-			'radial-gradient(circle at top, color-mix(in srgb, token(colors.teal.4) 45%, transparent) 0%, transparent 42%), linear-gradient(180deg, #f8f9f9 0%, #f3f4f4 100%)',
+			'radial-gradient(circle at top, color-mix(in srgb, token(colors.teal.4) 28%, transparent) 0%, transparent 40%), linear-gradient(180deg, #f8f9f9 0%, #f2f4f3 100%)',
 		paddingX: { base: '4', md: '6' },
 		paddingY: { base: '8', md: '12' },
 	}),
@@ -81,8 +81,7 @@ const styles = {
 		maxWidth: 'lg',
 		boxShadow: '{shadows.whisper}',
 		borderColor: 'app.border',
-		background: 'rgba(255, 255, 255, 0.94)',
-		backdropFilter: 'blur(10px)',
+		background: 'app.surface',
 	}),
 	formHeader: css({
 		display: 'flex',
@@ -135,7 +134,9 @@ export function AuthShell({
 						<Card.Header className={styles.formHeader}>
 							<Card.Title className={styles.formTitle}>{formTitle}</Card.Title>
 							{formDescription ? (
-								<Card.Description className={styles.formDescription}>{formDescription}</Card.Description>
+								<Card.Description className={styles.formDescription}>
+									{formDescription}
+								</Card.Description>
 							) : null}
 						</Card.Header>
 						<Card.Body className={styles.formBody}>

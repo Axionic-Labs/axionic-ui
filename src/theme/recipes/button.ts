@@ -82,10 +82,10 @@ export const button = defineRecipe({
 			outline: {
 				borderWidth: '1px',
 				borderColor: 'app.border',
-				bg: 'rgba(255,255,255,0.65)',
+				bg: 'app.surface',
 				color: 'app.text',
 				_hover: {
-					bg: 'app.surface',
+					bg: 'app.surface.muted',
 					borderColor: 'app.border.strong',
 					transform: 'translateY(-1px)',
 				},
@@ -155,14 +155,14 @@ export const button = defineRecipe({
 				_active: { bg: 'colorPalette.11', color: 'bg.canvas' },
 			},
 			oauth: {
-				bg: 'rgba(255,255,255,0.9)',
+				bg: 'app.surface',
 				color: 'app.text',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				fontWeight: '600',
 				boxShadow: '{shadows.whisper}',
 				_hover: {
-					bg: 'app.surface',
+					bg: 'app.surface.muted',
 					borderColor: 'app.border.strong',
 					transform: 'translateY(-1px)',
 				},

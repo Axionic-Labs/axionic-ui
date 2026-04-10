@@ -10,25 +10,29 @@ export const card = defineSlotRecipe({
 			flexDirection: 'column',
 			overflow: 'hidden',
 			position: 'relative',
+			borderWidth: '1px',
+			borderColor: 'app.border',
+			bg: 'app.surface',
+			boxShadow: '{shadows.whisper}',
 		},
 		header: {
 			display: 'flex',
 			flexDirection: 'column',
-			gap: '1',
-			p: '4.5',
+			gap: '1.5',
+			p: '5',
 		},
 		body: {
 			display: 'flex',
 			flex: '1',
 			flexDirection: 'column',
-			p: '4.5',
+			p: '5',
 		},
 		footer: {
 			display: 'flex',
 			justifyContent: 'flex-end',
 			gap: '3',
-			p: '4.5',
-			pt: '2.5',
+			p: '5',
+			pt: '3',
 		},
 		title: {
 			textStyle: 'lg',
@@ -46,17 +50,11 @@ export const card = defineSlotRecipe({
 		variant: {
 			elevated: {
 				root: {
-					bg: 'app.surface',
-					borderWidth: '1px',
-					borderColor: 'app.border',
-					boxShadow: '{shadows.whisper}',
+					boxShadow: '{shadows.float}',
 				},
 			},
 			outline: {
 				root: {
-					bg: 'app.surface',
-					borderWidth: '1px',
-					borderColor: 'app.border',
 					boxShadow: '{shadows.whisper}',
 				},
 			},

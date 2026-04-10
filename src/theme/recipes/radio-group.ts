@@ -17,6 +17,9 @@ export const radioGroup = defineSlotRecipe({
 			flexShrink: 0,
 			justifyContent: 'center',
 			verticalAlign: 'top',
+			bg: 'app.surface',
+			borderWidth: '1px',
+			borderColor: 'app.border',
 			_after: {
 				content: '""',
 				display: 'block',
@@ -48,12 +51,11 @@ export const radioGroup = defineSlotRecipe({
 		variant: {
 			solid: {
 				itemControl: {
-					boxShadow: 'inset 0 0 0 1px var(--shadow-color)',
-					boxShadowColor: 'gray.surface.border',
+					boxShadow: '{shadows.whisper}',
 					_checked: {
 						bg: 'colorPalette.solid.bg',
 						color: 'colorPalette.solid.fg',
-						boxShadowColor: 'colorPalette.solid.bg',
+						borderColor: 'colorPalette.solid.bg',
 						_after: {
 							background: 'colorPalette.solid.fg',
 						},

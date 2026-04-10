@@ -6,7 +6,7 @@ export const segmentGroup = defineSlotRecipe({
 	slots: segmentGroupAnatomy.keys(),
 	base: {
 		root: {
-			bg: 'app.canvas.subtle',
+			bg: 'app.surface',
 			borderRadius: 'xl',
 			borderWidth: '1px',
 			borderColor: 'app.border',
@@ -74,7 +74,7 @@ export const segmentGroup = defineSlotRecipe({
 		},
 
 		indicator: {
-			bg: 'white',
+			bg: 'app.surface',
 			borderWidth: '1px',
 			borderColor: 'app.border',
 			borderRadius: 'lg',

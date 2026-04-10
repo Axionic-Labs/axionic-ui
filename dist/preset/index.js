@@ -607,10 +607,10 @@ var button = defineRecipe3({
       outline: {
         borderWidth: "1px",
         borderColor: "app.border",
-        bg: "rgba(255,255,255,0.65)",
+        bg: "app.surface",
         color: "app.text",
         _hover: {
-          bg: "app.surface",
+          bg: "app.surface.muted",
           borderColor: "app.border.strong",
           transform: "translateY(-1px)"
         },
@@ -680,14 +680,14 @@ var button = defineRecipe3({
         _active: { bg: "colorPalette.11", color: "bg.canvas" }
       },
       oauth: {
-        bg: "rgba(255,255,255,0.9)",
+        bg: "app.surface",
         color: "app.text",
         borderWidth: "1px",
         borderColor: "app.border",
         fontWeight: "600",
         boxShadow: "{shadows.whisper}",
         _hover: {
-          bg: "app.surface",
+          bg: "app.surface.muted",
           borderColor: "app.border.strong",
           transform: "translateY(-1px)"
         }
@@ -755,26 +755,30 @@ var card = defineSlotRecipe5({
       display: "flex",
       flexDirection: "column",
       overflow: "hidden",
-      position: "relative"
+      position: "relative",
+      borderWidth: "1px",
+      borderColor: "app.border",
+      bg: "app.surface",
+      boxShadow: "{shadows.whisper}"
     },
     header: {
       display: "flex",
       flexDirection: "column",
-      gap: "1",
-      p: "4.5"
+      gap: "1.5",
+      p: "5"
     },
     body: {
       display: "flex",
       flex: "1",
       flexDirection: "column",
-      p: "4.5"
+      p: "5"
     },
     footer: {
       display: "flex",
       justifyContent: "flex-end",
       gap: "3",
-      p: "4.5",
-      pt: "2.5"
+      p: "5",
+      pt: "3"
     },
     title: {
       textStyle: "lg",
@@ -792,17 +796,11 @@ var card = defineSlotRecipe5({
     variant: {
       elevated: {
         root: {
-          bg: "app.surface",
-          borderWidth: "1px",
-          borderColor: "app.border",
-          boxShadow: "{shadows.whisper}"
+          boxShadow: "{shadows.float}"
         }
       },
       outline: {
         root: {
-          bg: "app.surface",
-          borderWidth: "1px",
-          borderColor: "app.border",
           boxShadow: "{shadows.whisper}"
         }
       },
@@ -977,7 +975,7 @@ var checkbox = defineSlotRecipe7({
       borderColor: "app.border",
       borderRadius: "lg",
       cursor: "pointer",
-      bg: "app.canvas.subtle",
+      bg: "app.surface",
       focusVisibleRing: "outside",
       _icon: {
         boxSize: "full"
@@ -1030,7 +1028,7 @@ var checkbox = defineSlotRecipe7({
       },
       subtle: {
         control: {
-          bg: "app.canvas.subtle",
+          bg: "app.surface.muted",
           color: "app.text"
         }
       },
@@ -1274,13 +1272,13 @@ var input = {
   variants: {
     variant: {
       outline: {
-        bg: "rgba(255,255,255,0.88)",
+        bg: "app.surface",
         borderWidth: "1px",
         borderColor: "app.border",
         color: "app.text",
         _hover: {
           borderColor: "app.border.strong",
-          bg: "app.surface"
+          bg: "app.surface.muted"
         },
         _focus: {
           borderColor: "app.accent",
@@ -1300,7 +1298,7 @@ var input = {
         color: "app.text",
         _hover: {
           borderColor: "app.border.strong",
-          bg: "app.surface"
+          bg: "app.surface.muted"
         },
         _focus: {
           borderColor: "app.accent",
@@ -2814,7 +2812,7 @@ var menu = defineSlotRecipe22({
   base: {
     content: {
       "--menu-z-index": "zIndex.dropdown",
-      bg: "rgba(255,255,255,0.97)",
+      bg: "app.surface",
       borderWidth: "1px",
       borderColor: "app.border",
       borderRadius: "xl",
@@ -2848,8 +2846,11 @@ var menu = defineSlotRecipe22({
       userSelect: "none",
       width: "100%",
       borderRadius: "lg",
+      minHeight: "10",
+      paddingX: "3",
+      paddingY: "2.5",
       _highlighted: {
-        bg: "app.canvas.subtle"
+        bg: "app.surface.muted"
       },
       _disabled: {
         layerStyle: "disabled"
@@ -3024,7 +3025,7 @@ import { numberInputAnatomy } from "@ark-ui/react/anatomy";
 import { defineSlotRecipe as defineSlotRecipe24 } from "@pandacss/dev";
 var trigger = {
   alignItems: "center",
-  color: "fg.muted",
+  color: "app.text.subtle",
   cursor: "pointer",
   display: "flex",
   flex: "1",
@@ -3036,10 +3037,10 @@ var trigger = {
     boxSize: "1em"
   },
   _hover: {
-    bg: "gray.surface.bg.hover"
+    bg: "app.surface.muted"
   },
   _active: {
-    bg: "gray.surface.bg.active"
+    bg: "app.surface"
   }
 };
 var numberInput = defineSlotRecipe24({
@@ -3064,7 +3065,9 @@ var numberInput = defineSlotRecipe24({
       position: "absolute",
       top: "0",
       width: "var(--stepper-width)",
-      zIndex: "1"
+      zIndex: "1",
+      bg: "app.surface",
+      borderColor: "app.border"
     },
     input: {
       ...input.base,
@@ -3072,8 +3075,8 @@ var numberInput = defineSlotRecipe24({
       pe: "calc(var(--stepper-width) + 0.5rem)"
     },
     label: {
-      color: "fg.default",
-      fontWeight: "medium"
+      color: "app.text",
+      fontWeight: "semibold"
     },
     incrementTrigger: {
       ...trigger,
@@ -3554,6 +3557,9 @@ var radioGroup = defineSlotRecipe30({
       flexShrink: 0,
       justifyContent: "center",
       verticalAlign: "top",
+      bg: "app.surface",
+      borderWidth: "1px",
+      borderColor: "app.border",
       _after: {
         content: '""',
         display: "block",
@@ -3585,12 +3591,11 @@ var radioGroup = defineSlotRecipe30({
     variant: {
       solid: {
         itemControl: {
-          boxShadow: "inset 0 0 0 1px var(--shadow-color)",
-          boxShadowColor: "gray.surface.border",
+          boxShadow: "{shadows.whisper}",
           _checked: {
             bg: "colorPalette.solid.bg",
             color: "colorPalette.solid.fg",
-            boxShadowColor: "colorPalette.solid.bg",
+            borderColor: "colorPalette.solid.bg",
             _after: {
               background: "colorPalette.solid.fg"
             }
@@ -3821,7 +3826,7 @@ var segmentGroup = defineSlotRecipe33({
   slots: segmentGroupAnatomy.keys(),
   base: {
     root: {
-      bg: "app.canvas.subtle",
+      bg: "app.surface",
       borderRadius: "xl",
       borderWidth: "1px",
       borderColor: "app.border",
@@ -3884,7 +3889,7 @@ var segmentGroup = defineSlotRecipe33({
       }
     },
     indicator: {
-      bg: "white",
+      bg: "app.surface",
       borderWidth: "1px",
       borderColor: "app.border",
       borderRadius: "lg",
@@ -3935,7 +3940,7 @@ var select = defineSlotRecipe34({
       width: "full"
     },
     content: {
-      background: "rgba(255,255,255,0.97)",
+      background: "app.surface",
       borderRadius: "xl",
       borderWidth: "1px",
       borderColor: "app.border",
@@ -4009,7 +4014,7 @@ var select = defineSlotRecipe34({
     },
     trigger: {
       alignItems: "center",
-      bg: "rgba(255,255,255,0.88)",
+      bg: "app.surface",
       borderRadius: "xl",
       cursor: "pointer",
       display: "flex",
@@ -4045,7 +4050,7 @@ var select = defineSlotRecipe34({
           borderColor: "app.border",
           _hover: {
             borderColor: "app.border.strong",
-            bg: "app.surface"
+            bg: "app.surface.muted"
           },
           _focusVisible: {
             borderColor: "app.accent",
@@ -4061,7 +4066,8 @@ var select = defineSlotRecipe34({
           borderWidth: "1px",
           borderColor: "app.border",
           _hover: {
-            borderColor: "app.border.strong"
+            borderColor: "app.border.strong",
+            bg: "app.surface.muted"
           },
           _focusVisible: {
             borderColor: "app.accent",
@@ -5137,13 +5143,13 @@ var textarea = defineRecipe15({
   variants: {
     variant: {
       outline: {
-        bg: "rgba(255,255,255,0.88)",
+        bg: "app.surface",
         borderWidth: "1px",
         borderColor: "app.border",
         color: "app.text",
         _hover: {
           borderColor: "app.border.strong",
-          bg: "app.surface"
+          bg: "app.surface.muted"
         },
         _focus: {
           borderColor: "app.accent",
@@ -5162,7 +5168,8 @@ var textarea = defineRecipe15({
         borderColor: "app.border",
         color: "app.text",
         _hover: {
-          borderColor: "app.border.strong"
+          borderColor: "app.border.strong",
+          bg: "app.surface.muted"
         },
         _focus: {
           borderColor: "app.accent",
@@ -5300,7 +5307,7 @@ var toggleGroup = defineSlotRecipe42({
           borderRadius: "xl",
           borderWidth: "1px",
           borderColor: "app.border",
-          bg: "app.canvas.subtle",
+          bg: "app.surface",
           gap: "1",
           p: "1"
         }
@@ -6008,5 +6015,5 @@ export {
   axionicSand
 };
 
-//# debugId=36A80CABF106C40E64756E2164756E21
+//# debugId=E3E5A41E86968F7064756E2164756E21
 //# sourceMappingURL=index.js.map

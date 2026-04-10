@@ -25,13 +25,13 @@ export const textarea = defineRecipe({
 	variants: {
 		variant: {
 			outline: {
-				bg: 'rgba(255,255,255,0.88)',
+				bg: 'app.surface',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
 				_hover: {
 					borderColor: 'app.border.strong',
-					bg: 'app.surface',
+					bg: 'app.surface.muted',
 				},
 				_focus: {
 					borderColor: 'app.accent',
@@ -51,6 +51,7 @@ export const textarea = defineRecipe({
 				color: 'app.text',
 				_hover: {
 					borderColor: 'app.border.strong',
+					bg: 'app.surface.muted',
 				},
 				_focus: {
 					borderColor: 'app.accent',

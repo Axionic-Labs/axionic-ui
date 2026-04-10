@@ -8,7 +8,7 @@ export const menu = defineSlotRecipe({
 		content: {
 			'--menu-z-index': 'zIndex.dropdown',
 
-			bg: 'rgba(255,255,255,0.97)',
+			bg: 'app.surface',
 			borderWidth: '1px',
 			borderColor: 'app.border',
 			borderRadius: 'xl',
@@ -42,8 +42,11 @@ export const menu = defineSlotRecipe({
 			userSelect: 'none',
 			width: '100%',
 			borderRadius: 'lg',
+			minHeight: '10',
+			paddingX: '3',
+			paddingY: '2.5',
 			_highlighted: {
-				bg: 'app.canvas.subtle',
+				bg: 'app.surface.muted',
 			},
 			_disabled: {
 				layerStyle: 'disabled',

@@ -21,7 +21,7 @@ const styles = {
 		borderRadius: '2xl',
 		borderWidth: '1px',
 		borderColor: 'app.border',
-		bg: 'rgba(255,255,255,0.72)',
+		bg: 'app.surface',
 	}),
 	subtle: css({
 		bg: 'app.surface',

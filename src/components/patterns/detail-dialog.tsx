@@ -20,7 +20,7 @@ export interface DetailDialogProps {
 
 const styles = {
 	accentBar: css({
-		h: '3px',
+		h: '2px',
 		w: 'full',
 		roundedTop: 'l3',
 		background:
@@ -29,42 +29,41 @@ const styles = {
 	header: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '3',
+		gap: '3.5',
 	}),
 	eyebrow: css({
 		textStyle: 'eyebrow',
 		color: 'app.text.subtle',
 	}),
 	headerRow: css({
-		display: 'flex',
-		alignItems: { base: 'flex-start', md: 'center' },
-		justifyContent: 'space-between',
-		flexDirection: { base: 'column', md: 'row' },
-		gap: '3',
+		display: 'grid',
+		gridTemplateColumns: { base: '1fr', md: 'minmax(0, 1fr) auto' },
+		alignItems: 'start',
+		gap: '4',
 		minWidth: 0,
-		paddingRight: '10',
 	}),
 	headerCopy: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '1',
+		gap: '1.5',
 		minWidth: 0,
 	}),
 	description: css({
 		color: 'app.text.muted',
 		textStyle: 'small',
-		maxWidth: '2xl',
+		maxWidth: '34rem',
 	}),
 	actions: css({
 		display: 'flex',
 		alignItems: 'center',
 		flexWrap: 'wrap',
 		gap: '2.5',
+		justifySelf: { base: 'start', md: 'end' },
 	}),
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '4.5',
 		color: 'app.text.muted',
 	}),
 };
@@ -78,7 +77,7 @@ export function DetailDialog({
 	actions,
 	children,
 	footer,
-	size = 'lg',
+	size = 'xl',
 	className,
 }: DetailDialogProps) {
 	return (

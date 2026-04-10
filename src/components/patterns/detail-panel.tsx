@@ -19,13 +19,13 @@ const styles = {
 	root: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
-		padding: { base: '5', md: '6' },
+		gap: '4.5',
+		padding: { base: '5.5', md: '6.5' },
 		borderRadius: 'l3',
 		borderWidth: '1px',
 		borderColor: 'app.border',
 		bg: 'app.surface',
-		boxShadow: '{shadows.whisper}',
+		boxShadow: '{shadows.float}',
 	}),
 	header: css({
 		display: 'flex',
@@ -37,7 +37,7 @@ const styles = {
 	headerCopy: css({
 		display: 'flex',
 		alignItems: 'flex-start',
-		gap: '3.5',
+		gap: '4',
 		minWidth: 0,
 	}),
 	iconWrap: css({
@@ -55,7 +55,7 @@ const styles = {
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '1.5',
+		gap: '1.75',
 		minWidth: 0,
 	}),
 	eyebrow: css({
@@ -69,6 +69,7 @@ const styles = {
 	description: css({
 		textStyle: 'small',
 		color: 'app.text.muted',
+		lineHeight: '1.65',
 	}),
 	meta: css({
 		display: 'flex',
@@ -87,12 +88,12 @@ const styles = {
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '4.5',
 		minWidth: 0,
 		color: 'app.text.muted',
 	}),
 	footer: css({
-		paddingTop: '4',
+		paddingTop: '4.5',
 		borderTopWidth: '1px',
 		borderColor: 'app.border',
 		color: 'app.text.muted',

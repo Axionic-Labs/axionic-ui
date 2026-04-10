@@ -24,7 +24,7 @@ export const checkbox = defineSlotRecipe({
 			borderColor: 'app.border',
 			borderRadius: 'lg',
 			cursor: 'pointer',
-			bg: 'app.canvas.subtle',
+			bg: 'app.surface',
 			focusVisibleRing: 'outside',
 
 			_icon: {
@@ -80,7 +80,7 @@ export const checkbox = defineSlotRecipe({
 			},
 			subtle: {
 				control: {
-					bg: 'app.canvas.subtle',
+					bg: 'app.surface.muted',
 					color: 'app.text',
 				},
 			},

@@ -37,8 +37,8 @@ const styles = {
 		justifyContent: 'space-between',
 		flexDirection: { base: 'column', md: 'row' },
 		gap: '4',
-		paddingX: { base: '5', md: '6' },
-		paddingY: { base: '4.75', md: '5.25' },
+		paddingX: { base: '5.5', md: '6.5' },
+		paddingY: { base: '5', md: '5.5' },
 	}),
 	headerBorder: css({
 		borderBottomWidth: '1px',
@@ -62,6 +62,7 @@ const styles = {
 		textStyle: 'body',
 		color: 'app.text.muted',
 		maxWidth: '3xl',
+		lineHeight: '1.65',
 	}),
 	meta: css({
 		display: 'flex',
@@ -80,13 +81,13 @@ const styles = {
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
-		paddingX: { base: '5', md: '6' },
-		paddingY: { base: '5', md: '5.75' },
+		gap: '4.5',
+		paddingX: { base: '5.5', md: '6.5' },
+		paddingY: { base: '5.5', md: '6' },
 	}),
 	footer: css({
-		paddingX: { base: '5', md: '6' },
-		paddingY: '4.5',
+		paddingX: { base: '5.5', md: '6.5' },
+		paddingY: '5',
 		borderTopWidth: '1px',
 		borderColor: 'app.border',
 		color: 'app.text.muted',

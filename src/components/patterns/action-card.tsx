@@ -21,7 +21,7 @@ const styles = {
 		borderWidth: '1px',
 		borderColor: 'app.border',
 		rounded: 'l3',
-		p: '6',
+		p: '5.5',
 		cursor: 'pointer',
 		boxShadow: '{shadows.whisper}',
 		transition: 'all 0.2s ease',
@@ -35,7 +35,7 @@ const styles = {
 	iconWrap: css({
 		w: '10',
 		h: '10',
-		rounded: 'l2',
+		rounded: 'xl',
 		bg: 'app.accent.soft',
 		display: 'flex',
 		alignItems: 'center',

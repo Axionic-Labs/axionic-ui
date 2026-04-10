@@ -31,7 +31,7 @@ const styles = {
 		p: '5.5',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '3.5',
 		boxShadow: '{shadows.whisper}',
 	}),
 	header: css({
@@ -42,10 +42,10 @@ const styles = {
 	}),
 	iconWrap: css({
 		flexShrink: 0,
-		w: '8.5',
-		h: '8.5',
-		rounded: 'full',
-		bg: 'transparent',
+		w: '9',
+		h: '9',
+		rounded: 'xl',
+		bg: 'app.surface.muted',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -66,7 +66,7 @@ const styles = {
 	}),
 	change: css({
 		textStyle: 'small',
-		mt: '1.5',
+		mt: '1.25',
 	}),
 };
 

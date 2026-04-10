@@ -4,7 +4,7 @@ import { input } from './input';
 
 const trigger = {
 	alignItems: 'center',
-	color: 'fg.muted',
+	color: 'app.text.subtle',
 	cursor: 'pointer',
 	display: 'flex',
 	flex: '1',
@@ -16,10 +16,10 @@ const trigger = {
 		boxSize: '1em',
 	},
 	_hover: {
-		bg: 'gray.surface.bg.hover',
+		bg: 'app.surface.muted',
 	},
 	_active: {
-		bg: 'gray.surface.bg.active',
+		bg: 'app.surface',
 	},
 };
 
@@ -46,6 +46,8 @@ export const numberInput = defineSlotRecipe({
 			top: '0',
 			width: 'var(--stepper-width)',
 			zIndex: '1',
+			bg: 'app.surface',
+			borderColor: 'app.border',
 		},
 		input: {
 			...input.base,
@@ -53,8 +55,8 @@ export const numberInput = defineSlotRecipe({
 			pe: 'calc(var(--stepper-width) + 0.5rem)',
 		},
 		label: {
-			color: 'fg.default',
-			fontWeight: 'medium',
+			color: 'app.text',
+			fontWeight: 'semibold',
 		},
 		incrementTrigger: {
 			...trigger,

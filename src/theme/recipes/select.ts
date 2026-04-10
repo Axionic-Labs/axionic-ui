@@ -12,7 +12,7 @@ export const select = defineSlotRecipe({
 			width: 'full',
 		},
 		content: {
-			background: 'rgba(255,255,255,0.97)',
+			background: 'app.surface',
 			borderRadius: 'xl',
 			borderWidth: '1px',
 			borderColor: 'app.border',
@@ -86,7 +86,7 @@ export const select = defineSlotRecipe({
 		},
 		trigger: {
 			alignItems: 'center',
-			bg: 'rgba(255,255,255,0.88)',
+			bg: 'app.surface',
 			borderRadius: 'xl',
 			cursor: 'pointer',
 			display: 'flex',
@@ -122,7 +122,7 @@ export const select = defineSlotRecipe({
 					borderColor: 'app.border',
 					_hover: {
 						borderColor: 'app.border.strong',
-						bg: 'app.surface',
+						bg: 'app.surface.muted',
 					},
 					_focusVisible: {
 						borderColor: 'app.accent',
@@ -139,6 +139,7 @@ export const select = defineSlotRecipe({
 					borderColor: 'app.border',
 					_hover: {
 						borderColor: 'app.border.strong',
+						bg: 'app.surface.muted',
 					},
 					_focusVisible: {
 						borderColor: 'app.accent',

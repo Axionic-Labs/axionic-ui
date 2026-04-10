@@ -18,7 +18,7 @@ const styles = {
 		display: 'grid',
 		gridTemplateColumns: { base: '1fr', lg: 'minmax(0, 1fr) auto' },
 		gap: '4',
-		padding: { base: '4.5', md: '5' },
+		padding: { base: '5', md: '5.5' },
 		borderRadius: 'l3',
 		borderWidth: '1px',
 		borderColor: 'app.border',
@@ -26,9 +26,9 @@ const styles = {
 		boxShadow: '{shadows.whisper}',
 	}),
 	rootAccent: css({
-		bg: 'linear-gradient(180deg, {colors.teal.light.11}, {colors.teal.light.10})',
-		borderColor: 'transparent',
-		boxShadow: '{shadows.float}',
+		bg: 'app.accent.soft',
+		borderColor: 'app.border.strong',
+		boxShadow: '{shadows.whisper}',
 	}),
 	copy: css({
 		display: 'flex',
@@ -47,7 +47,7 @@ const styles = {
 		color: 'app.text',
 	}),
 	titleAccent: css({
-		color: 'app.text.inverse',
+		color: 'app.text',
 	}),
 	description: css({
 		textStyle: 'body',
@@ -56,7 +56,7 @@ const styles = {
 		lineHeight: '1.6',
 	}),
 	descriptionAccent: css({
-		color: 'rgba(248, 249, 249, 0.76)',
+		color: 'app.text.muted',
 	}),
 	actions: css({
 		display: 'flex',

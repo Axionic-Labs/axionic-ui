@@ -123,7 +123,7 @@ const styles = {
 		paddingX: '3',
 		paddingY: '1.5',
 		rounded: 'xl',
-		bg: 'app.canvas.subtle',
+		bg: 'app.surface.muted',
 		borderColor: 'app.border',
 	}),
 	itemActiveTabs: css({
