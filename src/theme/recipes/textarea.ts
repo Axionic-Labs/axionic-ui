@@ -25,7 +25,7 @@ export const textarea = defineRecipe({
 	variants: {
 		variant: {
 			outline: {
-				bg: 'app.surface.muted',
+				bg: 'rgba(255,255,255,0.88)',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
@@ -35,7 +35,7 @@ export const textarea = defineRecipe({
 				},
 				_focus: {
 					borderColor: 'app.accent',
-					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+					boxShadow: '0 0 0 3px rgba(88, 153, 150, 0.16)',
 					outline: 'none',
 					bg: 'app.surface',
 				},
@@ -54,7 +54,7 @@ export const textarea = defineRecipe({
 				},
 				_focus: {
 					borderColor: 'app.accent',
-					boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+					boxShadow: '0 0 0 3px rgba(88, 153, 150, 0.16)',
 					outline: 'none',
 					bg: 'app.surface',
 				},
@@ -101,8 +101,8 @@ export const textarea = defineRecipe({
 		size: {
 			xs: { textStyle: 'sm', px: '2.5', py: '7px', scrollPaddingBottom: '7px' },
 			sm: { textStyle: 'sm', px: '3', py: '9px', scrollPaddingBottom: '9px' },
-			md: { textStyle: 'sm', px: '3.5', py: '10px', scrollPaddingBottom: '10px' },
-			lg: { textStyle: 'md', px: '4', py: '11px', scrollPaddingBottom: '11px' },
+			md: { textStyle: 'sm', px: '4', py: '11px', scrollPaddingBottom: '11px' },
+			lg: { textStyle: 'md', px: '4.25', py: '12px', scrollPaddingBottom: '12px' },
 			xl: { textStyle: 'lg', px: '4.5', py: '11px', scrollPaddingBottom: '11px' },
 		},
 	},

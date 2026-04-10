@@ -19,8 +19,7 @@ export const slider = defineSlotRecipe({
 			color: 'app.text',
 			fontWeight: 'semibold',
 			textStyle: 'caption',
-			textTransform: 'uppercase',
-			letterSpacing: '0.08em',
+			letterSpacing: '0.02em',
 		},
 		control: {
 			display: 'inline-flex',
@@ -32,6 +31,7 @@ export const slider = defineSlotRecipe({
 			flex: '1',
 			borderWidth: '1px',
 			borderColor: 'app.border',
+			background: 'app.canvas.subtle',
 		},
 		range: {
 			width: 'inherit',
@@ -89,8 +89,8 @@ export const slider = defineSlotRecipe({
 			},
 			md: {
 				root: {
-					'--slider-thumb-size': 'sizes.5',
-					'--slider-track-size': 'sizes.2',
+					'--slider-thumb-size': 'sizes.5.5',
+					'--slider-track-size': 'sizes.2.5',
 					'--slider-marker-center': '8px',
 					'--slider-marker-size': 'sizes.1',
 					'--slider-marker-inset': '4px',
@@ -107,12 +107,12 @@ export const slider = defineSlotRecipe({
 			},
 		},
 		variant: {
-				outline: {
+			outline: {
 				thumb: {
-					bg: 'app.surface',
-					borderWidth: '2px',
+					bg: 'white',
+					borderWidth: '1.5px',
 					borderColor: 'app.accent',
-					boxShadow: '{shadows.whisper}',
+					boxShadow: '{shadows.float}',
 				},
 				range: {
 					bg: 'app.accent',

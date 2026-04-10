@@ -22,6 +22,7 @@ const styles = {
 		borderRadius: 'l3',
 		borderWidth: '1px',
 		borderColor: 'app.border',
+		boxShadow: '{shadows.whisper}',
 		overflow: 'hidden',
 	}),
 	default: css({
@@ -36,8 +37,8 @@ const styles = {
 		justifyContent: 'space-between',
 		flexDirection: { base: 'column', md: 'row' },
 		gap: '4',
-		paddingX: { base: '4.5', md: '5.5' },
-		paddingY: { base: '4.5', md: '5' },
+		paddingX: { base: '5', md: '6' },
+		paddingY: { base: '4.75', md: '5.25' },
 	}),
 	headerBorder: css({
 		borderBottomWidth: '1px',
@@ -77,12 +78,15 @@ const styles = {
 		gap: '3',
 	}),
 	body: css({
-		paddingX: { base: '4.5', md: '5.5' },
-		paddingY: { base: '4.5', md: '5.5' },
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '4',
+		paddingX: { base: '5', md: '6' },
+		paddingY: { base: '5', md: '5.75' },
 	}),
 	footer: css({
 		paddingX: { base: '5', md: '6' },
-		paddingY: '4',
+		paddingY: '4.5',
 		borderTopWidth: '1px',
 		borderColor: 'app.border',
 		color: 'app.text.muted',

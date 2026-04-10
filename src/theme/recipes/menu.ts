@@ -8,10 +8,10 @@ export const menu = defineSlotRecipe({
 		content: {
 			'--menu-z-index': 'zIndex.dropdown',
 
-			bg: 'app.surface',
+			bg: 'rgba(255,255,255,0.97)',
 			borderWidth: '1px',
 			borderColor: 'app.border',
-			borderRadius: '2xl',
+			borderRadius: 'xl',
 			boxShadow: '{shadows.float}',
 			display: 'flex',
 			flexDirection: 'column',
@@ -33,7 +33,6 @@ export const menu = defineSlotRecipe({
 		},
 		item: {
 			alignItems: 'center',
-			borderRadius: 'xl',
 			color: 'app.text',
 			display: 'flex',
 			flex: '0 0 auto',
@@ -42,8 +41,9 @@ export const menu = defineSlotRecipe({
 			textDecoration: 'none',
 			userSelect: 'none',
 			width: '100%',
+			borderRadius: 'lg',
 			_highlighted: {
-				bg: 'app.surface.muted',
+				bg: 'app.canvas.subtle',
 			},
 			_disabled: {
 				layerStyle: 'disabled',
@@ -62,12 +62,8 @@ export const menu = defineSlotRecipe({
 			fontWeight: 'semibold',
 			gap: '1px',
 			justifyContent: 'center',
-			_after: {
-				content: '""',
-				width: '100%',
-				height: '1px',
-				bg: 'app.border',
-			},
+			textTransform: 'uppercase',
+			letterSpacing: '0.08em',
 		},
 		itemIndicator: {
 			justifyContent: 'flex-end',
@@ -101,17 +97,17 @@ export const menu = defineSlotRecipe({
 				separator: { mx: '-1.5', my: '0.5' },
 			},
 			md: {
-				content: { p: '2', gap: '1', textStyle: 'sm' },
-				item: { px: '2.5', minH: '10', gap: '2.5', _icon: { boxSize: '4' } },
+				content: { p: '1.75', gap: '0.75', textStyle: 'sm' },
+				item: { px: '2.75', minH: '10', gap: '2.5', _icon: { boxSize: '4' } },
 				itemGroup: { gap: '0.5' },
-				itemGroupLabel: { px: '2', height: '10' },
+				itemGroupLabel: { px: '2', height: '8' },
 				separator: { mx: '-2', my: '0.5' },
 			},
 			lg: {
-				content: { p: '2', gap: '0.5', textStyle: 'md' },
+				content: { p: '1.75', gap: '0.5', textStyle: 'md' },
 				item: { px: '3', minH: '11', gap: '2.5', _icon: { boxSize: '4.5' } },
 				itemGroup: { gap: '0.5' },
-				itemGroupLabel: { px: '2.5', height: '11' },
+				itemGroupLabel: { px: '2.5', height: '8' },
 				separator: { mx: '-2.5', my: '0.5' },
 			},
 			xl: {

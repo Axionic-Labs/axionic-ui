@@ -7,10 +7,10 @@ export const popover = defineSlotRecipe({
 	base: {
 		content: {
 			'--popover-bg': 'colors.app.surface',
-			'--popover-padding': 'spacing.4',
+			'--popover-padding': 'spacing.4.5',
 
 			background: 'var(--popover-bg)',
-			borderRadius: 'l3',
+			borderRadius: 'xl',
 			borderWidth: '1px',
 			borderColor: 'app.border',
 			boxShadow: '{shadows.float}',
@@ -21,7 +21,7 @@ export const popover = defineSlotRecipe({
 			position: 'relative',
 			textStyle: 'sm',
 			transformOrigin: 'var(--transform-origin)',
-			width: 'xs',
+			width: 'sm',
 			zIndex: 'calc(var(--z-index-popover) + var(--layer-index, 0))',
 			_open: {
 				animationStyle: 'scale-fade-in',

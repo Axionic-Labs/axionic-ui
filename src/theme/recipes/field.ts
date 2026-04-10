@@ -8,7 +8,7 @@ export const field = defineSlotRecipe({
 		root: {
 			display: 'flex',
 			flexDirection: 'column',
-			gap: '2.5',
+			gap: '2',
 		},
 		label: {
 			alignItems: 'center',
@@ -18,7 +18,8 @@ export const field = defineSlotRecipe({
 			fontWeight: 'semibold',
 			textAlign: 'start',
 			userSelect: 'none',
-			textStyle: 'small',
+			textStyle: 'caption',
+			letterSpacing: '0.02em',
 			_disabled: {
 				layerStyle: 'disabled',
 			},
@@ -29,7 +30,7 @@ export const field = defineSlotRecipe({
 		helperText: {
 			color: 'app.text.subtle',
 			textStyle: 'caption',
-			lineHeight: '1.6',
+			lineHeight: '1.55',
 			_disabled: {
 				layerStyle: 'disabled',
 			},

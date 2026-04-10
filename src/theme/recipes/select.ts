@@ -12,8 +12,8 @@ export const select = defineSlotRecipe({
 			width: 'full',
 		},
 		content: {
-			background: 'app.surface',
-			borderRadius: '2xl',
+			background: 'rgba(255,255,255,0.97)',
+			borderRadius: 'xl',
 			borderWidth: '1px',
 			borderColor: 'app.border',
 			boxShadow: '{shadows.float}',
@@ -35,17 +35,17 @@ export const select = defineSlotRecipe({
 		},
 		item: {
 			alignItems: 'center',
-			borderRadius: 'xl',
+			borderRadius: 'lg',
 			color: 'app.text',
 			cursor: 'pointer',
 			display: 'flex',
 			justifyContent: 'space-between',
 			userSelect: 'none',
 			_hover: {
-				background: 'app.surface.muted',
+				background: 'app.canvas.subtle',
 			},
 			_highlighted: {
-				background: 'app.surface.muted',
+				background: 'app.canvas.subtle',
 			},
 			_selected: {},
 			_disabled: {
@@ -72,12 +72,8 @@ export const select = defineSlotRecipe({
 			fontWeight: 'semibold',
 			gap: '1px',
 			justifyContent: 'center',
-			_after: {
-				content: '""',
-				width: '100%',
-				height: '1px',
-				bg: 'app.border',
-			},
+			textTransform: 'uppercase',
+			letterSpacing: '0.08em',
 		},
 		itemIndicator: {
 			color: 'app.accent',
@@ -90,7 +86,7 @@ export const select = defineSlotRecipe({
 		},
 		trigger: {
 			alignItems: 'center',
-			bg: 'app.canvas.subtle',
+			bg: 'rgba(255,255,255,0.88)',
 			borderRadius: 'xl',
 			cursor: 'pointer',
 			display: 'flex',
@@ -130,7 +126,7 @@ export const select = defineSlotRecipe({
 					},
 					_focusVisible: {
 						borderColor: 'app.accent',
-						boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+						boxShadow: '0 0 0 3px rgba(88, 153, 150, 0.16)',
 						outline: 'none',
 						bg: 'app.surface',
 					},
@@ -146,7 +142,7 @@ export const select = defineSlotRecipe({
 					},
 					_focusVisible: {
 						borderColor: 'app.accent',
-						boxShadow: '0 0 0 3px {colors.teal.light.a3}',
+						boxShadow: '0 0 0 3px rgba(88, 153, 150, 0.16)',
 						outline: 'none',
 						bg: 'app.surface',
 					},
@@ -169,17 +165,17 @@ export const select = defineSlotRecipe({
 				trigger: { px: '2.5', h: '9', textStyle: 'sm', gap: '2', _icon: { boxSize: '4' } },
 			},
 			md: {
-				content: { p: '2', gap: '1', textStyle: 'sm' },
-				item: { px: '2.5', minH: '10', gap: '2', _icon: { boxSize: '4' } },
+				content: { p: '1.75', gap: '0.75', textStyle: 'sm' },
+				item: { px: '2.75', minH: '10', gap: '2.25', _icon: { boxSize: '4' } },
 				itemGroup: { gap: '0.5' },
-				itemGroupLabel: { px: '2', height: '10' },
-				trigger: { px: '3', h: '10', textStyle: 'sm', gap: '2', _icon: { boxSize: '4' } },
+				itemGroupLabel: { px: '2', height: '8' },
+				trigger: { px: '3.5', h: '10', textStyle: 'sm', gap: '2', _icon: { boxSize: '4' } },
 			},
 			lg: {
-				content: { p: '2', gap: '0.75', textStyle: 'md' },
+				content: { p: '1.75', gap: '0.75', textStyle: 'md' },
 				item: { px: '3', minH: '11', gap: '2', _icon: { boxSize: '4.5' } },
 				itemGroup: { gap: '0.5' },
-				itemGroupLabel: { px: '2.5', height: '11' },
+				itemGroupLabel: { px: '2.5', height: '8' },
 				trigger: { px: '3.5', h: '11', textStyle: 'md', gap: '2', _icon: { boxSize: '4.5' } },
 			},
 			xl: {

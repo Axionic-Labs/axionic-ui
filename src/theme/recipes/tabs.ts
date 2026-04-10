@@ -88,16 +88,17 @@ export const tabs = defineSlotRecipe({
 				list: {
 					_horizontal: {
 						borderBottomWidth: '1px',
+						borderColor: 'app.border',
 					},
 					_vertical: {
 						borderStartWidth: '1px',
 					},
 				},
 				indicator: {
-					background: 'colorPalette.solid.bg',
+					background: 'app.accent',
 					_horizontal: {
 						bottom: '0',
-						height: '0.5',
+						height: '1px',
 						transform: 'translateY(1px)',
 					},
 					_vertical: {
@@ -107,23 +108,26 @@ export const tabs = defineSlotRecipe({
 					},
 				},
 				trigger: {
-					color: 'fg.muted',
+					color: 'app.text.subtle',
 					_selected: {
-						color: 'colorPalette.plain.fg',
+						color: 'app.text',
 					},
 				},
 			},
 			subtle: {
 				trigger: {
-					color: 'fg.muted',
+					color: 'app.text.subtle',
 					_selected: {
-						color: 'colorPalette.subtle.fg',
+						color: 'app.text',
 					},
 				},
 				indicator: {
-					bg: 'colorPalette.subtle.bg',
-					color: 'colorPalette.subtle.fg',
-					borderRadius: 'l2',
+					bg: 'app.surface',
+					color: 'app.text',
+					borderRadius: 'lg',
+					borderWidth: '1px',
+					borderColor: 'app.border',
+					boxShadow: '{shadows.whisper}',
 				},
 			},
 			enclosed: {

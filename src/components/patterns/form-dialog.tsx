@@ -34,7 +34,7 @@ const styles = {
 	header: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '2.5',
+		gap: '3',
 	}),
 	headerRow: css({
 		display: 'flex',
@@ -52,11 +52,11 @@ const styles = {
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '11',
+		boxSize: '10',
 		rounded: '2xl',
 		borderWidth: '1px',
 		borderColor: 'app.border',
-		bg: 'app.surface.muted',
+		bg: 'app.canvas.subtle',
 		color: 'app.accent',
 		flexShrink: 0,
 	}),
@@ -73,20 +73,20 @@ const styles = {
 	description: css({
 		textStyle: 'small',
 		color: 'app.text.muted',
-		maxWidth: '42rem',
-		lineHeight: '1.6',
+		maxWidth: '40rem',
+		lineHeight: '1.65',
 	}),
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '4',
+		gap: '4.5',
 		maxHeight: 'min(68vh, 42rem)',
 		overflowY: 'auto',
-		paddingRight: '1',
+		paddingRight: '1.5',
 	}),
 	splitShell: css({
 		display: 'grid',
-		gridTemplateColumns: { base: '1fr', lg: '19rem minmax(0, 1fr)' },
+		gridTemplateColumns: { base: '1fr', lg: '20rem minmax(0, 1fr)' },
 		minHeight: { lg: '36rem' },
 	}),
 	splitAside: css({
@@ -94,8 +94,8 @@ const styles = {
 		flexDirection: 'column',
 		justifyContent: 'space-between',
 		gap: '4',
-		padding: { base: '5', md: '6' },
-		background: 'app.canvas.subtle',
+		padding: { base: '5.5', md: '6.5' },
+		background: 'linear-gradient(180deg, #f4f6f5 0%, #eef1f0 100%)',
 		borderBottomWidth: { base: '1px', lg: '0' },
 		borderRightWidth: { base: '0', lg: '1px' },
 		borderColor: 'app.border',
@@ -116,6 +116,7 @@ const styles = {
 	footerHint: css({
 		textStyle: 'caption',
 		color: 'app.text.subtle',
+		maxWidth: '26rem',
 	}),
 	closeButton: css({
 		position: 'absolute',

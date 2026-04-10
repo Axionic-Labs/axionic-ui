@@ -18,7 +18,7 @@ export declare const recipes: {
             outline: "0";
             position: "relative";
             textAlign: "start";
-            transition: "border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease";
+            transition: "border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, transform 0.18s ease";
             width: "100%";
             _placeholder: {
                 color: "app.text.subtle";
@@ -44,7 +44,7 @@ export declare const recipes: {
                     };
                     _focus: {
                         borderColor: "app.accent";
-                        boxShadow: "0 0 0 3px {colors.teal.light.a3}";
+                        boxShadow: "0 0 0 3px rgba(88, 153, 150, 0.16)";
                         outline: "none";
                         bg: string;
                     };
@@ -64,7 +64,7 @@ export declare const recipes: {
                     };
                     _focus: {
                         borderColor: "app.accent";
-                        boxShadow: "0 0 0 3px {colors.teal.light.a3}";
+                        boxShadow: "0 0 0 3px rgba(88, 153, 150, 0.16)";
                         outline: "none";
                         bg: string;
                     };

@@ -16,12 +16,12 @@ const styles = {
 	root: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '3',
-		padding: { base: '4', md: '4.5' },
+		gap: '3.5',
+		padding: { base: '4.5', md: '5' },
 		borderRadius: '2xl',
 		borderWidth: '1px',
 		borderColor: 'app.border',
-		bg: 'app.canvas.subtle',
+		bg: 'rgba(255,255,255,0.72)',
 	}),
 	subtle: css({
 		bg: 'app.surface',
@@ -44,10 +44,10 @@ const styles = {
 		minWidth: 0,
 	}),
 	title: css({
-		textStyle: 'small',
+		textStyle: 'caption',
 		fontWeight: 'semibold',
 		color: 'app.text',
-		letterSpacing: '-0.01em',
+		letterSpacing: '0.02em',
 	}),
 	description: css({
 		textStyle: 'caption',

@@ -6,8 +6,8 @@ export const segmentGroup = defineSlotRecipe({
 	slots: segmentGroupAnatomy.keys(),
 	base: {
 		root: {
-			bg: 'app.surface.muted',
-			borderRadius: 'l3',
+			bg: 'app.canvas.subtle',
+			borderRadius: 'xl',
 			borderWidth: '1px',
 			borderColor: 'app.border',
 			padding: '1',
@@ -23,7 +23,7 @@ export const segmentGroup = defineSlotRecipe({
 		},
 		item: {
 			alignItems: 'center',
-			borderRadius: 'l3',
+			borderRadius: 'lg',
 			color: 'app.text.muted',
 			display: 'inline-flex',
 			flexShrink: '0',
@@ -69,16 +69,17 @@ export const segmentGroup = defineSlotRecipe({
 			},
 			'&[data-state=checked]': {
 				color: 'app.text',
+				fontWeight: '600',
 			},
 		},
 
 		indicator: {
-			bg: 'app.surface',
+			bg: 'white',
 			borderWidth: '1px',
 			borderColor: 'app.border',
-			borderRadius: 'l3',
+			borderRadius: 'lg',
 			height: 'var(--height)',
-			boxShadow: '{shadows.panel}',
+			boxShadow: '{shadows.whisper}',
 			pos: 'absolute',
 			width: 'var(--width)',
 			zIndex: -1,

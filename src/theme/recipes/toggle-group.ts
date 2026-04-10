@@ -11,8 +11,10 @@ export const toggleGroup = defineSlotRecipe({
 		variant: {
 			outline: {
 				root: {
-					borderRadius: 'l3',
+					borderRadius: 'xl',
 					borderWidth: '1px',
+					borderColor: 'app.border',
+					bg: 'app.canvas.subtle',
 					gap: '1',
 					p: '1',
 				},

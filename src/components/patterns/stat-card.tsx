@@ -28,10 +28,10 @@ const styles = {
 		borderWidth: '1px',
 		borderColor: 'app.border',
 		rounded: 'l3',
-		p: '6',
+		p: '5.5',
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
+		gap: '4',
 		boxShadow: '{shadows.whisper}',
 	}),
 	header: css({
@@ -42,8 +42,8 @@ const styles = {
 	}),
 	iconWrap: css({
 		flexShrink: 0,
-		w: '8',
-		h: '8',
+		w: '8.5',
+		h: '8.5',
 		rounded: 'full',
 		bg: 'transparent',
 		display: 'flex',
@@ -62,6 +62,7 @@ const styles = {
 	value: css({
 		textStyle: 'metricValue',
 		color: 'app.text',
+		letterSpacing: '-0.03em',
 	}),
 	change: css({
 		textStyle: 'small',

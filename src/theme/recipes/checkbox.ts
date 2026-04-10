@@ -22,9 +22,9 @@ export const checkbox = defineSlotRecipe({
 			flexShrink: '0',
 			borderWidth: '1px',
 			borderColor: 'app.border',
-			borderRadius: 'md',
+			borderRadius: 'lg',
 			cursor: 'pointer',
-			bg: 'app.surface.muted',
+			bg: 'app.canvas.subtle',
 			focusVisibleRing: 'outside',
 
 			_icon: {
@@ -47,7 +47,7 @@ export const checkbox = defineSlotRecipe({
 			},
 			md: {
 				root: { gap: '3' },
-				label: { textStyle: 'md' },
+				label: { textStyle: 'sm' },
 				control: { boxSize: '5', _icon: { boxSize: '3.5' } },
 			},
 			lg: {
@@ -61,8 +61,8 @@ export const checkbox = defineSlotRecipe({
 			solid: {
 				control: {
 					_checked: {
-						bg: 'app.accent',
-						borderColor: 'app.accent',
+						bg: '{colors.teal.light.11}',
+						borderColor: '{colors.teal.light.11}',
 						color: 'white',
 					},
 					_invalid: {

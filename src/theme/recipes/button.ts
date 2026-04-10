@@ -6,10 +6,11 @@ export const button = defineRecipe({
 	base: {
 		alignItems: 'center',
 		appearance: 'none',
-		borderRadius: 'l3',
+		borderRadius: 'xl',
 		cursor: 'pointer',
 		display: 'inline-flex',
 		flexShrink: '0',
+		fontFamily: 'display',
 		fontWeight: 'semibold',
 		gap: '2',
 		isolation: 'isolate',
@@ -43,26 +44,33 @@ export const button = defineRecipe({
 				},
 			},
 			surface: {
-				bg: 'app.surface',
+				bg: 'app.canvas.subtle',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
 				_hover: {
-					bg: 'app.surface.raised',
+					bg: 'app.surface',
 					borderColor: 'app.border.strong',
+					transform: 'translateY(-1px)',
+					boxShadow: '{shadows.whisper}',
 				},
 				_active: {
 					bg: 'app.surface.muted',
+					transform: 'translateY(0)',
 				},
 				_on: {
-					bg: 'app.surface.muted',
+					bg: 'app.surface',
+					borderColor: 'app.border.strong',
 				},
 			},
 			subtle: {
-				bg: 'app.surface.muted',
+				bg: 'app.canvas.subtle',
 				color: 'app.text',
+				borderWidth: '1px',
+				borderColor: 'transparent',
 				_hover: {
 					bg: 'app.surface',
+					borderColor: 'app.border',
 				},
 				_active: {
 					bg: 'app.surface.muted',
@@ -74,13 +82,16 @@ export const button = defineRecipe({
 			outline: {
 				borderWidth: '1px',
 				borderColor: 'app.border',
+				bg: 'rgba(255,255,255,0.65)',
 				color: 'app.text',
 				_hover: {
-					bg: 'app.surface.muted',
+					bg: 'app.surface',
 					borderColor: 'app.border.strong',
+					transform: 'translateY(-1px)',
 				},
 				_active: {
 					bg: 'app.surface.muted',
+					transform: 'translateY(0)',
 				},
 				_on: {
 					bg: 'app.surface.muted',
@@ -117,11 +128,11 @@ export const button = defineRecipe({
 				borderWidth: '1px',
 				borderColor: 'transparent',
 				_hover: {
-					bg: 'app.surface.muted',
+					bg: 'app.canvas.subtle',
 					color: 'app.text',
 				},
 				_active: {
-					bg: 'app.accent.soft',
+					bg: 'app.surface',
 					color: 'app.text',
 				},
 			},
@@ -144,12 +155,17 @@ export const button = defineRecipe({
 				_active: { bg: 'colorPalette.11', color: 'bg.canvas' },
 			},
 			oauth: {
-				bg: 'app.surface',
+				bg: 'rgba(255,255,255,0.9)',
 				color: 'app.text',
 				borderWidth: '1px',
 				borderColor: 'app.border',
-				fontWeight: '500',
-				_hover: { bg: 'app.surface.muted', borderColor: 'app.border.strong' },
+				fontWeight: '600',
+				boxShadow: '{shadows.whisper}',
+				_hover: {
+					bg: 'app.surface',
+					borderColor: 'app.border.strong',
+					transform: 'translateY(-1px)',
+				},
 			},
 			'outline-brand': {
 				borderWidth: '1px',
@@ -171,16 +187,16 @@ export const button = defineRecipe({
 				_hover: { bg: 'colorPalette.a3' },
 			},
 			brand: {
-				background: 'linear-gradient(135deg, {colors.teal.light.11}, {colors.teal.light.10})',
+				background: '{colors.teal.light.11}',
 				color: 'white',
 				boxShadow: '{shadows.whisper}',
 				_hover: {
-					background: 'linear-gradient(135deg, {colors.teal.light.10}, {colors.teal.light.9})',
+					background: '{colors.teal.light.10}',
 					transform: 'translateY(-1px)',
 					boxShadow: '{shadows.float}',
 				},
 				_active: {
-					background: 'linear-gradient(135deg, {colors.teal.light.11}, {colors.teal.light.10})',
+					background: '{colors.teal.light.11}',
 					transform: 'translateY(0)',
 				},
 			},
@@ -194,9 +210,9 @@ export const button = defineRecipe({
 		size: {
 			'2xs': { h: '7', minW: '7', textStyle: 'xs', px: '2.5', _icon: { boxSize: '3.5' } },
 			xs: { h: '8', minW: '8', textStyle: 'sm', px: '3', _icon: { boxSize: '4' } },
-			sm: { h: '9', minW: '9', textStyle: 'sm', px: '3.5', _icon: { boxSize: '4' } },
-			md: { h: '10', minW: '10', textStyle: 'sm', px: '4', _icon: { boxSize: '4.5' } },
-			lg: { h: '11', minW: '11', textStyle: 'md', px: '4.5', _icon: { boxSize: '5' } },
+			sm: { h: '9', minW: '9', textStyle: 'sm', px: '3.75', _icon: { boxSize: '4' } },
+			md: { h: '10', minW: '10', textStyle: 'sm', px: '4.25', _icon: { boxSize: '4.5' } },
+			lg: { h: '11', minW: '11', textStyle: 'md', px: '4.75', _icon: { boxSize: '5' } },
 			xl: { h: '12', minW: '12', textStyle: 'md', px: '5', _icon: { boxSize: '5.5' } },
 			'2xl': { h: '16', minW: '16', textStyle: 'xl', px: '6.5', _icon: { boxSize: '6' } },
 		},

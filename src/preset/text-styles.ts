@@ -73,7 +73,7 @@ export const textStyles = defineTextStyles({
 	pageTitle: {
 		description: 'Primary page title used in app workspace intros.',
 		value: {
-			fontFamily: 'body',
+			fontFamily: 'display',
 			fontSize: '2.5rem',
 			fontWeight: '760',
 			lineHeight: '1.04',
@@ -83,16 +83,17 @@ export const textStyles = defineTextStyles({
 	sectionTitle: {
 		description: 'Panel and section title within product workspaces.',
 		value: {
-			fontFamily: 'body',
-			fontSize: '1rem',
+			fontFamily: 'display',
+			fontSize: '1.05rem',
 			fontWeight: '650',
-			lineHeight: '1.25',
+			lineHeight: '1.22',
+			letterSpacing: '-0.015em',
 		},
 	},
 	toolbarLabel: {
 		description: 'Compact toolbar label and top-nav text.',
 		value: {
-			fontFamily: 'body',
+			fontFamily: 'display',
 			fontSize: '0.875rem',
 			fontWeight: '600',
 			lineHeight: '1.25',

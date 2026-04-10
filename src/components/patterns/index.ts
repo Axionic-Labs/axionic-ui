@@ -7,6 +7,7 @@ export {
 	type ActivityTableRow,
 } from './activity-table';
 export { AmountSelector, type AmountSelectorProps } from './amount-selector';
+export { AuthShell, type AuthShellProps } from './auth-shell';
 export { ChoiceSegment, type ChoiceSegmentItem, type ChoiceSegmentProps } from './choice-segment';
 export { CollectionPageHeader, type CollectionPageHeaderProps } from './collection-page-header';
 export { ConfirmDialog, type ConfirmDialogProps } from './confirm-dialog';
@@ -21,6 +22,7 @@ export { FileTree, type FileTreeNode, type FileTreeProps } from './file-tree';
 export { FormDialog, type FormDialogProps } from './form-dialog';
 export { FormSection, type FormSectionProps } from './form-section';
 export { buildGradientStyle, GradientPicker, type GradientPickerProps } from './gradient-picker';
+export { GuidedTourCard, type GuidedTourCardProps } from './guided-tour-card';
 export {
 	HelpPanel,
 	type HelpPanelContentProps,
@@ -77,6 +79,7 @@ export { StepCard, type StepCardProps } from './step-card';
 export { StreamingStatus, type StreamingStatusProps, type StreamingStep } from './streaming-status';
 export { SupportPanel, type SupportPanelProps } from './support-panel';
 export { TopToolbar, type TopToolbarProps } from './top-toolbar';
+export { UtilityPanel, type UtilityPanelProps } from './utility-panel';
 export { ValueField, type ValueFieldProps } from './value-field';
 export { ValueSlider, type ValueSliderProps } from './value-slider';
 export { WorkspacePage, type WorkspacePageProps } from './workspace-page';
