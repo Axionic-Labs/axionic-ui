@@ -5307,7 +5307,7 @@ var styles33 = {
     listStyle: "none",
     display: "flex",
     flexDirection: "column",
-    gap: "2",
+    gap: "2.5",
     padding: "0",
     margin: "0"
   }),
@@ -5317,9 +5317,9 @@ var styles33 = {
     display: "grid",
     gridTemplateColumns: "auto minmax(0, 1fr) auto",
     alignItems: "center",
-    gap: "2.75",
+    gap: "3.25",
     paddingX: "4",
-    paddingY: "3",
+    paddingY: "3.25",
     borderRadius: "xl",
     color: "app.text.muted",
     bg: "transparent",
@@ -5332,7 +5332,7 @@ var styles33 = {
       bg: "app.surface",
       color: "app.text",
       "& [data-sidebar-icon]": {
-        transform: "translateX(6px)",
+        transform: "translateX(8px)",
         color: "app.accent"
       }
     },
@@ -5366,7 +5366,8 @@ var styles33 = {
     gap: "0.5"
   }),
   itemLabel: css43({
-    textStyle: "body",
+    fontSize: "0.95rem",
+    lineHeight: "1.35",
     color: "currentColor",
     fontWeight: "600",
     letterSpacing: "-0.01em"
@@ -6583,5 +6584,5 @@ export {
   AccentLabel
 };
 
-//# debugId=FA598CBC9238330864756E2164756E21
+//# debugId=C6943805980AC8D364756E2164756E21
 //# sourceMappingURL=index.js.map

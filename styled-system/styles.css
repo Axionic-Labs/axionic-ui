@@ -3292,8 +3292,12 @@
     padding-inline: var(--spacing-1);
 }
 
-  .gap_2\.75 {
-    gap: 2.75px;
+  .gap_3\.25 {
+    gap: 3.25px;
+}
+
+  .py_3\.25 {
+    padding-block: 3.25px;
 }
 
   .trs_transform_220ms_cubic-bezier\(0\.22\,_1\,_0\.36\,_1\)\,_color_180ms_ease {
@@ -3786,6 +3790,14 @@
   .size_5\.5 {
     width: 5.5px;
     height: 5.5px;
+}
+
+  .fs_0\.95rem {
+    font-size: 0.95rem;
+}
+
+  .lh_1\.35 {
+    line-height: 1.35;
 }
 
   .op_0\.92 {
@@ -4734,8 +4746,8 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
-    .hover\:\[\&_\[data-sidebar-icon\]\]\:trf_translateX\(6px\):is(:hover, [data-hover]) [data-sidebar-icon] {
-      transform: translateX(6px);
+    .hover\:\[\&_\[data-sidebar-icon\]\]\:trf_translateX\(8px\):is(:hover, [data-hover]) [data-sidebar-icon] {
+      transform: translateX(8px);
 }
 }
 
