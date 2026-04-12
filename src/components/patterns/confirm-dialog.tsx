@@ -1,5 +1,6 @@
 'use client';
 
+import { Portal } from '@ark-ui/react/portal';
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import { Button } from '../ui/button';
@@ -106,35 +107,37 @@ export function ConfirmDialog({
 }: ConfirmDialogProps) {
 	return (
 		<Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)} size={size}>
-			<Dialog.Backdrop />
-			<Dialog.Positioner>
-				<Dialog.Content className={className}>
-					<div className={cx(accentBar, destructive ? dangerGradient : tealGradient)} />
-					<Dialog.Header>
-						<Dialog.Title>{title}</Dialog.Title>
-					</Dialog.Header>
-					<Dialog.Body>
-						{typeof children === 'string' ? <p className={bodyText}>{children}</p> : children}
-					</Dialog.Body>
-					<Dialog.Footer>
-						<Dialog.CloseTrigger asChild>
-							<Button variant="outline" size="sm">
-								{cancelLabel}
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content className={className}>
+						<div className={cx(accentBar, destructive ? dangerGradient : tealGradient)} />
+						<Dialog.Header>
+							<Dialog.Title>{title}</Dialog.Title>
+						</Dialog.Header>
+						<Dialog.Body>
+							{typeof children === 'string' ? <p className={bodyText}>{children}</p> : children}
+						</Dialog.Body>
+						<Dialog.Footer>
+							<Dialog.CloseTrigger asChild>
+								<Button variant="outline" size="sm">
+									{cancelLabel}
+								</Button>
+							</Dialog.CloseTrigger>
+							<Button
+								variant={destructive ? 'danger' : confirmVariant}
+								size="sm"
+								onClick={() => {
+									onOpenChange(false);
+									onConfirm();
+								}}
+							>
+								{confirmLabel}
 							</Button>
-						</Dialog.CloseTrigger>
-						<Button
-							variant={destructive ? 'danger' : confirmVariant}
-							size="sm"
-							onClick={() => {
-								onOpenChange(false);
-								onConfirm();
-							}}
-						>
-							{confirmLabel}
-						</Button>
-					</Dialog.Footer>
-				</Dialog.Content>
-			</Dialog.Positioner>
+						</Dialog.Footer>
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
 		</Dialog.Root>
 	);
 }

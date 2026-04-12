@@ -1,5 +1,6 @@
 'use client';
 
+import { Portal } from '@ark-ui/react/portal';
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import { Button } from '../ui/button';
@@ -205,36 +206,42 @@ export function FormDialog({
 
 	return (
 		<Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)} size={size}>
-			<Dialog.Backdrop />
-			<Dialog.Positioner>
-				<Dialog.Content className={className}>
-					{aside ? (
-						<div className={styles.splitShell}>
-							<div className={styles.splitAside}>
-								<div>{aside}</div>
-								{asideFooter}
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content className={className}>
+						{aside ? (
+							<div className={styles.splitShell}>
+								<div className={styles.splitAside}>
+									<div>{aside}</div>
+									{asideFooter}
+								</div>
+								<div className={styles.splitMain}>
+									<Dialog.CloseTrigger asChild>
+										<CloseButton
+											className={styles.closeButton}
+											size="sm"
+											aria-label="Close dialog"
+										/>
+									</Dialog.CloseTrigger>
+									{renderedHeader}
+									<Dialog.Body className={cx(styles.body, bodyClassName)}>{children}</Dialog.Body>
+									{!hideFooter && renderedFooter}
+								</div>
 							</div>
-							<div className={styles.splitMain}>
+						) : (
+							<>
 								<Dialog.CloseTrigger asChild>
 									<CloseButton className={styles.closeButton} size="sm" aria-label="Close dialog" />
 								</Dialog.CloseTrigger>
 								{renderedHeader}
 								<Dialog.Body className={cx(styles.body, bodyClassName)}>{children}</Dialog.Body>
 								{!hideFooter && renderedFooter}
-							</div>
-						</div>
-					) : (
-						<>
-							<Dialog.CloseTrigger asChild>
-								<CloseButton className={styles.closeButton} size="sm" aria-label="Close dialog" />
-							</Dialog.CloseTrigger>
-							{renderedHeader}
-							<Dialog.Body className={cx(styles.body, bodyClassName)}>{children}</Dialog.Body>
-							{!hideFooter && renderedFooter}
-						</>
-					)}
-				</Dialog.Content>
-			</Dialog.Positioner>
+							</>
+						)}
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
 		</Dialog.Root>
 	);
 }

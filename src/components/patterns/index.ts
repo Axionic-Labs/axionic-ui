@@ -15,6 +15,7 @@ export { CredentialCard, type CredentialCardProps } from './credential-card';
 export { CreditPill, type CreditPillProps } from './credit-pill';
 export { DetailDialog, type DetailDialogProps } from './detail-dialog';
 export { DetailPanel, type DetailPanelProps } from './detail-panel';
+export { DocsHint, type DocsHintProps } from './docs-hint';
 export { EmptyState, type EmptyStateProps } from './empty-state';
 export { EntityCard, type EntityCardProps } from './entity-card';
 export { FeatureCard, type FeatureCardProps } from './feature-card';
@@ -50,12 +51,23 @@ export {
 	ModelIconCustomizer,
 	type ModelIconCustomizerProps,
 } from './model-icon-customizer';
+export {
+	NamedPromptList,
+	type NamedPromptListItem,
+	type NamedPromptListProps,
+} from './named-prompt-list';
+export { NumberField, type NumberFieldProps } from './number-field';
 export { OptionRow, type OptionRowProps } from './option-row';
 export { PageIntro, type PageIntroProps } from './page-intro';
 export { PageTitle, type PageTitleProps } from './page-title';
 export { PickerField, type PickerFieldProps } from './picker-field';
 export { PricingCard, type PricingCardProps } from './pricing-card';
 export { ResourceList, type ResourceListItem, type ResourceListProps } from './resource-list';
+export {
+	SearchPickerDialog,
+	type SearchPickerDialogItem,
+	type SearchPickerDialogProps,
+} from './search-picker-dialog';
 export { SecondaryNav, type SecondaryNavItem, type SecondaryNavProps } from './secondary-nav';
 export { SecretField, type SecretFieldProps } from './secret-field';
 export { SectionHeader, type SectionHeaderProps } from './section-header';

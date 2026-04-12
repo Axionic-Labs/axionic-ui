@@ -1,0 +1,122 @@
+'use client';
+
+import { Plus, Trash2 } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { css } from 'styled-system/css';
+import { FormField } from '../forms/form-field';
+import { Button, Input, Textarea } from '../ui';
+import { EmptyState } from './empty-state';
+import { FormSection } from './form-section';
+
+export interface NamedPromptListItem {
+	key: string;
+	value: string;
+}
+
+export interface NamedPromptListProps {
+	title: ReactNode;
+	description?: ReactNode;
+	items: NamedPromptListItem[];
+	onAdd: () => void;
+	onRemove: (key: string) => void;
+	onKeyChange: (oldKey: string, newKey: string) => void;
+	onValueChange: (key: string, value: string) => void;
+	keyLabel?: string;
+	valueLabel?: string;
+	keyPlaceholder?: string;
+	valuePlaceholder?: string;
+	emptyTitle?: string;
+	emptyDescription?: string;
+}
+
+const styles = {
+	list: css({
+		display: 'grid',
+		gap: '3',
+	}),
+	row: css({
+		display: 'grid',
+		gap: '3',
+	}),
+	rowHeader: css({
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		gap: '3',
+		flexWrap: 'wrap',
+	}),
+};
+
+export function NamedPromptList({
+	title,
+	description,
+	items,
+	onAdd,
+	onRemove,
+	onKeyChange,
+	onValueChange,
+	keyLabel = 'Task name',
+	valueLabel = 'Prompt',
+	keyPlaceholder = 'summarize',
+	valuePlaceholder = 'You are a concise assistant that...',
+	emptyTitle = 'No prompts added yet',
+	emptyDescription = 'Add at least one named prompt to continue.',
+}: NamedPromptListProps) {
+	return (
+		<FormSection
+			title={title}
+			description={description}
+			actions={
+				<Button type="button" variant="toolbar" size="sm" onClick={onAdd}>
+					<Plus size={14} />
+					Add task
+				</Button>
+			}
+		>
+			<div className={styles.list}>
+				{items.length === 0 ? (
+					<EmptyState
+						title={emptyTitle}
+						description={emptyDescription}
+						className={css({ py: '8', px: '4' })}
+					/>
+				) : (
+					items.map((item) => (
+						<FormSection
+							key={item.key || '__new__'}
+							title={item.key || 'New task'}
+							tone="subtle"
+							actions={
+								<Button type="button" variant="ghost" size="sm" onClick={() => onRemove(item.key)}>
+									<Trash2 size={14} />
+									Remove
+								</Button>
+							}
+						>
+							<div className={styles.row}>
+								<div className={styles.rowHeader}>
+									<FormField label={keyLabel} className={css({ flex: '1 1 16rem' })}>
+										<Input
+											value={item.key}
+											onChange={(event) => onKeyChange(item.key, event.target.value)}
+											placeholder={keyPlaceholder}
+										/>
+									</FormField>
+								</div>
+								<FormField label={valueLabel}>
+									<Textarea
+										value={item.value}
+										onChange={(event) => onValueChange(item.key, event.target.value)}
+										placeholder={valuePlaceholder}
+										rows={4}
+										className={css({ resize: 'vertical' })}
+									/>
+								</FormField>
+							</div>
+						</FormSection>
+					))
+				)}
+			</div>
+		</FormSection>
+	);
+}

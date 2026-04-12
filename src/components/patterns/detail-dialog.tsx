@@ -1,5 +1,6 @@
 'use client';
 
+import { Portal } from '@ark-ui/react/portal';
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import { CloseButton } from '../ui/close-button';
@@ -82,31 +83,33 @@ export function DetailDialog({
 }: DetailDialogProps) {
 	return (
 		<Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)} size={size}>
-			<Dialog.Backdrop />
-			<Dialog.Positioner>
-				<Dialog.Content className={className}>
-					<div className={styles.accentBar} />
-					<Dialog.CloseTrigger asChild>
-						<CloseButton size="sm" aria-label="Close dialog" />
-					</Dialog.CloseTrigger>
-					<Dialog.Header className={styles.header}>
-						{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
-						<div className={styles.headerRow}>
-							<div className={styles.headerCopy}>
-								<Dialog.Title>{title}</Dialog.Title>
-								{description && (
-									<Dialog.Description className={styles.description}>
-										{description}
-									</Dialog.Description>
-								)}
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content className={className}>
+						<div className={styles.accentBar} />
+						<Dialog.CloseTrigger asChild>
+							<CloseButton size="sm" aria-label="Close dialog" />
+						</Dialog.CloseTrigger>
+						<Dialog.Header className={styles.header}>
+							{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
+							<div className={styles.headerRow}>
+								<div className={styles.headerCopy}>
+									<Dialog.Title>{title}</Dialog.Title>
+									{description && (
+										<Dialog.Description className={styles.description}>
+											{description}
+										</Dialog.Description>
+									)}
+								</div>
+								{actions && <div className={styles.actions}>{actions}</div>}
 							</div>
-							{actions && <div className={styles.actions}>{actions}</div>}
-						</div>
-					</Dialog.Header>
-					<Dialog.Body className={cx(styles.body)}>{children}</Dialog.Body>
-					{footer && <Dialog.Footer>{footer}</Dialog.Footer>}
-				</Dialog.Content>
-			</Dialog.Positioner>
+						</Dialog.Header>
+						<Dialog.Body className={cx(styles.body)}>{children}</Dialog.Body>
+						{footer && <Dialog.Footer>{footer}</Dialog.Footer>}
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
 		</Dialog.Root>
 	);
 }

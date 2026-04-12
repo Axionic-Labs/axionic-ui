@@ -1388,6 +1388,47 @@
       line-height: 1em;
 }
 
+    .textarea {
+      background: none;
+      border-color: var(--colors-border-default);
+      border-width: 1px;
+      border-radius: var(--radii-l3);
+      outline: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      position: relative;
+      --transition-prop: box-shadow, border-color, background-color;
+      transition-property: box-shadow, border-color, background-color;
+      --transition-duration: 180ms;
+      transition-duration: 180ms;
+      min-width: var(--sizes-0);
+      width: 100%;
+}
+
+    .textarea:is([aria-invalid]) {
+      border-color: var(--colors-fg-error);
+}
+
+    .textarea:is([aria-invalid]):is(:focus, [data-focus]) {
+      border-color: var(--colors-fg-error);
+      box-shadow: 0 0 0 1px var(--colors-border-error);
+}
+
+    .textarea::placeholder,.textarea[data-placeholder] {
+      color: var(--colors-app-text-subtle);
+}
+
+    .textarea:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      opacity: 0.4;
+      cursor: not-allowed;
+      layer-style: disabled;
+}
+
+    .textarea:is(:focus, [data-focus]) {
+      border-color: var(--colors-color-palette-default);
+      box-shadow: 0 0 0 1px var(--colors-color-palette-default);
+}
+
     .group {
       gap: var(--spacing-2);
       display: inline-flex;
@@ -1627,6 +1668,18 @@
     transform: translateY(0);
 }
 
+  .button--variant_toolbar {
+    background: var(--colors-transparent);
+    border-width: 1px;
+    border-color: var(--colors-transparent);
+    color: var(--colors-app-text-muted);
+}
+
+  .button--variant_toolbar:is(:active, [data-active]) {
+    background: var(--colors-app-surface);
+    color: var(--colors-app-text);
+}
+
   .button--variant_ghost {
     color: var(--colors-color-palette-text);
     --colors-color-palette-light-1: var(--colors-gray-light-1);
@@ -1722,6 +1775,37 @@
     outline-offset: 2px;
 }
 
+  .button--size_xs {
+    gap: var(--spacing-2);
+    padding-inline: var(--spacing-3);
+    font-size: var(--font-sizes-sm);
+    line-height: 1.25rem;
+    height: var(--sizes-8);
+    min-width: var(--sizes-8);
+}
+
+  .button--size_xs :where(svg) {
+    width: var(--sizes-4);
+    height: var(--sizes-4);
+}
+
+  .button--variant_surface {
+    background: var(--colors-app-canvas-subtle);
+    border-width: 1px;
+    border-color: var(--colors-app-border);
+    color: var(--colors-app-text);
+}
+
+  .button--variant_surface:is([data-state="on"]) {
+    background: var(--colors-app-surface);
+    border-color: var(--colors-app-border-strong);
+}
+
+  .button--variant_surface:is(:active, [data-active]) {
+    background: var(--colors-app-surface-muted);
+    transform: translateY(0);
+}
+
   .button--variant_plain {
     color: var(--colors-app-text);
 }
@@ -1762,9 +1846,46 @@
     box-shadow: 0 0 0 3px rgba(88, 153, 150, 0.16);
 }
 
+  .input--size_md {
+    --input-height: var(--sizes-11);
+    padding-inline: var(--spacing-4);
+    font-size: var(--font-sizes-sm);
+    line-height: 1.25rem;
+    height: var(--sizes-10);
+    min-width: var(--sizes-10);
+}
+
   .icon--size_md {
     width: var(--sizes-5);
     height: var(--sizes-5);
+}
+
+  .textarea--size_md {
+    padding: var(--spacing-3);
+    padding-inline: var(--spacing-4);
+    padding-block: 11px;
+    font-size: var(--font-sizes-sm);
+    line-height: 1.25rem;
+    scroll-padding-bottom: 11px;
+}
+
+  .textarea--variant_surface {
+    background: var(--colors-app-canvas-subtle);
+    border-width: 1px;
+    border-color: var(--colors-app-border);
+    color: var(--colors-app-text);
+}
+
+  .textarea--variant_surface:is([aria-invalid]) {
+    border-color: error;
+    --focus-ring-color-prop: error;
+}
+
+  .textarea--variant_surface:is(:focus, [data-focus]) {
+    background: var(--colors-app-surface);
+    border-color: var(--colors-app-accent);
+    outline: var(--borders-none);
+    box-shadow: 0 0 0 3px rgba(88, 153, 150, 0.16);
 }
 
   .group--orientation_horizontal {
@@ -1866,6 +1987,13 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
+    .button--variant_toolbar:is(:hover, [data-hover]) {
+      background: var(--colors-app-canvas-subtle);
+      color: var(--colors-app-text);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
     .button--variant_ghost:is(:hover, [data-hover]) {
       background: var(--colors-color-palette-a3);
 }
@@ -1877,6 +2005,15 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
+    .button--variant_surface:is(:hover, [data-hover]) {
+      background: var(--colors-app-surface);
+      border-color: var(--colors-app-border-strong);
+      transform: translateY(-1px);
+      box-shadow: var(--shadows-whisper);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
     .button--variant_plain:is(:hover, [data-hover]) {
       background: var(--colors-app-surface-muted);
 }
@@ -1884,6 +2021,13 @@
 
   @media (hover: hover) and (pointer: fine) {
     .input--variant_outline:is(:hover, [data-hover]) {
+      background: var(--colors-app-surface-muted);
+      border-color: var(--colors-app-border-strong);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .textarea--variant_surface:is(:hover, [data-hover]) {
       background: var(--colors-app-surface-muted);
       border-color: var(--colors-app-border-strong);
 }
@@ -2369,6 +2513,166 @@
       padding-bottom: var(--popover-padding);
 }
 
+    .number-input__root {
+      gap: var(--spacing-1\.5);
+      display: flex;
+      flex-direction: column;
+      isolation: isolate;
+      position: relative;
+}
+
+    .number-input__root:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      layer-style: disabled;
+}
+
+    .number-input__label {
+      color: var(--colors-app-text);
+      font-weight: var(--font-weights-semibold);
+}
+
+    .number-input__input {
+      background: var(--colors-transparent);
+      border: var(--borders-none);
+      grid-row: span 2 / span 2;
+      border-radius: var(--radii-xl);
+      outline: 0;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      position: relative;
+      text-align: start;
+      vertical-align: top;
+      padding-inline-end: calc(var(--stepper-width) + 0.5rem);
+      height: var(--input-height);
+      min-height: var(--input-height);
+      min-width: var(--input-height);
+      width: 100%;
+}
+
+    .number-input__input::placeholder,.number-input__input[data-placeholder] {
+      color: var(--colors-app-text-subtle);
+}
+
+    .number-input__input:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      cursor: not-allowed;
+      layer-style: disabled;
+}
+
+    .number-input__control {
+      margin: 1px;
+      background: var(--colors-app-surface);
+      border-radius: var(--radii-l2);
+      border-width: 1px;
+      overflow: hidden;
+      border-color: var(--colors-app-border);
+}
+
+    .number-input__control > :not([hidden]) ~ :not([hidden]) {
+      border-inline-start-width: 1px;
+      border-inline-end-width: 0px;
+      border-top-width: 1px;
+      border-bottom-width: 0px;
+}
+
+    .number-input__control {
+      grid-template-columns: 1fr 32px;
+      grid-template-rows: 1fr 1fr;
+      --transition-duration: var(--durations-normal);
+      transition-duration: var(--durations-normal);
+      --transition-prop: border-color, box-shadow;
+      transition-property: border-color, box-shadow;
+      --transition-easing: var(--easings-default);
+      transition-timing-function: var(--easings-default);
+      border-inline-start-width: 1px;
+      display: flex;
+      flex-direction: column;
+      inset-inline-end: 0px;
+      position: absolute;
+      z-index: 1;
+      height: calc(100% - 2px);
+      top: var(--spacing-0);
+      width: var(--stepper-width);
+}
+
+    .number-input__control:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      opacity: 0.4;
+      cursor: not-allowed;
+}
+
+    .number-input__control:focus-within {
+      border-color: var(--colors-color-palette-default);
+      box-shadow: 0 0 0 1px var(--colors-color-palette-default);
+}
+
+    .number-input__incrementTrigger {
+      border-color: var(--colors-border-default);
+      flex: 1 1 0%;
+      transition-property: background, border-color, color, box-shadow;
+      transition-timing-function: var(--easings-default);
+      transition-duration: var(--durations-normal);
+      --transition-duration: var(--durations-normal);
+      --transition-prop: background, border-color, color, box-shadow;
+      --transition-easing: var(--easings-default);
+      align-items: center;
+      color: var(--colors-app-text-subtle);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      line-height: 1;
+      -webkit-user-select: none;
+      user-select: none;
+      border-top-right-radius: var(--radii-l2);
+}
+
+    .number-input__incrementTrigger:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      color: var(--colors-fg-disabled);
+      cursor: not-allowed;
+}
+
+    .number-input__incrementTrigger :where(svg) {
+      width: var(--sizes-4);
+      height: var(--sizes-4);
+}
+
+    .number-input__incrementTrigger:is(:active, [data-active]) {
+      background: var(--colors-app-surface);
+}
+
+    .number-input__decrementTrigger {
+      border-color: var(--colors-border-default);
+      flex: 1 1 0%;
+      transition-property: background, border-color, color, box-shadow;
+      transition-timing-function: var(--easings-default);
+      transition-duration: var(--durations-normal);
+      --transition-duration: var(--durations-normal);
+      --transition-prop: background, border-color, color, box-shadow;
+      --transition-easing: var(--easings-default);
+      align-items: center;
+      color: var(--colors-app-text-subtle);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      line-height: 1;
+      -webkit-user-select: none;
+      user-select: none;
+      border-top-width: 1px;
+      border-bottom-right-radius: var(--radii-l2);
+}
+
+    .number-input__decrementTrigger:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
+      color: var(--colors-fg-disabled);
+      cursor: not-allowed;
+}
+
+    .number-input__decrementTrigger :where(svg) {
+      width: var(--sizes-4);
+      height: var(--sizes-4);
+}
+
+    .number-input__decrementTrigger:is(:active, [data-active]) {
+      background: var(--colors-app-surface);
+}
+
     .slider__root {
       gap: var(--spacing-2\.5);
       display: flex;
@@ -2509,6 +2813,30 @@
         color: var(--colors-fg-disabled);
 }
 }
+
+    @media (hover: hover) and (pointer: fine) {
+      .number-input__incrementTrigger:is(:hover, [data-hover]) {
+        background: var(--colors-app-surface-muted);
+        color: var(--colors-fg-default);
+}
+
+      .number-input__incrementTrigger:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
+        background: var(--colors-transparent);
+        color: var(--colors-fg-disabled);
+}
+}
+
+    @media (hover: hover) and (pointer: fine) {
+      .number-input__decrementTrigger:is(:hover, [data-hover]) {
+        background: var(--colors-app-surface-muted);
+        color: var(--colors-fg-default);
+}
+
+      .number-input__decrementTrigger:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
+        background: var(--colors-transparent);
+        color: var(--colors-fg-disabled);
+}
+}
 }
 
   .card__root--variant_outline {
@@ -2585,8 +2913,45 @@
     animation-name: scale-out, fade-out;
 }
 
-  .dialog__content--size_xl {
+  .dialog__content--size_xl,.dialog__content--size_lg {
     max-width: var(--sizes-6xl);
+}
+
+  .number-input__label--size_md,.number-input__input--size_md {
+    font-size: var(--font-sizes-sm);
+    line-height: 1.25rem;
+}
+
+  .number-input__input--size_md {
+    --input-height: var(--sizes-11);
+    padding-inline: var(--spacing-4);
+}
+
+  .number-input__control--size_md {
+    --stepper-width: var(--sizes-5);
+    padding-inline-start: var(--spacing-3);
+    font-size: var(--font-sizes-md);
+    height: var(--sizes-10);
+    min-width: var(--sizes-10);
+}
+
+  .number-input__input--variant_outline {
+    background: var(--colors-app-surface);
+    border-width: 1px;
+    border-color: var(--colors-app-border);
+    color: var(--colors-app-text);
+}
+
+  .number-input__input--variant_outline:is([aria-invalid]) {
+    border-color: error;
+    --focus-ring-color-prop: error;
+}
+
+  .number-input__input--variant_outline:is(:focus, [data-focus]) {
+    background: var(--colors-app-surface);
+    border-color: var(--colors-app-accent);
+    outline: var(--borders-none);
+    box-shadow: 0 0 0 3px rgba(88, 153, 150, 0.16);
 }
 
   .slider__root--size_md {
@@ -2667,6 +3032,13 @@
 
   .slider__marker--orientation_horizontal {
     flex-direction: column;
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .number-input__input--variant_outline:is(:hover, [data-hover]) {
+      background: var(--colors-app-surface-muted);
+      border-color: var(--colors-app-border-strong);
+}
 }
 }
 
@@ -3147,6 +3519,14 @@
     gap: 1.75px;
 }
 
+  .td_none {
+    text-decoration: none;
+}
+
+  .trs_opacity_160ms_ease {
+    transition: opacity 160ms ease;
+}
+
   .px_6 {
     padding-inline: var(--spacing-6);
 }
@@ -3252,6 +3632,10 @@
     flex: 1 1 auto;
 }
 
+  .flex_1_1_16rem {
+    flex: 1 1 16rem;
+}
+
   .trs_transform_160ms_ease {
     transition: transform 160ms ease;
 }
@@ -3274,10 +3658,6 @@
 
   .py_5 {
     padding-block: var(--spacing-5);
-}
-
-  .td_none {
-    text-decoration: none;
 }
 
   .px_3\.5 {
@@ -3657,6 +4037,10 @@
     justify-content: flex-start;
 }
 
+  .resize_vertical {
+    resize: vertical;
+}
+
   .trs-prop_background-color\,_border-color\,_box-shadow\,_color {
     --transition-prop: background-color, border-color, box-shadow, color;
     transition-property: background-color, border-color, box-shadow, color;
@@ -3735,6 +4119,14 @@
 
   .c_inherit {
     color: inherit;
+}
+
+  .trf_translateY\(-50\%\) {
+    transform: translateY(-50%);
+}
+
+  .pointer-events_none {
+    pointer-events: none;
 }
 
   .ap_none {
@@ -4375,6 +4767,30 @@
     margin-top: auto;
 }
 
+  .w_min\(92vw\,_56rem\) {
+    width: min(92vw, 56rem);
+}
+
+  .pl_10 {
+    padding-left: var(--spacing-10);
+}
+
+  .left_3\.5 {
+    left: var(--spacing-3\.5);
+}
+
+  .top_50\% {
+    top: 50%;
+}
+
+  .right_2\.5 {
+    right: var(--spacing-2\.5);
+}
+
+  .max-h_24rem {
+    max-height: 24rem;
+}
+
   .min-h_10 {
     min-height: var(--sizes-10);
 }
@@ -4850,6 +5266,12 @@
   @media (hover: hover) and (pointer: fine) {
     .hover\:op_0\.92:is(:hover, [data-hover]) {
       opacity: 0.92;
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:op_0\.85:is(:hover, [data-hover]) {
+      opacity: 0.85;
 }
 }
 
