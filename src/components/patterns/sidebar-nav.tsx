@@ -162,8 +162,6 @@ const styles = {
 	}),
 	footer: css({
 		paddingTop: '5',
-		borderTopWidth: '1px',
-		borderColor: 'app.border',
 	}),
 };
 

@@ -7,6 +7,9 @@ export interface SupportPanelProps {
     aside?: ReactNode;
     tone?: 'muted' | 'accent';
     className?: string;
+    titleClassName?: string;
+    descriptionClassName?: string;
+    copyClassName?: string;
 }
-export declare function SupportPanel({ eyebrow, title, description, actions, aside, tone, className, }: SupportPanelProps): import("react/jsx-runtime").JSX.Element;
+export declare function SupportPanel({ eyebrow, title, description, actions, aside, tone, className, titleClassName, descriptionClassName, copyClassName, }: SupportPanelProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=support-panel.d.ts.map

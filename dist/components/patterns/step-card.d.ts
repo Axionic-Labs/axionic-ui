@@ -6,6 +6,9 @@ export interface StepCardProps {
     children?: ReactNode;
     endSlot?: ReactNode;
     className?: string;
+    numberClassName?: string;
+    titleClassName?: string;
+    descriptionClassName?: string;
 }
-export declare function StepCard({ step, title, description, children, endSlot, className, }: StepCardProps): import("react/jsx-runtime").JSX.Element;
+export declare function StepCard({ step, title, description, children, endSlot, className, numberClassName, titleClassName, descriptionClassName, }: StepCardProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=step-card.d.ts.map

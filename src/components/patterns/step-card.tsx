@@ -10,6 +10,9 @@ export interface StepCardProps {
 	children?: ReactNode;
 	endSlot?: ReactNode;
 	className?: string;
+	numberClassName?: string;
+	titleClassName?: string;
+	descriptionClassName?: string;
 }
 
 const styles = {
@@ -69,16 +72,19 @@ export function StepCard({
 	children,
 	endSlot,
 	className,
+	numberClassName,
+	titleClassName,
+	descriptionClassName,
 }: StepCardProps) {
 	return (
 		<div className={cx(styles.root, className)}>
 			<div
 				className={css({ display: 'flex', alignItems: 'center', gap: '4', minWidth: 0, flex: '1' })}
 			>
-				<div className={styles.number}>{step}</div>
+				<div className={cx(styles.number, numberClassName)}>{step}</div>
 				<div className={styles.content}>
-					<div className={styles.title}>{title}</div>
-					{description && <div className={styles.description}>{description}</div>}
+					<div className={cx(styles.title, titleClassName)}>{title}</div>
+					{description && <div className={cx(styles.description, descriptionClassName)}>{description}</div>}
 					{children}
 				</div>
 			</div>

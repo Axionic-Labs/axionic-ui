@@ -11,6 +11,9 @@ export interface SupportPanelProps {
 	aside?: ReactNode;
 	tone?: 'muted' | 'accent';
 	className?: string;
+	titleClassName?: string;
+	descriptionClassName?: string;
+	copyClassName?: string;
 }
 
 const styles = {
@@ -76,18 +79,21 @@ export function SupportPanel({
 	aside,
 	tone = 'muted',
 	className,
+	titleClassName,
+	descriptionClassName,
+	copyClassName,
 }: SupportPanelProps) {
 	return (
 		<section className={cx(styles.root, tone === 'accent' && styles.rootAccent, className)}>
-			<div className={styles.copy}>
+			<div className={cx(styles.copy, copyClassName)}>
 				{eyebrow && (
 					<div className={cx(styles.eyebrow, tone === 'accent' && styles.eyebrowAccent)}>
 						{eyebrow}
 					</div>
 				)}
-				<div className={cx(styles.title, tone === 'accent' && styles.titleAccent)}>{title}</div>
+				<div className={cx(styles.title, tone === 'accent' && styles.titleAccent, titleClassName)}>{title}</div>
 				{description && (
-					<div className={cx(styles.description, tone === 'accent' && styles.descriptionAccent)}>
+					<div className={cx(styles.description, tone === 'accent' && styles.descriptionAccent, descriptionClassName)}>
 						{description}
 					</div>
 				)}

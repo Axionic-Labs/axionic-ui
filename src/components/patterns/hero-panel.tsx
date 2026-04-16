@@ -11,6 +11,10 @@ export interface HeroPanelProps {
 	media?: ReactNode;
 	footer?: ReactNode;
 	className?: string;
+	copyClassName?: string;
+	titleClassName?: string;
+	descriptionClassName?: string;
+	mediaClassName?: string;
 }
 
 const styles = {
@@ -85,17 +89,21 @@ export function HeroPanel({
 	media,
 	footer,
 	className,
+	copyClassName,
+	titleClassName,
+	descriptionClassName,
+	mediaClassName,
 }: HeroPanelProps) {
 	return (
 		<section className={cx(styles.root, className)}>
-			<div className={styles.copy}>
+			<div className={cx(styles.copy, copyClassName)}>
 				{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
-				<div className={styles.title}>{title}</div>
-				{description && <div className={styles.description}>{description}</div>}
+				<div className={cx(styles.title, titleClassName)}>{title}</div>
+				{description && <div className={cx(styles.description, descriptionClassName)}>{description}</div>}
 				{actions && <div className={styles.actions}>{actions}</div>}
 				{footer && <div className={styles.footer}>{footer}</div>}
 			</div>
-			{media && <div className={styles.media}>{media}</div>}
+			{media && <div className={cx(styles.media, mediaClassName)}>{media}</div>}
 		</section>
 	);
 }

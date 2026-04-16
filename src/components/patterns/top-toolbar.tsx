@@ -68,8 +68,6 @@ const styles = {
 		flexWrap: 'wrap',
 		gap: '3',
 		paddingTop: '3',
-		borderTopWidth: '1px',
-		borderColor: 'app.border',
 	}),
 };
 

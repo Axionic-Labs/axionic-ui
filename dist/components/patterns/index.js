@@ -3296,24 +3296,28 @@ function HeroPanel({
   actions,
   media,
   footer,
-  className
+  className,
+  copyClassName,
+  titleClassName,
+  descriptionClassName,
+  mediaClassName
 }) {
   return /* @__PURE__ */ jsxs26("section", {
     className: cx25(styles21.root, className),
     children: [
       /* @__PURE__ */ jsxs26("div", {
-        className: styles21.copy,
+        className: cx25(styles21.copy, copyClassName),
         children: [
           eyebrow && /* @__PURE__ */ jsx32("div", {
             className: styles21.eyebrow,
             children: eyebrow
           }),
           /* @__PURE__ */ jsx32("div", {
-            className: styles21.title,
+            className: cx25(styles21.title, titleClassName),
             children: title
           }),
           description && /* @__PURE__ */ jsx32("div", {
-            className: styles21.description,
+            className: cx25(styles21.description, descriptionClassName),
             children: description
           }),
           actions && /* @__PURE__ */ jsx32("div", {
@@ -3327,7 +3331,7 @@ function HeroPanel({
         ]
       }),
       media && /* @__PURE__ */ jsx32("div", {
-        className: styles21.media,
+        className: cx25(styles21.media, mediaClassName),
         children: media
       })
     ]
@@ -6214,9 +6218,7 @@ var styles39 = {
     textStyle: "caption"
   }),
   footer: css49({
-    paddingTop: "5",
-    borderTopWidth: "1px",
-    borderColor: "app.border"
+    paddingTop: "5"
   })
 };
 function SidebarNavEntry({
@@ -6504,7 +6506,10 @@ function StepCard({
   description,
   children,
   endSlot,
-  className
+  className,
+  numberClassName,
+  titleClassName,
+  descriptionClassName
 }) {
   return /* @__PURE__ */ jsxs51("div", {
     className: cx50(styles41.root, className),
@@ -6513,18 +6518,18 @@ function StepCard({
         className: css51({ display: "flex", alignItems: "center", gap: "4", minWidth: 0, flex: "1" }),
         children: [
           /* @__PURE__ */ jsx62("div", {
-            className: styles41.number,
+            className: cx50(styles41.number, numberClassName),
             children: step
           }),
           /* @__PURE__ */ jsxs51("div", {
             className: styles41.content,
             children: [
               /* @__PURE__ */ jsx62("div", {
-                className: styles41.title,
+                className: cx50(styles41.title, titleClassName),
                 children: title
               }),
               description && /* @__PURE__ */ jsx62("div", {
-                className: styles41.description,
+                className: cx50(styles41.description, descriptionClassName),
                 children: description
               }),
               children
@@ -6892,24 +6897,27 @@ function SupportPanel({
   actions,
   aside,
   tone = "muted",
-  className
+  className,
+  titleClassName,
+  descriptionClassName,
+  copyClassName
 }) {
   return /* @__PURE__ */ jsxs53("section", {
     className: cx52(styles43.root, tone === "accent" && styles43.rootAccent, className),
     children: [
       /* @__PURE__ */ jsxs53("div", {
-        className: styles43.copy,
+        className: cx52(styles43.copy, copyClassName),
         children: [
           eyebrow && /* @__PURE__ */ jsx64("div", {
             className: cx52(styles43.eyebrow, tone === "accent" && styles43.eyebrowAccent),
             children: eyebrow
           }),
           /* @__PURE__ */ jsx64("div", {
-            className: cx52(styles43.title, tone === "accent" && styles43.titleAccent),
+            className: cx52(styles43.title, tone === "accent" && styles43.titleAccent, titleClassName),
             children: title
           }),
           description && /* @__PURE__ */ jsx64("div", {
-            className: cx52(styles43.description, tone === "accent" && styles43.descriptionAccent),
+            className: cx52(styles43.description, tone === "accent" && styles43.descriptionAccent, descriptionClassName),
             children: description
           }),
           actions && /* @__PURE__ */ jsx64("div", {
@@ -6983,9 +6991,7 @@ var styles44 = {
     justifyContent: "space-between",
     flexWrap: "wrap",
     gap: "3",
-    paddingTop: "3",
-    borderTopWidth: "1px",
-    borderColor: "app.border"
+    paddingTop: "3"
   })
 };
 function TopToolbar({
@@ -7497,5 +7503,5 @@ export {
   AccentLabel
 };
 
-//# debugId=7A4A44521E5DC0D164756E2164756E21
+//# debugId=13C87EAEE933ADEB64756E2164756E21
 //# sourceMappingURL=index.js.map
