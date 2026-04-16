@@ -19,8 +19,6 @@ const styles = {
 		gridTemplateColumns: { base: '1fr', xl: 'minmax(0, 1.05fr) minmax(20rem, 0.95fr)' },
 		gap: '0',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		boxShadow: '{shadows.whisper}',
 		overflow: 'hidden',
@@ -46,7 +44,7 @@ const styles = {
 	title: css({
 		textStyle: 'h1',
 		color: 'app.text',
-		maxWidth: '16ch',
+		maxWidth: '20ch',
 	}),
 	description: css({
 		textStyle: 'body',
@@ -62,8 +60,10 @@ const styles = {
 	}),
 	footer: css({
 		paddingTop: '4',
-		borderTopWidth: '1px',
-		borderColor: 'app.border',
+		paddingX: '4',
+		paddingY: '4',
+		borderRadius: 'xl',
+		bg: 'app.surface.muted',
 		color: 'app.text.muted',
 	}),
 	media: css({
@@ -72,10 +72,8 @@ const styles = {
 		alignItems: 'stretch',
 		justifyContent: 'stretch',
 		padding: { base: '4.5', md: '5' },
-		bg: 'linear-gradient(180deg, #f3f4f4 0%, #ecefee 100%)',
-		borderLeftWidth: { base: '0', xl: '1px' },
-		borderTopWidth: { base: '1px', xl: '0' },
-		borderColor: 'app.border',
+		background:
+			'linear-gradient(180deg, var(--colors-app-surface-muted) 0%, var(--colors-app-canvas-subtle) 100%)',
 	}),
 };
 

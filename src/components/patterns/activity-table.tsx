@@ -32,8 +32,6 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'column',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		overflow: 'hidden',
 	}),
@@ -45,8 +43,7 @@ const styles = {
 		gap: '4',
 		paddingX: { base: '4.5', md: '5.5' },
 		paddingY: { base: '4.5', md: '5' },
-		borderBottomWidth: '1px',
-		borderColor: 'app.border',
+		bg: 'app.surface.muted',
 	}),
 	titleBlock: css({
 		display: 'flex',

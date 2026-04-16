@@ -91,7 +91,7 @@ const styles = {
 		transitionDuration: '180ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
-			bg: 'app.surface',
+			bg: 'app.nav.active',
 			color: 'app.text',
 			boxShadow: '{shadows.whisper}',
 			'& [data-sidebar-icon]': {
@@ -110,7 +110,7 @@ const styles = {
 		},
 	}),
 	itemActive: css({
-		bg: 'app.surface',
+		bg: 'app.nav.active',
 		color: 'app.text',
 		boxShadow: '{shadows.panel}',
 	}),

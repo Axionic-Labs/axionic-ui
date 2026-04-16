@@ -20,8 +20,6 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'column',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		boxShadow: '{shadows.whisper}',
 		overflow: 'hidden',
 	}),
@@ -41,8 +39,7 @@ const styles = {
 		paddingY: { base: '5', md: '5.5' },
 	}),
 	headerBorder: css({
-		borderBottomWidth: '1px',
-		borderColor: 'app.border',
+		bg: 'app.surface.muted',
 	}),
 	copy: css({
 		display: 'flex',
@@ -88,8 +85,7 @@ const styles = {
 	footer: css({
 		paddingX: { base: '5.5', md: '6.5' },
 		paddingY: '5',
-		borderTopWidth: '1px',
-		borderColor: 'app.border',
+		bg: 'app.surface.muted',
 		color: 'app.text.muted',
 	}),
 };

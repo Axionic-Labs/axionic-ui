@@ -16,9 +16,6 @@ var styles = {
   sidebar: css({
     minWidth: 0,
     bg: "app.nav",
-    borderColor: "app.border",
-    borderBottomWidth: { base: "1px", lg: "0" },
-    borderRightWidth: { base: "0", lg: "1px" },
     padding: { base: "4", md: "4.5", lg: "4.5" },
     position: { base: "relative", lg: "sticky" },
     top: { base: "auto", lg: "0" },
@@ -29,8 +26,6 @@ var styles = {
     position: "sticky",
     top: "0",
     zIndex: "20",
-    borderBottomWidth: "1px",
-    borderColor: "app.border",
     bg: "app.toolbar",
     backdropFilter: "blur(18px)"
   }),
@@ -45,8 +40,6 @@ var styles = {
     display: "flex",
     flexDirection: "column",
     gap: "5",
-    borderColor: "app.border",
-    borderLeftWidth: { base: "0", xl: "1px" },
     paddingLeft: { base: "0", xl: "6" }
   })
 };
@@ -244,5 +237,5 @@ export {
   AppShell
 };
 
-//# debugId=F8551E4ECB52AD6364756E2164756E21
+//# debugId=503E5A849622A28564756E2164756E21
 //# sourceMappingURL=index.js.map

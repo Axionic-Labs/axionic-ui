@@ -26,8 +26,6 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'column',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		boxShadow: '{shadows.whisper}',
 		overflow: 'hidden',
@@ -40,8 +38,7 @@ const styles = {
 		gap: '4',
 		paddingX: { base: '5', md: '6' },
 		paddingY: { base: '5', md: '6' },
-		borderBottomWidth: '1px',
-		borderColor: 'app.border',
+		bg: 'app.surface.muted',
 	}),
 	titleBlock: css({
 		display: 'flex',

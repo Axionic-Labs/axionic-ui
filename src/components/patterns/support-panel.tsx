@@ -20,14 +20,11 @@ const styles = {
 		gap: '4',
 		padding: { base: '5', md: '5.5' },
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		boxShadow: '{shadows.whisper}',
 	}),
 	rootAccent: css({
 		bg: 'app.accent.soft',
-		borderColor: 'app.border.strong',
 		boxShadow: '{shadows.whisper}',
 	}),
 	copy: css({
