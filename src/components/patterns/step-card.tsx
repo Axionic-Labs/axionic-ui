@@ -84,7 +84,9 @@ export function StepCard({
 				<div className={cx(styles.number, numberClassName)}>{step}</div>
 				<div className={styles.content}>
 					<div className={cx(styles.title, titleClassName)}>{title}</div>
-					{description && <div className={cx(styles.description, descriptionClassName)}>{description}</div>}
+					{description && (
+						<div className={cx(styles.description, descriptionClassName)}>{description}</div>
+					)}
 					{children}
 				</div>
 			</div>

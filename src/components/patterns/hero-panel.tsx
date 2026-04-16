@@ -99,7 +99,9 @@ export function HeroPanel({
 			<div className={cx(styles.copy, copyClassName)}>
 				{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
 				<div className={cx(styles.title, titleClassName)}>{title}</div>
-				{description && <div className={cx(styles.description, descriptionClassName)}>{description}</div>}
+				{description && (
+					<div className={cx(styles.description, descriptionClassName)}>{description}</div>
+				)}
 				{actions && <div className={styles.actions}>{actions}</div>}
 				{footer && <div className={styles.footer}>{footer}</div>}
 			</div>

@@ -91,9 +91,17 @@ export function SupportPanel({
 						{eyebrow}
 					</div>
 				)}
-				<div className={cx(styles.title, tone === 'accent' && styles.titleAccent, titleClassName)}>{title}</div>
+				<div className={cx(styles.title, tone === 'accent' && styles.titleAccent, titleClassName)}>
+					{title}
+				</div>
 				{description && (
-					<div className={cx(styles.description, tone === 'accent' && styles.descriptionAccent, descriptionClassName)}>
+					<div
+						className={cx(
+							styles.description,
+							tone === 'accent' && styles.descriptionAccent,
+							descriptionClassName,
+						)}
+					>
 						{description}
 					</div>
 				)}
