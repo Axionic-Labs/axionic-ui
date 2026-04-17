@@ -8,7 +8,8 @@ export interface SectionPanelProps {
     children?: ReactNode;
     footer?: ReactNode;
     variant?: 'default' | 'muted';
+    density?: 'default' | 'compact';
     className?: string;
 }
-export declare function SectionPanel({ eyebrow, title, description, meta, actions, children, footer, variant, className, }: SectionPanelProps): import("react/jsx-runtime").JSX.Element;
+export declare function SectionPanel({ eyebrow, title, description, meta, actions, children, footer, variant, density, className, }: SectionPanelProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=section-panel.d.ts.map

@@ -9,8 +9,9 @@ export interface EntityCardProps {
     footer?: ReactNode;
     selected?: boolean;
     accent?: 'teal' | 'wheat';
+    density?: 'default' | 'compact';
     onClick?: () => void;
     className?: string;
 }
-export declare function EntityCard({ icon, title, description, meta, actions, children, footer, selected, accent, onClick, className, }: EntityCardProps): import("react/jsx-runtime").JSX.Element;
+export declare function EntityCard({ icon, title, description, meta, actions, children, footer, selected, accent, density, onClick, className, }: EntityCardProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=entity-card.d.ts.map

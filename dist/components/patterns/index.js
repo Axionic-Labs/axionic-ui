@@ -1993,10 +1993,8 @@ var styles15 = {
     transition: "all 160ms ease"
   }),
   selected: css17({
-    bg: "app.accent.soft",
-    borderColor: "app.border.strong",
-    borderLeftWidth: "3px",
-    borderLeftColor: "app.accent"
+    borderColor: "app.accent",
+    boxShadow: "0 0 0 1px var(--colors-app-accent)"
   }),
   rootHover: css17({
     _hover: {
@@ -2005,7 +2003,7 @@ var styles15 = {
     }
   }),
   accentBar: css17({
-    h: "1.5",
+    h: "1",
     bg: "app.accent.soft",
     roundedTop: "l3"
   }),
@@ -2019,6 +2017,10 @@ var styles15 = {
     gap: "4",
     minWidth: 0
   }),
+  bodyCompact: css17({
+    padding: "4",
+    gap: "2.5"
+  }),
   interactive: css17({
     cursor: "pointer",
     userSelect: "none",
@@ -2029,6 +2031,9 @@ var styles15 = {
     alignItems: "flex-start",
     justifyContent: "space-between",
     gap: "4"
+  }),
+  headerCompact: css17({
+    gap: "3"
   }),
   lead: css17({
     display: "flex",
@@ -2049,6 +2054,10 @@ var styles15 = {
     flexShrink: 0,
     color: "app.accent"
   }),
+  iconWrapCompact: css17({
+    boxSize: "9",
+    rounded: "lg"
+  }),
   copy: css17({
     display: "flex",
     flexDirection: "column",
@@ -2060,9 +2069,17 @@ var styles15 = {
     textStyle: "sectionTitle",
     color: "app.text"
   }),
+  titleCompact: css17({
+    textStyle: "small",
+    fontWeight: "700"
+  }),
   description: css17({
     textStyle: "small",
     color: "app.text.muted",
+    lineHeight: "1.45"
+  }),
+  descriptionCompact: css17({
+    textStyle: "caption",
     lineHeight: "1.45"
   }),
   meta: css17({
@@ -2086,6 +2103,9 @@ var styles15 = {
     flexDirection: "column",
     gap: "3",
     minWidth: 0
+  }),
+  contentCompact: css17({
+    gap: "2"
   }),
   footer: css17({
     display: "flex",
@@ -2114,10 +2134,12 @@ function EntityCard({
   footer,
   selected = false,
   accent = "teal",
+  density = "default",
   onClick,
   className
 }) {
   const interactive = Boolean(onClick);
+  const compact = density === "compact";
   return /* @__PURE__ */ jsxs18(Root, {
     gradient: true,
     accent,
@@ -2128,31 +2150,31 @@ function EntityCard({
         className: cx17(styles15.accentBar, accent === "wheat" && styles15.accentBarWheat)
       }),
       /* @__PURE__ */ jsxs18(Body, {
-        className: cx17(styles15.body, interactive && styles15.interactive),
+        className: cx17(styles15.body, compact && styles15.bodyCompact, interactive && styles15.interactive),
         onClick,
         onKeyDown: (event) => handleKeyDown(event, onClick),
         role: interactive ? "button" : undefined,
         tabIndex: interactive ? 0 : undefined,
         children: [
           /* @__PURE__ */ jsxs18("div", {
-            className: styles15.header,
+            className: cx17(styles15.header, compact && styles15.headerCompact),
             children: [
               /* @__PURE__ */ jsxs18("div", {
                 className: styles15.lead,
                 children: [
                   icon && /* @__PURE__ */ jsx23("div", {
-                    className: styles15.iconWrap,
+                    className: cx17(styles15.iconWrap, compact && styles15.iconWrapCompact),
                     children: icon
                   }),
                   /* @__PURE__ */ jsxs18("div", {
                     className: styles15.copy,
                     children: [
                       /* @__PURE__ */ jsx23("div", {
-                        className: styles15.title,
+                        className: cx17(styles15.title, compact && styles15.titleCompact),
                         children: title
                       }),
                       description && /* @__PURE__ */ jsx23("div", {
-                        className: styles15.description,
+                        className: cx17(styles15.description, compact && styles15.descriptionCompact),
                         children: description
                       }),
                       meta && /* @__PURE__ */ jsx23("div", {
@@ -2170,7 +2192,7 @@ function EntityCard({
             ]
           }),
           children && /* @__PURE__ */ jsx23("div", {
-            className: styles15.content,
+            className: cx17(styles15.content, compact && styles15.contentCompact),
             children
           }),
           footer && /* @__PURE__ */ jsx23("div", {
@@ -4573,6 +4595,11 @@ var styles29 = {
       cursor: "not-allowed"
     }
   }),
+  triggerSm: css38({
+    minHeight: "3rem",
+    paddingX: "3.5",
+    paddingY: "2.5"
+  }),
   lead: css38({
     display: "flex",
     alignItems: "center",
@@ -4607,6 +4634,9 @@ var styles29 = {
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap"
+  }),
+  titleSm: css38({
+    fontWeight: "700"
   }),
   description: css38({
     textStyle: "caption",
@@ -4663,8 +4693,10 @@ function PickerField({
   panelLabel,
   panel,
   minWidth,
+  size = "md",
   className
 }) {
+  const compact = size === "sm";
   return /* @__PURE__ */ jsxs38("div", {
     className: cx37(styles29.root, className),
     style: minWidth ? { minWidth } : undefined,
@@ -4673,7 +4705,7 @@ function PickerField({
         type: "button",
         onClick: onToggle,
         disabled,
-        className: styles29.trigger,
+        className: cx37(styles29.trigger, compact && styles29.triggerSm),
         "aria-expanded": open,
         children: [
           /* @__PURE__ */ jsxs38("div", {
@@ -4690,7 +4722,7 @@ function PickerField({
                     className: styles29.titleRow,
                     children: [
                       /* @__PURE__ */ jsx49("div", {
-                        className: styles29.title,
+                        className: cx37(styles29.title, compact && styles29.titleSm),
                         children: title
                       }),
                       badge
@@ -5082,6 +5114,11 @@ var styles32 = {
       cursor: "not-allowed"
     }
   }),
+  itemCompact: css41({
+    paddingX: "3.5",
+    paddingY: "3",
+    gap: "2.5"
+  }),
   itemSelected: css41({
     bg: "app.accent.soft",
     borderColor: "app.border.strong",
@@ -5106,6 +5143,10 @@ var styles32 = {
     color: "app.accent",
     flexShrink: 0
   }),
+  iconCompact: css41({
+    boxSize: "7",
+    rounded: "lg"
+  }),
   copy: css41({
     display: "flex",
     flexDirection: "column",
@@ -5116,6 +5157,9 @@ var styles32 = {
     textStyle: "small",
     fontWeight: "600",
     color: "app.text"
+  }),
+  labelCompact: css41({
+    fontWeight: "700"
   }),
   description: css41({
     textStyle: "caption",
@@ -5129,7 +5173,14 @@ var styles32 = {
     flexShrink: 0
   })
 };
-function SelectionList({ items, value, onValueChange, className }) {
+function SelectionList({
+  items,
+  value,
+  onValueChange,
+  density = "default",
+  className
+}) {
+  const compact = density === "compact";
   return /* @__PURE__ */ jsx52("div", {
     className: cx40(styles32.root, className),
     children: items.map((item) => {
@@ -5138,20 +5189,20 @@ function SelectionList({ items, value, onValueChange, className }) {
         type: "button",
         disabled: item.disabled,
         onClick: () => onValueChange(item.value),
-        className: cx40(styles32.item, selected && styles32.itemSelected),
+        className: cx40(styles32.item, compact && styles32.itemCompact, selected && styles32.itemSelected),
         children: [
           /* @__PURE__ */ jsxs41("div", {
             className: styles32.body,
             children: [
               item.icon && /* @__PURE__ */ jsx52("span", {
-                className: styles32.icon,
+                className: cx40(styles32.icon, compact && styles32.iconCompact),
                 children: item.icon
               }),
               /* @__PURE__ */ jsxs41("div", {
                 className: styles32.copy,
                 children: [
                   /* @__PURE__ */ jsx52("div", {
-                    className: styles32.label,
+                    className: cx40(styles32.label, compact && styles32.labelCompact),
                     children: item.label
                   }),
                   item.description && /* @__PURE__ */ jsx52("div", {
@@ -5732,8 +5783,10 @@ var styles36 = {
     paddingX: { base: "5.5", md: "6.5" },
     paddingY: { base: "5", md: "5.5" }
   }),
-  headerBorder: css46({
-    bg: "app.surface.muted"
+  headerCompact: css46({
+    gap: "3",
+    paddingX: { base: "4", md: "4.5" },
+    paddingY: { base: "4", md: "4.5" }
   }),
   copy: css46({
     display: "flex",
@@ -5741,19 +5794,34 @@ var styles36 = {
     gap: "2",
     minWidth: 0
   }),
+  copyCompact: css46({
+    gap: "1"
+  }),
   eyebrow: css46({
     textStyle: "eyebrow",
     color: "app.text.subtle"
   }),
+  eyebrowCompact: css46({
+    letterSpacing: "0.18em"
+  }),
   title: css46({
     textStyle: "sectionTitle",
     color: "app.text"
+  }),
+  titleCompact: css46({
+    textStyle: "small",
+    fontWeight: "700"
   }),
   description: css46({
     textStyle: "body",
     color: "app.text.muted",
     maxWidth: "3xl",
     lineHeight: "1.65"
+  }),
+  descriptionCompact: css46({
+    textStyle: "caption",
+    lineHeight: "1.45",
+    maxWidth: "2xl"
   }),
   meta: css46({
     display: "flex",
@@ -5769,6 +5837,9 @@ var styles36 = {
     flexWrap: "wrap",
     gap: "3"
   }),
+  actionsCompact: css46({
+    gap: "2"
+  }),
   body: css46({
     display: "flex",
     flexDirection: "column",
@@ -5776,11 +5847,20 @@ var styles36 = {
     paddingX: { base: "5.5", md: "6.5" },
     paddingY: { base: "5.5", md: "6" }
   }),
+  bodyCompact: css46({
+    gap: "3",
+    paddingX: { base: "4", md: "4.5" },
+    paddingY: { base: "4", md: "4.5" }
+  }),
   footer: css46({
     paddingX: { base: "5.5", md: "6.5" },
     paddingY: "5",
     bg: "app.surface.muted",
     color: "app.text.muted"
+  }),
+  footerCompact: css46({
+    paddingX: { base: "4", md: "4.5" },
+    paddingY: "4"
   })
 };
 function SectionPanel({
@@ -5792,30 +5872,32 @@ function SectionPanel({
   children,
   footer,
   variant = "default",
+  density = "default",
   className
 }) {
   const hasHeader = Boolean(eyebrow || title || description || meta || actions);
   const hasBody = children !== undefined && children !== null;
   const hasFooter = footer !== undefined && footer !== null;
+  const compact = density === "compact";
   return /* @__PURE__ */ jsxs46("section", {
     className: cx45(styles36.root, styles36[variant], className),
     children: [
       hasHeader && /* @__PURE__ */ jsxs46("div", {
-        className: cx45(styles36.header, (hasBody || hasFooter) && styles36.headerBorder),
+        className: cx45(styles36.header, compact && styles36.headerCompact),
         children: [
           /* @__PURE__ */ jsxs46("div", {
-            className: styles36.copy,
+            className: cx45(styles36.copy, compact && styles36.copyCompact),
             children: [
               eyebrow && /* @__PURE__ */ jsx57("div", {
-                className: styles36.eyebrow,
+                className: cx45(styles36.eyebrow, compact && styles36.eyebrowCompact),
                 children: eyebrow
               }),
               title && /* @__PURE__ */ jsx57("div", {
-                className: styles36.title,
+                className: cx45(styles36.title, compact && styles36.titleCompact),
                 children: title
               }),
               description && /* @__PURE__ */ jsx57("div", {
-                className: styles36.description,
+                className: cx45(styles36.description, compact && styles36.descriptionCompact),
                 children: description
               }),
               meta && /* @__PURE__ */ jsx57("div", {
@@ -5825,17 +5907,17 @@ function SectionPanel({
             ]
           }),
           actions && /* @__PURE__ */ jsx57("div", {
-            className: styles36.actions,
+            className: cx45(styles36.actions, compact && styles36.actionsCompact),
             children: actions
           })
         ]
       }),
       hasBody && /* @__PURE__ */ jsx57("div", {
-        className: styles36.body,
+        className: cx45(styles36.body, compact && styles36.bodyCompact),
         children
       }),
       hasFooter && /* @__PURE__ */ jsx57("div", {
-        className: styles36.footer,
+        className: cx45(styles36.footer, compact && styles36.footerCompact),
         children: footer
       })
     ]
@@ -7503,5 +7585,5 @@ export {
   AccentLabel
 };
 
-//# debugId=13C87EAEE933ADEB64756E2164756E21
+//# debugId=6EA5F314E0A8DD2C64756E2164756E21
 //# sourceMappingURL=index.js.map

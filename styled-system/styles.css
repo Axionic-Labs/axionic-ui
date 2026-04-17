@@ -3535,6 +3535,14 @@
     transition: all 160ms ease;
 }
 
+  .bd-c_app\.accent {
+    border-color: var(--colors-app-accent);
+}
+
+  .bdr_lg {
+    border-radius: var(--radii-lg);
+}
+
   .bd-c_border\.muted {
     border-color: var(--colors-border-muted);
 }
@@ -3620,10 +3628,6 @@
     padding-block: var(--spacing-1\.5);
 }
 
-  .bdr_lg {
-    border-radius: var(--radii-lg);
-}
-
   .bdr_0 {
     border-radius: 0;
 }
@@ -3634,6 +3638,10 @@
 
   .flex_1_1_16rem {
     flex: 1 1 16rem;
+}
+
+  .px_3\.5 {
+    padding-inline: var(--spacing-3\.5);
 }
 
   .trs_transform_160ms_ease {
@@ -3658,10 +3666,6 @@
 
   .py_5 {
     padding-block: var(--spacing-5);
-}
-
-  .px_3\.5 {
-    padding-inline: var(--spacing-3\.5);
 }
 
   .px_0 {
@@ -3961,9 +3965,22 @@
     color: var(--colors-fg-default);
 }
 
+  .bx-sh_0_0_0_1px_var\(--colors-app-accent\) {
+    box-shadow: 0 0 0 1px var(--colors-app-accent);
+}
+
   .us_none {
     -webkit-user-select: none;
     user-select: none;
+}
+
+  .size_9 {
+    width: var(--sizes-9);
+    height: var(--sizes-9);
+}
+
+  .fw_700 {
+    font-weight: 700;
 }
 
   .lh_1\.45 {
@@ -4151,6 +4168,10 @@
     word-break: break-all;
 }
 
+  .ls_0\.18em {
+    letter-spacing: 0.18em;
+}
+
   .bx-sh_inset_3px_0_0_0_var\(--colors-app-accent\) {
     box-shadow: inset 3px 0 0 0 var(--colors-app-accent);
 }
@@ -4167,11 +4188,6 @@
   .trs-prop_background-color\,_border-color\,_color\,_box-shadow {
     --transition-prop: background-color, border-color, color, box-shadow;
     transition-property: background-color, border-color, color, box-shadow;
-}
-
-  .size_9 {
-    width: var(--sizes-9);
-    height: var(--sizes-9);
 }
 
   .c_currentColor {
@@ -4218,10 +4234,6 @@
 
   .op_0\.92 {
     opacity: 0.92;
-}
-
-  .fw_700 {
-    font-weight: 700;
 }
 
   .lh_1\.55 {
@@ -4571,16 +4583,8 @@
     margin-top: var(--spacing-6);
 }
 
-  .bd-l-w_3px {
-    border-left-width: 3px;
-}
-
-  .bd-l-c_app\.accent {
-    border-left-color: var(--colors-app-accent);
-}
-
-  .h_1\.5 {
-    height: var(--sizes-1\.5);
+  .h_1 {
+    height: var(--sizes-1);
 }
 
   .ml_2 {
@@ -4691,6 +4695,10 @@
     width: var(--sizes-1\.5);
 }
 
+  .h_1\.5 {
+    height: var(--sizes-1\.5);
+}
+
   .max-w_20ch {
     max-width: 20ch;
 }
@@ -4729,6 +4737,10 @@
 
   .min-h_3\.5rem {
     min-height: 3.5rem;
+}
+
+  .min-h_3rem {
+    min-height: 3rem;
 }
 
   .top_calc\(100\%_\+_0\.5rem\) {

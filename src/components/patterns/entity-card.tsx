@@ -14,6 +14,7 @@ export interface EntityCardProps {
 	footer?: ReactNode;
 	selected?: boolean;
 	accent?: 'teal' | 'wheat';
+	density?: 'default' | 'compact';
 	onClick?: () => void;
 	className?: string;
 }
@@ -26,10 +27,8 @@ const styles = {
 		transition: 'all 160ms ease',
 	}),
 	selected: css({
-		bg: 'app.accent.soft',
-		borderColor: 'app.border.strong',
-		borderLeftWidth: '3px',
-		borderLeftColor: 'app.accent',
+		borderColor: 'app.accent',
+		boxShadow: '0 0 0 1px var(--colors-app-accent)',
 	}),
 	rootHover: css({
 		_hover: {
@@ -38,7 +37,7 @@ const styles = {
 		},
 	}),
 	accentBar: css({
-		h: '1.5',
+		h: '1',
 		bg: 'app.accent.soft',
 		roundedTop: 'l3',
 	}),
@@ -52,6 +51,10 @@ const styles = {
 		gap: '4',
 		minWidth: 0,
 	}),
+	bodyCompact: css({
+		padding: '4',
+		gap: '2.5',
+	}),
 	interactive: css({
 		cursor: 'pointer',
 		userSelect: 'none',
@@ -62,6 +65,9 @@ const styles = {
 		alignItems: 'flex-start',
 		justifyContent: 'space-between',
 		gap: '4',
+	}),
+	headerCompact: css({
+		gap: '3',
 	}),
 	lead: css({
 		display: 'flex',
@@ -82,6 +88,10 @@ const styles = {
 		flexShrink: 0,
 		color: 'app.accent',
 	}),
+	iconWrapCompact: css({
+		boxSize: '9',
+		rounded: 'lg',
+	}),
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
@@ -93,9 +103,17 @@ const styles = {
 		textStyle: 'sectionTitle',
 		color: 'app.text',
 	}),
+	titleCompact: css({
+		textStyle: 'small',
+		fontWeight: '700',
+	}),
 	description: css({
 		textStyle: 'small',
 		color: 'app.text.muted',
+		lineHeight: '1.45',
+	}),
+	descriptionCompact: css({
+		textStyle: 'caption',
 		lineHeight: '1.45',
 	}),
 	meta: css({
@@ -119,6 +137,9 @@ const styles = {
 		flexDirection: 'column',
 		gap: '3',
 		minWidth: 0,
+	}),
+	contentCompact: css({
+		gap: '2',
 	}),
 	footer: css({
 		display: 'flex',
@@ -148,10 +169,12 @@ export function EntityCard({
 	footer,
 	selected = false,
 	accent = 'teal',
+	density = 'default',
 	onClick,
 	className,
 }: EntityCardProps) {
 	const interactive = Boolean(onClick);
+	const compact = density === 'compact';
 
 	return (
 		<Card.Root
@@ -167,24 +190,36 @@ export function EntityCard({
 		>
 			<div className={cx(styles.accentBar, accent === 'wheat' && styles.accentBarWheat)} />
 			<Card.Body
-				className={cx(styles.body, interactive && styles.interactive)}
+				className={cx(
+					styles.body,
+					compact && styles.bodyCompact,
+					interactive && styles.interactive,
+				)}
 				onClick={onClick}
 				onKeyDown={(event) => handleKeyDown(event, onClick)}
 				role={interactive ? 'button' : undefined}
 				tabIndex={interactive ? 0 : undefined}
 			>
-				<div className={styles.header}>
+				<div className={cx(styles.header, compact && styles.headerCompact)}>
 					<div className={styles.lead}>
-						{icon && <div className={styles.iconWrap}>{icon}</div>}
+						{icon && (
+							<div className={cx(styles.iconWrap, compact && styles.iconWrapCompact)}>{icon}</div>
+						)}
 						<div className={styles.copy}>
-							<div className={styles.title}>{title}</div>
-							{description && <div className={styles.description}>{description}</div>}
+							<div className={cx(styles.title, compact && styles.titleCompact)}>{title}</div>
+							{description && (
+								<div className={cx(styles.description, compact && styles.descriptionCompact)}>
+									{description}
+								</div>
+							)}
 							{meta && <div className={styles.meta}>{meta}</div>}
 						</div>
 					</div>
 					{actions && <div className={styles.actions}>{actions}</div>}
 				</div>
-				{children && <div className={styles.content}>{children}</div>}
+				{children && (
+					<div className={cx(styles.content, compact && styles.contentCompact)}>{children}</div>
+				)}
 				{footer && <div className={styles.footer}>{footer}</div>}
 			</Card.Body>
 		</Card.Root>

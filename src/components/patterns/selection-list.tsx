@@ -16,6 +16,7 @@ export interface SelectionListProps {
 	items: SelectionListItem[];
 	value: string | null;
 	onValueChange: (value: string) => void;
+	density?: 'default' | 'compact';
 	className?: string;
 }
 
@@ -47,6 +48,11 @@ const styles = {
 			cursor: 'not-allowed',
 		},
 	}),
+	itemCompact: css({
+		paddingX: '3.5',
+		paddingY: '3',
+		gap: '2.5',
+	}),
 	itemSelected: css({
 		bg: 'app.accent.soft',
 		borderColor: 'app.border.strong',
@@ -71,6 +77,10 @@ const styles = {
 		color: 'app.accent',
 		flexShrink: 0,
 	}),
+	iconCompact: css({
+		boxSize: '7',
+		rounded: 'lg',
+	}),
 	copy: css({
 		display: 'flex',
 		flexDirection: 'column',
@@ -81,6 +91,9 @@ const styles = {
 		textStyle: 'small',
 		fontWeight: '600',
 		color: 'app.text',
+	}),
+	labelCompact: css({
+		fontWeight: '700',
 	}),
 	description: css({
 		textStyle: 'caption',
@@ -95,7 +108,15 @@ const styles = {
 	}),
 };
 
-export function SelectionList({ items, value, onValueChange, className }: SelectionListProps) {
+export function SelectionList({
+	items,
+	value,
+	onValueChange,
+	density = 'default',
+	className,
+}: SelectionListProps) {
+	const compact = density === 'compact';
+
 	return (
 		<div className={cx(styles.root, className)}>
 			{items.map((item) => {
@@ -106,12 +127,18 @@ export function SelectionList({ items, value, onValueChange, className }: Select
 						type="button"
 						disabled={item.disabled}
 						onClick={() => onValueChange(item.value)}
-						className={cx(styles.item, selected && styles.itemSelected)}
+						className={cx(
+							styles.item,
+							compact && styles.itemCompact,
+							selected && styles.itemSelected,
+						)}
 					>
 						<div className={styles.body}>
-							{item.icon && <span className={styles.icon}>{item.icon}</span>}
+							{item.icon && (
+								<span className={cx(styles.icon, compact && styles.iconCompact)}>{item.icon}</span>
+							)}
 							<div className={styles.copy}>
-								<div className={styles.label}>{item.label}</div>
+								<div className={cx(styles.label, compact && styles.labelCompact)}>{item.label}</div>
 								{item.description && <div className={styles.description}>{item.description}</div>}
 							</div>
 						</div>

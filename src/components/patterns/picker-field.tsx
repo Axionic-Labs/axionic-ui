@@ -15,6 +15,7 @@ export interface PickerFieldProps {
 	panelLabel?: ReactNode;
 	panel?: ReactNode;
 	minWidth?: string;
+	size?: 'md' | 'sm';
 	className?: string;
 }
 
@@ -54,6 +55,11 @@ const styles = {
 			cursor: 'not-allowed',
 		},
 	}),
+	triggerSm: css({
+		minHeight: '3rem',
+		paddingX: '3.5',
+		paddingY: '2.5',
+	}),
 	lead: css({
 		display: 'flex',
 		alignItems: 'center',
@@ -88,6 +94,9 @@ const styles = {
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
 		whiteSpace: 'nowrap',
+	}),
+	titleSm: css({
+		fontWeight: '700',
 	}),
 	description: css({
 		textStyle: 'caption',
@@ -145,22 +154,25 @@ export function PickerField({
 	panelLabel,
 	panel,
 	minWidth,
+	size = 'md',
 	className,
 }: PickerFieldProps) {
+	const compact = size === 'sm';
+
 	return (
 		<div className={cx(styles.root, className)} style={minWidth ? { minWidth } : undefined}>
 			<button
 				type="button"
 				onClick={onToggle}
 				disabled={disabled}
-				className={styles.trigger}
+				className={cx(styles.trigger, compact && styles.triggerSm)}
 				aria-expanded={open}
 			>
 				<div className={styles.lead}>
 					{leading && <div className={styles.leading}>{leading}</div>}
 					<div className={styles.copy}>
 						<div className={styles.titleRow}>
-							<div className={styles.title}>{title}</div>
+							<div className={cx(styles.title, compact && styles.titleSm)}>{title}</div>
 							{badge}
 						</div>
 						{description && <div className={styles.description}>{description}</div>}

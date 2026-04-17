@@ -12,6 +12,7 @@ export interface SectionPanelProps {
 	children?: ReactNode;
 	footer?: ReactNode;
 	variant?: 'default' | 'muted';
+	density?: 'default' | 'compact';
 	className?: string;
 }
 
@@ -38,8 +39,10 @@ const styles = {
 		paddingX: { base: '5.5', md: '6.5' },
 		paddingY: { base: '5', md: '5.5' },
 	}),
-	headerBorder: css({
-		bg: 'app.surface.muted',
+	headerCompact: css({
+		gap: '3',
+		paddingX: { base: '4', md: '4.5' },
+		paddingY: { base: '4', md: '4.5' },
 	}),
 	copy: css({
 		display: 'flex',
@@ -47,19 +50,34 @@ const styles = {
 		gap: '2',
 		minWidth: 0,
 	}),
+	copyCompact: css({
+		gap: '1',
+	}),
 	eyebrow: css({
 		textStyle: 'eyebrow',
 		color: 'app.text.subtle',
 	}),
+	eyebrowCompact: css({
+		letterSpacing: '0.18em',
+	}),
 	title: css({
 		textStyle: 'sectionTitle',
 		color: 'app.text',
+	}),
+	titleCompact: css({
+		textStyle: 'small',
+		fontWeight: '700',
 	}),
 	description: css({
 		textStyle: 'body',
 		color: 'app.text.muted',
 		maxWidth: '3xl',
 		lineHeight: '1.65',
+	}),
+	descriptionCompact: css({
+		textStyle: 'caption',
+		lineHeight: '1.45',
+		maxWidth: '2xl',
 	}),
 	meta: css({
 		display: 'flex',
@@ -75,6 +93,9 @@ const styles = {
 		flexWrap: 'wrap',
 		gap: '3',
 	}),
+	actionsCompact: css({
+		gap: '2',
+	}),
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
@@ -82,11 +103,20 @@ const styles = {
 		paddingX: { base: '5.5', md: '6.5' },
 		paddingY: { base: '5.5', md: '6' },
 	}),
+	bodyCompact: css({
+		gap: '3',
+		paddingX: { base: '4', md: '4.5' },
+		paddingY: { base: '4', md: '4.5' },
+	}),
 	footer: css({
 		paddingX: { base: '5.5', md: '6.5' },
 		paddingY: '5',
 		bg: 'app.surface.muted',
 		color: 'app.text.muted',
+	}),
+	footerCompact: css({
+		paddingX: { base: '4', md: '4.5' },
+		paddingY: '4',
 	}),
 };
 
@@ -99,27 +129,41 @@ export function SectionPanel({
 	children,
 	footer,
 	variant = 'default',
+	density = 'default',
 	className,
 }: SectionPanelProps) {
 	const hasHeader = Boolean(eyebrow || title || description || meta || actions);
 	const hasBody = children !== undefined && children !== null;
 	const hasFooter = footer !== undefined && footer !== null;
+	const compact = density === 'compact';
 
 	return (
 		<section className={cx(styles.root, styles[variant], className)}>
 			{hasHeader && (
-				<div className={cx(styles.header, (hasBody || hasFooter) && styles.headerBorder)}>
-					<div className={styles.copy}>
-						{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
-						{title && <div className={styles.title}>{title}</div>}
-						{description && <div className={styles.description}>{description}</div>}
+				<div className={cx(styles.header, compact && styles.headerCompact)}>
+					<div className={cx(styles.copy, compact && styles.copyCompact)}>
+						{eyebrow && (
+							<div className={cx(styles.eyebrow, compact && styles.eyebrowCompact)}>{eyebrow}</div>
+						)}
+						{title && (
+							<div className={cx(styles.title, compact && styles.titleCompact)}>{title}</div>
+						)}
+						{description && (
+							<div className={cx(styles.description, compact && styles.descriptionCompact)}>
+								{description}
+							</div>
+						)}
 						{meta && <div className={styles.meta}>{meta}</div>}
 					</div>
-					{actions && <div className={styles.actions}>{actions}</div>}
+					{actions && (
+						<div className={cx(styles.actions, compact && styles.actionsCompact)}>{actions}</div>
+					)}
 				</div>
 			)}
-			{hasBody && <div className={styles.body}>{children}</div>}
-			{hasFooter && <div className={styles.footer}>{footer}</div>}
+			{hasBody && <div className={cx(styles.body, compact && styles.bodyCompact)}>{children}</div>}
+			{hasFooter && (
+				<div className={cx(styles.footer, compact && styles.footerCompact)}>{footer}</div>
+			)}
 		</section>
 	);
 }
