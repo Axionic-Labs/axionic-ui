@@ -18,6 +18,7 @@ export interface ResourceListProps {
 	description?: ReactNode;
 	actions?: ReactNode;
 	items: ResourceListItem[];
+	dividers?: boolean;
 	className?: string;
 }
 
@@ -71,6 +72,9 @@ const styles = {
 			borderBottomWidth: '0',
 		},
 	}),
+	itemNoDivider: css({
+		borderBottomWidth: '0',
+	}),
 	icon: css({
 		display: 'inline-flex',
 		alignItems: 'center',
@@ -108,7 +112,14 @@ const styles = {
 	}),
 };
 
-export function ResourceList({ title, description, actions, items, className }: ResourceListProps) {
+export function ResourceList({
+	title,
+	description,
+	actions,
+	items,
+	dividers = true,
+	className,
+}: ResourceListProps) {
 	return (
 		<section className={cx(styles.root, className)}>
 			{(title || description || actions) && (
@@ -132,7 +143,7 @@ export function ResourceList({ title, description, actions, items, className }: 
 
 					return (
 						<li key={item.id ?? item.href ?? `resource-item-${index}`}>
-							<div className={styles.item}>
+							<div className={cx(styles.item, !dividers && styles.itemNoDivider)}>
 								{item.icon && <div className={styles.icon}>{item.icon}</div>}
 								{item.href ? (
 									<a className={styles.itemLink} href={item.href}>

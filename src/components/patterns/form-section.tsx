@@ -9,6 +9,7 @@ export interface FormSectionProps {
 	actions?: ReactNode;
 	children: ReactNode;
 	tone?: 'default' | 'subtle' | 'accent';
+	chrome?: 'default' | 'soft';
 	className?: string;
 }
 
@@ -22,6 +23,10 @@ const styles = {
 		borderWidth: '1px',
 		borderColor: 'app.border',
 		bg: 'app.surface',
+	}),
+	rootSoft: css({
+		borderWidth: '0',
+		boxShadow: 'none',
 	}),
 	subtle: css({
 		bg: 'app.surface',
@@ -69,10 +74,18 @@ export function FormSection({
 	actions,
 	children,
 	tone = 'default',
+	chrome = 'default',
 	className,
 }: FormSectionProps) {
 	return (
-		<section className={cx(styles.root, tone !== 'default' && styles[tone], className)}>
+		<section
+			className={cx(
+				styles.root,
+				chrome === 'soft' && styles.rootSoft,
+				tone !== 'default' && styles[tone],
+				className,
+			)}
+		>
 			<div className={styles.header}>
 				<div className={styles.copy}>
 					<div className={styles.title}>{title}</div>

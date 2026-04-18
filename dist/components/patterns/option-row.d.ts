@@ -7,7 +7,8 @@ export interface OptionRowProps {
     selected?: boolean;
     onClick?: () => void;
     disabled?: boolean;
+    chrome?: 'default' | 'soft';
     className?: string;
 }
-export declare function OptionRow({ title, description, leading, trailing, selected, onClick, disabled, className, }: OptionRowProps): import("react/jsx-runtime").JSX.Element;
+export declare function OptionRow({ title, description, leading, trailing, selected, onClick, disabled, chrome, className, }: OptionRowProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=option-row.d.ts.map

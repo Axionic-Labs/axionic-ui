@@ -12,6 +12,7 @@ export interface DetailPanelProps {
 	actions?: ReactNode;
 	children?: ReactNode;
 	footer?: ReactNode;
+	chrome?: 'default' | 'soft';
 	className?: string;
 }
 
@@ -26,6 +27,11 @@ const styles = {
 		borderColor: 'app.border',
 		bg: 'app.surface',
 		boxShadow: '{shadows.float}',
+	}),
+	rootSoft: css({
+		borderWidth: '0',
+		boxShadow: 'none',
+		bg: 'app.surface.muted',
 	}),
 	header: css({
 		display: 'flex',
@@ -51,6 +57,10 @@ const styles = {
 		bg: 'app.surface.muted',
 		color: 'app.accent',
 		flexShrink: 0,
+	}),
+	iconWrapSoft: css({
+		borderWidth: '0',
+		bg: 'app.surface',
 	}),
 	copy: css({
 		display: 'flex',
@@ -98,6 +108,10 @@ const styles = {
 		borderColor: 'app.border',
 		color: 'app.text.muted',
 	}),
+	footerSoft: css({
+		paddingTop: '0',
+		borderTopWidth: '0',
+	}),
 };
 
 export function DetailPanel({
@@ -109,14 +123,19 @@ export function DetailPanel({
 	actions,
 	children,
 	footer,
+	chrome = 'default',
 	className,
 }: DetailPanelProps) {
 	return (
-		<section className={cx(styles.root, className)}>
+		<section className={cx(styles.root, chrome === 'soft' && styles.rootSoft, className)}>
 			{(eyebrow || title || description || icon || meta || actions) && (
 				<div className={styles.header}>
 					<div className={styles.headerCopy}>
-						{icon && <div className={styles.iconWrap}>{icon}</div>}
+						{icon && (
+							<div className={cx(styles.iconWrap, chrome === 'soft' && styles.iconWrapSoft)}>
+								{icon}
+							</div>
+						)}
 						<div className={styles.copy}>
 							{eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
 							{title && <div className={styles.title}>{title}</div>}
@@ -128,7 +147,9 @@ export function DetailPanel({
 				</div>
 			)}
 			{children && <div className={styles.body}>{children}</div>}
-			{footer && <div className={styles.footer}>{footer}</div>}
+			{footer && (
+				<div className={cx(styles.footer, chrome === 'soft' && styles.footerSoft)}>{footer}</div>
+			)}
 		</section>
 	);
 }

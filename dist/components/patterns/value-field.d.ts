@@ -7,7 +7,8 @@ export interface ValueFieldProps {
     actions?: ReactNode;
     mono?: boolean;
     tone?: 'default' | 'muted';
+    chrome?: 'default' | 'soft';
     className?: string;
 }
-export declare function ValueField({ label, description, value, icon, actions, mono, tone, className, }: ValueFieldProps): import("react/jsx-runtime").JSX.Element;
+export declare function ValueField({ label, description, value, icon, actions, mono, tone, chrome, className, }: ValueFieldProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=value-field.d.ts.map

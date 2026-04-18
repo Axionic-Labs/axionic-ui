@@ -17,6 +17,7 @@ export interface SelectionListProps {
 	value: string | null;
 	onValueChange: (value: string) => void;
 	density?: 'default' | 'compact';
+	chrome?: 'default' | 'soft';
 	className?: string;
 }
 
@@ -53,10 +54,17 @@ const styles = {
 		paddingY: '3',
 		gap: '2.5',
 	}),
+	itemSoft: css({
+		borderWidth: '0',
+	}),
 	itemSelected: css({
 		bg: 'app.accent.soft',
 		borderColor: 'app.border.strong',
 		boxShadow: 'inset 3px 0 0 0 var(--colors-app-accent)',
+	}),
+	itemSelectedSoft: css({
+		borderColor: 'transparent',
+		boxShadow: 'none',
 	}),
 	body: css({
 		display: 'flex',
@@ -80,6 +88,10 @@ const styles = {
 	iconCompact: css({
 		boxSize: '7',
 		rounded: 'lg',
+	}),
+	iconSoft: css({
+		borderWidth: '0',
+		bg: 'app.surface.muted',
 	}),
 	copy: css({
 		display: 'flex',
@@ -113,9 +125,11 @@ export function SelectionList({
 	value,
 	onValueChange,
 	density = 'default',
+	chrome = 'default',
 	className,
 }: SelectionListProps) {
 	const compact = density === 'compact';
+	const softChrome = chrome === 'soft';
 
 	return (
 		<div className={cx(styles.root, className)}>
@@ -130,12 +144,22 @@ export function SelectionList({
 						className={cx(
 							styles.item,
 							compact && styles.itemCompact,
+							softChrome && styles.itemSoft,
 							selected && styles.itemSelected,
+							selected && softChrome && styles.itemSelectedSoft,
 						)}
 					>
 						<div className={styles.body}>
 							{item.icon && (
-								<span className={cx(styles.icon, compact && styles.iconCompact)}>{item.icon}</span>
+								<span
+									className={cx(
+										styles.icon,
+										compact && styles.iconCompact,
+										softChrome && styles.iconSoft,
+									)}
+								>
+									{item.icon}
+								</span>
 							)}
 							<div className={styles.copy}>
 								<div className={cx(styles.label, compact && styles.labelCompact)}>{item.label}</div>

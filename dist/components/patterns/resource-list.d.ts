@@ -13,7 +13,8 @@ export interface ResourceListProps {
     description?: ReactNode;
     actions?: ReactNode;
     items: ResourceListItem[];
+    dividers?: boolean;
     className?: string;
 }
-export declare function ResourceList({ title, description, actions, items, className }: ResourceListProps): import("react/jsx-runtime").JSX.Element;
+export declare function ResourceList({ title, description, actions, items, dividers, className, }: ResourceListProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=resource-list.d.ts.map

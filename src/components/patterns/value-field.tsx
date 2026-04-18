@@ -11,6 +11,7 @@ export interface ValueFieldProps {
 	actions?: ReactNode;
 	mono?: boolean;
 	tone?: 'default' | 'muted';
+	chrome?: 'default' | 'soft';
 	className?: string;
 }
 
@@ -56,6 +57,10 @@ const styles = {
 		boxShadow: '{shadows.panel}',
 		minWidth: 0,
 	}),
+	fieldSoft: css({
+		borderWidth: '0',
+		boxShadow: 'none',
+	}),
 	default: css({
 		bg: 'app.surface',
 	}),
@@ -99,6 +104,7 @@ export function ValueField({
 	actions,
 	mono = false,
 	tone = 'muted',
+	chrome = 'default',
 	className,
 }: ValueFieldProps) {
 	return (
@@ -111,7 +117,7 @@ export function ValueField({
 					</div>
 				</div>
 			)}
-			<div className={cx(styles.field, styles[tone])}>
+			<div className={cx(styles.field, styles[tone], chrome === 'soft' && styles.fieldSoft)}>
 				<div className={styles.valueWrap}>
 					{icon && <div className={styles.icon}>{icon}</div>}
 					<div className={cx(styles.value, mono && styles.mono)}>{value}</div>

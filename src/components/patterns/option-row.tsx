@@ -11,6 +11,7 @@ export interface OptionRowProps {
 	selected?: boolean;
 	onClick?: () => void;
 	disabled?: boolean;
+	chrome?: 'default' | 'soft';
 	className?: string;
 }
 
@@ -31,6 +32,11 @@ const styles = {
 		transitionDuration: '160ms',
 		transitionTimingFunction: 'ease',
 	}),
+	rootSoft: css({
+		borderWidth: '0',
+		boxShadow: 'none',
+		bg: 'app.surface.muted',
+	}),
 	interactive: css({
 		cursor: 'pointer',
 		userSelect: 'none',
@@ -46,6 +52,9 @@ const styles = {
 	}),
 	selected: css({
 		borderColor: 'app.border.strong',
+		bg: 'app.accent.soft',
+	}),
+	selectedSoft: css({
 		bg: 'app.accent.soft',
 	}),
 	disabled: css({
@@ -96,6 +105,7 @@ export function OptionRow({
 	selected = false,
 	onClick,
 	disabled = false,
+	chrome = 'default',
 	className,
 }: OptionRowProps) {
 	const interactive = Boolean(onClick) && !disabled;
@@ -116,7 +126,13 @@ export function OptionRow({
 		return (
 			<button
 				type="button"
-				className={cx(styles.root, styles.interactive, selected && styles.selected, className)}
+				className={cx(
+					styles.root,
+					chrome === 'soft' && styles.rootSoft,
+					styles.interactive,
+					selected && (chrome === 'soft' ? styles.selectedSoft : styles.selected),
+					className,
+				)}
 				onClick={onClick}
 			>
 				{content}
@@ -128,7 +144,8 @@ export function OptionRow({
 		<div
 			className={cx(
 				styles.root,
-				selected && styles.selected,
+				chrome === 'soft' && styles.rootSoft,
+				selected && (chrome === 'soft' ? styles.selectedSoft : styles.selected),
 				disabled && styles.disabled,
 				className,
 			)}

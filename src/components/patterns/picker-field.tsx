@@ -16,6 +16,7 @@ export interface PickerFieldProps {
 	panel?: ReactNode;
 	minWidth?: string;
 	size?: 'md' | 'sm';
+	chrome?: 'default' | 'soft';
 	className?: string;
 }
 
@@ -59,6 +60,13 @@ const styles = {
 		minHeight: '3rem',
 		paddingX: '3.5',
 		paddingY: '2.5',
+	}),
+	triggerSoft: css({
+		borderWidth: '0',
+		bg: 'app.surface.muted',
+		_hover: {
+			bg: 'app.surface',
+		},
 	}),
 	lead: css({
 		display: 'flex',
@@ -127,6 +135,9 @@ const styles = {
 		overflow: 'hidden',
 		zIndex: '50',
 	}),
+	panelSoft: css({
+		borderWidth: '0',
+	}),
 	panelLabel: css({
 		paddingX: '4',
 		paddingY: '2.5',
@@ -155,9 +166,11 @@ export function PickerField({
 	panel,
 	minWidth,
 	size = 'md',
+	chrome = 'default',
 	className,
 }: PickerFieldProps) {
 	const compact = size === 'sm';
+	const softChrome = chrome === 'soft';
 
 	return (
 		<div className={cx(styles.root, className)} style={minWidth ? { minWidth } : undefined}>
@@ -165,7 +178,11 @@ export function PickerField({
 				type="button"
 				onClick={onToggle}
 				disabled={disabled}
-				className={cx(styles.trigger, compact && styles.triggerSm)}
+				className={cx(
+					styles.trigger,
+					compact && styles.triggerSm,
+					softChrome && styles.triggerSoft,
+				)}
 				aria-expanded={open}
 			>
 				<div className={styles.lead}>
@@ -181,7 +198,7 @@ export function PickerField({
 				<ChevronDown size={16} className={cx(styles.chevron, open && styles.chevronOpen)} />
 			</button>
 			{open && panel && (
-				<div className={styles.panel}>
+				<div className={cx(styles.panel, softChrome && styles.panelSoft)}>
 					{panelLabel && <div className={styles.panelLabel}>{panelLabel}</div>}
 					<div className={styles.panelBody}>{panel}</div>
 				</div>

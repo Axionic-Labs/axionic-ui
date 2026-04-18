@@ -1723,6 +1723,11 @@ var styles12 = {
     bg: "app.surface",
     boxShadow: "{shadows.float}"
   }),
+  rootSoft: css14({
+    borderWidth: "0",
+    boxShadow: "none",
+    bg: "app.surface.muted"
+  }),
   header: css14({
     display: "flex",
     alignItems: "flex-start",
@@ -1747,6 +1752,10 @@ var styles12 = {
     bg: "app.surface.muted",
     color: "app.accent",
     flexShrink: 0
+  }),
+  iconWrapSoft: css14({
+    borderWidth: "0",
+    bg: "app.surface"
   }),
   copy: css14({
     display: "flex",
@@ -1793,6 +1802,10 @@ var styles12 = {
     borderTopWidth: "1px",
     borderColor: "app.border",
     color: "app.text.muted"
+  }),
+  footerSoft: css14({
+    paddingTop: "0",
+    borderTopWidth: "0"
   })
 };
 function DetailPanel({
@@ -1804,10 +1817,11 @@ function DetailPanel({
   actions,
   children,
   footer,
+  chrome = "default",
   className
 }) {
   return /* @__PURE__ */ jsxs15("section", {
-    className: cx14(styles12.root, className),
+    className: cx14(styles12.root, chrome === "soft" && styles12.rootSoft, className),
     children: [
       (eyebrow || title || description || icon || meta || actions) && /* @__PURE__ */ jsxs15("div", {
         className: styles12.header,
@@ -1816,7 +1830,7 @@ function DetailPanel({
             className: styles12.headerCopy,
             children: [
               icon && /* @__PURE__ */ jsx20("div", {
-                className: styles12.iconWrap,
+                className: cx14(styles12.iconWrap, chrome === "soft" && styles12.iconWrapSoft),
                 children: icon
               }),
               /* @__PURE__ */ jsxs15("div", {
@@ -1853,7 +1867,7 @@ function DetailPanel({
         children
       }),
       footer && /* @__PURE__ */ jsx20("div", {
-        className: styles12.footer,
+        className: cx14(styles12.footer, chrome === "soft" && styles12.footerSoft),
         children: footer
       })
     ]
@@ -2699,6 +2713,10 @@ var styles19 = {
     borderColor: "app.border",
     bg: "app.surface"
   }),
+  rootSoft: css21({
+    borderWidth: "0",
+    boxShadow: "none"
+  }),
   subtle: css21({
     bg: "app.surface"
   }),
@@ -2744,10 +2762,11 @@ function FormSection({
   actions,
   children,
   tone = "default",
+  chrome = "default",
   className
 }) {
   return /* @__PURE__ */ jsxs22("section", {
-    className: cx21(styles19.root, tone !== "default" && styles19[tone], className),
+    className: cx21(styles19.root, chrome === "soft" && styles19.rootSoft, tone !== "default" && styles19[tone], className),
     children: [
       /* @__PURE__ */ jsxs22("div", {
         className: styles19.header,
@@ -4274,14 +4293,16 @@ function NamedPromptList({
   keyPlaceholder = "summarize",
   valuePlaceholder = "You are a concise assistant that...",
   emptyTitle = "No prompts added yet",
-  emptyDescription = "Add at least one named prompt to continue."
+  emptyDescription = "Add at least one named prompt to continue.",
+  chrome = "default"
 }) {
   return /* @__PURE__ */ jsx45(FormSection, {
     title,
     description,
+    chrome,
     actions: /* @__PURE__ */ jsxs34(Button, {
       type: "button",
-      variant: "toolbar",
+      variant: chrome === "soft" ? "subtle" : "toolbar",
       size: "sm",
       onClick: onAdd,
       children: [
@@ -4300,6 +4321,7 @@ function NamedPromptList({
       }) : items.map((item) => /* @__PURE__ */ jsx45(FormSection, {
         title: item.key || "New task",
         tone: "subtle",
+        chrome,
         actions: /* @__PURE__ */ jsxs34(Button, {
           type: "button",
           variant: "ghost",
@@ -4415,6 +4437,11 @@ var styles28 = {
     transitionDuration: "160ms",
     transitionTimingFunction: "ease"
   }),
+  rootSoft: css36({
+    borderWidth: "0",
+    boxShadow: "none",
+    bg: "app.surface.muted"
+  }),
   interactive: css36({
     cursor: "pointer",
     userSelect: "none",
@@ -4430,6 +4457,9 @@ var styles28 = {
   }),
   selected: css36({
     borderColor: "app.border.strong",
+    bg: "app.accent.soft"
+  }),
+  selectedSoft: css36({
     bg: "app.accent.soft"
   }),
   disabled: css36({
@@ -4479,6 +4509,7 @@ function OptionRow({
   selected = false,
   onClick,
   disabled = false,
+  chrome = "default",
   className
 }) {
   const interactive = Boolean(onClick) && !disabled;
@@ -4515,13 +4546,13 @@ function OptionRow({
   if (interactive) {
     return /* @__PURE__ */ jsx47("button", {
       type: "button",
-      className: cx35(styles28.root, styles28.interactive, selected && styles28.selected, className),
+      className: cx35(styles28.root, chrome === "soft" && styles28.rootSoft, styles28.interactive, selected && (chrome === "soft" ? styles28.selectedSoft : styles28.selected), className),
       onClick,
       children: content
     });
   }
   return /* @__PURE__ */ jsx47("div", {
-    className: cx35(styles28.root, selected && styles28.selected, disabled && styles28.disabled, className),
+    className: cx35(styles28.root, chrome === "soft" && styles28.rootSoft, selected && (chrome === "soft" ? styles28.selectedSoft : styles28.selected), disabled && styles28.disabled, className),
     "aria-disabled": disabled || undefined,
     children: content
   });
@@ -4600,6 +4631,13 @@ var styles29 = {
     paddingX: "3.5",
     paddingY: "2.5"
   }),
+  triggerSoft: css38({
+    borderWidth: "0",
+    bg: "app.surface.muted",
+    _hover: {
+      bg: "app.surface"
+    }
+  }),
   lead: css38({
     display: "flex",
     alignItems: "center",
@@ -4667,6 +4705,9 @@ var styles29 = {
     overflow: "hidden",
     zIndex: "50"
   }),
+  panelSoft: css38({
+    borderWidth: "0"
+  }),
   panelLabel: css38({
     paddingX: "4",
     paddingY: "2.5",
@@ -4694,9 +4735,11 @@ function PickerField({
   panel,
   minWidth,
   size = "md",
+  chrome = "default",
   className
 }) {
   const compact = size === "sm";
+  const softChrome = chrome === "soft";
   return /* @__PURE__ */ jsxs38("div", {
     className: cx37(styles29.root, className),
     style: minWidth ? { minWidth } : undefined,
@@ -4705,7 +4748,7 @@ function PickerField({
         type: "button",
         onClick: onToggle,
         disabled,
-        className: cx37(styles29.trigger, compact && styles29.triggerSm),
+        className: cx37(styles29.trigger, compact && styles29.triggerSm, softChrome && styles29.triggerSoft),
         "aria-expanded": open,
         children: [
           /* @__PURE__ */ jsxs38("div", {
@@ -4743,7 +4786,7 @@ function PickerField({
         ]
       }),
       open && panel && /* @__PURE__ */ jsxs38("div", {
-        className: styles29.panel,
+        className: cx37(styles29.panel, softChrome && styles29.panelSoft),
         children: [
           panelLabel && /* @__PURE__ */ jsx49("div", {
             className: styles29.panelLabel,
@@ -4972,6 +5015,9 @@ var styles31 = {
       borderBottomWidth: "0"
     }
   }),
+  itemNoDivider: css40({
+    borderBottomWidth: "0"
+  }),
   icon: css40({
     display: "inline-flex",
     alignItems: "center",
@@ -5008,7 +5054,14 @@ var styles31 = {
     alignItems: "center"
   })
 };
-function ResourceList({ title, description, actions, items, className }) {
+function ResourceList({
+  title,
+  description,
+  actions,
+  items,
+  dividers = true,
+  className
+}) {
   return /* @__PURE__ */ jsxs40("section", {
     className: cx39(styles31.root, className),
     children: [
@@ -5053,7 +5106,7 @@ function ResourceList({ title, description, actions, items, className }) {
           });
           return /* @__PURE__ */ jsx51("li", {
             children: /* @__PURE__ */ jsxs40("div", {
-              className: styles31.item,
+              className: cx39(styles31.item, !dividers && styles31.itemNoDivider),
               children: [
                 item.icon && /* @__PURE__ */ jsx51("div", {
                   className: styles31.icon,
@@ -5119,10 +5172,17 @@ var styles32 = {
     paddingY: "3",
     gap: "2.5"
   }),
+  itemSoft: css41({
+    borderWidth: "0"
+  }),
   itemSelected: css41({
     bg: "app.accent.soft",
     borderColor: "app.border.strong",
     boxShadow: "inset 3px 0 0 0 var(--colors-app-accent)"
+  }),
+  itemSelectedSoft: css41({
+    borderColor: "transparent",
+    boxShadow: "none"
   }),
   body: css41({
     display: "flex",
@@ -5146,6 +5206,10 @@ var styles32 = {
   iconCompact: css41({
     boxSize: "7",
     rounded: "lg"
+  }),
+  iconSoft: css41({
+    borderWidth: "0",
+    bg: "app.surface.muted"
   }),
   copy: css41({
     display: "flex",
@@ -5178,9 +5242,11 @@ function SelectionList({
   value,
   onValueChange,
   density = "default",
+  chrome = "default",
   className
 }) {
   const compact = density === "compact";
+  const softChrome = chrome === "soft";
   return /* @__PURE__ */ jsx52("div", {
     className: cx40(styles32.root, className),
     children: items.map((item) => {
@@ -5189,13 +5255,13 @@ function SelectionList({
         type: "button",
         disabled: item.disabled,
         onClick: () => onValueChange(item.value),
-        className: cx40(styles32.item, compact && styles32.itemCompact, selected && styles32.itemSelected),
+        className: cx40(styles32.item, compact && styles32.itemCompact, softChrome && styles32.itemSoft, selected && styles32.itemSelected, selected && softChrome && styles32.itemSelectedSoft),
         children: [
           /* @__PURE__ */ jsxs41("div", {
             className: styles32.body,
             children: [
               item.icon && /* @__PURE__ */ jsx52("span", {
-                className: cx40(styles32.icon, compact && styles32.iconCompact),
+                className: cx40(styles32.icon, compact && styles32.iconCompact, softChrome && styles32.iconSoft),
                 children: item.icon
               }),
               /* @__PURE__ */ jsxs41("div", {
@@ -5941,6 +6007,10 @@ var styles37 = {
     bg: "app.accent.soft",
     boxShadow: "{shadows.panel}"
   }),
+  rootSoft: css47({
+    borderWidth: "0",
+    boxShadow: "none"
+  }),
   copy: css47({
     display: "flex",
     flexDirection: "column",
@@ -5967,10 +6037,11 @@ function SelectionToolbar({
   summary,
   description,
   actions,
+  chrome = "default",
   className
 }) {
   return /* @__PURE__ */ jsxs47("section", {
-    className: cx46(styles37.root, className),
+    className: cx46(styles37.root, chrome === "soft" && styles37.rootSoft, className),
     children: [
       /* @__PURE__ */ jsxs47("div", {
         className: styles37.copy,
@@ -7310,6 +7381,10 @@ var styles46 = {
     boxShadow: "{shadows.panel}",
     minWidth: 0
   }),
+  fieldSoft: css56({
+    borderWidth: "0",
+    boxShadow: "none"
+  }),
   default: css56({
     bg: "app.surface"
   }),
@@ -7352,6 +7427,7 @@ function ValueField({
   actions,
   mono = false,
   tone = "muted",
+  chrome = "default",
   className
 }) {
   return /* @__PURE__ */ jsxs56("div", {
@@ -7374,7 +7450,7 @@ function ValueField({
         })
       }),
       /* @__PURE__ */ jsxs56("div", {
-        className: cx55(styles46.field, styles46[tone]),
+        className: cx55(styles46.field, styles46[tone], chrome === "soft" && styles46.fieldSoft),
         children: [
           /* @__PURE__ */ jsxs56("div", {
             className: styles46.valueWrap,
@@ -7585,5 +7661,5 @@ export {
   AccentLabel
 };
 
-//# debugId=6EA5F314E0A8DD2C64756E2164756E21
+//# debugId=D456A088BFB7239964756E2164756E21
 //# sourceMappingURL=index.js.map

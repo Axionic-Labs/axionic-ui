@@ -8,7 +8,8 @@ export interface DetailPanelProps {
     actions?: ReactNode;
     children?: ReactNode;
     footer?: ReactNode;
+    chrome?: 'default' | 'soft';
     className?: string;
 }
-export declare function DetailPanel({ eyebrow, title, description, icon, meta, actions, children, footer, className, }: DetailPanelProps): import("react/jsx-runtime").JSX.Element;
+export declare function DetailPanel({ eyebrow, title, description, icon, meta, actions, children, footer, chrome, className, }: DetailPanelProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=detail-panel.d.ts.map

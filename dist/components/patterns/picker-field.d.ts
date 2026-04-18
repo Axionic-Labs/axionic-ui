@@ -11,7 +11,8 @@ export interface PickerFieldProps {
     panel?: ReactNode;
     minWidth?: string;
     size?: 'md' | 'sm';
+    chrome?: 'default' | 'soft';
     className?: string;
 }
-export declare function PickerField({ title, description, leading, badge, open, onToggle, disabled, panelLabel, panel, minWidth, size, className, }: PickerFieldProps): import("react/jsx-runtime").JSX.Element;
+export declare function PickerField({ title, description, leading, badge, open, onToggle, disabled, panelLabel, panel, minWidth, size, chrome, className, }: PickerFieldProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=picker-field.d.ts.map

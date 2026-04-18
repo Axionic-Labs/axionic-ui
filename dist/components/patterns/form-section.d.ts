@@ -5,7 +5,8 @@ export interface FormSectionProps {
     actions?: ReactNode;
     children: ReactNode;
     tone?: 'default' | 'subtle' | 'accent';
+    chrome?: 'default' | 'soft';
     className?: string;
 }
-export declare function FormSection({ title, description, actions, children, tone, className, }: FormSectionProps): import("react/jsx-runtime").JSX.Element;
+export declare function FormSection({ title, description, actions, children, tone, chrome, className, }: FormSectionProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=form-section.d.ts.map

@@ -27,6 +27,7 @@ export interface NamedPromptListProps {
 	valuePlaceholder?: string;
 	emptyTitle?: string;
 	emptyDescription?: string;
+	chrome?: 'default' | 'soft';
 }
 
 const styles = {
@@ -61,13 +62,20 @@ export function NamedPromptList({
 	valuePlaceholder = 'You are a concise assistant that...',
 	emptyTitle = 'No prompts added yet',
 	emptyDescription = 'Add at least one named prompt to continue.',
+	chrome = 'default',
 }: NamedPromptListProps) {
 	return (
 		<FormSection
 			title={title}
 			description={description}
+			chrome={chrome}
 			actions={
-				<Button type="button" variant="toolbar" size="sm" onClick={onAdd}>
+				<Button
+					type="button"
+					variant={chrome === 'soft' ? 'subtle' : 'toolbar'}
+					size="sm"
+					onClick={onAdd}
+				>
 					<Plus size={14} />
 					Add task
 				</Button>
@@ -86,6 +94,7 @@ export function NamedPromptList({
 							key={item.key || '__new__'}
 							title={item.key || 'New task'}
 							tone="subtle"
+							chrome={chrome}
 							actions={
 								<Button type="button" variant="ghost" size="sm" onClick={() => onRemove(item.key)}>
 									<Trash2 size={14} />
