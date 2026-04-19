@@ -12,16 +12,13 @@ export declare const NextTrigger: import("styled-system/jsx").StyleContextConsum
 export declare const PrevTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Carousel.PrevTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
 export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    onChange?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
-    onSubmit?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
-    className?: string | undefined | undefined;
-    ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     hidden?: boolean | undefined | undefined;
-    title?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
+    title?: string | undefined | undefined;
+    className?: string | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
+    slot?: string | undefined | undefined;
+    ref?: import("react").Ref<HTMLDivElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -42,7 +39,6 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
@@ -124,6 +120,7 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -143,6 +140,7 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     onFocusCapture?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
     onBlur?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
     onBlurCapture?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
+    onChange?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
     onChangeCapture?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
     onBeforeInput?: import("react").InputEventHandler<HTMLDivElement> | undefined;
     onBeforeInputCapture?: import("react").InputEventHandler<HTMLDivElement> | undefined;
@@ -150,6 +148,7 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     onInputCapture?: import("react").InputEventHandler<HTMLDivElement> | undefined;
     onReset?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onResetCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
+    onSubmit?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
     onSubmitCapture?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
     onInvalid?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onInvalidCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
@@ -209,6 +208,7 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     onWaitingCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;

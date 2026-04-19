@@ -525,6 +525,19 @@ var breadcrumb = defineSlotRecipe4({
 
 // src/theme/recipes/button.ts
 import { defineRecipe as defineRecipe3 } from "@pandacss/dev";
+var accentHoverStyles = {
+  bg: "app.accentAlt.soft",
+  borderColor: "app.accentAlt.border",
+  color: "app.accentAlt.text",
+  transform: "translateY(-1px)",
+  boxShadow: "{shadows.whisper}"
+};
+var accentActiveStyles = {
+  bg: "app.accentAlt.muted",
+  borderColor: "app.accentAlt.border",
+  color: "app.accentAlt.text",
+  transform: "translateY(0)"
+};
 var button = defineRecipe3({
   className: "button",
   jsx: ["Button", "IconButton", "CloseButton", "ButtonGroup"],
@@ -569,20 +582,12 @@ var button = defineRecipe3({
         }
       },
       surface: {
-        bg: "app.canvas.subtle",
+        bg: "app.surface",
         borderWidth: "1px",
         borderColor: "app.border",
         color: "app.text",
-        _hover: {
-          bg: "app.surface",
-          borderColor: "app.border.strong",
-          transform: "translateY(-1px)",
-          boxShadow: "{shadows.whisper}"
-        },
-        _active: {
-          bg: "app.surface.muted",
-          transform: "translateY(0)"
-        },
+        _hover: accentHoverStyles,
+        _active: accentActiveStyles,
         _on: {
           bg: "app.surface",
           borderColor: "app.border.strong"
@@ -594,33 +599,20 @@ var button = defineRecipe3({
         borderWidth: "1px",
         borderColor: "transparent",
         _hover: {
-          bg: "app.surface",
-          borderColor: "app.border"
+          ...accentHoverStyles,
+          boxShadow: "none"
         },
-        _active: {
-          bg: "app.surface.muted"
-        },
-        _on: {
-          bg: "app.surface.muted"
-        }
+        _active: accentActiveStyles,
+        _on: accentActiveStyles
       },
       outline: {
         borderWidth: "1px",
         borderColor: "app.border",
         bg: "app.surface",
         color: "app.text",
-        _hover: {
-          bg: "app.surface.muted",
-          borderColor: "app.border.strong",
-          transform: "translateY(-1px)"
-        },
-        _active: {
-          bg: "app.surface.muted",
-          transform: "translateY(0)"
-        },
-        _on: {
-          bg: "app.surface.muted"
-        }
+        _hover: accentHoverStyles,
+        _active: accentActiveStyles,
+        _on: accentActiveStyles
       },
       plain: {
         color: "app.text",
@@ -639,13 +631,8 @@ var button = defineRecipe3({
         color: "app.text",
         borderWidth: "1px",
         borderColor: "transparent",
-        _hover: {
-          bg: "app.surface",
-          borderColor: "app.border"
-        },
-        _active: {
-          bg: "app.surface.muted"
-        }
+        _hover: accentHoverStyles,
+        _active: accentActiveStyles
       },
       toolbar: {
         bg: "transparent",
@@ -653,12 +640,16 @@ var button = defineRecipe3({
         borderWidth: "1px",
         borderColor: "transparent",
         _hover: {
-          bg: "app.canvas.subtle",
-          color: "app.text"
+          ...accentHoverStyles,
+          boxShadow: "none"
         },
         _active: {
-          bg: "app.surface",
-          color: "app.text"
+          ...accentActiveStyles,
+          boxShadow: "none"
+        },
+        _on: {
+          ...accentActiveStyles,
+          boxShadow: "none"
         }
       },
       wheat: {
@@ -5909,6 +5900,21 @@ function createAxionicPreset() {
                   value: { _light: "rgba(45, 100, 97, 0.12)", _dark: "rgba(163, 221, 226, 0.18)" }
                 }
               },
+              accentAlt: {
+                DEFAULT: { value: "{colors.wheat.9}" },
+                soft: {
+                  value: "{colors.wheat.2}"
+                },
+                muted: {
+                  value: "{colors.wheat.4}"
+                },
+                border: {
+                  value: "{colors.wheat.6}"
+                },
+                text: {
+                  value: "{colors.wheat.11}"
+                }
+              },
               border: {
                 DEFAULT: {
                   value: { _light: "rgba(45, 75, 74, 0.1)", _dark: "rgba(163, 221, 226, 0.14)" }
@@ -6015,5 +6021,5 @@ export {
   axionicSand
 };
 
-//# debugId=E3E5A41E86968F7064756E2164756E21
+//# debugId=AA67716CB5E7399464756E2164756E21
 //# sourceMappingURL=index.js.map

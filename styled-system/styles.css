@@ -717,6 +717,11 @@
     --radii-l1: var(--radii-sm);
     --radii-l2: var(--radii-md);
     --radii-l3: var(--radii-lg);
+    --colors-app-accent-alt: var(--colors-wheat-9);
+    --colors-app-accent-alt-soft: var(--colors-wheat-2);
+    --colors-app-accent-alt-muted: var(--colors-wheat-4);
+    --colors-app-accent-alt-border: var(--colors-wheat-6);
+    --colors-app-accent-alt-text: var(--colors-wheat-11);
 }
 
   :where(:root, .light) {
@@ -1583,7 +1588,10 @@
 }
 
   .button--variant_outline:is([data-state="on"]) {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
+    transform: translateY(0);
 }
 
   .button--variant_outline:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) {
@@ -1599,7 +1607,9 @@
 }
 
   .button--variant_outline:is(:active, [data-active]) {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
     transform: translateY(0);
 }
 
@@ -1758,7 +1768,10 @@
 }
 
   .button--variant_subtle:is([data-state="on"]) {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
+    transform: translateY(0);
 }
 
   .button--variant_subtle:is(:focus-visible, [data-focus-visible]) {
@@ -1768,7 +1781,10 @@
 }
 
   .button--variant_subtle:is(:active, [data-active]) {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
+    transform: translateY(0);
 }
 
   .button--variant_toolbar {
@@ -1778,9 +1794,20 @@
     color: var(--colors-app-text-muted);
 }
 
+  .button--variant_toolbar:is([data-state="on"]) {
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
+    transform: translateY(0);
+    box-shadow: none;
+}
+
   .button--variant_toolbar:is(:active, [data-active]) {
-    background: var(--colors-app-surface);
-    color: var(--colors-app-text);
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
+    transform: translateY(0);
+    box-shadow: none;
 }
 
   .button--variant_ghost {
@@ -1893,7 +1920,7 @@
 }
 
   .button--variant_surface {
-    background: var(--colors-app-canvas-subtle);
+    background: var(--colors-app-surface);
     border-width: 1px;
     border-color: var(--colors-app-border);
     color: var(--colors-app-text);
@@ -1905,7 +1932,9 @@
 }
 
   .button--variant_surface:is(:active, [data-active]) {
-    background: var(--colors-app-surface-muted);
+    background: var(--colors-app-accent-alt-muted);
+    border-color: var(--colors-app-accent-alt-border);
+    color: var(--colors-app-accent-alt-text);
     transform: translateY(0);
 }
 
@@ -2047,9 +2076,11 @@
 
   @media (hover: hover) and (pointer: fine) {
     .button--variant_outline:is(:hover, [data-hover]) {
-      background: var(--colors-app-surface-muted);
-      border-color: var(--colors-app-border-strong);
+      background: var(--colors-app-accent-alt-soft);
+      border-color: var(--colors-app-accent-alt-border);
+      color: var(--colors-app-accent-alt-text);
       transform: translateY(-1px);
+      box-shadow: var(--shadows-whisper);
 }
 
     .button--variant_outline:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
@@ -2091,8 +2122,11 @@
 
   @media (hover: hover) and (pointer: fine) {
     .button--variant_subtle:is(:hover, [data-hover]) {
-      background: var(--colors-app-surface);
-      border-color: var(--colors-app-border);
+      background: var(--colors-app-accent-alt-soft);
+      border-color: var(--colors-app-accent-alt-border);
+      color: var(--colors-app-accent-alt-text);
+      transform: translateY(-1px);
+      box-shadow: none;
 }
 
     .button--variant_subtle:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]):is(:hover, [data-hover]) {
@@ -2103,8 +2137,11 @@
 
   @media (hover: hover) and (pointer: fine) {
     .button--variant_toolbar:is(:hover, [data-hover]) {
-      background: var(--colors-app-canvas-subtle);
-      color: var(--colors-app-text);
+      background: var(--colors-app-accent-alt-soft);
+      border-color: var(--colors-app-accent-alt-border);
+      color: var(--colors-app-accent-alt-text);
+      transform: translateY(-1px);
+      box-shadow: none;
 }
 }
 
@@ -2121,8 +2158,9 @@
 
   @media (hover: hover) and (pointer: fine) {
     .button--variant_surface:is(:hover, [data-hover]) {
-      background: var(--colors-app-surface);
-      border-color: var(--colors-app-border-strong);
+      background: var(--colors-app-accent-alt-soft);
+      border-color: var(--colors-app-accent-alt-border);
+      color: var(--colors-app-accent-alt-text);
       transform: translateY(-1px);
       box-shadow: var(--shadows-whisper);
 }

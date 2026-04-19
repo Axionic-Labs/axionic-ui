@@ -113,6 +113,21 @@ export function createAxionicPreset() {
 									value: { _light: 'rgba(45, 100, 97, 0.12)', _dark: 'rgba(163, 221, 226, 0.18)' },
 								},
 							},
+							accentAlt: {
+								DEFAULT: { value: '{colors.wheat.9}' },
+								soft: {
+									value: '{colors.wheat.2}',
+								},
+								muted: {
+									value: '{colors.wheat.4}',
+								},
+								border: {
+									value: '{colors.wheat.6}',
+								},
+								text: {
+									value: '{colors.wheat.11}',
+								},
+							},
 							border: {
 								DEFAULT: {
 									value: { _light: 'rgba(45, 75, 74, 0.1)', _dark: 'rgba(163, 221, 226, 0.14)' },

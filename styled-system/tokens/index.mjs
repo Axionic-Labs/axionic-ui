@@ -1571,6 +1571,26 @@ const tokens = {
     "value": "var(--radii-lg)",
     "variable": "var(--radii-l3)"
   },
+  "colors.app.accentAlt": {
+    "value": "var(--colors-wheat-9)",
+    "variable": "var(--colors-app-accent-alt)"
+  },
+  "colors.app.accentAlt.soft": {
+    "value": "var(--colors-wheat-2)",
+    "variable": "var(--colors-app-accent-alt-soft)"
+  },
+  "colors.app.accentAlt.muted": {
+    "value": "var(--colors-wheat-4)",
+    "variable": "var(--colors-app-accent-alt-muted)"
+  },
+  "colors.app.accentAlt.border": {
+    "value": "var(--colors-wheat-6)",
+    "variable": "var(--colors-app-accent-alt-border)"
+  },
+  "colors.app.accentAlt.text": {
+    "value": "var(--colors-wheat-11)",
+    "variable": "var(--colors-app-accent-alt-text)"
+  },
   "spacing.-1": {
     "value": "calc(var(--spacing-1) * -1)",
     "variable": "var(--spacing-1)"
@@ -2703,9 +2723,29 @@ const tokens = {
     "value": "var(--colors-color-palette-accent-muted)",
     "variable": "var(--colors-color-palette-accent-muted)"
   },
+  "colors.colorPalette.accentAlt": {
+    "value": "var(--colors-color-palette-accent-alt)",
+    "variable": "var(--colors-color-palette-accent-alt)"
+  },
+  "colors.colorPalette.accentAlt.soft": {
+    "value": "var(--colors-color-palette-accent-alt-soft)",
+    "variable": "var(--colors-color-palette-accent-alt-soft)"
+  },
+  "colors.colorPalette.accentAlt.muted": {
+    "value": "var(--colors-color-palette-accent-alt-muted)",
+    "variable": "var(--colors-color-palette-accent-alt-muted)"
+  },
+  "colors.colorPalette.accentAlt.border": {
+    "value": "var(--colors-color-palette-accent-alt-border)",
+    "variable": "var(--colors-color-palette-accent-alt-border)"
+  },
   "colors.colorPalette.border": {
     "value": "var(--colors-color-palette-border)",
     "variable": "var(--colors-color-palette-border)"
+  },
+  "colors.colorPalette.accentAlt.text": {
+    "value": "var(--colors-color-palette-accent-alt-text)",
+    "variable": "var(--colors-color-palette-accent-alt-text)"
   },
   "colors.colorPalette.border.strong": {
     "value": "var(--colors-color-palette-border-strong)",

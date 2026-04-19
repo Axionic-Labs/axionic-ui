@@ -118,7 +118,7 @@ All Park UI components, built on Ark UI headless primitives with Panda CSS styli
 
 Accordion, Alert, Avatar, Badge, Breadcrumb, Button, Card, Carousel, Checkbox, Clipboard, Code, Collapsible, ColorPicker, Combobox, DatePicker, Dialog, Drawer, Editable, Field, Fieldset, FileUpload, Heading, HoverCard, Icon, Input, InputGroup, Kbd, Link, Menu, NumberInput, Pagination, PinInput, Popover, Progress, RadioCardGroup, RadioGroup, RatingGroup, ScrollArea, SegmentGroup, Select, Skeleton, Slider, Spinner, Splitter, Switch, Table, Tabs, TagsInput, Text, Textarea, Toast, ToggleGroup, Tooltip.
 
-**Custom Button variants** (in addition to Park UI defaults): `wheat`, `dark`, `oauth`, `outline-brand`, `ghost-dark`.
+**Custom Button variants** (in addition to Park UI defaults): `wheat`, `dark`, `oauth`, `outline-brand`, `light`, `ghost-dark`, `brand`, `danger`.
 
 **Custom Card variants**: `hover` (shadow on hover), `dashed` (dashed border for upload zones).
 
@@ -175,6 +175,8 @@ Park UI provides semantic tokens that reference the gray/accent scales:
 | `border.default` | Default border (gray.7) |
 | `border.muted` | Subtle border (gray.6) |
 | `colorPalette.*` | Current accent color (teal by default) |
+
+Axionic also exposes app-level semantic tokens for product surfaces and accents, including `app.surface`, `app.surface.muted`, `app.accent`, and the wheat-backed `app.accentAlt.*` set used for neutral button hover emphasis.
 
 ### Typography
 

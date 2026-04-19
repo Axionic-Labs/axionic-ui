@@ -1,5 +1,20 @@
 import { defineRecipe } from '@pandacss/dev';
 
+const accentHoverStyles = {
+	bg: 'app.accentAlt.soft',
+	borderColor: 'app.accentAlt.border',
+	color: 'app.accentAlt.text',
+	transform: 'translateY(-1px)',
+	boxShadow: '{shadows.whisper}',
+};
+
+const accentActiveStyles = {
+	bg: 'app.accentAlt.muted',
+	borderColor: 'app.accentAlt.border',
+	color: 'app.accentAlt.text',
+	transform: 'translateY(0)',
+};
+
 export const button = defineRecipe({
 	className: 'button',
 	jsx: ['Button', 'IconButton', 'CloseButton', 'ButtonGroup'],
@@ -44,20 +59,12 @@ export const button = defineRecipe({
 				},
 			},
 			surface: {
-				bg: 'app.canvas.subtle',
+				bg: 'app.surface',
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				color: 'app.text',
-				_hover: {
-					bg: 'app.surface',
-					borderColor: 'app.border.strong',
-					transform: 'translateY(-1px)',
-					boxShadow: '{shadows.whisper}',
-				},
-				_active: {
-					bg: 'app.surface.muted',
-					transform: 'translateY(0)',
-				},
+				_hover: accentHoverStyles,
+				_active: accentActiveStyles,
 				_on: {
 					bg: 'app.surface',
 					borderColor: 'app.border.strong',
@@ -69,33 +76,20 @@ export const button = defineRecipe({
 				borderWidth: '1px',
 				borderColor: 'transparent',
 				_hover: {
-					bg: 'app.surface',
-					borderColor: 'app.border',
+					...accentHoverStyles,
+					boxShadow: 'none',
 				},
-				_active: {
-					bg: 'app.surface.muted',
-				},
-				_on: {
-					bg: 'app.surface.muted',
-				},
+				_active: accentActiveStyles,
+				_on: accentActiveStyles,
 			},
 			outline: {
 				borderWidth: '1px',
 				borderColor: 'app.border',
 				bg: 'app.surface',
 				color: 'app.text',
-				_hover: {
-					bg: 'app.surface.muted',
-					borderColor: 'app.border.strong',
-					transform: 'translateY(-1px)',
-				},
-				_active: {
-					bg: 'app.surface.muted',
-					transform: 'translateY(0)',
-				},
-				_on: {
-					bg: 'app.surface.muted',
-				},
+				_hover: accentHoverStyles,
+				_active: accentActiveStyles,
+				_on: accentActiveStyles,
 			},
 			plain: {
 				color: 'app.text',
@@ -114,13 +108,8 @@ export const button = defineRecipe({
 				color: 'app.text',
 				borderWidth: '1px',
 				borderColor: 'transparent',
-				_hover: {
-					bg: 'app.surface',
-					borderColor: 'app.border',
-				},
-				_active: {
-					bg: 'app.surface.muted',
-				},
+				_hover: accentHoverStyles,
+				_active: accentActiveStyles,
 			},
 			toolbar: {
 				bg: 'transparent',
@@ -128,12 +117,16 @@ export const button = defineRecipe({
 				borderWidth: '1px',
 				borderColor: 'transparent',
 				_hover: {
-					bg: 'app.canvas.subtle',
-					color: 'app.text',
+					...accentHoverStyles,
+					boxShadow: 'none',
 				},
 				_active: {
-					bg: 'app.surface',
-					color: 'app.text',
+					...accentActiveStyles,
+					boxShadow: 'none',
+				},
+				_on: {
+					...accentActiveStyles,
+					boxShadow: 'none',
 				},
 			},
 			wheat: {

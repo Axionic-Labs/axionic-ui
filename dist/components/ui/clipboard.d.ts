@@ -10,16 +10,13 @@ export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<i
 export { ClipboardContext as Context } from '@ark-ui/react/clipboard';
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    onChange?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
-    onSubmit?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
-    className?: string | undefined | undefined;
-    ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     hidden?: boolean | undefined | undefined;
-    title?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
+    title?: string | undefined | undefined;
+    className?: string | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
+    slot?: string | undefined | undefined;
+    ref?: import("react").Ref<HTMLDivElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -40,7 +37,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
@@ -122,6 +118,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -141,6 +138,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onFocusCapture?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
     onBlur?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
     onBlurCapture?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
+    onChange?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
     onChangeCapture?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
     onBeforeInput?: import("react").InputEventHandler<HTMLDivElement> | undefined;
     onBeforeInputCapture?: import("react").InputEventHandler<HTMLDivElement> | undefined;
@@ -148,6 +146,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onInputCapture?: import("react").InputEventHandler<HTMLDivElement> | undefined;
     onReset?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onResetCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
+    onSubmit?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
     onSubmitCapture?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
     onInvalid?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onInvalidCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
@@ -207,6 +206,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onWaitingCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
@@ -299,16 +299,13 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
 } & import("../../../styled-system/types").SystemStyleObject & import("../../../styled-system/types").WithCss, "ref"> & import("react").RefAttributes<HTMLDivElement>>;
 export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    onChange?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
-    onSubmit?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
-    className?: string | undefined | undefined;
-    ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     hidden?: boolean | undefined | undefined;
-    title?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
+    title?: string | undefined | undefined;
+    className?: string | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
+    slot?: string | undefined | undefined;
+    ref?: import("react").Ref<HTMLDivElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -329,7 +326,6 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
@@ -411,6 +407,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -430,6 +427,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onFocusCapture?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
     onBlur?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
     onBlurCapture?: import("react").FocusEventHandler<HTMLDivElement> | undefined;
+    onChange?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
     onChangeCapture?: import("react").ChangeEventHandler<HTMLDivElement, Element> | undefined;
     onBeforeInput?: import("react").InputEventHandler<HTMLDivElement> | undefined;
     onBeforeInputCapture?: import("react").InputEventHandler<HTMLDivElement> | undefined;
@@ -437,6 +435,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onInputCapture?: import("react").InputEventHandler<HTMLDivElement> | undefined;
     onReset?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onResetCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
+    onSubmit?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
     onSubmitCapture?: import("react").SubmitEventHandler<HTMLDivElement> | undefined;
     onInvalid?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onInvalidCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
@@ -496,6 +495,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onWaitingCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;

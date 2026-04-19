@@ -6,16 +6,13 @@ export declare const Description: import("styled-system/jsx").StyleContextConsum
 export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    onChange?: import("react").ChangeEventHandler<HTMLSpanElement, Element> | undefined;
-    onSubmit?: import("react").SubmitEventHandler<HTMLSpanElement> | undefined;
-    className?: string | undefined | undefined;
-    ref?: import("react").Ref<HTMLSpanElement> | undefined;
-    children?: import("react").ReactNode;
-    onClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     hidden?: boolean | undefined | undefined;
-    title?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
+    title?: string | undefined | undefined;
+    className?: string | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
+    slot?: string | undefined | undefined;
+    ref?: import("react").Ref<HTMLSpanElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -36,7 +33,6 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
@@ -118,6 +114,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -137,6 +134,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onFocusCapture?: import("react").FocusEventHandler<HTMLSpanElement> | undefined;
     onBlur?: import("react").FocusEventHandler<HTMLSpanElement> | undefined;
     onBlurCapture?: import("react").FocusEventHandler<HTMLSpanElement> | undefined;
+    onChange?: import("react").ChangeEventHandler<HTMLSpanElement, Element> | undefined;
     onChangeCapture?: import("react").ChangeEventHandler<HTMLSpanElement, Element> | undefined;
     onBeforeInput?: import("react").InputEventHandler<HTMLSpanElement> | undefined;
     onBeforeInputCapture?: import("react").InputEventHandler<HTMLSpanElement> | undefined;
@@ -144,6 +142,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onInputCapture?: import("react").InputEventHandler<HTMLSpanElement> | undefined;
     onReset?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onResetCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
+    onSubmit?: import("react").SubmitEventHandler<HTMLSpanElement> | undefined;
     onSubmitCapture?: import("react").SubmitEventHandler<HTMLSpanElement> | undefined;
     onInvalid?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onInvalidCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
@@ -203,6 +202,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onWaitingCapture?: import("react").ReactEventHandler<HTMLSpanElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLSpanElement> | undefined;
