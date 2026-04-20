@@ -47,6 +47,7 @@ export { SelectionList, type SelectionListItem, type SelectionListProps } from '
 export { SelectionToolbar, type SelectionToolbarProps } from './selection-toolbar';
 export { SettingsSectionNav, type SettingsSectionNavItem, type SettingsSectionNavProps, } from './settings-section-nav';
 export { SidebarNav, type SidebarNavItem, type SidebarNavProps, type SidebarNavSection, } from './sidebar-nav';
+export { SlideOver, type SlideOverProps } from './slide-over';
 export { StatCard, type StatCardProps } from './stat-card';
 export { StatusBanner, type StatusBannerProps } from './status-banner';
 export { StepCard, type StepCardProps } from './step-card';

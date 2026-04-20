@@ -85,6 +85,7 @@ export {
 	type SidebarNavProps,
 	type SidebarNavSection,
 } from './sidebar-nav';
+export { SlideOver, type SlideOverProps } from './slide-over';
 export { StatCard, type StatCardProps } from './stat-card';
 export { StatusBanner, type StatusBannerProps } from './status-banner';
 export { StepCard, type StepCardProps } from './step-card';
