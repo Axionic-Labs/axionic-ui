@@ -39,11 +39,9 @@ const styles = {
 		minH: '18rem',
 		p: '8',
 		rounded: '3xl',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		boxShadow: 'whisper',
-		transitionProperty: 'border-color, background-color, box-shadow, transform',
+		transitionProperty: 'background-color, box-shadow, transform',
 		transitionDuration: '160ms',
 		transitionTimingFunction: 'ease',
 	}),
@@ -59,7 +57,7 @@ const styles = {
 		userSelect: 'none',
 		outline: 'none',
 		_hover: {
-			borderColor: 'app.border.strong',
+			bg: 'app.surface.muted',
 			boxShadow: 'panel',
 			transform: 'translateY(-1px)',
 		},
@@ -70,7 +68,6 @@ const styles = {
 		},
 	}),
 	selected: css({
-		borderColor: 'app.accentAlt.border',
 		boxShadow: '0 0 0 1px var(--colors-app-accent-alt-border)',
 	}),
 	header: css({
@@ -85,8 +82,6 @@ const styles = {
 		justifyContent: 'center',
 		boxSize: '3.5rem',
 		rounded: '2xl',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.canvas.subtle',
 		color: 'app.accent',
 		flexShrink: 0,
@@ -123,7 +118,6 @@ const styles = {
 		py: '1',
 		textStyle: 'caption',
 		fontWeight: '700',
-		borderWidth: '1px',
 	}),
 	statusNeutral: css({
 		borderColor: 'app.border',
@@ -158,8 +152,6 @@ const styles = {
 		display: 'grid',
 		gap: '0',
 		rounded: '2xl',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.canvas.subtle',
 		overflow: 'hidden',
 	}),
@@ -170,12 +162,10 @@ const styles = {
 		minW: 0,
 	}),
 	factTopBorder: css({
-		borderTopWidth: '1px',
-		borderTopColor: 'app.border',
+		boxShadow: 'inset 0 1px 0 rgba(25, 28, 28, 0.06)',
 	}),
 	factLeftBorder: css({
-		borderLeftWidth: '1px',
-		borderLeftColor: 'app.border',
+		boxShadow: 'inset 1px 0 0 rgba(25, 28, 28, 0.06)',
 	}),
 	factLabel: css({
 		textStyle: 'caption',
@@ -219,8 +209,6 @@ const styles = {
 		gap: '2',
 		flexWrap: 'wrap',
 		pt: '4',
-		borderTopWidth: '1px',
-		borderTopColor: 'app.border',
 	}),
 };
 

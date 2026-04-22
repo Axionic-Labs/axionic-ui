@@ -52,13 +52,10 @@ const styles = {
 		paddingX: '3.5',
 		paddingY: '3',
 		borderRadius: 'xl',
-		borderWidth: '1px',
-		borderColor: 'app.border',
-		boxShadow: '{shadows.panel}',
+		boxShadow: 'none',
 		minWidth: 0,
 	}),
 	fieldSoft: css({
-		borderWidth: '0',
 		boxShadow: 'none',
 	}),
 	default: css({

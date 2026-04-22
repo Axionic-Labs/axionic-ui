@@ -63,17 +63,9 @@ const styles = {
 	itemActive: css({
 		bg: 'app.nav.active',
 		color: 'app.text',
-		boxShadow: '0 0 0 1px rgba(45, 100, 97, 0.14)',
 		_hover: {
 			bg: 'app.nav.active',
 			color: 'app.text',
-			boxShadow: '0 0 0 1px rgba(45, 100, 97, 0.14)',
-		},
-		_dark: {
-			boxShadow: '0 0 0 1px rgba(163, 221, 226, 0.18)',
-			_hover: {
-				boxShadow: '0 0 0 1px rgba(163, 221, 226, 0.18)',
-			},
 		},
 	}),
 	label: css({
@@ -119,13 +111,10 @@ const styles = {
 		},
 	}),
 	toolbarItemActive: css({
-		bg: 'transparent',
-		borderColor: 'transparent',
+		bg: 'app.surface.muted',
+		borderRadius: 'xl',
+		paddingX: '3',
 		color: 'app.text',
-		boxShadow: 'inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)',
-		_dark: {
-			boxShadow: 'inset 0 -2px 0 0 rgba(163, 221, 226, 0.82)',
-		},
 	}),
 };
 

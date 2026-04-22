@@ -14,8 +14,9 @@ export interface ModifierCardProps {
     footer?: ReactNode;
     selected?: boolean;
     tone?: 'teal' | 'wheat';
+    density?: 'default' | 'compact';
     onClick?: () => void;
     className?: string;
 }
-export declare function ModifierCard({ icon, eyebrow, title, description, badges, facts, footer, selected, tone, onClick, className, }: ModifierCardProps): import("react/jsx-runtime").JSX.Element;
+export declare function ModifierCard({ icon, eyebrow, title, description, badges, facts, footer, selected, tone, density, onClick, className, }: ModifierCardProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=modifier-card.d.ts.map

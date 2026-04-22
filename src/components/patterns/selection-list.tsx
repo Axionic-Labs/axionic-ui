@@ -38,14 +38,11 @@ const styles = {
 		gap: '3',
 		padding: '4',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface.muted',
 		textAlign: 'left',
 		cursor: 'pointer',
 		transition: 'all 160ms ease',
 		_hover: {
-			borderColor: 'app.border.strong',
 			bg: 'app.surface',
 		},
 		_disabled: {
@@ -59,72 +56,52 @@ const styles = {
 		gap: '2.5',
 	}),
 	itemSoft: css({
-		borderWidth: '0',
+		boxShadow: 'none',
 	}),
 	itemStacked: css({
-		borderWidth: '0',
 		borderRadius: '0',
-		borderBottomWidth: '1px',
-		borderColor: 'app.border',
+		boxShadow: 'inset 0 -1px 0 rgba(25, 28, 28, 0.06)',
 		bg: 'transparent',
 		paddingX: '4',
 		paddingY: '3.5',
 		_hover: {
-			borderColor: 'app.border',
 			bg: 'app.canvas.subtle',
 		},
 		_lastOfType: {
-			borderBottomWidth: '0',
+			boxShadow: 'none',
 		},
 	}),
 	itemSelected: css({
 		bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
-		borderColor:
-			'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
-		boxShadow: 'none',
+		boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
 		_hover: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
-			borderColor:
-				'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
-			boxShadow: 'none',
+			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
 		},
 		_dark: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
-			borderColor:
-				'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
 			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.18)',
 			_hover: {
 				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
-				borderColor:
-					'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
 				boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.18)',
 			},
 		},
 	}),
 	itemSelectedSoft: css({
-		borderColor: 'transparent',
 		boxShadow: 'none',
 	}),
 	itemSelectedStacked: css({
 		bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
-		borderColor:
-			'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
-		boxShadow: 'none',
+		boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
 		_hover: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
-			borderColor:
-				'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
-			boxShadow: 'none',
+			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
 		},
 		_dark: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
-			borderColor:
-				'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
 			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.2)',
 			_hover: {
 				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
-				borderColor:
-					'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
 				boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.2)',
 			},
 		},
@@ -142,8 +119,6 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderRadius: 'xl',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		color: 'app.accent',
 		flexShrink: 0,
@@ -197,7 +172,7 @@ export function SelectionList({
 	value,
 	onValueChange,
 	density = 'default',
-	chrome = 'default',
+	chrome = 'soft',
 	layout = 'cards',
 	className,
 }: SelectionListProps) {

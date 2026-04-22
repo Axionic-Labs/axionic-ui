@@ -526,16 +526,14 @@ var breadcrumb = defineSlotRecipe4({
 // src/theme/recipes/button.ts
 import { defineRecipe as defineRecipe3 } from "@pandacss/dev";
 var accentHoverStyles = {
-  bg: "app.accentAlt.soft",
-  borderColor: "app.accentAlt.border",
-  color: "app.accentAlt.text",
+  bg: "app.nav.active",
+  color: "app.text",
   transform: "translateY(-1px)",
   boxShadow: "{shadows.whisper}"
 };
 var accentActiveStyles = {
-  bg: "app.accentAlt.muted",
-  borderColor: "app.accentAlt.border",
-  color: "app.accentAlt.text",
+  bg: "app.surface.muted",
+  color: "app.text",
   transform: "translateY(0)"
 };
 var button = defineRecipe3({
@@ -582,22 +580,20 @@ var button = defineRecipe3({
         }
       },
       surface: {
-        bg: "app.surface",
-        borderWidth: "1px",
-        borderColor: "app.border",
+        bg: "app.surface.muted",
         color: "app.text",
+        boxShadow: "none",
         _hover: accentHoverStyles,
         _active: accentActiveStyles,
         _on: {
-          bg: "app.surface",
-          borderColor: "app.border.strong"
+          bg: "app.nav.active",
+          color: "app.text"
         }
       },
       subtle: {
         bg: "app.canvas.subtle",
         color: "app.text",
-        borderWidth: "1px",
-        borderColor: "transparent",
+        boxShadow: "none",
         _hover: {
           ...accentHoverStyles,
           boxShadow: "none"
@@ -606,10 +602,9 @@ var button = defineRecipe3({
         _on: accentActiveStyles
       },
       outline: {
-        borderWidth: "1px",
-        borderColor: "app.border",
-        bg: "app.surface",
+        bg: "app.surface.muted",
         color: "app.text",
+        boxShadow: "{shadows.whisper}",
         _hover: accentHoverStyles,
         _active: accentActiveStyles,
         _on: accentActiveStyles
@@ -629,16 +624,14 @@ var button = defineRecipe3({
       quiet: {
         bg: "app.surface.muted",
         color: "app.text",
-        borderWidth: "1px",
-        borderColor: "transparent",
+        boxShadow: "none",
         _hover: accentHoverStyles,
         _active: accentActiveStyles
       },
       toolbar: {
-        bg: "transparent",
-        color: "app.text.muted",
-        borderWidth: "1px",
-        borderColor: "transparent",
+        bg: "app.surface.muted",
+        color: "app.text",
+        boxShadow: "none",
         _hover: {
           ...accentHoverStyles,
           boxShadow: "none"
@@ -673,8 +666,6 @@ var button = defineRecipe3({
       oauth: {
         bg: "app.surface",
         color: "app.text",
-        borderWidth: "1px",
-        borderColor: "app.border",
         fontWeight: "600",
         boxShadow: "{shadows.whisper}",
         _hover: {
@@ -684,10 +675,10 @@ var button = defineRecipe3({
         }
       },
       "outline-brand": {
-        borderWidth: "1px",
-        borderColor: "colorPalette.7",
-        color: "app.text",
-        _hover: { bg: "app.accent.soft" }
+        bg: "app.accent.soft",
+        color: "app.accentAlt.text",
+        boxShadow: "none",
+        _hover: { bg: "app.accentAlt.soft" }
       },
       light: {
         bg: "transparent",
@@ -703,16 +694,16 @@ var button = defineRecipe3({
         _hover: { bg: "colorPalette.a3" }
       },
       brand: {
-        background: "{colors.teal.light.11}",
+        background: "app.accent",
         color: "white",
         boxShadow: "{shadows.whisper}",
         _hover: {
-          background: "{colors.teal.light.10}",
+          background: "app.accentAlt.text",
           transform: "translateY(-1px)",
           boxShadow: "{shadows.float}"
         },
         _active: {
-          background: "{colors.teal.light.11}",
+          background: "app.accent",
           transform: "translateY(0)"
         }
       },
@@ -6057,5 +6048,5 @@ export {
   axionicSand
 };
 
-//# debugId=127A4E989DF7643D64756E2164756E21
+//# debugId=47BE46A1D685FB6B64756E2164756E21
 //# sourceMappingURL=index.js.map

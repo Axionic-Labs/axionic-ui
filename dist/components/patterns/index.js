@@ -794,9 +794,7 @@ var styles6 = {
   panel: css7({
     padding: { base: "4", md: "4.5" },
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    bg: "app.surface"
+    bg: "app.surface.muted"
   }),
   inline: css7({
     padding: "0",
@@ -3682,8 +3680,6 @@ var styles22 = {
     gap: "4",
     padding: "4",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface.muted"
   }),
   accent: css28({
@@ -4025,11 +4021,9 @@ var styles26 = {
     minH: "18rem",
     p: "8",
     rounded: "3xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface",
     boxShadow: "whisper",
-    transitionProperty: "border-color, background-color, box-shadow, transform",
+    transitionProperty: "background-color, box-shadow, transform",
     transitionDuration: "160ms",
     transitionTimingFunction: "ease"
   }),
@@ -4045,7 +4039,7 @@ var styles26 = {
     userSelect: "none",
     outline: "none",
     _hover: {
-      borderColor: "app.border.strong",
+      bg: "app.surface.muted",
       boxShadow: "panel",
       transform: "translateY(-1px)"
     },
@@ -4056,7 +4050,6 @@ var styles26 = {
     }
   }),
   selected: css33({
-    borderColor: "app.accentAlt.border",
     boxShadow: "0 0 0 1px var(--colors-app-accent-alt-border)"
   }),
   header: css33({
@@ -4071,8 +4064,6 @@ var styles26 = {
     justifyContent: "center",
     boxSize: "3.5rem",
     rounded: "2xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.canvas.subtle",
     color: "app.accent",
     flexShrink: 0
@@ -4108,8 +4099,7 @@ var styles26 = {
     px: "2.5",
     py: "1",
     textStyle: "caption",
-    fontWeight: "700",
-    borderWidth: "1px"
+    fontWeight: "700"
   }),
   statusNeutral: css33({
     borderColor: "app.border",
@@ -4144,8 +4134,6 @@ var styles26 = {
     display: "grid",
     gap: "0",
     rounded: "2xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.canvas.subtle",
     overflow: "hidden"
   }),
@@ -4156,12 +4144,10 @@ var styles26 = {
     minW: 0
   }),
   factTopBorder: css33({
-    borderTopWidth: "1px",
-    borderTopColor: "app.border"
+    boxShadow: "inset 0 1px 0 rgba(25, 28, 28, 0.06)"
   }),
   factLeftBorder: css33({
-    borderLeftWidth: "1px",
-    borderLeftColor: "app.border"
+    boxShadow: "inset 1px 0 0 rgba(25, 28, 28, 0.06)"
   }),
   factLabel: css33({
     textStyle: "caption",
@@ -4204,9 +4190,7 @@ var styles26 = {
     alignItems: "center",
     gap: "2",
     flexWrap: "wrap",
-    pt: "4",
-    borderTopWidth: "1px",
-    borderTopColor: "app.border"
+    pt: "4"
   })
 };
 function handleKeyDown2(event, onClick) {
@@ -4493,13 +4477,12 @@ var styles27 = {
   root: css35({
     position: "relative",
     overflow: "hidden",
-    borderWidth: "1px",
-    borderStyle: "dashed",
-    borderColor: "rgba(45, 100, 97, 0.24)",
+    borderWidth: "0",
+    borderColor: "transparent",
     borderRadius: "2xl",
     bg: "color-mix(in srgb, var(--colors-app-surface) 72%, rgba(45, 100, 97, 0.06) 28%)",
     boxShadow: "{shadows.whisper}",
-    transitionProperty: "transform, box-shadow, border-color, background-color",
+    transitionProperty: "transform, box-shadow, background-color",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _before: {
@@ -4512,7 +4495,6 @@ var styles27 = {
       background: "linear-gradient(180deg, rgba(62, 131, 138, 0.12) 0%, rgba(62, 131, 138, 0.02) 100%)"
     },
     _dark: {
-      borderColor: "rgba(163, 221, 226, 0.24)",
       bg: "color-mix(in srgb, var(--colors-app-surface) 82%, rgba(163, 221, 226, 0.08) 18%)",
       _before: {
         background: "linear-gradient(180deg, rgba(163, 221, 226, 0.14) 0%, rgba(163, 221, 226, 0.03) 100%)"
@@ -4520,13 +4502,11 @@ var styles27 = {
     }
   }),
   rootWheat: css35({
-    borderColor: "rgba(164, 121, 60, 0.24)",
     bg: "color-mix(in srgb, var(--colors-app-surface) 72%, rgba(176, 134, 72, 0.06) 28%)",
     _before: {
       background: "linear-gradient(180deg, rgba(176, 134, 72, 0.12) 0%, rgba(176, 134, 72, 0.02) 100%)"
     },
     _dark: {
-      borderColor: "rgba(223, 190, 127, 0.24)",
       bg: "color-mix(in srgb, var(--colors-app-surface) 82%, rgba(223, 190, 127, 0.08) 18%)",
       _before: {
         background: "linear-gradient(180deg, rgba(223, 190, 127, 0.14) 0%, rgba(223, 190, 127, 0.03) 100%)"
@@ -4534,11 +4514,8 @@ var styles27 = {
     }
   }),
   selected: css35({
-    borderStyle: "solid",
-    borderColor: "app.accent",
     boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
     _hover: {
-      borderColor: "app.accent",
       boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
     }
   }),
@@ -4548,7 +4525,6 @@ var styles27 = {
     outline: "none",
     _hover: {
       transform: "translateY(-1px)",
-      borderColor: "app.border.strong",
       boxShadow: "{shadows.panel}",
       bg: "app.surface.muted"
     }
@@ -4575,23 +4551,18 @@ var styles27 = {
     justifyContent: "center",
     boxSize: "11",
     borderRadius: "2xl",
-    borderWidth: "1px",
-    borderColor: "rgba(45, 100, 97, 0.14)",
     bg: "rgba(45, 100, 97, 0.08)",
     color: "app.accent",
-    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45)",
+    boxShadow: "none",
     _dark: {
-      borderColor: "rgba(163, 221, 226, 0.22)",
       bg: "rgba(163, 221, 226, 0.12)",
       boxShadow: "none"
     }
   }),
   iconWrapWheat: css35({
-    borderColor: "rgba(164, 121, 60, 0.18)",
     bg: "rgba(164, 121, 60, 0.1)",
     color: "app.text",
     _dark: {
-      borderColor: "rgba(223, 190, 127, 0.22)",
       bg: "rgba(223, 190, 127, 0.12)"
     }
   }),
@@ -4620,12 +4591,7 @@ var styles27 = {
     gap: "2.5",
     marginTop: "auto",
     paddingTop: "3",
-    borderTopWidth: "1px",
-    borderColor: "rgba(45, 100, 97, 0.14)",
-    color: "app.accentAlt.text",
-    _dark: {
-      borderColor: "rgba(163, 221, 226, 0.18)"
-    }
+    color: "app.accentAlt.text"
   }),
   actionLabel: css35({
     textStyle: "caption",
@@ -4714,12 +4680,12 @@ var styles28 = {
   root: css36({
     position: "relative",
     overflow: "hidden",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     borderRadius: "2xl",
     bg: "app.surface",
     boxShadow: "{shadows.whisper}",
-    transitionProperty: "transform, box-shadow, border-color, background-color",
+    transitionProperty: "transform, box-shadow, background-color",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _before: {
@@ -4732,7 +4698,6 @@ var styles28 = {
       background: "linear-gradient(135deg, rgba(62, 131, 138, 0.18) 0%, rgba(62, 131, 138, 0.06) 48%, transparent 84%)"
     },
     _dark: {
-      borderColor: "app.border.strong",
       _before: {
         background: "linear-gradient(135deg, rgba(163, 221, 226, 0.2) 0%, rgba(163, 221, 226, 0.08) 48%, transparent 84%)"
       }
@@ -4754,7 +4719,6 @@ var styles28 = {
     outline: "none",
     _hover: {
       transform: "translateY(-1px)",
-      borderColor: "app.border.strong",
       boxShadow: "{shadows.panel}",
       bg: "app.surface.muted"
     }
@@ -4766,10 +4730,8 @@ var styles28 = {
     }
   }),
   selected: css36({
-    borderColor: "app.accent",
     boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
     _hover: {
-      borderColor: "app.accent",
       boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
     }
   }),
@@ -4778,10 +4740,16 @@ var styles28 = {
     zIndex: "1",
     display: "flex",
     flexDirection: "column",
-    gap: "4",
+    gap: "3",
     paddingX: "4.5",
     paddingY: "4.5",
-    minHeight: "13.5rem"
+    minHeight: "8rem"
+  }),
+  bodyCompact: css36({
+    gap: "1.5",
+    paddingX: "3",
+    paddingY: "2.5",
+    minHeight: "5.75rem"
   }),
   header: css36({
     display: "grid",
@@ -4789,29 +4757,27 @@ var styles28 = {
     gap: "3.5",
     alignItems: "start"
   }),
+  headerCompact: css36({
+    gap: "3"
+  }),
   iconWrap: css36({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     boxSize: "11",
     borderRadius: "2xl",
-    borderWidth: "1px",
-    borderColor: "rgba(45, 100, 97, 0.14)",
     bg: "rgba(45, 100, 97, 0.08)",
     color: "app.accent",
-    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45)",
+    boxShadow: "none",
     _dark: {
-      borderColor: "rgba(163, 221, 226, 0.22)",
       bg: "rgba(163, 221, 226, 0.12)",
       boxShadow: "none"
     }
   }),
   iconWrapWheat: css36({
-    borderColor: "rgba(164, 121, 60, 0.18)",
     bg: "rgba(164, 121, 60, 0.1)",
     color: "app.text",
     _dark: {
-      borderColor: "rgba(223, 190, 127, 0.22)",
       bg: "rgba(223, 190, 127, 0.12)"
     }
   }),
@@ -4833,16 +4799,26 @@ var styles28 = {
     color: "app.text",
     lineHeight: "1.35"
   }),
+  titleCompact: css36({
+    lineClamp: "2"
+  }),
   description: css36({
     textStyle: "caption",
     color: "app.text.muted",
     lineHeight: "1.55"
+  }),
+  descriptionCompact: css36({
+    lineHeight: "1.45",
+    lineClamp: "2"
   }),
   badges: css36({
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
     gap: "1.5"
+  }),
+  badgesCompact: css36({
+    gap: "1"
   }),
   facts: css36({
     display: "grid",
@@ -4855,11 +4831,8 @@ var styles28 = {
     paddingX: "3",
     paddingY: "2.5",
     borderRadius: "xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "color-mix(in srgb, var(--colors-app-canvas-subtle) 82%, var(--colors-app-surface) 18%)",
     _dark: {
-      borderColor: "app.border.strong",
       bg: "color-mix(in srgb, var(--colors-app-surface-muted) 76%, var(--colors-app-surface) 24%)"
     }
   }),
@@ -4882,12 +4855,7 @@ var styles28 = {
   footer: css36({
     marginTop: "auto",
     paddingTop: "3",
-    borderTopWidth: "1px",
-    borderColor: "app.border",
-    color: "app.text.muted",
-    _dark: {
-      borderColor: "app.border.strong"
-    }
+    color: "app.text.muted"
   })
 };
 function handleKeyDown4(event, onClick) {
@@ -4908,14 +4876,16 @@ function ModifierCard({
   footer,
   selected,
   tone = "teal",
+  density = "default",
   onClick,
   className
 }) {
   const interactive = Boolean(onClick);
+  const compact = density === "compact";
   return /* @__PURE__ */ jsx44(Root, {
     className: cx36(styles28.root, tone === "wheat" && styles28.rootWheat, interactive && styles28.interactive, selected && styles28.selected, className),
     children: /* @__PURE__ */ jsxs33(Body, {
-      className: cx36(styles28.body, interactive && styles28.focusable),
+      className: cx36(styles28.body, compact && styles28.bodyCompact, interactive && styles28.focusable),
       onClick,
       onKeyDown: (event) => handleKeyDown4(event, onClick),
       role: interactive ? "button" : undefined,
@@ -4923,7 +4893,7 @@ function ModifierCard({
       "aria-pressed": interactive && selected !== undefined ? selected : undefined,
       children: [
         /* @__PURE__ */ jsxs33("div", {
-          className: styles28.header,
+          className: cx36(styles28.header, compact && styles28.headerCompact),
           children: [
             icon ? /* @__PURE__ */ jsx44("div", {
               className: cx36(styles28.iconWrap, tone === "wheat" && styles28.iconWrapWheat),
@@ -4937,11 +4907,11 @@ function ModifierCard({
                   children: eyebrow
                 }) : null,
                 /* @__PURE__ */ jsx44("div", {
-                  className: styles28.title,
+                  className: cx36(styles28.title, compact && styles28.titleCompact),
                   children: title
                 }),
                 description ? /* @__PURE__ */ jsx44("div", {
-                  className: styles28.description,
+                  className: cx36(styles28.description, compact && styles28.descriptionCompact),
                   children: description
                 }) : null
               ]
@@ -4949,7 +4919,7 @@ function ModifierCard({
           ]
         }),
         badges ? /* @__PURE__ */ jsx44("div", {
-          className: styles28.badges,
+          className: cx36(styles28.badges, compact && styles28.badgesCompact),
           children: badges
         }) : null,
         facts?.length ? /* @__PURE__ */ jsx44("div", {
@@ -4984,12 +4954,12 @@ var styles29 = {
   root: css37({
     position: "relative",
     overflow: "hidden",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     borderRadius: "2xl",
     bg: "app.surface",
     boxShadow: "{shadows.float}",
-    transitionProperty: "transform, box-shadow, border-color, background-color",
+    transitionProperty: "transform, box-shadow, background-color",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _before: {
@@ -5000,7 +4970,6 @@ var styles29 = {
       background: "radial-gradient(circle at top right, rgba(62, 131, 138, 0.16), transparent 42%), linear-gradient(145deg, rgba(62, 131, 138, 0.14) 0%, rgba(62, 131, 138, 0.05) 45%, transparent 78%)"
     },
     _dark: {
-      borderColor: "app.border.strong",
       _before: {
         background: "radial-gradient(circle at top right, rgba(163, 221, 226, 0.18), transparent 44%), linear-gradient(145deg, rgba(163, 221, 226, 0.16) 0%, rgba(163, 221, 226, 0.06) 45%, transparent 78%)"
       }
@@ -5022,7 +4991,6 @@ var styles29 = {
     outline: "none",
     _hover: {
       transform: "translateY(-1px)",
-      borderColor: "app.border.strong",
       boxShadow: "{shadows.panel}",
       bg: "app.surface.muted"
     }
@@ -5034,10 +5002,8 @@ var styles29 = {
     }
   }),
   selected: css37({
-    borderColor: "app.accent",
     boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
     _hover: {
-      borderColor: "app.accent",
       boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
     }
   }),
@@ -5076,23 +5042,18 @@ var styles29 = {
     justifyContent: "center",
     boxSize: "11",
     borderRadius: "2xl",
-    borderWidth: "1px",
-    borderColor: "rgba(45, 100, 97, 0.14)",
     bg: "rgba(45, 100, 97, 0.1)",
     color: "app.accent",
-    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45)",
+    boxShadow: "none",
     _dark: {
-      borderColor: "rgba(163, 221, 226, 0.22)",
       bg: "rgba(163, 221, 226, 0.12)",
       boxShadow: "none"
     }
   }),
   iconWrapWheat: css37({
-    borderColor: "rgba(164, 121, 60, 0.18)",
     bg: "rgba(164, 121, 60, 0.1)",
     color: "app.text",
     _dark: {
-      borderColor: "rgba(223, 190, 127, 0.22)",
       bg: "rgba(223, 190, 127, 0.12)"
     }
   }),
@@ -5127,22 +5088,17 @@ var styles29 = {
     paddingX: "4",
     paddingY: "3.5",
     borderRadius: "2xl",
-    borderWidth: "1px",
-    borderColor: "rgba(45, 100, 97, 0.14)",
     bg: "color-mix(in srgb, var(--colors-app-surface) 64%, rgba(45, 100, 97, 0.09) 36%)",
-    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.48)",
+    boxShadow: "none",
     minW: { base: "auto", md: "13rem" },
     _dark: {
-      borderColor: "rgba(163, 221, 226, 0.2)",
       bg: "color-mix(in srgb, var(--colors-app-surface) 78%, rgba(163, 221, 226, 0.12) 22%)",
       boxShadow: "none"
     }
   }),
   highlightWheat: css37({
-    borderColor: "rgba(164, 121, 60, 0.18)",
     bg: "color-mix(in srgb, var(--colors-app-surface) 64%, rgba(176, 134, 72, 0.1) 36%)",
     _dark: {
-      borderColor: "rgba(223, 190, 127, 0.22)",
       bg: "color-mix(in srgb, var(--colors-app-surface) 78%, rgba(223, 190, 127, 0.12) 22%)"
     }
   }),
@@ -5178,11 +5134,8 @@ var styles29 = {
     paddingX: "3.5",
     paddingY: "3",
     borderRadius: "xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "color-mix(in srgb, var(--colors-app-canvas-subtle) 82%, var(--colors-app-surface) 18%)",
     _dark: {
-      borderColor: "app.border.strong",
       bg: "color-mix(in srgb, var(--colors-app-surface-muted) 76%, var(--colors-app-surface) 24%)"
     }
   }),
@@ -5205,12 +5158,7 @@ var styles29 = {
   footer: css37({
     marginTop: "auto",
     paddingTop: "3",
-    borderTopWidth: "1px",
-    borderColor: "app.border",
-    color: "app.text.muted",
-    _dark: {
-      borderColor: "app.border.strong"
-    }
+    color: "app.text.muted"
   })
 };
 function handleKeyDown5(event, onClick) {
@@ -6463,14 +6411,11 @@ var styles36 = {
     gap: "3",
     padding: "4",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface.muted",
     textAlign: "left",
     cursor: "pointer",
     transition: "all 160ms ease",
     _hover: {
-      borderColor: "app.border.strong",
       bg: "app.surface"
     },
     _disabled: {
@@ -6484,64 +6429,52 @@ var styles36 = {
     gap: "2.5"
   }),
   itemSoft: css45({
-    borderWidth: "0"
+    boxShadow: "none"
   }),
   itemStacked: css45({
-    borderWidth: "0",
     borderRadius: "0",
-    borderBottomWidth: "1px",
-    borderColor: "app.border",
+    boxShadow: "inset 0 -1px 0 rgba(25, 28, 28, 0.06)",
     bg: "transparent",
     paddingX: "4",
     paddingY: "3.5",
     _hover: {
-      borderColor: "app.border",
       bg: "app.canvas.subtle"
     },
     _lastOfType: {
-      borderBottomWidth: "0"
+      boxShadow: "none"
     }
   }),
   itemSelected: css45({
     bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)",
-    borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)",
-    boxShadow: "none",
+    boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)",
     _hover: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)",
-      borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)",
-      boxShadow: "none"
+      boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)"
     },
     _dark: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)",
-      borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)",
       boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.18)",
       _hover: {
         bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)",
-        borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)",
         boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.18)"
       }
     }
   }),
   itemSelectedSoft: css45({
-    borderColor: "transparent",
     boxShadow: "none"
   }),
   itemSelectedStacked: css45({
     bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)",
-    borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)",
-    boxShadow: "none",
+    boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)",
     _hover: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)",
-      borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)",
-      boxShadow: "none"
+      boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)"
     },
     _dark: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)",
-      borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)",
       boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.2)",
       _hover: {
         bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)",
-        borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)",
         boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.2)"
       }
     }
@@ -6559,8 +6492,6 @@ var styles36 = {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface",
     color: "app.accent",
     flexShrink: 0
@@ -6613,7 +6544,7 @@ function SelectionList({
   value,
   onValueChange,
   density = "default",
-  chrome = "default",
+  chrome = "soft",
   layout = "cards",
   className
 }) {
@@ -6888,17 +6819,9 @@ var styles38 = {
   itemActive: css47({
     bg: "app.nav.active",
     color: "app.text",
-    boxShadow: "0 0 0 1px rgba(45, 100, 97, 0.14)",
     _hover: {
       bg: "app.nav.active",
-      color: "app.text",
-      boxShadow: "0 0 0 1px rgba(45, 100, 97, 0.14)"
-    },
-    _dark: {
-      boxShadow: "0 0 0 1px rgba(163, 221, 226, 0.18)",
-      _hover: {
-        boxShadow: "0 0 0 1px rgba(163, 221, 226, 0.18)"
-      }
+      color: "app.text"
     }
   }),
   label: css47({
@@ -6944,13 +6867,10 @@ var styles38 = {
     }
   }),
   toolbarItemActive: css47({
-    bg: "transparent",
-    borderColor: "transparent",
-    color: "app.text",
-    boxShadow: "inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)",
-    _dark: {
-      boxShadow: "inset 0 -2px 0 0 rgba(163, 221, 226, 0.82)"
-    }
+    bg: "app.surface.muted",
+    borderRadius: "xl",
+    paddingX: "3",
+    color: "app.text"
   })
 };
 function SecondaryNavEntry({
@@ -7235,22 +7155,12 @@ var styles40 = {
   }),
   flat: css50({
     bg: "app.surface",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    boxShadow: "{shadows.whisper}",
-    _dark: {
-      borderColor: "app.border.strong"
-    }
+    boxShadow: "{shadows.whisper}"
   }),
   workspace: css50({
     bg: "app.surface",
-    borderWidth: "1px",
-    borderColor: "app.border",
     borderRadius: "2xl",
-    boxShadow: "{shadows.whisper}",
-    _dark: {
-      borderColor: "app.border.strong"
-    }
+    boxShadow: "{shadows.whisper}"
   }),
   header: css50({
     display: "flex",
@@ -7271,12 +7181,9 @@ var styles40 = {
     gap: "3",
     paddingX: { base: "4.5", md: "5" },
     paddingY: { base: "3.5", md: "3.75" },
-    bg: "app.surface.muted",
-    borderBottomWidth: "1px",
-    borderBottomColor: "app.border",
+    bg: "app.canvas.subtle",
     _dark: {
-      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 24%, var(--colors-app-surface-muted) 76%)",
-      borderBottomColor: "app.border.strong"
+      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 24%, var(--colors-app-surface-muted) 76%)"
     }
   }),
   copy: css50({
@@ -7380,12 +7287,7 @@ var styles40 = {
   footerWorkspace: css50({
     paddingX: { base: "4.5", md: "5" },
     paddingY: { base: "3.75", md: "4" },
-    bg: "app.surface",
-    borderTopWidth: "1px",
-    borderTopColor: "app.border",
-    _dark: {
-      borderTopColor: "app.border.strong"
-    }
+    bg: "app.canvas.subtle"
   })
 };
 function SectionPanel({
@@ -7730,6 +7632,9 @@ var styles43 = {
     gap: "5.5",
     flex: "1"
   }),
+  sectionsShell: css53({
+    gap: "4"
+  }),
   section: css53({
     display: "flex",
     flexDirection: "column",
@@ -7747,6 +7652,9 @@ var styles43 = {
     gap: "3.5",
     padding: "0",
     margin: "0"
+  }),
+  listShell: css53({
+    gap: "2.5"
   }),
   item: css53({
     appearance: "none",
@@ -7768,7 +7676,6 @@ var styles43 = {
     _hover: {
       bg: "app.nav.active",
       color: "app.text",
-      boxShadow: "{shadows.whisper}",
       "& [data-sidebar-icon]": {
         transform: "translateX(6px)",
         color: "app.accent"
@@ -7784,10 +7691,14 @@ var styles43 = {
       cursor: "not-allowed"
     }
   }),
+  itemShell: css53({
+    paddingX: "4",
+    paddingY: "3.25",
+    borderRadius: "xl"
+  }),
   itemActive: css53({
     bg: "app.nav.active",
-    color: "app.text",
-    boxShadow: "{shadows.panel}"
+    color: "app.text"
   }),
   itemIcon: css53({
     display: "inline-flex",
@@ -7804,12 +7715,16 @@ var styles43 = {
     gap: "0.5"
   }),
   itemLabel: css53({
-    fontFamily: "display",
-    fontSize: "1.05rem",
-    lineHeight: "1.32",
+    fontFamily: "mono",
+    fontSize: "0.84rem",
+    lineHeight: "1.2",
     color: "currentColor",
     fontWeight: "600",
-    letterSpacing: "-0.015em"
+    letterSpacing: "0.14em",
+    textTransform: "uppercase"
+  }),
+  itemLabelShell: css53({
+    color: "color-mix(in srgb, var(--colors-app-accent) 72%, var(--colors-app-text-subtle) 28%)"
   }),
   itemDescription: css53({
     textStyle: "small",
@@ -7830,8 +7745,6 @@ var styles43 = {
     paddingX: "2",
     borderRadius: "full",
     bg: "app.surface",
-    borderWidth: "1px",
-    borderColor: "app.border",
     color: "app.text",
     textStyle: "caption"
   }),
@@ -7842,7 +7755,8 @@ var styles43 = {
 function SidebarNavEntry({
   item,
   renderItem,
-  showDescriptions
+  showDescriptions,
+  variant
 }) {
   const content = /* @__PURE__ */ jsxs53(Fragment7, {
     children: [
@@ -7855,7 +7769,7 @@ function SidebarNavEntry({
         className: styles43.itemText,
         children: [
           /* @__PURE__ */ jsx64("span", {
-            className: styles43.itemLabel,
+            className: cx52(styles43.itemLabel, variant === "shell" && styles43.itemLabelShell),
             children: item.label
           }),
           showDescriptions && item.description && /* @__PURE__ */ jsx64("span", {
@@ -7876,7 +7790,7 @@ function SidebarNavEntry({
       })
     ]
   });
-  const className = cx52(styles43.item, item.active && styles43.itemActive);
+  const className = cx52(styles43.item, variant === "shell" && styles43.itemShell, item.active && styles43.itemActive);
   const ariaCurrent = item.active ? "page" : undefined;
   if (renderItem) {
     return renderItem({ item, className, content, ariaCurrent });
@@ -7912,6 +7826,7 @@ function SidebarNav({
   footer,
   showDescriptions = true,
   showSectionTitles = true,
+  variant = "default",
   renderItem,
   className
 }) {
@@ -7924,7 +7839,7 @@ function SidebarNav({
         children: brand
       }),
       /* @__PURE__ */ jsx64("div", {
-        className: styles43.sections,
+        className: cx52(styles43.sections, variant === "shell" && styles43.sectionsShell),
         children: sections.map((section, index) => /* @__PURE__ */ jsxs53("section", {
           className: styles43.section,
           children: [
@@ -7933,12 +7848,13 @@ function SidebarNav({
               children: section.title
             }),
             /* @__PURE__ */ jsx64("ul", {
-              className: styles43.list,
+              className: cx52(styles43.list, variant === "shell" && styles43.listShell),
               children: section.items.map((item, itemIndex) => /* @__PURE__ */ jsx64("li", {
                 children: /* @__PURE__ */ jsx64(SidebarNavEntry, {
                   item,
                   renderItem,
-                  showDescriptions
+                  showDescriptions,
+                  variant
                 })
               }, item.id ?? item.href ?? `${item.label}-${itemIndex}`))
             })
@@ -9382,13 +9298,10 @@ var styles52 = {
     paddingX: "3.5",
     paddingY: "3",
     borderRadius: "xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    boxShadow: "{shadows.panel}",
+    boxShadow: "none",
     minWidth: 0
   }),
   fieldSoft: css62({
-    borderWidth: "0",
     boxShadow: "none"
   }),
   default: css62({
@@ -9717,5 +9630,5 @@ export {
   AccentLabel
 };
 
-//# debugId=6810B2617AB9712B64756E2164756E21
+//# debugId=05678A92AE2581E664756E2164756E21
 //# sourceMappingURL=index.js.map

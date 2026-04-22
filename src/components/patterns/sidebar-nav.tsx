@@ -55,6 +55,9 @@ const styles = {
 		gap: '5.5',
 		flex: '1',
 	}),
+	sectionsShell: css({
+		gap: '4',
+	}),
 	section: css({
 		display: 'flex',
 		flexDirection: 'column',
@@ -72,6 +75,9 @@ const styles = {
 		gap: '3.5',
 		padding: '0',
 		margin: '0',
+	}),
+	listShell: css({
+		gap: '2.5',
 	}),
 	item: css({
 		appearance: 'none',
@@ -93,7 +99,6 @@ const styles = {
 		_hover: {
 			bg: 'app.nav.active',
 			color: 'app.text',
-			boxShadow: '{shadows.whisper}',
 			'& [data-sidebar-icon]': {
 				transform: 'translateX(6px)',
 				color: 'app.accent',
@@ -109,10 +114,14 @@ const styles = {
 			cursor: 'not-allowed',
 		},
 	}),
+	itemShell: css({
+		paddingX: '4',
+		paddingY: '3.25',
+		borderRadius: 'xl',
+	}),
 	itemActive: css({
 		bg: 'app.nav.active',
 		color: 'app.text',
-		boxShadow: '{shadows.panel}',
 	}),
 	itemIcon: css({
 		display: 'inline-flex',
@@ -129,12 +138,16 @@ const styles = {
 		gap: '0.5',
 	}),
 	itemLabel: css({
-		fontFamily: 'display',
-		fontSize: '1.05rem',
-		lineHeight: '1.32',
+		fontFamily: 'mono',
+		fontSize: '0.84rem',
+		lineHeight: '1.2',
 		color: 'currentColor',
 		fontWeight: '600',
-		letterSpacing: '-0.015em',
+		letterSpacing: '0.14em',
+		textTransform: 'uppercase',
+	}),
+	itemLabelShell: css({
+		color: 'color-mix(in srgb, var(--colors-app-accent) 72%, var(--colors-app-text-subtle) 28%)',
 	}),
 	itemDescription: css({
 		textStyle: 'small',
@@ -155,8 +168,6 @@ const styles = {
 		paddingX: '2',
 		borderRadius: 'full',
 		bg: 'app.surface',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		color: 'app.text',
 		textStyle: 'caption',
 	}),
@@ -169,10 +180,12 @@ function SidebarNavEntry({
 	item,
 	renderItem,
 	showDescriptions,
+	variant,
 }: {
 	item: SidebarNavItem;
 	renderItem?: SidebarNavProps['renderItem'];
 	showDescriptions: boolean;
+	variant: NonNullable<SidebarNavProps['variant']>;
 }) {
 	const content = (
 		<>
@@ -182,7 +195,9 @@ function SidebarNavEntry({
 				</span>
 			)}
 			<span className={styles.itemText}>
-				<span className={styles.itemLabel}>{item.label}</span>
+				<span className={cx(styles.itemLabel, variant === 'shell' && styles.itemLabelShell)}>
+					{item.label}
+				</span>
 				{showDescriptions && item.description && (
 					<span className={styles.itemDescription}>{item.description}</span>
 				)}
@@ -194,7 +209,11 @@ function SidebarNavEntry({
 		</>
 	);
 
-	const className = cx(styles.item, item.active && styles.itemActive);
+	const className = cx(
+		styles.item,
+		variant === 'shell' && styles.itemShell,
+		item.active && styles.itemActive,
+	);
 	const ariaCurrent = item.active ? 'page' : undefined;
 
 	if (renderItem) {
@@ -240,25 +259,27 @@ export function SidebarNav({
 	footer,
 	showDescriptions = true,
 	showSectionTitles = true,
+	variant = 'default',
 	renderItem,
 	className,
 }: SidebarNavProps) {
 	return (
 		<nav className={cx(styles.root, className)} aria-label="Sidebar Navigation">
 			{brand && <div className={styles.brand}>{brand}</div>}
-			<div className={styles.sections}>
+			<div className={cx(styles.sections, variant === 'shell' && styles.sectionsShell)}>
 				{sections.map((section, index) => (
 					<section key={section.title ?? index} className={styles.section}>
 						{showSectionTitles && section.title && (
 							<p className={styles.sectionTitle}>{section.title}</p>
 						)}
-						<ul className={styles.list}>
+						<ul className={cx(styles.list, variant === 'shell' && styles.listShell)}>
 							{section.items.map((item, itemIndex) => (
 								<li key={item.id ?? item.href ?? `${item.label}-${itemIndex}`}>
 									<SidebarNavEntry
 										item={item}
 										renderItem={renderItem}
 										showDescriptions={showDescriptions}
+										variant={variant}
 									/>
 								</li>
 							))}

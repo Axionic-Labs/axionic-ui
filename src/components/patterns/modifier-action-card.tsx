@@ -21,13 +21,12 @@ const styles = {
 	root: css({
 		position: 'relative',
 		overflow: 'hidden',
-		borderWidth: '1px',
-		borderStyle: 'dashed',
-		borderColor: 'rgba(45, 100, 97, 0.24)',
+		borderWidth: '0',
+		borderColor: 'transparent',
 		borderRadius: '2xl',
 		bg: 'color-mix(in srgb, var(--colors-app-surface) 72%, rgba(45, 100, 97, 0.06) 28%)',
 		boxShadow: '{shadows.whisper}',
-		transitionProperty: 'transform, box-shadow, border-color, background-color',
+		transitionProperty: 'transform, box-shadow, background-color',
 		transitionDuration: '180ms',
 		transitionTimingFunction: 'ease',
 		_before: {
@@ -41,7 +40,6 @@ const styles = {
 				'linear-gradient(180deg, rgba(62, 131, 138, 0.12) 0%, rgba(62, 131, 138, 0.02) 100%)',
 		},
 		_dark: {
-			borderColor: 'rgba(163, 221, 226, 0.24)',
 			bg: 'color-mix(in srgb, var(--colors-app-surface) 82%, rgba(163, 221, 226, 0.08) 18%)',
 			_before: {
 				background:
@@ -50,14 +48,12 @@ const styles = {
 		},
 	}),
 	rootWheat: css({
-		borderColor: 'rgba(164, 121, 60, 0.24)',
 		bg: 'color-mix(in srgb, var(--colors-app-surface) 72%, rgba(176, 134, 72, 0.06) 28%)',
 		_before: {
 			background:
 				'linear-gradient(180deg, rgba(176, 134, 72, 0.12) 0%, rgba(176, 134, 72, 0.02) 100%)',
 		},
 		_dark: {
-			borderColor: 'rgba(223, 190, 127, 0.24)',
 			bg: 'color-mix(in srgb, var(--colors-app-surface) 82%, rgba(223, 190, 127, 0.08) 18%)',
 			_before: {
 				background:
@@ -66,11 +62,8 @@ const styles = {
 		},
 	}),
 	selected: css({
-		borderStyle: 'solid',
-		borderColor: 'app.accent',
 		boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
 		_hover: {
-			borderColor: 'app.accent',
 			boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
 		},
 	}),
@@ -80,7 +73,6 @@ const styles = {
 		outline: 'none',
 		_hover: {
 			transform: 'translateY(-1px)',
-			borderColor: 'app.border.strong',
 			boxShadow: '{shadows.panel}',
 			bg: 'app.surface.muted',
 		},
@@ -107,23 +99,18 @@ const styles = {
 		justifyContent: 'center',
 		boxSize: '11',
 		borderRadius: '2xl',
-		borderWidth: '1px',
-		borderColor: 'rgba(45, 100, 97, 0.14)',
 		bg: 'rgba(45, 100, 97, 0.08)',
 		color: 'app.accent',
-		boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.45)',
+		boxShadow: 'none',
 		_dark: {
-			borderColor: 'rgba(163, 221, 226, 0.22)',
 			bg: 'rgba(163, 221, 226, 0.12)',
 			boxShadow: 'none',
 		},
 	}),
 	iconWrapWheat: css({
-		borderColor: 'rgba(164, 121, 60, 0.18)',
 		bg: 'rgba(164, 121, 60, 0.1)',
 		color: 'app.text',
 		_dark: {
-			borderColor: 'rgba(223, 190, 127, 0.22)',
 			bg: 'rgba(223, 190, 127, 0.12)',
 		},
 	}),
@@ -152,12 +139,7 @@ const styles = {
 		gap: '2.5',
 		marginTop: 'auto',
 		paddingTop: '3',
-		borderTopWidth: '1px',
-		borderColor: 'rgba(45, 100, 97, 0.14)',
 		color: 'app.accentAlt.text',
-		_dark: {
-			borderColor: 'rgba(163, 221, 226, 0.18)',
-		},
 	}),
 	actionLabel: css({
 		textStyle: 'caption',
