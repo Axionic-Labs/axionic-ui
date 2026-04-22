@@ -11,14 +11,11 @@ export declare const ItemGroup: import("styled-system/jsx").StyleContextConsumer
 export declare const NextTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Carousel.NextTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
 export declare const PrevTrigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Carousel.PrevTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
 export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<Omit<{
-    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     title?: string | undefined | undefined;
+    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
-    unstyled?: boolean | undefined | undefined;
-    as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
@@ -28,11 +25,12 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
     className?: string | undefined | undefined;
-    contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
+    contentEditable?: (boolean | "true" | "false") | "inherit" | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
     draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
+    hidden?: boolean | undefined | undefined;
     id?: string | undefined | undefined;
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
@@ -292,6 +290,8 @@ export declare const IndicatorGroup: import("react").ForwardRefExoticComponent<O
     onTransitionRunCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStart?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
+    unstyled?: boolean | undefined | undefined;
+    as?: import("react").ElementType | undefined;
     asChild?: boolean | undefined | undefined;
     htmlWidth?: string | number | undefined;
     htmlHeight?: string | number | undefined;

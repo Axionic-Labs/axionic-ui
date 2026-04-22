@@ -148,7 +148,12 @@ function SecondaryNavEntry({
 	}
 
 	return (
-		<button type="button" className={className} onClick={item.onClick} data-tour-id={item.dataTourId}>
+		<button
+			type="button"
+			className={className}
+			onClick={item.onClick}
+			data-tour-id={item.dataTourId}
+		>
 			{content}
 		</button>
 	);

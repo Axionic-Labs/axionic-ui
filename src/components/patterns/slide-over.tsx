@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import { Button, CloseButton, Drawer } from '../ui';
 
-export interface SlideOverProps {
+interface SlideOverBaseProps {
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
 	title: ReactNode;
@@ -13,8 +13,6 @@ export interface SlideOverProps {
 	eyebrow?: ReactNode;
 	icon?: ReactNode;
 	actions?: ReactNode;
-	aside?: ReactNode;
-	asideFooter?: ReactNode;
 	children: ReactNode;
 	size?: 'md' | 'lg' | 'xl';
 	submitLabel?: ReactNode;
@@ -27,15 +25,45 @@ export interface SlideOverProps {
 	footer?: ReactNode;
 	className?: string;
 	bodyClassName?: string;
+	layout?: 'auto' | 'single' | 'split';
+	panelMinWidth?: string;
+	panelMaxWidth?: string;
+	contentMinWidth?: string;
+	contentMaxWidth?: string;
 	hideFooter?: boolean;
 	closeButtonTourId?: string;
 }
 
+interface SlideOverAutoProps extends SlideOverBaseProps {
+	layout?: 'auto';
+	aside?: ReactNode;
+	asideFooter?: ReactNode;
+	asideWidth?: string;
+}
+
+interface SlideOverSingleProps extends SlideOverBaseProps {
+	layout: 'single';
+	aside?: never;
+	asideFooter?: never;
+	asideWidth?: never;
+}
+
+interface SlideOverSplitProps extends SlideOverBaseProps {
+	layout: 'split';
+	aside: ReactNode;
+	asideFooter?: ReactNode;
+	asideWidth?: string;
+}
+
+export type SlideOverProps = SlideOverAutoProps | SlideOverSingleProps | SlideOverSplitProps;
+
 const widthBySize = {
-	md: '34rem',
-	lg: '44rem',
-	xl: '58rem',
+	md: '38rem',
+	lg: '50rem',
+	xl: '66rem',
 } as const;
+
+const defaultAsideWidth = '16.5rem';
 
 const styles = {
 	backdrop: css({
@@ -58,9 +86,27 @@ const styles = {
 		pointerEvents: 'none',
 	}),
 	content: css({
-		width: '100%',
+		'--slide-over-panel-min-width': '0px',
+		'--slide-over-panel-max-width': widthBySize.xl,
+		'--slide-over-stacked-min-width': '0px',
+		'--slide-over-stacked-max-width': widthBySize.xl,
+		'--slide-over-aside-width': defaultAsideWidth,
+		width: {
+			base: '100vw',
+			lg: 'min(calc(100vw - 1.5rem), var(--slide-over-stacked-max-width))',
+			xl: 'min(calc(100vw - 1.5rem), var(--slide-over-panel-max-width))',
+		},
+		minW: {
+			base: '100vw',
+			lg: 'min(calc(100vw - 1.5rem), var(--slide-over-stacked-min-width))',
+			xl: 'min(calc(100vw - 1.5rem), var(--slide-over-panel-min-width))',
+		},
 		height: { base: '100dvh', lg: 'calc(100dvh - 1.5rem)' },
-		maxW: widthBySize.xl,
+		maxW: {
+			base: '100vw',
+			lg: 'var(--slide-over-stacked-max-width)',
+			xl: 'var(--slide-over-panel-max-width)',
+		},
 		my: { base: '0', lg: '3' },
 		mr: { base: '0', lg: '3' },
 		rounded: { base: '0', lg: '2xl' },
@@ -93,9 +139,9 @@ const styles = {
 		gap: '3',
 		borderBottomWidth: '1px',
 		borderBottomColor: 'app.border',
-		px: { base: '5', md: '6' },
-		pt: { base: '5', md: '6' },
-		pb: '4',
+		px: { base: '1.375rem', md: '1.625rem' },
+		pt: { base: '1.375rem', md: '1.625rem' },
+		pb: '1.125rem',
 	}),
 	headerRow: css({
 		display: 'grid',
@@ -151,16 +197,19 @@ const styles = {
 	body: css({
 		display: 'flex',
 		flexDirection: 'column',
-		gap: '5',
+		gap: '1.375rem',
 		flex: '1',
 		minH: 0,
 		overflowY: 'auto',
-		px: { base: '5', md: '6' },
-		py: '5',
+		px: { base: '1.375rem', md: '1.625rem' },
+		py: { base: '1.375rem', md: '1.5rem' },
 	}),
 	splitShell: css({
 		display: 'grid',
-		gridTemplateColumns: { base: '1fr', xl: '18rem minmax(0, 1fr)' },
+		gridTemplateColumns: {
+			base: '1fr',
+			xl: 'var(--slide-over-aside-width) minmax(0, 1fr)',
+		},
 		height: '100%',
 		minH: 0,
 	}),
@@ -168,13 +217,13 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
-		gap: '5',
-		bg: 'app.canvas.subtle',
+		gap: '1.125rem',
+		bg: 'app.surface',
 		borderRightWidth: { base: '0', xl: '1px' },
 		borderBottomWidth: { base: '1px', xl: '0' },
 		borderColor: 'app.border',
-		px: { base: '5', md: '6' },
-		py: { base: '5', md: '6' },
+		px: { base: '1.375rem', md: '1.625rem' },
+		py: { base: '1.375rem', md: '1.625rem' },
 		minH: 0,
 	}),
 	splitMain: css({
@@ -192,8 +241,8 @@ const styles = {
 		flexWrap: 'wrap',
 		borderTopWidth: '1px',
 		borderTopColor: 'app.border',
-		px: { base: '5', md: '6' },
-		py: '4',
+		px: { base: '1.375rem', md: '1.625rem' },
+		py: '1.125rem',
 	}),
 	footerHint: css({
 		textStyle: 'caption',
@@ -230,9 +279,44 @@ export function SlideOver({
 	footer,
 	className,
 	bodyClassName,
+	layout = 'auto',
+	panelMinWidth,
+	panelMaxWidth,
+	asideWidth,
+	contentMinWidth,
+	contentMaxWidth,
 	hideFooter = false,
 	closeButtonTourId,
 }: SlideOverProps) {
+	const resolvedAsideWidth = asideWidth ?? defaultAsideWidth;
+	const resolvedLayout =
+		layout === 'split'
+			? aside
+				? 'split'
+				: 'single'
+			: layout === 'single'
+				? 'single'
+				: aside
+					? 'split'
+					: 'single';
+	const resolvedPanelMaxWidth =
+		panelMaxWidth ??
+		(contentMaxWidth
+			? resolvedLayout === 'split'
+				? `calc(${contentMaxWidth} + ${resolvedAsideWidth})`
+				: contentMaxWidth
+			: widthBySize[size]);
+	const resolvedPanelMinWidth =
+		panelMinWidth ??
+		(contentMinWidth
+			? resolvedLayout === 'split'
+				? `calc(${contentMinWidth} + ${resolvedAsideWidth})`
+				: contentMinWidth
+			: '0px');
+	const resolvedStackedMaxWidth =
+		resolvedLayout === 'split' && contentMaxWidth ? contentMaxWidth : resolvedPanelMaxWidth;
+	const resolvedStackedMinWidth =
+		resolvedLayout === 'split' && contentMinWidth ? contentMinWidth : resolvedPanelMinWidth;
 	const renderedFooter = footer ? (
 		<Drawer.Footer>{footer}</Drawer.Footer>
 	) : (
@@ -287,21 +371,22 @@ export function SlideOver({
 			open={open}
 			onOpenChange={(details) => onOpenChange(details.open)}
 			placement="end"
-			size="full"
+			size={resolvedLayout === 'split' ? 'full' : size}
 		>
 			<Portal>
 				<Drawer.Backdrop className={styles.backdrop} />
 				<Drawer.Positioner className={styles.positioner}>
 					<Drawer.Content
-						className={cx(
-							styles.content,
-							css({
-								maxW: widthBySize[size],
-							}),
-							className,
-						)}
+						style={{
+							['--slide-over-panel-min-width' as string]: resolvedPanelMinWidth,
+							['--slide-over-panel-max-width' as string]: resolvedPanelMaxWidth,
+							['--slide-over-stacked-min-width' as string]: resolvedStackedMinWidth,
+							['--slide-over-stacked-max-width' as string]: resolvedStackedMaxWidth,
+							['--slide-over-aside-width' as string]: resolvedAsideWidth,
+						}}
+						className={cx(styles.content, className)}
 					>
-						{aside ? (
+						{resolvedLayout === 'split' && aside ? (
 							<div className={styles.splitShell}>
 								<div className={styles.splitAside}>
 									<div>{aside}</div>

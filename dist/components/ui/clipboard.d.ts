@@ -9,14 +9,11 @@ export declare const Label: import("styled-system/jsx").StyleContextConsumer<imp
 export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Clipboard.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
 export { ClipboardContext as Context } from '@ark-ui/react/clipboard';
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
-    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     title?: string | undefined | undefined;
+    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
-    unstyled?: boolean | undefined | undefined;
-    as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
@@ -26,11 +23,12 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
     className?: string | undefined | undefined;
-    contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
+    contentEditable?: (boolean | "true" | "false") | "inherit" | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
     draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
+    hidden?: boolean | undefined | undefined;
     id?: string | undefined | undefined;
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
@@ -290,6 +288,8 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onTransitionRunCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStart?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
+    unstyled?: boolean | undefined | undefined;
+    as?: import("react").ElementType | undefined;
     asChild?: boolean | undefined | undefined;
     copied?: import("react").ReactNode;
     htmlWidth?: string | number | undefined;
@@ -298,14 +298,11 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     htmlContent?: string | undefined;
 } & import("../../../styled-system/types").SystemStyleObject & import("../../../styled-system/types").WithCss, "ref"> & import("react").RefAttributes<HTMLDivElement>>;
 export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
-    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     title?: string | undefined | undefined;
+    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
-    unstyled?: boolean | undefined | undefined;
-    as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
@@ -315,11 +312,12 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
     className?: string | undefined | undefined;
-    contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
+    contentEditable?: (boolean | "true" | "false") | "inherit" | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
     draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
+    hidden?: boolean | undefined | undefined;
     id?: string | undefined | undefined;
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
@@ -579,6 +577,8 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onTransitionRunCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStart?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLDivElement> | undefined;
+    unstyled?: boolean | undefined | undefined;
+    as?: import("react").ElementType | undefined;
     asChild?: boolean | undefined | undefined;
     copied?: import("react").ReactNode;
     htmlWidth?: string | number | undefined;

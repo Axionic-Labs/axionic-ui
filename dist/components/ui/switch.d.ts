@@ -1,8 +1,8 @@
 import { Switch } from '@ark-ui/react/switch';
 import { type ComponentProps, type ReactNode } from 'react';
 export type RootProps = ComponentProps<typeof Root>;
-export declare const Root: import("styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Switch.RootProps & import("react").RefAttributes<HTMLLabelElement>>, import("styled-system/recipes").SwitchRecipeRecipe>;
-export declare const RootProvider: import("styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Switch.RootProviderProps & import("react").RefAttributes<HTMLLabelElement>>, import("styled-system/recipes").SwitchRecipeRecipe>;
+export declare const Root: import("styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Switch.RootProps & import("react").RefAttributes<HTMLLabelElement>>, import("styled-system/recipes").SwitchRecipe>;
+export declare const RootProvider: import("styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Switch.RootProviderProps & import("react").RefAttributes<HTMLLabelElement>>, import("styled-system/recipes").SwitchRecipe>;
 export declare const Label: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Switch.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
 export declare const Thumb: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Switch.ThumbProps & import("react").RefAttributes<HTMLSpanElement>>>;
 export declare const HiddenInput: import("react").ForwardRefExoticComponent<Switch.HiddenInputProps & import("react").RefAttributes<HTMLInputElement>>;

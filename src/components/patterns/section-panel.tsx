@@ -11,7 +11,7 @@ export interface SectionPanelProps {
 	actions?: ReactNode;
 	children?: ReactNode;
 	footer?: ReactNode;
-	variant?: 'default' | 'muted' | 'flat';
+	variant?: 'default' | 'muted' | 'flat' | 'workspace';
 	density?: 'default' | 'compact';
 	className?: string;
 }
@@ -36,6 +36,13 @@ const styles = {
 		borderColor: 'app.border',
 		boxShadow: '{shadows.whisper}',
 	}),
+	workspace: css({
+		bg: 'app.surface',
+		borderWidth: '1px',
+		borderColor: 'app.border',
+		borderRadius: '2xl',
+		boxShadow: '{shadows.whisper}',
+	}),
 	header: css({
 		display: 'flex',
 		alignItems: { base: 'flex-start', md: 'center' },
@@ -49,6 +56,15 @@ const styles = {
 		gap: '3',
 		paddingX: { base: '4', md: '4.5' },
 		paddingY: { base: '4', md: '4.5' },
+	}),
+	headerWorkspace: css({
+		alignItems: 'center',
+		gap: '3',
+		paddingX: { base: '4.5', md: '5' },
+		paddingY: { base: '3.5', md: '3.75' },
+		bg: 'app.surface.muted',
+		borderBottomWidth: '1px',
+		borderBottomColor: 'app.border',
 	}),
 	copy: css({
 		display: 'flex',
@@ -66,11 +82,22 @@ const styles = {
 	eyebrowCompact: css({
 		letterSpacing: '0.18em',
 	}),
+	eyebrowWorkspace: css({
+		textStyle: 'caption',
+		fontWeight: '700',
+		textTransform: 'uppercase',
+		letterSpacing: '0.18em',
+		color: 'app.text.muted',
+	}),
 	title: css({
 		textStyle: 'sectionTitle',
 		color: 'app.text',
 	}),
 	titleCompact: css({
+		textStyle: 'small',
+		fontWeight: '700',
+	}),
+	titleWorkspace: css({
 		textStyle: 'small',
 		fontWeight: '700',
 	}),
@@ -84,6 +111,11 @@ const styles = {
 		textStyle: 'caption',
 		lineHeight: '1.45',
 		maxWidth: '2xl',
+	}),
+	descriptionWorkspace: css({
+		textStyle: 'caption',
+		lineHeight: '1.5',
+		maxWidth: 'none',
 	}),
 	meta: css({
 		display: 'flex',
@@ -114,6 +146,11 @@ const styles = {
 		paddingX: { base: '4', md: '4.5' },
 		paddingY: { base: '4', md: '4.5' },
 	}),
+	bodyWorkspace: css({
+		gap: '4.5',
+		paddingX: { base: '4.5', md: '5' },
+		paddingY: { base: '4.5', md: '5' },
+	}),
 	footer: css({
 		paddingX: { base: '5.5', md: '6.5' },
 		paddingY: '5',
@@ -123,6 +160,13 @@ const styles = {
 	footerCompact: css({
 		paddingX: { base: '4', md: '4.5' },
 		paddingY: '4',
+	}),
+	footerWorkspace: css({
+		paddingX: { base: '4.5', md: '5' },
+		paddingY: { base: '3.75', md: '4' },
+		bg: 'app.surface',
+		borderTopWidth: '1px',
+		borderTopColor: 'app.border',
 	}),
 };
 
@@ -142,20 +186,49 @@ export function SectionPanel({
 	const hasBody = children !== undefined && children !== null;
 	const hasFooter = footer !== undefined && footer !== null;
 	const compact = density === 'compact';
+	const workspace = variant === 'workspace';
 
 	return (
 		<section className={cx(styles.root, styles[variant], className)}>
 			{hasHeader && (
-				<div className={cx(styles.header, compact && styles.headerCompact)}>
+				<div
+					className={cx(
+						styles.header,
+						compact && styles.headerCompact,
+						workspace && styles.headerWorkspace,
+					)}
+				>
 					<div className={cx(styles.copy, compact && styles.copyCompact)}>
 						{eyebrow && (
-							<div className={cx(styles.eyebrow, compact && styles.eyebrowCompact)}>{eyebrow}</div>
+							<div
+								className={cx(
+									styles.eyebrow,
+									compact && styles.eyebrowCompact,
+									workspace && styles.eyebrowWorkspace,
+								)}
+							>
+								{eyebrow}
+							</div>
 						)}
 						{title && (
-							<div className={cx(styles.title, compact && styles.titleCompact)}>{title}</div>
+							<div
+								className={cx(
+									styles.title,
+									compact && styles.titleCompact,
+									workspace && styles.titleWorkspace,
+								)}
+							>
+								{title}
+							</div>
 						)}
 						{description && (
-							<div className={cx(styles.description, compact && styles.descriptionCompact)}>
+							<div
+								className={cx(
+									styles.description,
+									compact && styles.descriptionCompact,
+									workspace && styles.descriptionWorkspace,
+								)}
+							>
 								{description}
 							</div>
 						)}
@@ -166,9 +239,27 @@ export function SectionPanel({
 					)}
 				</div>
 			)}
-			{hasBody && <div className={cx(styles.body, compact && styles.bodyCompact)}>{children}</div>}
+			{hasBody && (
+				<div
+					className={cx(
+						styles.body,
+						compact && styles.bodyCompact,
+						workspace && styles.bodyWorkspace,
+					)}
+				>
+					{children}
+				</div>
+			)}
 			{hasFooter && (
-				<div className={cx(styles.footer, compact && styles.footerCompact)}>{footer}</div>
+				<div
+					className={cx(
+						styles.footer,
+						compact && styles.footerCompact,
+						workspace && styles.footerWorkspace,
+					)}
+				>
+					{footer}
+				</div>
 			)}
 		</section>
 	);

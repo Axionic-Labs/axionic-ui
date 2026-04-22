@@ -78,16 +78,16 @@ const styles = {
 	row: css({
 		borderBottomWidth: '1px',
 		borderColor: 'app.border',
+		transition: 'background-color 160ms ease',
+		_hover: {
+			bg: 'app.canvas.subtle',
+		},
 		_last: {
 			borderBottomWidth: '0',
 		},
 	}),
 	rowInteractive: css({
 		cursor: 'pointer',
-		transition: 'background-color 160ms ease',
-		_hover: {
-			bg: 'app.canvas.subtle',
-		},
 	}),
 	cell: css({
 		paddingX: { base: '4.5', md: '5.5' },

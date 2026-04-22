@@ -7,7 +7,7 @@ export interface SectionPanelProps {
     actions?: ReactNode;
     children?: ReactNode;
     footer?: ReactNode;
-    variant?: 'default' | 'muted' | 'flat';
+    variant?: 'default' | 'muted' | 'flat' | 'workspace';
     density?: 'default' | 'compact';
     className?: string;
 }

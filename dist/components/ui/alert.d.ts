@@ -5,14 +5,11 @@ export declare const Title: import("styled-system/jsx").StyleContextConsumer<imp
 export declare const Description: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
 export declare const Content: import("styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & import("@ark-ui/react").PolymorphicProps>>;
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
-    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
     slot?: string | undefined | undefined;
+    style?: import("react").CSSProperties | undefined;
     title?: string | undefined | undefined;
+    popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
     ref?: import("react").Ref<HTMLSpanElement> | undefined;
-    unstyled?: boolean | undefined | undefined;
-    as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
     defaultChecked?: boolean | undefined | undefined;
     defaultValue?: string | number | readonly string[] | undefined;
@@ -22,11 +19,12 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
     className?: string | undefined | undefined;
-    contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
+    contentEditable?: (boolean | "true" | "false") | "inherit" | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
     draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
+    hidden?: boolean | undefined | undefined;
     id?: string | undefined | undefined;
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
@@ -286,6 +284,8 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onTransitionRunCapture?: import("react").TransitionEventHandler<HTMLSpanElement> | undefined;
     onTransitionStart?: import("react").TransitionEventHandler<HTMLSpanElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLSpanElement> | undefined;
+    unstyled?: boolean | undefined | undefined;
+    as?: import("react").ElementType | undefined;
     asChild?: boolean | undefined | undefined;
     htmlWidth?: string | number | undefined;
     htmlHeight?: string | number | undefined;

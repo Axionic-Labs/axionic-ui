@@ -126,7 +126,9 @@ export function StatusState({
 	const statusIcon = icon ?? getDefaultIcon(layout, tone);
 
 	return (
-		<div className={cx(styles.shell, pageLayout ? styles.shellPage : styles.shellSection, className)}>
+		<div
+			className={cx(styles.shell, pageLayout ? styles.shellPage : styles.shellSection, className)}
+		>
 			<SupportPanel
 				eyebrow={eyebrow ?? getDefaultEyebrow(layout, tone)}
 				title={title}

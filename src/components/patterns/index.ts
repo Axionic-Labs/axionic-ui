@@ -44,6 +44,12 @@ export { ListToolbar, type ListToolbarProps } from './list-toolbar';
 export { MetaPill, type MetaPillProps } from './meta-pill';
 export { MetricRail, type MetricRailProps } from './metric-rail';
 export {
+	ModelCard,
+	type ModelCardFact,
+	type ModelCardProps,
+	type ModelCardStatus,
+} from './model-card';
+export {
 	DEFAULT_ICON_CONFIG,
 	ModelCardIcon,
 	type ModelCardIconProps,
@@ -87,8 +93,8 @@ export {
 } from './sidebar-nav';
 export { SlideOver, type SlideOverProps } from './slide-over';
 export { StatCard, type StatCardProps } from './stat-card';
-export { StatusState, type StatusStateProps } from './status-state';
 export { StatusBanner, type StatusBannerProps } from './status-banner';
+export { StatusState, type StatusStateProps } from './status-state';
 export { StepCard, type StepCardProps } from './step-card';
 export { StreamingStatus, type StreamingStatusProps, type StreamingStep } from './streaming-status';
 export { SupportPanel, type SupportPanelProps } from './support-panel';

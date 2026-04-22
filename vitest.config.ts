@@ -10,7 +10,9 @@ const fixSwitchReservedWord: Plugin = {
 	name: 'fix-switch-reserved-word',
 	transform(code, id) {
 		if (id.includes('styled-system/recipes/switch.mjs')) {
-			return { code: code.replace('export const switch =', 'export const _switch =') };
+			return {
+				code: code.replace('export const switch =', 'export const switchSlotRecipe ='),
+			};
 		}
 	},
 };

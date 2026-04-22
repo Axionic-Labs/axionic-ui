@@ -29,6 +29,10 @@ const entrypoints = {
  *    (root, label, control, thumb), but our local v1 recipe adds
  *    'indicator'. Both files are generated due to preset/config overlap.
  *    Patch the type to include the extended slot.
+ *
+ * 3. Panda also emits a duplicate switch-recipe barrel entry alongside the
+ *    patched switch slot recipe export. Remove the duplicate re-export so
+ *    downstream Vite dev servers do not see conflicting switchRecipe exports.
  */
 async function patchGeneratedDeclarations() {
 	const patches: Array<{ file: string; find: string; replace: string; label: string }> = [
@@ -49,6 +53,18 @@ async function patchGeneratedDeclarations() {
 			find: 'type SwitchRecipeSlot = "root" | "label" | "control" | "thumb"',
 			replace: 'type SwitchRecipeSlot = "root" | "label" | "control" | "thumb" | "indicator"',
 			label: 'switch-recipe.d.ts indicator slot',
+		},
+		{
+			file: 'styled-system/recipes/index.d.ts',
+			find: "export * from './switch-recipe';\n",
+			replace: '',
+			label: 'recipes/index.d.ts duplicate switch-recipe export',
+		},
+		{
+			file: 'styled-system/recipes/index.mjs',
+			find: "export * from './switch-recipe.mjs';\n",
+			replace: '',
+			label: 'recipes/index.mjs duplicate switch-recipe export',
 		},
 	];
 

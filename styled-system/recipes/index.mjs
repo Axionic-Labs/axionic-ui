@@ -17,7 +17,6 @@ export * from './text.mjs';
 export * from './textarea.mjs';
 export * from './radio-button-group.mjs';
 export * from './signature-pad.mjs';
-export * from './switch-recipe.mjs';
 export * from './tree-view.mjs';
 export * from './qr-code.mjs';
 export * from './accordion.mjs';

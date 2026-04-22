@@ -29,6 +29,7 @@ export { LineChart, type LineChartProps } from './line-chart';
 export { ListToolbar, type ListToolbarProps } from './list-toolbar';
 export { MetaPill, type MetaPillProps } from './meta-pill';
 export { MetricRail, type MetricRailProps } from './metric-rail';
+export { ModelCard, type ModelCardFact, type ModelCardProps, type ModelCardStatus, } from './model-card';
 export { DEFAULT_ICON_CONFIG, ModelCardIcon, type ModelCardIconProps, type ModelIconConfig, ModelIconCustomizer, type ModelIconCustomizerProps, } from './model-icon-customizer';
 export { NamedPromptList, type NamedPromptListItem, type NamedPromptListProps, } from './named-prompt-list';
 export { NumberField, type NumberFieldProps } from './number-field';
@@ -49,8 +50,8 @@ export { SettingsSectionNav, type SettingsSectionNavItem, type SettingsSectionNa
 export { SidebarNav, type SidebarNavItem, type SidebarNavProps, type SidebarNavSection, } from './sidebar-nav';
 export { SlideOver, type SlideOverProps } from './slide-over';
 export { StatCard, type StatCardProps } from './stat-card';
-export { StatusState, type StatusStateProps } from './status-state';
 export { StatusBanner, type StatusBannerProps } from './status-banner';
+export { StatusState, type StatusStateProps } from './status-state';
 export { StepCard, type StepCardProps } from './step-card';
 export { StreamingStatus, type StreamingStatusProps, type StreamingStep } from './streaming-status';
 export { SupportPanel, type SupportPanelProps } from './support-panel';

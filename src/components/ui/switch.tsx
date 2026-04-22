@@ -3,9 +3,9 @@ import { ark } from '@ark-ui/react';
 import { Switch, useSwitchContext } from '@ark-ui/react/switch';
 import { type ComponentProps, forwardRef, type ReactNode } from 'react';
 import { createStyleContext, styled } from 'styled-system/jsx';
-import { switchRecipe } from 'styled-system/recipes';
+import { switchSlotRecipe } from 'styled-system/recipes';
 
-const { withProvider, withContext } = createStyleContext(switchRecipe);
+const { withProvider, withContext } = createStyleContext(switchSlotRecipe);
 
 export type RootProps = ComponentProps<typeof Root>;
 export const Root = withProvider(Switch.Root, 'root');
