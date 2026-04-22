@@ -61,9 +61,20 @@ const styles = {
 		},
 	}),
 	itemActive: css({
-		bg: 'app.accent',
-		color: 'white',
-		boxShadow: 'none',
+		bg: 'app.nav.active',
+		color: 'app.text',
+		boxShadow: '0 0 0 1px rgba(45, 100, 97, 0.14)',
+		_hover: {
+			bg: 'app.nav.active',
+			color: 'app.text',
+			boxShadow: '0 0 0 1px rgba(45, 100, 97, 0.14)',
+		},
+		_dark: {
+			boxShadow: '0 0 0 1px rgba(163, 221, 226, 0.18)',
+			_hover: {
+				boxShadow: '0 0 0 1px rgba(163, 221, 226, 0.18)',
+			},
+		},
 	}),
 	label: css({
 		textStyle: 'caption',
@@ -81,6 +92,9 @@ const styles = {
 		bg: 'rgba(255, 255, 255, 0.18)',
 		textStyle: 'caption',
 		color: 'currentColor',
+		_dark: {
+			bg: 'rgba(227, 253, 255, 0.12)',
+		},
 	}),
 	trailing: css({
 		display: 'flex',
@@ -109,6 +123,9 @@ const styles = {
 		borderColor: 'transparent',
 		color: 'app.text',
 		boxShadow: 'inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)',
+		_dark: {
+			boxShadow: 'inset 0 -2px 0 0 rgba(163, 221, 226, 0.82)',
+		},
 	}),
 };
 
@@ -130,7 +147,7 @@ function SecondaryNavEntry({
 	const className = cx(
 		styles.item,
 		variant === 'toolbar' && styles.toolbarItem,
-		item.active && styles.itemActive,
+		item.active && variant !== 'toolbar' && styles.itemActive,
 		item.active && variant === 'toolbar' && styles.toolbarItemActive,
 	);
 

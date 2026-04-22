@@ -58,6 +58,19 @@ export {
 	type ModelIconCustomizerProps,
 } from './model-icon-customizer';
 export {
+	ModifierActionCard,
+	type ModifierActionCardProps,
+} from './modifier-action-card';
+export {
+	ModifierCard,
+	type ModifierCardFact,
+	type ModifierCardProps,
+} from './modifier-card';
+export {
+	ModifierFeatureCard,
+	type ModifierFeatureCardProps,
+} from './modifier-feature-card';
+export {
 	NamedPromptList,
 	type NamedPromptListItem,
 	type NamedPromptListProps,

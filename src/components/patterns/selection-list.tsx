@@ -82,6 +82,24 @@ const styles = {
 		borderColor:
 			'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
 		boxShadow: 'none',
+		_hover: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
+			borderColor:
+				'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
+			boxShadow: 'none',
+		},
+		_dark: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
+			borderColor:
+				'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
+			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.18)',
+			_hover: {
+				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
+				borderColor:
+					'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
+				boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.18)',
+			},
+		},
 	}),
 	itemSelectedSoft: css({
 		borderColor: 'transparent',
@@ -92,6 +110,24 @@ const styles = {
 		borderColor:
 			'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
 		boxShadow: 'none',
+		_hover: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
+			borderColor:
+				'color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)',
+			boxShadow: 'none',
+		},
+		_dark: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
+			borderColor:
+				'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
+			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.2)',
+			_hover: {
+				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
+				borderColor:
+					'color-mix(in srgb, var(--colors-app-accent-alt-border) 74%, var(--colors-app-border) 26%)',
+				boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.2)',
+			},
+		},
 	}),
 	body: css({
 		display: 'flex',
@@ -123,6 +159,11 @@ const styles = {
 	iconStacked: css({
 		borderWidth: '0',
 		bg: 'transparent',
+	}),
+	iconStackedSoft: css({
+		borderWidth: '0',
+		bg: 'transparent',
+		color: 'app.text.subtle',
 	}),
 	copy: css({
 		display: 'flex',
@@ -192,6 +233,7 @@ export function SelectionList({
 										compact && styles.iconCompact,
 										softChrome && styles.iconSoft,
 										stackedLayout && styles.iconStacked,
+										stackedLayout && softChrome && styles.iconStackedSoft,
 									)}
 								>
 									{item.icon}
