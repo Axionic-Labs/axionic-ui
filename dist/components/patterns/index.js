@@ -2006,6 +2006,12 @@ var styles15 = {
     bg: "app.surface",
     transition: "all 160ms ease"
   }),
+  rootFlat: css17({
+    borderWidth: "1px",
+    borderColor: "app.border",
+    bg: "app.surface",
+    boxShadow: "{shadows.whisper}"
+  }),
   selected: css17({
     borderColor: "app.accent",
     boxShadow: "0 0 0 1px var(--colors-app-accent)"
@@ -2024,12 +2030,19 @@ var styles15 = {
   accentBarWheat: css17({
     bg: "wheat.2"
   }),
+  accentBarHidden: css17({
+    display: "none"
+  }),
   body: css17({
     padding: "5",
     display: "flex",
     flexDirection: "column",
     gap: "4",
     minWidth: 0
+  }),
+  bodyFlat: css17({
+    padding: "6",
+    gap: "3.5"
   }),
   bodyCompact: css17({
     padding: "4",
@@ -2071,6 +2084,10 @@ var styles15 = {
   iconWrapCompact: css17({
     boxSize: "9",
     rounded: "lg"
+  }),
+  iconWrapFlat: css17({
+    borderWidth: "0",
+    bg: "app.canvas.subtle"
   }),
   copy: css17({
     display: "flex",
@@ -2149,22 +2166,24 @@ function EntityCard({
   selected = false,
   accent = "teal",
   density = "default",
+  variant = "default",
   onClick,
   className
 }) {
   const interactive = Boolean(onClick);
   const compact = density === "compact";
+  const flat = variant === "flat";
   return /* @__PURE__ */ jsxs18(Root, {
-    gradient: true,
+    gradient: !flat,
     accent,
     hover: interactive,
-    className: cx17(styles15.root, interactive && styles15.rootHover, selected && styles15.selected, className),
+    className: cx17(styles15.root, flat && styles15.rootFlat, interactive && styles15.rootHover, selected && styles15.selected, className),
     children: [
       /* @__PURE__ */ jsx23("div", {
-        className: cx17(styles15.accentBar, accent === "wheat" && styles15.accentBarWheat)
+        className: cx17(styles15.accentBar, accent === "wheat" && styles15.accentBarWheat, flat && styles15.accentBarHidden)
       }),
       /* @__PURE__ */ jsxs18(Body, {
-        className: cx17(styles15.body, compact && styles15.bodyCompact, interactive && styles15.interactive),
+        className: cx17(styles15.body, flat && styles15.bodyFlat, compact && styles15.bodyCompact, interactive && styles15.interactive),
         onClick,
         onKeyDown: (event) => handleKeyDown(event, onClick),
         role: interactive ? "button" : undefined,
@@ -2177,7 +2196,7 @@ function EntityCard({
                 className: styles15.lead,
                 children: [
                   icon && /* @__PURE__ */ jsx23("div", {
-                    className: cx17(styles15.iconWrap, compact && styles15.iconWrapCompact),
+                    className: cx17(styles15.iconWrap, flat && styles15.iconWrapFlat, compact && styles15.iconWrapCompact),
                     children: icon
                   }),
                   /* @__PURE__ */ jsxs18("div", {
@@ -5967,6 +5986,12 @@ var styles36 = {
   muted: css46({
     bg: "app.surface.muted"
   }),
+  flat: css46({
+    bg: "app.surface",
+    borderWidth: "1px",
+    borderColor: "app.border",
+    boxShadow: "{shadows.whisper}"
+  }),
   header: css46({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
@@ -8279,5 +8304,5 @@ export {
   AccentLabel
 };
 
-//# debugId=79B1F6E04E3C016264756E2164756E21
+//# debugId=0FE4B8097812E54664756E2164756E21
 //# sourceMappingURL=index.js.map

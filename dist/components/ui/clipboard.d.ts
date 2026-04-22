@@ -12,10 +12,8 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
     hidden?: boolean | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     slot?: string | undefined | undefined;
+    title?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
@@ -27,6 +25,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     accessKey?: string | undefined | undefined;
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
+    className?: string | undefined | undefined;
     contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
@@ -37,6 +36,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
@@ -301,10 +301,8 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
     hidden?: boolean | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     slot?: string | undefined | undefined;
+    title?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
@@ -316,6 +314,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     accessKey?: string | undefined | undefined;
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
+    className?: string | undefined | undefined;
     contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
@@ -326,6 +325,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;

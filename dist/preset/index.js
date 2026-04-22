@@ -721,6 +721,42 @@ var button = defineRecipe3({
         color: "white",
         _hover: { opacity: "0.9" },
         _active: { opacity: "0.85" }
+      },
+      pill: {
+        bg: "app.canvas.subtle",
+        color: "app.text.muted",
+        borderRadius: "full",
+        borderWidth: "0",
+        fontWeight: "700",
+        boxShadow: "none",
+        _hover: {
+          bg: "app.surface.muted",
+          color: "app.text",
+          transform: "none",
+          boxShadow: "none"
+        },
+        _active: {
+          bg: "app.surface.muted",
+          color: "app.text",
+          transform: "none"
+        }
+      },
+      "pill-active": {
+        bg: "app.accent",
+        color: "white",
+        borderRadius: "full",
+        borderWidth: "0",
+        fontWeight: "700",
+        boxShadow: "none",
+        _hover: {
+          bg: "app.accentAlt.text",
+          transform: "none",
+          boxShadow: "none"
+        },
+        _active: {
+          bg: "app.accent",
+          transform: "none"
+        }
       }
     },
     size: {
@@ -6021,5 +6057,5 @@ export {
   axionicSand
 };
 
-//# debugId=AA67716CB5E7399464756E2164756E21
+//# debugId=127A4E989DF7643D64756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -24,7 +24,9 @@ const buttonVariantMap = {
     "light",
     "ghost-dark",
     "brand",
-    "danger"
+    "danger",
+    "pill",
+    "pill-active"
   ],
   "size": [
     "2xs",

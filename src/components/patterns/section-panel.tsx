@@ -11,7 +11,7 @@ export interface SectionPanelProps {
 	actions?: ReactNode;
 	children?: ReactNode;
 	footer?: ReactNode;
-	variant?: 'default' | 'muted';
+	variant?: 'default' | 'muted' | 'flat';
 	density?: 'default' | 'compact';
 	className?: string;
 }
@@ -29,6 +29,12 @@ const styles = {
 	}),
 	muted: css({
 		bg: 'app.surface.muted',
+	}),
+	flat: css({
+		bg: 'app.surface',
+		borderWidth: '1px',
+		borderColor: 'app.border',
+		boxShadow: '{shadows.whisper}',
 	}),
 	header: css({
 		display: 'flex',

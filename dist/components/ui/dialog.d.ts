@@ -18,13 +18,9 @@ export declare const ActionTrigger: import("react").ForwardRefExoticComponent<Om
     disabled?: boolean | undefined | undefined;
     hidden?: boolean | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
-    value?: string | number | readonly string[] | undefined;
-    type?: "submit" | "reset" | "button" | undefined | undefined;
-    title?: string | undefined | undefined;
-    className?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
     form?: string | undefined | undefined;
     slot?: string | undefined | undefined;
+    title?: string | undefined | undefined;
     ref?: import("react").Ref<HTMLButtonElement> | undefined;
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
@@ -36,6 +32,7 @@ export declare const ActionTrigger: import("react").ForwardRefExoticComponent<Om
     accessKey?: string | undefined | undefined;
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
+    className?: string | undefined | undefined;
     contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
@@ -46,6 +43,7 @@ export declare const ActionTrigger: import("react").ForwardRefExoticComponent<Om
     nonce?: string | undefined | undefined;
     spellCheck?: (boolean | "true" | "false") | undefined;
     tabIndex?: number | undefined | undefined;
+    radioGroup?: string | undefined | undefined;
     role?: import("react").AriaRole | undefined;
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
@@ -300,12 +298,14 @@ export declare const ActionTrigger: import("react").ForwardRefExoticComponent<Om
     onTransitionStart?: import("react").TransitionEventHandler<HTMLButtonElement> | undefined;
     onTransitionStartCapture?: import("react").TransitionEventHandler<HTMLButtonElement> | undefined;
     asChild?: boolean | undefined | undefined;
+    value?: string | number | readonly string[] | undefined;
     formAction?: string | ((formData: FormData) => void | Promise<void>) | undefined;
     formEncType?: string | undefined | undefined;
     formMethod?: string | undefined | undefined;
     formNoValidate?: boolean | undefined | undefined;
     formTarget?: string | undefined | undefined;
     name?: string | undefined | undefined;
+    type?: "submit" | "reset" | "button" | undefined | undefined;
     htmlWidth?: string | number | undefined;
     htmlHeight?: string | number | undefined;
     htmlTranslate?: "yes" | "no" | undefined | undefined;

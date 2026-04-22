@@ -3153,22 +3153,6 @@
     border-top-color: var(--colors-teal-light-7);
 }
 
-  .card__root--gradient_true {
-    overflow: hidden;
-    position: relative;
-}
-
-  .card__root--gradient_true::before {
-    background: linear-gradient(90deg, var(--colors-teal-light-9), var(--colors-wheat-light-9));
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: var(--spacing-0);
-    left: var(--spacing-0);
-    right: var(--spacing-0);
-    height: 3px;
-}
-
   .segment-group__item--size_sm {
     padding-inline: var(--spacing-3);
     font-family: var(--fonts-body);
@@ -3594,6 +3578,10 @@
     background: var(--colors-wheat-2);
 }
 
+  .bg_app\.canvas\.subtle {
+    background: var(--colors-app-canvas-subtle);
+}
+
   .bg_bg\.default {
     background: var(--colors-bg-default);
 }
@@ -3628,10 +3616,6 @@
 
   .p_0 {
     padding: var(--spacing-0);
-}
-
-  .bg_app\.canvas\.subtle {
-    background: var(--colors-app-canvas-subtle);
 }
 
   .m_0 {
@@ -4352,6 +4336,10 @@
     box-shadow: 0 0 0 1px var(--colors-app-accent);
 }
 
+  .d_none {
+    display: none;
+}
+
   .us_none {
     -webkit-user-select: none;
     user-select: none;
@@ -4407,10 +4395,6 @@
 
   .ls_wide {
     letter-spacing: var(--letter-spacings-wide);
-}
-
-  .d_none {
-    display: none;
 }
 
   .ff_mono {

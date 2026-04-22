@@ -199,6 +199,42 @@ export const button = defineRecipe({
 				_hover: { opacity: '0.9' },
 				_active: { opacity: '0.85' },
 			},
+			pill: {
+				bg: 'app.canvas.subtle',
+				color: 'app.text.muted',
+				borderRadius: 'full',
+				borderWidth: '0',
+				fontWeight: '700',
+				boxShadow: 'none',
+				_hover: {
+					bg: 'app.surface.muted',
+					color: 'app.text',
+					transform: 'none',
+					boxShadow: 'none',
+				},
+				_active: {
+					bg: 'app.surface.muted',
+					color: 'app.text',
+					transform: 'none',
+				},
+			},
+			'pill-active': {
+				bg: 'app.accent',
+				color: 'white',
+				borderRadius: 'full',
+				borderWidth: '0',
+				fontWeight: '700',
+				boxShadow: 'none',
+				_hover: {
+					bg: 'app.accentAlt.text',
+					transform: 'none',
+					boxShadow: 'none',
+				},
+				_active: {
+					bg: 'app.accent',
+					transform: 'none',
+				},
+			},
 		},
 		size: {
 			'2xs': { h: '7', minW: '7', textStyle: 'xs', px: '2.5', _icon: { boxSize: '3.5' } },
