@@ -5978,6 +5978,10 @@
     outline-color: var(--colors-app-accent);
 }
 
+  .focusVisible\:bx-sh_0_0_0_2px_var\(--colors-app-accent\):is(:focus-visible, [data-focus-visible]) {
+    box-shadow: 0 0 0 2px var(--colors-app-accent);
+}
+
   .focusVisible\:ring-c_app\.accent\.soft:is(:focus-visible, [data-focus-visible]) {
     outline-color: var(--colors-app-accent-soft);
 }
@@ -6361,6 +6365,12 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
+    .hover\:bd-c_app\.accent:is(:hover, [data-hover]) {
+      border-color: var(--colors-app-accent);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
     .hover\:bd-c_app\.border:is(:hover, [data-hover]) {
       border-color: var(--colors-app-border);
 }
@@ -6417,6 +6427,12 @@
   @media (hover: hover) and (pointer: fine) {
     .hover\:bx-sh_panel:is(:hover, [data-hover]) {
       box-shadow: var(--shadows-panel);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bx-sh_0_0_0_1px_var\(--colors-app-accent\)\,_var\(--shadows-panel\):is(:hover, [data-hover]) {
+      box-shadow: 0 0 0 1px var(--colors-app-accent), var(--shadows-panel);
 }
 }
 

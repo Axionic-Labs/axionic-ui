@@ -17,6 +17,7 @@ export interface ModifierFeatureCardProps {
 	facts?: ModifierCardFact[];
 	footer?: ReactNode;
 	tone?: 'teal' | 'wheat';
+	selected?: boolean;
 	onClick?: () => void;
 	className?: string;
 }
@@ -70,6 +71,20 @@ const styles = {
 			borderColor: 'app.border.strong',
 			boxShadow: '{shadows.panel}',
 			bg: 'app.surface.muted',
+		},
+	}),
+	focusable: css({
+		outline: 'none',
+		_focusVisible: {
+			boxShadow: '0 0 0 2px var(--colors-app-accent)',
+		},
+	}),
+	selected: css({
+		borderColor: 'app.accent',
+		boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+		_hover: {
+			borderColor: 'app.accent',
+			boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
 		},
 	}),
 	body: css({
@@ -265,6 +280,7 @@ export function ModifierFeatureCard({
 	facts,
 	footer,
 	tone = 'teal',
+	selected,
 	onClick,
 	className,
 }: ModifierFeatureCardProps) {
@@ -276,15 +292,17 @@ export function ModifierFeatureCard({
 				styles.root,
 				tone === 'wheat' && styles.rootWheat,
 				interactive && styles.interactive,
+				selected && styles.selected,
 				className,
 			)}
 		>
 			<Card.Body
-				className={styles.body}
+				className={cx(styles.body, interactive && styles.focusable)}
 				onClick={onClick}
 				onKeyDown={(event) => handleKeyDown(event, onClick)}
 				role={interactive ? 'button' : undefined}
 				tabIndex={interactive ? 0 : undefined}
+				aria-pressed={interactive && selected !== undefined ? selected : undefined}
 			>
 				<div className={styles.header}>
 					<div className={styles.copy}>

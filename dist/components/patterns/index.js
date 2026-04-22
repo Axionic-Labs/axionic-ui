@@ -4536,7 +4536,11 @@ var styles27 = {
   selected: css35({
     borderStyle: "solid",
     borderColor: "app.accent",
-    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
+    _hover: {
+      borderColor: "app.accent",
+      boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+    }
   }),
   interactive: css35({
     cursor: "pointer",
@@ -4547,6 +4551,12 @@ var styles27 = {
       borderColor: "app.border.strong",
       boxShadow: "{shadows.panel}",
       bg: "app.surface.muted"
+    }
+  }),
+  focusable: css35({
+    outline: "none",
+    _focusVisible: {
+      boxShadow: "0 0 0 2px var(--colors-app-accent)"
     }
   }),
   body: css35({
@@ -4644,19 +4654,20 @@ function ModifierActionCard({
   actionLabel = "Open",
   helper,
   tone = "teal",
-  selected = false,
+  selected,
   onClick,
   className
 }) {
   const interactive = Boolean(onClick);
   return /* @__PURE__ */ jsx43(Root, {
-    className: cx35(styles27.root, tone === "wheat" && styles27.rootWheat, selected && styles27.selected, interactive && styles27.interactive, className),
+    className: cx35(styles27.root, tone === "wheat" && styles27.rootWheat, interactive && styles27.interactive, selected && styles27.selected, className),
     children: /* @__PURE__ */ jsxs32(Body, {
-      className: styles27.body,
+      className: cx35(styles27.body, interactive && styles27.focusable),
       onClick,
       onKeyDown: (event) => handleKeyDown3(event, onClick),
       role: interactive ? "button" : undefined,
       tabIndex: interactive ? 0 : undefined,
+      "aria-pressed": interactive && selected !== undefined ? selected : undefined,
       children: [
         icon ? /* @__PURE__ */ jsx43("div", {
           className: cx35(styles27.iconWrap, tone === "wheat" && styles27.iconWrapWheat),
@@ -4748,9 +4759,19 @@ var styles28 = {
       bg: "app.surface.muted"
     }
   }),
+  focusable: css36({
+    outline: "none",
+    _focusVisible: {
+      boxShadow: "0 0 0 2px var(--colors-app-accent)"
+    }
+  }),
   selected: css36({
     borderColor: "app.accent",
-    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
+    _hover: {
+      borderColor: "app.accent",
+      boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+    }
   }),
   body: css36({
     position: "relative",
@@ -4885,7 +4906,7 @@ function ModifierCard({
   badges,
   facts,
   footer,
-  selected = false,
+  selected,
   tone = "teal",
   onClick,
   className
@@ -4894,11 +4915,12 @@ function ModifierCard({
   return /* @__PURE__ */ jsx44(Root, {
     className: cx36(styles28.root, tone === "wheat" && styles28.rootWheat, interactive && styles28.interactive, selected && styles28.selected, className),
     children: /* @__PURE__ */ jsxs33(Body, {
-      className: styles28.body,
+      className: cx36(styles28.body, interactive && styles28.focusable),
       onClick,
       onKeyDown: (event) => handleKeyDown4(event, onClick),
       role: interactive ? "button" : undefined,
       tabIndex: interactive ? 0 : undefined,
+      "aria-pressed": interactive && selected !== undefined ? selected : undefined,
       children: [
         /* @__PURE__ */ jsxs33("div", {
           className: styles28.header,
@@ -5003,6 +5025,20 @@ var styles29 = {
       borderColor: "app.border.strong",
       boxShadow: "{shadows.panel}",
       bg: "app.surface.muted"
+    }
+  }),
+  focusable: css37({
+    outline: "none",
+    _focusVisible: {
+      boxShadow: "0 0 0 2px var(--colors-app-accent)"
+    }
+  }),
+  selected: css37({
+    borderColor: "app.accent",
+    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
+    _hover: {
+      borderColor: "app.accent",
+      boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
     }
   }),
   body: css37({
@@ -5197,18 +5233,20 @@ function ModifierFeatureCard({
   facts,
   footer,
   tone = "teal",
+  selected,
   onClick,
   className
 }) {
   const interactive = Boolean(onClick);
   return /* @__PURE__ */ jsx45(Root, {
-    className: cx37(styles29.root, tone === "wheat" && styles29.rootWheat, interactive && styles29.interactive, className),
+    className: cx37(styles29.root, tone === "wheat" && styles29.rootWheat, interactive && styles29.interactive, selected && styles29.selected, className),
     children: /* @__PURE__ */ jsxs34(Body, {
-      className: styles29.body,
+      className: cx37(styles29.body, interactive && styles29.focusable),
       onClick,
       onKeyDown: (event) => handleKeyDown5(event, onClick),
       role: interactive ? "button" : undefined,
       tabIndex: interactive ? 0 : undefined,
+      "aria-pressed": interactive && selected !== undefined ? selected : undefined,
       children: [
         /* @__PURE__ */ jsxs34("div", {
           className: styles29.header,
@@ -9679,5 +9717,5 @@ export {
   AccentLabel
 };
 
-//# debugId=02040907CD40552B64756E2164756E21
+//# debugId=6810B2617AB9712B64756E2164756E21
 //# sourceMappingURL=index.js.map

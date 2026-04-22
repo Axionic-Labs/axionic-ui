@@ -69,6 +69,10 @@ const styles = {
 		borderStyle: 'solid',
 		borderColor: 'app.accent',
 		boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+		_hover: {
+			borderColor: 'app.accent',
+			boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+		},
 	}),
 	interactive: css({
 		cursor: 'pointer',
@@ -79,6 +83,12 @@ const styles = {
 			borderColor: 'app.border.strong',
 			boxShadow: '{shadows.panel}',
 			bg: 'app.surface.muted',
+		},
+	}),
+	focusable: css({
+		outline: 'none',
+		_focusVisible: {
+			boxShadow: '0 0 0 2px var(--colors-app-accent)',
 		},
 	}),
 	body: css({
@@ -177,7 +187,7 @@ export function ModifierActionCard({
 	actionLabel = 'Open',
 	helper,
 	tone = 'teal',
-	selected = false,
+	selected,
 	onClick,
 	className,
 }: ModifierActionCardProps) {
@@ -188,17 +198,18 @@ export function ModifierActionCard({
 			className={cx(
 				styles.root,
 				tone === 'wheat' && styles.rootWheat,
-				selected && styles.selected,
 				interactive && styles.interactive,
+				selected && styles.selected,
 				className,
 			)}
 		>
 			<Card.Body
-				className={styles.body}
+				className={cx(styles.body, interactive && styles.focusable)}
 				onClick={onClick}
 				onKeyDown={(event) => handleKeyDown(event, onClick)}
 				role={interactive ? 'button' : undefined}
 				tabIndex={interactive ? 0 : undefined}
+				aria-pressed={interactive && selected !== undefined ? selected : undefined}
 			>
 				{icon ? (
 					<div className={cx(styles.iconWrap, tone === 'wheat' && styles.iconWrapWheat)}>

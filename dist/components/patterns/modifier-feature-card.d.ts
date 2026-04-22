@@ -12,8 +12,9 @@ export interface ModifierFeatureCardProps {
     facts?: ModifierCardFact[];
     footer?: ReactNode;
     tone?: 'teal' | 'wheat';
+    selected?: boolean;
     onClick?: () => void;
     className?: string;
 }
-export declare function ModifierFeatureCard({ icon, eyebrow, title, description, badges, highlightLabel, highlightValue, highlightNote, facts, footer, tone, onClick, className, }: ModifierFeatureCardProps): import("react/jsx-runtime").JSX.Element;
+export declare function ModifierFeatureCard({ icon, eyebrow, title, description, badges, highlightLabel, highlightValue, highlightNote, facts, footer, tone, selected, onClick, className, }: ModifierFeatureCardProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=modifier-feature-card.d.ts.map

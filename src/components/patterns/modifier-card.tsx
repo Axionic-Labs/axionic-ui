@@ -77,9 +77,19 @@ const styles = {
 			bg: 'app.surface.muted',
 		},
 	}),
+	focusable: css({
+		outline: 'none',
+		_focusVisible: {
+			boxShadow: '0 0 0 2px var(--colors-app-accent)',
+		},
+	}),
 	selected: css({
 		borderColor: 'app.accent',
 		boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+		_hover: {
+			borderColor: 'app.accent',
+			boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+		},
 	}),
 	body: css({
 		position: 'relative',
@@ -215,7 +225,7 @@ export function ModifierCard({
 	badges,
 	facts,
 	footer,
-	selected = false,
+	selected,
 	tone = 'teal',
 	onClick,
 	className,
@@ -233,11 +243,12 @@ export function ModifierCard({
 			)}
 		>
 			<Card.Body
-				className={styles.body}
+				className={cx(styles.body, interactive && styles.focusable)}
 				onClick={onClick}
 				onKeyDown={(event) => handleKeyDown(event, onClick)}
 				role={interactive ? 'button' : undefined}
 				tabIndex={interactive ? 0 : undefined}
+				aria-pressed={interactive && selected !== undefined ? selected : undefined}
 			>
 				<div className={styles.header}>
 					{icon ? (
