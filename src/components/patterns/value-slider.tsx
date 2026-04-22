@@ -23,11 +23,9 @@ export interface ValueSliderProps {
 const toneStyles = {
 	teal: {
 		range: 'teal.9',
-		border: 'teal.9',
 	},
 	wheat: {
 		range: 'wheat.9',
-		border: 'wheat.9',
 	},
 } as const;
 
@@ -100,8 +98,8 @@ export function ValueSlider({
 								px: workspace ? '2' : '0',
 								py: workspace ? '1' : '0',
 								rounded: workspace ? 'md' : 'none',
-								borderWidth: workspace ? '1px' : '0',
-								borderColor: workspace ? 'app.border' : 'transparent',
+								borderWidth: '0',
+								borderColor: 'transparent',
 								bg: workspace ? 'app.canvas.subtle' : 'transparent',
 								textStyle: workspace ? 'caption' : 'small',
 								fontWeight: '600',
@@ -136,7 +134,7 @@ export function ValueSlider({
 						rounded: 'full',
 						bg: workspace ? colors.range : 'app.surface',
 						borderWidth: workspace ? '0' : '2px',
-						borderColor: workspace ? 'transparent' : colors.border,
+						borderColor: workspace ? 'transparent' : colors.range,
 						boxShadow: workspace ? 'panel' : '0 8px 18px rgba(8, 18, 20, 0.12)',
 						cursor: 'grab',
 						_focusVisible: {

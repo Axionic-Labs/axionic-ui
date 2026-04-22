@@ -10,8 +10,8 @@ export const card = defineSlotRecipe({
 			flexDirection: 'column',
 			overflow: 'hidden',
 			position: 'relative',
-			borderWidth: '1px',
-			borderColor: 'app.border',
+			borderWidth: '0',
+			borderColor: 'transparent',
 			bg: 'app.surface',
 			boxShadow: '{shadows.whisper}',
 		},
@@ -55,6 +55,8 @@ export const card = defineSlotRecipe({
 			},
 			outline: {
 				root: {
+					borderWidth: '1px',
+					borderColor: 'app.border',
 					boxShadow: '{shadows.whisper}',
 				},
 			},
@@ -73,7 +75,7 @@ export const card = defineSlotRecipe({
 					transition: 'all 0.2s',
 					_hover: {
 						boxShadow: '{shadows.float}',
-						borderColor: 'app.border.strong',
+						bg: 'app.surface.raised',
 						transform: 'translateY(-1px)',
 					},
 					_focusVisible: {
@@ -87,6 +89,8 @@ export const card = defineSlotRecipe({
 		dashed: {
 			true: {
 				root: {
+					borderWidth: '1px',
+					borderColor: 'app.border',
 					borderStyle: 'dashed',
 					bg: 'app.surface.muted',
 				},

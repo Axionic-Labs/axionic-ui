@@ -28,7 +28,7 @@ const styles = {
 		gap: '2',
 	}),
 	rootStacked: css({
-		gap: '0',
+		gap: '1',
 	}),
 	item: css({
 		width: '100%',
@@ -59,31 +59,28 @@ const styles = {
 		boxShadow: 'none',
 	}),
 	itemStacked: css({
-		borderRadius: '0',
-		boxShadow: 'inset 0 -1px 0 rgba(25, 28, 28, 0.06)',
+		borderRadius: 'xl',
+		boxShadow: 'none',
 		bg: 'transparent',
 		paddingX: '4',
 		paddingY: '3.5',
 		_hover: {
 			bg: 'app.canvas.subtle',
 		},
-		_lastOfType: {
-			boxShadow: 'none',
-		},
 	}),
 	itemSelected: css({
 		bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
-		boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
+		boxShadow: '{shadows.whisper}',
 		_hover: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
-			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
+			boxShadow: '{shadows.whisper}',
 		},
 		_dark: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
-			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.18)',
+			boxShadow: '{shadows.whisper}',
 			_hover: {
 				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
-				boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.18)',
+				boxShadow: '{shadows.whisper}',
 			},
 		},
 	}),
@@ -92,17 +89,17 @@ const styles = {
 	}),
 	itemSelectedStacked: css({
 		bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
-		boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
+		boxShadow: 'none',
 		_hover: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
-			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.22)',
+			boxShadow: 'none',
 		},
 		_dark: {
 			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
-			boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.2)',
+			boxShadow: 'none',
 			_hover: {
 				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
-				boxShadow: '0 0 0 1px rgba(214, 173, 96, 0.2)',
+				boxShadow: 'none',
 			},
 		},
 	}),

@@ -77,7 +77,7 @@ const styles = {
 		margin: '0',
 	}),
 	listShell: css({
-		gap: '2.5',
+		gap: '2',
 	}),
 	item: css({
 		appearance: 'none',
@@ -93,14 +93,13 @@ const styles = {
 		bg: 'transparent',
 		textAlign: 'left',
 		textDecoration: 'none',
-		transitionProperty: 'background-color, color, box-shadow, transform',
+		transitionProperty: 'background-color, color, box-shadow',
 		transitionDuration: '180ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
-			bg: 'app.nav.active',
+			bg: 'color-mix(in srgb, var(--colors-app-surface) 68%, transparent)',
 			color: 'app.text',
 			'& [data-sidebar-icon]': {
-				transform: 'translateX(6px)',
 				color: 'app.accent',
 			},
 		},
@@ -115,12 +114,12 @@ const styles = {
 		},
 	}),
 	itemShell: css({
-		paddingX: '4',
-		paddingY: '3.25',
-		borderRadius: 'xl',
+		paddingX: '3.5',
+		paddingY: '2.5',
+		borderRadius: 'lg',
 	}),
 	itemActive: css({
-		bg: 'app.nav.active',
+		bg: 'color-mix(in srgb, var(--colors-app-accent-soft) 58%, var(--colors-app-surface) 42%)',
 		color: 'app.text',
 	}),
 	itemIcon: css({
@@ -129,7 +128,7 @@ const styles = {
 		justifyContent: 'center',
 		boxSize: '5.5',
 		color: 'app.text.subtle',
-		transition: 'transform 240ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease',
+		transition: 'color 180ms ease',
 	}),
 	itemText: css({
 		minWidth: 0,
@@ -138,16 +137,11 @@ const styles = {
 		gap: '0.5',
 	}),
 	itemLabel: css({
-		fontFamily: 'mono',
-		fontSize: '0.84rem',
-		lineHeight: '1.2',
+		textStyle: 'sidebarLabel',
 		color: 'currentColor',
-		fontWeight: '600',
-		letterSpacing: '0.14em',
-		textTransform: 'uppercase',
 	}),
 	itemLabelShell: css({
-		color: 'color-mix(in srgb, var(--colors-app-accent) 72%, var(--colors-app-text-subtle) 28%)',
+		color: 'inherit',
 	}),
 	itemDescription: css({
 		textStyle: 'small',

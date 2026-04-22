@@ -1292,6 +1292,7 @@ var styles9 = {
   }),
   header: css11({
     display: "flex",
+    flexDirection: { base: "column", md: "row" },
     alignItems: "flex-start",
     justifyContent: "space-between",
     gap: "4"
@@ -1300,7 +1301,8 @@ var styles9 = {
     display: "flex",
     alignItems: "center",
     gap: "3.5",
-    minWidth: 0
+    minWidth: 0,
+    width: "100%"
   }),
   iconWrap: css11({
     display: "inline-flex",
@@ -1332,7 +1334,10 @@ var styles9 = {
     display: "inline-flex",
     alignItems: "center",
     gap: "2",
-    flexShrink: 0
+    flexShrink: 0,
+    width: { base: "100%", md: "auto" },
+    justifyContent: { base: "flex-start", md: "flex-end" },
+    flexWrap: "wrap"
   }),
   body: css11({
     display: "flex",
@@ -4020,8 +4025,8 @@ var styles26 = {
     gap: "3",
     p: "4",
     rounded: "md",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     bg: "app.surface",
     boxShadow: "whisper",
     transitionProperty: "border-color, background-color, box-shadow, transform",
@@ -4040,7 +4045,7 @@ var styles26 = {
     userSelect: "none",
     outline: "none",
     _hover: {
-      borderColor: "app.border.strong",
+      bg: "app.surface.raised",
       boxShadow: "panel",
       transform: "translateY(-2px)"
     },
@@ -4051,8 +4056,8 @@ var styles26 = {
     }
   }),
   selected: css33({
-    borderColor: "app.accentAlt.border",
-    boxShadow: "0 0 0 1px var(--colors-app-accent-alt-border)"
+    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 34%, var(--colors-app-surface) 66%)",
+    boxShadow: "float"
   }),
   iconRow: css33({
     display: "flex",
@@ -4071,9 +4076,9 @@ var styles26 = {
     gap: "4",
     p: "5",
     rounded: "md",
-    borderWidth: "1px",
-    borderStyle: "dashed",
-    borderColor: "app.border.strong",
+    borderWidth: "0",
+    borderStyle: "solid",
+    borderColor: "transparent",
     bg: "app.canvas.subtle",
     minH: "200px",
     transitionProperty: "border-color, background-color, box-shadow",
@@ -4285,8 +4290,6 @@ var styles26 = {
     gap: "2",
     mt: "auto",
     pt: "2.5",
-    borderTopWidth: "1px",
-    borderTopColor: "app.border",
     "& > *": {
       flex: "1",
       minH: "7",
@@ -4709,9 +4712,11 @@ var styles27 = {
     }
   }),
   selected: css35({
-    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
+    bg: "app.surface.raised",
+    boxShadow: "{shadows.float}",
     _hover: {
-      boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+      bg: "app.surface.raised",
+      boxShadow: "{shadows.float}"
     }
   }),
   interactive: css35({
@@ -4925,9 +4930,11 @@ var styles28 = {
     }
   }),
   selected: css36({
-    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
+    bg: "app.surface.raised",
+    boxShadow: "{shadows.float}",
     _hover: {
-      boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+      bg: "app.surface.raised",
+      boxShadow: "{shadows.float}"
     }
   }),
   body: css36({
@@ -5078,6 +5085,7 @@ function ModifierCard({
   const interactive = Boolean(onClick);
   const compact = density === "compact";
   return /* @__PURE__ */ jsx44(Root, {
+    variant: "subtle",
     className: cx36(styles28.root, tone === "wheat" && styles28.rootWheat, interactive && styles28.interactive, selected && styles28.selected, className),
     children: /* @__PURE__ */ jsxs33(Body, {
       className: cx36(styles28.body, compact && styles28.bodyCompact, interactive && styles28.focusable),
@@ -5197,9 +5205,11 @@ var styles29 = {
     }
   }),
   selected: css37({
-    boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)",
+    bg: "app.surface.raised",
+    boxShadow: "{shadows.float}",
     _hover: {
-      boxShadow: "0 0 0 1px var(--colors-app-accent), var(--shadows-panel)"
+      bg: "app.surface.raised",
+      boxShadow: "{shadows.float}"
     }
   }),
   body: css37({
@@ -6038,16 +6048,16 @@ var styles33 = {
     paddingX: "4",
     paddingY: "3",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     bg: "app.surface",
+    boxShadow: "{shadows.whisper}",
     cursor: "pointer",
     textAlign: "left",
-    transitionProperty: "background-color, border-color, color",
+    transitionProperty: "background-color, border-color, color, box-shadow",
     transitionDuration: "160ms",
     transitionTimingFunction: "ease",
     _hover: {
-      borderColor: "app.border.strong",
       bg: "app.surface.raised"
     },
     _focusVisible: {
@@ -6068,13 +6078,13 @@ var styles33 = {
   triggerSoft: css42({
     borderWidth: "0",
     bg: "app.surface.muted",
+    boxShadow: "none",
     _hover: {
       bg: "app.surface"
     }
   }),
   triggerOpen: css42({
-    borderColor: "app.border.strong",
-    bg: "app.surface",
+    bg: "app.surface.raised",
     borderBottomLeftRadius: "0",
     borderBottomRightRadius: "0"
   }),
@@ -6139,19 +6149,21 @@ var styles33 = {
   }),
   panel: css42({
     position: "absolute",
-    top: "calc(100% - 1px)",
+    top: "100%",
     left: "0",
     right: "0",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     bg: "app.surface",
     boxShadow: "{shadows.float}",
     overflow: "hidden",
     zIndex: "50"
   }),
   panelSoft: css42({
-    borderWidth: "0"
+    borderWidth: "0",
+    bg: "app.surface.muted",
+    boxShadow: "{shadows.panel}"
   }),
   panelConnected: css42({
     borderTopLeftRadius: "0",
@@ -6161,8 +6173,6 @@ var styles33 = {
   panelLabel: css42({
     paddingX: "4",
     paddingY: "2.5",
-    borderBottomWidth: "1px",
-    borderColor: "app.border",
     textStyle: "caption",
     color: "app.text.subtle",
     textTransform: "uppercase",
@@ -6596,7 +6606,7 @@ var styles36 = {
     gap: "2"
   }),
   rootStacked: css45({
-    gap: "0"
+    gap: "1"
   }),
   item: css45({
     width: "100%",
@@ -6627,31 +6637,28 @@ var styles36 = {
     boxShadow: "none"
   }),
   itemStacked: css45({
-    borderRadius: "0",
-    boxShadow: "inset 0 -1px 0 rgba(25, 28, 28, 0.06)",
+    borderRadius: "xl",
+    boxShadow: "none",
     bg: "transparent",
     paddingX: "4",
     paddingY: "3.5",
     _hover: {
       bg: "app.canvas.subtle"
-    },
-    _lastOfType: {
-      boxShadow: "none"
     }
   }),
   itemSelected: css45({
     bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)",
-    boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)",
+    boxShadow: "{shadows.whisper}",
     _hover: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)",
-      boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)"
+      boxShadow: "{shadows.whisper}"
     },
     _dark: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)",
-      boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.18)",
+      boxShadow: "{shadows.whisper}",
       _hover: {
         bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)",
-        boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.18)"
+        boxShadow: "{shadows.whisper}"
       }
     }
   }),
@@ -6660,17 +6667,17 @@ var styles36 = {
   }),
   itemSelectedStacked: css45({
     bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)",
-    boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)",
+    boxShadow: "none",
     _hover: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)",
-      boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.22)"
+      boxShadow: "none"
     },
     _dark: {
       bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)",
-      boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.2)",
+      boxShadow: "none",
       _hover: {
         bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)",
-        boxShadow: "0 0 0 1px rgba(214, 173, 96, 0.2)"
+        boxShadow: "none"
       }
     }
   }),
@@ -7849,7 +7856,7 @@ var styles43 = {
     margin: "0"
   }),
   listShell: css53({
-    gap: "2.5"
+    gap: "2"
   }),
   item: css53({
     appearance: "none",
@@ -7865,14 +7872,13 @@ var styles43 = {
     bg: "transparent",
     textAlign: "left",
     textDecoration: "none",
-    transitionProperty: "background-color, color, box-shadow, transform",
+    transitionProperty: "background-color, color, box-shadow",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _hover: {
-      bg: "app.nav.active",
+      bg: "color-mix(in srgb, var(--colors-app-surface) 68%, transparent)",
       color: "app.text",
       "& [data-sidebar-icon]": {
-        transform: "translateX(6px)",
         color: "app.accent"
       }
     },
@@ -7887,12 +7893,12 @@ var styles43 = {
     }
   }),
   itemShell: css53({
-    paddingX: "4",
-    paddingY: "3.25",
-    borderRadius: "xl"
+    paddingX: "3.5",
+    paddingY: "2.5",
+    borderRadius: "lg"
   }),
   itemActive: css53({
-    bg: "app.nav.active",
+    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 58%, var(--colors-app-surface) 42%)",
     color: "app.text"
   }),
   itemIcon: css53({
@@ -7901,7 +7907,7 @@ var styles43 = {
     justifyContent: "center",
     boxSize: "5.5",
     color: "app.text.subtle",
-    transition: "transform 240ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease"
+    transition: "color 180ms ease"
   }),
   itemText: css53({
     minWidth: 0,
@@ -7910,16 +7916,11 @@ var styles43 = {
     gap: "0.5"
   }),
   itemLabel: css53({
-    fontFamily: "mono",
-    fontSize: "0.84rem",
-    lineHeight: "1.2",
-    color: "currentColor",
-    fontWeight: "600",
-    letterSpacing: "0.14em",
-    textTransform: "uppercase"
+    textStyle: "sidebarLabel",
+    color: "currentColor"
   }),
   itemLabelShell: css53({
-    color: "color-mix(in srgb, var(--colors-app-accent) 72%, var(--colors-app-text-subtle) 28%)"
+    color: "inherit"
   }),
   itemDescription: css53({
     textStyle: "small",
@@ -9595,12 +9596,10 @@ import { jsx as jsx74, jsxs as jsxs62 } from "react/jsx-runtime";
 "use client";
 var toneStyles2 = {
   teal: {
-    range: "teal.9",
-    border: "teal.9"
+    range: "teal.9"
   },
   wheat: {
-    range: "wheat.9",
-    border: "wheat.9"
+    range: "wheat.9"
   }
 };
 function ValueSlider({
@@ -9665,8 +9664,8 @@ function ValueSlider({
               px: workspace ? "2" : "0",
               py: workspace ? "1" : "0",
               rounded: workspace ? "md" : "none",
-              borderWidth: workspace ? "1px" : "0",
-              borderColor: workspace ? "app.border" : "transparent",
+              borderWidth: "0",
+              borderColor: "transparent",
               bg: workspace ? "app.canvas.subtle" : "transparent",
               textStyle: workspace ? "caption" : "small",
               fontWeight: "600",
@@ -9700,7 +9699,7 @@ function ValueSlider({
               rounded: "full",
               bg: workspace ? colors.range : "app.surface",
               borderWidth: workspace ? "0" : "2px",
-              borderColor: workspace ? "transparent" : colors.border,
+              borderColor: workspace ? "transparent" : colors.range,
               boxShadow: workspace ? "panel" : "0 8px 18px rgba(8, 18, 20, 0.12)",
               cursor: "grab",
               _focusVisible: {
@@ -9826,5 +9825,5 @@ export {
   AccentLabel
 };
 
-//# debugId=1321304A5766D70264756E2164756E21
+//# debugId=1BD19E00707BDB2264756E2164756E21
 //# sourceMappingURL=index.js.map

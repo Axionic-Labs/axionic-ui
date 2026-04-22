@@ -83,9 +83,11 @@ const styles = {
 		},
 	}),
 	selected: css({
-		boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+		bg: 'app.surface.raised',
+		boxShadow: '{shadows.float}',
 		_hover: {
-			boxShadow: '0 0 0 1px var(--colors-app-accent), var(--shadows-panel)',
+			bg: 'app.surface.raised',
+			boxShadow: '{shadows.float}',
 		},
 	}),
 	body: css({
@@ -239,6 +241,7 @@ export function ModifierCard({
 
 	return (
 		<Card.Root
+			variant="subtle"
 			className={cx(
 				styles.root,
 				tone === 'wheat' && styles.rootWheat,

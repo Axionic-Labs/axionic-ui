@@ -525,16 +525,20 @@ var breadcrumb = defineSlotRecipe4({
 
 // src/theme/recipes/button.ts
 import { defineRecipe as defineRecipe3 } from "@pandacss/dev";
+var warmSurfaceBg = "color-mix(in srgb, var(--colors-app-surface-muted) 84%, var(--colors-wheat-2) 16%)";
+var warmSurfaceHoverBg = "color-mix(in srgb, var(--colors-app-surface) 76%, var(--colors-wheat-3) 24%)";
+var warmSurfaceActiveBg = "color-mix(in srgb, var(--colors-app-surface) 68%, var(--colors-wheat-4) 32%)";
 var accentHoverStyles = {
-  bg: "app.nav.active",
+  bg: warmSurfaceHoverBg,
   color: "app.text",
   transform: "translateY(-1px)",
   boxShadow: "{shadows.whisper}"
 };
 var accentActiveStyles = {
-  bg: "app.surface.muted",
+  bg: warmSurfaceActiveBg,
   color: "app.text",
-  transform: "translateY(0)"
+  transform: "translateY(0)",
+  boxShadow: "none"
 };
 var button = defineRecipe3({
   className: "button",
@@ -543,10 +547,12 @@ var button = defineRecipe3({
     alignItems: "center",
     appearance: "none",
     borderRadius: "xl",
+    borderWidth: "0",
+    borderColor: "transparent",
     cursor: "pointer",
     display: "inline-flex",
     flexShrink: "0",
-    fontFamily: "display",
+    fontFamily: "body",
     fontWeight: "semibold",
     gap: "2",
     isolation: "isolate",
@@ -580,18 +586,18 @@ var button = defineRecipe3({
         }
       },
       surface: {
-        bg: "app.surface.muted",
+        bg: warmSurfaceBg,
         color: "app.text",
         boxShadow: "none",
         _hover: accentHoverStyles,
         _active: accentActiveStyles,
         _on: {
-          bg: "app.nav.active",
-          color: "app.text"
+          bg: "app.accent.soft",
+          color: "app.accentAlt.text"
         }
       },
       subtle: {
-        bg: "app.canvas.subtle",
+        bg: "color-mix(in srgb, var(--colors-app-canvas-subtle) 82%, var(--colors-wheat-2) 18%)",
         color: "app.text",
         boxShadow: "none",
         _hover: {
@@ -602,9 +608,9 @@ var button = defineRecipe3({
         _on: accentActiveStyles
       },
       outline: {
-        bg: "app.surface.muted",
+        bg: warmSurfaceBg,
         color: "app.text",
-        boxShadow: "{shadows.whisper}",
+        boxShadow: "none",
         _hover: accentHoverStyles,
         _active: accentActiveStyles,
         _on: accentActiveStyles
@@ -622,14 +628,14 @@ var button = defineRecipe3({
         }
       },
       quiet: {
-        bg: "app.surface.muted",
+        bg: warmSurfaceBg,
         color: "app.text",
         boxShadow: "none",
         _hover: accentHoverStyles,
         _active: accentActiveStyles
       },
       toolbar: {
-        bg: "app.surface.muted",
+        bg: warmSurfaceBg,
         color: "app.text",
         boxShadow: "none",
         _hover: {
@@ -646,13 +652,13 @@ var button = defineRecipe3({
         }
       },
       wheat: {
-        bg: "transparent",
-        color: "{colors.wheat.9}",
+        bg: "{colors.wheat.4}",
+        color: "{colors.wheat.11}",
         fontWeight: "600",
-        borderWidth: "1px",
-        borderColor: "{colors.wheat.9}",
-        _hover: { bg: "{colors.wheat.9}", color: "{colors.wheat.12}" },
-        _active: { bg: "{colors.wheat.10}", color: "{colors.wheat.12}" }
+        borderWidth: "0",
+        borderColor: "transparent",
+        _hover: { bg: "{colors.wheat.5}", color: "{colors.wheat.12}" },
+        _active: { bg: "{colors.wheat.6}", color: "{colors.wheat.12}" }
       },
       dark: {
         bg: "transparent",
@@ -774,8 +780,8 @@ var card = defineSlotRecipe5({
       flexDirection: "column",
       overflow: "hidden",
       position: "relative",
-      borderWidth: "1px",
-      borderColor: "app.border",
+      borderWidth: "0",
+      borderColor: "transparent",
       bg: "app.surface",
       boxShadow: "{shadows.whisper}"
     },
@@ -819,6 +825,8 @@ var card = defineSlotRecipe5({
       },
       outline: {
         root: {
+          borderWidth: "1px",
+          borderColor: "app.border",
           boxShadow: "{shadows.whisper}"
         }
       },
@@ -837,7 +845,7 @@ var card = defineSlotRecipe5({
           transition: "all 0.2s",
           _hover: {
             boxShadow: "{shadows.float}",
-            borderColor: "app.border.strong",
+            bg: "app.surface.raised",
             transform: "translateY(-1px)"
           },
           _focusVisible: {
@@ -851,6 +859,8 @@ var card = defineSlotRecipe5({
     dashed: {
       true: {
         root: {
+          borderWidth: "1px",
+          borderColor: "app.border",
           borderStyle: "dashed",
           bg: "app.surface.muted"
         }
@@ -3947,6 +3957,8 @@ var segmentGroup = defineSlotRecipe33({
 // src/theme/recipes/select.ts
 import { selectAnatomy } from "@ark-ui/react/anatomy";
 import { defineSlotRecipe as defineSlotRecipe34 } from "@pandacss/dev";
+var warmTriggerBg = "color-mix(in srgb, var(--colors-app-surface-muted) 84%, var(--colors-wheat-2) 16%)";
+var warmTriggerHoverBg = "color-mix(in srgb, var(--colors-app-surface) 76%, var(--colors-wheat-3) 24%)";
 var select = defineSlotRecipe34({
   className: "select",
   slots: selectAnatomy.extendWith("indicatorGroup").keys(),
@@ -3960,8 +3972,8 @@ var select = defineSlotRecipe34({
     content: {
       background: "app.surface",
       borderRadius: "xl",
-      borderWidth: "1px",
-      borderColor: "app.border",
+      borderWidth: "0",
+      borderColor: "transparent",
       boxShadow: "{shadows.float}",
       display: "flex",
       flexDirection: "column",
@@ -4064,31 +4076,29 @@ var select = defineSlotRecipe34({
     variant: {
       outline: {
         trigger: {
-          borderWidth: "1px",
-          borderColor: "app.border",
+          bg: "app.surface",
+          boxShadow: "{shadows.whisper}",
+          borderWidth: "0",
+          borderColor: "transparent",
           _hover: {
-            borderColor: "app.border.strong",
-            bg: "app.surface.muted"
+            bg: "app.surface.raised"
           },
           _focusVisible: {
-            borderColor: "app.accent",
             boxShadow: "0 0 0 3px rgba(88, 153, 150, 0.16)",
             outline: "none",
-            bg: "app.surface"
+            bg: "app.surface.raised"
           }
         }
       },
       surface: {
         trigger: {
-          bg: "app.canvas.subtle",
-          borderWidth: "1px",
-          borderColor: "app.border",
+          bg: warmTriggerBg,
+          borderWidth: "0",
+          borderColor: "transparent",
           _hover: {
-            borderColor: "app.border.strong",
-            bg: "app.surface.muted"
+            bg: warmTriggerHoverBg
           },
           _focusVisible: {
-            borderColor: "app.accent",
             boxShadow: "0 0 0 3px rgba(88, 153, 150, 0.16)",
             outline: "none",
             bg: "app.surface"
@@ -5782,10 +5792,20 @@ var textStyles = defineTextStyles({
   toolbarLabel: {
     description: "Compact toolbar label and top-nav text.",
     value: {
-      fontFamily: "display",
+      fontFamily: "body",
       fontSize: "0.875rem",
       fontWeight: "600",
       lineHeight: "1.25"
+    }
+  },
+  sidebarLabel: {
+    description: "Primary sidebar navigation label.",
+    value: {
+      fontFamily: "body",
+      fontSize: "1rem",
+      fontWeight: "600",
+      lineHeight: "1.3",
+      letterSpacing: "-0.01em"
     }
   },
   metricValue: {
@@ -5853,8 +5873,8 @@ function createAxionicPreset() {
       extend: {
         tokens: {
           fonts: {
-            body: { value: '"Graphik", "Satoshi", sans-serif' },
-            display: { value: '"Satoshi", "Graphik", sans-serif' },
+            body: { value: '"Manrope", "Graphik", "Satoshi", sans-serif' },
+            display: { value: '"Manrope", "Graphik", "Satoshi", sans-serif' },
             mono: { value: '"JetBrains Mono", "Consolas", monospace' }
           },
           colors: {
@@ -6048,5 +6068,5 @@ export {
   axionicSand
 };
 
-//# debugId=47BE46A1D685FB6B64756E2164756E21
+//# debugId=6B073425A6C1446A64756E2164756E21
 //# sourceMappingURL=index.js.map
