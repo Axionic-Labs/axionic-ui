@@ -5631,42 +5631,42 @@ var styles34 = {
     listStyle: "none",
     display: "flex",
     alignItems: "center",
+    flexWrap: "wrap",
     gap: "2",
     padding: "0",
-    margin: "0",
-    overflowX: "auto"
+    margin: "0"
   }),
   item: css43({
     appearance: "none",
     display: "inline-flex",
     alignItems: "center",
     gap: "2",
-    minHeight: "10",
-    paddingX: "3.5",
-    borderRadius: "full",
-    borderWidth: "1px",
-    borderColor: "transparent",
+    minHeight: "8",
+    paddingX: "5",
+    paddingY: "2",
+    borderRadius: "xl",
+    borderWidth: "0",
     color: "app.text.muted",
-    bg: "transparent",
+    bg: "app.canvas.subtle",
     textDecoration: "none",
     whiteSpace: "nowrap",
     transitionProperty: "background-color, border-color, color",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _hover: {
-      bg: "app.surface",
-      borderColor: "app.border",
+      bg: "app.surface.muted",
       color: "app.text"
     }
   }),
   itemActive: css43({
-    bg: "app.surface",
-    borderColor: "app.border",
-    color: "app.text",
-    boxShadow: "{shadows.panel}"
+    bg: "app.accent",
+    color: "white",
+    boxShadow: "none"
   }),
   label: css43({
-    textStyle: "toolbarLabel"
+    textStyle: "caption",
+    fontWeight: "700",
+    letterSpacing: "0.01em"
   }),
   badge: css43({
     display: "inline-flex",
@@ -5676,9 +5676,9 @@ var styles34 = {
     height: "6",
     paddingX: "2",
     borderRadius: "full",
-    bg: "app.surface.muted",
+    bg: "rgba(255, 255, 255, 0.18)",
     textStyle: "caption",
-    color: "app.text"
+    color: "currentColor"
   }),
   trailing: css43({
     display: "flex",
@@ -5695,6 +5695,7 @@ var styles34 = {
     paddingY: "2",
     borderRadius: "0",
     borderWidth: "0",
+    bg: "transparent",
     color: "app.text.subtle",
     _hover: {
       bg: "transparent",
@@ -5731,6 +5732,7 @@ function SecondaryNavEntry({
       className,
       href: item.href,
       "aria-current": item.active ? "page" : undefined,
+      "data-tour-id": item.dataTourId,
       children: content
     });
   }
@@ -5738,6 +5740,7 @@ function SecondaryNavEntry({
     type: "button",
     className,
     onClick: item.onClick,
+    "data-tour-id": item.dataTourId,
     children: content
   });
 }
@@ -6163,6 +6166,11 @@ var styles37 = {
     borderWidth: "0",
     boxShadow: "none"
   }),
+  rootFlat: css47({
+    borderColor: "app.border",
+    bg: "app.canvas.subtle",
+    boxShadow: "none"
+  }),
   copy: css47({
     display: "flex",
     flexDirection: "column",
@@ -6193,7 +6201,7 @@ function SelectionToolbar({
   className
 }) {
   return /* @__PURE__ */ jsxs47("section", {
-    className: cx46(styles37.root, chrome === "soft" && styles37.rootSoft, className),
+    className: cx46(styles37.root, chrome === "soft" && styles37.rootSoft, chrome === "flat" && styles37.rootFlat, className),
     children: [
       /* @__PURE__ */ jsxs47("div", {
         className: styles37.copy,
@@ -8304,5 +8312,5 @@ export {
   AccentLabel
 };
 
-//# debugId=0FE4B8097812E54664756E2164756E21
+//# debugId=7156A0581E1FD65264756E2164756E21
 //# sourceMappingURL=index.js.map

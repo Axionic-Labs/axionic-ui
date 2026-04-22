@@ -11,6 +11,7 @@ export interface SecondaryNavItem {
 	href?: string;
 	active?: boolean;
 	onClick?: () => void;
+	dataTourId?: string;
 }
 
 export interface SecondaryNavProps {
@@ -32,42 +33,42 @@ const styles = {
 		listStyle: 'none',
 		display: 'flex',
 		alignItems: 'center',
+		flexWrap: 'wrap',
 		gap: '2',
 		padding: '0',
 		margin: '0',
-		overflowX: 'auto',
 	}),
 	item: css({
 		appearance: 'none',
 		display: 'inline-flex',
 		alignItems: 'center',
 		gap: '2',
-		minHeight: '10',
-		paddingX: '3.5',
-		borderRadius: 'full',
-		borderWidth: '1px',
-		borderColor: 'transparent',
+		minHeight: '8',
+		paddingX: '5',
+		paddingY: '2',
+		borderRadius: 'xl',
+		borderWidth: '0',
 		color: 'app.text.muted',
-		bg: 'transparent',
+		bg: 'app.canvas.subtle',
 		textDecoration: 'none',
 		whiteSpace: 'nowrap',
 		transitionProperty: 'background-color, border-color, color',
 		transitionDuration: '180ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
-			bg: 'app.surface',
-			borderColor: 'app.border',
+			bg: 'app.surface.muted',
 			color: 'app.text',
 		},
 	}),
 	itemActive: css({
-		bg: 'app.surface',
-		borderColor: 'app.border',
-		color: 'app.text',
-		boxShadow: '{shadows.panel}',
+		bg: 'app.accent',
+		color: 'white',
+		boxShadow: 'none',
 	}),
 	label: css({
-		textStyle: 'toolbarLabel',
+		textStyle: 'caption',
+		fontWeight: '700',
+		letterSpacing: '0.01em',
 	}),
 	badge: css({
 		display: 'inline-flex',
@@ -77,9 +78,9 @@ const styles = {
 		height: '6',
 		paddingX: '2',
 		borderRadius: 'full',
-		bg: 'app.surface.muted',
+		bg: 'rgba(255, 255, 255, 0.18)',
 		textStyle: 'caption',
-		color: 'app.text',
+		color: 'currentColor',
 	}),
 	trailing: css({
 		display: 'flex',
@@ -96,6 +97,7 @@ const styles = {
 		paddingY: '2',
 		borderRadius: '0',
 		borderWidth: '0',
+		bg: 'transparent',
 		color: 'app.text.subtle',
 		_hover: {
 			bg: 'transparent',
@@ -134,14 +136,19 @@ function SecondaryNavEntry({
 
 	if (item.href) {
 		return (
-			<a className={className} href={item.href} aria-current={item.active ? 'page' : undefined}>
+			<a
+				className={className}
+				href={item.href}
+				aria-current={item.active ? 'page' : undefined}
+				data-tour-id={item.dataTourId}
+			>
 				{content}
 			</a>
 		);
 	}
 
 	return (
-		<button type="button" className={className} onClick={item.onClick}>
+		<button type="button" className={className} onClick={item.onClick} data-tour-id={item.dataTourId}>
 			{content}
 		</button>
 	);

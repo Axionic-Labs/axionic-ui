@@ -3,7 +3,7 @@ export interface SelectionToolbarProps {
     summary: ReactNode;
     description?: ReactNode;
     actions?: ReactNode;
-    chrome?: 'default' | 'soft';
+    chrome?: 'default' | 'soft' | 'flat';
     className?: string;
 }
 export declare function SelectionToolbar({ summary, description, actions, chrome, className, }: SelectionToolbarProps): import("react/jsx-runtime").JSX.Element;
