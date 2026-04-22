@@ -47,12 +47,14 @@ describe('@axionic/ui entry point smoke tests', () => {
 		expect(mod.SelectionToolbar).toBeDefined();
 		expect(mod.SettingsSectionNav).toBeDefined();
 		expect(mod.SidebarNav).toBeDefined();
+		expect(mod.SlideOver).toBeDefined();
 		expect(mod.StepCard).toBeDefined();
 		expect(mod.EmptyState).toBeDefined();
 		expect(mod.HelpPanel).toBeDefined();
 		expect(mod.HelpTrigger).toBeDefined();
 		expect(mod.FileTree).toBeDefined();
 		expect(mod.LineChart).toBeDefined();
+		expect(mod.StatusState).toBeDefined();
 		expect(mod.StatusBanner).toBeDefined();
 		expect(mod.StreamingStatus).toBeDefined();
 		expect(mod.SupportPanel).toBeDefined();

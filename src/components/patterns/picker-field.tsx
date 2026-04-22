@@ -68,6 +68,17 @@ const styles = {
 			bg: 'app.surface',
 		},
 	}),
+	triggerOpen: css({
+		borderColor: 'app.border.strong',
+		bg: 'app.surface',
+		borderBottomLeftRadius: '0',
+		borderBottomRightRadius: '0',
+	}),
+	triggerOpenSoft: css({
+		bg: 'app.surface',
+		borderBottomLeftRadius: '0',
+		borderBottomRightRadius: '0',
+	}),
 	lead: css({
 		display: 'flex',
 		alignItems: 'center',
@@ -124,7 +135,7 @@ const styles = {
 	}),
 	panel: css({
 		position: 'absolute',
-		top: 'calc(100% + 0.5rem)',
+		top: 'calc(100% - 1px)',
 		left: '0',
 		right: '0',
 		borderRadius: 'l3',
@@ -138,6 +149,11 @@ const styles = {
 	panelSoft: css({
 		borderWidth: '0',
 	}),
+	panelConnected: css({
+		borderTopLeftRadius: '0',
+		borderTopRightRadius: '0',
+		borderWidth: '0',
+	}),
 	panelLabel: css({
 		paddingX: '4',
 		paddingY: '2.5',
@@ -147,6 +163,7 @@ const styles = {
 		color: 'app.text.subtle',
 		textTransform: 'uppercase',
 		letterSpacing: '0.08em',
+		bg: 'app.canvas.subtle',
 	}),
 	panelBody: css({
 		maxHeight: '18rem',
@@ -182,6 +199,8 @@ export function PickerField({
 					styles.trigger,
 					compact && styles.triggerSm,
 					softChrome && styles.triggerSoft,
+					open && styles.triggerOpen,
+					open && softChrome && styles.triggerOpenSoft,
 				)}
 				aria-expanded={open}
 			>
@@ -198,7 +217,7 @@ export function PickerField({
 				<ChevronDown size={16} className={cx(styles.chevron, open && styles.chevronOpen)} />
 			</button>
 			{open && panel && (
-				<div className={cx(styles.panel, softChrome && styles.panelSoft)}>
+				<div className={cx(styles.panel, softChrome && styles.panelSoft, styles.panelConnected)}>
 					{panelLabel && <div className={styles.panelLabel}>{panelLabel}</div>}
 					<div className={styles.panelBody}>{panel}</div>
 				</div>

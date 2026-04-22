@@ -1,7 +1,7 @@
 'use client';
 
 import { Plus, Trash2 } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { css } from 'styled-system/css';
 import { FormField } from '../forms/form-field';
 import { Button, Input, Textarea } from '../ui';
@@ -48,6 +48,84 @@ const styles = {
 	}),
 };
 
+interface NamedPromptRowProps {
+	item: NamedPromptListItem;
+	onRemove: (key: string) => void;
+	onKeyChange: (oldKey: string, newKey: string) => void;
+	onValueChange: (key: string, value: string) => void;
+	keyLabel: string;
+	valueLabel: string;
+	keyPlaceholder: string;
+	valuePlaceholder: string;
+	chrome: 'default' | 'soft';
+}
+
+function NamedPromptRow({
+	item,
+	onRemove,
+	onKeyChange,
+	onValueChange,
+	keyLabel,
+	valueLabel,
+	keyPlaceholder,
+	valuePlaceholder,
+	chrome,
+}: NamedPromptRowProps) {
+	const [draftKey, setDraftKey] = useState(item.key);
+
+	useEffect(() => {
+		setDraftKey(item.key);
+	}, [item.key]);
+
+	const commitKeyChange = () => {
+		if (draftKey !== item.key) {
+			onKeyChange(item.key, draftKey);
+		}
+	};
+
+	return (
+		<FormSection
+			title={draftKey || 'New task'}
+			tone="subtle"
+			chrome={chrome}
+			actions={
+				<Button type="button" variant="ghost" size="sm" onClick={() => onRemove(item.key)}>
+					<Trash2 size={14} />
+					Remove
+				</Button>
+			}
+		>
+			<div className={styles.row}>
+				<div className={styles.rowHeader}>
+					<FormField label={keyLabel} className={css({ flex: '1 1 16rem' })}>
+						<Input
+							value={draftKey}
+							onChange={(event) => setDraftKey(event.target.value)}
+							onBlur={commitKeyChange}
+							onKeyDown={(event) => {
+								if (event.key === 'Enter') {
+									event.preventDefault();
+									event.currentTarget.blur();
+								}
+							}}
+							placeholder={keyPlaceholder}
+						/>
+					</FormField>
+				</div>
+				<FormField label={valueLabel}>
+					<Textarea
+						value={item.value}
+						onChange={(event) => onValueChange(item.key, event.target.value)}
+						placeholder={valuePlaceholder}
+						rows={4}
+						className={css({ resize: 'vertical' })}
+					/>
+				</FormField>
+			</div>
+		</FormSection>
+	);
+}
+
 export function NamedPromptList({
 	title,
 	description,
@@ -89,40 +167,19 @@ export function NamedPromptList({
 						className={css({ py: '8', px: '4' })}
 					/>
 				) : (
-					items.map((item) => (
-						<FormSection
-							key={item.key || '__new__'}
-							title={item.key || 'New task'}
-							tone="subtle"
+					items.map((item, index) => (
+						<NamedPromptRow
+							key={index}
+							item={item}
+							onRemove={onRemove}
+							onKeyChange={onKeyChange}
+							onValueChange={onValueChange}
+							keyLabel={keyLabel}
+							valueLabel={valueLabel}
+							keyPlaceholder={keyPlaceholder}
+							valuePlaceholder={valuePlaceholder}
 							chrome={chrome}
-							actions={
-								<Button type="button" variant="ghost" size="sm" onClick={() => onRemove(item.key)}>
-									<Trash2 size={14} />
-									Remove
-								</Button>
-							}
-						>
-							<div className={styles.row}>
-								<div className={styles.rowHeader}>
-									<FormField label={keyLabel} className={css({ flex: '1 1 16rem' })}>
-										<Input
-											value={item.key}
-											onChange={(event) => onKeyChange(item.key, event.target.value)}
-											placeholder={keyPlaceholder}
-										/>
-									</FormField>
-								</div>
-								<FormField label={valueLabel}>
-									<Textarea
-										value={item.value}
-										onChange={(event) => onValueChange(item.key, event.target.value)}
-										placeholder={valuePlaceholder}
-										rows={4}
-										className={css({ resize: 'vertical' })}
-									/>
-								</FormField>
-							</div>
-						</FormSection>
+						/>
 					))
 				)}
 			</div>
