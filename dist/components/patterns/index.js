@@ -4017,20 +4017,21 @@ var styles26 = {
   root: css33({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
-    minH: "18rem",
-    p: "8",
-    rounded: "3xl",
+    gap: "3",
+    p: "4",
+    rounded: "md",
+    borderWidth: "1px",
+    borderColor: "app.border",
     bg: "app.surface",
     boxShadow: "whisper",
-    transitionProperty: "background-color, box-shadow, transform",
+    transitionProperty: "border-color, background-color, box-shadow, transform",
     transitionDuration: "160ms",
     transitionTimingFunction: "ease"
   }),
   body: css33({
     display: "flex",
     flexDirection: "column",
-    gap: "5",
+    gap: "3",
     minH: 0,
     flex: "1"
   }),
@@ -4039,9 +4040,9 @@ var styles26 = {
     userSelect: "none",
     outline: "none",
     _hover: {
-      bg: "app.surface.muted",
+      borderColor: "app.border.strong",
       boxShadow: "panel",
-      transform: "translateY(-1px)"
+      transform: "translateY(-2px)"
     },
     _focusVisible: {
       outline: "2px solid",
@@ -4050,116 +4051,192 @@ var styles26 = {
     }
   }),
   selected: css33({
+    borderColor: "app.accentAlt.border",
     boxShadow: "0 0 0 1px var(--colors-app-accent-alt-border)"
   }),
-  header: css33({
-    display: "grid",
-    gridTemplateColumns: "auto minmax(0, 1fr)",
+  iconRow: css33({
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: "3"
+  }),
+  adornment: css33({
+    marginLeft: "auto",
+    display: "inline-flex",
+    alignItems: "center"
+  }),
+  ctaRoot: css33({
+    display: "flex",
+    flexDirection: "column",
     gap: "4",
-    alignItems: "start"
+    p: "5",
+    rounded: "md",
+    borderWidth: "1px",
+    borderStyle: "dashed",
+    borderColor: "app.border.strong",
+    bg: "app.canvas.subtle",
+    minH: "200px",
+    transitionProperty: "border-color, background-color, box-shadow",
+    transitionDuration: "160ms",
+    transitionTimingFunction: "ease",
+    boxShadow: "whisper"
+  }),
+  ctaBody: css33({
+    appearance: "none",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "3",
+    flex: "1",
+    width: "full",
+    minH: 0,
+    p: "0",
+    borderWidth: "0",
+    bg: "transparent",
+    textAlign: "center",
+    cursor: "pointer",
+    userSelect: "none",
+    transitionProperty: "background-color, box-shadow, transform",
+    transitionDuration: "160ms",
+    transitionTimingFunction: "ease",
+    _hover: {
+      bg: "app.accent.soft",
+      boxShadow: "panel",
+      transform: "translateY(-2px)"
+    },
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "app.accent",
+      outlineOffset: "2px"
+    }
+  }),
+  ctaBodyStatic: css33({
+    cursor: "default",
+    _hover: {
+      bg: "transparent",
+      boxShadow: "none",
+      transform: "none"
+    }
+  }),
+  ctaIcon: css33({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSize: "44px",
+    rounded: "lg",
+    bg: "app.accent.soft",
+    color: "app.accent"
+  }),
+  ctaTitle: css33({
+    fontSize: "sm",
+    fontWeight: "600",
+    color: "app.text"
+  }),
+  ctaSubtitle: css33({
+    fontSize: "xs",
+    color: "app.text.muted",
+    maxW: "18rem"
   }),
   iconFrame: css33({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "3.5rem",
-    rounded: "2xl",
-    bg: "app.canvas.subtle",
-    color: "app.accent",
     flexShrink: 0
   }),
   copy: css33({
-    display: "grid",
+    display: "flex",
+    flexDirection: "column",
     gap: "1.5",
     minWidth: 0
   }),
-  title: css33({
-    textStyle: "sectionTitle",
-    color: "app.text",
-    minWidth: 0,
-    lineHeight: "1.2"
-  }),
-  description: css33({
-    textStyle: "small",
-    color: "app.text.muted",
-    lineHeight: "1.6",
-    minH: "3rem"
-  }),
-  metaRow: css33({
+  titleRow: css33({
     display: "flex",
     alignItems: "center",
     gap: "2",
+    flexWrap: "wrap",
+    minWidth: 0
+  }),
+  title: css33({
+    fontSize: "sm",
+    fontWeight: "600",
+    color: "app.text",
+    lineHeight: "1.3",
+    minWidth: 0
+  }),
+  description: css33({
+    fontSize: "xs",
+    color: "app.text.muted",
+    lineHeight: "1.4",
+    minWidth: 0,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  }),
+  statusRow: css33({
+    display: "flex",
+    alignItems: "center",
+    gap: "2.5",
     flexWrap: "wrap"
   }),
-  status: css33({
+  statusPill: css33({
     display: "inline-flex",
     alignItems: "center",
     gap: "1.5",
+    fontSize: "10px",
+    fontWeight: "600",
+    textTransform: "uppercase",
+    letterSpacing: "0.08em"
+  }),
+  statusDot: css33({
+    boxSize: "2",
     rounded: "full",
-    px: "2.5",
-    py: "1",
-    textStyle: "caption",
-    fontWeight: "700"
+    flexShrink: 0
   }),
-  statusNeutral: css33({
-    borderColor: "app.border",
-    bg: "app.canvas.subtle",
-    color: "app.text"
-  }),
-  statusAccent: css33({
-    borderColor: "app.accentAlt.border",
-    bg: "app.accentAlt.soft",
-    color: "app.accentAlt.text"
-  }),
-  statusSuccess: css33({
-    borderColor: "transparent",
-    bg: "bg.success",
-    color: "fg.success"
-  }),
-  statusWarning: css33({
-    borderColor: "transparent",
-    bg: "bg.warning",
-    color: "fg.warning"
-  }),
-  statusDanger: css33({
-    borderColor: "transparent",
-    bg: "bg.error",
-    color: "fg.error"
+  statusNeutral: css33({ color: "app.text.muted" }),
+  statusAccent: css33({ color: "app.accent" }),
+  statusSuccess: css33({ color: "fg.success" }),
+  statusWarning: css33({ color: "fg.warning" }),
+  statusDanger: css33({ color: "fg.error" }),
+  statusDotNeutral: css33({ bg: "app.text.subtle" }),
+  statusDotAccent: css33({ bg: "app.accent" }),
+  statusDotSuccess: css33({ bg: "fg.success" }),
+  statusDotWarning: css33({ bg: "fg.warning" }),
+  statusDotDanger: css33({ bg: "fg.error" }),
+  statusPulse: css33({
+    animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
   }),
   meta: css33({
-    textStyle: "caption",
-    color: "app.text.subtle"
+    fontSize: "11px",
+    color: "app.text.subtle",
+    fontWeight: "400"
   }),
   facts: css33({
     display: "grid",
     gap: "0",
-    rounded: "2xl",
+    rounded: "lg",
     bg: "app.canvas.subtle",
     overflow: "hidden"
   }),
   fact: css33({
     display: "grid",
-    gap: "0.75",
-    p: "4",
+    gap: "0.5",
+    px: "2.5",
+    py: "2",
     minW: 0
   }),
-  factTopBorder: css33({
-    boxShadow: "inset 0 1px 0 rgba(25, 28, 28, 0.06)"
-  }),
-  factLeftBorder: css33({
-    boxShadow: "inset 1px 0 0 rgba(25, 28, 28, 0.06)"
-  }),
   factLabel: css33({
-    textStyle: "caption",
+    fontSize: "9px",
+    fontWeight: "600",
     color: "app.text.subtle",
     textTransform: "uppercase",
-    letterSpacing: "0.08em"
+    letterSpacing: "0.06em"
   }),
   factValue: css33({
-    textStyle: "small",
+    fontSize: "xs",
+    fontWeight: "500",
     color: "app.text",
-    fontWeight: "600",
-    lineHeight: "1.45",
+    lineHeight: "1.3",
     minWidth: 0,
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -4167,11 +4244,28 @@ var styles26 = {
   }),
   progress: css33({
     display: "grid",
-    gap: "1.5"
+    gap: "2",
+    rounded: "xl",
+    bg: "app.canvas.subtle",
+    p: "4"
+  }),
+  progressHeader: css33({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "2"
   }),
   progressLabel: css33({
-    textStyle: "caption",
-    color: "app.text.muted"
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "app.text.subtle",
+    textTransform: "uppercase",
+    letterSpacing: "0.1em"
+  }),
+  progressValue: css33({
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "app.text"
   }),
   progressTrack: css33({
     h: "2",
@@ -4187,19 +4281,36 @@ var styles26 = {
   }),
   footer: css33({
     display: "flex",
-    alignItems: "center",
+    alignItems: "stretch",
     gap: "2",
-    flexWrap: "wrap",
-    pt: "4"
+    mt: "auto",
+    pt: "2.5",
+    borderTopWidth: "1px",
+    borderTopColor: "app.border",
+    "& > *": {
+      flex: "1",
+      minH: "7",
+      h: "7",
+      py: "1",
+      px: "2",
+      fontSize: "xs"
+    }
   })
 };
 function handleKeyDown2(event, onClick) {
-  if (!onClick)
+  if (!onClick || isNestedInteractiveTarget(event.target, event.currentTarget))
     return;
   if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
     onClick();
   }
+}
+function isNestedInteractiveTarget(target, currentTarget) {
+  if (!(target instanceof HTMLElement)) {
+    return false;
+  }
+  const interactiveTarget = target.closest('button, a, input, textarea, select, summary, [role="button"], [role="link"]');
+  return Boolean(interactiveTarget && interactiveTarget !== currentTarget);
 }
 function getStatusToneClass(tone) {
   switch (tone) {
@@ -4213,6 +4324,20 @@ function getStatusToneClass(tone) {
       return styles26.statusDanger;
     default:
       return styles26.statusNeutral;
+  }
+}
+function getStatusDotClass(tone) {
+  switch (tone) {
+    case "accent":
+      return styles26.statusDotAccent;
+    case "success":
+      return styles26.statusDotSuccess;
+    case "warning":
+      return styles26.statusDotWarning;
+    case "danger":
+      return styles26.statusDotDanger;
+    default:
+      return styles26.statusDotNeutral;
   }
 }
 function clampProgress(value) {
@@ -4229,43 +4354,57 @@ function ModelCard({
   footer,
   selected = false,
   onClick,
-  className
+  className,
+  titleAdornment
 }) {
   const factColumns = facts.length <= 1 ? 1 : 2;
   const normalizedProgress = progress ? clampProgress(progress.value) : null;
+  const pulseDot = status.tone === "accent";
   const cardContent = /* @__PURE__ */ jsxs30(Fragment3, {
     children: [
       /* @__PURE__ */ jsxs30("div", {
-        className: styles26.header,
+        className: styles26.iconRow,
         children: [
           /* @__PURE__ */ jsx41("div", {
             className: styles26.iconFrame,
             children: icon
           }),
+          titleAdornment ? /* @__PURE__ */ jsx41("div", {
+            className: styles26.adornment,
+            children: titleAdornment
+          }) : null
+        ]
+      }),
+      /* @__PURE__ */ jsxs30("div", {
+        className: styles26.copy,
+        children: [
+          /* @__PURE__ */ jsx41("div", {
+            className: styles26.titleRow,
+            children: /* @__PURE__ */ jsx41("div", {
+              className: styles26.title,
+              children: title
+            })
+          }),
+          description ? /* @__PURE__ */ jsx41("div", {
+            className: styles26.description,
+            children: description
+          }) : null,
           /* @__PURE__ */ jsxs30("div", {
-            className: styles26.copy,
+            className: styles26.statusRow,
             children: [
-              /* @__PURE__ */ jsx41("div", {
-                className: styles26.title,
-                children: title
-              }),
-              description ? /* @__PURE__ */ jsx41("div", {
-                className: styles26.description,
-                children: description
-              }) : null,
-              /* @__PURE__ */ jsxs30("div", {
-                className: styles26.metaRow,
+              /* @__PURE__ */ jsxs30("span", {
+                className: cx33(styles26.statusPill, getStatusToneClass(status.tone)),
                 children: [
                   /* @__PURE__ */ jsx41("span", {
-                    className: cx33(styles26.status, getStatusToneClass(status.tone)),
-                    children: status.label
+                    className: cx33(styles26.statusDot, getStatusDotClass(status.tone), pulseDot && styles26.statusPulse)
                   }),
-                  meta ? /* @__PURE__ */ jsx41("span", {
-                    className: styles26.meta,
-                    children: meta
-                  }) : null
+                  status.label
                 ]
-              })
+              }),
+              meta ? /* @__PURE__ */ jsx41("span", {
+                className: styles26.meta,
+                children: meta
+              }) : null
             ]
           })
         ]
@@ -4276,7 +4415,7 @@ function ModelCard({
           gridTemplateColumns: factColumns === 1 ? "minmax(0, 1fr)" : "repeat(2, minmax(0, 1fr))"
         },
         children: facts.map((fact, index) => /* @__PURE__ */ jsxs30("div", {
-          className: cx33(styles26.fact, index >= factColumns && styles26.factTopBorder, factColumns > 1 && index % factColumns !== 0 && styles26.factLeftBorder),
+          className: styles26.fact,
           children: [
             /* @__PURE__ */ jsx41("div", {
               className: styles26.factLabel,
@@ -4292,10 +4431,22 @@ function ModelCard({
       normalizedProgress !== null ? /* @__PURE__ */ jsxs30("div", {
         className: styles26.progress,
         children: [
-          progress?.label ? /* @__PURE__ */ jsx41("div", {
-            className: styles26.progressLabel,
-            children: progress.label
-          }) : null,
+          /* @__PURE__ */ jsxs30("div", {
+            className: styles26.progressHeader,
+            children: [
+              /* @__PURE__ */ jsx41("span", {
+                className: styles26.progressLabel,
+                children: "Progress"
+              }),
+              /* @__PURE__ */ jsxs30("span", {
+                className: styles26.progressValue,
+                children: [
+                  normalizedProgress,
+                  "%"
+                ]
+              })
+            ]
+          }),
           /* @__PURE__ */ jsx41("div", {
             className: styles26.progressTrack,
             role: "progressbar",
@@ -4307,7 +4458,11 @@ function ModelCard({
               className: styles26.progressBar,
               style: { width: `${normalizedProgress}%` }
             })
-          })
+          }),
+          progress?.label ? /* @__PURE__ */ jsx41("div", {
+            className: css33({ textStyle: "caption", color: "app.text.muted" }),
+            children: progress.label
+          }) : null
         ]
       }) : null
     ]
@@ -4342,6 +4497,46 @@ function ModelCard({
         className: styles26.footer,
         children: footer
       }) : null
+    ]
+  });
+}
+function ModelCtaCard({
+  icon,
+  title,
+  subtitle,
+  action,
+  onClick,
+  className
+}) {
+  const content = /* @__PURE__ */ jsxs30(Fragment3, {
+    children: [
+      /* @__PURE__ */ jsx41("div", {
+        className: styles26.ctaIcon,
+        children: icon
+      }),
+      /* @__PURE__ */ jsx41("div", {
+        className: styles26.ctaTitle,
+        children: title
+      }),
+      subtitle ? /* @__PURE__ */ jsx41("div", {
+        className: styles26.ctaSubtitle,
+        children: subtitle
+      }) : null
+    ]
+  });
+  return /* @__PURE__ */ jsxs30("div", {
+    className: cx33(styles26.ctaRoot, className),
+    children: [
+      onClick ? /* @__PURE__ */ jsx41("button", {
+        type: "button",
+        className: styles26.ctaBody,
+        onClick,
+        children: content
+      }) : /* @__PURE__ */ jsx41("div", {
+        className: cx33(styles26.ctaBody, styles26.ctaBodyStatic),
+        children: content
+      }),
+      action
     ]
   });
 }
@@ -9594,6 +9789,7 @@ export {
   ModifierCard,
   ModifierActionCard,
   ModelIconCustomizer,
+  ModelCtaCard,
   ModelCardIcon,
   ModelCard,
   MetricRail,
@@ -9630,5 +9826,5 @@ export {
   AccentLabel
 };
 
-//# debugId=05678A92AE2581E664756E2164756E21
+//# debugId=1321304A5766D70264756E2164756E21
 //# sourceMappingURL=index.js.map

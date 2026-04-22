@@ -48,6 +48,8 @@ export {
 	type ModelCardFact,
 	type ModelCardProps,
 	type ModelCardStatus,
+	ModelCtaCard,
+	type ModelCtaCardProps,
 } from './model-card';
 export {
 	DEFAULT_ICON_CONFIG,

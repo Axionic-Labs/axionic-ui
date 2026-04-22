@@ -29,7 +29,7 @@ export { LineChart, type LineChartProps } from './line-chart';
 export { ListToolbar, type ListToolbarProps } from './list-toolbar';
 export { MetaPill, type MetaPillProps } from './meta-pill';
 export { MetricRail, type MetricRailProps } from './metric-rail';
-export { ModelCard, type ModelCardFact, type ModelCardProps, type ModelCardStatus, } from './model-card';
+export { ModelCard, type ModelCardFact, type ModelCardProps, type ModelCardStatus, ModelCtaCard, type ModelCtaCardProps, } from './model-card';
 export { DEFAULT_ICON_CONFIG, ModelCardIcon, type ModelCardIconProps, type ModelIconConfig, ModelIconCustomizer, type ModelIconCustomizerProps, } from './model-icon-customizer';
 export { ModifierActionCard, type ModifierActionCardProps, } from './modifier-action-card';
 export { ModifierCard, type ModifierCardFact, type ModifierCardProps, } from './modifier-card';
