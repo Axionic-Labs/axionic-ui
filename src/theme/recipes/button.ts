@@ -1,18 +1,24 @@
 import { defineRecipe } from '@pandacss/dev';
 
+const warmSurfaceBg =
+	'color-mix(in srgb, var(--colors-app-surface-muted) 84%, var(--colors-wheat-2) 16%)';
+const warmSurfaceHoverBg =
+	'color-mix(in srgb, var(--colors-app-surface) 76%, var(--colors-wheat-3) 24%)';
+const warmSurfaceActiveBg =
+	'color-mix(in srgb, var(--colors-app-surface) 68%, var(--colors-wheat-4) 32%)';
+
 const accentHoverStyles = {
-	bg: 'app.accentAlt.soft',
-	borderColor: 'app.accentAlt.border',
-	color: 'app.accentAlt.text',
+	bg: warmSurfaceHoverBg,
+	color: 'app.text',
 	transform: 'translateY(-1px)',
 	boxShadow: '{shadows.whisper}',
 };
 
 const accentActiveStyles = {
-	bg: 'app.accentAlt.muted',
-	borderColor: 'app.accentAlt.border',
-	color: 'app.accentAlt.text',
+	bg: warmSurfaceActiveBg,
+	color: 'app.text',
 	transform: 'translateY(0)',
+	boxShadow: 'none',
 };
 
 export const button = defineRecipe({
@@ -22,10 +28,12 @@ export const button = defineRecipe({
 		alignItems: 'center',
 		appearance: 'none',
 		borderRadius: 'xl',
+		borderWidth: '0',
+		borderColor: 'transparent',
 		cursor: 'pointer',
 		display: 'inline-flex',
 		flexShrink: '0',
-		fontFamily: 'display',
+		fontFamily: 'body',
 		fontWeight: 'semibold',
 		gap: '2',
 		isolation: 'isolate',
@@ -59,22 +67,20 @@ export const button = defineRecipe({
 				},
 			},
 			surface: {
-				bg: 'app.surface',
-				borderWidth: '1px',
-				borderColor: 'app.border',
+				bg: warmSurfaceBg,
 				color: 'app.text',
+				boxShadow: 'none',
 				_hover: accentHoverStyles,
 				_active: accentActiveStyles,
 				_on: {
-					bg: 'app.surface',
-					borderColor: 'app.border.strong',
+					bg: 'app.accent.soft',
+					color: 'app.accentAlt.text',
 				},
 			},
 			subtle: {
-				bg: 'app.canvas.subtle',
+				bg: 'color-mix(in srgb, var(--colors-app-canvas-subtle) 82%, var(--colors-wheat-2) 18%)',
 				color: 'app.text',
-				borderWidth: '1px',
-				borderColor: 'transparent',
+				boxShadow: 'none',
 				_hover: {
 					...accentHoverStyles,
 					boxShadow: 'none',
@@ -83,10 +89,9 @@ export const button = defineRecipe({
 				_on: accentActiveStyles,
 			},
 			outline: {
-				borderWidth: '1px',
-				borderColor: 'app.border',
-				bg: 'app.surface',
+				bg: warmSurfaceBg,
 				color: 'app.text',
+				boxShadow: 'none',
 				_hover: accentHoverStyles,
 				_active: accentActiveStyles,
 				_on: accentActiveStyles,
@@ -104,18 +109,16 @@ export const button = defineRecipe({
 				},
 			},
 			quiet: {
-				bg: 'app.surface.muted',
+				bg: warmSurfaceBg,
 				color: 'app.text',
-				borderWidth: '1px',
-				borderColor: 'transparent',
+				boxShadow: 'none',
 				_hover: accentHoverStyles,
 				_active: accentActiveStyles,
 			},
 			toolbar: {
-				bg: 'transparent',
-				color: 'app.text.muted',
-				borderWidth: '1px',
-				borderColor: 'transparent',
+				bg: warmSurfaceBg,
+				color: 'app.text',
+				boxShadow: 'none',
 				_hover: {
 					...accentHoverStyles,
 					boxShadow: 'none',
@@ -130,13 +133,13 @@ export const button = defineRecipe({
 				},
 			},
 			wheat: {
-				bg: 'transparent',
-				color: '{colors.wheat.9}',
+				bg: '{colors.wheat.4}',
+				color: '{colors.wheat.11}',
 				fontWeight: '600',
-				borderWidth: '1px',
-				borderColor: '{colors.wheat.9}',
-				_hover: { bg: '{colors.wheat.9}', color: '{colors.wheat.12}' },
-				_active: { bg: '{colors.wheat.10}', color: '{colors.wheat.12}' },
+				borderWidth: '0',
+				borderColor: 'transparent',
+				_hover: { bg: '{colors.wheat.5}', color: '{colors.wheat.12}' },
+				_active: { bg: '{colors.wheat.6}', color: '{colors.wheat.12}' },
 			},
 			dark: {
 				bg: 'transparent',
@@ -150,8 +153,6 @@ export const button = defineRecipe({
 			oauth: {
 				bg: 'app.surface',
 				color: 'app.text',
-				borderWidth: '1px',
-				borderColor: 'app.border',
 				fontWeight: '600',
 				boxShadow: '{shadows.whisper}',
 				_hover: {
@@ -161,10 +162,10 @@ export const button = defineRecipe({
 				},
 			},
 			'outline-brand': {
-				borderWidth: '1px',
-				borderColor: 'colorPalette.7',
-				color: 'app.text',
-				_hover: { bg: 'app.accent.soft' },
+				bg: 'app.accent.soft',
+				color: 'app.accentAlt.text',
+				boxShadow: 'none',
+				_hover: { bg: 'app.accentAlt.soft' },
 			},
 			light: {
 				bg: 'transparent',
@@ -180,16 +181,16 @@ export const button = defineRecipe({
 				_hover: { bg: 'colorPalette.a3' },
 			},
 			brand: {
-				background: '{colors.teal.light.11}',
+				background: 'app.accent',
 				color: 'white',
 				boxShadow: '{shadows.whisper}',
 				_hover: {
-					background: '{colors.teal.light.10}',
+					background: 'app.accentAlt.text',
 					transform: 'translateY(-1px)',
 					boxShadow: '{shadows.float}',
 				},
 				_active: {
-					background: '{colors.teal.light.11}',
+					background: 'app.accent',
 					transform: 'translateY(0)',
 				},
 			},

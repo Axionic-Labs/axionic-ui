@@ -794,9 +794,7 @@ var styles6 = {
   panel: css7({
     padding: { base: "4", md: "4.5" },
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    bg: "app.surface"
+    bg: "app.surface.muted"
   }),
   inline: css7({
     padding: "0",
@@ -1294,6 +1292,7 @@ var styles9 = {
   }),
   header: css11({
     display: "flex",
+    flexDirection: { base: "column", md: "row" },
     alignItems: "flex-start",
     justifyContent: "space-between",
     gap: "4"
@@ -1302,7 +1301,8 @@ var styles9 = {
     display: "flex",
     alignItems: "center",
     gap: "3.5",
-    minWidth: 0
+    minWidth: 0,
+    width: "100%"
   }),
   iconWrap: css11({
     display: "inline-flex",
@@ -1334,7 +1334,10 @@ var styles9 = {
     display: "inline-flex",
     alignItems: "center",
     gap: "2",
-    flexShrink: 0
+    flexShrink: 0,
+    width: { base: "100%", md: "auto" },
+    justifyContent: { base: "flex-start", md: "flex-end" },
+    flexWrap: "wrap"
   }),
   body: css11({
     display: "flex",
@@ -3682,8 +3685,6 @@ var styles22 = {
     gap: "4",
     padding: "4",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface.muted"
   }),
   accent: css28({
@@ -4021,12 +4022,11 @@ var styles26 = {
   root: css33({
     display: "flex",
     flexDirection: "column",
-    gap: "4",
-    minH: "18rem",
-    p: "8",
-    rounded: "3xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    gap: "3",
+    p: "4",
+    rounded: "md",
+    borderWidth: "0",
+    borderColor: "transparent",
     bg: "app.surface",
     boxShadow: "whisper",
     transitionProperty: "border-color, background-color, box-shadow, transform",
@@ -4036,7 +4036,7 @@ var styles26 = {
   body: css33({
     display: "flex",
     flexDirection: "column",
-    gap: "5",
+    gap: "3",
     minH: 0,
     flex: "1"
   }),
@@ -4045,9 +4045,9 @@ var styles26 = {
     userSelect: "none",
     outline: "none",
     _hover: {
-      borderColor: "app.border.strong",
+      bg: "app.surface.raised",
       boxShadow: "panel",
-      transform: "translateY(-1px)"
+      transform: "translateY(-2px)"
     },
     _focusVisible: {
       outline: "2px solid",
@@ -4056,124 +4056,192 @@ var styles26 = {
     }
   }),
   selected: css33({
-    borderColor: "app.accentAlt.border",
-    boxShadow: "0 0 0 1px var(--colors-app-accent-alt-border)"
+    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 34%, var(--colors-app-surface) 66%)",
+    boxShadow: "float"
   }),
-  header: css33({
-    display: "grid",
-    gridTemplateColumns: "auto minmax(0, 1fr)",
+  iconRow: css33({
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: "3"
+  }),
+  adornment: css33({
+    marginLeft: "auto",
+    display: "inline-flex",
+    alignItems: "center"
+  }),
+  ctaRoot: css33({
+    display: "flex",
+    flexDirection: "column",
     gap: "4",
-    alignItems: "start"
+    p: "5",
+    rounded: "md",
+    borderWidth: "0",
+    borderStyle: "solid",
+    borderColor: "transparent",
+    bg: "app.canvas.subtle",
+    minH: "200px",
+    transitionProperty: "border-color, background-color, box-shadow",
+    transitionDuration: "160ms",
+    transitionTimingFunction: "ease",
+    boxShadow: "whisper"
+  }),
+  ctaBody: css33({
+    appearance: "none",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "3",
+    flex: "1",
+    width: "full",
+    minH: 0,
+    p: "0",
+    borderWidth: "0",
+    bg: "transparent",
+    textAlign: "center",
+    cursor: "pointer",
+    userSelect: "none",
+    transitionProperty: "background-color, box-shadow, transform",
+    transitionDuration: "160ms",
+    transitionTimingFunction: "ease",
+    _hover: {
+      bg: "app.accent.soft",
+      boxShadow: "panel",
+      transform: "translateY(-2px)"
+    },
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "app.accent",
+      outlineOffset: "2px"
+    }
+  }),
+  ctaBodyStatic: css33({
+    cursor: "default",
+    _hover: {
+      bg: "transparent",
+      boxShadow: "none",
+      transform: "none"
+    }
+  }),
+  ctaIcon: css33({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSize: "44px",
+    rounded: "lg",
+    bg: "app.accent.soft",
+    color: "app.accent"
+  }),
+  ctaTitle: css33({
+    fontSize: "sm",
+    fontWeight: "600",
+    color: "app.text"
+  }),
+  ctaSubtitle: css33({
+    fontSize: "xs",
+    color: "app.text.muted",
+    maxW: "18rem"
   }),
   iconFrame: css33({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "3.5rem",
-    rounded: "2xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    bg: "app.canvas.subtle",
-    color: "app.accent",
     flexShrink: 0
   }),
   copy: css33({
-    display: "grid",
+    display: "flex",
+    flexDirection: "column",
     gap: "1.5",
     minWidth: 0
   }),
-  title: css33({
-    textStyle: "sectionTitle",
-    color: "app.text",
-    minWidth: 0,
-    lineHeight: "1.2"
-  }),
-  description: css33({
-    textStyle: "small",
-    color: "app.text.muted",
-    lineHeight: "1.6",
-    minH: "3rem"
-  }),
-  metaRow: css33({
+  titleRow: css33({
     display: "flex",
     alignItems: "center",
     gap: "2",
+    flexWrap: "wrap",
+    minWidth: 0
+  }),
+  title: css33({
+    fontSize: "sm",
+    fontWeight: "600",
+    color: "app.text",
+    lineHeight: "1.3",
+    minWidth: 0
+  }),
+  description: css33({
+    fontSize: "xs",
+    color: "app.text.muted",
+    lineHeight: "1.4",
+    minWidth: 0,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  }),
+  statusRow: css33({
+    display: "flex",
+    alignItems: "center",
+    gap: "2.5",
     flexWrap: "wrap"
   }),
-  status: css33({
+  statusPill: css33({
     display: "inline-flex",
     alignItems: "center",
     gap: "1.5",
+    fontSize: "10px",
+    fontWeight: "600",
+    textTransform: "uppercase",
+    letterSpacing: "0.08em"
+  }),
+  statusDot: css33({
+    boxSize: "2",
     rounded: "full",
-    px: "2.5",
-    py: "1",
-    textStyle: "caption",
-    fontWeight: "700",
-    borderWidth: "1px"
+    flexShrink: 0
   }),
-  statusNeutral: css33({
-    borderColor: "app.border",
-    bg: "app.canvas.subtle",
-    color: "app.text"
-  }),
-  statusAccent: css33({
-    borderColor: "app.accentAlt.border",
-    bg: "app.accentAlt.soft",
-    color: "app.accentAlt.text"
-  }),
-  statusSuccess: css33({
-    borderColor: "transparent",
-    bg: "bg.success",
-    color: "fg.success"
-  }),
-  statusWarning: css33({
-    borderColor: "transparent",
-    bg: "bg.warning",
-    color: "fg.warning"
-  }),
-  statusDanger: css33({
-    borderColor: "transparent",
-    bg: "bg.error",
-    color: "fg.error"
+  statusNeutral: css33({ color: "app.text.muted" }),
+  statusAccent: css33({ color: "app.accent" }),
+  statusSuccess: css33({ color: "fg.success" }),
+  statusWarning: css33({ color: "fg.warning" }),
+  statusDanger: css33({ color: "fg.error" }),
+  statusDotNeutral: css33({ bg: "app.text.subtle" }),
+  statusDotAccent: css33({ bg: "app.accent" }),
+  statusDotSuccess: css33({ bg: "fg.success" }),
+  statusDotWarning: css33({ bg: "fg.warning" }),
+  statusDotDanger: css33({ bg: "fg.error" }),
+  statusPulse: css33({
+    animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
   }),
   meta: css33({
-    textStyle: "caption",
-    color: "app.text.subtle"
+    fontSize: "11px",
+    color: "app.text.subtle",
+    fontWeight: "400"
   }),
   facts: css33({
     display: "grid",
     gap: "0",
-    rounded: "2xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    rounded: "lg",
     bg: "app.canvas.subtle",
     overflow: "hidden"
   }),
   fact: css33({
     display: "grid",
-    gap: "0.75",
-    p: "4",
+    gap: "0.5",
+    px: "2.5",
+    py: "2",
     minW: 0
   }),
-  factTopBorder: css33({
-    borderTopWidth: "1px",
-    borderTopColor: "app.border"
-  }),
-  factLeftBorder: css33({
-    borderLeftWidth: "1px",
-    borderLeftColor: "app.border"
-  }),
   factLabel: css33({
-    textStyle: "caption",
+    fontSize: "9px",
+    fontWeight: "600",
     color: "app.text.subtle",
     textTransform: "uppercase",
-    letterSpacing: "0.08em"
+    letterSpacing: "0.06em"
   }),
   factValue: css33({
-    textStyle: "small",
+    fontSize: "xs",
+    fontWeight: "500",
     color: "app.text",
-    fontWeight: "600",
-    lineHeight: "1.45",
+    lineHeight: "1.3",
     minWidth: 0,
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -4181,11 +4249,28 @@ var styles26 = {
   }),
   progress: css33({
     display: "grid",
-    gap: "1.5"
+    gap: "2",
+    rounded: "xl",
+    bg: "app.canvas.subtle",
+    p: "4"
+  }),
+  progressHeader: css33({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "2"
   }),
   progressLabel: css33({
-    textStyle: "caption",
-    color: "app.text.muted"
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "app.text.subtle",
+    textTransform: "uppercase",
+    letterSpacing: "0.1em"
+  }),
+  progressValue: css33({
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "app.text"
   }),
   progressTrack: css33({
     h: "2",
@@ -4201,21 +4286,34 @@ var styles26 = {
   }),
   footer: css33({
     display: "flex",
-    alignItems: "center",
+    alignItems: "stretch",
     gap: "2",
-    flexWrap: "wrap",
-    pt: "4",
-    borderTopWidth: "1px",
-    borderTopColor: "app.border"
+    mt: "auto",
+    pt: "2.5",
+    "& > *": {
+      flex: "1",
+      minH: "7",
+      h: "7",
+      py: "1",
+      px: "2",
+      fontSize: "xs"
+    }
   })
 };
 function handleKeyDown2(event, onClick) {
-  if (!onClick)
+  if (!onClick || isNestedInteractiveTarget(event.target, event.currentTarget))
     return;
   if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
     onClick();
   }
+}
+function isNestedInteractiveTarget(target, currentTarget) {
+  if (!(target instanceof HTMLElement)) {
+    return false;
+  }
+  const interactiveTarget = target.closest('button, a, input, textarea, select, summary, [role="button"], [role="link"]');
+  return Boolean(interactiveTarget && interactiveTarget !== currentTarget);
 }
 function getStatusToneClass(tone) {
   switch (tone) {
@@ -4229,6 +4327,20 @@ function getStatusToneClass(tone) {
       return styles26.statusDanger;
     default:
       return styles26.statusNeutral;
+  }
+}
+function getStatusDotClass(tone) {
+  switch (tone) {
+    case "accent":
+      return styles26.statusDotAccent;
+    case "success":
+      return styles26.statusDotSuccess;
+    case "warning":
+      return styles26.statusDotWarning;
+    case "danger":
+      return styles26.statusDotDanger;
+    default:
+      return styles26.statusDotNeutral;
   }
 }
 function clampProgress(value) {
@@ -4245,43 +4357,57 @@ function ModelCard({
   footer,
   selected = false,
   onClick,
-  className
+  className,
+  titleAdornment
 }) {
   const factColumns = facts.length <= 1 ? 1 : 2;
   const normalizedProgress = progress ? clampProgress(progress.value) : null;
+  const pulseDot = status.tone === "accent";
   const cardContent = /* @__PURE__ */ jsxs30(Fragment3, {
     children: [
       /* @__PURE__ */ jsxs30("div", {
-        className: styles26.header,
+        className: styles26.iconRow,
         children: [
           /* @__PURE__ */ jsx41("div", {
             className: styles26.iconFrame,
             children: icon
           }),
+          titleAdornment ? /* @__PURE__ */ jsx41("div", {
+            className: styles26.adornment,
+            children: titleAdornment
+          }) : null
+        ]
+      }),
+      /* @__PURE__ */ jsxs30("div", {
+        className: styles26.copy,
+        children: [
+          /* @__PURE__ */ jsx41("div", {
+            className: styles26.titleRow,
+            children: /* @__PURE__ */ jsx41("div", {
+              className: styles26.title,
+              children: title
+            })
+          }),
+          description ? /* @__PURE__ */ jsx41("div", {
+            className: styles26.description,
+            children: description
+          }) : null,
           /* @__PURE__ */ jsxs30("div", {
-            className: styles26.copy,
+            className: styles26.statusRow,
             children: [
-              /* @__PURE__ */ jsx41("div", {
-                className: styles26.title,
-                children: title
-              }),
-              description ? /* @__PURE__ */ jsx41("div", {
-                className: styles26.description,
-                children: description
-              }) : null,
-              /* @__PURE__ */ jsxs30("div", {
-                className: styles26.metaRow,
+              /* @__PURE__ */ jsxs30("span", {
+                className: cx33(styles26.statusPill, getStatusToneClass(status.tone)),
                 children: [
                   /* @__PURE__ */ jsx41("span", {
-                    className: cx33(styles26.status, getStatusToneClass(status.tone)),
-                    children: status.label
+                    className: cx33(styles26.statusDot, getStatusDotClass(status.tone), pulseDot && styles26.statusPulse)
                   }),
-                  meta ? /* @__PURE__ */ jsx41("span", {
-                    className: styles26.meta,
-                    children: meta
-                  }) : null
+                  status.label
                 ]
-              })
+              }),
+              meta ? /* @__PURE__ */ jsx41("span", {
+                className: styles26.meta,
+                children: meta
+              }) : null
             ]
           })
         ]
@@ -4292,7 +4418,7 @@ function ModelCard({
           gridTemplateColumns: factColumns === 1 ? "minmax(0, 1fr)" : "repeat(2, minmax(0, 1fr))"
         },
         children: facts.map((fact, index) => /* @__PURE__ */ jsxs30("div", {
-          className: cx33(styles26.fact, index >= factColumns && styles26.factTopBorder, factColumns > 1 && index % factColumns !== 0 && styles26.factLeftBorder),
+          className: styles26.fact,
           children: [
             /* @__PURE__ */ jsx41("div", {
               className: styles26.factLabel,
@@ -4308,10 +4434,22 @@ function ModelCard({
       normalizedProgress !== null ? /* @__PURE__ */ jsxs30("div", {
         className: styles26.progress,
         children: [
-          progress?.label ? /* @__PURE__ */ jsx41("div", {
-            className: styles26.progressLabel,
-            children: progress.label
-          }) : null,
+          /* @__PURE__ */ jsxs30("div", {
+            className: styles26.progressHeader,
+            children: [
+              /* @__PURE__ */ jsx41("span", {
+                className: styles26.progressLabel,
+                children: "Progress"
+              }),
+              /* @__PURE__ */ jsxs30("span", {
+                className: styles26.progressValue,
+                children: [
+                  normalizedProgress,
+                  "%"
+                ]
+              })
+            ]
+          }),
           /* @__PURE__ */ jsx41("div", {
             className: styles26.progressTrack,
             role: "progressbar",
@@ -4323,7 +4461,11 @@ function ModelCard({
               className: styles26.progressBar,
               style: { width: `${normalizedProgress}%` }
             })
-          })
+          }),
+          progress?.label ? /* @__PURE__ */ jsx41("div", {
+            className: css33({ textStyle: "caption", color: "app.text.muted" }),
+            children: progress.label
+          }) : null
         ]
       }) : null
     ]
@@ -4358,6 +4500,46 @@ function ModelCard({
         className: styles26.footer,
         children: footer
       }) : null
+    ]
+  });
+}
+function ModelCtaCard({
+  icon,
+  title,
+  subtitle,
+  action,
+  onClick,
+  className
+}) {
+  const content = /* @__PURE__ */ jsxs30(Fragment3, {
+    children: [
+      /* @__PURE__ */ jsx41("div", {
+        className: styles26.ctaIcon,
+        children: icon
+      }),
+      /* @__PURE__ */ jsx41("div", {
+        className: styles26.ctaTitle,
+        children: title
+      }),
+      subtitle ? /* @__PURE__ */ jsx41("div", {
+        className: styles26.ctaSubtitle,
+        children: subtitle
+      }) : null
+    ]
+  });
+  return /* @__PURE__ */ jsxs30("div", {
+    className: cx33(styles26.ctaRoot, className),
+    children: [
+      onClick ? /* @__PURE__ */ jsx41("button", {
+        type: "button",
+        className: styles26.ctaBody,
+        onClick,
+        children: content
+      }) : /* @__PURE__ */ jsx41("div", {
+        className: cx33(styles26.ctaBody, styles26.ctaBodyStatic),
+        children: content
+      }),
+      action
     ]
   });
 }
@@ -4485,10 +4667,825 @@ function ModelIconCustomizer({
     ]
   });
 }
+// src/components/patterns/modifier-action-card.tsx
+import { css as css35, cx as cx35 } from "styled-system/css";
+import { jsx as jsx43, jsxs as jsxs32 } from "react/jsx-runtime";
+"use client";
+var styles27 = {
+  root: css35({
+    position: "relative",
+    overflow: "hidden",
+    borderWidth: "0",
+    borderColor: "transparent",
+    borderRadius: "2xl",
+    bg: "color-mix(in srgb, var(--colors-app-surface) 72%, rgba(45, 100, 97, 0.06) 28%)",
+    boxShadow: "{shadows.whisper}",
+    transitionProperty: "transform, box-shadow, background-color",
+    transitionDuration: "180ms",
+    transitionTimingFunction: "ease",
+    _before: {
+      content: '""',
+      position: "absolute",
+      insetX: "0",
+      top: "0",
+      height: "18",
+      pointerEvents: "none",
+      background: "linear-gradient(180deg, rgba(62, 131, 138, 0.12) 0%, rgba(62, 131, 138, 0.02) 100%)"
+    },
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-surface) 82%, rgba(163, 221, 226, 0.08) 18%)",
+      _before: {
+        background: "linear-gradient(180deg, rgba(163, 221, 226, 0.14) 0%, rgba(163, 221, 226, 0.03) 100%)"
+      }
+    }
+  }),
+  rootWheat: css35({
+    bg: "color-mix(in srgb, var(--colors-app-surface) 72%, rgba(176, 134, 72, 0.06) 28%)",
+    _before: {
+      background: "linear-gradient(180deg, rgba(176, 134, 72, 0.12) 0%, rgba(176, 134, 72, 0.02) 100%)"
+    },
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-surface) 82%, rgba(223, 190, 127, 0.08) 18%)",
+      _before: {
+        background: "linear-gradient(180deg, rgba(223, 190, 127, 0.14) 0%, rgba(223, 190, 127, 0.03) 100%)"
+      }
+    }
+  }),
+  selected: css35({
+    bg: "app.surface.raised",
+    boxShadow: "{shadows.float}",
+    _hover: {
+      bg: "app.surface.raised",
+      boxShadow: "{shadows.float}"
+    }
+  }),
+  interactive: css35({
+    cursor: "pointer",
+    userSelect: "none",
+    outline: "none",
+    _hover: {
+      transform: "translateY(-1px)",
+      boxShadow: "{shadows.panel}",
+      bg: "app.surface.muted"
+    }
+  }),
+  focusable: css35({
+    outline: "none",
+    _focusVisible: {
+      boxShadow: "0 0 0 2px var(--colors-app-accent)"
+    }
+  }),
+  body: css35({
+    position: "relative",
+    zIndex: "1",
+    display: "grid",
+    gap: "3.5",
+    alignContent: "start",
+    paddingX: "4.5",
+    paddingY: "4.5",
+    minHeight: "13.5rem"
+  }),
+  iconWrap: css35({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSize: "11",
+    borderRadius: "2xl",
+    bg: "rgba(45, 100, 97, 0.08)",
+    color: "app.accent",
+    boxShadow: "none",
+    _dark: {
+      bg: "rgba(163, 221, 226, 0.12)",
+      boxShadow: "none"
+    }
+  }),
+  iconWrapWheat: css35({
+    bg: "rgba(164, 121, 60, 0.1)",
+    color: "app.text",
+    _dark: {
+      bg: "rgba(223, 190, 127, 0.12)"
+    }
+  }),
+  eyebrow: css35({
+    textStyle: "caption",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "0.16em",
+    color: "app.text.subtle"
+  }),
+  title: css35({
+    textStyle: "small",
+    fontWeight: "700",
+    color: "app.text",
+    lineHeight: "1.35"
+  }),
+  description: css35({
+    textStyle: "caption",
+    color: "app.text.muted",
+    lineHeight: "1.6"
+  }),
+  actionRow: css35({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "2.5",
+    marginTop: "auto",
+    paddingTop: "3",
+    color: "app.accentAlt.text"
+  }),
+  actionLabel: css35({
+    textStyle: "caption",
+    fontWeight: "700",
+    letterSpacing: "0.04em"
+  }),
+  helper: css35({
+    textStyle: "caption",
+    color: "app.text.subtle",
+    justifySelf: "start"
+  })
+};
+function handleKeyDown3(event, onClick) {
+  if (!onClick)
+    return;
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    onClick();
+  }
+}
+function ModifierActionCard({
+  icon,
+  eyebrow,
+  title,
+  description,
+  actionLabel = "Open",
+  helper,
+  tone = "teal",
+  selected,
+  onClick,
+  className
+}) {
+  const interactive = Boolean(onClick);
+  return /* @__PURE__ */ jsx43(Root, {
+    className: cx35(styles27.root, tone === "wheat" && styles27.rootWheat, interactive && styles27.interactive, selected && styles27.selected, className),
+    children: /* @__PURE__ */ jsxs32(Body, {
+      className: cx35(styles27.body, interactive && styles27.focusable),
+      onClick,
+      onKeyDown: (event) => handleKeyDown3(event, onClick),
+      role: interactive ? "button" : undefined,
+      tabIndex: interactive ? 0 : undefined,
+      "aria-pressed": interactive && selected !== undefined ? selected : undefined,
+      children: [
+        icon ? /* @__PURE__ */ jsx43("div", {
+          className: cx35(styles27.iconWrap, tone === "wheat" && styles27.iconWrapWheat),
+          children: icon
+        }) : null,
+        eyebrow ? /* @__PURE__ */ jsx43("div", {
+          className: styles27.eyebrow,
+          children: eyebrow
+        }) : null,
+        /* @__PURE__ */ jsx43("div", {
+          className: styles27.title,
+          children: title
+        }),
+        description ? /* @__PURE__ */ jsx43("div", {
+          className: styles27.description,
+          children: description
+        }) : null,
+        helper ? /* @__PURE__ */ jsx43("div", {
+          className: styles27.helper,
+          children: helper
+        }) : null,
+        /* @__PURE__ */ jsxs32("div", {
+          className: styles27.actionRow,
+          children: [
+            /* @__PURE__ */ jsx43("span", {
+              className: styles27.actionLabel,
+              children: actionLabel
+            }),
+            /* @__PURE__ */ jsx43("span", {
+              "aria-hidden": "true",
+              children: "->"
+            })
+          ]
+        })
+      ]
+    })
+  });
+}
+// src/components/patterns/modifier-card.tsx
+import { css as css36, cx as cx36 } from "styled-system/css";
+import { jsx as jsx44, jsxs as jsxs33 } from "react/jsx-runtime";
+"use client";
+var styles28 = {
+  root: css36({
+    position: "relative",
+    overflow: "hidden",
+    borderWidth: "0",
+    borderColor: "transparent",
+    borderRadius: "2xl",
+    bg: "app.surface",
+    boxShadow: "{shadows.whisper}",
+    transitionProperty: "transform, box-shadow, background-color",
+    transitionDuration: "180ms",
+    transitionTimingFunction: "ease",
+    _before: {
+      content: '""',
+      position: "absolute",
+      insetX: "0",
+      top: "0",
+      height: "20",
+      pointerEvents: "none",
+      background: "linear-gradient(135deg, rgba(62, 131, 138, 0.18) 0%, rgba(62, 131, 138, 0.06) 48%, transparent 84%)"
+    },
+    _dark: {
+      _before: {
+        background: "linear-gradient(135deg, rgba(163, 221, 226, 0.2) 0%, rgba(163, 221, 226, 0.08) 48%, transparent 84%)"
+      }
+    }
+  }),
+  rootWheat: css36({
+    _before: {
+      background: "linear-gradient(135deg, rgba(176, 134, 72, 0.18) 0%, rgba(176, 134, 72, 0.06) 48%, transparent 84%)"
+    },
+    _dark: {
+      _before: {
+        background: "linear-gradient(135deg, rgba(223, 190, 127, 0.2) 0%, rgba(223, 190, 127, 0.08) 48%, transparent 84%)"
+      }
+    }
+  }),
+  interactive: css36({
+    cursor: "pointer",
+    userSelect: "none",
+    outline: "none",
+    _hover: {
+      transform: "translateY(-1px)",
+      boxShadow: "{shadows.panel}",
+      bg: "app.surface.muted"
+    }
+  }),
+  focusable: css36({
+    outline: "none",
+    _focusVisible: {
+      boxShadow: "0 0 0 2px var(--colors-app-accent)"
+    }
+  }),
+  selected: css36({
+    bg: "app.surface.raised",
+    boxShadow: "{shadows.float}",
+    _hover: {
+      bg: "app.surface.raised",
+      boxShadow: "{shadows.float}"
+    }
+  }),
+  body: css36({
+    position: "relative",
+    zIndex: "1",
+    display: "flex",
+    flexDirection: "column",
+    gap: "3",
+    paddingX: "4.5",
+    paddingY: "4.5",
+    minHeight: "8rem"
+  }),
+  bodyCompact: css36({
+    gap: "1.5",
+    paddingX: "3",
+    paddingY: "2.5",
+    minHeight: "5.75rem"
+  }),
+  header: css36({
+    display: "grid",
+    gridTemplateColumns: "auto minmax(0, 1fr)",
+    gap: "3.5",
+    alignItems: "start"
+  }),
+  headerCompact: css36({
+    gap: "3"
+  }),
+  iconWrap: css36({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSize: "11",
+    borderRadius: "2xl",
+    bg: "rgba(45, 100, 97, 0.08)",
+    color: "app.accent",
+    boxShadow: "none",
+    _dark: {
+      bg: "rgba(163, 221, 226, 0.12)",
+      boxShadow: "none"
+    }
+  }),
+  iconWrapWheat: css36({
+    bg: "rgba(164, 121, 60, 0.1)",
+    color: "app.text",
+    _dark: {
+      bg: "rgba(223, 190, 127, 0.12)"
+    }
+  }),
+  copy: css36({
+    display: "grid",
+    gap: "1.5",
+    minWidth: "0"
+  }),
+  eyebrow: css36({
+    textStyle: "caption",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "0.16em",
+    color: "app.text.subtle"
+  }),
+  title: css36({
+    textStyle: "small",
+    fontWeight: "700",
+    color: "app.text",
+    lineHeight: "1.35"
+  }),
+  titleCompact: css36({
+    lineClamp: "2"
+  }),
+  description: css36({
+    textStyle: "caption",
+    color: "app.text.muted",
+    lineHeight: "1.55"
+  }),
+  descriptionCompact: css36({
+    lineHeight: "1.45",
+    lineClamp: "2"
+  }),
+  badges: css36({
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    gap: "1.5"
+  }),
+  badgesCompact: css36({
+    gap: "1"
+  }),
+  facts: css36({
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: "2"
+  }),
+  fact: css36({
+    display: "grid",
+    gap: "1",
+    paddingX: "3",
+    paddingY: "2.5",
+    borderRadius: "xl",
+    bg: "color-mix(in srgb, var(--colors-app-canvas-subtle) 82%, var(--colors-app-surface) 18%)",
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-surface-muted) 76%, var(--colors-app-surface) 24%)"
+    }
+  }),
+  factLabel: css36({
+    textStyle: "caption",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: "app.text.subtle"
+  }),
+  factValue: css36({
+    textStyle: "caption",
+    color: "app.text",
+    lineHeight: "1.45",
+    overflowWrap: "anywhere"
+  }),
+  factValueMono: css36({
+    fontFamily: "mono"
+  }),
+  footer: css36({
+    marginTop: "auto",
+    paddingTop: "3",
+    color: "app.text.muted"
+  })
+};
+function handleKeyDown4(event, onClick) {
+  if (!onClick)
+    return;
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    onClick();
+  }
+}
+function ModifierCard({
+  icon,
+  eyebrow,
+  title,
+  description,
+  badges,
+  facts,
+  footer,
+  selected,
+  tone = "teal",
+  density = "default",
+  onClick,
+  className
+}) {
+  const interactive = Boolean(onClick);
+  const compact = density === "compact";
+  return /* @__PURE__ */ jsx44(Root, {
+    variant: "subtle",
+    className: cx36(styles28.root, tone === "wheat" && styles28.rootWheat, interactive && styles28.interactive, selected && styles28.selected, className),
+    children: /* @__PURE__ */ jsxs33(Body, {
+      className: cx36(styles28.body, compact && styles28.bodyCompact, interactive && styles28.focusable),
+      onClick,
+      onKeyDown: (event) => handleKeyDown4(event, onClick),
+      role: interactive ? "button" : undefined,
+      tabIndex: interactive ? 0 : undefined,
+      "aria-pressed": interactive && selected !== undefined ? selected : undefined,
+      children: [
+        /* @__PURE__ */ jsxs33("div", {
+          className: cx36(styles28.header, compact && styles28.headerCompact),
+          children: [
+            icon ? /* @__PURE__ */ jsx44("div", {
+              className: cx36(styles28.iconWrap, tone === "wheat" && styles28.iconWrapWheat),
+              children: icon
+            }) : null,
+            /* @__PURE__ */ jsxs33("div", {
+              className: styles28.copy,
+              children: [
+                eyebrow ? /* @__PURE__ */ jsx44("div", {
+                  className: styles28.eyebrow,
+                  children: eyebrow
+                }) : null,
+                /* @__PURE__ */ jsx44("div", {
+                  className: cx36(styles28.title, compact && styles28.titleCompact),
+                  children: title
+                }),
+                description ? /* @__PURE__ */ jsx44("div", {
+                  className: cx36(styles28.description, compact && styles28.descriptionCompact),
+                  children: description
+                }) : null
+              ]
+            })
+          ]
+        }),
+        badges ? /* @__PURE__ */ jsx44("div", {
+          className: cx36(styles28.badges, compact && styles28.badgesCompact),
+          children: badges
+        }) : null,
+        facts?.length ? /* @__PURE__ */ jsx44("div", {
+          className: styles28.facts,
+          children: facts.map((fact, index) => /* @__PURE__ */ jsxs33("div", {
+            className: styles28.fact,
+            children: [
+              /* @__PURE__ */ jsx44("div", {
+                className: styles28.factLabel,
+                children: fact.label
+              }),
+              /* @__PURE__ */ jsx44("div", {
+                className: cx36(styles28.factValue, fact.mono && styles28.factValueMono),
+                children: fact.value
+              })
+            ]
+          }, index))
+        }) : null,
+        footer ? /* @__PURE__ */ jsx44("div", {
+          className: styles28.footer,
+          children: footer
+        }) : null
+      ]
+    })
+  });
+}
+// src/components/patterns/modifier-feature-card.tsx
+import { css as css37, cx as cx37 } from "styled-system/css";
+import { jsx as jsx45, jsxs as jsxs34 } from "react/jsx-runtime";
+"use client";
+var styles29 = {
+  root: css37({
+    position: "relative",
+    overflow: "hidden",
+    borderWidth: "0",
+    borderColor: "transparent",
+    borderRadius: "2xl",
+    bg: "app.surface",
+    boxShadow: "{shadows.float}",
+    transitionProperty: "transform, box-shadow, background-color",
+    transitionDuration: "180ms",
+    transitionTimingFunction: "ease",
+    _before: {
+      content: '""',
+      position: "absolute",
+      inset: "0",
+      pointerEvents: "none",
+      background: "radial-gradient(circle at top right, rgba(62, 131, 138, 0.16), transparent 42%), linear-gradient(145deg, rgba(62, 131, 138, 0.14) 0%, rgba(62, 131, 138, 0.05) 45%, transparent 78%)"
+    },
+    _dark: {
+      _before: {
+        background: "radial-gradient(circle at top right, rgba(163, 221, 226, 0.18), transparent 44%), linear-gradient(145deg, rgba(163, 221, 226, 0.16) 0%, rgba(163, 221, 226, 0.06) 45%, transparent 78%)"
+      }
+    }
+  }),
+  rootWheat: css37({
+    _before: {
+      background: "radial-gradient(circle at top right, rgba(176, 134, 72, 0.16), transparent 42%), linear-gradient(145deg, rgba(176, 134, 72, 0.14) 0%, rgba(176, 134, 72, 0.05) 45%, transparent 78%)"
+    },
+    _dark: {
+      _before: {
+        background: "radial-gradient(circle at top right, rgba(223, 190, 127, 0.18), transparent 44%), linear-gradient(145deg, rgba(223, 190, 127, 0.16) 0%, rgba(223, 190, 127, 0.06) 45%, transparent 78%)"
+      }
+    }
+  }),
+  interactive: css37({
+    cursor: "pointer",
+    userSelect: "none",
+    outline: "none",
+    _hover: {
+      transform: "translateY(-1px)",
+      boxShadow: "{shadows.panel}",
+      bg: "app.surface.muted"
+    }
+  }),
+  focusable: css37({
+    outline: "none",
+    _focusVisible: {
+      boxShadow: "0 0 0 2px var(--colors-app-accent)"
+    }
+  }),
+  selected: css37({
+    bg: "app.surface.raised",
+    boxShadow: "{shadows.float}",
+    _hover: {
+      bg: "app.surface.raised",
+      boxShadow: "{shadows.float}"
+    }
+  }),
+  body: css37({
+    position: "relative",
+    zIndex: "1",
+    display: "grid",
+    gap: "4.5",
+    paddingX: "5",
+    paddingY: "5",
+    minHeight: "15rem"
+  }),
+  header: css37({
+    display: "grid",
+    gridTemplateColumns: {
+      base: "minmax(0, 1fr)",
+      md: "minmax(0, 1fr) auto"
+    },
+    gap: "4",
+    alignItems: "start"
+  }),
+  copy: css37({
+    display: "grid",
+    gap: "2",
+    minWidth: "0"
+  }),
+  titleRow: css37({
+    display: "grid",
+    gridTemplateColumns: "auto minmax(0, 1fr)",
+    gap: "3.5",
+    alignItems: "start"
+  }),
+  iconWrap: css37({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSize: "11",
+    borderRadius: "2xl",
+    bg: "rgba(45, 100, 97, 0.1)",
+    color: "app.accent",
+    boxShadow: "none",
+    _dark: {
+      bg: "rgba(163, 221, 226, 0.12)",
+      boxShadow: "none"
+    }
+  }),
+  iconWrapWheat: css37({
+    bg: "rgba(164, 121, 60, 0.1)",
+    color: "app.text",
+    _dark: {
+      bg: "rgba(223, 190, 127, 0.12)"
+    }
+  }),
+  eyebrow: css37({
+    textStyle: "caption",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "0.16em",
+    color: "app.text.subtle"
+  }),
+  title: css37({
+    textStyle: "sectionTitle",
+    color: "app.text",
+    lineHeight: "1.2"
+  }),
+  description: css37({
+    textStyle: "small",
+    color: "app.text.muted",
+    lineHeight: "1.6",
+    maxW: "32rem"
+  }),
+  badges: css37({
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    gap: "1.5"
+  }),
+  highlight: css37({
+    display: "grid",
+    gap: "1.5",
+    alignContent: "start",
+    paddingX: "4",
+    paddingY: "3.5",
+    borderRadius: "2xl",
+    bg: "color-mix(in srgb, var(--colors-app-surface) 64%, rgba(45, 100, 97, 0.09) 36%)",
+    boxShadow: "none",
+    minW: { base: "auto", md: "13rem" },
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-surface) 78%, rgba(163, 221, 226, 0.12) 22%)",
+      boxShadow: "none"
+    }
+  }),
+  highlightWheat: css37({
+    bg: "color-mix(in srgb, var(--colors-app-surface) 64%, rgba(176, 134, 72, 0.1) 36%)",
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-surface) 78%, rgba(223, 190, 127, 0.12) 22%)"
+    }
+  }),
+  highlightLabel: css37({
+    textStyle: "caption",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: "app.text.subtle"
+  }),
+  highlightValue: css37({
+    textStyle: "metricValue",
+    letterSpacing: "-0.04em",
+    color: "app.text",
+    lineHeight: "1"
+  }),
+  highlightNote: css37({
+    textStyle: "caption",
+    color: "app.text.muted",
+    lineHeight: "1.55"
+  }),
+  facts: css37({
+    display: "grid",
+    gridTemplateColumns: {
+      base: "1fr",
+      sm: "repeat(2, minmax(0, 1fr))"
+    },
+    gap: "2.5"
+  }),
+  fact: css37({
+    display: "grid",
+    gap: "1",
+    paddingX: "3.5",
+    paddingY: "3",
+    borderRadius: "xl",
+    bg: "color-mix(in srgb, var(--colors-app-canvas-subtle) 82%, var(--colors-app-surface) 18%)",
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-surface-muted) 76%, var(--colors-app-surface) 24%)"
+    }
+  }),
+  factLabel: css37({
+    textStyle: "caption",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: "app.text.subtle"
+  }),
+  factValue: css37({
+    textStyle: "caption",
+    color: "app.text",
+    lineHeight: "1.5",
+    overflowWrap: "anywhere"
+  }),
+  factValueMono: css37({
+    fontFamily: "mono"
+  }),
+  footer: css37({
+    marginTop: "auto",
+    paddingTop: "3",
+    color: "app.text.muted"
+  })
+};
+function handleKeyDown5(event, onClick) {
+  if (!onClick)
+    return;
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    onClick();
+  }
+}
+function ModifierFeatureCard({
+  icon,
+  eyebrow,
+  title,
+  description,
+  badges,
+  highlightLabel,
+  highlightValue,
+  highlightNote,
+  facts,
+  footer,
+  tone = "teal",
+  selected,
+  onClick,
+  className
+}) {
+  const interactive = Boolean(onClick);
+  return /* @__PURE__ */ jsx45(Root, {
+    className: cx37(styles29.root, tone === "wheat" && styles29.rootWheat, interactive && styles29.interactive, selected && styles29.selected, className),
+    children: /* @__PURE__ */ jsxs34(Body, {
+      className: cx37(styles29.body, interactive && styles29.focusable),
+      onClick,
+      onKeyDown: (event) => handleKeyDown5(event, onClick),
+      role: interactive ? "button" : undefined,
+      tabIndex: interactive ? 0 : undefined,
+      "aria-pressed": interactive && selected !== undefined ? selected : undefined,
+      children: [
+        /* @__PURE__ */ jsxs34("div", {
+          className: styles29.header,
+          children: [
+            /* @__PURE__ */ jsxs34("div", {
+              className: styles29.copy,
+              children: [
+                /* @__PURE__ */ jsxs34("div", {
+                  className: styles29.titleRow,
+                  children: [
+                    icon ? /* @__PURE__ */ jsx45("div", {
+                      className: cx37(styles29.iconWrap, tone === "wheat" && styles29.iconWrapWheat),
+                      children: icon
+                    }) : null,
+                    /* @__PURE__ */ jsxs34("div", {
+                      className: styles29.copy,
+                      children: [
+                        eyebrow ? /* @__PURE__ */ jsx45("div", {
+                          className: styles29.eyebrow,
+                          children: eyebrow
+                        }) : null,
+                        /* @__PURE__ */ jsx45("div", {
+                          className: styles29.title,
+                          children: title
+                        })
+                      ]
+                    })
+                  ]
+                }),
+                description ? /* @__PURE__ */ jsx45("div", {
+                  className: styles29.description,
+                  children: description
+                }) : null,
+                badges ? /* @__PURE__ */ jsx45("div", {
+                  className: styles29.badges,
+                  children: badges
+                }) : null
+              ]
+            }),
+            /* @__PURE__ */ jsxs34("div", {
+              className: cx37(styles29.highlight, tone === "wheat" && styles29.highlightWheat),
+              children: [
+                highlightLabel ? /* @__PURE__ */ jsx45("div", {
+                  className: styles29.highlightLabel,
+                  children: highlightLabel
+                }) : null,
+                /* @__PURE__ */ jsx45("div", {
+                  className: styles29.highlightValue,
+                  children: highlightValue
+                }),
+                highlightNote ? /* @__PURE__ */ jsx45("div", {
+                  className: styles29.highlightNote,
+                  children: highlightNote
+                }) : null
+              ]
+            })
+          ]
+        }),
+        facts?.length ? /* @__PURE__ */ jsx45("div", {
+          className: styles29.facts,
+          children: facts.map((fact, index) => /* @__PURE__ */ jsxs34("div", {
+            className: styles29.fact,
+            children: [
+              /* @__PURE__ */ jsx45("div", {
+                className: styles29.factLabel,
+                children: fact.label
+              }),
+              /* @__PURE__ */ jsx45("div", {
+                className: cx37(styles29.factValue, fact.mono && styles29.factValueMono),
+                children: fact.value
+              })
+            ]
+          }, index))
+        }) : null,
+        footer ? /* @__PURE__ */ jsx45("div", {
+          className: styles29.footer,
+          children: footer
+        }) : null
+      ]
+    })
+  });
+}
 // src/components/patterns/named-prompt-list.tsx
 import { Plus as Plus2, Trash2 } from "lucide-react";
 import { useEffect, useState as useState4 } from "react";
-import { css as css35 } from "styled-system/css";
+import { css as css38 } from "styled-system/css";
 
 // src/components/ui/field.tsx
 import { Field as Field2 } from "@ark-ui/react/field";
@@ -4505,7 +5502,7 @@ var Label2 = withContext6(Field2.Label, "label");
 var RequiredIndicator = withContext6(Field2.RequiredIndicator, "requiredIndicator");
 
 // src/components/forms/form-field.tsx
-import { jsx as jsx43, jsxs as jsxs32 } from "react/jsx-runtime";
+import { jsx as jsx46, jsxs as jsxs35 } from "react/jsx-runtime";
 "use client";
 function FormField({
   label,
@@ -4515,21 +5512,21 @@ function FormField({
   children,
   ...rootProps
 }) {
-  return /* @__PURE__ */ jsxs32(Root6, {
+  return /* @__PURE__ */ jsxs35(Root6, {
     invalid: !!error,
     required,
     ...rootProps,
     children: [
-      /* @__PURE__ */ jsxs32(Label2, {
+      /* @__PURE__ */ jsxs35(Label2, {
         children: [
           label,
-          required && /* @__PURE__ */ jsx43(RequiredIndicator, {})
+          required && /* @__PURE__ */ jsx46(RequiredIndicator, {})
         ]
       }),
       children,
-      error ? /* @__PURE__ */ jsx43(ErrorText, {
+      error ? /* @__PURE__ */ jsx46(ErrorText, {
         children: error
-      }) : helperText ? /* @__PURE__ */ jsx43(HelperText, {
+      }) : helperText ? /* @__PURE__ */ jsx46(HelperText, {
         children: helperText
       }) : null
     ]
@@ -4594,16 +5591,16 @@ import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { createStyleContext as createStyleContext8 } from "styled-system/jsx";
 import { numberInput } from "styled-system/recipes";
 import { NumberInputContext } from "@ark-ui/react/number-input";
-import { jsx as jsx44, jsxs as jsxs33, Fragment as Fragment4 } from "react/jsx-runtime";
+import { jsx as jsx47, jsxs as jsxs36, Fragment as Fragment4 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider4, withContext: withContext8 } = createStyleContext8(numberInput);
 var Root8 = withProvider4(NumberInput.Root, "root");
 var RootProvider6 = withProvider4(NumberInput.RootProvider, "root");
 var DecrementTrigger = withContext8(NumberInput.DecrementTrigger, "decrementTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsx44(ChevronDownIcon, {}) }
+  defaultProps: { children: /* @__PURE__ */ jsx47(ChevronDownIcon, {}) }
 });
 var IncrementTrigger = withContext8(NumberInput.IncrementTrigger, "incrementTrigger", {
-  defaultProps: { children: /* @__PURE__ */ jsx44(ChevronUpIcon, {}) }
+  defaultProps: { children: /* @__PURE__ */ jsx47(ChevronUpIcon, {}) }
 });
 var Input2 = withContext8(NumberInput.Input, "input");
 var Label3 = withContext8(NumberInput.Label, "label");
@@ -4611,10 +5608,10 @@ var Scrubber = withContext8(NumberInput.Scrubber, "scrubber");
 var ValueText = withContext8(NumberInput.ValueText, "valueText");
 var Control = withContext8(NumberInput.Control, "control", {
   defaultProps: {
-    children: /* @__PURE__ */ jsxs33(Fragment4, {
+    children: /* @__PURE__ */ jsxs36(Fragment4, {
       children: [
-        /* @__PURE__ */ jsx44(IncrementTrigger, {}),
-        /* @__PURE__ */ jsx44(DecrementTrigger, {})
+        /* @__PURE__ */ jsx47(IncrementTrigger, {}),
+        /* @__PURE__ */ jsx47(DecrementTrigger, {})
       ]
     })
   }
@@ -4626,7 +5623,7 @@ import { forwardRef as forwardRef7 } from "react";
 import { createStyleContext as createStyleContext9 } from "styled-system/jsx";
 import { slider } from "styled-system/recipes";
 import { SliderContext } from "@ark-ui/react/slider";
-import { jsx as jsx45, jsxs as jsxs34 } from "react/jsx-runtime";
+import { jsx as jsx48, jsxs as jsxs37 } from "react/jsx-runtime";
 "use client";
 var { withProvider: withProvider5, withContext: withContext9 } = createStyleContext9(slider);
 var Root9 = withProvider5(Slider.Root, "root");
@@ -4645,17 +5642,17 @@ var Marks = forwardRef7(function Marks2(props, ref) {
   const { marks, ...rest } = props;
   if (!marks?.length)
     return null;
-  return /* @__PURE__ */ jsx45(MarkerGroup, {
+  return /* @__PURE__ */ jsx48(MarkerGroup, {
     ref,
     ...rest,
     children: marks.map((mark, index) => {
       const value = typeof mark === "number" ? mark : mark.value;
       const label = typeof mark === "number" ? undefined : mark.label;
-      return /* @__PURE__ */ jsxs34(Marker, {
+      return /* @__PURE__ */ jsxs37(Marker, {
         value,
         children: [
-          /* @__PURE__ */ jsx45(MarkerIndicator, {}),
-          label != null && /* @__PURE__ */ jsx45("span", {
+          /* @__PURE__ */ jsx48(MarkerIndicator, {}),
+          label != null && /* @__PURE__ */ jsx48("span", {
             children: label
           })
         ]
@@ -4669,18 +5666,18 @@ import { styled as styled8 } from "styled-system/jsx";
 import { textarea } from "styled-system/recipes";
 var Textarea = styled8(Field3.Textarea, textarea);
 // src/components/patterns/named-prompt-list.tsx
-import { jsx as jsx46, jsxs as jsxs35 } from "react/jsx-runtime";
+import { jsx as jsx49, jsxs as jsxs38 } from "react/jsx-runtime";
 "use client";
-var styles27 = {
-  list: css35({
+var styles30 = {
+  list: css38({
     display: "grid",
     gap: "3"
   }),
-  row: css35({
+  row: css38({
     display: "grid",
     gap: "3"
   }),
-  rowHeader: css35({
+  rowHeader: css38({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -4708,31 +5705,31 @@ function NamedPromptRow({
       onKeyChange(item.key, draftKey);
     }
   };
-  return /* @__PURE__ */ jsx46(FormSection, {
+  return /* @__PURE__ */ jsx49(FormSection, {
     title: draftKey || "New task",
     tone: "subtle",
     chrome,
-    actions: /* @__PURE__ */ jsxs35(Button, {
+    actions: /* @__PURE__ */ jsxs38(Button, {
       type: "button",
       variant: "ghost",
       size: "sm",
       onClick: () => onRemove(item.key),
       children: [
-        /* @__PURE__ */ jsx46(Trash2, {
+        /* @__PURE__ */ jsx49(Trash2, {
           size: 14
         }),
         "Remove"
       ]
     }),
-    children: /* @__PURE__ */ jsxs35("div", {
-      className: styles27.row,
+    children: /* @__PURE__ */ jsxs38("div", {
+      className: styles30.row,
       children: [
-        /* @__PURE__ */ jsx46("div", {
-          className: styles27.rowHeader,
-          children: /* @__PURE__ */ jsx46(FormField, {
+        /* @__PURE__ */ jsx49("div", {
+          className: styles30.rowHeader,
+          children: /* @__PURE__ */ jsx49(FormField, {
             label: keyLabel,
-            className: css35({ flex: "1 1 16rem" }),
-            children: /* @__PURE__ */ jsx46(Input, {
+            className: css38({ flex: "1 1 16rem" }),
+            children: /* @__PURE__ */ jsx49(Input, {
               value: draftKey,
               onChange: (event) => setDraftKey(event.target.value),
               onBlur: commitKeyChange,
@@ -4746,14 +5743,14 @@ function NamedPromptRow({
             })
           })
         }),
-        /* @__PURE__ */ jsx46(FormField, {
+        /* @__PURE__ */ jsx49(FormField, {
           label: valueLabel,
-          children: /* @__PURE__ */ jsx46(Textarea, {
+          children: /* @__PURE__ */ jsx49(Textarea, {
             value: item.value,
             onChange: (event) => onValueChange(item.key, event.target.value),
             placeholder: valuePlaceholder,
             rows: 4,
-            className: css35({ resize: "vertical" })
+            className: css38({ resize: "vertical" })
           })
         })
       ]
@@ -4776,29 +5773,29 @@ function NamedPromptList({
   emptyDescription = "Add at least one named prompt to continue.",
   chrome = "default"
 }) {
-  return /* @__PURE__ */ jsx46(FormSection, {
+  return /* @__PURE__ */ jsx49(FormSection, {
     title,
     description,
     chrome,
-    actions: /* @__PURE__ */ jsxs35(Button, {
+    actions: /* @__PURE__ */ jsxs38(Button, {
       type: "button",
       variant: chrome === "soft" ? "subtle" : "toolbar",
       size: "sm",
       onClick: onAdd,
       children: [
-        /* @__PURE__ */ jsx46(Plus2, {
+        /* @__PURE__ */ jsx49(Plus2, {
           size: 14
         }),
         "Add task"
       ]
     }),
-    children: /* @__PURE__ */ jsx46("div", {
-      className: styles27.list,
-      children: items.length === 0 ? /* @__PURE__ */ jsx46(EmptyState, {
+    children: /* @__PURE__ */ jsx49("div", {
+      className: styles30.list,
+      children: items.length === 0 ? /* @__PURE__ */ jsx49(EmptyState, {
         title: emptyTitle,
         description: emptyDescription,
-        className: css35({ py: "8", px: "4" })
-      }) : items.map((item, index) => /* @__PURE__ */ jsx46(NamedPromptRow, {
+        className: css38({ py: "8", px: "4" })
+      }) : items.map((item, index) => /* @__PURE__ */ jsx49(NamedPromptRow, {
         item,
         onRemove,
         onKeyChange,
@@ -4813,11 +5810,11 @@ function NamedPromptList({
   });
 }
 // src/components/patterns/number-field.tsx
-import { css as css36, cx as cx35 } from "styled-system/css";
-import { jsx as jsx47, jsxs as jsxs36 } from "react/jsx-runtime";
+import { css as css39, cx as cx38 } from "styled-system/css";
+import { jsx as jsx50, jsxs as jsxs39 } from "react/jsx-runtime";
 "use client";
-var styles28 = {
-  root: css36({
+var styles31 = {
+  root: css39({
     display: "grid",
     gap: "2"
   })
@@ -4836,12 +5833,12 @@ function NumberField({
   allowEmpty = false,
   className
 }) {
-  return /* @__PURE__ */ jsx47(FormField, {
+  return /* @__PURE__ */ jsx50(FormField, {
     label,
     helperText,
     error,
-    className: cx35(styles28.root, className),
-    children: /* @__PURE__ */ jsxs36(exports_number_input.Root, {
+    className: cx38(styles31.root, className),
+    children: /* @__PURE__ */ jsxs39(exports_number_input.Root, {
       value: value === null ? "" : String(value),
       min,
       max,
@@ -4855,20 +5852,20 @@ function NumberField({
         onValueChange(Number.isNaN(details.valueAsNumber) ? allowEmpty ? null : min ?? 0 : details.valueAsNumber);
       },
       children: [
-        /* @__PURE__ */ jsx47(exports_number_input.Input, {
+        /* @__PURE__ */ jsx50(exports_number_input.Input, {
           placeholder
         }),
-        /* @__PURE__ */ jsx47(exports_number_input.Control, {})
+        /* @__PURE__ */ jsx50(exports_number_input.Control, {})
       ]
     })
   });
 }
 // src/components/patterns/option-row.tsx
-import { css as css37, cx as cx36 } from "styled-system/css";
-import { jsx as jsx48, jsxs as jsxs37, Fragment as Fragment5 } from "react/jsx-runtime";
+import { css as css40, cx as cx39 } from "styled-system/css";
+import { jsx as jsx51, jsxs as jsxs40, Fragment as Fragment5 } from "react/jsx-runtime";
 "use client";
-var styles29 = {
-  root: css37({
+var styles32 = {
+  root: css40({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -4884,12 +5881,12 @@ var styles29 = {
     transitionDuration: "160ms",
     transitionTimingFunction: "ease"
   }),
-  rootSoft: css37({
+  rootSoft: css40({
     borderWidth: "0",
     boxShadow: "none",
     bg: "app.surface.muted"
   }),
-  interactive: css37({
+  interactive: css40({
     cursor: "pointer",
     userSelect: "none",
     _hover: {
@@ -4902,46 +5899,46 @@ var styles29 = {
       outlineOffset: "2px"
     }
   }),
-  selected: css37({
+  selected: css40({
     borderColor: "app.border.strong",
     bg: "app.accent.soft"
   }),
-  selectedSoft: css37({
+  selectedSoft: css40({
     bg: "app.accent.soft"
   }),
-  disabled: css37({
+  disabled: css40({
     opacity: "0.55",
     cursor: "not-allowed"
   }),
-  lead: css37({
+  lead: css40({
     display: "flex",
     alignItems: "center",
     gap: "3",
     minWidth: 0,
     flex: "1 1 auto"
   }),
-  leading: css37({
+  leading: css40({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0
   }),
-  copy: css37({
+  copy: css40({
     display: "flex",
     flexDirection: "column",
     gap: "0.5",
     minWidth: 0
   }),
-  title: css37({
+  title: css40({
     textStyle: "small",
     fontWeight: "600",
     color: "app.text"
   }),
-  description: css37({
+  description: css40({
     textStyle: "caption",
     color: "app.text.subtle"
   }),
-  trailing: css37({
+  trailing: css40({
     display: "inline-flex",
     alignItems: "center",
     gap: "2",
@@ -4960,72 +5957,72 @@ function OptionRow({
   className
 }) {
   const interactive = Boolean(onClick) && !disabled;
-  const content = /* @__PURE__ */ jsxs37(Fragment5, {
+  const content = /* @__PURE__ */ jsxs40(Fragment5, {
     children: [
-      /* @__PURE__ */ jsxs37("div", {
-        className: styles29.lead,
+      /* @__PURE__ */ jsxs40("div", {
+        className: styles32.lead,
         children: [
-          leading && /* @__PURE__ */ jsx48("div", {
-            className: styles29.leading,
+          leading && /* @__PURE__ */ jsx51("div", {
+            className: styles32.leading,
             children: leading
           }),
-          /* @__PURE__ */ jsxs37("div", {
-            className: styles29.copy,
+          /* @__PURE__ */ jsxs40("div", {
+            className: styles32.copy,
             children: [
-              /* @__PURE__ */ jsx48("div", {
-                className: styles29.title,
+              /* @__PURE__ */ jsx51("div", {
+                className: styles32.title,
                 children: title
               }),
-              description && /* @__PURE__ */ jsx48("div", {
-                className: styles29.description,
+              description && /* @__PURE__ */ jsx51("div", {
+                className: styles32.description,
                 children: description
               })
             ]
           })
         ]
       }),
-      trailing && /* @__PURE__ */ jsx48("div", {
-        className: styles29.trailing,
+      trailing && /* @__PURE__ */ jsx51("div", {
+        className: styles32.trailing,
         children: trailing
       })
     ]
   });
   if (interactive) {
-    return /* @__PURE__ */ jsx48("button", {
+    return /* @__PURE__ */ jsx51("button", {
       type: "button",
-      className: cx36(styles29.root, chrome === "soft" && styles29.rootSoft, styles29.interactive, selected && (chrome === "soft" ? styles29.selectedSoft : styles29.selected), className),
+      className: cx39(styles32.root, chrome === "soft" && styles32.rootSoft, styles32.interactive, selected && (chrome === "soft" ? styles32.selectedSoft : styles32.selected), className),
       onClick,
       children: content
     });
   }
-  return /* @__PURE__ */ jsx48("div", {
-    className: cx36(styles29.root, chrome === "soft" && styles29.rootSoft, selected && (chrome === "soft" ? styles29.selectedSoft : styles29.selected), disabled && styles29.disabled, className),
+  return /* @__PURE__ */ jsx51("div", {
+    className: cx39(styles32.root, chrome === "soft" && styles32.rootSoft, selected && (chrome === "soft" ? styles32.selectedSoft : styles32.selected), disabled && styles32.disabled, className),
     "aria-disabled": disabled || undefined,
     children: content
   });
 }
 // src/components/patterns/page-title.tsx
-import { css as css38, cx as cx37 } from "styled-system/css";
-import { jsx as jsx49, jsxs as jsxs38 } from "react/jsx-runtime";
+import { css as css41, cx as cx40 } from "styled-system/css";
+import { jsx as jsx52, jsxs as jsxs41 } from "react/jsx-runtime";
 "use client";
-var titleStyle = css38({
+var titleStyle = css41({
   textStyle: "pageTitle",
   color: "app.text"
 });
-var subtitleStyle = css38({
+var subtitleStyle = css41({
   textStyle: "description",
   color: "app.text.muted",
   mt: "2"
 });
 function PageTitle({ children, subtitle, className }) {
-  return /* @__PURE__ */ jsxs38("div", {
+  return /* @__PURE__ */ jsxs41("div", {
     className,
     children: [
-      /* @__PURE__ */ jsx49("h1", {
-        className: cx37(titleStyle),
+      /* @__PURE__ */ jsx52("h1", {
+        className: cx40(titleStyle),
         children
       }),
-      subtitle && /* @__PURE__ */ jsx49("p", {
+      subtitle && /* @__PURE__ */ jsx52("p", {
         className: subtitleStyle,
         children: subtitle
       })
@@ -5034,14 +6031,14 @@ function PageTitle({ children, subtitle, className }) {
 }
 // src/components/patterns/picker-field.tsx
 import { ChevronDown } from "lucide-react";
-import { css as css39, cx as cx38 } from "styled-system/css";
-import { jsx as jsx50, jsxs as jsxs39 } from "react/jsx-runtime";
+import { css as css42, cx as cx41 } from "styled-system/css";
+import { jsx as jsx53, jsxs as jsxs42 } from "react/jsx-runtime";
 "use client";
-var styles30 = {
-  root: css39({
+var styles33 = {
+  root: css42({
     position: "relative"
   }),
-  trigger: css39({
+  trigger: css42({
     width: "100%",
     minHeight: "3.5rem",
     display: "flex",
@@ -5051,16 +6048,16 @@ var styles30 = {
     paddingX: "4",
     paddingY: "3",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     bg: "app.surface",
+    boxShadow: "{shadows.whisper}",
     cursor: "pointer",
     textAlign: "left",
-    transitionProperty: "background-color, border-color, color",
+    transitionProperty: "background-color, border-color, color, box-shadow",
     transitionDuration: "160ms",
     transitionTimingFunction: "ease",
     _hover: {
-      borderColor: "app.border.strong",
       bg: "app.surface.raised"
     },
     _focusVisible: {
@@ -5073,56 +6070,56 @@ var styles30 = {
       cursor: "not-allowed"
     }
   }),
-  triggerSm: css39({
+  triggerSm: css42({
     minHeight: "3rem",
     paddingX: "3.5",
     paddingY: "2.5"
   }),
-  triggerSoft: css39({
+  triggerSoft: css42({
     borderWidth: "0",
     bg: "app.surface.muted",
+    boxShadow: "none",
     _hover: {
       bg: "app.surface"
     }
   }),
-  triggerOpen: css39({
-    borderColor: "app.border.strong",
+  triggerOpen: css42({
+    bg: "app.surface.raised",
+    borderBottomLeftRadius: "0",
+    borderBottomRightRadius: "0"
+  }),
+  triggerOpenSoft: css42({
     bg: "app.surface",
     borderBottomLeftRadius: "0",
     borderBottomRightRadius: "0"
   }),
-  triggerOpenSoft: css39({
-    bg: "app.surface",
-    borderBottomLeftRadius: "0",
-    borderBottomRightRadius: "0"
-  }),
-  lead: css39({
+  lead: css42({
     display: "flex",
     alignItems: "center",
     gap: "3",
     minWidth: 0,
     flex: "1 1 auto"
   }),
-  leading: css39({
+  leading: css42({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0,
     color: "app.accent"
   }),
-  copy: css39({
+  copy: css42({
     display: "flex",
     flexDirection: "column",
     gap: "0.5",
     minWidth: 0
   }),
-  titleRow: css39({
+  titleRow: css42({
     display: "flex",
     alignItems: "center",
     gap: "2",
     minWidth: 0
   }),
-  title: css39({
+  title: css42({
     textStyle: "small",
     fontWeight: "600",
     color: "app.text",
@@ -5131,10 +6128,10 @@ var styles30 = {
     textOverflow: "ellipsis",
     whiteSpace: "nowrap"
   }),
-  titleSm: css39({
+  titleSm: css42({
     fontWeight: "700"
   }),
-  description: css39({
+  description: css42({
     textStyle: "caption",
     color: "app.text.subtle",
     minWidth: 0,
@@ -5142,47 +6139,47 @@ var styles30 = {
     textOverflow: "ellipsis",
     whiteSpace: "nowrap"
   }),
-  chevron: css39({
+  chevron: css42({
     color: "app.text.subtle",
     flexShrink: 0,
     transition: "transform 160ms ease"
   }),
-  chevronOpen: css39({
+  chevronOpen: css42({
     transform: "rotate(180deg)"
   }),
-  panel: css39({
+  panel: css42({
     position: "absolute",
-    top: "calc(100% - 1px)",
+    top: "100%",
     left: "0",
     right: "0",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
+    borderWidth: "0",
+    borderColor: "transparent",
     bg: "app.surface",
     boxShadow: "{shadows.float}",
     overflow: "hidden",
     zIndex: "50"
   }),
-  panelSoft: css39({
-    borderWidth: "0"
+  panelSoft: css42({
+    borderWidth: "0",
+    bg: "app.surface.muted",
+    boxShadow: "{shadows.panel}"
   }),
-  panelConnected: css39({
+  panelConnected: css42({
     borderTopLeftRadius: "0",
     borderTopRightRadius: "0",
     borderWidth: "0"
   }),
-  panelLabel: css39({
+  panelLabel: css42({
     paddingX: "4",
     paddingY: "2.5",
-    borderBottomWidth: "1px",
-    borderColor: "app.border",
     textStyle: "caption",
     color: "app.text.subtle",
     textTransform: "uppercase",
     letterSpacing: "0.08em",
     bg: "app.canvas.subtle"
   }),
-  panelBody: css39({
+  panelBody: css42({
     maxHeight: "18rem",
     overflowY: "auto"
   })
@@ -5204,60 +6201,60 @@ function PickerField({
 }) {
   const compact = size === "sm";
   const softChrome = chrome === "soft";
-  return /* @__PURE__ */ jsxs39("div", {
-    className: cx38(styles30.root, className),
+  return /* @__PURE__ */ jsxs42("div", {
+    className: cx41(styles33.root, className),
     style: minWidth ? { minWidth } : undefined,
     children: [
-      /* @__PURE__ */ jsxs39("button", {
+      /* @__PURE__ */ jsxs42("button", {
         type: "button",
         onClick: onToggle,
         disabled,
-        className: cx38(styles30.trigger, compact && styles30.triggerSm, softChrome && styles30.triggerSoft, open && styles30.triggerOpen, open && softChrome && styles30.triggerOpenSoft),
+        className: cx41(styles33.trigger, compact && styles33.triggerSm, softChrome && styles33.triggerSoft, open && styles33.triggerOpen, open && softChrome && styles33.triggerOpenSoft),
         "aria-expanded": open,
         children: [
-          /* @__PURE__ */ jsxs39("div", {
-            className: styles30.lead,
+          /* @__PURE__ */ jsxs42("div", {
+            className: styles33.lead,
             children: [
-              leading && /* @__PURE__ */ jsx50("div", {
-                className: styles30.leading,
+              leading && /* @__PURE__ */ jsx53("div", {
+                className: styles33.leading,
                 children: leading
               }),
-              /* @__PURE__ */ jsxs39("div", {
-                className: styles30.copy,
+              /* @__PURE__ */ jsxs42("div", {
+                className: styles33.copy,
                 children: [
-                  /* @__PURE__ */ jsxs39("div", {
-                    className: styles30.titleRow,
+                  /* @__PURE__ */ jsxs42("div", {
+                    className: styles33.titleRow,
                     children: [
-                      /* @__PURE__ */ jsx50("div", {
-                        className: cx38(styles30.title, compact && styles30.titleSm),
+                      /* @__PURE__ */ jsx53("div", {
+                        className: cx41(styles33.title, compact && styles33.titleSm),
                         children: title
                       }),
                       badge
                     ]
                   }),
-                  description && /* @__PURE__ */ jsx50("div", {
-                    className: styles30.description,
+                  description && /* @__PURE__ */ jsx53("div", {
+                    className: styles33.description,
                     children: description
                   })
                 ]
               })
             ]
           }),
-          /* @__PURE__ */ jsx50(ChevronDown, {
+          /* @__PURE__ */ jsx53(ChevronDown, {
             size: 16,
-            className: cx38(styles30.chevron, open && styles30.chevronOpen)
+            className: cx41(styles33.chevron, open && styles33.chevronOpen)
           })
         ]
       }),
-      open && panel && /* @__PURE__ */ jsxs39("div", {
-        className: cx38(styles30.panel, softChrome && styles30.panelSoft, styles30.panelConnected),
+      open && panel && /* @__PURE__ */ jsxs42("div", {
+        className: cx41(styles33.panel, softChrome && styles33.panelSoft, styles33.panelConnected),
         children: [
-          panelLabel && /* @__PURE__ */ jsx50("div", {
-            className: styles30.panelLabel,
+          panelLabel && /* @__PURE__ */ jsx53("div", {
+            className: styles33.panelLabel,
             children: panelLabel
           }),
-          /* @__PURE__ */ jsx50("div", {
-            className: styles30.panelBody,
+          /* @__PURE__ */ jsx53("div", {
+            className: styles33.panelBody,
             children: panel
           })
         ]
@@ -5266,11 +6263,11 @@ function PickerField({
   });
 }
 // src/components/patterns/pricing-card.tsx
-import { css as css40, cx as cx39 } from "styled-system/css";
-import { jsx as jsx51, jsxs as jsxs40 } from "react/jsx-runtime";
+import { css as css43, cx as cx42 } from "styled-system/css";
+import { jsx as jsx54, jsxs as jsxs43 } from "react/jsx-runtime";
 "use client";
-var styles31 = {
-  root: css40({
+var styles34 = {
+  root: css43({
     bg: "bg.default",
     borderWidth: "1px",
     borderColor: "border.muted",
@@ -5286,11 +6283,11 @@ var styles31 = {
       borderColor: "colorPalette.7"
     }
   }),
-  highlighted: css40({
+  highlighted: css43({
     shadow: "md",
     borderColor: "colorPalette.7"
   }),
-  badge: css40({
+  badge: css43({
     position: "absolute",
     top: "-3",
     left: "50%",
@@ -5304,33 +6301,33 @@ var styles31 = {
     color: "white",
     whiteSpace: "nowrap"
   }),
-  name: css40({
+  name: css43({
     textAlign: "center",
     fontSize: "xl",
     fontWeight: "semibold",
     color: "colorPalette.11"
   }),
-  description: css40({
+  description: css43({
     textAlign: "center",
     textStyle: "small",
     color: "fg.muted",
     mb: "4"
   }),
-  priceArea: css40({
+  priceArea: css43({
     display: "flex",
     alignItems: "baseline",
     justifyContent: "center",
     mb: "6"
   }),
-  price: css40({
+  price: css43({
     fontSize: "4xl",
     fontWeight: "bold",
     color: "fg.default"
   }),
-  interval: css40({
+  interval: css43({
     color: "fg.muted"
   }),
-  featureList: css40({
+  featureList: css43({
     listStyle: "none",
     p: "0",
     m: "0",
@@ -5338,7 +6335,7 @@ var styles31 = {
     flexDir: "column",
     gap: "2"
   }),
-  featureItem: css40({
+  featureItem: css43({
     display: "flex",
     flexDir: "row",
     alignItems: "center",
@@ -5346,11 +6343,11 @@ var styles31 = {
     textStyle: "small",
     color: "fg.default"
   }),
-  checkmark: css40({
+  checkmark: css43({
     color: "colorPalette.9",
     flexShrink: 0
   }),
-  actionWrap: css40({
+  actionWrap: css43({
     mt: "auto",
     pt: "4"
   })
@@ -5369,35 +6366,35 @@ function PricingCard({
   features,
   className
 }) {
-  return /* @__PURE__ */ jsxs40("div", {
-    className: cx39(styles31.root, highlight && styles31.highlighted, className),
+  return /* @__PURE__ */ jsxs43("div", {
+    className: cx42(styles34.root, highlight && styles34.highlighted, className),
     children: [
-      badge && /* @__PURE__ */ jsx51("span", {
-        className: styles31.badge,
+      badge && /* @__PURE__ */ jsx54("span", {
+        className: styles34.badge,
         style: {
           ...badgeBg ? { backgroundColor: badgeBg } : {},
           ...badgeColor ? { color: badgeColor } : {}
         },
         children: badge
       }),
-      /* @__PURE__ */ jsx51("div", {
-        className: styles31.name,
+      /* @__PURE__ */ jsx54("div", {
+        className: styles34.name,
         style: accentColor ? { color: accentColor } : undefined,
         children: name
       }),
-      description && /* @__PURE__ */ jsx51("div", {
-        className: styles31.description,
+      description && /* @__PURE__ */ jsx54("div", {
+        className: styles34.description,
         children: description
       }),
-      /* @__PURE__ */ jsxs40("div", {
-        className: styles31.priceArea,
+      /* @__PURE__ */ jsxs43("div", {
+        className: styles34.priceArea,
         children: [
-          /* @__PURE__ */ jsx51("span", {
-            className: styles31.price,
+          /* @__PURE__ */ jsx54("span", {
+            className: styles34.price,
             children: price
           }),
-          interval && /* @__PURE__ */ jsxs40("span", {
-            className: styles31.interval,
+          interval && /* @__PURE__ */ jsxs43("span", {
+            className: styles34.interval,
             children: [
               "/",
               interval
@@ -5405,32 +6402,32 @@ function PricingCard({
           })
         ]
       }),
-      features && features.length > 0 && /* @__PURE__ */ jsx51("ul", {
-        className: styles31.featureList,
-        children: features.map((feature) => /* @__PURE__ */ jsxs40("li", {
-          className: styles31.featureItem,
+      features && features.length > 0 && /* @__PURE__ */ jsx54("ul", {
+        className: styles34.featureList,
+        children: features.map((feature) => /* @__PURE__ */ jsxs43("li", {
+          className: styles34.featureItem,
           children: [
-            /* @__PURE__ */ jsx51("span", {
-              className: styles31.checkmark,
+            /* @__PURE__ */ jsx54("span", {
+              className: styles34.checkmark,
               children: "✓"
             }),
             feature
           ]
         }, feature))
       }),
-      action && /* @__PURE__ */ jsx51("div", {
-        className: styles31.actionWrap,
+      action && /* @__PURE__ */ jsx54("div", {
+        className: styles34.actionWrap,
         children: action
       })
     ]
   });
 }
 // src/components/patterns/resource-list.tsx
-import { css as css41, cx as cx40 } from "styled-system/css";
-import { jsx as jsx52, jsxs as jsxs41 } from "react/jsx-runtime";
+import { css as css44, cx as cx43 } from "styled-system/css";
+import { jsx as jsx55, jsxs as jsxs44 } from "react/jsx-runtime";
 "use client";
-var styles32 = {
-  root: css41({
+var styles35 = {
+  root: css44({
     display: "flex",
     flexDirection: "column",
     borderRadius: "l3",
@@ -5438,7 +6435,7 @@ var styles32 = {
     boxShadow: "{shadows.whisper}",
     overflow: "hidden"
   }),
-  header: css41({
+  header: css44({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     justifyContent: "space-between",
@@ -5448,25 +6445,25 @@ var styles32 = {
     paddingY: { base: "5", md: "6" },
     bg: "app.surface.muted"
   }),
-  titleBlock: css41({
+  titleBlock: css44({
     display: "flex",
     flexDirection: "column",
     gap: "1.5"
   }),
-  title: css41({
+  title: css44({
     textStyle: "sectionTitle",
     color: "app.text"
   }),
-  description: css41({
+  description: css44({
     textStyle: "small",
     color: "app.text.muted"
   }),
-  list: css41({
+  list: css44({
     listStyle: "none",
     padding: "0",
     margin: "0"
   }),
-  item: css41({
+  item: css44({
     display: "grid",
     gridTemplateColumns: "auto minmax(0, 1fr) auto",
     alignItems: "center",
@@ -5479,10 +6476,10 @@ var styles32 = {
       borderBottomWidth: "0"
     }
   }),
-  itemNoDivider: css41({
+  itemNoDivider: css44({
     borderBottomWidth: "0"
   }),
-  icon: css41({
+  icon: css44({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -5491,29 +6488,29 @@ var styles32 = {
     bg: "app.surface.muted",
     color: "app.accent"
   }),
-  copy: css41({
+  copy: css44({
     minWidth: 0,
     display: "flex",
     flexDirection: "column",
     gap: "1"
   }),
-  itemTitle: css41({
+  itemTitle: css44({
     textStyle: "toolbarLabel",
     color: "app.text"
   }),
-  itemDescription: css41({
+  itemDescription: css44({
     textStyle: "small",
     color: "app.text.muted"
   }),
-  meta: css41({
+  meta: css44({
     textStyle: "caption",
     color: "app.text.subtle"
   }),
-  itemLink: css41({
+  itemLink: css44({
     color: "inherit",
     textDecoration: "none"
   }),
-  action: css41({
+  action: css44({
     display: "inline-flex",
     alignItems: "center"
   })
@@ -5526,21 +6523,21 @@ function ResourceList({
   dividers = true,
   className
 }) {
-  return /* @__PURE__ */ jsxs41("section", {
-    className: cx40(styles32.root, className),
+  return /* @__PURE__ */ jsxs44("section", {
+    className: cx43(styles35.root, className),
     children: [
-      (title || description || actions) && /* @__PURE__ */ jsxs41("div", {
-        className: styles32.header,
+      (title || description || actions) && /* @__PURE__ */ jsxs44("div", {
+        className: styles35.header,
         children: [
-          /* @__PURE__ */ jsxs41("div", {
-            className: styles32.titleBlock,
+          /* @__PURE__ */ jsxs44("div", {
+            className: styles35.titleBlock,
             children: [
-              title && /* @__PURE__ */ jsx52("div", {
-                className: styles32.title,
+              title && /* @__PURE__ */ jsx55("div", {
+                className: styles35.title,
                 children: title
               }),
-              description && /* @__PURE__ */ jsx52("div", {
-                className: styles32.description,
+              description && /* @__PURE__ */ jsx55("div", {
+                className: styles35.description,
                 children: description
               })
             ]
@@ -5548,41 +6545,41 @@ function ResourceList({
           actions
         ]
       }),
-      /* @__PURE__ */ jsx52("ul", {
-        className: styles32.list,
+      /* @__PURE__ */ jsx55("ul", {
+        className: styles35.list,
         children: items.map((item, index) => {
-          const content = /* @__PURE__ */ jsxs41("div", {
-            className: styles32.copy,
+          const content = /* @__PURE__ */ jsxs44("div", {
+            className: styles35.copy,
             children: [
-              /* @__PURE__ */ jsx52("div", {
-                className: styles32.itemTitle,
+              /* @__PURE__ */ jsx55("div", {
+                className: styles35.itemTitle,
                 children: item.title
               }),
-              item.description && /* @__PURE__ */ jsx52("div", {
-                className: styles32.itemDescription,
+              item.description && /* @__PURE__ */ jsx55("div", {
+                className: styles35.itemDescription,
                 children: item.description
               }),
-              item.meta && /* @__PURE__ */ jsx52("div", {
-                className: styles32.meta,
+              item.meta && /* @__PURE__ */ jsx55("div", {
+                className: styles35.meta,
                 children: item.meta
               })
             ]
           });
-          return /* @__PURE__ */ jsx52("li", {
-            children: /* @__PURE__ */ jsxs41("div", {
-              className: cx40(styles32.item, !dividers && styles32.itemNoDivider),
+          return /* @__PURE__ */ jsx55("li", {
+            children: /* @__PURE__ */ jsxs44("div", {
+              className: cx43(styles35.item, !dividers && styles35.itemNoDivider),
               children: [
-                item.icon && /* @__PURE__ */ jsx52("div", {
-                  className: styles32.icon,
+                item.icon && /* @__PURE__ */ jsx55("div", {
+                  className: styles35.icon,
                   children: item.icon
                 }),
-                item.href ? /* @__PURE__ */ jsx52("a", {
-                  className: styles32.itemLink,
+                item.href ? /* @__PURE__ */ jsx55("a", {
+                  className: styles35.itemLink,
                   href: item.href,
                   children: content
                 }) : content,
-                item.action && /* @__PURE__ */ jsx52("div", {
-                  className: styles32.action,
+                item.action && /* @__PURE__ */ jsx55("div", {
+                  className: styles35.action,
                   children: item.action
                 })
               ]
@@ -5597,21 +6594,21 @@ function ResourceList({
 import { Portal as Portal4 } from "@ark-ui/react/portal";
 import { Search, X as X3 } from "lucide-react";
 import { useMemo as useMemo4, useState as useState5 } from "react";
-import { css as css43, cx as cx42 } from "styled-system/css";
+import { css as css46, cx as cx45 } from "styled-system/css";
 
 // src/components/patterns/selection-list.tsx
-import { css as css42, cx as cx41 } from "styled-system/css";
-import { jsx as jsx53, jsxs as jsxs42 } from "react/jsx-runtime";
+import { css as css45, cx as cx44 } from "styled-system/css";
+import { jsx as jsx56, jsxs as jsxs45 } from "react/jsx-runtime";
 "use client";
-var styles33 = {
-  root: css42({
+var styles36 = {
+  root: css45({
     display: "grid",
     gap: "2"
   }),
-  rootStacked: css42({
-    gap: "0"
+  rootStacked: css45({
+    gap: "1"
   }),
-  item: css42({
+  item: css45({
     width: "100%",
     display: "flex",
     alignItems: "flex-start",
@@ -5619,14 +6616,11 @@ var styles33 = {
     gap: "3",
     padding: "4",
     borderRadius: "l3",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface.muted",
     textAlign: "left",
     cursor: "pointer",
     transition: "all 160ms ease",
     _hover: {
-      borderColor: "app.border.strong",
       bg: "app.surface"
     },
     _disabled: {
@@ -5634,94 +6628,112 @@ var styles33 = {
       cursor: "not-allowed"
     }
   }),
-  itemCompact: css42({
+  itemCompact: css45({
     paddingX: "3.5",
     paddingY: "3",
     gap: "2.5"
   }),
-  itemSoft: css42({
-    borderWidth: "0"
+  itemSoft: css45({
+    boxShadow: "none"
   }),
-  itemStacked: css42({
-    borderWidth: "0",
-    borderRadius: "0",
-    borderBottomWidth: "1px",
-    borderColor: "app.border",
+  itemStacked: css45({
+    borderRadius: "xl",
+    boxShadow: "none",
     bg: "transparent",
     paddingX: "4",
     paddingY: "3.5",
     _hover: {
-      borderColor: "app.border",
       bg: "app.canvas.subtle"
-    },
-    _lastOfType: {
-      borderBottomWidth: "0"
     }
   }),
-  itemSelected: css42({
+  itemSelected: css45({
     bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)",
-    borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)",
+    boxShadow: "{shadows.whisper}",
+    _hover: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)",
+      boxShadow: "{shadows.whisper}"
+    },
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)",
+      boxShadow: "{shadows.whisper}",
+      _hover: {
+        bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)",
+        boxShadow: "{shadows.whisper}"
+      }
+    }
+  }),
+  itemSelectedSoft: css45({
     boxShadow: "none"
   }),
-  itemSelectedSoft: css42({
-    borderColor: "transparent",
-    boxShadow: "none"
-  }),
-  itemSelectedStacked: css42({
+  itemSelectedStacked: css45({
     bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)",
-    borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 52%, var(--colors-app-border) 48%)",
-    boxShadow: "none"
+    boxShadow: "none",
+    _hover: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)",
+      boxShadow: "none"
+    },
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)",
+      boxShadow: "none",
+      _hover: {
+        bg: "color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)",
+        boxShadow: "none"
+      }
+    }
   }),
-  body: css42({
+  body: css45({
     display: "flex",
     alignItems: "flex-start",
     gap: "3",
     minWidth: 0,
     flex: "1 1 auto"
   }),
-  icon: css42({
+  icon: css45({
     boxSize: "8",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
     bg: "app.surface",
     color: "app.accent",
     flexShrink: 0
   }),
-  iconCompact: css42({
+  iconCompact: css45({
     boxSize: "7",
     rounded: "lg"
   }),
-  iconSoft: css42({
+  iconSoft: css45({
     borderWidth: "0",
     bg: "app.surface.muted"
   }),
-  iconStacked: css42({
+  iconStacked: css45({
     borderWidth: "0",
     bg: "transparent"
   }),
-  copy: css42({
+  iconStackedSoft: css45({
+    borderWidth: "0",
+    bg: "transparent",
+    color: "app.text.subtle"
+  }),
+  copy: css45({
     display: "flex",
     flexDirection: "column",
     gap: "1",
     minWidth: 0
   }),
-  label: css42({
+  label: css45({
     textStyle: "small",
     fontWeight: "600",
     color: "app.text"
   }),
-  labelCompact: css42({
+  labelCompact: css45({
     fontWeight: "700"
   }),
-  description: css42({
+  description: css45({
     textStyle: "caption",
     color: "app.text.subtle"
   }),
-  endSlot: css42({
+  endSlot: css45({
     display: "inline-flex",
     alignItems: "center",
     gap: "2",
@@ -5734,47 +6746,47 @@ function SelectionList({
   value,
   onValueChange,
   density = "default",
-  chrome = "default",
+  chrome = "soft",
   layout = "cards",
   className
 }) {
   const compact = density === "compact";
   const softChrome = chrome === "soft";
   const stackedLayout = layout === "stacked";
-  return /* @__PURE__ */ jsx53("div", {
-    className: cx41(styles33.root, stackedLayout && styles33.rootStacked, className),
+  return /* @__PURE__ */ jsx56("div", {
+    className: cx44(styles36.root, stackedLayout && styles36.rootStacked, className),
     children: items.map((item) => {
       const selected = item.value === value;
-      return /* @__PURE__ */ jsxs42("button", {
+      return /* @__PURE__ */ jsxs45("button", {
         type: "button",
         disabled: item.disabled,
         onClick: () => onValueChange(item.value),
-        className: cx41(styles33.item, compact && styles33.itemCompact, softChrome && styles33.itemSoft, stackedLayout && styles33.itemStacked, selected && styles33.itemSelected, selected && softChrome && styles33.itemSelectedSoft, selected && stackedLayout && styles33.itemSelectedStacked),
+        className: cx44(styles36.item, compact && styles36.itemCompact, softChrome && styles36.itemSoft, stackedLayout && styles36.itemStacked, selected && styles36.itemSelected, selected && softChrome && styles36.itemSelectedSoft, selected && stackedLayout && styles36.itemSelectedStacked),
         children: [
-          /* @__PURE__ */ jsxs42("div", {
-            className: styles33.body,
+          /* @__PURE__ */ jsxs45("div", {
+            className: styles36.body,
             children: [
-              item.icon && /* @__PURE__ */ jsx53("span", {
-                className: cx41(styles33.icon, compact && styles33.iconCompact, softChrome && styles33.iconSoft, stackedLayout && styles33.iconStacked),
+              item.icon && /* @__PURE__ */ jsx56("span", {
+                className: cx44(styles36.icon, compact && styles36.iconCompact, softChrome && styles36.iconSoft, stackedLayout && styles36.iconStacked, stackedLayout && softChrome && styles36.iconStackedSoft),
                 children: item.icon
               }),
-              /* @__PURE__ */ jsxs42("div", {
-                className: styles33.copy,
+              /* @__PURE__ */ jsxs45("div", {
+                className: styles36.copy,
                 children: [
-                  /* @__PURE__ */ jsx53("div", {
-                    className: cx41(styles33.label, compact && styles33.labelCompact),
+                  /* @__PURE__ */ jsx56("div", {
+                    className: cx44(styles36.label, compact && styles36.labelCompact),
                     children: item.label
                   }),
-                  item.description && /* @__PURE__ */ jsx53("div", {
-                    className: styles33.description,
+                  item.description && /* @__PURE__ */ jsx56("div", {
+                    className: styles36.description,
                     children: item.description
                   })
                 ]
               })
             ]
           }),
-          item.endSlot && /* @__PURE__ */ jsx53("div", {
-            className: styles33.endSlot,
+          item.endSlot && /* @__PURE__ */ jsx56("div", {
+            className: styles36.endSlot,
             children: item.endSlot
           })
         ]
@@ -5784,25 +6796,25 @@ function SelectionList({
 }
 
 // src/components/patterns/search-picker-dialog.tsx
-import { jsx as jsx54, jsxs as jsxs43 } from "react/jsx-runtime";
+import { jsx as jsx57, jsxs as jsxs46 } from "react/jsx-runtime";
 "use client";
-var styles34 = {
-  content: css43({
+var styles37 = {
+  content: css46({
     maxW: "3xl",
     w: "min(92vw, 56rem)"
   }),
-  layout: css43({
+  layout: css46({
     display: "grid",
     gap: "4"
   }),
-  searchField: css43({
+  searchField: css46({
     display: "grid",
     gap: "3"
   }),
-  searchInput: css43({
+  searchInput: css46({
     pl: "10"
   }),
-  searchIcon: css43({
+  searchIcon: css46({
     position: "absolute",
     left: "3.5",
     top: "50%",
@@ -5810,28 +6822,28 @@ var styles34 = {
     color: "app.text.subtle",
     pointerEvents: "none"
   }),
-  clearButton: css43({
+  clearButton: css46({
     position: "absolute",
     right: "2.5",
     top: "50%",
     transform: "translateY(-50%)"
   }),
-  searchWrap: css43({
+  searchWrap: css46({
     position: "relative"
   }),
-  list: css43({
+  list: css46({
     maxH: "24rem",
     overflowY: "auto",
     pr: "1"
   }),
-  footer: css43({
+  footer: css46({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "3"
   }),
-  helper: css43({
+  helper: css46({
     textStyle: "caption",
     color: "app.text.subtle"
   })
@@ -5862,54 +6874,54 @@ function SearchPickerDialog({
 }) {
   const [query, setQuery] = useState5("");
   const filteredItems = useMemo4(() => items.filter((item) => matchesItem(item, query.trim().toLowerCase())), [items, query]);
-  return /* @__PURE__ */ jsx54(exports_dialog.Root, {
+  return /* @__PURE__ */ jsx57(exports_dialog.Root, {
     open,
     onOpenChange: (details) => onOpenChange(details.open),
     size: "lg",
-    children: /* @__PURE__ */ jsxs43(Portal4, {
+    children: /* @__PURE__ */ jsxs46(Portal4, {
       children: [
-        /* @__PURE__ */ jsx54(exports_dialog.Backdrop, {}),
-        /* @__PURE__ */ jsx54(exports_dialog.Positioner, {
-          children: /* @__PURE__ */ jsxs43(exports_dialog.Content, {
-            className: cx42(styles34.content, className),
+        /* @__PURE__ */ jsx57(exports_dialog.Backdrop, {}),
+        /* @__PURE__ */ jsx57(exports_dialog.Positioner, {
+          children: /* @__PURE__ */ jsxs46(exports_dialog.Content, {
+            className: cx45(styles37.content, className),
             children: [
-              /* @__PURE__ */ jsxs43(exports_dialog.Header, {
+              /* @__PURE__ */ jsxs46(exports_dialog.Header, {
                 children: [
-                  /* @__PURE__ */ jsx54(exports_dialog.Title, {
+                  /* @__PURE__ */ jsx57(exports_dialog.Title, {
                     children: title
                   }),
-                  description ? /* @__PURE__ */ jsx54(exports_dialog.Description, {
+                  description ? /* @__PURE__ */ jsx57(exports_dialog.Description, {
                     children: description
                   }) : null
                 ]
               }),
-              /* @__PURE__ */ jsxs43(exports_dialog.Body, {
-                className: styles34.layout,
+              /* @__PURE__ */ jsxs46(exports_dialog.Body, {
+                className: styles37.layout,
                 children: [
-                  /* @__PURE__ */ jsx54("div", {
-                    className: styles34.searchField,
-                    children: /* @__PURE__ */ jsx54(FormField, {
+                  /* @__PURE__ */ jsx57("div", {
+                    className: styles37.searchField,
+                    children: /* @__PURE__ */ jsx57(FormField, {
                       label: searchLabel,
-                      children: /* @__PURE__ */ jsxs43("div", {
-                        className: styles34.searchWrap,
+                      children: /* @__PURE__ */ jsxs46("div", {
+                        className: styles37.searchWrap,
                         children: [
-                          /* @__PURE__ */ jsx54(Search, {
+                          /* @__PURE__ */ jsx57(Search, {
                             size: 16,
-                            className: styles34.searchIcon
+                            className: styles37.searchIcon
                           }),
-                          /* @__PURE__ */ jsx54(Input, {
+                          /* @__PURE__ */ jsx57(Input, {
                             value: query,
                             onChange: (event) => setQuery(event.target.value),
                             placeholder: searchPlaceholder,
-                            className: styles34.searchInput
+                            className: styles37.searchInput
                           }),
-                          query ? /* @__PURE__ */ jsx54(Button, {
+                          query ? /* @__PURE__ */ jsx57(Button, {
                             type: "button",
                             variant: "ghost",
                             size: "xs",
                             onClick: () => setQuery(""),
-                            className: styles34.clearButton,
-                            children: /* @__PURE__ */ jsx54(X3, {
+                            className: styles37.clearButton,
+                            children: /* @__PURE__ */ jsx57(X3, {
                               size: 14
                             })
                           }) : null
@@ -5917,38 +6929,38 @@ function SearchPickerDialog({
                       })
                     })
                   }),
-                  /* @__PURE__ */ jsx54("div", {
-                    className: styles34.list,
-                    children: filteredItems.length > 0 ? /* @__PURE__ */ jsx54(SelectionList, {
+                  /* @__PURE__ */ jsx57("div", {
+                    className: styles37.list,
+                    children: filteredItems.length > 0 ? /* @__PURE__ */ jsx57(SelectionList, {
                       items: filteredItems,
                       value,
                       onValueChange: (nextValue) => {
                         onValueChange(nextValue);
                         onOpenChange(false);
                       }
-                    }) : /* @__PURE__ */ jsx54(EmptyState, {
-                      icon: /* @__PURE__ */ jsx54(Search, {
+                    }) : /* @__PURE__ */ jsx57(EmptyState, {
+                      icon: /* @__PURE__ */ jsx57(Search, {
                         size: 20
                       }),
                       title: emptyTitle,
                       description: emptyDescription,
-                      className: css43({ py: "10" })
+                      className: css46({ py: "10" })
                     })
                   })
                 ]
               }),
-              /* @__PURE__ */ jsxs43(exports_dialog.Footer, {
-                className: styles34.footer,
+              /* @__PURE__ */ jsxs46(exports_dialog.Footer, {
+                className: styles37.footer,
                 children: [
-                  /* @__PURE__ */ jsxs43("div", {
-                    className: styles34.helper,
+                  /* @__PURE__ */ jsxs46("div", {
+                    className: styles37.helper,
                     children: [
                       filteredItems.length,
                       " option",
                       filteredItems.length === 1 ? "" : "s"
                     ]
                   }),
-                  /* @__PURE__ */ jsx54(Button, {
+                  /* @__PURE__ */ jsx57(Button, {
                     type: "button",
                     variant: "surface",
                     onClick: () => onOpenChange(false),
@@ -5964,18 +6976,18 @@ function SearchPickerDialog({
   });
 }
 // src/components/patterns/secondary-nav.tsx
-import { css as css44, cx as cx43 } from "styled-system/css";
-import { jsx as jsx55, jsxs as jsxs44, Fragment as Fragment6 } from "react/jsx-runtime";
+import { css as css47, cx as cx46 } from "styled-system/css";
+import { jsx as jsx58, jsxs as jsxs47, Fragment as Fragment6 } from "react/jsx-runtime";
 "use client";
-var styles35 = {
-  root: css44({
+var styles38 = {
+  root: css47({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: "3",
     width: "100%"
   }),
-  list: css44({
+  list: css47({
     listStyle: "none",
     display: "flex",
     alignItems: "center",
@@ -5984,7 +6996,7 @@ var styles35 = {
     padding: "0",
     margin: "0"
   }),
-  item: css44({
+  item: css47({
     appearance: "none",
     display: "inline-flex",
     alignItems: "center",
@@ -6006,17 +7018,20 @@ var styles35 = {
       color: "app.text"
     }
   }),
-  itemActive: css44({
-    bg: "app.accent",
-    color: "white",
-    boxShadow: "none"
+  itemActive: css47({
+    bg: "app.nav.active",
+    color: "app.text",
+    _hover: {
+      bg: "app.nav.active",
+      color: "app.text"
+    }
   }),
-  label: css44({
+  label: css47({
     textStyle: "caption",
     fontWeight: "700",
     letterSpacing: "0.01em"
   }),
-  badge: css44({
+  badge: css47({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -6026,18 +7041,21 @@ var styles35 = {
     borderRadius: "full",
     bg: "rgba(255, 255, 255, 0.18)",
     textStyle: "caption",
-    color: "currentColor"
+    color: "currentColor",
+    _dark: {
+      bg: "rgba(227, 253, 255, 0.12)"
+    }
   }),
-  trailing: css44({
+  trailing: css47({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "2.5"
   }),
-  toolbarList: css44({
+  toolbarList: css47({
     gap: "5"
   }),
-  toolbarItem: css44({
+  toolbarItem: css47({
     minHeight: "auto",
     paddingX: "0",
     paddingY: "2",
@@ -6050,33 +7068,33 @@ var styles35 = {
       color: "app.text"
     }
   }),
-  toolbarItemActive: css44({
-    bg: "transparent",
-    borderColor: "transparent",
-    color: "app.text",
-    boxShadow: "inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)"
+  toolbarItemActive: css47({
+    bg: "app.surface.muted",
+    borderRadius: "xl",
+    paddingX: "3",
+    color: "app.text"
   })
 };
 function SecondaryNavEntry({
   item,
   variant
 }) {
-  const content = /* @__PURE__ */ jsxs44(Fragment6, {
+  const content = /* @__PURE__ */ jsxs47(Fragment6, {
     children: [
       item.icon,
-      /* @__PURE__ */ jsx55("span", {
-        className: styles35.label,
+      /* @__PURE__ */ jsx58("span", {
+        className: styles38.label,
         children: item.label
       }),
-      item.badge && /* @__PURE__ */ jsx55("span", {
-        className: styles35.badge,
+      item.badge && /* @__PURE__ */ jsx58("span", {
+        className: styles38.badge,
         children: item.badge
       })
     ]
   });
-  const className = cx43(styles35.item, variant === "toolbar" && styles35.toolbarItem, item.active && styles35.itemActive, item.active && variant === "toolbar" && styles35.toolbarItemActive);
+  const className = cx46(styles38.item, variant === "toolbar" && styles38.toolbarItem, item.active && variant !== "toolbar" && styles38.itemActive, item.active && variant === "toolbar" && styles38.toolbarItemActive);
   if (item.href) {
-    return /* @__PURE__ */ jsx55("a", {
+    return /* @__PURE__ */ jsx58("a", {
       className,
       href: item.href,
       "aria-current": item.active ? "page" : undefined,
@@ -6084,7 +7102,7 @@ function SecondaryNavEntry({
       children: content
     });
   }
-  return /* @__PURE__ */ jsx55("button", {
+  return /* @__PURE__ */ jsx58("button", {
     type: "button",
     className,
     onClick: item.onClick,
@@ -6093,20 +7111,20 @@ function SecondaryNavEntry({
   });
 }
 function SecondaryNav({ items, trailing, variant = "pill", className }) {
-  return /* @__PURE__ */ jsxs44("div", {
-    className: cx43(styles35.root, className),
+  return /* @__PURE__ */ jsxs47("div", {
+    className: cx46(styles38.root, className),
     children: [
-      /* @__PURE__ */ jsx55("ul", {
-        className: cx43(styles35.list, variant === "toolbar" && styles35.toolbarList),
-        children: items.map((item) => /* @__PURE__ */ jsx55("li", {
-          children: /* @__PURE__ */ jsx55(SecondaryNavEntry, {
+      /* @__PURE__ */ jsx58("ul", {
+        className: cx46(styles38.list, variant === "toolbar" && styles38.toolbarList),
+        children: items.map((item) => /* @__PURE__ */ jsx58("li", {
+          children: /* @__PURE__ */ jsx58(SecondaryNavEntry, {
             item,
             variant
           })
         }, item.id ?? item.href ?? item.label))
       }),
-      trailing && /* @__PURE__ */ jsx55("div", {
-        className: styles35.trailing,
+      trailing && /* @__PURE__ */ jsx58("div", {
+        className: styles38.trailing,
         children: trailing
       })
     ]
@@ -6114,32 +7132,32 @@ function SecondaryNav({ items, trailing, variant = "pill", className }) {
 }
 // src/components/patterns/secret-field.tsx
 import { Check, Copy, Eye, EyeOff } from "lucide-react";
-import { css as css45, cx as cx44 } from "styled-system/css";
-import { jsx as jsx56, jsxs as jsxs45 } from "react/jsx-runtime";
+import { css as css48, cx as cx47 } from "styled-system/css";
+import { jsx as jsx59, jsxs as jsxs48 } from "react/jsx-runtime";
 "use client";
-var styles36 = {
-  root: css45({
+var styles39 = {
+  root: css48({
     display: "flex",
     flexDirection: "column",
     gap: "2.5"
   }),
-  labelRow: css45({
+  labelRow: css48({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: "3"
   }),
-  label: css45({
+  label: css48({
     textStyle: "caption",
     color: "app.text.subtle",
     textTransform: "uppercase",
     letterSpacing: "0.08em"
   }),
-  description: css45({
+  description: css48({
     textStyle: "caption",
     color: "app.text.muted"
   }),
-  field: css45({
+  field: css48({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -6152,7 +7170,7 @@ var styles36 = {
     bg: "app.surface",
     boxShadow: "{shadows.panel}"
   }),
-  value: css45({
+  value: css48({
     flex: "1 1 auto",
     minWidth: 0,
     fontFamily: "mono",
@@ -6160,14 +7178,14 @@ var styles36 = {
     color: "app.text",
     wordBreak: "break-all"
   }),
-  actionRow: css45({
+  actionRow: css48({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "1.5",
     flexShrink: 0
   }),
-  iconButton: css45({
+  iconButton: css48({
     borderWidth: "1px",
     borderColor: "app.border",
     bg: "app.surface.muted",
@@ -6190,58 +7208,58 @@ function SecretField({
   actions,
   className
 }) {
-  return /* @__PURE__ */ jsxs45("div", {
-    className: cx44(styles36.root, className),
+  return /* @__PURE__ */ jsxs48("div", {
+    className: cx47(styles39.root, className),
     children: [
-      (label || description) && /* @__PURE__ */ jsx56("div", {
-        className: styles36.labelRow,
-        children: /* @__PURE__ */ jsxs45("div", {
+      (label || description) && /* @__PURE__ */ jsx59("div", {
+        className: styles39.labelRow,
+        children: /* @__PURE__ */ jsxs48("div", {
           children: [
-            label && /* @__PURE__ */ jsx56("div", {
-              className: styles36.label,
+            label && /* @__PURE__ */ jsx59("div", {
+              className: styles39.label,
               children: label
             }),
-            description && /* @__PURE__ */ jsx56("div", {
-              className: styles36.description,
+            description && /* @__PURE__ */ jsx59("div", {
+              className: styles39.description,
               children: description
             })
           ]
         })
       }),
-      /* @__PURE__ */ jsxs45("div", {
-        className: styles36.field,
+      /* @__PURE__ */ jsxs48("div", {
+        className: styles39.field,
         children: [
-          /* @__PURE__ */ jsx56("div", {
-            className: styles36.value,
+          /* @__PURE__ */ jsx59("div", {
+            className: styles39.value,
             children: value
           }),
-          /* @__PURE__ */ jsxs45("div", {
-            className: styles36.actionRow,
+          /* @__PURE__ */ jsxs48("div", {
+            className: styles39.actionRow,
             children: [
               actions,
-              onToggleReveal && /* @__PURE__ */ jsx56(IconButton, {
+              onToggleReveal && /* @__PURE__ */ jsx59(IconButton, {
                 variant: "ghost",
                 size: "sm",
                 onClick: onToggleReveal,
                 title: revealed ? "Hide secret value" : "Show secret value",
                 "aria-label": revealed ? "Hide secret value" : "Show secret value",
-                className: styles36.iconButton,
-                children: revealed ? /* @__PURE__ */ jsx56(EyeOff, {
+                className: styles39.iconButton,
+                children: revealed ? /* @__PURE__ */ jsx59(EyeOff, {
                   size: 14
-                }) : /* @__PURE__ */ jsx56(Eye, {
+                }) : /* @__PURE__ */ jsx59(Eye, {
                   size: 14
                 })
               }),
-              onCopy && /* @__PURE__ */ jsx56(IconButton, {
+              onCopy && /* @__PURE__ */ jsx59(IconButton, {
                 variant: "ghost",
                 size: "sm",
                 onClick: onCopy,
                 title: "Copy to clipboard",
                 "aria-label": "Copy to clipboard",
-                className: styles36.iconButton,
-                children: copied ? /* @__PURE__ */ jsx56(Check, {
+                className: styles39.iconButton,
+                children: copied ? /* @__PURE__ */ jsx59(Check, {
                   size: 14
-                }) : /* @__PURE__ */ jsx56(Copy, {
+                }) : /* @__PURE__ */ jsx59(Copy, {
                   size: 14
                 })
               })
@@ -6253,10 +7271,10 @@ function SecretField({
   });
 }
 // src/components/patterns/section-header.tsx
-import { css as css46, cx as cx45 } from "styled-system/css";
-import { jsx as jsx57, jsxs as jsxs46 } from "react/jsx-runtime";
+import { css as css49, cx as cx48 } from "styled-system/css";
+import { jsx as jsx60, jsxs as jsxs49 } from "react/jsx-runtime";
 "use client";
-var base3 = css46({
+var base3 = css49({
   px: "4",
   py: "3",
   display: "flex",
@@ -6265,16 +7283,16 @@ var base3 = css46({
   borderBottomWidth: "1px"
 });
 var variants2 = {
-  teal: css46({
+  teal: css49({
     bg: "colorPalette.a2",
     borderColor: "colorPalette.4"
   }),
-  wheat: css46({
+  wheat: css49({
     bg: "colorPalette.2",
     borderColor: "colorPalette.4"
   })
 };
-var badgeStyle = css46({
+var badgeStyle = css49({
   w: "7",
   h: "7",
   rounded: "md",
@@ -6285,7 +7303,7 @@ var badgeStyle = css46({
   color: "colorPalette.11",
   flexShrink: 0
 });
-var titleStyle2 = css46({
+var titleStyle2 = css49({
   fontSize: "lg",
   fontWeight: "semibold",
   color: "fg.default"
@@ -6297,60 +7315,56 @@ function SectionHeader({
   actions,
   className
 }) {
-  return /* @__PURE__ */ jsxs46("div", {
-    className: cx45(base3, variants2[variant], className),
+  return /* @__PURE__ */ jsxs49("div", {
+    className: cx48(base3, variants2[variant], className),
     children: [
-      /* @__PURE__ */ jsxs46("div", {
-        className: css46({ display: "flex", alignItems: "center", gap: "2" }),
+      /* @__PURE__ */ jsxs49("div", {
+        className: css49({ display: "flex", alignItems: "center", gap: "2" }),
         children: [
-          icon && /* @__PURE__ */ jsx57("div", {
+          icon && /* @__PURE__ */ jsx60("div", {
             className: badgeStyle,
             children: icon
           }),
-          /* @__PURE__ */ jsx57("h3", {
+          /* @__PURE__ */ jsx60("h3", {
             className: titleStyle2,
             children: title
           })
         ]
       }),
-      actions && /* @__PURE__ */ jsx57("div", {
+      actions && /* @__PURE__ */ jsx60("div", {
         children: actions
       })
     ]
   });
 }
 // src/components/patterns/section-panel.tsx
-import { css as css47, cx as cx46 } from "styled-system/css";
-import { jsx as jsx58, jsxs as jsxs47 } from "react/jsx-runtime";
+import { css as css50, cx as cx49 } from "styled-system/css";
+import { jsx as jsx61, jsxs as jsxs50 } from "react/jsx-runtime";
 "use client";
-var styles37 = {
-  root: css47({
+var styles40 = {
+  root: css50({
     display: "flex",
     flexDirection: "column",
     borderRadius: "l3",
     boxShadow: "{shadows.whisper}",
     overflow: "hidden"
   }),
-  default: css47({
+  default: css50({
     bg: "app.surface"
   }),
-  muted: css47({
+  muted: css50({
     bg: "app.surface.muted"
   }),
-  flat: css47({
+  flat: css50({
     bg: "app.surface",
-    borderWidth: "1px",
-    borderColor: "app.border",
     boxShadow: "{shadows.whisper}"
   }),
-  workspace: css47({
+  workspace: css50({
     bg: "app.surface",
-    borderWidth: "1px",
-    borderColor: "app.border",
     borderRadius: "2xl",
     boxShadow: "{shadows.whisper}"
   }),
-  header: css47({
+  header: css50({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     justifyContent: "space-between",
@@ -6359,72 +7373,76 @@ var styles37 = {
     paddingX: { base: "5.5", md: "6.5" },
     paddingY: { base: "5", md: "5.5" }
   }),
-  headerCompact: css47({
+  headerCompact: css50({
     gap: "3",
     paddingX: { base: "4", md: "4.5" },
     paddingY: { base: "4", md: "4.5" }
   }),
-  headerWorkspace: css47({
+  headerWorkspace: css50({
     alignItems: "center",
     gap: "3",
     paddingX: { base: "4.5", md: "5" },
     paddingY: { base: "3.5", md: "3.75" },
-    bg: "app.surface.muted",
-    borderBottomWidth: "1px",
-    borderBottomColor: "app.border"
+    bg: "app.canvas.subtle",
+    _dark: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 24%, var(--colors-app-surface-muted) 76%)"
+    }
   }),
-  copy: css47({
+  copy: css50({
     display: "flex",
     flexDirection: "column",
     gap: "2",
     minWidth: 0
   }),
-  copyCompact: css47({
+  copyCompact: css50({
     gap: "1"
   }),
-  eyebrow: css47({
+  eyebrow: css50({
     textStyle: "eyebrow",
     color: "app.text.subtle"
   }),
-  eyebrowCompact: css47({
+  eyebrowCompact: css50({
     letterSpacing: "0.18em"
   }),
-  eyebrowWorkspace: css47({
+  eyebrowWorkspace: css50({
     textStyle: "caption",
     fontWeight: "700",
     textTransform: "uppercase",
     letterSpacing: "0.18em",
-    color: "app.text.muted"
+    color: "app.text.muted",
+    _dark: {
+      color: "app.text.subtle"
+    }
   }),
-  title: css47({
+  title: css50({
     textStyle: "sectionTitle",
     color: "app.text"
   }),
-  titleCompact: css47({
+  titleCompact: css50({
     textStyle: "small",
     fontWeight: "700"
   }),
-  titleWorkspace: css47({
+  titleWorkspace: css50({
     textStyle: "small",
     fontWeight: "700"
   }),
-  description: css47({
+  description: css50({
     textStyle: "body",
     color: "app.text.muted",
     maxWidth: "3xl",
     lineHeight: "1.65"
   }),
-  descriptionCompact: css47({
+  descriptionCompact: css50({
     textStyle: "caption",
     lineHeight: "1.45",
     maxWidth: "2xl"
   }),
-  descriptionWorkspace: css47({
+  descriptionWorkspace: css50({
     textStyle: "caption",
     lineHeight: "1.5",
     maxWidth: "none"
   }),
-  meta: css47({
+  meta: css50({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
@@ -6432,48 +7450,46 @@ var styles37 = {
     color: "app.text.subtle",
     textStyle: "caption"
   }),
-  actions: css47({
+  actions: css50({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "3"
   }),
-  actionsCompact: css47({
+  actionsCompact: css50({
     gap: "2"
   }),
-  body: css47({
+  body: css50({
     display: "flex",
     flexDirection: "column",
     gap: "4.5",
     paddingX: { base: "5.5", md: "6.5" },
     paddingY: { base: "5.5", md: "6" }
   }),
-  bodyCompact: css47({
+  bodyCompact: css50({
     gap: "3",
     paddingX: { base: "4", md: "4.5" },
     paddingY: { base: "4", md: "4.5" }
   }),
-  bodyWorkspace: css47({
+  bodyWorkspace: css50({
     gap: "4.5",
     paddingX: { base: "4.5", md: "5" },
     paddingY: { base: "4.5", md: "5" }
   }),
-  footer: css47({
+  footer: css50({
     paddingX: { base: "5.5", md: "6.5" },
     paddingY: "5",
     bg: "app.surface.muted",
     color: "app.text.muted"
   }),
-  footerCompact: css47({
+  footerCompact: css50({
     paddingX: { base: "4", md: "4.5" },
     paddingY: "4"
   }),
-  footerWorkspace: css47({
+  footerWorkspace: css50({
     paddingX: { base: "4.5", md: "5" },
     paddingY: { base: "3.75", md: "4" },
-    bg: "app.surface",
-    borderTopWidth: "1px",
-    borderTopColor: "app.border"
+    bg: "app.canvas.subtle"
   })
 };
 function SectionPanel({
@@ -6493,56 +7509,56 @@ function SectionPanel({
   const hasFooter = footer !== undefined && footer !== null;
   const compact = density === "compact";
   const workspace = variant === "workspace";
-  return /* @__PURE__ */ jsxs47("section", {
-    className: cx46(styles37.root, styles37[variant], className),
+  return /* @__PURE__ */ jsxs50("section", {
+    className: cx49(styles40.root, styles40[variant], className),
     children: [
-      hasHeader && /* @__PURE__ */ jsxs47("div", {
-        className: cx46(styles37.header, compact && styles37.headerCompact, workspace && styles37.headerWorkspace),
+      hasHeader && /* @__PURE__ */ jsxs50("div", {
+        className: cx49(styles40.header, compact && styles40.headerCompact, workspace && styles40.headerWorkspace),
         children: [
-          /* @__PURE__ */ jsxs47("div", {
-            className: cx46(styles37.copy, compact && styles37.copyCompact),
+          /* @__PURE__ */ jsxs50("div", {
+            className: cx49(styles40.copy, compact && styles40.copyCompact),
             children: [
-              eyebrow && /* @__PURE__ */ jsx58("div", {
-                className: cx46(styles37.eyebrow, compact && styles37.eyebrowCompact, workspace && styles37.eyebrowWorkspace),
+              eyebrow && /* @__PURE__ */ jsx61("div", {
+                className: cx49(styles40.eyebrow, compact && styles40.eyebrowCompact, workspace && styles40.eyebrowWorkspace),
                 children: eyebrow
               }),
-              title && /* @__PURE__ */ jsx58("div", {
-                className: cx46(styles37.title, compact && styles37.titleCompact, workspace && styles37.titleWorkspace),
+              title && /* @__PURE__ */ jsx61("div", {
+                className: cx49(styles40.title, compact && styles40.titleCompact, workspace && styles40.titleWorkspace),
                 children: title
               }),
-              description && /* @__PURE__ */ jsx58("div", {
-                className: cx46(styles37.description, compact && styles37.descriptionCompact, workspace && styles37.descriptionWorkspace),
+              description && /* @__PURE__ */ jsx61("div", {
+                className: cx49(styles40.description, compact && styles40.descriptionCompact, workspace && styles40.descriptionWorkspace),
                 children: description
               }),
-              meta && /* @__PURE__ */ jsx58("div", {
-                className: styles37.meta,
+              meta && /* @__PURE__ */ jsx61("div", {
+                className: styles40.meta,
                 children: meta
               })
             ]
           }),
-          actions && /* @__PURE__ */ jsx58("div", {
-            className: cx46(styles37.actions, compact && styles37.actionsCompact),
+          actions && /* @__PURE__ */ jsx61("div", {
+            className: cx49(styles40.actions, compact && styles40.actionsCompact),
             children: actions
           })
         ]
       }),
-      hasBody && /* @__PURE__ */ jsx58("div", {
-        className: cx46(styles37.body, compact && styles37.bodyCompact, workspace && styles37.bodyWorkspace),
+      hasBody && /* @__PURE__ */ jsx61("div", {
+        className: cx49(styles40.body, compact && styles40.bodyCompact, workspace && styles40.bodyWorkspace),
         children
       }),
-      hasFooter && /* @__PURE__ */ jsx58("div", {
-        className: cx46(styles37.footer, compact && styles37.footerCompact, workspace && styles37.footerWorkspace),
+      hasFooter && /* @__PURE__ */ jsx61("div", {
+        className: cx49(styles40.footer, compact && styles40.footerCompact, workspace && styles40.footerWorkspace),
         children: footer
       })
     ]
   });
 }
 // src/components/patterns/selection-toolbar.tsx
-import { css as css48, cx as cx47 } from "styled-system/css";
-import { jsx as jsx59, jsxs as jsxs48 } from "react/jsx-runtime";
+import { css as css51, cx as cx50 } from "styled-system/css";
+import { jsx as jsx62, jsxs as jsxs51 } from "react/jsx-runtime";
 "use client";
-var styles38 = {
-  root: css48({
+var styles41 = {
+  root: css51({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     justifyContent: "space-between",
@@ -6555,31 +7571,31 @@ var styles38 = {
     bg: "app.accent.soft",
     boxShadow: "{shadows.panel}"
   }),
-  rootSoft: css48({
+  rootSoft: css51({
     borderWidth: "0",
     boxShadow: "none"
   }),
-  rootFlat: css48({
+  rootFlat: css51({
     borderColor: "app.border",
     bg: "app.canvas.subtle",
     boxShadow: "none"
   }),
-  copy: css48({
+  copy: css51({
     display: "flex",
     flexDirection: "column",
     gap: "1",
     minWidth: 0
   }),
-  summary: css48({
+  summary: css51({
     textStyle: "small",
     fontWeight: "600",
     color: "app.text"
   }),
-  description: css48({
+  description: css51({
     textStyle: "caption",
     color: "app.text.muted"
   }),
-  actions: css48({
+  actions: css51({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
@@ -6593,35 +7609,35 @@ function SelectionToolbar({
   chrome = "default",
   className
 }) {
-  return /* @__PURE__ */ jsxs48("section", {
-    className: cx47(styles38.root, chrome === "soft" && styles38.rootSoft, chrome === "flat" && styles38.rootFlat, className),
+  return /* @__PURE__ */ jsxs51("section", {
+    className: cx50(styles41.root, chrome === "soft" && styles41.rootSoft, chrome === "flat" && styles41.rootFlat, className),
     children: [
-      /* @__PURE__ */ jsxs48("div", {
-        className: styles38.copy,
+      /* @__PURE__ */ jsxs51("div", {
+        className: styles41.copy,
         children: [
-          /* @__PURE__ */ jsx59("div", {
-            className: styles38.summary,
+          /* @__PURE__ */ jsx62("div", {
+            className: styles41.summary,
             children: summary
           }),
-          description && /* @__PURE__ */ jsx59("div", {
-            className: styles38.description,
+          description && /* @__PURE__ */ jsx62("div", {
+            className: styles41.description,
             children: description
           })
         ]
       }),
-      actions && /* @__PURE__ */ jsx59("div", {
-        className: styles38.actions,
+      actions && /* @__PURE__ */ jsx62("div", {
+        className: styles41.actions,
         children: actions
       })
     ]
   });
 }
 // src/components/patterns/settings-section-nav.tsx
-import { css as css49, cx as cx48 } from "styled-system/css";
-import { jsx as jsx60, jsxs as jsxs49 } from "react/jsx-runtime";
+import { css as css52, cx as cx51 } from "styled-system/css";
+import { jsx as jsx63, jsxs as jsxs52 } from "react/jsx-runtime";
 "use client";
-var styles39 = {
-  root: css49({
+var styles42 = {
+  root: css52({
     display: "flex",
     flexDirection: "column",
     gap: "4",
@@ -6632,12 +7648,12 @@ var styles39 = {
     bg: "app.surface",
     boxShadow: "{shadows.whisper}"
   }),
-  title: css49({
+  title: css52({
     textStyle: "sectionTitle",
     color: "app.text",
     paddingX: "1"
   }),
-  list: css49({
+  list: css52({
     listStyle: "none",
     display: "flex",
     flexDirection: "column",
@@ -6645,7 +7661,7 @@ var styles39 = {
     padding: 0,
     margin: 0
   }),
-  item: css49({
+  item: css52({
     appearance: "none",
     width: "100%",
     display: "grid",
@@ -6669,13 +7685,13 @@ var styles39 = {
       color: "app.text"
     }
   }),
-  itemActive: css49({
+  itemActive: css52({
     bg: "app.nav.active",
     borderColor: "app.border",
     color: "app.text",
     boxShadow: "{shadows.panel}"
   }),
-  icon: css49({
+  icon: css52({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -6684,38 +7700,38 @@ var styles39 = {
     bg: "app.surface.muted",
     color: "app.accent"
   }),
-  copy: css49({
+  copy: css52({
     display: "flex",
     flexDirection: "column",
     gap: "0.5",
     minWidth: 0
   }),
-  label: css49({
+  label: css52({
     textStyle: "toolbarLabel",
     color: "currentColor"
   }),
-  description: css49({
+  description: css52({
     textStyle: "small",
     color: "app.text.subtle"
   }),
-  footer: css49({
+  footer: css52({
     paddingTop: "3",
     borderTopWidth: "1px",
     borderColor: "app.border"
   }),
-  rootTabs: css49({
+  rootTabs: css52({
     padding: "0",
     borderWidth: "0",
     bg: "transparent",
     boxShadow: "none",
     gap: "0"
   }),
-  listTabs: css49({
+  listTabs: css52({
     flexDirection: "row",
     flexWrap: "wrap",
     gap: "1.5"
   }),
-  itemTabs: css49({
+  itemTabs: css52({
     width: "auto",
     gridTemplateColumns: "minmax(0, 1fr)",
     gap: "0",
@@ -6725,19 +7741,19 @@ var styles39 = {
     bg: "app.surface.muted",
     borderColor: "app.border"
   }),
-  itemActiveTabs: css49({
+  itemActiveTabs: css52({
     bg: "app.surface",
     borderColor: "app.border.strong",
     color: "app.text",
     boxShadow: "{shadows.whisper}"
   }),
-  copyTabs: css49({
+  copyTabs: css52({
     display: "inline-flex",
     flexDirection: "row",
     alignItems: "center",
     gap: "0"
   }),
-  labelTabs: css49({
+  labelTabs: css52({
     textStyle: "small",
     fontWeight: "600"
   })
@@ -6751,36 +7767,36 @@ function SettingsSectionNav({
   className
 }) {
   const isTabs = layout === "tabs";
-  return /* @__PURE__ */ jsxs49("nav", {
-    className: cx48(styles39.root, isTabs && styles39.rootTabs, className),
+  return /* @__PURE__ */ jsxs52("nav", {
+    className: cx51(styles42.root, isTabs && styles42.rootTabs, className),
     "aria-label": "Settings Sections",
     children: [
-      title && /* @__PURE__ */ jsx60("div", {
-        className: styles39.title,
+      title && /* @__PURE__ */ jsx63("div", {
+        className: styles42.title,
         children: title
       }),
-      /* @__PURE__ */ jsx60("ul", {
-        className: cx48(styles39.list, isTabs && styles39.listTabs),
-        children: items.map((item, index) => /* @__PURE__ */ jsx60("li", {
-          children: /* @__PURE__ */ jsxs49("button", {
+      /* @__PURE__ */ jsx63("ul", {
+        className: cx51(styles42.list, isTabs && styles42.listTabs),
+        children: items.map((item, index) => /* @__PURE__ */ jsx63("li", {
+          children: /* @__PURE__ */ jsxs52("button", {
             type: "button",
-            className: cx48(styles39.item, isTabs && styles39.itemTabs, item.active && styles39.itemActive, item.active && isTabs && styles39.itemActiveTabs),
+            className: cx51(styles42.item, isTabs && styles42.itemTabs, item.active && styles42.itemActive, item.active && isTabs && styles42.itemActiveTabs),
             onClick: item.onClick,
             "aria-current": item.active ? "page" : undefined,
             children: [
-              showIcons && !isTabs && item.icon && /* @__PURE__ */ jsx60("span", {
-                className: styles39.icon,
+              showIcons && !isTabs && item.icon && /* @__PURE__ */ jsx63("span", {
+                className: styles42.icon,
                 children: item.icon
               }),
-              /* @__PURE__ */ jsxs49("span", {
-                className: cx48(styles39.copy, isTabs && styles39.copyTabs),
+              /* @__PURE__ */ jsxs52("span", {
+                className: cx51(styles42.copy, isTabs && styles42.copyTabs),
                 children: [
-                  /* @__PURE__ */ jsx60("span", {
-                    className: cx48(styles39.label, isTabs && styles39.labelTabs),
+                  /* @__PURE__ */ jsx63("span", {
+                    className: cx51(styles42.label, isTabs && styles42.labelTabs),
                     children: item.label
                   }),
-                  !isTabs && item.description && /* @__PURE__ */ jsx60("span", {
-                    className: styles39.description,
+                  !isTabs && item.description && /* @__PURE__ */ jsx63("span", {
+                    className: styles42.description,
                     children: item.description
                   })
                 ]
@@ -6789,46 +7805,49 @@ function SettingsSectionNav({
           })
         }, item.id ?? `${item.label}-${index}`))
       }),
-      footer && !isTabs && /* @__PURE__ */ jsx60("div", {
-        className: styles39.footer,
+      footer && !isTabs && /* @__PURE__ */ jsx63("div", {
+        className: styles42.footer,
         children: footer
       })
     ]
   });
 }
 // src/components/patterns/sidebar-nav.tsx
-import { css as css50, cx as cx49 } from "styled-system/css";
-import { jsx as jsx61, jsxs as jsxs50, Fragment as Fragment7 } from "react/jsx-runtime";
+import { css as css53, cx as cx52 } from "styled-system/css";
+import { jsx as jsx64, jsxs as jsxs53, Fragment as Fragment7 } from "react/jsx-runtime";
 "use client";
-var styles40 = {
-  root: css50({
+var styles43 = {
+  root: css53({
     height: "100%",
     display: "flex",
     flexDirection: "column",
     gap: "4"
   }),
-  brand: css50({
+  brand: css53({
     display: "flex",
     alignItems: "center",
     gap: "3"
   }),
-  sections: css50({
+  sections: css53({
     display: "flex",
     flexDirection: "column",
     gap: "5.5",
     flex: "1"
   }),
-  section: css50({
+  sectionsShell: css53({
+    gap: "4"
+  }),
+  section: css53({
     display: "flex",
     flexDirection: "column",
     gap: "2"
   }),
-  sectionTitle: css50({
+  sectionTitle: css53({
     textStyle: "eyebrow",
     color: "app.text.subtle",
     paddingX: "3.5"
   }),
-  list: css50({
+  list: css53({
     listStyle: "none",
     display: "flex",
     flexDirection: "column",
@@ -6836,7 +7855,10 @@ var styles40 = {
     padding: "0",
     margin: "0"
   }),
-  item: css50({
+  listShell: css53({
+    gap: "1.25"
+  }),
+  item: css53({
     appearance: "none",
     width: "100%",
     display: "grid",
@@ -6850,17 +7872,12 @@ var styles40 = {
     bg: "transparent",
     textAlign: "left",
     textDecoration: "none",
-    transitionProperty: "background-color, color, box-shadow, transform",
+    transitionProperty: "background-color, color",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _hover: {
-      bg: "app.nav.active",
-      color: "app.text",
-      boxShadow: "{shadows.whisper}",
-      "& [data-sidebar-icon]": {
-        transform: "translateX(6px)",
-        color: "app.accent"
-      }
+      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 26%, transparent)",
+      color: "app.text"
     },
     _focusVisible: {
       outline: "2px solid",
@@ -6872,44 +7889,53 @@ var styles40 = {
       cursor: "not-allowed"
     }
   }),
-  itemActive: css50({
-    bg: "app.nav.active",
-    color: "app.text",
-    boxShadow: "{shadows.panel}"
+  itemShell: css53({
+    paddingX: "3",
+    paddingY: "2.25",
+    borderRadius: "xl"
   }),
-  itemIcon: css50({
+  itemActive: css53({
+    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)",
+    color: "app.text",
+    _hover: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)",
+      color: "app.text"
+    },
+    "& [data-sidebar-label]": {
+      color: "app.text"
+    }
+  }),
+  itemIcon: css53({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "5.5",
-    color: "app.text.subtle",
-    transition: "transform 240ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease"
+    boxSize: "4.5",
+    color: "app.text.subtle"
   }),
-  itemText: css50({
+  itemText: css53({
     minWidth: 0,
     display: "flex",
     flexDirection: "column",
     gap: "0.5"
   }),
-  itemLabel: css50({
-    fontFamily: "display",
-    fontSize: "1.05rem",
-    lineHeight: "1.32",
-    color: "currentColor",
-    fontWeight: "600",
-    letterSpacing: "-0.015em"
+  itemLabel: css53({
+    textStyle: "sidebarLabel",
+    color: "currentColor"
   }),
-  itemDescription: css50({
+  itemLabelShell: css53({
+    color: "color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text) 76%)"
+  }),
+  itemDescription: css53({
     textStyle: "small",
     color: "app.text.subtle",
     lineHeight: "1.45"
   }),
-  itemEnd: css50({
+  itemEnd: css53({
     display: "inline-flex",
     alignItems: "center",
     gap: "2"
   }),
-  badge: css50({
+  badge: css53({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -6918,45 +7944,45 @@ var styles40 = {
     paddingX: "2",
     borderRadius: "full",
     bg: "app.surface",
-    borderWidth: "1px",
-    borderColor: "app.border",
     color: "app.text",
     textStyle: "caption"
   }),
-  footer: css50({
+  footer: css53({
     paddingTop: "5"
   })
 };
 function SidebarNavEntry({
   item,
   renderItem,
-  showDescriptions
+  showDescriptions,
+  variant
 }) {
-  const content = /* @__PURE__ */ jsxs50(Fragment7, {
+  const content = /* @__PURE__ */ jsxs53(Fragment7, {
     children: [
-      item.icon && /* @__PURE__ */ jsx61("span", {
-        className: styles40.itemIcon,
+      item.icon && /* @__PURE__ */ jsx64("span", {
+        className: styles43.itemIcon,
         "data-sidebar-icon": "",
         children: item.icon
       }),
-      /* @__PURE__ */ jsxs50("span", {
-        className: styles40.itemText,
+      /* @__PURE__ */ jsxs53("span", {
+        className: styles43.itemText,
         children: [
-          /* @__PURE__ */ jsx61("span", {
-            className: styles40.itemLabel,
+          /* @__PURE__ */ jsx64("span", {
+            className: cx52(styles43.itemLabel, variant === "shell" && styles43.itemLabelShell),
+            "data-sidebar-label": "",
             children: item.label
           }),
-          showDescriptions && item.description && /* @__PURE__ */ jsx61("span", {
-            className: styles40.itemDescription,
+          showDescriptions && item.description && /* @__PURE__ */ jsx64("span", {
+            className: styles43.itemDescription,
             children: item.description
           })
         ]
       }),
-      /* @__PURE__ */ jsxs50("span", {
-        className: styles40.itemEnd,
+      /* @__PURE__ */ jsxs53("span", {
+        className: styles43.itemEnd,
         children: [
-          item.badge && /* @__PURE__ */ jsx61("span", {
-            className: styles40.badge,
+          item.badge && /* @__PURE__ */ jsx64("span", {
+            className: styles43.badge,
             children: item.badge
           }),
           item.endSlot
@@ -6964,13 +7990,13 @@ function SidebarNavEntry({
       })
     ]
   });
-  const className = cx49(styles40.item, item.active && styles40.itemActive);
+  const className = cx52(styles43.item, variant === "shell" && styles43.itemShell, item.active && styles43.itemActive);
   const ariaCurrent = item.active ? "page" : undefined;
   if (renderItem) {
     return renderItem({ item, className, content, ariaCurrent });
   }
   if (item.href) {
-    return /* @__PURE__ */ jsx61("a", {
+    return /* @__PURE__ */ jsx64("a", {
       className,
       href: item.href,
       "aria-current": ariaCurrent,
@@ -6985,7 +8011,7 @@ function SidebarNavEntry({
       children: content
     });
   }
-  return /* @__PURE__ */ jsx61("button", {
+  return /* @__PURE__ */ jsx64("button", {
     type: "button",
     className,
     onClick: item.onClick,
@@ -7000,41 +8026,43 @@ function SidebarNav({
   footer,
   showDescriptions = true,
   showSectionTitles = true,
+  variant = "default",
   renderItem,
   className
 }) {
-  return /* @__PURE__ */ jsxs50("nav", {
-    className: cx49(styles40.root, className),
+  return /* @__PURE__ */ jsxs53("nav", {
+    className: cx52(styles43.root, className),
     "aria-label": "Sidebar Navigation",
     children: [
-      brand && /* @__PURE__ */ jsx61("div", {
-        className: styles40.brand,
+      brand && /* @__PURE__ */ jsx64("div", {
+        className: styles43.brand,
         children: brand
       }),
-      /* @__PURE__ */ jsx61("div", {
-        className: styles40.sections,
-        children: sections.map((section, index) => /* @__PURE__ */ jsxs50("section", {
-          className: styles40.section,
+      /* @__PURE__ */ jsx64("div", {
+        className: cx52(styles43.sections, variant === "shell" && styles43.sectionsShell),
+        children: sections.map((section, index) => /* @__PURE__ */ jsxs53("section", {
+          className: styles43.section,
           children: [
-            showSectionTitles && section.title && /* @__PURE__ */ jsx61("p", {
-              className: styles40.sectionTitle,
+            showSectionTitles && section.title && /* @__PURE__ */ jsx64("p", {
+              className: styles43.sectionTitle,
               children: section.title
             }),
-            /* @__PURE__ */ jsx61("ul", {
-              className: styles40.list,
-              children: section.items.map((item, itemIndex) => /* @__PURE__ */ jsx61("li", {
-                children: /* @__PURE__ */ jsx61(SidebarNavEntry, {
+            /* @__PURE__ */ jsx64("ul", {
+              className: cx52(styles43.list, variant === "shell" && styles43.listShell),
+              children: section.items.map((item, itemIndex) => /* @__PURE__ */ jsx64("li", {
+                children: /* @__PURE__ */ jsx64(SidebarNavEntry, {
                   item,
                   renderItem,
-                  showDescriptions
+                  showDescriptions,
+                  variant
                 })
               }, item.id ?? item.href ?? `${item.label}-${itemIndex}`))
             })
           ]
         }, section.title ?? index))
       }),
-      footer && /* @__PURE__ */ jsx61("div", {
-        className: styles40.footer,
+      footer && /* @__PURE__ */ jsx64("div", {
+        className: styles43.footer,
         children: footer
       })
     ]
@@ -7042,8 +8070,8 @@ function SidebarNav({
 }
 // src/components/patterns/slide-over.tsx
 import { Portal as Portal5 } from "@ark-ui/react/portal";
-import { css as css51, cx as cx50 } from "styled-system/css";
-import { jsx as jsx62, jsxs as jsxs51, Fragment as Fragment8 } from "react/jsx-runtime";
+import { css as css54, cx as cx53 } from "styled-system/css";
+import { jsx as jsx65, jsxs as jsxs54, Fragment as Fragment8 } from "react/jsx-runtime";
 "use client";
 var widthBySize = {
   md: "38rem",
@@ -7051,8 +8079,8 @@ var widthBySize = {
   xl: "66rem"
 };
 var defaultAsideWidth = "16.5rem";
-var styles41 = {
-  backdrop: css51({
+var styles44 = {
+  backdrop: css54({
     bg: "rgba(16, 20, 22, 0.18)",
     backdropFilter: "none",
     _open: {
@@ -7062,7 +8090,7 @@ var styles41 = {
       animationDuration: "180ms"
     }
   }),
-  positioner: css51({
+  positioner: css54({
     position: "fixed",
     inset: "0",
     zIndex: "modal",
@@ -7071,7 +8099,7 @@ var styles41 = {
     alignItems: "stretch",
     pointerEvents: "none"
   }),
-  content: css51({
+  content: css54({
     "--slide-over-panel-min-width": "0px",
     "--slide-over-panel-max-width": widthBySize.xl,
     "--slide-over-stacked-min-width": "0px",
@@ -7120,7 +8148,7 @@ var styles41 = {
       animationTimingFunction: "cubic-bezier(0.4, 0, 1, 1)"
     }
   }),
-  header: css51({
+  header: css54({
     display: "grid",
     gap: "3",
     borderBottomWidth: "1px",
@@ -7129,19 +8157,19 @@ var styles41 = {
     pt: { base: "1.375rem", md: "1.625rem" },
     pb: "1.125rem"
   }),
-  headerRow: css51({
+  headerRow: css54({
     display: "grid",
     gap: "3",
     gridTemplateColumns: { base: "1fr", md: "minmax(0, 1fr) auto" },
     alignItems: "start",
     minWidth: 0
   }),
-  headerCopy: css51({
+  headerCopy: css54({
     display: "flex",
     gap: "3",
     minWidth: 0
   }),
-  icon: css51({
+  icon: css54({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -7153,34 +8181,34 @@ var styles41 = {
     color: "app.accent",
     flexShrink: 0
   }),
-  copy: css51({
+  copy: css54({
     display: "grid",
     gap: "1.5",
     minWidth: 0
   }),
-  eyebrow: css51({
+  eyebrow: css54({
     textStyle: "eyebrow",
     color: "app.text.subtle"
   }),
-  description: css51({
+  description: css54({
     textStyle: "small",
     color: "app.text.muted",
     lineHeight: "1.65",
     maxW: "38rem"
   }),
-  actions: css51({
+  actions: css54({
     display: "flex",
     flexWrap: "wrap",
     gap: "2",
     justifySelf: { base: "start", md: "end" }
   }),
-  closeButton: css51({
+  closeButton: css54({
     position: "absolute",
     top: "4",
     right: "4",
     zIndex: 2
   }),
-  body: css51({
+  body: css54({
     display: "flex",
     flexDirection: "column",
     gap: "1.375rem",
@@ -7190,7 +8218,7 @@ var styles41 = {
     px: { base: "1.375rem", md: "1.625rem" },
     py: { base: "1.375rem", md: "1.5rem" }
   }),
-  splitShell: css51({
+  splitShell: css54({
     display: "grid",
     gridTemplateColumns: {
       base: "1fr",
@@ -7199,7 +8227,7 @@ var styles41 = {
     height: "100%",
     minH: 0
   }),
-  splitAside: css51({
+  splitAside: css54({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -7212,14 +8240,14 @@ var styles41 = {
     py: { base: "1.375rem", md: "1.625rem" },
     minH: 0
   }),
-  splitMain: css51({
+  splitMain: css54({
     position: "relative",
     display: "flex",
     flexDirection: "column",
     minWidth: 0,
     minH: 0
   }),
-  footer: css51({
+  footer: css54({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -7230,12 +8258,12 @@ var styles41 = {
     px: { base: "1.375rem", md: "1.625rem" },
     py: "1.125rem"
   }),
-  footerHint: css51({
+  footerHint: css54({
     textStyle: "caption",
     color: "app.text.subtle",
     maxW: "24rem"
   }),
-  footerActions: css51({
+  footerActions: css54({
     display: "flex",
     flexWrap: "wrap",
     gap: "2",
@@ -7279,19 +8307,19 @@ function SlideOver({
   const resolvedPanelMinWidth = panelMinWidth ?? (contentMinWidth ? resolvedLayout === "split" ? `calc(${contentMinWidth} + ${resolvedAsideWidth})` : contentMinWidth : "0px");
   const resolvedStackedMaxWidth = resolvedLayout === "split" && contentMaxWidth ? contentMaxWidth : resolvedPanelMaxWidth;
   const resolvedStackedMinWidth = resolvedLayout === "split" && contentMinWidth ? contentMinWidth : resolvedPanelMinWidth;
-  const renderedFooter = footer ? /* @__PURE__ */ jsx62(exports_drawer.Footer, {
+  const renderedFooter = footer ? /* @__PURE__ */ jsx65(exports_drawer.Footer, {
     children: footer
-  }) : /* @__PURE__ */ jsxs51(exports_drawer.Footer, {
-    className: styles41.footer,
+  }) : /* @__PURE__ */ jsxs54(exports_drawer.Footer, {
+    className: styles44.footer,
     children: [
-      footerHint ? /* @__PURE__ */ jsx62("div", {
-        className: styles41.footerHint,
+      footerHint ? /* @__PURE__ */ jsx65("div", {
+        className: styles44.footerHint,
         children: footerHint
-      }) : /* @__PURE__ */ jsx62("div", {}),
-      /* @__PURE__ */ jsxs51("div", {
-        className: styles41.footerActions,
+      }) : /* @__PURE__ */ jsx65("div", {}),
+      /* @__PURE__ */ jsxs54("div", {
+        className: styles44.footerActions,
         children: [
-          /* @__PURE__ */ jsx62(Button, {
+          /* @__PURE__ */ jsx65(Button, {
             variant: "outline",
             size: "sm",
             onClick: () => {
@@ -7300,7 +8328,7 @@ function SlideOver({
             },
             children: cancelLabel
           }),
-          onSubmit ? /* @__PURE__ */ jsx62(Button, {
+          onSubmit ? /* @__PURE__ */ jsx65(Button, {
             variant: "brand",
             size: "sm",
             onClick: onSubmit,
@@ -7312,56 +8340,56 @@ function SlideOver({
       })
     ]
   });
-  const renderedHeader = /* @__PURE__ */ jsx62(exports_drawer.Header, {
-    className: styles41.header,
-    children: /* @__PURE__ */ jsxs51("div", {
-      className: styles41.headerRow,
+  const renderedHeader = /* @__PURE__ */ jsx65(exports_drawer.Header, {
+    className: styles44.header,
+    children: /* @__PURE__ */ jsxs54("div", {
+      className: styles44.headerRow,
       children: [
-        /* @__PURE__ */ jsxs51("div", {
-          className: styles41.headerCopy,
+        /* @__PURE__ */ jsxs54("div", {
+          className: styles44.headerCopy,
           children: [
-            icon ? /* @__PURE__ */ jsx62("div", {
-              className: styles41.icon,
+            icon ? /* @__PURE__ */ jsx65("div", {
+              className: styles44.icon,
               children: icon
             }) : null,
-            /* @__PURE__ */ jsxs51("div", {
-              className: styles41.copy,
+            /* @__PURE__ */ jsxs54("div", {
+              className: styles44.copy,
               children: [
-                eyebrow ? /* @__PURE__ */ jsx62("div", {
-                  className: styles41.eyebrow,
+                eyebrow ? /* @__PURE__ */ jsx65("div", {
+                  className: styles44.eyebrow,
                   children: eyebrow
                 }) : null,
-                /* @__PURE__ */ jsx62(exports_drawer.Title, {
+                /* @__PURE__ */ jsx65(exports_drawer.Title, {
                   children: title
                 }),
-                description ? /* @__PURE__ */ jsx62(exports_drawer.Description, {
-                  className: styles41.description,
+                description ? /* @__PURE__ */ jsx65(exports_drawer.Description, {
+                  className: styles44.description,
                   children: description
                 }) : null
               ]
             })
           ]
         }),
-        actions ? /* @__PURE__ */ jsx62("div", {
-          className: styles41.actions,
+        actions ? /* @__PURE__ */ jsx65("div", {
+          className: styles44.actions,
           children: actions
         }) : null
       ]
     })
   });
-  return /* @__PURE__ */ jsx62(exports_drawer.Root, {
+  return /* @__PURE__ */ jsx65(exports_drawer.Root, {
     open,
     onOpenChange: (details) => onOpenChange(details.open),
     placement: "end",
     size: resolvedLayout === "split" ? "full" : size,
-    children: /* @__PURE__ */ jsxs51(Portal5, {
+    children: /* @__PURE__ */ jsxs54(Portal5, {
       children: [
-        /* @__PURE__ */ jsx62(exports_drawer.Backdrop, {
-          className: styles41.backdrop
+        /* @__PURE__ */ jsx65(exports_drawer.Backdrop, {
+          className: styles44.backdrop
         }),
-        /* @__PURE__ */ jsx62(exports_drawer.Positioner, {
-          className: styles41.positioner,
-          children: /* @__PURE__ */ jsx62(exports_drawer.Content, {
+        /* @__PURE__ */ jsx65(exports_drawer.Positioner, {
+          className: styles44.positioner,
+          children: /* @__PURE__ */ jsx65(exports_drawer.Content, {
             style: {
               ["--slide-over-panel-min-width"]: resolvedPanelMinWidth,
               ["--slide-over-panel-max-width"]: resolvedPanelMaxWidth,
@@ -7369,54 +8397,54 @@ function SlideOver({
               ["--slide-over-stacked-max-width"]: resolvedStackedMaxWidth,
               ["--slide-over-aside-width"]: resolvedAsideWidth
             },
-            className: cx50(styles41.content, className),
-            children: resolvedLayout === "split" && aside ? /* @__PURE__ */ jsxs51("div", {
-              className: styles41.splitShell,
+            className: cx53(styles44.content, className),
+            children: resolvedLayout === "split" && aside ? /* @__PURE__ */ jsxs54("div", {
+              className: styles44.splitShell,
               children: [
-                /* @__PURE__ */ jsxs51("div", {
-                  className: styles41.splitAside,
+                /* @__PURE__ */ jsxs54("div", {
+                  className: styles44.splitAside,
                   children: [
-                    /* @__PURE__ */ jsx62("div", {
+                    /* @__PURE__ */ jsx65("div", {
                       children: aside
                     }),
                     asideFooter
                   ]
                 }),
-                /* @__PURE__ */ jsxs51("div", {
-                  className: styles41.splitMain,
+                /* @__PURE__ */ jsxs54("div", {
+                  className: styles44.splitMain,
                   children: [
-                    /* @__PURE__ */ jsx62(exports_drawer.CloseTrigger, {
+                    /* @__PURE__ */ jsx65(exports_drawer.CloseTrigger, {
                       asChild: true,
-                      children: /* @__PURE__ */ jsx62(CloseButton, {
+                      children: /* @__PURE__ */ jsx65(CloseButton, {
                         "data-tour-id": closeButtonTourId,
-                        className: styles41.closeButton,
+                        className: styles44.closeButton,
                         size: "sm",
                         "aria-label": "Close panel"
                       })
                     }),
                     renderedHeader,
-                    /* @__PURE__ */ jsx62(exports_drawer.Body, {
-                      className: cx50(styles41.body, bodyClassName),
+                    /* @__PURE__ */ jsx65(exports_drawer.Body, {
+                      className: cx53(styles44.body, bodyClassName),
                       children
                     }),
                     hideFooter ? null : renderedFooter
                   ]
                 })
               ]
-            }) : /* @__PURE__ */ jsxs51(Fragment8, {
+            }) : /* @__PURE__ */ jsxs54(Fragment8, {
               children: [
-                /* @__PURE__ */ jsx62(exports_drawer.CloseTrigger, {
+                /* @__PURE__ */ jsx65(exports_drawer.CloseTrigger, {
                   asChild: true,
-                  children: /* @__PURE__ */ jsx62(CloseButton, {
+                  children: /* @__PURE__ */ jsx65(CloseButton, {
                     "data-tour-id": closeButtonTourId,
-                    className: styles41.closeButton,
+                    className: styles44.closeButton,
                     size: "sm",
                     "aria-label": "Close panel"
                   })
                 }),
                 renderedHeader,
-                /* @__PURE__ */ jsx62(exports_drawer.Body, {
-                  className: cx50(styles41.body, bodyClassName),
+                /* @__PURE__ */ jsx65(exports_drawer.Body, {
+                  className: cx53(styles44.body, bodyClassName),
                   children
                 }),
                 hideFooter ? null : renderedFooter
@@ -7429,11 +8457,11 @@ function SlideOver({
   });
 }
 // src/components/patterns/status-banner.tsx
-import { css as css52, cx as cx51 } from "styled-system/css";
-import { jsx as jsx63, jsxs as jsxs52 } from "react/jsx-runtime";
+import { css as css55, cx as cx54 } from "styled-system/css";
+import { jsx as jsx66, jsxs as jsxs55 } from "react/jsx-runtime";
 "use client";
-var styles42 = {
-  root: css52({
+var styles45 = {
+  root: css55({
     display: "grid",
     gridTemplateColumns: "auto minmax(0, 1fr)",
     alignItems: "flex-start",
@@ -7442,7 +8470,7 @@ var styles42 = {
     borderRadius: "l3",
     borderWidth: "1px"
   }),
-  iconWrap: css52({
+  iconWrap: css55({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -7451,7 +8479,7 @@ var styles42 = {
     borderWidth: "1px",
     flexShrink: 0
   }),
-  content: css52({
+  content: css55({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     justifyContent: "space-between",
@@ -7459,42 +8487,42 @@ var styles42 = {
     gap: "3",
     minWidth: 0
   }),
-  copy: css52({
+  copy: css55({
     display: "flex",
     flexDirection: "column",
     gap: "1",
     minWidth: 0
   }),
-  title: css52({
+  title: css55({
     textStyle: "small",
     fontWeight: "600"
   }),
-  description: css52({
+  description: css55({
     textStyle: "small",
     opacity: 0.92
   }),
-  actions: css52({
+  actions: css55({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "2.5"
   }),
-  info: css52({
+  info: css55({
     bg: "bg.info",
     borderColor: "border.info",
     color: "fg.info"
   }),
-  success: css52({
+  success: css55({
     bg: "bg.success",
     borderColor: "border.success",
     color: "fg.success"
   }),
-  warning: css52({
+  warning: css55({
     bg: "bg.warning",
     borderColor: "border.warning",
     color: "fg.warning"
   }),
-  error: css52({
+  error: css55({
     bg: "bg.error",
     borderColor: "border.error",
     color: "fg.error"
@@ -7508,32 +8536,32 @@ function StatusBanner({
   tone = "info",
   className
 }) {
-  return /* @__PURE__ */ jsxs52("section", {
+  return /* @__PURE__ */ jsxs55("section", {
     role: tone === "error" ? "alert" : "status",
-    className: cx51(styles42.root, styles42[tone], className),
+    className: cx54(styles45.root, styles45[tone], className),
     children: [
-      icon && /* @__PURE__ */ jsx63("div", {
-        className: cx51(styles42.iconWrap, styles42[tone]),
+      icon && /* @__PURE__ */ jsx66("div", {
+        className: cx54(styles45.iconWrap, styles45[tone]),
         children: icon
       }),
-      /* @__PURE__ */ jsxs52("div", {
-        className: styles42.content,
+      /* @__PURE__ */ jsxs55("div", {
+        className: styles45.content,
         children: [
-          /* @__PURE__ */ jsxs52("div", {
-            className: styles42.copy,
+          /* @__PURE__ */ jsxs55("div", {
+            className: styles45.copy,
             children: [
-              /* @__PURE__ */ jsx63("div", {
-                className: styles42.title,
+              /* @__PURE__ */ jsx66("div", {
+                className: styles45.title,
                 children: title
               }),
-              description && /* @__PURE__ */ jsx63("div", {
-                className: styles42.description,
+              description && /* @__PURE__ */ jsx66("div", {
+                className: styles45.description,
                 children: description
               })
             ]
           }),
-          actions && /* @__PURE__ */ jsx63("div", {
-            className: styles42.actions,
+          actions && /* @__PURE__ */ jsx66("div", {
+            className: styles45.actions,
             children: actions
           })
         ]
@@ -7543,14 +8571,14 @@ function StatusBanner({
 }
 // src/components/patterns/status-state.tsx
 import { AlertTriangle, Inbox } from "lucide-react";
-import { css as css54, cx as cx53 } from "styled-system/css";
+import { css as css57, cx as cx56 } from "styled-system/css";
 
 // src/components/patterns/support-panel.tsx
-import { css as css53, cx as cx52 } from "styled-system/css";
-import { jsx as jsx64, jsxs as jsxs53 } from "react/jsx-runtime";
+import { css as css56, cx as cx55 } from "styled-system/css";
+import { jsx as jsx67, jsxs as jsxs56 } from "react/jsx-runtime";
 "use client";
-var styles43 = {
-  root: css53({
+var styles46 = {
+  root: css56({
     display: "grid",
     gridTemplateColumns: { base: "1fr", lg: "minmax(0, 1fr) auto" },
     gap: "4",
@@ -7559,13 +8587,17 @@ var styles43 = {
     bg: "app.surface",
     boxShadow: "{shadows.whisper}"
   }),
-  rootAccent: css53({
+  rootAccent: css56({
     position: "relative",
     overflow: "hidden",
     borderWidth: "1px",
     borderColor: "color-mix(in srgb, var(--colors-app-accent-alt-border) 58%, var(--colors-app-border) 42%)",
     bg: "linear-gradient(145deg, color-mix(in srgb, var(--colors-app-accent-soft) 74%, var(--colors-app-surface) 26%) 0%, color-mix(in srgb, var(--colors-app-accent-alt-soft) 88%, var(--colors-app-surface) 12%) 100%)",
     boxShadow: "{shadows.panel}",
+    _dark: {
+      borderColor: "rgba(163, 221, 226, 0.22)",
+      bg: "linear-gradient(145deg, rgba(18, 45, 48, 0.98) 0%, rgba(15, 35, 38, 0.98) 100%)"
+    },
     _before: {
       content: '""',
       position: "absolute",
@@ -7573,44 +8605,53 @@ var styles43 = {
       left: "0",
       right: "0",
       height: "3px",
-      background: "linear-gradient(90deg, var(--colors-app-accent) 0%, var(--colors-app-accent-alt) 100%)"
+      background: "linear-gradient(90deg, var(--colors-app-accent) 0%, var(--colors-app-accent-alt) 100%)",
+      _dark: {
+        background: "linear-gradient(90deg, rgba(163, 221, 226, 0.92) 0%, rgba(235, 188, 111, 0.92) 100%)"
+      }
     }
   }),
-  copy: css53({
+  copy: css56({
     display: "flex",
     flexDirection: "column",
     gap: "2.5"
   }),
-  eyebrow: css53({
+  eyebrow: css56({
     textStyle: "eyebrow",
     color: "app.text.subtle"
   }),
-  eyebrowAccent: css53({
-    color: "app.accentAlt.text"
+  eyebrowAccent: css56({
+    color: {
+      _light: "app.accentAlt.text",
+      _dark: "{colors.wheat.11}"
+    }
   }),
-  title: css53({
+  title: css56({
     textStyle: "sectionTitle",
     color: "app.text"
   }),
-  titleAccent: css53({
+  titleAccent: css56({
     color: "app.text"
   }),
-  description: css53({
+  description: css56({
     textStyle: "body",
     color: "app.text.muted",
     maxWidth: "2xl",
     lineHeight: "1.6"
   }),
-  descriptionAccent: css53({
-    color: "app.text.muted"
+  descriptionAccent: css56({
+    color: {
+      _light: "app.text.muted",
+      _dark: "app.text.subtle"
+    }
   }),
-  actions: css53({
+  actions: css56({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     gap: "2.5"
   }),
-  aside: css53({
+  aside: css56({
     display: "flex",
     alignItems: { base: "flex-start", lg: "center" },
     justifyContent: { base: "flex-start", lg: "flex-end" }
@@ -7628,32 +8669,32 @@ function SupportPanel({
   descriptionClassName,
   copyClassName
 }) {
-  return /* @__PURE__ */ jsxs53("section", {
-    className: cx52(styles43.root, tone === "accent" && styles43.rootAccent, className),
+  return /* @__PURE__ */ jsxs56("section", {
+    className: cx55(styles46.root, tone === "accent" && styles46.rootAccent, className),
     children: [
-      /* @__PURE__ */ jsxs53("div", {
-        className: cx52(styles43.copy, copyClassName),
+      /* @__PURE__ */ jsxs56("div", {
+        className: cx55(styles46.copy, copyClassName),
         children: [
-          eyebrow && /* @__PURE__ */ jsx64("div", {
-            className: cx52(styles43.eyebrow, tone === "accent" && styles43.eyebrowAccent),
+          eyebrow && /* @__PURE__ */ jsx67("div", {
+            className: cx55(styles46.eyebrow, tone === "accent" && styles46.eyebrowAccent),
             children: eyebrow
           }),
-          /* @__PURE__ */ jsx64("div", {
-            className: cx52(styles43.title, tone === "accent" && styles43.titleAccent, titleClassName),
+          /* @__PURE__ */ jsx67("div", {
+            className: cx55(styles46.title, tone === "accent" && styles46.titleAccent, titleClassName),
             children: title
           }),
-          description && /* @__PURE__ */ jsx64("div", {
-            className: cx52(styles43.description, tone === "accent" && styles43.descriptionAccent, descriptionClassName),
+          description && /* @__PURE__ */ jsx67("div", {
+            className: cx55(styles46.description, tone === "accent" && styles46.descriptionAccent, descriptionClassName),
             children: description
           }),
-          actions && /* @__PURE__ */ jsx64("div", {
-            className: styles43.actions,
+          actions && /* @__PURE__ */ jsx67("div", {
+            className: styles46.actions,
             children: actions
           })
         ]
       }),
-      aside && /* @__PURE__ */ jsx64("div", {
-        className: styles43.aside,
+      aside && /* @__PURE__ */ jsx67("div", {
+        className: styles46.aside,
         children: aside
       })
     ]
@@ -7661,43 +8702,43 @@ function SupportPanel({
 }
 
 // src/components/patterns/status-state.tsx
-import { jsx as jsx65 } from "react/jsx-runtime";
+import { jsx as jsx68 } from "react/jsx-runtime";
 "use client";
-var styles44 = {
-  shell: css54({
+var styles47 = {
+  shell: css57({
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
   }),
-  shellPage: css54({
+  shellPage: css57({
     minH: "60vh",
     px: "4"
   }),
-  shellSection: css54({
+  shellSection: css57({
     minH: "13rem",
     px: "1",
     py: "2"
   }),
-  panel: css54({
+  panel: css57({
     width: "100%",
     borderWidth: "1px",
     borderColor: "app.border",
     bg: "app.surface.muted",
     boxShadow: "none"
   }),
-  panelPage: css54({
+  panelPage: css57({
     maxW: "38rem"
   }),
-  panelSection: css54({
+  panelSection: css57({
     maxW: "34rem"
   }),
-  panelError: css54({
+  panelError: css57({
     borderColor: "border.error"
   }),
-  panelWarning: css54({
+  panelWarning: css57({
     borderColor: "border.warning"
   }),
-  aside: css54({
+  aside: css57({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -7707,23 +8748,23 @@ var styles44 = {
     color: "app.accent",
     borderRadius: "full"
   }),
-  asidePage: css54({
+  asidePage: css57({
     boxSize: "14"
   }),
-  asideSection: css54({
+  asideSection: css57({
     boxSize: "12"
   }),
-  asideError: css54({
+  asideError: css57({
     borderColor: "border.error",
     bg: "bg.error",
     color: "fg.error"
   }),
-  asideWarning: css54({
+  asideWarning: css57({
     borderColor: "border.warning",
     bg: "bg.warning",
     color: "fg.warning"
   }),
-  asideLoading: css54({
+  asideLoading: css57({
     color: "app.accent"
   })
 };
@@ -7741,16 +8782,16 @@ function getDefaultEyebrow(layout, tone) {
 }
 function getDefaultIcon(layout, tone) {
   if (tone === "loading") {
-    return /* @__PURE__ */ jsx65(Spinner, {
+    return /* @__PURE__ */ jsx68(Spinner, {
       size: layout === "page" ? "lg" : "sm"
     });
   }
   if (tone === "error" || tone === "warning") {
-    return /* @__PURE__ */ jsx65(AlertTriangle, {
+    return /* @__PURE__ */ jsx68(AlertTriangle, {
       size: 18
     });
   }
-  return /* @__PURE__ */ jsx65(Inbox, {
+  return /* @__PURE__ */ jsx68(Inbox, {
     size: 18
   });
 }
@@ -7767,27 +8808,27 @@ function StatusState({
 }) {
   const pageLayout = layout === "page";
   const statusIcon = icon ?? getDefaultIcon(layout, tone);
-  return /* @__PURE__ */ jsx65("div", {
-    className: cx53(styles44.shell, pageLayout ? styles44.shellPage : styles44.shellSection, className),
-    children: /* @__PURE__ */ jsx65(SupportPanel, {
+  return /* @__PURE__ */ jsx68("div", {
+    className: cx56(styles47.shell, pageLayout ? styles47.shellPage : styles47.shellSection, className),
+    children: /* @__PURE__ */ jsx68(SupportPanel, {
       eyebrow: eyebrow ?? getDefaultEyebrow(layout, tone),
       title,
       description,
       actions,
-      aside: statusIcon ? /* @__PURE__ */ jsx65("div", {
-        className: cx53(styles44.aside, pageLayout ? styles44.asidePage : styles44.asideSection, tone === "error" && styles44.asideError, tone === "warning" && styles44.asideWarning, tone === "loading" && styles44.asideLoading),
+      aside: statusIcon ? /* @__PURE__ */ jsx68("div", {
+        className: cx56(styles47.aside, pageLayout ? styles47.asidePage : styles47.asideSection, tone === "error" && styles47.asideError, tone === "warning" && styles47.asideWarning, tone === "loading" && styles47.asideLoading),
         children: statusIcon
       }) : undefined,
-      className: cx53(styles44.panel, pageLayout ? styles44.panelPage : styles44.panelSection, tone === "error" && styles44.panelError, tone === "warning" && styles44.panelWarning, panelClassName)
+      className: cx56(styles47.panel, pageLayout ? styles47.panelPage : styles47.panelSection, tone === "error" && styles47.panelError, tone === "warning" && styles47.panelWarning, panelClassName)
     })
   });
 }
 // src/components/patterns/step-card.tsx
-import { css as css55, cx as cx54 } from "styled-system/css";
-import { jsx as jsx66, jsxs as jsxs54 } from "react/jsx-runtime";
+import { css as css58, cx as cx57 } from "styled-system/css";
+import { jsx as jsx69, jsxs as jsxs57 } from "react/jsx-runtime";
 "use client";
-var styles45 = {
-  root: css55({
+var styles48 = {
+  root: css58({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -7799,7 +8840,7 @@ var styles45 = {
     p: "4",
     boxShadow: "{shadows.whisper}"
   }),
-  number: css55({
+  number: css58({
     w: "7.5",
     h: "7.5",
     rounded: "xl",
@@ -7812,22 +8853,22 @@ var styles45 = {
     flexShrink: 0,
     fontWeight: "700"
   }),
-  content: css55({
+  content: css58({
     flex: 1,
     minW: 0,
     paddingRight: "2"
   }),
-  title: css55({
+  title: css58({
     textStyle: "toolbarLabel",
     color: "app.text"
   }),
-  description: css55({
+  description: css58({
     textStyle: "caption",
     color: "app.text.muted",
     mt: "1.25",
     lineHeight: "1.55"
   }),
-  endSlot: css55({
+  endSlot: css58({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -7846,25 +8887,25 @@ function StepCard({
   titleClassName,
   descriptionClassName
 }) {
-  return /* @__PURE__ */ jsxs54("div", {
-    className: cx54(styles45.root, className),
+  return /* @__PURE__ */ jsxs57("div", {
+    className: cx57(styles48.root, className),
     children: [
-      /* @__PURE__ */ jsxs54("div", {
-        className: css55({ display: "flex", alignItems: "center", gap: "4", minWidth: 0, flex: "1" }),
+      /* @__PURE__ */ jsxs57("div", {
+        className: css58({ display: "flex", alignItems: "center", gap: "4", minWidth: 0, flex: "1" }),
         children: [
-          /* @__PURE__ */ jsx66("div", {
-            className: cx54(styles45.number, numberClassName),
+          /* @__PURE__ */ jsx69("div", {
+            className: cx57(styles48.number, numberClassName),
             children: step
           }),
-          /* @__PURE__ */ jsxs54("div", {
-            className: styles45.content,
+          /* @__PURE__ */ jsxs57("div", {
+            className: styles48.content,
             children: [
-              /* @__PURE__ */ jsx66("div", {
-                className: cx54(styles45.title, titleClassName),
+              /* @__PURE__ */ jsx69("div", {
+                className: cx57(styles48.title, titleClassName),
                 children: title
               }),
-              description && /* @__PURE__ */ jsx66("div", {
-                className: cx54(styles45.description, descriptionClassName),
+              description && /* @__PURE__ */ jsx69("div", {
+                className: cx57(styles48.description, descriptionClassName),
                 children: description
               }),
               children
@@ -7872,70 +8913,70 @@ function StepCard({
           })
         ]
       }),
-      endSlot && /* @__PURE__ */ jsx66("div", {
-        className: styles45.endSlot,
+      endSlot && /* @__PURE__ */ jsx69("div", {
+        className: styles48.endSlot,
         children: endSlot
       })
     ]
   });
 }
 // src/components/patterns/streaming-status.tsx
-import { css as css56, cx as cx55 } from "styled-system/css";
-import { jsx as jsx67, jsxs as jsxs55 } from "react/jsx-runtime";
+import { css as css59, cx as cx58 } from "styled-system/css";
+import { jsx as jsx70, jsxs as jsxs58 } from "react/jsx-runtime";
 "use client";
-var styles46 = {
-  root: css56({
+var styles49 = {
+  root: css59({
     bg: "bg.default",
     borderWidth: "1px",
     borderColor: "border.muted",
     rounded: "l3",
     p: "4"
   }),
-  compactRoot: css56({
+  compactRoot: css59({
     display: "flex",
     alignItems: "center",
     gap: "2",
     textStyle: "sm"
   }),
-  header: css56({
+  header: css59({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     mb: "3"
   }),
-  headerLeft: css56({
+  headerLeft: css59({
     display: "flex",
     alignItems: "center",
     gap: "3"
   }),
-  statusLabel: css56({
+  statusLabel: css59({
     textStyle: "sm",
     fontWeight: "medium",
     color: "fg.default"
   }),
-  statusLabelError: css56({
+  statusLabelError: css59({
     color: "fg.error"
   }),
-  progressHint: css56({
+  progressHint: css59({
     textStyle: "xs",
     color: "fg.muted"
   }),
-  trackWrap: css56({
+  trackWrap: css59({
     mb: "3"
   }),
-  track: css56({
+  track: css59({
     h: "2",
     bg: "border.muted",
     rounded: "full",
     overflow: "hidden"
   }),
-  range: css56({
+  range: css59({
     h: "full",
     bg: "colorPalette.9",
     transition: "width 0.3s ease-out",
     rounded: "full"
   }),
-  errorBox: css56({
+  errorBox: css59({
     p: "3",
     bg: "bg.error",
     borderWidth: "1px",
@@ -7945,11 +8986,11 @@ var styles46 = {
     alignItems: "flex-start",
     gap: "2"
   }),
-  errorText: css56({
+  errorText: css59({
     textStyle: "sm",
     color: "fg.error"
   }),
-  successBox: css56({
+  successBox: css59({
     p: "3",
     bg: "bg.success",
     borderWidth: "1px",
@@ -7959,16 +9000,16 @@ var styles46 = {
     alignItems: "center",
     gap: "2"
   }),
-  successText: css56({
+  successText: css59({
     textStyle: "sm",
     color: "fg.success"
   }),
-  stepsGrid: css56({
+  stepsGrid: css59({
     mt: "4",
     display: "grid",
     gap: "2"
   }),
-  step: css56({
+  step: css59({
     textAlign: "center",
     p: "2",
     rounded: "l2",
@@ -7976,22 +9017,22 @@ var styles46 = {
     transition: "all 0.15s",
     textStyle: "xs"
   }),
-  stepActive: css56({
+  stepActive: css59({
     bg: "colorPalette.2",
     borderColor: "colorPalette.6",
     color: "colorPalette.11"
   }),
-  stepDone: css56({
+  stepDone: css59({
     bg: "bg.success",
     borderColor: "border.success",
     color: "fg.success"
   }),
-  stepPending: css56({
+  stepPending: css59({
     bg: "gray.subtle.bg",
     borderColor: "border.muted",
     color: "fg.muted"
   }),
-  abortButton: css56({
+  abortButton: css59({
     appearance: "none",
     border: "none",
     bg: "transparent",
@@ -8005,7 +9046,7 @@ var styles46 = {
       color: "fg.default"
     }
   }),
-  iconWrap: css56({
+  iconWrap: css59({
     flexShrink: 0,
     display: "flex",
     alignItems: "center",
@@ -8030,37 +9071,37 @@ function StreamingStatus({
   const isActive = !isComplete && !error;
   const hasProgress = typeof progress === "number";
   if (compact) {
-    return /* @__PURE__ */ jsxs55("div", {
-      className: cx55(styles46.compactRoot, className),
+    return /* @__PURE__ */ jsxs58("div", {
+      className: cx58(styles49.compactRoot, className),
       children: [
-        isActive && activeIcon && /* @__PURE__ */ jsx67("span", {
-          className: styles46.iconWrap,
+        isActive && activeIcon && /* @__PURE__ */ jsx70("span", {
+          className: styles49.iconWrap,
           children: activeIcon
         }),
-        isComplete && completeIcon && /* @__PURE__ */ jsx67("span", {
-          className: styles46.iconWrap,
+        isComplete && completeIcon && /* @__PURE__ */ jsx70("span", {
+          className: styles49.iconWrap,
           children: completeIcon
         }),
-        error && errorIcon && /* @__PURE__ */ jsx67("span", {
-          className: styles46.iconWrap,
+        error && errorIcon && /* @__PURE__ */ jsx70("span", {
+          className: styles49.iconWrap,
           children: errorIcon
         }),
-        /* @__PURE__ */ jsx67("span", {
-          className: cx55(styles46.statusLabel, error ? styles46.statusLabelError : undefined),
+        /* @__PURE__ */ jsx70("span", {
+          className: cx58(styles49.statusLabel, error ? styles49.statusLabelError : undefined),
           children: message || status
         }),
-        isActive && hasProgress && /* @__PURE__ */ jsxs55("span", {
-          className: styles46.progressHint,
+        isActive && hasProgress && /* @__PURE__ */ jsxs58("span", {
+          className: styles49.progressHint,
           children: [
             "(",
             progress,
             "%)"
           ]
         }),
-        onAbort && isActive && /* @__PURE__ */ jsx67("button", {
+        onAbort && isActive && /* @__PURE__ */ jsx70("button", {
           type: "button",
           onClick: onAbort,
-          className: styles46.abortButton,
+          className: styles49.abortButton,
           title: "Abort operation",
           children: "×"
         })
@@ -8069,35 +9110,35 @@ function StreamingStatus({
   }
   const stepKeys = steps?.map((s) => s.key) ?? [];
   const currentIdx = currentStep ? stepKeys.indexOf(currentStep) : -1;
-  return /* @__PURE__ */ jsxs55("div", {
-    className: cx55(styles46.root, className),
+  return /* @__PURE__ */ jsxs58("div", {
+    className: cx58(styles49.root, className),
     children: [
-      /* @__PURE__ */ jsxs55("div", {
-        className: styles46.header,
+      /* @__PURE__ */ jsxs58("div", {
+        className: styles49.header,
         children: [
-          /* @__PURE__ */ jsxs55("div", {
-            className: styles46.headerLeft,
+          /* @__PURE__ */ jsxs58("div", {
+            className: styles49.headerLeft,
             children: [
-              isActive && activeIcon && /* @__PURE__ */ jsx67("span", {
-                className: styles46.iconWrap,
+              isActive && activeIcon && /* @__PURE__ */ jsx70("span", {
+                className: styles49.iconWrap,
                 children: activeIcon
               }),
-              isComplete && completeIcon && /* @__PURE__ */ jsx67("span", {
-                className: styles46.iconWrap,
+              isComplete && completeIcon && /* @__PURE__ */ jsx70("span", {
+                className: styles49.iconWrap,
                 children: completeIcon
               }),
-              error && errorIcon && /* @__PURE__ */ jsx67("span", {
-                className: styles46.iconWrap,
+              error && errorIcon && /* @__PURE__ */ jsx70("span", {
+                className: styles49.iconWrap,
                 children: errorIcon
               }),
-              /* @__PURE__ */ jsxs55("div", {
+              /* @__PURE__ */ jsxs58("div", {
                 children: [
-                  /* @__PURE__ */ jsx67("div", {
-                    className: cx55(styles46.statusLabel, error ? styles46.statusLabelError : undefined),
+                  /* @__PURE__ */ jsx70("div", {
+                    className: cx58(styles49.statusLabel, error ? styles49.statusLabelError : undefined),
                     children: message || status
                   }),
-                  isActive && hasProgress && /* @__PURE__ */ jsxs55("div", {
-                    className: styles46.progressHint,
+                  isActive && hasProgress && /* @__PURE__ */ jsxs58("div", {
+                    className: styles49.progressHint,
                     children: [
                       progress,
                       "% complete"
@@ -8107,59 +9148,59 @@ function StreamingStatus({
               })
             ]
           }),
-          onAbort && isActive && /* @__PURE__ */ jsx67("button", {
+          onAbort && isActive && /* @__PURE__ */ jsx70("button", {
             type: "button",
             onClick: onAbort,
-            className: styles46.abortButton,
+            className: styles49.abortButton,
             title: "Abort operation",
             children: "×"
           })
         ]
       }),
-      isActive && hasProgress && /* @__PURE__ */ jsx67("div", {
-        className: styles46.trackWrap,
-        children: /* @__PURE__ */ jsx67("div", {
-          className: styles46.track,
-          children: /* @__PURE__ */ jsx67("div", {
-            className: styles46.range,
+      isActive && hasProgress && /* @__PURE__ */ jsx70("div", {
+        className: styles49.trackWrap,
+        children: /* @__PURE__ */ jsx70("div", {
+          className: styles49.track,
+          children: /* @__PURE__ */ jsx70("div", {
+            className: styles49.range,
             style: { width: `${progress}%` }
           })
         })
       }),
-      error && /* @__PURE__ */ jsxs55("div", {
-        className: styles46.errorBox,
+      error && /* @__PURE__ */ jsxs58("div", {
+        className: styles49.errorBox,
         children: [
-          errorIcon && /* @__PURE__ */ jsx67("span", {
-            className: styles46.iconWrap,
+          errorIcon && /* @__PURE__ */ jsx70("span", {
+            className: styles49.iconWrap,
             children: errorIcon
           }),
-          /* @__PURE__ */ jsx67("span", {
-            className: styles46.errorText,
+          /* @__PURE__ */ jsx70("span", {
+            className: styles49.errorText,
             children: error
           })
         ]
       }),
-      isComplete && !error && /* @__PURE__ */ jsxs55("div", {
-        className: styles46.successBox,
+      isComplete && !error && /* @__PURE__ */ jsxs58("div", {
+        className: styles49.successBox,
         children: [
-          completeIcon && /* @__PURE__ */ jsx67("span", {
-            className: styles46.iconWrap,
+          completeIcon && /* @__PURE__ */ jsx70("span", {
+            className: styles49.iconWrap,
             children: completeIcon
           }),
-          /* @__PURE__ */ jsx67("span", {
-            className: styles46.successText,
+          /* @__PURE__ */ jsx70("span", {
+            className: styles49.successText,
             children: "Operation completed successfully"
           })
         ]
       }),
-      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx67("div", {
-        className: styles46.stepsGrid,
+      steps && steps.length > 0 && isActive && /* @__PURE__ */ jsx70("div", {
+        className: styles49.stepsGrid,
         style: { gridTemplateColumns: `repeat(${steps.length}, 1fr)` },
         children: steps.map((step, idx) => {
           const isCurrent = step.key === currentStep;
           const isDone = currentIdx >= 0 && idx < currentIdx;
-          return /* @__PURE__ */ jsx67("div", {
-            className: cx55(styles46.step, isCurrent ? styles46.stepActive : isDone ? styles46.stepDone : styles46.stepPending),
+          return /* @__PURE__ */ jsx70("div", {
+            className: cx58(styles49.step, isCurrent ? styles49.stepActive : isDone ? styles49.stepDone : styles49.stepPending),
             children: step.label
           }, step.key);
         })
@@ -8168,58 +9209,58 @@ function StreamingStatus({
   });
 }
 // src/components/patterns/top-toolbar.tsx
-import { css as css57, cx as cx56 } from "styled-system/css";
-import { jsx as jsx68, jsxs as jsxs56 } from "react/jsx-runtime";
+import { css as css60, cx as cx59 } from "styled-system/css";
+import { jsx as jsx71, jsxs as jsxs59 } from "react/jsx-runtime";
 "use client";
-var styles47 = {
-  root: css57({
+var styles50 = {
+  root: css60({
     display: "flex",
     flexDirection: "column",
     gap: "2",
     paddingX: { base: "4", md: "4.5", xl: "5" },
     paddingY: "2.5"
   }),
-  row: css57({
+  row: css60({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     justifyContent: "space-between",
     flexDirection: { base: "column", md: "row" },
     gap: "2.5"
   }),
-  left: css57({
+  left: css60({
     display: "flex",
     alignItems: { base: "flex-start", md: "center" },
     gap: "4",
     minWidth: 0,
     flex: "1"
   }),
-  titleBlock: css57({
+  titleBlock: css60({
     minWidth: 0,
     display: "flex",
     flexDirection: "column",
     gap: "0.5"
   }),
-  title: css57({
+  title: css60({
     textStyle: "sectionTitle",
     color: "app.text"
   }),
-  subtitle: css57({
+  subtitle: css60({
     textStyle: "small",
     color: "app.text.muted"
   }),
-  center: css57({
+  center: css60({
     width: "100%",
     maxWidth: { base: "full", md: "none" },
     flex: { md: "1" }
   }),
-  trailing: css57({
+  trailing: css60({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     justifyContent: { base: "flex-start", md: "flex-end" },
     gap: "2.5"
   }),
-  children: css57({
+  children: css60({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -8237,54 +9278,54 @@ function TopToolbar({
   children,
   className
 }) {
-  return /* @__PURE__ */ jsxs56("div", {
-    className: cx56(styles47.root, className),
+  return /* @__PURE__ */ jsxs59("div", {
+    className: cx59(styles50.root, className),
     children: [
-      /* @__PURE__ */ jsxs56("div", {
-        className: styles47.row,
+      /* @__PURE__ */ jsxs59("div", {
+        className: styles50.row,
         children: [
-          /* @__PURE__ */ jsxs56("div", {
-            className: styles47.left,
+          /* @__PURE__ */ jsxs59("div", {
+            className: styles50.left,
             children: [
               leading,
-              (title || subtitle) && /* @__PURE__ */ jsxs56("div", {
-                className: styles47.titleBlock,
+              (title || subtitle) && /* @__PURE__ */ jsxs59("div", {
+                className: styles50.titleBlock,
                 children: [
-                  title && /* @__PURE__ */ jsx68("div", {
-                    className: styles47.title,
+                  title && /* @__PURE__ */ jsx71("div", {
+                    className: styles50.title,
                     children: title
                   }),
-                  subtitle && /* @__PURE__ */ jsx68("div", {
-                    className: styles47.subtitle,
+                  subtitle && /* @__PURE__ */ jsx71("div", {
+                    className: styles50.subtitle,
                     children: subtitle
                   })
                 ]
               })
             ]
           }),
-          center && /* @__PURE__ */ jsx68("div", {
-            className: styles47.center,
+          center && /* @__PURE__ */ jsx71("div", {
+            className: styles50.center,
             children: center
           }),
-          trailing && /* @__PURE__ */ jsx68("div", {
-            className: styles47.trailing,
+          trailing && /* @__PURE__ */ jsx71("div", {
+            className: styles50.trailing,
             children: trailing
           })
         ]
       }),
-      children && /* @__PURE__ */ jsx68("div", {
-        className: styles47.children,
+      children && /* @__PURE__ */ jsx71("div", {
+        className: styles50.children,
         children
       })
     ]
   });
 }
 // src/components/patterns/utility-panel.tsx
-import { css as css58, cx as cx57 } from "styled-system/css";
-import { jsx as jsx69, jsxs as jsxs57 } from "react/jsx-runtime";
+import { css as css61, cx as cx60 } from "styled-system/css";
+import { jsx as jsx72, jsxs as jsxs60 } from "react/jsx-runtime";
 "use client";
-var styles48 = {
-  root: css58({
+var styles51 = {
+  root: css61({
     display: "flex",
     flexDirection: "column",
     borderRadius: "2xl",
@@ -8294,7 +9335,7 @@ var styles48 = {
     boxShadow: "{shadows.float}",
     overflow: "hidden"
   }),
-  header: css58({
+  header: css61({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "space-between",
@@ -8305,16 +9346,16 @@ var styles48 = {
     borderColor: "app.border",
     background: "app.surface.muted"
   }),
-  headerDraggable: css58({
+  headerDraggable: css61({
     cursor: "grab"
   }),
-  headerMain: css58({
+  headerMain: css61({
     display: "flex",
     alignItems: "flex-start",
     gap: "3",
     minWidth: 0
   }),
-  iconWrap: css58({
+  iconWrap: css61({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -8326,34 +9367,34 @@ var styles48 = {
     color: "app.accent",
     flexShrink: 0
   }),
-  headerCopy: css58({
+  headerCopy: css61({
     minWidth: 0,
     display: "flex",
     flexDirection: "column",
     gap: "0.5"
   }),
-  title: css58({
+  title: css61({
     textStyle: "toolbarLabel",
     color: "app.text"
   }),
-  subtitle: css58({
+  subtitle: css61({
     textStyle: "small",
     color: "app.text.subtle",
     lineHeight: "1.55"
   }),
-  controls: css58({
+  controls: css61({
     display: "inline-flex",
     alignItems: "center",
     gap: "1.5",
     flexShrink: 0
   }),
-  body: css58({
+  body: css61({
     flex: "1",
     display: "flex",
     flexDirection: "column",
     minHeight: 0
   }),
-  footer: css58({
+  footer: css61({
     paddingX: "5",
     paddingY: "3.5",
     borderTopWidth: "1px",
@@ -8371,85 +9412,85 @@ function UtilityPanel({
   draggable = false,
   className
 }) {
-  return /* @__PURE__ */ jsxs57("section", {
-    className: cx57(styles48.root, className),
+  return /* @__PURE__ */ jsxs60("section", {
+    className: cx60(styles51.root, className),
     children: [
-      /* @__PURE__ */ jsxs57("div", {
-        className: cx57(styles48.header, draggable && styles48.headerDraggable),
+      /* @__PURE__ */ jsxs60("div", {
+        className: cx60(styles51.header, draggable && styles51.headerDraggable),
         children: [
-          /* @__PURE__ */ jsxs57("div", {
-            className: styles48.headerMain,
+          /* @__PURE__ */ jsxs60("div", {
+            className: styles51.headerMain,
             children: [
-              icon && /* @__PURE__ */ jsx69("div", {
-                className: styles48.iconWrap,
+              icon && /* @__PURE__ */ jsx72("div", {
+                className: styles51.iconWrap,
                 children: icon
               }),
-              /* @__PURE__ */ jsxs57("div", {
-                className: styles48.headerCopy,
+              /* @__PURE__ */ jsxs60("div", {
+                className: styles51.headerCopy,
                 children: [
-                  /* @__PURE__ */ jsx69("div", {
-                    className: styles48.title,
+                  /* @__PURE__ */ jsx72("div", {
+                    className: styles51.title,
                     children: title
                   }),
-                  subtitle && /* @__PURE__ */ jsx69("div", {
-                    className: styles48.subtitle,
+                  subtitle && /* @__PURE__ */ jsx72("div", {
+                    className: styles51.subtitle,
                     children: subtitle
                   })
                 ]
               })
             ]
           }),
-          controls && /* @__PURE__ */ jsx69("div", {
-            className: styles48.controls,
+          controls && /* @__PURE__ */ jsx72("div", {
+            className: styles51.controls,
             children: controls
           })
         ]
       }),
-      /* @__PURE__ */ jsx69("div", {
-        className: styles48.body,
+      /* @__PURE__ */ jsx72("div", {
+        className: styles51.body,
         children
       }),
-      footer && /* @__PURE__ */ jsx69("div", {
-        className: styles48.footer,
+      footer && /* @__PURE__ */ jsx72("div", {
+        className: styles51.footer,
         children: footer
       })
     ]
   });
 }
 // src/components/patterns/value-field.tsx
-import { css as css59, cx as cx58 } from "styled-system/css";
-import { jsx as jsx70, jsxs as jsxs58 } from "react/jsx-runtime";
+import { css as css62, cx as cx61 } from "styled-system/css";
+import { jsx as jsx73, jsxs as jsxs61 } from "react/jsx-runtime";
 "use client";
-var styles49 = {
-  root: css59({
+var styles52 = {
+  root: css62({
     display: "flex",
     flexDirection: "column",
     gap: "1.5",
     minWidth: 0
   }),
-  labelRow: css59({
+  labelRow: css62({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: "3"
   }),
-  labelWrap: css59({
+  labelWrap: css62({
     display: "flex",
     flexDirection: "column",
     gap: "0.5",
     minWidth: 0
   }),
-  label: css59({
+  label: css62({
     textStyle: "caption",
     color: "app.text.subtle",
     textTransform: "uppercase",
     letterSpacing: "0.08em"
   }),
-  description: css59({
+  description: css62({
     textStyle: "caption",
     color: "app.text.muted"
   }),
-  field: css59({
+  field: css62({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -8457,43 +9498,40 @@ var styles49 = {
     paddingX: "3.5",
     paddingY: "3",
     borderRadius: "xl",
-    borderWidth: "1px",
-    borderColor: "app.border",
-    boxShadow: "{shadows.panel}",
+    boxShadow: "none",
     minWidth: 0
   }),
-  fieldSoft: css59({
-    borderWidth: "0",
+  fieldSoft: css62({
     boxShadow: "none"
   }),
-  default: css59({
+  default: css62({
     bg: "app.surface"
   }),
-  muted: css59({
+  muted: css62({
     bg: "app.surface.muted"
   }),
-  valueWrap: css59({
+  valueWrap: css62({
     display: "flex",
     alignItems: "center",
     gap: "2",
     minWidth: 0,
     flex: "1 1 auto"
   }),
-  icon: css59({
+  icon: css62({
     color: "app.accent",
     flexShrink: 0
   }),
-  value: css59({
+  value: css62({
     textStyle: "small",
     color: "app.text",
     minWidth: 0,
     flex: "1 1 auto",
     wordBreak: "break-word"
   }),
-  mono: css59({
+  mono: css62({
     fontFamily: "mono"
   }),
-  actions: css59({
+  actions: css62({
     display: "flex",
     alignItems: "center",
     gap: "1.5",
@@ -8511,43 +9549,43 @@ function ValueField({
   chrome = "default",
   className
 }) {
-  return /* @__PURE__ */ jsxs58("div", {
-    className: cx58(styles49.root, className),
+  return /* @__PURE__ */ jsxs61("div", {
+    className: cx61(styles52.root, className),
     children: [
-      (label || description) && /* @__PURE__ */ jsx70("div", {
-        className: styles49.labelRow,
-        children: /* @__PURE__ */ jsxs58("div", {
-          className: styles49.labelWrap,
+      (label || description) && /* @__PURE__ */ jsx73("div", {
+        className: styles52.labelRow,
+        children: /* @__PURE__ */ jsxs61("div", {
+          className: styles52.labelWrap,
           children: [
-            label && /* @__PURE__ */ jsx70("div", {
-              className: styles49.label,
+            label && /* @__PURE__ */ jsx73("div", {
+              className: styles52.label,
               children: label
             }),
-            description && /* @__PURE__ */ jsx70("div", {
-              className: styles49.description,
+            description && /* @__PURE__ */ jsx73("div", {
+              className: styles52.description,
               children: description
             })
           ]
         })
       }),
-      /* @__PURE__ */ jsxs58("div", {
-        className: cx58(styles49.field, styles49[tone], chrome === "soft" && styles49.fieldSoft),
+      /* @__PURE__ */ jsxs61("div", {
+        className: cx61(styles52.field, styles52[tone], chrome === "soft" && styles52.fieldSoft),
         children: [
-          /* @__PURE__ */ jsxs58("div", {
-            className: styles49.valueWrap,
+          /* @__PURE__ */ jsxs61("div", {
+            className: styles52.valueWrap,
             children: [
-              icon && /* @__PURE__ */ jsx70("div", {
-                className: styles49.icon,
+              icon && /* @__PURE__ */ jsx73("div", {
+                className: styles52.icon,
                 children: icon
               }),
-              /* @__PURE__ */ jsx70("div", {
-                className: cx58(styles49.value, mono && styles49.mono),
+              /* @__PURE__ */ jsx73("div", {
+                className: cx61(styles52.value, mono && styles52.mono),
                 children: value
               })
             ]
           }),
-          actions && /* @__PURE__ */ jsx70("div", {
-            className: styles49.actions,
+          actions && /* @__PURE__ */ jsx73("div", {
+            className: styles52.actions,
             children: actions
           })
         ]
@@ -8557,17 +9595,15 @@ function ValueField({
 }
 // src/components/patterns/value-slider.tsx
 import { useId } from "react";
-import { css as css60, cx as cx59 } from "styled-system/css";
-import { jsx as jsx71, jsxs as jsxs59 } from "react/jsx-runtime";
+import { css as css63, cx as cx62 } from "styled-system/css";
+import { jsx as jsx74, jsxs as jsxs62 } from "react/jsx-runtime";
 "use client";
 var toneStyles2 = {
   teal: {
-    range: "teal.9",
-    border: "teal.9"
+    range: "teal.9"
   },
   wheat: {
-    range: "wheat.9",
-    border: "wheat.9"
+    range: "wheat.9"
   }
 };
 function ValueSlider({
@@ -8589,16 +9625,16 @@ function ValueSlider({
   const colors = toneStyles2[tone];
   const workspace = variant === "workspace";
   const accessibleLabel = label ?? ariaLabel;
-  return /* @__PURE__ */ jsxs59(Root9, {
+  return /* @__PURE__ */ jsxs62(Root9, {
     value: [value],
     onValueChange: (details) => onChange(details.value[0]),
     min,
     max,
     step,
-    className: cx59(css60({ w: "full" }), className),
+    className: cx62(css63({ w: "full" }), className),
     children: [
-      (accessibleLabel || showValue) && /* @__PURE__ */ jsxs59("div", {
-        className: css60({
+      (accessibleLabel || showValue) && /* @__PURE__ */ jsxs62("div", {
+        className: css63({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -8606,8 +9642,8 @@ function ValueSlider({
           mb: "2.5"
         }),
         children: [
-          accessibleLabel && /* @__PURE__ */ jsx71(Label4, {
-            className: css60({
+          accessibleLabel && /* @__PURE__ */ jsx74(Label4, {
+            className: css63({
               position: label ? "static" : "absolute",
               width: label ? "auto" : "1px",
               height: label ? "auto" : "1px",
@@ -8623,8 +9659,8 @@ function ValueSlider({
             }),
             children: accessibleLabel
           }),
-          showValue && /* @__PURE__ */ jsx71("span", {
-            className: css60({
+          showValue && /* @__PURE__ */ jsx74("span", {
+            className: css63({
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
@@ -8632,8 +9668,8 @@ function ValueSlider({
               px: workspace ? "2" : "0",
               py: workspace ? "1" : "0",
               rounded: workspace ? "md" : "none",
-              borderWidth: workspace ? "1px" : "0",
-              borderColor: workspace ? "app.border" : "transparent",
+              borderWidth: "0",
+              borderColor: "transparent",
               bg: workspace ? "app.canvas.subtle" : "transparent",
               textStyle: workspace ? "caption" : "small",
               fontWeight: "600",
@@ -8643,31 +9679,31 @@ function ValueSlider({
           })
         ]
       }),
-      /* @__PURE__ */ jsxs59(Control2, {
-        className: css60({ position: "relative", display: "flex", alignItems: "center", h: "5" }),
+      /* @__PURE__ */ jsxs62(Control2, {
+        className: css63({ position: "relative", display: "flex", alignItems: "center", h: "5" }),
         children: [
-          /* @__PURE__ */ jsx71(Track, {
-            className: css60({
+          /* @__PURE__ */ jsx74(Track, {
+            className: css63({
               w: "full",
               h: workspace ? "1" : "1.5",
               bg: workspace ? "app.border" : "app.surface.muted",
               rounded: "full",
               overflow: "hidden"
             }),
-            children: /* @__PURE__ */ jsx71(Range, {
-              className: css60({ h: "full", bg: colors.range })
+            children: /* @__PURE__ */ jsx74(Range, {
+              className: css63({ h: "full", bg: colors.range })
             })
           }),
-          /* @__PURE__ */ jsx71(Thumb, {
+          /* @__PURE__ */ jsx74(Thumb, {
             index: 0,
             "aria-describedby": hint ? hintId : undefined,
-            className: css60({
+            className: css63({
               w: "4",
               h: "4",
               rounded: "full",
               bg: workspace ? colors.range : "app.surface",
               borderWidth: workspace ? "0" : "2px",
-              borderColor: workspace ? "transparent" : colors.border,
+              borderColor: workspace ? "transparent" : colors.range,
               boxShadow: workspace ? "panel" : "0 8px 18px rgba(8, 18, 20, 0.12)",
               cursor: "grab",
               _focusVisible: {
@@ -8676,13 +9712,13 @@ function ValueSlider({
                 outlineOffset: "2px"
               }
             }),
-            children: /* @__PURE__ */ jsx71(HiddenInput, {})
+            children: /* @__PURE__ */ jsx74(HiddenInput, {})
           })
         ]
       }),
-      hint ? /* @__PURE__ */ jsx71("div", {
+      hint ? /* @__PURE__ */ jsx74("div", {
         id: hintId,
-        className: css60({
+        className: css63({
           mt: workspace ? "3" : "2",
           textStyle: "caption",
           color: "app.text.muted",
@@ -8694,20 +9730,20 @@ function ValueSlider({
   });
 }
 // src/components/patterns/workspace-page.tsx
-import { css as css61, cx as cx60 } from "styled-system/css";
-import { jsx as jsx72 } from "react/jsx-runtime";
+import { css as css64, cx as cx63 } from "styled-system/css";
+import { jsx as jsx75 } from "react/jsx-runtime";
 "use client";
-var styles50 = {
-  base: css61({
+var styles53 = {
+  base: css64({
     display: "flex",
     flexDirection: "column",
     minWidth: 0,
     paddingBottom: "8"
   }),
-  comfortable: css61({
+  comfortable: css64({
     gap: "5"
   }),
-  compact: css61({
+  compact: css64({
     gap: "5"
   })
 };
@@ -8716,8 +9752,8 @@ function WorkspacePage({
   density = "comfortable",
   className
 }) {
-  return /* @__PURE__ */ jsx72("div", {
-    className: cx60(styles50.base, density === "compact" && styles50.compact, density === "comfortable" && styles50.comfortable, className),
+  return /* @__PURE__ */ jsx75("div", {
+    className: cx63(styles53.base, density === "compact" && styles53.compact, density === "comfortable" && styles53.comfortable, className),
     children
   });
 }
@@ -8752,7 +9788,11 @@ export {
   OptionRow,
   NumberField,
   NamedPromptList,
+  ModifierFeatureCard,
+  ModifierCard,
+  ModifierActionCard,
   ModelIconCustomizer,
+  ModelCtaCard,
   ModelCardIcon,
   ModelCard,
   MetricRail,
@@ -8789,5 +9829,5 @@ export {
   AccentLabel
 };
 
-//# debugId=A1108D883CBF6B0864756E2164756E21
+//# debugId=23FBCFD0E99DD5FE64756E2164756E21
 //# sourceMappingURL=index.js.map

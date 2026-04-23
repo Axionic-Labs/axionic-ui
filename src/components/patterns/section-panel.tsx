@@ -32,14 +32,10 @@ const styles = {
 	}),
 	flat: css({
 		bg: 'app.surface',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		boxShadow: '{shadows.whisper}',
 	}),
 	workspace: css({
 		bg: 'app.surface',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		borderRadius: '2xl',
 		boxShadow: '{shadows.whisper}',
 	}),
@@ -62,9 +58,10 @@ const styles = {
 		gap: '3',
 		paddingX: { base: '4.5', md: '5' },
 		paddingY: { base: '3.5', md: '3.75' },
-		bg: 'app.surface.muted',
-		borderBottomWidth: '1px',
-		borderBottomColor: 'app.border',
+		bg: 'app.canvas.subtle',
+		_dark: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-soft) 24%, var(--colors-app-surface-muted) 76%)',
+		},
 	}),
 	copy: css({
 		display: 'flex',
@@ -88,6 +85,9 @@ const styles = {
 		textTransform: 'uppercase',
 		letterSpacing: '0.18em',
 		color: 'app.text.muted',
+		_dark: {
+			color: 'app.text.subtle',
+		},
 	}),
 	title: css({
 		textStyle: 'sectionTitle',
@@ -164,9 +164,7 @@ const styles = {
 	footerWorkspace: css({
 		paddingX: { base: '4.5', md: '5' },
 		paddingY: { base: '3.75', md: '4' },
-		bg: 'app.surface',
-		borderTopWidth: '1px',
-		borderTopColor: 'app.border',
+		bg: 'app.canvas.subtle',
 	}),
 };
 

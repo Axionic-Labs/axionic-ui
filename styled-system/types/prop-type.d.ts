@@ -205,7 +205,7 @@ export interface UtilityValues {
 	debug: boolean;
 	containerName: CssProperties["containerName"];
 	colorPalette: "current" | "black" | "white" | "transparent" | "red" | "red.light" | "red.dark" | "gray" | "gray.light" | "gray.dark" | "teal" | "teal.light" | "teal.dark" | "wheat" | "wheat.light" | "wheat.dark" | "app" | "app.accentAlt" | "app.canvas" | "app.surface" | "app.nav" | "app.accent" | "app.border" | "app.text" | "fg" | "bg" | "border";
-	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "display" | "h1" | "h2" | "h3" | "body" | "small" | "caption" | "label" | "code" | "accentSubtitle" | "eyebrow" | "pageTitle" | "sectionTitle" | "toolbarLabel" | "metricValue" | "metricLabel" | "cardHeading" | "sectionHeading" | "description";
+	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "display" | "h1" | "h2" | "h3" | "body" | "small" | "caption" | "label" | "code" | "accentSubtitle" | "eyebrow" | "pageTitle" | "sectionTitle" | "toolbarLabel" | "sidebarLabel" | "metricValue" | "metricLabel" | "cardHeading" | "sectionHeading" | "description";
 }
 
 

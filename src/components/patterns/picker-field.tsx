@@ -34,16 +34,16 @@ const styles = {
 		paddingX: '4',
 		paddingY: '3',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
+		borderWidth: '0',
+		borderColor: 'transparent',
 		bg: 'app.surface',
+		boxShadow: '{shadows.whisper}',
 		cursor: 'pointer',
 		textAlign: 'left',
-		transitionProperty: 'background-color, border-color, color',
+		transitionProperty: 'background-color, border-color, color, box-shadow',
 		transitionDuration: '160ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
-			borderColor: 'app.border.strong',
 			bg: 'app.surface.raised',
 		},
 		_focusVisible: {
@@ -64,13 +64,13 @@ const styles = {
 	triggerSoft: css({
 		borderWidth: '0',
 		bg: 'app.surface.muted',
+		boxShadow: 'none',
 		_hover: {
 			bg: 'app.surface',
 		},
 	}),
 	triggerOpen: css({
-		borderColor: 'app.border.strong',
-		bg: 'app.surface',
+		bg: 'app.surface.raised',
 		borderBottomLeftRadius: '0',
 		borderBottomRightRadius: '0',
 	}),
@@ -135,12 +135,12 @@ const styles = {
 	}),
 	panel: css({
 		position: 'absolute',
-		top: 'calc(100% - 1px)',
+		top: '100%',
 		left: '0',
 		right: '0',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
+		borderWidth: '0',
+		borderColor: 'transparent',
 		bg: 'app.surface',
 		boxShadow: '{shadows.float}',
 		overflow: 'hidden',
@@ -148,6 +148,8 @@ const styles = {
 	}),
 	panelSoft: css({
 		borderWidth: '0',
+		bg: 'app.surface.muted',
+		boxShadow: '{shadows.panel}',
 	}),
 	panelConnected: css({
 		borderTopLeftRadius: '0',
@@ -157,8 +159,6 @@ const styles = {
 	panelLabel: css({
 		paddingX: '4',
 		paddingY: '2.5',
-		borderBottomWidth: '1px',
-		borderColor: 'app.border',
 		textStyle: 'caption',
 		color: 'app.text.subtle',
 		textTransform: 'uppercase',

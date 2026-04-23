@@ -23,9 +23,7 @@ const styles = {
 	panel: css({
 		padding: { base: '4', md: '4.5' },
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
-		bg: 'app.surface',
+		bg: 'app.surface.muted',
 	}),
 	inline: css({
 		padding: '0',

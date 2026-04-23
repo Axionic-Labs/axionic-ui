@@ -23,6 +23,16 @@ export interface ModelCardProps {
     selected?: boolean;
     onClick?: () => void;
     className?: string;
+    titleAdornment?: ReactNode;
 }
-export declare function ModelCard({ icon, title, description, status, meta, facts, progress, footer, selected, onClick, className, }: ModelCardProps): import("react/jsx-runtime").JSX.Element;
+export interface ModelCtaCardProps {
+    icon: ReactNode;
+    title: ReactNode;
+    subtitle?: ReactNode;
+    action: ReactNode;
+    onClick?: () => void;
+    className?: string;
+}
+export declare function ModelCard({ icon, title, description, status, meta, facts, progress, footer, selected, onClick, className, titleAdornment, }: ModelCardProps): import("react/jsx-runtime").JSX.Element;
+export declare function ModelCtaCard({ icon, title, subtitle, action, onClick, className, }: ModelCtaCardProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=model-card.d.ts.map

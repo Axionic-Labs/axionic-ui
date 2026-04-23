@@ -27,6 +27,7 @@ const styles = {
 	}),
 	header: css({
 		display: 'flex',
+		flexDirection: { base: 'column', md: 'row' },
 		alignItems: 'flex-start',
 		justifyContent: 'space-between',
 		gap: '4',
@@ -36,6 +37,7 @@ const styles = {
 		alignItems: 'center',
 		gap: '3.5',
 		minWidth: 0,
+		width: '100%',
 	}),
 	iconWrap: css({
 		display: 'inline-flex',
@@ -68,6 +70,9 @@ const styles = {
 		alignItems: 'center',
 		gap: '2',
 		flexShrink: 0,
+		width: { base: '100%', md: 'auto' },
+		justifyContent: { base: 'flex-start', md: 'flex-end' },
+		flexWrap: 'wrap',
 	}),
 	body: css({
 		display: 'flex',

@@ -61,9 +61,12 @@ const styles = {
 		},
 	}),
 	itemActive: css({
-		bg: 'app.accent',
-		color: 'white',
-		boxShadow: 'none',
+		bg: 'app.nav.active',
+		color: 'app.text',
+		_hover: {
+			bg: 'app.nav.active',
+			color: 'app.text',
+		},
 	}),
 	label: css({
 		textStyle: 'caption',
@@ -81,6 +84,9 @@ const styles = {
 		bg: 'rgba(255, 255, 255, 0.18)',
 		textStyle: 'caption',
 		color: 'currentColor',
+		_dark: {
+			bg: 'rgba(227, 253, 255, 0.12)',
+		},
 	}),
 	trailing: css({
 		display: 'flex',
@@ -105,10 +111,10 @@ const styles = {
 		},
 	}),
 	toolbarItemActive: css({
-		bg: 'transparent',
-		borderColor: 'transparent',
+		bg: 'app.surface.muted',
+		borderRadius: 'xl',
+		paddingX: '3',
 		color: 'app.text',
-		boxShadow: 'inset 0 -2px 0 0 rgba(45, 100, 97, 0.9)',
 	}),
 };
 
@@ -130,7 +136,7 @@ function SecondaryNavEntry({
 	const className = cx(
 		styles.item,
 		variant === 'toolbar' && styles.toolbarItem,
-		item.active && styles.itemActive,
+		item.active && variant !== 'toolbar' && styles.itemActive,
 		item.active && variant === 'toolbar' && styles.toolbarItemActive,
 	);
 

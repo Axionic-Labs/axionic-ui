@@ -34,6 +34,10 @@ const styles = {
 			'color-mix(in srgb, var(--colors-app-accent-alt-border) 58%, var(--colors-app-border) 42%)',
 		bg: 'linear-gradient(145deg, color-mix(in srgb, var(--colors-app-accent-soft) 74%, var(--colors-app-surface) 26%) 0%, color-mix(in srgb, var(--colors-app-accent-alt-soft) 88%, var(--colors-app-surface) 12%) 100%)',
 		boxShadow: '{shadows.panel}',
+		_dark: {
+			borderColor: 'rgba(163, 221, 226, 0.22)',
+			bg: 'linear-gradient(145deg, rgba(18, 45, 48, 0.98) 0%, rgba(15, 35, 38, 0.98) 100%)',
+		},
 		_before: {
 			content: '""',
 			position: 'absolute',
@@ -43,6 +47,10 @@ const styles = {
 			height: '3px',
 			background:
 				'linear-gradient(90deg, var(--colors-app-accent) 0%, var(--colors-app-accent-alt) 100%)',
+			_dark: {
+				background:
+					'linear-gradient(90deg, rgba(163, 221, 226, 0.92) 0%, rgba(235, 188, 111, 0.92) 100%)',
+			},
 		},
 	}),
 	copy: css({
@@ -55,7 +63,10 @@ const styles = {
 		color: 'app.text.subtle',
 	}),
 	eyebrowAccent: css({
-		color: 'app.accentAlt.text',
+		color: {
+			_light: 'app.accentAlt.text',
+			_dark: '{colors.wheat.11}',
+		},
 	}),
 	title: css({
 		textStyle: 'sectionTitle',
@@ -71,7 +82,10 @@ const styles = {
 		lineHeight: '1.6',
 	}),
 	descriptionAccent: css({
-		color: 'app.text.muted',
+		color: {
+			_light: 'app.text.muted',
+			_dark: 'app.text.subtle',
+		},
 	}),
 	actions: css({
 		display: 'flex',
