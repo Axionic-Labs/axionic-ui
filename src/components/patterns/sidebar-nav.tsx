@@ -77,7 +77,7 @@ const styles = {
 		margin: '0',
 	}),
 	listShell: css({
-		gap: '2',
+		gap: '1.25',
 	}),
 	item: css({
 		appearance: 'none',
@@ -93,15 +93,12 @@ const styles = {
 		bg: 'transparent',
 		textAlign: 'left',
 		textDecoration: 'none',
-		transitionProperty: 'background-color, color, box-shadow',
+		transitionProperty: 'background-color, color',
 		transitionDuration: '180ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
-			bg: 'color-mix(in srgb, var(--colors-app-surface) 68%, transparent)',
+			bg: 'color-mix(in srgb, var(--colors-app-accent-soft) 26%, transparent)',
 			color: 'app.text',
-			'& [data-sidebar-icon]': {
-				color: 'app.accent',
-			},
 		},
 		_focusVisible: {
 			outline: '2px solid',
@@ -114,21 +111,27 @@ const styles = {
 		},
 	}),
 	itemShell: css({
-		paddingX: '3.5',
-		paddingY: '2.5',
-		borderRadius: 'lg',
+		paddingX: '3',
+		paddingY: '2.25',
+		borderRadius: 'xl',
 	}),
 	itemActive: css({
-		bg: 'color-mix(in srgb, var(--colors-app-accent-soft) 58%, var(--colors-app-surface) 42%)',
+		bg: 'color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)',
 		color: 'app.text',
+		_hover: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)',
+			color: 'app.text',
+		},
+		'& [data-sidebar-label]': {
+			color: 'app.text',
+		},
 	}),
 	itemIcon: css({
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxSize: '5.5',
+		boxSize: '4.5',
 		color: 'app.text.subtle',
-		transition: 'color 180ms ease',
 	}),
 	itemText: css({
 		minWidth: 0,
@@ -141,7 +144,7 @@ const styles = {
 		color: 'currentColor',
 	}),
 	itemLabelShell: css({
-		color: 'inherit',
+		color: 'color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text) 76%)',
 	}),
 	itemDescription: css({
 		textStyle: 'small',
@@ -189,7 +192,10 @@ function SidebarNavEntry({
 				</span>
 			)}
 			<span className={styles.itemText}>
-				<span className={cx(styles.itemLabel, variant === 'shell' && styles.itemLabelShell)}>
+				<span
+					className={cx(styles.itemLabel, variant === 'shell' && styles.itemLabelShell)}
+					data-sidebar-label=""
+				>
 					{item.label}
 				</span>
 				{showDescriptions && item.description && (

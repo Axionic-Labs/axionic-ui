@@ -5802,10 +5802,10 @@ var textStyles = defineTextStyles({
     description: "Primary sidebar navigation label.",
     value: {
       fontFamily: "body",
-      fontSize: "1rem",
+      fontSize: "0.875rem",
       fontWeight: "600",
-      lineHeight: "1.3",
-      letterSpacing: "-0.01em"
+      lineHeight: "1.25",
+      letterSpacing: "0.01em"
     }
   },
   metricValue: {
@@ -6068,5 +6068,5 @@ export {
   axionicSand
 };
 
-//# debugId=6B073425A6C1446A64756E2164756E21
+//# debugId=5DCC8D830E1CA71464756E2164756E21
 //# sourceMappingURL=index.js.map

@@ -7856,7 +7856,7 @@ var styles43 = {
     margin: "0"
   }),
   listShell: css53({
-    gap: "2"
+    gap: "1.25"
   }),
   item: css53({
     appearance: "none",
@@ -7872,15 +7872,12 @@ var styles43 = {
     bg: "transparent",
     textAlign: "left",
     textDecoration: "none",
-    transitionProperty: "background-color, color, box-shadow",
+    transitionProperty: "background-color, color",
     transitionDuration: "180ms",
     transitionTimingFunction: "ease",
     _hover: {
-      bg: "color-mix(in srgb, var(--colors-app-surface) 68%, transparent)",
-      color: "app.text",
-      "& [data-sidebar-icon]": {
-        color: "app.accent"
-      }
+      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 26%, transparent)",
+      color: "app.text"
     },
     _focusVisible: {
       outline: "2px solid",
@@ -7893,21 +7890,27 @@ var styles43 = {
     }
   }),
   itemShell: css53({
-    paddingX: "3.5",
-    paddingY: "2.5",
-    borderRadius: "lg"
+    paddingX: "3",
+    paddingY: "2.25",
+    borderRadius: "xl"
   }),
   itemActive: css53({
-    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 58%, var(--colors-app-surface) 42%)",
-    color: "app.text"
+    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)",
+    color: "app.text",
+    _hover: {
+      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)",
+      color: "app.text"
+    },
+    "& [data-sidebar-label]": {
+      color: "app.text"
+    }
   }),
   itemIcon: css53({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "5.5",
-    color: "app.text.subtle",
-    transition: "color 180ms ease"
+    boxSize: "4.5",
+    color: "app.text.subtle"
   }),
   itemText: css53({
     minWidth: 0,
@@ -7920,7 +7923,7 @@ var styles43 = {
     color: "currentColor"
   }),
   itemLabelShell: css53({
-    color: "inherit"
+    color: "color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text) 76%)"
   }),
   itemDescription: css53({
     textStyle: "small",
@@ -7966,6 +7969,7 @@ function SidebarNavEntry({
         children: [
           /* @__PURE__ */ jsx64("span", {
             className: cx52(styles43.itemLabel, variant === "shell" && styles43.itemLabelShell),
+            "data-sidebar-label": "",
             children: item.label
           }),
           showDescriptions && item.description && /* @__PURE__ */ jsx64("span", {
@@ -9825,5 +9829,5 @@ export {
   AccentLabel
 };
 
-//# debugId=1BD19E00707BDB2264756E2164756E21
+//# debugId=23FBCFD0E99DD5FE64756E2164756E21
 //# sourceMappingURL=index.js.map

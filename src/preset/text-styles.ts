@@ -103,10 +103,10 @@ export const textStyles = defineTextStyles({
 		description: 'Primary sidebar navigation label.',
 		value: {
 			fontFamily: 'body',
-			fontSize: '1rem',
+			fontSize: '0.875rem',
 			fontWeight: '600',
-			lineHeight: '1.3',
-			letterSpacing: '-0.01em',
+			lineHeight: '1.25',
+			letterSpacing: '0.01em',
 		},
 	},
 	metricValue: {

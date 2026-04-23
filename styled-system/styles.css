@@ -3483,18 +3483,19 @@
 }
 
     .textStyle_description {
-      font-family: var(--fonts-body);
-      font-size: 0.875rem;
       font-weight: 400;
       line-height: 1.5;
 }
 
-    .textStyle_sidebarLabel {
+    .textStyle_description,.textStyle_sidebarLabel {
       font-family: var(--fonts-body);
-      font-size: 1rem;
+      font-size: 0.875rem;
+}
+
+    .textStyle_sidebarLabel {
       font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
 }
 
     .textStyle_xs {
@@ -3743,8 +3744,8 @@
     background: color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%);
 }
 
-  .bg_color-mix\(in_srgb\,_var\(--colors-app-accent-soft\)_58\%\,_var\(--colors-app-surface\)_42\%\) {
-    background: color-mix(in srgb, var(--colors-app-accent-soft) 58%, var(--colors-app-surface) 42%);
+  .bg_color-mix\(in_srgb\,_var\(--colors-app-accent-soft\)_42\%\,_var\(--colors-app-surface\)_58\%\) {
+    background: color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%);
 }
 
   .bg_rgba\(16\,_20\,_22\,_0\.18\) {
@@ -4168,8 +4169,12 @@
     gap: 5.5px;
 }
 
-  .trs_color_180ms_ease {
-    transition: color 180ms ease;
+  .gap_1\.25 {
+    gap: 1.25px;
+}
+
+  .py_2\.25 {
+    padding-block: 2.25px;
 }
 
   .my_0 {
@@ -4832,14 +4837,18 @@
     height: var(--sizes-8);
 }
 
-  .trs-prop_background-color\,_color\,_box-shadow {
-    --transition-prop: background-color, color, box-shadow;
-    transition-property: background-color, color, box-shadow;
+  .trs-prop_background-color\,_color {
+    --transition-prop: background-color, color;
+    transition-property: background-color, color;
 }
 
-  .size_5\.5 {
-    width: 5.5px;
-    height: 5.5px;
+  .size_4\.5 {
+    width: var(--sizes-4\.5);
+    height: var(--sizes-4\.5);
+}
+
+  .c_color-mix\(in_srgb\,_var\(--colors-app-accent\)_24\%\,_var\(--colors-app-text\)_76\%\) {
+    color: color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text) 76%);
 }
 
   .bkdp_none {
@@ -5826,6 +5835,10 @@
     box-shadow: var(--shadows-whisper);
 }
 
+  .\[\&_\[data-sidebar-label\]\]\:c_app\.text [data-sidebar-label] {
+    color: var(--colors-app-text);
+}
+
   .open\:anim-dur_240ms:is([open], [data-open], [data-state="open"], :popover-open) {
     animation-duration: 240ms;
 }
@@ -6346,8 +6359,14 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
-    .hover\:bg_color-mix\(in_srgb\,_var\(--colors-app-surface\)_68\%\,_transparent\):is(:hover, [data-hover]) {
-      background: color-mix(in srgb, var(--colors-app-surface) 68%, transparent);
+    .hover\:bg_color-mix\(in_srgb\,_var\(--colors-app-accent-soft\)_26\%\,_transparent\):is(:hover, [data-hover]) {
+      background: color-mix(in srgb, var(--colors-app-accent-soft) 26%, transparent);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:bg_color-mix\(in_srgb\,_var\(--colors-app-accent-soft\)_42\%\,_var\(--colors-app-surface\)_58\%\):is(:hover, [data-hover]) {
+      background: color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%);
 }
 }
 
@@ -6486,12 +6505,6 @@
   @media (hover: hover) and (pointer: fine) {
     .dark .dark\:hover\:bx-sh_none:is(:hover, [data-hover]) {
       box-shadow: none;
-}
-}
-
-  @media (hover: hover) and (pointer: fine) {
-    .hover\:\[\&_\[data-sidebar-icon\]\]\:c_app\.accent:is(:hover, [data-hover]) [data-sidebar-icon] {
-      color: var(--colors-app-accent);
 }
 }
 }
