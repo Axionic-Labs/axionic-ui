@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"version":3,"file":"text-styles.d.ts","sourceRoot":"","sources":["../../src/preset/text-styles.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,UAAU,sCA6JrB,CAAC"}
-=======
 {"version":3,"file":"text-styles.d.ts","sourceRoot":"","sources":["../../src/preset/text-styles.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,UAAU,sCA8JrB,CAAC"}
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)

@@ -10,30 +10,13 @@ export declare const Trigger: import("styled-system/jsx").StyleContextConsumer<i
 export { ClipboardContext as Context } from '@ark-ui/react/clipboard';
 export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-<<<<<<< HEAD
     hidden?: boolean | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
     title?: string | undefined | undefined;
     className?: string | undefined | undefined;
     radioGroup?: string | undefined | undefined;
     slot?: string | undefined | undefined;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onKeyDown?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
-    role?: import("react").AriaRole | undefined;
-    tabIndex?: number | undefined | undefined;
-=======
-    className?: string | undefined | undefined;
-    ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -44,25 +27,17 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     accessKey?: string | undefined | undefined;
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
-<<<<<<< HEAD
     contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
-=======
-    contentEditable?: "inherit" | (boolean | "false" | "true") | "plaintext-only" | undefined;
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
-    draggable?: (boolean | "false" | "true") | undefined;
+    draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
     id?: string | undefined | undefined;
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
-<<<<<<< HEAD
     spellCheck?: (boolean | "true" | "false") | undefined;
-=======
-    spellCheck?: (boolean | "false" | "true") | undefined;
     tabIndex?: number | undefined | undefined;
     role?: import("react").AriaRole | undefined;
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -91,11 +66,11 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     exportparts?: string | undefined | undefined;
     part?: string | undefined | undefined;
     "aria-activedescendant"?: string | undefined | undefined;
-    "aria-atomic"?: (boolean | "false" | "true") | undefined;
+    "aria-atomic"?: (boolean | "true" | "false") | undefined;
     "aria-autocomplete"?: "none" | "inline" | "list" | "both" | undefined | undefined;
     "aria-braillelabel"?: string | undefined | undefined;
     "aria-brailleroledescription"?: string | undefined | undefined;
-    "aria-busy"?: (boolean | "false" | "true") | undefined;
+    "aria-busy"?: (boolean | "true" | "false") | undefined;
     "aria-checked"?: boolean | "false" | "mixed" | "true" | undefined | undefined;
     "aria-colcount"?: number | undefined | undefined;
     "aria-colindex"?: number | undefined | undefined;
@@ -106,43 +81,44 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     "aria-describedby"?: string | undefined | undefined;
     "aria-description"?: string | undefined | undefined;
     "aria-details"?: string | undefined | undefined;
-    "aria-disabled"?: (boolean | "false" | "true") | undefined;
+    "aria-disabled"?: (boolean | "true" | "false") | undefined;
     "aria-dropeffect"?: "none" | "copy" | "execute" | "link" | "move" | "popup" | undefined | undefined;
     "aria-errormessage"?: string | undefined | undefined;
-    "aria-expanded"?: (boolean | "false" | "true") | undefined;
+    "aria-expanded"?: (boolean | "true" | "false") | undefined;
     "aria-flowto"?: string | undefined | undefined;
-    "aria-grabbed"?: (boolean | "false" | "true") | undefined;
+    "aria-grabbed"?: (boolean | "true" | "false") | undefined;
     "aria-haspopup"?: boolean | "false" | "true" | "menu" | "listbox" | "tree" | "grid" | "dialog" | undefined | undefined;
-    "aria-hidden"?: (boolean | "false" | "true") | undefined;
+    "aria-hidden"?: (boolean | "true" | "false") | undefined;
     "aria-invalid"?: boolean | "false" | "true" | "grammar" | "spelling" | undefined | undefined;
     "aria-keyshortcuts"?: string | undefined | undefined;
     "aria-label"?: string | undefined | undefined;
     "aria-labelledby"?: string | undefined | undefined;
     "aria-level"?: number | undefined | undefined;
     "aria-live"?: "off" | "assertive" | "polite" | undefined | undefined;
-    "aria-modal"?: (boolean | "false" | "true") | undefined;
-    "aria-multiline"?: (boolean | "false" | "true") | undefined;
-    "aria-multiselectable"?: (boolean | "false" | "true") | undefined;
+    "aria-modal"?: (boolean | "true" | "false") | undefined;
+    "aria-multiline"?: (boolean | "true" | "false") | undefined;
+    "aria-multiselectable"?: (boolean | "true" | "false") | undefined;
     "aria-orientation"?: "horizontal" | "vertical" | undefined | undefined;
     "aria-owns"?: string | undefined | undefined;
     "aria-placeholder"?: string | undefined | undefined;
     "aria-posinset"?: number | undefined | undefined;
     "aria-pressed"?: boolean | "false" | "mixed" | "true" | undefined | undefined;
-    "aria-readonly"?: (boolean | "false" | "true") | undefined;
+    "aria-readonly"?: (boolean | "true" | "false") | undefined;
     "aria-relevant"?: "additions" | "additions removals" | "additions text" | "all" | "removals" | "removals additions" | "removals text" | "text" | "text additions" | "text removals" | undefined | undefined;
-    "aria-required"?: (boolean | "false" | "true") | undefined;
+    "aria-required"?: (boolean | "true" | "false") | undefined;
     "aria-roledescription"?: string | undefined | undefined;
     "aria-rowcount"?: number | undefined | undefined;
     "aria-rowindex"?: number | undefined | undefined;
     "aria-rowindextext"?: string | undefined | undefined;
     "aria-rowspan"?: number | undefined | undefined;
-    "aria-selected"?: (boolean | "false" | "true") | undefined;
+    "aria-selected"?: (boolean | "true" | "false") | undefined;
     "aria-setsize"?: number | undefined | undefined;
     "aria-sort"?: "none" | "ascending" | "descending" | "other" | undefined | undefined;
     "aria-valuemax"?: number | undefined | undefined;
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -178,6 +154,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onLoadCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onError?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onErrorCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
+    onKeyDown?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyDownCapture?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyPress?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyPressCapture?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
@@ -229,6 +206,7 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
     onWaitingCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
@@ -321,30 +299,13 @@ export declare const Indicator: import("react").ForwardRefExoticComponent<Omit<{
 } & import("../../../styled-system/types").SystemStyleObject & import("../../../styled-system/types").WithCss, "ref"> & import("react").RefAttributes<HTMLDivElement>>;
 export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     popover?: "" | "auto" | "manual" | "hint" | undefined | undefined;
-<<<<<<< HEAD
     hidden?: boolean | undefined | undefined;
     style?: import("react").CSSProperties | undefined;
     title?: string | undefined | undefined;
     className?: string | undefined | undefined;
     radioGroup?: string | undefined | undefined;
     slot?: string | undefined | undefined;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onKeyDown?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
-    role?: import("react").AriaRole | undefined;
-    tabIndex?: number | undefined | undefined;
-=======
-    className?: string | undefined | undefined;
-    ref?: import("react").Ref<HTMLDivElement> | undefined;
-    children?: import("react").ReactNode;
-    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
-    hidden?: boolean | undefined | undefined;
-    style?: import("react").CSSProperties | undefined;
-    title?: string | undefined | undefined;
-    radioGroup?: string | undefined | undefined;
-    slot?: string | undefined | undefined;
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)
     unstyled?: boolean | undefined | undefined;
     as?: import("react").ElementType | undefined;
     key?: import("react").Key | null | undefined;
@@ -355,25 +316,17 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     accessKey?: string | undefined | undefined;
     autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters" | undefined | (string & {}) | undefined;
     autoFocus?: boolean | undefined | undefined;
-<<<<<<< HEAD
     contentEditable?: "inherit" | (boolean | "true" | "false") | "plaintext-only" | undefined;
-=======
-    contentEditable?: "inherit" | (boolean | "false" | "true") | "plaintext-only" | undefined;
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)
     contextMenu?: string | undefined | undefined;
     dir?: string | undefined | undefined;
-    draggable?: (boolean | "false" | "true") | undefined;
+    draggable?: (boolean | "true" | "false") | undefined;
     enterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send" | undefined | undefined;
     id?: string | undefined | undefined;
     lang?: string | undefined | undefined;
     nonce?: string | undefined | undefined;
-<<<<<<< HEAD
     spellCheck?: (boolean | "true" | "false") | undefined;
-=======
-    spellCheck?: (boolean | "false" | "true") | undefined;
     tabIndex?: number | undefined | undefined;
     role?: import("react").AriaRole | undefined;
->>>>>>> d3a1bc5 (Align sidebar nav with Stitch)
     about?: string | undefined | undefined;
     datatype?: string | undefined | undefined;
     inlist?: any;
@@ -402,11 +355,11 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     exportparts?: string | undefined | undefined;
     part?: string | undefined | undefined;
     "aria-activedescendant"?: string | undefined | undefined;
-    "aria-atomic"?: (boolean | "false" | "true") | undefined;
+    "aria-atomic"?: (boolean | "true" | "false") | undefined;
     "aria-autocomplete"?: "none" | "inline" | "list" | "both" | undefined | undefined;
     "aria-braillelabel"?: string | undefined | undefined;
     "aria-brailleroledescription"?: string | undefined | undefined;
-    "aria-busy"?: (boolean | "false" | "true") | undefined;
+    "aria-busy"?: (boolean | "true" | "false") | undefined;
     "aria-checked"?: boolean | "false" | "mixed" | "true" | undefined | undefined;
     "aria-colcount"?: number | undefined | undefined;
     "aria-colindex"?: number | undefined | undefined;
@@ -417,43 +370,44 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     "aria-describedby"?: string | undefined | undefined;
     "aria-description"?: string | undefined | undefined;
     "aria-details"?: string | undefined | undefined;
-    "aria-disabled"?: (boolean | "false" | "true") | undefined;
+    "aria-disabled"?: (boolean | "true" | "false") | undefined;
     "aria-dropeffect"?: "none" | "copy" | "execute" | "link" | "move" | "popup" | undefined | undefined;
     "aria-errormessage"?: string | undefined | undefined;
-    "aria-expanded"?: (boolean | "false" | "true") | undefined;
+    "aria-expanded"?: (boolean | "true" | "false") | undefined;
     "aria-flowto"?: string | undefined | undefined;
-    "aria-grabbed"?: (boolean | "false" | "true") | undefined;
+    "aria-grabbed"?: (boolean | "true" | "false") | undefined;
     "aria-haspopup"?: boolean | "false" | "true" | "menu" | "listbox" | "tree" | "grid" | "dialog" | undefined | undefined;
-    "aria-hidden"?: (boolean | "false" | "true") | undefined;
+    "aria-hidden"?: (boolean | "true" | "false") | undefined;
     "aria-invalid"?: boolean | "false" | "true" | "grammar" | "spelling" | undefined | undefined;
     "aria-keyshortcuts"?: string | undefined | undefined;
     "aria-label"?: string | undefined | undefined;
     "aria-labelledby"?: string | undefined | undefined;
     "aria-level"?: number | undefined | undefined;
     "aria-live"?: "off" | "assertive" | "polite" | undefined | undefined;
-    "aria-modal"?: (boolean | "false" | "true") | undefined;
-    "aria-multiline"?: (boolean | "false" | "true") | undefined;
-    "aria-multiselectable"?: (boolean | "false" | "true") | undefined;
+    "aria-modal"?: (boolean | "true" | "false") | undefined;
+    "aria-multiline"?: (boolean | "true" | "false") | undefined;
+    "aria-multiselectable"?: (boolean | "true" | "false") | undefined;
     "aria-orientation"?: "horizontal" | "vertical" | undefined | undefined;
     "aria-owns"?: string | undefined | undefined;
     "aria-placeholder"?: string | undefined | undefined;
     "aria-posinset"?: number | undefined | undefined;
     "aria-pressed"?: boolean | "false" | "mixed" | "true" | undefined | undefined;
-    "aria-readonly"?: (boolean | "false" | "true") | undefined;
+    "aria-readonly"?: (boolean | "true" | "false") | undefined;
     "aria-relevant"?: "additions" | "additions removals" | "additions text" | "all" | "removals" | "removals additions" | "removals text" | "text" | "text additions" | "text removals" | undefined | undefined;
-    "aria-required"?: (boolean | "false" | "true") | undefined;
+    "aria-required"?: (boolean | "true" | "false") | undefined;
     "aria-roledescription"?: string | undefined | undefined;
     "aria-rowcount"?: number | undefined | undefined;
     "aria-rowindex"?: number | undefined | undefined;
     "aria-rowindextext"?: string | undefined | undefined;
     "aria-rowspan"?: number | undefined | undefined;
-    "aria-selected"?: (boolean | "false" | "true") | undefined;
+    "aria-selected"?: (boolean | "true" | "false") | undefined;
     "aria-setsize"?: number | undefined | undefined;
     "aria-sort"?: "none" | "ascending" | "descending" | "other" | undefined | undefined;
     "aria-valuemax"?: number | undefined | undefined;
     "aria-valuemin"?: number | undefined | undefined;
     "aria-valuenow"?: number | undefined | undefined;
     "aria-valuetext"?: string | undefined | undefined;
+    children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
     } | undefined | undefined;
@@ -489,6 +443,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onLoadCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onError?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onErrorCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
+    onKeyDown?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyDownCapture?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyPress?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
     onKeyPressCapture?: import("react").KeyboardEventHandler<HTMLDivElement> | undefined;
@@ -540,6 +495,7 @@ export declare const CopyText: import("react").ForwardRefExoticComponent<Omit<{
     onWaitingCapture?: import("react").ReactEventHandler<HTMLDivElement> | undefined;
     onAuxClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onAuxClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
+    onClick?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onClickCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenu?: import("react").MouseEventHandler<HTMLDivElement> | undefined;
     onContextMenuCapture?: import("react").MouseEventHandler<HTMLDivElement> | undefined;

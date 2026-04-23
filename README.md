@@ -216,7 +216,10 @@ bun run typecheck    # Type-check without emitting (tsc --noEmit)
 bun run lint         # Lint with Biome
 bun run lint:fix     # Auto-fix lint and formatting issues
 bun run format       # Format with Biome
+bun run verify       # Clean build + typecheck + lint + test + generated-output diff check
 ```
+
+`bun run build` always regenerates `styled-system/` and `dist/` from a clean state so committed output cannot drift or preserve stale conflict markers.
 
 **Important:** Both `dist/` and `styled-system/` are committed to the repository. Consumers install this as a git dependency and depend on pre-built output. After any source changes, run `bun run build` and commit the updated `dist/` and `styled-system/` directories.
 
