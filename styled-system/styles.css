@@ -3483,19 +3483,19 @@
 }
 
     .textStyle_description {
+      font-family: var(--fonts-body);
+      font-size: 0.875rem;
       font-weight: 400;
       line-height: 1.5;
 }
 
-    .textStyle_description,.textStyle_sidebarLabel {
-      font-family: var(--fonts-body);
-      font-size: 0.875rem;
-}
-
     .textStyle_sidebarLabel {
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: 0.01em;
+      font-family: "Manrope", "Graphik", "Satoshi", sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
 }
 
     .textStyle_xs {
@@ -3742,10 +3742,6 @@
 
   .bg_color-mix\(in_srgb\,_var\(--colors-app-accent-alt-soft\)_82\%\,_var\(--colors-app-surface\)_18\%\) {
     background: color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%);
-}
-
-  .bg_color-mix\(in_srgb\,_var\(--colors-app-accent-soft\)_42\%\,_var\(--colors-app-surface\)_58\%\) {
-    background: color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%);
 }
 
   .bg_rgba\(16\,_20\,_22\,_0\.18\) {
@@ -4165,16 +4161,16 @@
     padding-inline: var(--spacing-1);
 }
 
-  .gap_5\.5 {
-    gap: 5.5px;
-}
-
   .gap_1\.25 {
     gap: 1.25px;
 }
 
-  .py_2\.25 {
-    padding-block: 2.25px;
+  .gap_3\.25 {
+    gap: 3.25px;
+}
+
+  .py_3\.25 {
+    padding-block: 3.25px;
 }
 
   .my_0 {
@@ -4842,13 +4838,17 @@
     transition-property: background-color, color;
 }
 
-  .size_4\.5 {
-    width: var(--sizes-4\.5);
-    height: var(--sizes-4\.5);
+  .bx-sh_0_1px_2px_rgba\(0\,_0\,_0\,_0\.05\) {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-  .c_color-mix\(in_srgb\,_var\(--colors-app-accent\)_24\%\,_var\(--colors-app-text\)_76\%\) {
-    color: color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text) 76%);
+  .size_4\.25 {
+    width: 4.25px;
+    height: 4.25px;
+}
+
+  .c_color-mix\(in_srgb\,_var\(--colors-app-accent\)_24\%\,_var\(--colors-app-text-muted\)_76\%\) {
+    color: color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text-muted) 76%);
 }
 
   .bkdp_none {
@@ -5835,8 +5835,8 @@
     box-shadow: var(--shadows-whisper);
 }
 
-  .\[\&_\[data-sidebar-label\]\]\:c_app\.text [data-sidebar-label] {
-    color: var(--colors-app-text);
+  .\[\&_\[data-sidebar-label\]\]\:c_app\.accent [data-sidebar-label],.\[\&_\[data-sidebar-icon\]\]\:c_app\.accent [data-sidebar-icon] {
+    color: var(--colors-app-accent);
 }
 
   .open\:anim-dur_240ms:is([open], [data-open], [data-state="open"], :popover-open) {
@@ -6365,12 +6365,6 @@
 }
 
   @media (hover: hover) and (pointer: fine) {
-    .hover\:bg_color-mix\(in_srgb\,_var\(--colors-app-accent-soft\)_42\%\,_var\(--colors-app-surface\)_58\%\):is(:hover, [data-hover]) {
-      background: color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%);
-}
-}
-
-  @media (hover: hover) and (pointer: fine) {
     .hover\:bd-c_app\.border\.strong:is(:hover, [data-hover]) {
       border-color: var(--colors-app-border-strong);
 }
@@ -6481,6 +6475,12 @@
   @media (hover: hover) and (pointer: fine) {
     .hover\:bx-sh_\{shadows\.whisper\}:is(:hover, [data-hover]) {
       box-shadow: var(--shadows-whisper);
+}
+}
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover\:c_app\.accent:is(:hover, [data-hover]) {
+      color: var(--colors-app-accent);
 }
 }
 

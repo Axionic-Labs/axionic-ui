@@ -7831,11 +7831,11 @@ var styles43 = {
   sections: css53({
     display: "flex",
     flexDirection: "column",
-    gap: "5.5",
+    gap: "4.5",
     flex: "1"
   }),
   sectionsShell: css53({
-    gap: "4"
+    gap: "3.5"
   }),
   section: css53({
     display: "flex",
@@ -7851,7 +7851,7 @@ var styles43 = {
     listStyle: "none",
     display: "flex",
     flexDirection: "column",
-    gap: "3.5",
+    gap: "2.5",
     padding: "0",
     margin: "0"
   }),
@@ -7864,10 +7864,10 @@ var styles43 = {
     display: "grid",
     gridTemplateColumns: "auto minmax(0, 1fr) auto",
     alignItems: "center",
-    gap: "4",
-    paddingX: "5",
-    paddingY: "4",
-    borderRadius: "2xl",
+    gap: "3.25",
+    paddingX: "4.5",
+    paddingY: "3.25",
+    borderRadius: "xl",
     color: "app.text.muted",
     bg: "transparent",
     textAlign: "left",
@@ -7890,26 +7890,30 @@ var styles43 = {
     }
   }),
   itemShell: css53({
-    paddingX: "3",
-    paddingY: "2.25",
-    borderRadius: "xl"
+    paddingX: "4",
+    paddingY: "3",
+    borderRadius: "sm"
   }),
   itemActive: css53({
-    bg: "color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)",
-    color: "app.text",
+    bg: "app.surface",
+    color: "app.accent",
+    boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
     _hover: {
-      bg: "color-mix(in srgb, var(--colors-app-accent-soft) 42%, var(--colors-app-surface) 58%)",
-      color: "app.text"
+      bg: "app.surface",
+      color: "app.accent"
     },
     "& [data-sidebar-label]": {
-      color: "app.text"
+      color: "app.accent"
+    },
+    "& [data-sidebar-icon]": {
+      color: "app.accent"
     }
   }),
   itemIcon: css53({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    boxSize: "4.5",
+    boxSize: "4.25",
     color: "app.text.subtle"
   }),
   itemText: css53({
@@ -7923,7 +7927,7 @@ var styles43 = {
     color: "currentColor"
   }),
   itemLabelShell: css53({
-    color: "color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text) 76%)"
+    color: "color-mix(in srgb, var(--colors-app-accent) 24%, var(--colors-app-text-muted) 76%)"
   }),
   itemDescription: css53({
     textStyle: "small",
@@ -9829,5 +9833,5 @@ export {
   AccentLabel
 };
 
-//# debugId=23FBCFD0E99DD5FE64756E2164756E21
+//# debugId=AB6445B3384BC4D864756E2164756E21
 //# sourceMappingURL=index.js.map
