@@ -7,7 +7,7 @@ export interface SelectionToolbarProps {
 	summary: ReactNode;
 	description?: ReactNode;
 	actions?: ReactNode;
-	chrome?: 'default' | 'soft';
+	chrome?: 'default' | 'soft' | 'flat';
 	className?: string;
 }
 
@@ -27,6 +27,11 @@ const styles = {
 	}),
 	rootSoft: css({
 		borderWidth: '0',
+		boxShadow: 'none',
+	}),
+	rootFlat: css({
+		borderColor: 'app.border',
+		bg: 'app.canvas.subtle',
 		boxShadow: 'none',
 	}),
 	copy: css({
@@ -60,7 +65,14 @@ export function SelectionToolbar({
 	className,
 }: SelectionToolbarProps) {
 	return (
-		<section className={cx(styles.root, chrome === 'soft' && styles.rootSoft, className)}>
+		<section
+			className={cx(
+				styles.root,
+				chrome === 'soft' && styles.rootSoft,
+				chrome === 'flat' && styles.rootFlat,
+				className,
+			)}
+		>
 			<div className={styles.copy}>
 				<div className={styles.summary}>{summary}</div>
 				{description && <div className={styles.description}>{description}</div>}

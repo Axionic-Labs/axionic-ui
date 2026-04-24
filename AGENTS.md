@@ -21,9 +21,12 @@
 - `bun run typecheck`
 - `bun run lint`
 - `bun test`
+- `bun run verify`
 
 ## Working Rules
 
 `dist/` and `styled-system/` are committed. Every source edit must be followed by `bun run build`, then commit the generated outputs. If you forget, downstream consumers break even when source changes look correct.
+
+The package now relies on clean generation instead of incremental declaration reuse. Do not restore partial `dist/` cleanup or `.tsbuildinfo`-driven declaration emits; they can preserve stale or conflicted generated files that downstream apps ingest immediately.
 
 Treat Panda CSS as the source of truth. Add or adjust tokens and recipes here before reaching for app-level overrides. Prefer semantic tokens, shared variants, and recipe changes over hardcoded colors in consuming apps. For the upcoming Spectra overhaul, study `src/preset/`, existing recipes, and the `dev-docs/frontend/design-system.md` notes before changing the theme surface.

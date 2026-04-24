@@ -1,6 +1,11 @@
 import { selectAnatomy } from '@ark-ui/react/anatomy';
 import { defineSlotRecipe } from '@pandacss/dev';
 
+const warmTriggerBg =
+	'color-mix(in srgb, var(--colors-app-surface-muted) 84%, var(--colors-wheat-2) 16%)';
+const warmTriggerHoverBg =
+	'color-mix(in srgb, var(--colors-app-surface) 76%, var(--colors-wheat-3) 24%)';
+
 export const select = defineSlotRecipe({
 	className: 'select',
 	slots: selectAnatomy.extendWith('indicatorGroup').keys(),
@@ -14,8 +19,8 @@ export const select = defineSlotRecipe({
 		content: {
 			background: 'app.surface',
 			borderRadius: 'xl',
-			borderWidth: '1px',
-			borderColor: 'app.border',
+			borderWidth: '0',
+			borderColor: 'transparent',
 			boxShadow: '{shadows.float}',
 			display: 'flex',
 			flexDirection: 'column',
@@ -118,31 +123,29 @@ export const select = defineSlotRecipe({
 		variant: {
 			outline: {
 				trigger: {
-					borderWidth: '1px',
-					borderColor: 'app.border',
+					bg: 'app.surface',
+					boxShadow: '{shadows.whisper}',
+					borderWidth: '0',
+					borderColor: 'transparent',
 					_hover: {
-						borderColor: 'app.border.strong',
-						bg: 'app.surface.muted',
+						bg: 'app.surface.raised',
 					},
 					_focusVisible: {
-						borderColor: 'app.accent',
 						boxShadow: '0 0 0 3px rgba(88, 153, 150, 0.16)',
 						outline: 'none',
-						bg: 'app.surface',
+						bg: 'app.surface.raised',
 					},
 				},
 			},
 			surface: {
 				trigger: {
-					bg: 'app.canvas.subtle',
-					borderWidth: '1px',
-					borderColor: 'app.border',
+					bg: warmTriggerBg,
+					borderWidth: '0',
+					borderColor: 'transparent',
 					_hover: {
-						borderColor: 'app.border.strong',
-						bg: 'app.surface.muted',
+						bg: warmTriggerHoverBg,
 					},
 					_focusVisible: {
-						borderColor: 'app.accent',
 						boxShadow: '0 0 0 3px rgba(88, 153, 150, 0.16)',
 						outline: 'none',
 						bg: 'app.surface',

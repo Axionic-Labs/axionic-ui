@@ -1,6 +1,7 @@
 node_modules/
 .claude/
 .serena/
+.codex
 CLAUDE.md
 yarn.lock
 .tsbuildinfo

@@ -5,7 +5,7 @@
  * Usage: bun run build.ts
  */
 import { $ } from 'bun';
-import { readFile, rm, unlink, writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { glob } from 'node:fs/promises';
 import path from 'node:path';
 
@@ -29,6 +29,10 @@ const entrypoints = {
  *    (root, label, control, thumb), but our local v1 recipe adds
  *    'indicator'. Both files are generated due to preset/config overlap.
  *    Patch the type to include the extended slot.
+ *
+ * 3. Panda also emits a duplicate switch-recipe barrel entry alongside the
+ *    patched switch slot recipe export. Remove the duplicate re-export so
+ *    downstream Vite dev servers do not see conflicting switchRecipe exports.
  */
 async function patchGeneratedDeclarations() {
 	const patches: Array<{ file: string; find: string; replace: string; label: string }> = [
@@ -50,6 +54,18 @@ async function patchGeneratedDeclarations() {
 			replace: 'type SwitchRecipeSlot = "root" | "label" | "control" | "thumb" | "indicator"',
 			label: 'switch-recipe.d.ts indicator slot',
 		},
+		{
+			file: 'styled-system/recipes/index.d.ts',
+			find: "export * from './switch-recipe';\n",
+			replace: '',
+			label: 'recipes/index.d.ts duplicate switch-recipe export',
+		},
+		{
+			file: 'styled-system/recipes/index.mjs',
+			find: "export * from './switch-recipe.mjs';\n",
+			replace: '',
+			label: 'recipes/index.mjs duplicate switch-recipe export',
+		},
 	];
 
 	for (const { file, find, replace, label } of patches) {
@@ -66,13 +82,34 @@ async function patchGeneratedDeclarations() {
 	}
 }
 
-async function build() {
-	// Clean only JS output (bun regenerates every time).
-	// Leave .d.ts files so tsc incremental can skip unchanged declarations.
-	for await (const file of glob('dist/**/*.js{,.map}')) {
-		await unlink(file);
+async function assertNoConflictMarkers() {
+	const filesWithMarkers: string[] = [];
+
+	for (const pattern of ['dist/**/*', 'styled-system/**/*']) {
+		for await (const file of glob(pattern)) {
+			try {
+				const content = await readFile(file, 'utf-8');
+				if (/^(<<<<<<<|=======|>>>>>>>)/m.test(content)) {
+					filesWithMarkers.push(file);
+				}
+			} catch (error) {
+				if ((error as NodeJS.ErrnoException).code !== 'EISDIR') {
+					throw error;
+				}
+			}
+		}
 	}
 
+	if (filesWithMarkers.length > 0) {
+		console.error('Merge conflict markers detected in generated output:');
+		for (const file of filesWithMarkers) {
+			console.error(`- ${file}`);
+		}
+		process.exit(1);
+	}
+}
+
+async function build() {
 	// Patch known codegen issues before tsc runs
 	await patchGeneratedDeclarations();
 
@@ -117,6 +154,8 @@ async function build() {
 
 	await $`bunx tsc -p tsconfig.build.json`.quiet();
 	console.log('Declaration files generated.');
+
+	await assertNoConflictMarkers();
 
 	console.log('Build complete.');
 }

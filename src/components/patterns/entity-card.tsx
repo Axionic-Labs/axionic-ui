@@ -1,8 +1,9 @@
 'use client';
 
-import type { KeyboardEvent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import * as Card from '../ui/card';
+import { activateOnEnterOrSpace, type PatternDensity, type PatternTone } from './shared';
 
 export interface EntityCardProps {
 	icon?: ReactNode;
@@ -13,8 +14,9 @@ export interface EntityCardProps {
 	children?: ReactNode;
 	footer?: ReactNode;
 	selected?: boolean;
-	accent?: 'teal' | 'wheat';
-	density?: 'default' | 'compact';
+	accent?: PatternTone;
+	density?: PatternDensity;
+	variant?: 'default' | 'flat';
 	onClick?: () => void;
 	className?: string;
 }
@@ -25,6 +27,12 @@ const styles = {
 		borderColor: 'app.border',
 		bg: 'app.surface',
 		transition: 'all 160ms ease',
+	}),
+	rootFlat: css({
+		borderWidth: '1px',
+		borderColor: 'app.border',
+		bg: 'app.surface',
+		boxShadow: '{shadows.whisper}',
 	}),
 	selected: css({
 		borderColor: 'app.accent',
@@ -44,12 +52,19 @@ const styles = {
 	accentBarWheat: css({
 		bg: 'wheat.2',
 	}),
+	accentBarHidden: css({
+		display: 'none',
+	}),
 	body: css({
 		padding: '5',
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '4',
 		minWidth: 0,
+	}),
+	bodyFlat: css({
+		padding: '6',
+		gap: '3.5',
 	}),
 	bodyCompact: css({
 		padding: '4',
@@ -91,6 +106,10 @@ const styles = {
 	iconWrapCompact: css({
 		boxSize: '9',
 		rounded: 'lg',
+	}),
+	iconWrapFlat: css({
+		borderWidth: '0',
+		bg: 'app.canvas.subtle',
 	}),
 	copy: css({
 		display: 'flex',
@@ -151,14 +170,6 @@ const styles = {
 	}),
 };
 
-function handleKeyDown(event: KeyboardEvent<HTMLDivElement>, onClick?: () => void) {
-	if (!onClick) return;
-	if (event.key === 'Enter' || event.key === ' ') {
-		event.preventDefault();
-		onClick();
-	}
-}
-
 export function EntityCard({
 	icon,
 	title,
@@ -170,40 +181,58 @@ export function EntityCard({
 	selected = false,
 	accent = 'teal',
 	density = 'default',
+	variant = 'default',
 	onClick,
 	className,
 }: EntityCardProps) {
 	const interactive = Boolean(onClick);
 	const compact = density === 'compact';
+	const flat = variant === 'flat';
 
 	return (
 		<Card.Root
-			gradient
+			gradient={!flat}
 			accent={accent}
 			hover={interactive}
 			className={cx(
 				styles.root,
+				flat && styles.rootFlat,
 				interactive && styles.rootHover,
 				selected && styles.selected,
 				className,
 			)}
 		>
-			<div className={cx(styles.accentBar, accent === 'wheat' && styles.accentBarWheat)} />
+			<div
+				className={cx(
+					styles.accentBar,
+					accent === 'wheat' && styles.accentBarWheat,
+					flat && styles.accentBarHidden,
+				)}
+			/>
 			<Card.Body
 				className={cx(
 					styles.body,
+					flat && styles.bodyFlat,
 					compact && styles.bodyCompact,
 					interactive && styles.interactive,
 				)}
 				onClick={onClick}
-				onKeyDown={(event) => handleKeyDown(event, onClick)}
+				onKeyDown={(event) => activateOnEnterOrSpace(event, onClick)}
 				role={interactive ? 'button' : undefined}
 				tabIndex={interactive ? 0 : undefined}
 			>
 				<div className={cx(styles.header, compact && styles.headerCompact)}>
 					<div className={styles.lead}>
 						{icon && (
-							<div className={cx(styles.iconWrap, compact && styles.iconWrapCompact)}>{icon}</div>
+							<div
+								className={cx(
+									styles.iconWrap,
+									flat && styles.iconWrapFlat,
+									compact && styles.iconWrapCompact,
+								)}
+							>
+								{icon}
+							</div>
 						)}
 						<div className={styles.copy}>
 							<div className={cx(styles.title, compact && styles.titleCompact)}>{title}</div>

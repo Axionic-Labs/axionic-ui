@@ -7,6 +7,7 @@ export interface SecondaryNavItem {
     href?: string;
     active?: boolean;
     onClick?: () => void;
+    dataTourId?: string;
 }
 export interface SecondaryNavProps {
     items: SecondaryNavItem[];

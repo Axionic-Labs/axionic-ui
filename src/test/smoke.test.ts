@@ -54,6 +54,7 @@ describe('@axionic/ui entry point smoke tests', () => {
 		expect(mod.HelpTrigger).toBeDefined();
 		expect(mod.FileTree).toBeDefined();
 		expect(mod.LineChart).toBeDefined();
+		expect(mod.StatusState).toBeDefined();
 		expect(mod.StatusBanner).toBeDefined();
 		expect(mod.StreamingStatus).toBeDefined();
 		expect(mod.SupportPanel).toBeDefined();

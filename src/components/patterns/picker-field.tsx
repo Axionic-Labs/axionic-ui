@@ -34,16 +34,16 @@ const styles = {
 		paddingX: '4',
 		paddingY: '3',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
+		borderWidth: '0',
+		borderColor: 'transparent',
 		bg: 'app.surface',
+		boxShadow: '{shadows.whisper}',
 		cursor: 'pointer',
 		textAlign: 'left',
-		transitionProperty: 'background-color, border-color, color',
+		transitionProperty: 'background-color, border-color, color, box-shadow',
 		transitionDuration: '160ms',
 		transitionTimingFunction: 'ease',
 		_hover: {
-			borderColor: 'app.border.strong',
 			bg: 'app.surface.raised',
 		},
 		_focusVisible: {
@@ -64,9 +64,20 @@ const styles = {
 	triggerSoft: css({
 		borderWidth: '0',
 		bg: 'app.surface.muted',
+		boxShadow: 'none',
 		_hover: {
 			bg: 'app.surface',
 		},
+	}),
+	triggerOpen: css({
+		bg: 'app.surface.raised',
+		borderBottomLeftRadius: '0',
+		borderBottomRightRadius: '0',
+	}),
+	triggerOpenSoft: css({
+		bg: 'app.surface',
+		borderBottomLeftRadius: '0',
+		borderBottomRightRadius: '0',
 	}),
 	lead: css({
 		display: 'flex',
@@ -124,12 +135,12 @@ const styles = {
 	}),
 	panel: css({
 		position: 'absolute',
-		top: 'calc(100% + 0.5rem)',
+		top: '100%',
 		left: '0',
 		right: '0',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
+		borderWidth: '0',
+		borderColor: 'transparent',
 		bg: 'app.surface',
 		boxShadow: '{shadows.float}',
 		overflow: 'hidden',
@@ -137,16 +148,22 @@ const styles = {
 	}),
 	panelSoft: css({
 		borderWidth: '0',
+		bg: 'app.surface.muted',
+		boxShadow: '{shadows.panel}',
+	}),
+	panelConnected: css({
+		borderTopLeftRadius: '0',
+		borderTopRightRadius: '0',
+		borderWidth: '0',
 	}),
 	panelLabel: css({
 		paddingX: '4',
 		paddingY: '2.5',
-		borderBottomWidth: '1px',
-		borderColor: 'app.border',
 		textStyle: 'caption',
 		color: 'app.text.subtle',
 		textTransform: 'uppercase',
 		letterSpacing: '0.08em',
+		bg: 'app.canvas.subtle',
 	}),
 	panelBody: css({
 		maxHeight: '18rem',
@@ -182,6 +199,8 @@ export function PickerField({
 					styles.trigger,
 					compact && styles.triggerSm,
 					softChrome && styles.triggerSoft,
+					open && styles.triggerOpen,
+					open && softChrome && styles.triggerOpenSoft,
 				)}
 				aria-expanded={open}
 			>
@@ -198,7 +217,7 @@ export function PickerField({
 				<ChevronDown size={16} className={cx(styles.chevron, open && styles.chevronOpen)} />
 			</button>
 			{open && panel && (
-				<div className={cx(styles.panel, softChrome && styles.panelSoft)}>
+				<div className={cx(styles.panel, softChrome && styles.panelSoft, styles.panelConnected)}>
 					{panelLabel && <div className={styles.panelLabel}>{panelLabel}</div>}
 					<div className={styles.panelBody}>{panel}</div>
 				</div>

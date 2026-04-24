@@ -16,8 +16,6 @@ const styles = {
 		gap: '4',
 		padding: '4',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface.muted',
 	}),
 	accent: css({

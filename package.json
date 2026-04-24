@@ -1,6 +1,7 @@
 {
 	"name": "@axionic/ui",
 	"version": "0.2.0",
+	"packageManager": "bun@1.3.3",
 	"type": "module",
 	"sideEffects": [
 		"*.css"
@@ -41,14 +42,15 @@
 		"./styles.css": "./styled-system/styles.css"
 	},
 	"scripts": {
-		"codegen": "panda codegen && panda cssgen",
+		"codegen": "rm -rf styled-system && panda codegen && panda cssgen",
 		"build:js": "bun run build.ts",
-		"build": "bun run codegen && bun run build:js",
+		"build": "rm -rf dist .tsbuildinfo && bun run codegen && bun run build:js",
 		"typecheck": "tsc --noEmit",
 		"lint": "biome check src/",
 		"lint:fix": "biome check --write src/",
 		"format": "biome format --write src/",
-		"test": "vitest run"
+		"test": "vitest run",
+		"verify": "bun run build && bun run typecheck && bun run lint && bun test"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0",

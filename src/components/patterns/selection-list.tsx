@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
+import type { PatternDensity } from './shared';
 
 export interface SelectionListItem {
 	value: string;
@@ -16,8 +17,9 @@ export interface SelectionListProps {
 	items: SelectionListItem[];
 	value: string | null;
 	onValueChange: (value: string) => void;
-	density?: 'default' | 'compact';
+	density?: PatternDensity;
 	chrome?: 'default' | 'soft';
+	layout?: 'cards' | 'stacked';
 	className?: string;
 }
 
@@ -25,6 +27,9 @@ const styles = {
 	root: css({
 		display: 'grid',
 		gap: '2',
+	}),
+	rootStacked: css({
+		gap: '1',
 	}),
 	item: css({
 		width: '100%',
@@ -34,14 +39,11 @@ const styles = {
 		gap: '3',
 		padding: '4',
 		borderRadius: 'l3',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface.muted',
 		textAlign: 'left',
 		cursor: 'pointer',
 		transition: 'all 160ms ease',
 		_hover: {
-			borderColor: 'app.border.strong',
 			bg: 'app.surface',
 		},
 		_disabled: {
@@ -55,16 +57,52 @@ const styles = {
 		gap: '2.5',
 	}),
 	itemSoft: css({
-		borderWidth: '0',
+		boxShadow: 'none',
+	}),
+	itemStacked: css({
+		borderRadius: 'xl',
+		boxShadow: 'none',
+		bg: 'transparent',
+		paddingX: '4',
+		paddingY: '3.5',
+		_hover: {
+			bg: 'app.canvas.subtle',
+		},
 	}),
 	itemSelected: css({
-		bg: 'app.accent.soft',
-		borderColor: 'app.border.strong',
-		boxShadow: 'inset 3px 0 0 0 var(--colors-app-accent)',
+		bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
+		boxShadow: '{shadows.whisper}',
+		_hover: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 78%, var(--colors-app-surface) 22%)',
+			boxShadow: '{shadows.whisper}',
+		},
+		_dark: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
+			boxShadow: '{shadows.whisper}',
+			_hover: {
+				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 20%, var(--colors-app-surface) 80%)',
+				boxShadow: '{shadows.whisper}',
+			},
+		},
 	}),
 	itemSelectedSoft: css({
-		borderColor: 'transparent',
 		boxShadow: 'none',
+	}),
+	itemSelectedStacked: css({
+		bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
+		boxShadow: 'none',
+		_hover: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-soft) 82%, var(--colors-app-surface) 18%)',
+			boxShadow: 'none',
+		},
+		_dark: {
+			bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
+			boxShadow: 'none',
+			_hover: {
+				bg: 'color-mix(in srgb, var(--colors-app-accent-alt-border) 24%, var(--colors-app-surface-muted) 76%)',
+				boxShadow: 'none',
+			},
+		},
 	}),
 	body: css({
 		display: 'flex',
@@ -79,8 +117,6 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderRadius: 'xl',
-		borderWidth: '1px',
-		borderColor: 'app.border',
 		bg: 'app.surface',
 		color: 'app.accent',
 		flexShrink: 0,
@@ -92,6 +128,15 @@ const styles = {
 	iconSoft: css({
 		borderWidth: '0',
 		bg: 'app.surface.muted',
+	}),
+	iconStacked: css({
+		borderWidth: '0',
+		bg: 'transparent',
+	}),
+	iconStackedSoft: css({
+		borderWidth: '0',
+		bg: 'transparent',
+		color: 'app.text.subtle',
 	}),
 	copy: css({
 		display: 'flex',
@@ -125,14 +170,16 @@ export function SelectionList({
 	value,
 	onValueChange,
 	density = 'default',
-	chrome = 'default',
+	chrome = 'soft',
+	layout = 'cards',
 	className,
 }: SelectionListProps) {
 	const compact = density === 'compact';
 	const softChrome = chrome === 'soft';
+	const stackedLayout = layout === 'stacked';
 
 	return (
-		<div className={cx(styles.root, className)}>
+		<div className={cx(styles.root, stackedLayout && styles.rootStacked, className)}>
 			{items.map((item) => {
 				const selected = item.value === value;
 				return (
@@ -145,8 +192,10 @@ export function SelectionList({
 							styles.item,
 							compact && styles.itemCompact,
 							softChrome && styles.itemSoft,
+							stackedLayout && styles.itemStacked,
 							selected && styles.itemSelected,
 							selected && softChrome && styles.itemSelectedSoft,
+							selected && stackedLayout && styles.itemSelectedStacked,
 						)}
 					>
 						<div className={styles.body}>
@@ -156,6 +205,8 @@ export function SelectionList({
 										styles.icon,
 										compact && styles.iconCompact,
 										softChrome && styles.iconSoft,
+										stackedLayout && styles.iconStacked,
+										stackedLayout && softChrome && styles.iconStackedSoft,
 									)}
 								>
 									{item.icon}

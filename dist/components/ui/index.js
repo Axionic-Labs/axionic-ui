@@ -1780,11 +1780,11 @@ import { ark as ark26 } from "@ark-ui/react";
 import { Switch, useSwitchContext } from "@ark-ui/react/switch";
 import { forwardRef as forwardRef20 } from "react";
 import { createStyleContext as createStyleContext35, styled as styled20 } from "styled-system/jsx";
-import { switchRecipe } from "styled-system/recipes";
+import { switchSlotRecipe } from "styled-system/recipes";
 import { SwitchContext } from "@ark-ui/react/switch";
 import { jsx as jsx28 } from "react/jsx-runtime";
 "use client";
-var { withProvider: withProvider30, withContext: withContext35 } = createStyleContext35(switchRecipe);
+var { withProvider: withProvider30, withContext: withContext35 } = createStyleContext35(switchSlotRecipe);
 var Root35 = withProvider30(Switch.Root, "root");
 var RootProvider29 = withProvider30(Switch.RootProvider, "root");
 var Label19 = withContext35(Switch.Label, "label");
@@ -2141,5 +2141,5 @@ export {
   AbsoluteCenter
 };
 
-//# debugId=45BE93308DEB1A5B64756E2164756E21
+//# debugId=0FCB08B8CDF3063164756E2164756E21
 //# sourceMappingURL=index.js.map

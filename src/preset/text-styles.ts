@@ -93,10 +93,21 @@ export const textStyles = defineTextStyles({
 	toolbarLabel: {
 		description: 'Compact toolbar label and top-nav text.',
 		value: {
-			fontFamily: 'display',
+			fontFamily: 'body',
 			fontSize: '0.875rem',
 			fontWeight: '600',
 			lineHeight: '1.25',
+		},
+	},
+	sidebarLabel: {
+		description: 'Primary sidebar navigation label.',
+		value: {
+			fontFamily: '"Manrope", "Graphik", "Satoshi", sans-serif',
+			fontSize: '0.8125rem',
+			fontWeight: '700',
+			lineHeight: '1.15',
+			letterSpacing: '0.14em',
+			textTransform: 'uppercase',
 		},
 	},
 	metricValue: {

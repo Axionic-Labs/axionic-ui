@@ -18,7 +18,6 @@ export * from './text';
 export * from './textarea';
 export * from './radio-button-group';
 export * from './signature-pad';
-export * from './switch-recipe';
 export * from './tree-view';
 export * from './qr-code';
 export * from './accordion';
