@@ -1,7 +1,8 @@
 'use client';
 
-import type { KeyboardEvent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
+import { activateOnEnterOrSpace } from './shared';
 
 export interface ModelCardFact {
 	label: ReactNode;
@@ -324,26 +325,6 @@ const styles = {
 	}),
 };
 
-function handleKeyDown(event: KeyboardEvent<HTMLDivElement>, onClick?: () => void) {
-	if (!onClick || isNestedInteractiveTarget(event.target, event.currentTarget)) return;
-	if (event.key === 'Enter' || event.key === ' ') {
-		event.preventDefault();
-		onClick();
-	}
-}
-
-function isNestedInteractiveTarget(target: EventTarget | null, currentTarget: HTMLDivElement) {
-	if (!(target instanceof HTMLElement)) {
-		return false;
-	}
-
-	const interactiveTarget = target.closest(
-		'button, a, input, textarea, select, summary, [role="button"], [role="link"]',
-	);
-
-	return Boolean(interactiveTarget && interactiveTarget !== currentTarget);
-}
-
 function getStatusToneClass(tone: ModelCardStatus['tone']) {
 	switch (tone) {
 		case 'accent':
@@ -474,7 +455,9 @@ export function ModelCard({
 				<div
 					className={cx(styles.body, styles.interactive)}
 					onClick={onClick}
-					onKeyDown={(event) => handleKeyDown(event, onClick)}
+					onKeyDown={(event) =>
+						activateOnEnterOrSpace(event, onClick, { ignoreNestedInteractiveTarget: true })
+					}
 					role="button"
 					tabIndex={0}
 				>

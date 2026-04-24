@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { type PatternTone } from './shared';
 export interface ModifierActionCardProps {
     icon?: ReactNode;
     eyebrow?: ReactNode;
@@ -6,7 +7,7 @@ export interface ModifierActionCardProps {
     description?: ReactNode;
     actionLabel?: ReactNode;
     helper?: ReactNode;
-    tone?: 'teal' | 'wheat';
+    tone?: PatternTone;
     selected?: boolean;
     onClick?: () => void;
     className?: string;

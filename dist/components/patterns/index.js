@@ -2000,6 +2000,29 @@ function EmptyState({ icon, title, description, action, className }) {
 }
 // src/components/patterns/entity-card.tsx
 import { css as css17, cx as cx17 } from "styled-system/css";
+
+// src/components/patterns/shared.ts
+function activateOnEnterOrSpace(event, onClick, options = {}) {
+  if (!onClick) {
+    return;
+  }
+  if (options.ignoreNestedInteractiveTarget && isNestedInteractiveTarget(event.target, event.currentTarget)) {
+    return;
+  }
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    onClick();
+  }
+}
+function isNestedInteractiveTarget(target, currentTarget) {
+  if (!(target instanceof HTMLElement)) {
+    return false;
+  }
+  const interactiveTarget = target.closest('button, a, input, textarea, select, summary, [role="button"], [role="link"]');
+  return Boolean(interactiveTarget && interactiveTarget !== currentTarget);
+}
+
+// src/components/patterns/entity-card.tsx
 import { jsx as jsx23, jsxs as jsxs18 } from "react/jsx-runtime";
 "use client";
 var styles15 = {
@@ -2150,14 +2173,6 @@ var styles15 = {
     borderColor: "app.border"
   })
 };
-function handleKeyDown(event, onClick) {
-  if (!onClick)
-    return;
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    onClick();
-  }
-}
 function EntityCard({
   icon,
   title,
@@ -2188,7 +2203,7 @@ function EntityCard({
       /* @__PURE__ */ jsxs18(Body, {
         className: cx17(styles15.body, flat && styles15.bodyFlat, compact && styles15.bodyCompact, interactive && styles15.interactive),
         onClick,
-        onKeyDown: (event) => handleKeyDown(event, onClick),
+        onKeyDown: (event) => activateOnEnterOrSpace(event, onClick),
         role: interactive ? "button" : undefined,
         tabIndex: interactive ? 0 : undefined,
         children: [
@@ -4300,21 +4315,6 @@ var styles26 = {
     }
   })
 };
-function handleKeyDown2(event, onClick) {
-  if (!onClick || isNestedInteractiveTarget(event.target, event.currentTarget))
-    return;
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    onClick();
-  }
-}
-function isNestedInteractiveTarget(target, currentTarget) {
-  if (!(target instanceof HTMLElement)) {
-    return false;
-  }
-  const interactiveTarget = target.closest('button, a, input, textarea, select, summary, [role="button"], [role="link"]');
-  return Boolean(interactiveTarget && interactiveTarget !== currentTarget);
-}
 function getStatusToneClass(tone) {
   switch (tone) {
     case "accent":
@@ -4477,7 +4477,7 @@ function ModelCard({
         /* @__PURE__ */ jsx41("div", {
           className: cx33(styles26.body, styles26.interactive),
           onClick,
-          onKeyDown: (event) => handleKeyDown2(event, onClick),
+          onKeyDown: (event) => activateOnEnterOrSpace(event, onClick, { ignoreNestedInteractiveTarget: true }),
           role: "button",
           tabIndex: 0,
           children: cardContent
@@ -4804,14 +4804,6 @@ var styles27 = {
     justifySelf: "start"
   })
 };
-function handleKeyDown3(event, onClick) {
-  if (!onClick)
-    return;
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    onClick();
-  }
-}
 function ModifierActionCard({
   icon,
   eyebrow,
@@ -4830,7 +4822,7 @@ function ModifierActionCard({
     children: /* @__PURE__ */ jsxs32(Body, {
       className: cx35(styles27.body, interactive && styles27.focusable),
       onClick,
-      onKeyDown: (event) => handleKeyDown3(event, onClick),
+      onKeyDown: (event) => activateOnEnterOrSpace(event, onClick),
       role: interactive ? "button" : undefined,
       tabIndex: interactive ? 0 : undefined,
       "aria-pressed": interactive && selected !== undefined ? selected : undefined,
@@ -5060,14 +5052,6 @@ var styles28 = {
     color: "app.text.muted"
   })
 };
-function handleKeyDown4(event, onClick) {
-  if (!onClick)
-    return;
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    onClick();
-  }
-}
 function ModifierCard({
   icon,
   eyebrow,
@@ -5090,7 +5074,7 @@ function ModifierCard({
     children: /* @__PURE__ */ jsxs33(Body, {
       className: cx36(styles28.body, compact && styles28.bodyCompact, interactive && styles28.focusable),
       onClick,
-      onKeyDown: (event) => handleKeyDown4(event, onClick),
+      onKeyDown: (event) => activateOnEnterOrSpace(event, onClick),
       role: interactive ? "button" : undefined,
       tabIndex: interactive ? 0 : undefined,
       "aria-pressed": interactive && selected !== undefined ? selected : undefined,
@@ -5366,14 +5350,6 @@ var styles29 = {
     color: "app.text.muted"
   })
 };
-function handleKeyDown5(event, onClick) {
-  if (!onClick)
-    return;
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    onClick();
-  }
-}
 function ModifierFeatureCard({
   icon,
   eyebrow,
@@ -5396,7 +5372,7 @@ function ModifierFeatureCard({
     children: /* @__PURE__ */ jsxs34(Body, {
       className: cx37(styles29.body, interactive && styles29.focusable),
       onClick,
-      onKeyDown: (event) => handleKeyDown5(event, onClick),
+      onKeyDown: (event) => activateOnEnterOrSpace(event, onClick),
       role: interactive ? "button" : undefined,
       tabIndex: interactive ? 0 : undefined,
       "aria-pressed": interactive && selected !== undefined ? selected : undefined,
@@ -9833,5 +9809,5 @@ export {
   AccentLabel
 };
 
-//# debugId=AB6445B3384BC4D864756E2164756E21
+//# debugId=1DF1B240BBD0B59264756E2164756E21
 //# sourceMappingURL=index.js.map

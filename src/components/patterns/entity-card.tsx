@@ -1,8 +1,9 @@
 'use client';
 
-import type { KeyboardEvent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
 import * as Card from '../ui/card';
+import { activateOnEnterOrSpace, type PatternDensity, type PatternTone } from './shared';
 
 export interface EntityCardProps {
 	icon?: ReactNode;
@@ -13,8 +14,8 @@ export interface EntityCardProps {
 	children?: ReactNode;
 	footer?: ReactNode;
 	selected?: boolean;
-	accent?: 'teal' | 'wheat';
-	density?: 'default' | 'compact';
+	accent?: PatternTone;
+	density?: PatternDensity;
 	variant?: 'default' | 'flat';
 	onClick?: () => void;
 	className?: string;
@@ -169,14 +170,6 @@ const styles = {
 	}),
 };
 
-function handleKeyDown(event: KeyboardEvent<HTMLDivElement>, onClick?: () => void) {
-	if (!onClick) return;
-	if (event.key === 'Enter' || event.key === ' ') {
-		event.preventDefault();
-		onClick();
-	}
-}
-
 export function EntityCard({
 	icon,
 	title,
@@ -224,7 +217,7 @@ export function EntityCard({
 					interactive && styles.interactive,
 				)}
 				onClick={onClick}
-				onKeyDown={(event) => handleKeyDown(event, onClick)}
+				onKeyDown={(event) => activateOnEnterOrSpace(event, onClick)}
 				role={interactive ? 'button' : undefined}
 				tabIndex={interactive ? 0 : undefined}
 			>

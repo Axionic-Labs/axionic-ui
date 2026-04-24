@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ModifierCardFact } from './modifier-card';
+import { type PatternTone } from './shared';
 export interface ModifierFeatureCardProps {
     icon?: ReactNode;
     eyebrow?: ReactNode;
@@ -11,7 +12,7 @@ export interface ModifierFeatureCardProps {
     highlightNote?: ReactNode;
     facts?: ModifierCardFact[];
     footer?: ReactNode;
-    tone?: 'teal' | 'wheat';
+    tone?: PatternTone;
     selected?: boolean;
     onClick?: () => void;
     className?: string;

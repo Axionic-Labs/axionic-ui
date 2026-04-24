@@ -3,6 +3,7 @@
 import { type ReactNode, useId } from 'react';
 import { css, cx } from 'styled-system/css';
 import * as Slider from '../ui/slider';
+import type { PatternTone } from './shared';
 
 export interface ValueSliderProps {
 	value: number;
@@ -15,7 +16,7 @@ export interface ValueSliderProps {
 	hint?: ReactNode;
 	showValue?: boolean;
 	formatValue?: (value: number) => string;
-	tone?: 'teal' | 'wheat';
+	tone?: PatternTone;
 	variant?: 'default' | 'workspace';
 	className?: string;
 }

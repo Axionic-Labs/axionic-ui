@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
+import type { PatternDensity } from './shared';
 
 export interface SectionPanelProps {
 	eyebrow?: ReactNode;
@@ -12,7 +13,7 @@ export interface SectionPanelProps {
 	children?: ReactNode;
 	footer?: ReactNode;
 	variant?: 'default' | 'muted' | 'flat' | 'workspace';
-	density?: 'default' | 'compact';
+	density?: PatternDensity;
 	className?: string;
 }
 

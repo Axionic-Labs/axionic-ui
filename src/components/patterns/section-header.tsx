@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
+import type { PatternTone } from './shared';
 
 export interface SectionHeaderProps {
 	/** Section title text */
@@ -9,7 +10,7 @@ export interface SectionHeaderProps {
 	/** Icon element to display in a colored badge */
 	icon?: ReactNode;
 	/** Color variant — determines background tint and icon badge color */
-	variant?: 'teal' | 'wheat';
+	variant?: PatternTone;
 	/** Additional content rendered on the right side (e.g., action buttons) */
 	actions?: ReactNode;
 	/** Additional CSS classes */

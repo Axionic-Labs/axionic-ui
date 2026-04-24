@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { type PatternDensity, type PatternTone } from './shared';
 export interface ModifierCardFact {
     label: ReactNode;
     value: ReactNode;
@@ -13,8 +14,8 @@ export interface ModifierCardProps {
     facts?: ModifierCardFact[];
     footer?: ReactNode;
     selected?: boolean;
-    tone?: 'teal' | 'wheat';
-    density?: 'default' | 'compact';
+    tone?: PatternTone;
+    density?: PatternDensity;
     onClick?: () => void;
     className?: string;
 }

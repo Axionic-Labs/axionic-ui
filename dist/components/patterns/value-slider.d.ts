@@ -1,4 +1,5 @@
 import { type ReactNode } from 'react';
+import type { PatternTone } from './shared';
 export interface ValueSliderProps {
     value: number;
     onChange: (value: number) => void;
@@ -10,7 +11,7 @@ export interface ValueSliderProps {
     hint?: ReactNode;
     showValue?: boolean;
     formatValue?: (value: number) => string;
-    tone?: 'teal' | 'wheat';
+    tone?: PatternTone;
     variant?: 'default' | 'workspace';
     className?: string;
 }

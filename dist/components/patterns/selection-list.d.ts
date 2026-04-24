@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { PatternDensity } from './shared';
 export interface SelectionListItem {
     value: string;
     label: ReactNode;
@@ -11,7 +12,7 @@ export interface SelectionListProps {
     items: SelectionListItem[];
     value: string | null;
     onValueChange: (value: string) => void;
-    density?: 'default' | 'compact';
+    density?: PatternDensity;
     chrome?: 'default' | 'soft';
     layout?: 'cards' | 'stacked';
     className?: string;

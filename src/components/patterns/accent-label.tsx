@@ -2,12 +2,13 @@
 
 import type { ReactNode } from 'react';
 import { css, cx } from 'styled-system/css';
+import type { PatternTone } from './shared';
 
 export interface AccentLabelProps {
 	/** Label text */
 	children: ReactNode;
 	/** Color variant for the left accent bar */
-	variant?: 'teal' | 'wheat';
+	variant?: PatternTone;
 	/** Additional CSS classes */
 	className?: string;
 }

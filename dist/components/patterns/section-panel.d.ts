@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { PatternDensity } from './shared';
 export interface SectionPanelProps {
     eyebrow?: ReactNode;
     title?: ReactNode;
@@ -8,7 +9,7 @@ export interface SectionPanelProps {
     children?: ReactNode;
     footer?: ReactNode;
     variant?: 'default' | 'muted' | 'flat' | 'workspace';
-    density?: 'default' | 'compact';
+    density?: PatternDensity;
     className?: string;
 }
 export declare function SectionPanel({ eyebrow, title, description, meta, actions, children, footer, variant, density, className, }: SectionPanelProps): import("react/jsx-runtime").JSX.Element;
