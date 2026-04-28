@@ -8134,6 +8134,7 @@ var styles44 = {
     borderBottomWidth: "1px",
     borderBottomColor: "app.border",
     px: { base: "1.375rem", md: "1.625rem" },
+    pr: { base: "4.25rem", md: "4.5rem" },
     pt: { base: "1.375rem", md: "1.625rem" },
     pb: "1.125rem"
   }),
@@ -8204,13 +8205,23 @@ var styles44 = {
       base: "1fr",
       xl: "var(--slide-over-aside-width) minmax(0, 1fr)"
     },
+    gridTemplateAreas: {
+      base: '"aside" "main"',
+      xl: '"aside main"'
+    },
     height: "100%",
     minH: 0
   }),
+  splitShellMainFirst: css54({
+    gridTemplateAreas: {
+      base: '"main" "aside"',
+      xl: '"aside main"'
+    }
+  }),
   splitAside: css54({
+    gridArea: "aside",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
     gap: "1.125rem",
     bg: "app.surface",
     borderRightWidth: { base: "0", xl: "1px" },
@@ -8218,9 +8229,17 @@ var styles44 = {
     borderColor: "app.border",
     px: { base: "1.375rem", md: "1.625rem" },
     py: { base: "1.375rem", md: "1.625rem" },
+    minH: 0,
+    overflowY: "auto"
+  }),
+  splitAsideContent: css54({
+    display: "flex",
+    flexDirection: "column",
+    flex: "1",
     minH: 0
   }),
   splitMain: css54({
+    gridArea: "main",
     position: "relative",
     display: "flex",
     flexDirection: "column",
@@ -8276,6 +8295,7 @@ function SlideOver({
   panelMinWidth,
   panelMaxWidth,
   asideWidth,
+  stackedSplitOrder = "aside-main",
   contentMinWidth,
   contentMaxWidth,
   hideFooter = false,
@@ -8379,12 +8399,13 @@ function SlideOver({
             },
             className: cx53(styles44.content, className),
             children: resolvedLayout === "split" && aside ? /* @__PURE__ */ jsxs54("div", {
-              className: styles44.splitShell,
+              className: cx53(styles44.splitShell, stackedSplitOrder === "main-aside" && styles44.splitShellMainFirst),
               children: [
                 /* @__PURE__ */ jsxs54("div", {
                   className: styles44.splitAside,
                   children: [
                     /* @__PURE__ */ jsx65("div", {
+                      className: styles44.splitAsideContent,
                       children: aside
                     }),
                     asideFooter
@@ -9809,5 +9830,5 @@ export {
   AccentLabel
 };
 
-//# debugId=1DF1B240BBD0B59264756E2164756E21
+//# debugId=87F8EF4CEB3AFCE964756E2164756E21
 //# sourceMappingURL=index.js.map

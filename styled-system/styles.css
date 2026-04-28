@@ -3752,6 +3752,14 @@
     inset: var(--spacing-0);
 }
 
+  .grid-area_aside {
+    grid-area: aside;
+}
+
+  .grid-area_main {
+    grid-area: main;
+}
+
   .bg_border\.muted {
     background: var(--colors-border-muted);
 }
@@ -4187,6 +4195,14 @@
 
   .py_1\.375rem {
     padding-block: 1.375rem;
+}
+
+  .grid-template-areas_\"aside\"_\"main\" {
+    grid-template-areas: "aside" "main";
+}
+
+  .grid-template-areas_\"main\"_\"aside\" {
+    grid-template-areas: "main" "aside";
 }
 
   .gap_1\.125rem {
@@ -5603,6 +5619,10 @@
     border-bottom-color: var(--colors-app-border);
 }
 
+  .pr_4\.25rem {
+    padding-right: 4.25rem;
+}
+
   .pt_1\.375rem {
     padding-top: 1.375rem;
 }
@@ -6134,6 +6154,9 @@
     .md\:min-w_13rem {
       min-width: 13rem;
 }
+    .md\:pr_4\.5rem {
+      padding-right: 4.5rem;
+}
     .md\:pt_1\.625rem {
       padding-top: 1.625rem;
 }
@@ -6235,6 +6258,9 @@
 }
     .xl\:py_4\.5 {
       padding-block: var(--spacing-4\.5);
+}
+    .xl\:grid-template-areas_\"aside_main\" {
+      grid-template-areas: "aside main";
 }
     .xl\:grid-tc_minmax\(0\,_1fr\)_22rem {
       grid-template-columns: minmax(0, 1fr) 22rem;

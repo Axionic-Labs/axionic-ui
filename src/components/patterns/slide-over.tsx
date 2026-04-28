@@ -30,6 +30,7 @@ interface SlideOverBaseProps {
 	panelMaxWidth?: string;
 	contentMinWidth?: string;
 	contentMaxWidth?: string;
+	stackedSplitOrder?: 'aside-main' | 'main-aside';
 	hideFooter?: boolean;
 	closeButtonTourId?: string;
 }
@@ -39,6 +40,7 @@ interface SlideOverAutoProps extends SlideOverBaseProps {
 	aside?: ReactNode;
 	asideFooter?: ReactNode;
 	asideWidth?: string;
+	stackedSplitOrder?: 'aside-main' | 'main-aside';
 }
 
 interface SlideOverSingleProps extends SlideOverBaseProps {
@@ -53,6 +55,7 @@ interface SlideOverSplitProps extends SlideOverBaseProps {
 	aside: ReactNode;
 	asideFooter?: ReactNode;
 	asideWidth?: string;
+	stackedSplitOrder?: 'aside-main' | 'main-aside';
 }
 
 export type SlideOverProps = SlideOverAutoProps | SlideOverSingleProps | SlideOverSplitProps;
@@ -140,6 +143,7 @@ const styles = {
 		borderBottomWidth: '1px',
 		borderBottomColor: 'app.border',
 		px: { base: '1.375rem', md: '1.625rem' },
+		pr: { base: '4.25rem', md: '4.5rem' },
 		pt: { base: '1.375rem', md: '1.625rem' },
 		pb: '1.125rem',
 	}),
@@ -210,13 +214,23 @@ const styles = {
 			base: '1fr',
 			xl: 'var(--slide-over-aside-width) minmax(0, 1fr)',
 		},
+		gridTemplateAreas: {
+			base: '"aside" "main"',
+			xl: '"aside main"',
+		},
 		height: '100%',
 		minH: 0,
 	}),
+	splitShellMainFirst: css({
+		gridTemplateAreas: {
+			base: '"main" "aside"',
+			xl: '"aside main"',
+		},
+	}),
 	splitAside: css({
+		gridArea: 'aside',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'space-between',
 		gap: '1.125rem',
 		bg: 'app.surface',
 		borderRightWidth: { base: '0', xl: '1px' },
@@ -225,8 +239,16 @@ const styles = {
 		px: { base: '1.375rem', md: '1.625rem' },
 		py: { base: '1.375rem', md: '1.625rem' },
 		minH: 0,
+		overflowY: 'auto',
+	}),
+	splitAsideContent: css({
+		display: 'flex',
+		flexDirection: 'column',
+		flex: '1',
+		minH: 0,
 	}),
 	splitMain: css({
+		gridArea: 'main',
 		position: 'relative',
 		display: 'flex',
 		flexDirection: 'column',
@@ -283,6 +305,7 @@ export function SlideOver({
 	panelMinWidth,
 	panelMaxWidth,
 	asideWidth,
+	stackedSplitOrder = 'aside-main',
 	contentMinWidth,
 	contentMaxWidth,
 	hideFooter = false,
@@ -387,9 +410,14 @@ export function SlideOver({
 						className={cx(styles.content, className)}
 					>
 						{resolvedLayout === 'split' && aside ? (
-							<div className={styles.splitShell}>
+							<div
+								className={cx(
+									styles.splitShell,
+									stackedSplitOrder === 'main-aside' && styles.splitShellMainFirst,
+								)}
+							>
 								<div className={styles.splitAside}>
-									<div>{aside}</div>
+									<div className={styles.splitAsideContent}>{aside}</div>
 									{asideFooter}
 								</div>
 								<div className={styles.splitMain}>
