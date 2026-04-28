@@ -214,10 +214,21 @@ const styles = {
 			base: '1fr',
 			xl: 'var(--slide-over-aside-width) minmax(0, 1fr)',
 		},
+		gridTemplateAreas: {
+			base: '"aside" "main"',
+			xl: '"aside main"',
+		},
 		height: '100%',
 		minH: 0,
 	}),
+	splitShellMainFirst: css({
+		gridTemplateAreas: {
+			base: '"main" "aside"',
+			xl: '"aside main"',
+		},
+	}),
 	splitAside: css({
+		gridArea: 'aside',
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '1.125rem',
@@ -236,18 +247,13 @@ const styles = {
 		flex: '1',
 		minH: 0,
 	}),
-	splitAsideStackedLast: css({
-		order: { base: 2, xl: 0 },
-	}),
 	splitMain: css({
+		gridArea: 'main',
 		position: 'relative',
 		display: 'flex',
 		flexDirection: 'column',
 		minWidth: 0,
 		minH: 0,
-	}),
-	splitMainStackedFirst: css({
-		order: { base: 1, xl: 0 },
 	}),
 	footer: css({
 		display: 'flex',
@@ -404,22 +410,17 @@ export function SlideOver({
 						className={cx(styles.content, className)}
 					>
 						{resolvedLayout === 'split' && aside ? (
-							<div className={styles.splitShell}>
-								<div
-									className={cx(
-										styles.splitAside,
-										stackedSplitOrder === 'main-aside' && styles.splitAsideStackedLast,
-									)}
-								>
+							<div
+								className={cx(
+									styles.splitShell,
+									stackedSplitOrder === 'main-aside' && styles.splitShellMainFirst,
+								)}
+							>
+								<div className={styles.splitAside}>
 									<div className={styles.splitAsideContent}>{aside}</div>
 									{asideFooter}
 								</div>
-								<div
-									className={cx(
-										styles.splitMain,
-										stackedSplitOrder === 'main-aside' && styles.splitMainStackedFirst,
-									)}
-								>
+								<div className={styles.splitMain}>
 									<Drawer.CloseTrigger asChild>
 										<CloseButton
 											data-tour-id={closeButtonTourId}

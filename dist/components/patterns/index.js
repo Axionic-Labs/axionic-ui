@@ -8205,10 +8205,21 @@ var styles44 = {
       base: "1fr",
       xl: "var(--slide-over-aside-width) minmax(0, 1fr)"
     },
+    gridTemplateAreas: {
+      base: '"aside" "main"',
+      xl: '"aside main"'
+    },
     height: "100%",
     minH: 0
   }),
+  splitShellMainFirst: css54({
+    gridTemplateAreas: {
+      base: '"main" "aside"',
+      xl: '"aside main"'
+    }
+  }),
   splitAside: css54({
+    gridArea: "aside",
     display: "flex",
     flexDirection: "column",
     gap: "1.125rem",
@@ -8227,18 +8238,13 @@ var styles44 = {
     flex: "1",
     minH: 0
   }),
-  splitAsideStackedLast: css54({
-    order: { base: 2, xl: 0 }
-  }),
   splitMain: css54({
+    gridArea: "main",
     position: "relative",
     display: "flex",
     flexDirection: "column",
     minWidth: 0,
     minH: 0
-  }),
-  splitMainStackedFirst: css54({
-    order: { base: 1, xl: 0 }
   }),
   footer: css54({
     display: "flex",
@@ -8393,10 +8399,10 @@ function SlideOver({
             },
             className: cx53(styles44.content, className),
             children: resolvedLayout === "split" && aside ? /* @__PURE__ */ jsxs54("div", {
-              className: styles44.splitShell,
+              className: cx53(styles44.splitShell, stackedSplitOrder === "main-aside" && styles44.splitShellMainFirst),
               children: [
                 /* @__PURE__ */ jsxs54("div", {
-                  className: cx53(styles44.splitAside, stackedSplitOrder === "main-aside" && styles44.splitAsideStackedLast),
+                  className: styles44.splitAside,
                   children: [
                     /* @__PURE__ */ jsx65("div", {
                       className: styles44.splitAsideContent,
@@ -8406,7 +8412,7 @@ function SlideOver({
                   ]
                 }),
                 /* @__PURE__ */ jsxs54("div", {
-                  className: cx53(styles44.splitMain, stackedSplitOrder === "main-aside" && styles44.splitMainStackedFirst),
+                  className: styles44.splitMain,
                   children: [
                     /* @__PURE__ */ jsx65(exports_drawer.CloseTrigger, {
                       asChild: true,
@@ -9824,5 +9830,5 @@ export {
   AccentLabel
 };
 
-//# debugId=3FF1EC767E51BE5464756E2164756E21
+//# debugId=87F8EF4CEB3AFCE964756E2164756E21
 //# sourceMappingURL=index.js.map

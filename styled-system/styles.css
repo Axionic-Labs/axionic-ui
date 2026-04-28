@@ -3752,6 +3752,14 @@
     inset: var(--spacing-0);
 }
 
+  .grid-area_aside {
+    grid-area: aside;
+}
+
+  .grid-area_main {
+    grid-area: main;
+}
+
   .bg_border\.muted {
     background: var(--colors-border-muted);
 }
@@ -4187,6 +4195,14 @@
 
   .py_1\.375rem {
     padding-block: 1.375rem;
+}
+
+  .grid-template-areas_\"aside\"_\"main\" {
+    grid-template-areas: "aside" "main";
+}
+
+  .grid-template-areas_\"main\"_\"aside\" {
+    grid-template-areas: "main" "aside";
 }
 
   .gap_1\.125rem {
@@ -4870,14 +4886,6 @@
 
   .will-change_transform\,_opacity {
     will-change: transform, opacity;
-}
-
-  .order_2 {
-    order: 2;
-}
-
-  .order_1 {
-    order: 1;
 }
 
   .ls_-0\.03em {
@@ -6251,6 +6259,9 @@
     .xl\:py_4\.5 {
       padding-block: var(--spacing-4\.5);
 }
+    .xl\:grid-template-areas_\"aside_main\" {
+      grid-template-areas: "aside main";
+}
     .xl\:grid-tc_minmax\(0\,_1fr\)_22rem {
       grid-template-columns: minmax(0, 1fr) 22rem;
 }
@@ -6268,9 +6279,6 @@
 }
     .xl\:grid-tc_var\(--slide-over-aside-width\)_minmax\(0\,_1fr\) {
       grid-template-columns: var(--slide-over-aside-width) minmax(0, 1fr);
-}
-    .xl\:order_0 {
-      order: 0;
 }
     .xl\:pl_6 {
       padding-left: var(--spacing-6);
