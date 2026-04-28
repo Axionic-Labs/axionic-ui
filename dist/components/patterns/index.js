@@ -8134,6 +8134,7 @@ var styles44 = {
     borderBottomWidth: "1px",
     borderBottomColor: "app.border",
     px: { base: "1.375rem", md: "1.625rem" },
+    pr: { base: "4.25rem", md: "4.5rem" },
     pt: { base: "1.375rem", md: "1.625rem" },
     pb: "1.125rem"
   }),
@@ -8210,7 +8211,6 @@ var styles44 = {
   splitAside: css54({
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
     gap: "1.125rem",
     bg: "app.surface",
     borderRightWidth: { base: "0", xl: "1px" },
@@ -8218,7 +8218,17 @@ var styles44 = {
     borderColor: "app.border",
     px: { base: "1.375rem", md: "1.625rem" },
     py: { base: "1.375rem", md: "1.625rem" },
+    minH: 0,
+    overflowY: "auto"
+  }),
+  splitAsideContent: css54({
+    display: "flex",
+    flexDirection: "column",
+    flex: "1",
     minH: 0
+  }),
+  splitAsideStackedLast: css54({
+    order: { base: 2, xl: 0 }
   }),
   splitMain: css54({
     position: "relative",
@@ -8226,6 +8236,9 @@ var styles44 = {
     flexDirection: "column",
     minWidth: 0,
     minH: 0
+  }),
+  splitMainStackedFirst: css54({
+    order: { base: 1, xl: 0 }
   }),
   footer: css54({
     display: "flex",
@@ -8276,6 +8289,7 @@ function SlideOver({
   panelMinWidth,
   panelMaxWidth,
   asideWidth,
+  stackedSplitOrder = "aside-main",
   contentMinWidth,
   contentMaxWidth,
   hideFooter = false,
@@ -8382,16 +8396,17 @@ function SlideOver({
               className: styles44.splitShell,
               children: [
                 /* @__PURE__ */ jsxs54("div", {
-                  className: styles44.splitAside,
+                  className: cx53(styles44.splitAside, stackedSplitOrder === "main-aside" && styles44.splitAsideStackedLast),
                   children: [
                     /* @__PURE__ */ jsx65("div", {
+                      className: styles44.splitAsideContent,
                       children: aside
                     }),
                     asideFooter
                   ]
                 }),
                 /* @__PURE__ */ jsxs54("div", {
-                  className: styles44.splitMain,
+                  className: cx53(styles44.splitMain, stackedSplitOrder === "main-aside" && styles44.splitMainStackedFirst),
                   children: [
                     /* @__PURE__ */ jsx65(exports_drawer.CloseTrigger, {
                       asChild: true,
@@ -9809,5 +9824,5 @@ export {
   AccentLabel
 };
 
-//# debugId=1DF1B240BBD0B59264756E2164756E21
+//# debugId=3FF1EC767E51BE5464756E2164756E21
 //# sourceMappingURL=index.js.map

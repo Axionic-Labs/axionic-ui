@@ -30,6 +30,7 @@ interface SlideOverBaseProps {
 	panelMaxWidth?: string;
 	contentMinWidth?: string;
 	contentMaxWidth?: string;
+	stackedSplitOrder?: 'aside-main' | 'main-aside';
 	hideFooter?: boolean;
 	closeButtonTourId?: string;
 }
@@ -39,6 +40,7 @@ interface SlideOverAutoProps extends SlideOverBaseProps {
 	aside?: ReactNode;
 	asideFooter?: ReactNode;
 	asideWidth?: string;
+	stackedSplitOrder?: 'aside-main' | 'main-aside';
 }
 
 interface SlideOverSingleProps extends SlideOverBaseProps {
@@ -53,6 +55,7 @@ interface SlideOverSplitProps extends SlideOverBaseProps {
 	aside: ReactNode;
 	asideFooter?: ReactNode;
 	asideWidth?: string;
+	stackedSplitOrder?: 'aside-main' | 'main-aside';
 }
 
 export type SlideOverProps = SlideOverAutoProps | SlideOverSingleProps | SlideOverSplitProps;
@@ -140,6 +143,7 @@ const styles = {
 		borderBottomWidth: '1px',
 		borderBottomColor: 'app.border',
 		px: { base: '1.375rem', md: '1.625rem' },
+		pr: { base: '4.25rem', md: '4.5rem' },
 		pt: { base: '1.375rem', md: '1.625rem' },
 		pb: '1.125rem',
 	}),
@@ -216,7 +220,6 @@ const styles = {
 	splitAside: css({
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'space-between',
 		gap: '1.125rem',
 		bg: 'app.surface',
 		borderRightWidth: { base: '0', xl: '1px' },
@@ -225,6 +228,16 @@ const styles = {
 		px: { base: '1.375rem', md: '1.625rem' },
 		py: { base: '1.375rem', md: '1.625rem' },
 		minH: 0,
+		overflowY: 'auto',
+	}),
+	splitAsideContent: css({
+		display: 'flex',
+		flexDirection: 'column',
+		flex: '1',
+		minH: 0,
+	}),
+	splitAsideStackedLast: css({
+		order: { base: 2, xl: 0 },
 	}),
 	splitMain: css({
 		position: 'relative',
@@ -232,6 +245,9 @@ const styles = {
 		flexDirection: 'column',
 		minWidth: 0,
 		minH: 0,
+	}),
+	splitMainStackedFirst: css({
+		order: { base: 1, xl: 0 },
 	}),
 	footer: css({
 		display: 'flex',
@@ -283,6 +299,7 @@ export function SlideOver({
 	panelMinWidth,
 	panelMaxWidth,
 	asideWidth,
+	stackedSplitOrder = 'aside-main',
 	contentMinWidth,
 	contentMaxWidth,
 	hideFooter = false,
@@ -388,11 +405,21 @@ export function SlideOver({
 					>
 						{resolvedLayout === 'split' && aside ? (
 							<div className={styles.splitShell}>
-								<div className={styles.splitAside}>
-									<div>{aside}</div>
+								<div
+									className={cx(
+										styles.splitAside,
+										stackedSplitOrder === 'main-aside' && styles.splitAsideStackedLast,
+									)}
+								>
+									<div className={styles.splitAsideContent}>{aside}</div>
 									{asideFooter}
 								</div>
-								<div className={styles.splitMain}>
+								<div
+									className={cx(
+										styles.splitMain,
+										stackedSplitOrder === 'main-aside' && styles.splitMainStackedFirst,
+									)}
+								>
 									<Drawer.CloseTrigger asChild>
 										<CloseButton
 											data-tour-id={closeButtonTourId}

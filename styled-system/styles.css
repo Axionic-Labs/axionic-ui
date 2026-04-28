@@ -4872,6 +4872,14 @@
     will-change: transform, opacity;
 }
 
+  .order_2 {
+    order: 2;
+}
+
+  .order_1 {
+    order: 1;
+}
+
   .ls_-0\.03em {
     letter-spacing: -0.03em;
 }
@@ -5603,6 +5611,10 @@
     border-bottom-color: var(--colors-app-border);
 }
 
+  .pr_4\.25rem {
+    padding-right: 4.25rem;
+}
+
   .pt_1\.375rem {
     padding-top: 1.375rem;
 }
@@ -6134,6 +6146,9 @@
     .md\:min-w_13rem {
       min-width: 13rem;
 }
+    .md\:pr_4\.5rem {
+      padding-right: 4.5rem;
+}
     .md\:pt_1\.625rem {
       padding-top: 1.625rem;
 }
@@ -6253,6 +6268,9 @@
 }
     .xl\:grid-tc_var\(--slide-over-aside-width\)_minmax\(0\,_1fr\) {
       grid-template-columns: var(--slide-over-aside-width) minmax(0, 1fr);
+}
+    .xl\:order_0 {
+      order: 0;
 }
     .xl\:pl_6 {
       padding-left: var(--spacing-6);
