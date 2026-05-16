@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronDown } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect, useRef } from 'react';
 import { css, cx } from 'styled-system/css';
 
 export interface PickerFieldProps {
@@ -11,6 +11,7 @@ export interface PickerFieldProps {
 	badge?: ReactNode;
 	open: boolean;
 	onToggle: () => void;
+	onClose?: () => void;
 	disabled?: boolean;
 	panelLabel?: ReactNode;
 	panel?: ReactNode;
@@ -178,6 +179,7 @@ export function PickerField({
 	badge,
 	open,
 	onToggle,
+	onClose,
 	disabled = false,
 	panelLabel,
 	panel,
@@ -188,9 +190,38 @@ export function PickerField({
 }: PickerFieldProps) {
 	const compact = size === 'sm';
 	const softChrome = chrome === 'soft';
+	const rootRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		if (!open) {
+			return;
+		}
+
+		const close = onClose ?? onToggle;
+		const handleOutsideInteraction = (event: PointerEvent | FocusEvent) => {
+			const root = rootRef.current;
+			const target = event.target;
+			if (!root || !(target instanceof Node) || root.contains(target)) {
+				return;
+			}
+			close();
+		};
+
+		document.addEventListener('pointerdown', handleOutsideInteraction, true);
+		document.addEventListener('focusin', handleOutsideInteraction, true);
+
+		return () => {
+			document.removeEventListener('pointerdown', handleOutsideInteraction, true);
+			document.removeEventListener('focusin', handleOutsideInteraction, true);
+		};
+	}, [onClose, onToggle, open]);
 
 	return (
-		<div className={cx(styles.root, className)} style={minWidth ? { minWidth } : undefined}>
+		<div
+			ref={rootRef}
+			className={cx(styles.root, className)}
+			style={minWidth ? { minWidth } : undefined}
+		>
 			<button
 				type="button"
 				onClick={onToggle}

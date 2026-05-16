@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 export interface PickerFieldProps {
     title: ReactNode;
     description?: ReactNode;
@@ -6,6 +6,7 @@ export interface PickerFieldProps {
     badge?: ReactNode;
     open: boolean;
     onToggle: () => void;
+    onClose?: () => void;
     disabled?: boolean;
     panelLabel?: ReactNode;
     panel?: ReactNode;
@@ -14,5 +15,5 @@ export interface PickerFieldProps {
     chrome?: 'default' | 'soft';
     className?: string;
 }
-export declare function PickerField({ title, description, leading, badge, open, onToggle, disabled, panelLabel, panel, minWidth, size, chrome, className, }: PickerFieldProps): import("react/jsx-runtime").JSX.Element;
+export declare function PickerField({ title, description, leading, badge, open, onToggle, onClose, disabled, panelLabel, panel, minWidth, size, chrome, className, }: PickerFieldProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=picker-field.d.ts.map
