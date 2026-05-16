@@ -6007,6 +6007,7 @@ function PageTitle({ children, subtitle, className }) {
 }
 // src/components/patterns/picker-field.tsx
 import { ChevronDown } from "lucide-react";
+import { useEffect as useEffect2, useRef as useRef2 } from "react";
 import { css as css42, cx as cx41 } from "styled-system/css";
 import { jsx as jsx53, jsxs as jsxs42 } from "react/jsx-runtime";
 "use client";
@@ -6167,6 +6168,7 @@ function PickerField({
   badge,
   open,
   onToggle,
+  onClose,
   disabled = false,
   panelLabel,
   panel,
@@ -6177,7 +6179,29 @@ function PickerField({
 }) {
   const compact = size === "sm";
   const softChrome = chrome === "soft";
+  const rootRef = useRef2(null);
+  useEffect2(() => {
+    if (!open) {
+      return;
+    }
+    const close = onClose ?? onToggle;
+    const handleOutsideInteraction = (event) => {
+      const root = rootRef.current;
+      const target = event.target;
+      if (!root || !(target instanceof Node) || root.contains(target)) {
+        return;
+      }
+      close();
+    };
+    document.addEventListener("pointerdown", handleOutsideInteraction, true);
+    document.addEventListener("focusin", handleOutsideInteraction, true);
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideInteraction, true);
+      document.removeEventListener("focusin", handleOutsideInteraction, true);
+    };
+  }, [onClose, onToggle, open]);
   return /* @__PURE__ */ jsxs42("div", {
+    ref: rootRef,
     className: cx41(styles33.root, className),
     style: minWidth ? { minWidth } : undefined,
     children: [
@@ -9830,5 +9854,5 @@ export {
   AccentLabel
 };
 
-//# debugId=87F8EF4CEB3AFCE964756E2164756E21
+//# debugId=B4D7E33A3427DDB564756E2164756E21
 //# sourceMappingURL=index.js.map
